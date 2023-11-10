@@ -1,0 +1,255 @@
+.InfoPage {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) repeat scroll 0% 0% / cover padding-box border-box, rgba(0, 0, 0, 0) url('/images/counter-banner.png') no-repeat scroll 50% 50% / cover padding-box border-box;
+    padding: 50px 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    display: block;
+}
+
+.InfoPage .style-1 {
+    max-width: 1200px;
+    margin: 0px 381.5px;
+    padding: 0px 15px;
+    box-sizing: border-box;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.InfoPage .style-2 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    margin-bottom: 40px;
+    margin: 0px 0px 40px;
+    padding: 0px;
+    box-sizing: border-box;
+    line-height: 43.2px;
+    margin-top: 0px;
+}
+
+.InfoPage .style-3 {
+    margin: 0px -15px;
+    padding: 0px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.InfoPage .style-4 {
+    margin-left: 95px;
+    -webkit-box-flex: 0;
+    flex: 0 0 83.3333%;
+    max-width: 83.3333%;
+    padding: 0px 15px;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.InfoPage .style-5 {
+    margin: 0px -15px;
+    padding: 0px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.InfoPage .style-6 {
+    -webkit-box-flex: 0;
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin: 0px;
+    padding: 0px 15px;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.InfoPage .style-7 {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.InfoPage .style-8 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: rgb(0, 104, 55);
+    margin-bottom: 20px;
+    margin: 0px 0px 20px;
+    padding: 0px;
+    box-sizing: border-box;
+    line-height: 57.6px;
+    margin-top: 0px;
+}
+
+.InfoPage .style-9 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    margin: 0px 0px 8px;
+    padding: 0px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    line-height: 25.2px;
+    margin-top: 0px;
+}
+
+.InfoPage .style-10 {
+    -webkit-box-flex: 0;
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin: 0px;
+    padding: 0px 15px;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.InfoPage .style-11 {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.InfoPage .style-12 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: rgb(0, 104, 55);
+    margin-bottom: 20px;
+    margin: 0px 0px 20px;
+    padding: 0px;
+    box-sizing: border-box;
+    line-height: 57.6px;
+    margin-top: 0px;
+}
+
+.InfoPage .style-13 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    margin: 0px 0px 8px;
+    padding: 0px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    line-height: 25.2px;
+    margin-top: 0px;
+}
+
+.InfoPage .style-14 {
+    -webkit-box-flex: 0;
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin: 0px;
+    padding: 0px 15px;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.InfoPage .style-15 {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.InfoPage .style-16 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: rgb(0, 104, 55);
+    margin-bottom: 20px;
+    margin: 0px 0px 20px;
+    padding: 0px;
+    box-sizing: border-box;
+    line-height: 57.6px;
+    margin-top: 0px;
+}
+
+.InfoPage .style-17 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    margin: 0px 0px 8px;
+    padding: 0px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    line-height: 25.2px;
+    margin-top: 0px;
+}
+
+.InfoPage .style-18 {
+    -webkit-box-flex: 0;
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin: 0px;
+    padding: 0px 15px;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.InfoPage .style-19 {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.InfoPage .style-20 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: rgb(0, 104, 55);
+    margin-bottom: 20px;
+    margin: 0px 0px 20px;
+    padding: 0px;
+    box-sizing: border-box;
+    line-height: 57.6px;
+    margin-top: 0px;
+}
+
+.InfoPage .style-21 {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    margin: 0px 0px 8px;
+    padding: 0px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    line-height: 25.2px;
+    margin-top: 0px;
+}

@@ -1,0 +1,1869 @@
+.Bayanlist {
+  box-sizing: border-box;
+  margin-top: 260px;
+}
+
+.Bayanlist .style-1 {
+  width: 33.3333%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+}
+
+.Bayanlist .style-2 {
+  text-align: center;
+  box-sizing: border-box;
+  height: 140px;
+  background: rgb(235, 234, 234) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  margin: 0px 0px 100px;
+}
+
+.Bayanlist .style-3 {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 140px;
+  z-index: 20;
+}
+
+.Bayanlist .style-4 {
+  display: table;
+  width: 100%;
+  height: 140px;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-5 {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  background: #eaeaea;
+  padding: 50px 0px;
+}
+
+.Bayanlist .style-6 {
+  display: inline-block;
+  border-radius: 290px;
+  width: 90px;
+  height: 90px;
+  line-height: 105px;
+  text-align: center;
+  background: rgb(1, 48, 48) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border: 1.11111px solid rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease-in 0s;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-7 {
+  font-family: ghurfa;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 28px;
+  -webkit-font-smoothing: antialiased;
+  font-size: 28px;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-8 {
+  font-size: 21px;
+  margin: 0px;
+  letter-spacing: 1px;
+  color: rgb(1, 48, 48);
+  font-weight: 500;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 23.1px;
+  box-sizing: border-box;
+  transition: all 0.1s ease-in 0s;
+  text-align: center;
+}
+
+.Bayanlist .style-9 {
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 13px;
+  color: rgb(1, 48, 48);
+  height: 80px;
+  font-weight: 300;
+  transition: all 0.1s ease-in 0s;
+}
+
+.Bayanlist .style-10 {
+  display: table;
+  width: 100%;
+  height: 80px;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-11 {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-12 {
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+.Bayanlist .style-13 {
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-14 {
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-15 {
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+.Bayanlist .style-16 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  list-style: outside none none;
+  padding: 0px 65.3299px;
+}
+
+.Bayanlist .style-17 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-18 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-19 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-20 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-21 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-22 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-23 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-24 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-25 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-26 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-27 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-28 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-29 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-30 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-31 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-32 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-33 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-34 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-35 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-36 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-37 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-38 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-39 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-40 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-41 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-42 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-43 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-44 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-45 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-46 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-47 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-48 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-49 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-50 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-51 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-52 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-53 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-54 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-55 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-56 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-57 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-58 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-59 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-60 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-61 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-62 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-63 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-64 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-65 {
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.Bayanlist .style-66 {
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  text-decoration: none solid rgb(255, 255, 255);
+  box-sizing: border-box;
+  background-color: rgb(142, 96, 47);
+  text-transform: uppercase;
+  background: rgb(142, 96, 47) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 6px 13px;
+  border-radius: 30px;
+  font-size: 11px;
+  transition: all 0.1s ease-in 0s;
+}
+
+.Bayanlist .style-67 {
+  width: 33.3333%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+}
+
+.Bayanlist .style-68 {
+  text-align: center;
+  box-sizing: border-box;
+  height: 140px;
+  background: rgb(235, 234, 234) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  margin: 0px 0px 100px;
+}
+
+.Bayanlist .style-69 {
+  display: table;
+  width: 100%;
+  height: 140px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 20;
+}
+
+.Bayanlist .style-70 {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  background: #eaeaea;
+  padding: 50px 0px;
+}
+
+.Bayanlist .style-71 {
+  display: inline-block;
+  border-radius: 290px;
+  width: 90px;
+  height: 90px;
+  line-height: 105px;
+  text-align: center;
+  background: rgb(1, 48, 48) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border: 1.11111px solid rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease-in 0s;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-72 {
+  font-size: 2.6em;
+  font-family: ghurfa;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 36.4px;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-73 {
+  font-size: 21px;
+  margin: 0px;
+  letter-spacing: 1px;
+  color: rgb(1, 48, 48);
+  font-weight: 500;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 23.1px;
+  box-sizing: border-box;
+  transition: all 0.1s ease-in 0s;
+  text-align: center;
+}
+
+.Bayanlist .style-74 {
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 13px;
+  color: rgb(1, 48, 48);
+  height: 80px;
+  font-weight: 300;
+  transition: all 0.1s ease-in 0s;
+}
+
+.Bayanlist .style-75 {
+  display: table;
+  width: 100%;
+  height: 80px;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-76 {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-77 {
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+.Bayanlist .style-78 {
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-79 {
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+.Bayanlist .style-80 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  list-style: outside none none;
+  padding: 0px 65.3299px;
+}
+
+.Bayanlist .style-81 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-82 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-83 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-84 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-85 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-86 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-87 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-88 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-89 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-90 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-91 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-92 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-93 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-94 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-95 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-96 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-97 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-98 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-99 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-100 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-101 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-102 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-103 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-104 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-105 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-106 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-107 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-108 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-109 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-110 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-111 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-112 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-113 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-114 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-115 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-116 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-117 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-118 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-119 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-120 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-121 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-122 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-123 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-124 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-125 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-126 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-127 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-128 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-129 {
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.Bayanlist .style-130 {
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  text-decoration: none solid rgb(255, 255, 255);
+  box-sizing: border-box;
+  background-color: rgb(142, 96, 47);
+  text-transform: uppercase;
+  background: rgb(142, 96, 47) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 6px 13px;
+  border-radius: 30px;
+  font-size: 11px;
+  transition: all 0.1s ease-in 0s;
+}
+
+.Bayanlist .style-131 {
+  width: 33.3333%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+}
+
+.Bayanlist .style-132 {
+  text-align: center;
+  box-sizing: border-box;
+  height: 140px;
+  background: rgb(235, 234, 234) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  margin: 0px 0px 100px;
+}
+
+.Bayanlist .style-133 {
+  display: table;
+  width: 100%;
+  height: 140px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 20;
+}
+
+.Bayanlist .style-134 {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  background: #eaeaea;
+  padding: 50px 0px;
+}
+
+.Bayanlist .style-135 {
+  display: inline-block;
+  border-radius: 290px;
+  width: 90px;
+  height: 90px;
+  line-height: 105px;
+  text-align: center;
+  background: rgb(1, 48, 48) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border: 1.11111px solid rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease-in 0s;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-136 {
+  width: 1.28571em;
+  text-align: center;
+  font-size: 42px;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 42px;
+  font-family: FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-137 {
+  font-size: 21px;
+  margin: 0px;
+  letter-spacing: 1px;
+  color: rgb(1, 48, 48);
+  font-weight: 500;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 23.1px;
+  box-sizing: border-box;
+  transition: all 0.1s ease-in 0s;
+  text-align: center;
+}
+
+.Bayanlist .style-138 {
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 13px;
+  color: rgb(1, 48, 48);
+  height: 80px;
+  font-weight: 300;
+  transition: all 0.1s ease-in 0s;
+}
+
+.Bayanlist .style-139 {
+  display: table;
+  width: 100%;
+  height: 80px;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-140 {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-141 {
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+.Bayanlist .style-142 {
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-143 {
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+.Bayanlist .style-144 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  list-style: outside none none;
+  padding: 0px 65.3299px;
+}
+
+.Bayanlist .style-145 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-146 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-147 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-148 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-149 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-150 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-151 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-152 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-153 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-154 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-155 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-156 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-157 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-158 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-159 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-160 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-161 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-162 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-163 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-164 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-165 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-166 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-167 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-168 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-169 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-170 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-171 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-172 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-173 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-174 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-175 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-176 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-177 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-178 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-179 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-180 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-181 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-182 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-183 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-184 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-185 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-186 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-187 {
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1.11111px solid rgb(214, 216, 219);
+  padding: 8px 0px;
+}
+
+.Bayanlist .style-188 {
+  cursor: pointer;
+  color: rgb(1, 48, 48);
+  text-decoration: none solid rgb(1, 48, 48);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-189 {
+  box-sizing: border-box;
+  margin-top: 5px;
+  color: rgb(56, 126, 161);
+}
+
+.Bayanlist .style-190 {
+  float: left;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.Bayanlist .style-191 {
+  cursor: pointer;
+  float: right;
+  color: rgb(56, 126, 161);
+  text-decoration: none solid rgb(56, 126, 161);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+
+.Bayanlist .style-192 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 12px;
+  font-family: FontAwesome;
+  font-size: 12px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.Bayanlist .style-193 {
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.Bayanlist .style-194 {
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  text-decoration: none solid rgb(255, 255, 255);
+  box-sizing: border-box;
+  background-color: rgb(142, 96, 47);
+  text-transform: uppercase;
+  background: rgb(142, 96, 47) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 6px 13px;
+  border-radius: 30px;
+  font-size: 11px;
+  transition: all 0.1s ease-in 0s;
+}

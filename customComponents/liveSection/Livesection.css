@@ -1,0 +1,803 @@
+.Livestream {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+}
+
+.Livestream .style-1 {
+  width: 33.3333%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 60px;
+  box-sizing: border-box;
+  height: 265px;
+  padding-top: 10px;
+  background: #eaeaea;
+}
+
+.Livestream .style-2 {
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  color: rgb(1, 48, 48);
+  font-weight: 500;
+  font-size: 24px;
+  margin-top: 20px;
+  font-family: "open sans", tahoma, arial;
+  line-height: 26.4px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.Livestream .style-3 {
+  box-sizing: border-box;
+  background: rgb(206, 92, 78) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border: 0px none rgb(255, 255, 255);
+  display: inline-block;
+  padding: 5px 8px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.Livestream .style-4 {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px, 0px 0px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.Livestream .style-5 {
+  width: 624.328px;
+  height: 40px;
+  height: 40px;
+  max-width: 100%;
+  position: relative;
+  background: rgb(0, 0, 0) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  font-family: Helvetica, Arial, serif;
+  text-align: left;
+  vertical-align: top;
+  text-indent: 0px;
+  box-sizing: border-box;
+  min-width: 250px;
+}
+
+.Livestream .style-6 {
+  box-sizing: border-box;
+}
+
+.Livestream .style-7 {
+  box-sizing: border-box;
+}
+
+.Livestream .style-8 {
+  display: none;
+  width: 100%;
+  height: 100%;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+
+.Livestream .style-9 {
+  background: rgb(13, 76, 76)
+    url("http://khanqahbd.com/5bbcde0a05f1ce7e389f577548c9dee7.png") repeat
+    scroll 0% 0% / auto padding-box border-box;
+  position: absolute;
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px 10px;
+  bottom: 0px;
+  left: 0px;
+  height: 40px;
+  width: 100%;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.Livestream .style-10 {
+  float: left;
+  margin: 0px;
+  width: 32px;
+  height: 40px;
+  font-size: 10px;
+  line-height: 10px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-11 {
+  background-position: 0px 0px;
+  outline: rgb(51, 51, 51) none 0px;
+  cursor: pointer;
+  display: block;
+  font-size: 0px;
+  line-height: 0px;
+  text-decoration: none solid rgb(51, 51, 51);
+  margin: 10px 6px;
+  padding: 0px;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border: 0px none rgb(51, 51, 51);
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, serif;
+  appearance: button;
+  text-transform: none;
+  color: rgb(51, 51, 51);
+}
+
+.Livestream .style-12 {
+  color: rgb(255, 255, 255);
+  display: block;
+  height: 24px;
+  width: auto;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 16px 6px 0px;
+  overflow: hidden;
+  text-align: center;
+  box-sizing: content-box;
+  float: left;
+  margin: 0px;
+  line-height: 10px;
+}
+
+.Livestream .style-13 {
+  box-sizing: border-box;
+}
+
+.Livestream .style-14 {
+  width: 343px;
+  direction: ltr;
+  padding-top: 10px;
+  height: 40px;
+  position: relative;
+  margin: 0px 10px;
+  float: left;
+  font-size: 10px;
+  line-height: 10px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-15 {
+  margin: 5px 0px 0px;
+  background: rgba(255, 255, 255, 0.3) none repeat scroll 0% 0% / auto
+    padding-box border-box;
+  width: 100%;
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  height: 10px;
+  border-radius: 2px;
+  outline: rgb(51, 51, 51) none 0px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-16 {
+  display: none;
+  width: 100%;
+  background: rgba(0, 0, 0, 0)
+    linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.15) 25%,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(255, 255, 255, 0.15) 0px,
+      rgba(255, 255, 255, 0.15) 75%,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(0, 0, 0, 0)
+    )
+    repeat scroll 0% 0% / 15px 15px padding-box border-box;
+  animation: 2s linear 0s infinite normal none running buffering-stripes;
+  cursor: pointer;
+  position: absolute;
+  height: 10px;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-17 {
+  background: rgba(255, 255, 255, 0.3) none repeat scroll 0% 0% / auto
+    padding-box border-box;
+  width: 0px;
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  height: 10px;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-18 {
+  background: rgba(255, 255, 255, 0.9) none repeat scroll 0% 0% / auto
+    padding-box border-box;
+  width: 0px;
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  height: 10px;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-19 {
+  display: none;
+  position: absolute;
+  text-align: center;
+  margin: 0px;
+  width: 10px;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid rgb(51, 51, 51);
+  top: -2px;
+  height: 10px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-20 {
+  display: none;
+  background: rgb(238, 238, 238) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  width: 36px;
+  height: 17px;
+  border: 1px solid rgb(51, 51, 51);
+  top: -26px;
+  margin-left: -18px;
+  color: rgb(17, 17, 17);
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-21 {
+  margin: 2px;
+  width: 30px;
+  display: block;
+  text-align: center;
+  left: 0px;
+  cursor: pointer;
+  position: absolute;
+  height: 10px;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-22 {
+  position: absolute;
+  display: block;
+  width: 0px;
+  height: 0px;
+  line-height: 0px;
+  border-width: 5px;
+  border-style: solid;
+  border-image: none;
+  border-color: rgb(238, 238, 238) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+  border-radius: 0px;
+  top: 15px;
+  left: 13px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.Livestream .style-23 {
+  color: rgb(255, 255, 255);
+  display: block;
+  height: 24px;
+  width: auto;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 16px 6px 0px;
+  overflow: hidden;
+  text-align: center;
+  box-sizing: content-box;
+  float: left;
+  margin: 0px;
+  line-height: 10px;
+}
+
+.Livestream .style-24 {
+  box-sizing: border-box;
+}
+
+.Livestream .style-25 {
+  position: relative;
+  float: left;
+  margin: 0px;
+  width: 32px;
+  height: 40px;
+  font-size: 10px;
+  line-height: 10px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-26 {
+  background-position: -60px 0px;
+  outline: rgb(51, 51, 51) none 0px;
+  cursor: pointer;
+  display: block;
+  font-size: 0px;
+  line-height: 0px;
+  text-decoration: none solid rgb(51, 51, 51);
+  margin: 10px 6px;
+  padding: 0px;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border: 0px none rgb(51, 51, 51);
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, serif;
+  appearance: button;
+  text-transform: none;
+  color: rgb(51, 51, 51);
+}
+
+.Livestream .style-27 {
+  display: block;
+  cursor: pointer;
+  height: 36px;
+  width: 56px;
+  position: relative;
+  float: left;
+  vertical-align: middle;
+  outline: rgb(51, 122, 183) none 0px;
+  box-sizing: border-box;
+  color: rgb(51, 122, 183);
+  text-decoration: none solid rgb(51, 122, 183);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.Livestream .style-28 {
+  box-sizing: border-box;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px, 0px 0px);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.Livestream .style-29 {
+  position: absolute;
+  left: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-size: 1px;
+  border-radius: 2px;
+  top: 16px;
+  width: 50px;
+  height: 8px;
+  background: rgba(50, 50, 50, 0.8) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  box-sizing: border-box;
+}
+
+.Livestream .style-30 {
+  left: 0px;
+  width: 80%;
+  width: 80%;
+  top: 0px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.8) none repeat scroll 0% 0% / auto
+    padding-box border-box;
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  font-size: 1px;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-31 {
+  left: 80%;
+  display: none;
+  box-sizing: border-box;
+}
+
+.Livestream .style-32 {
+  width: 100%;
+  height: 40px;
+  z-index: 0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-33 {
+  box-sizing: border-box;
+}
+
+.Livestream .style-34 {
+  width: 100%;
+  height: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: none;
+  vertical-align: baseline;
+}
+
+.Livestream .style-35 {
+  clear: both;
+  box-sizing: border-box;
+}
+
+.Livestream .style-36 {
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  color: rgb(1, 48, 48);
+  font-weight: 500;
+  font-size: 24px;
+  margin-top: 20px;
+  font-family: "open sans", tahoma, arial;
+  line-height: 26.4px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.Livestream .style-37 {
+  margin-bottom: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
+
+.Livestream .style-38 {
+  width: 8.33333%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-39 {
+  width: 41.6667%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-40 {
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: rgb(51, 122, 183);
+  text-decoration: none solid rgb(51, 122, 183);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.Livestream .style-41 {
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px none rgb(51, 122, 183);
+}
+
+.Livestream .style-42 {
+  width: 41.6667%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-43 {
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: rgb(51, 122, 183);
+  text-decoration: none solid rgb(51, 122, 183);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.Livestream .style-44 {
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px none rgb(51, 122, 183);
+}
+
+.Livestream .style-45 {
+  width: 8.33333%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-46 {
+  width: 33.3333%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: center;
+  box-sizing: border-box;
+  height: 265px;
+  padding-top: 10px;
+  background: #eaeaea;
+}
+
+.Livestream .style-47 {
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  color: rgb(1, 48, 48);
+  font-weight: 500;
+  font-size: 24px;
+  margin-top: 20px;
+  font-family: "open sans", tahoma, arial;
+  line-height: 26.4px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.Livestream .style-48 {
+  box-sizing: border-box;
+}
+
+.Livestream .style-49 {
+  box-sizing: border-box;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border: 1px solid rgb(214, 212, 213);
+  padding: 8px;
+  display: inline-block;
+  font-size: 18px;
+}
+
+.Livestream .style-50 {
+  box-sizing: border-box;
+  float: left;
+  padding: 5px;
+  text-align: center;
+}
+
+.Livestream .style-51 {
+  box-sizing: border-box;
+}
+
+.Livestream .style-52 {
+  box-sizing: border-box;
+  font-weight: 700;
+}
+
+.Livestream .style-53 {
+  box-sizing: border-box;
+  float: left;
+  padding: 5px;
+  text-align: center;
+}
+
+.Livestream .style-54 {
+  box-sizing: border-box;
+}
+
+.Livestream .style-55 {
+  box-sizing: border-box;
+  font-weight: 700;
+}
+
+.Livestream .style-56 {
+  box-sizing: border-box;
+}
+
+.Livestream .style-57 {
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.Livestream .style-58 {
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  text-decoration: none solid rgb(0, 0, 0);
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  display: inline-block;
+  margin-top: 12px;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border: 1px solid rgb(214, 212, 213);
+  padding: 14px 20px;
+  line-height: 25px;
+}
+
+.Livestream .style-59 {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 24px;
+  font-family: FontAwesome;
+  font-size: 24px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  margin-right: 10px;
+  position: relative;
+  top: 2px;
+}
+
+.Livestream .style-60 {
+  width: 33.3333%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 60px;
+  padding-left: 15px;
+  text-align: center;
+  box-sizing: border-box;
+  height: 265px;
+  padding-top: 10px;
+  background: #eaeaea;
+}
+
+.Livestream .style-61 {
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  color: rgb(1, 48, 48);
+  font-weight: 500;
+  font-size: 24px;
+  margin-top: 20px;
+  font-family: "open sans", tahoma, arial;
+  line-height: 26.4px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.Livestream .style-62 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-right: auto;
+  background-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  border-spacing: 0px 0px;
+  border-collapse: collapse;
+}
+
+.Livestream .style-63 {
+  box-sizing: border-box;
+}
+.Livestream .style-63 img {
+  width: 62px;
+  padding: 10px;
+}
+
+.Livestream .style-64 {
+  box-sizing: border-box;
+}
+
+.Livestream .style-65 {
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.Livestream .style-66 {
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px none rgb(51, 51, 51);
+}
+
+.Livestream .style-67 {
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.Livestream .style-68 {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-69 {
+  cursor: pointer;
+  color: rgb(51, 122, 183);
+  text-decoration: none solid rgb(51, 122, 183);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.Livestream .style-70 {
+  box-sizing: border-box;
+  
+}
+
+.Livestream .style-71 {
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.Livestream .style-72 {
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px none rgb(51, 51, 51);
+}
+
+.Livestream .style-73 {
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.Livestream .style-74 {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-75 {
+  cursor: pointer;
+  color: rgb(51, 122, 183);
+  text-decoration: none solid rgb(51, 122, 183);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.Livestream .style-76 {
+  box-sizing: border-box;
+}
+
+.Livestream .style-77 {
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.Livestream .style-78 {
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px none rgb(51, 51, 51);
+}
+
+.Livestream .style-79 {
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.Livestream .style-80 {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.Livestream .style-81 {
+  cursor: pointer;
+  color: rgb(51, 122, 183);
+  text-decoration: none solid rgb(51, 122, 183);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}

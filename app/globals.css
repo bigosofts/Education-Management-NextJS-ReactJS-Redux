@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  text-decoration: none;
+  box-sizing: border-box;
+ 
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.allColor {
+  background-color: #496f82 !important;
+}
+.allColor:hover {
+  background-color: #284258 !important;
+}
+.allColorFont {
+  color: #496f82 !important;
+}
+h1 {
+  color: #496f82 !important;
+}

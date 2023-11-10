@@ -1,0 +1,744 @@
+.ReviewPage {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+  background: #eaeaea;
+  padding: 100px 0px;
+}
+
+.ReviewPage .style-1 {
+  color: initial;
+  max-width: 1200px;
+  text-align: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+ 
+  
+}
+
+.ReviewPage .style-2 {
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-3 {
+  line-height: 56px;
+  font-size: 44px;
+  margin-bottom: 16px;
+  color: rgb(17, 24, 39);
+  font-weight: 600;
+  margin: 0px 0px 16px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-4 {
+  max-width: 1200px;
+  margin-bottom: 80px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 16px;
+  padding-left: 16px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-5 {
+  text-align: center;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-6 {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  line-height: 28px;
+  text-align: center;
+  margin-bottom: 40px;
+  margin: 0px 0px 40px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-7 {
+  position: relative;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-8 {
+  scroll-behavior: smooth;
+  overflow-x: scroll;
+  gap: 16px;
+  flex-wrap: nowrap;
+  max-width: min-content;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+
+.ReviewPage .style-9 {
+  margin-right: 16px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-10 {
+  width: 372px;
+  min-height: 270px;
+  position: relative;
+  vertical-align: top;
+  padding: 24px;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px;
+  border-radius: 8px;
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+  margin-top: 20px;
+  box-sizing: border-box;
+  border: 1px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-11 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-12 {
+  padding: 8px;
+  background-color: rgb(252, 224, 214);
+  border-radius: 9999px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  z-index: 2;
+  left: 20px;
+  top: -16px;
+  position: absolute;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-13 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-14 {
+  display: block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-15 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-16 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-17 {
+  display: block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-18 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-19 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-20 {
+  line-height: 26px;
+  font-size: 16px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-21 {
+  gap: 16px;
+  display: flex;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-22 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-23 {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-24 {
+  color: rgb(163, 163, 163);
+  font-size: 14px;
+  line-height: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  margin: 0px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-25 {
+  margin-right: 16px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-26 {
+  width: 372px;
+  min-height: 270px;
+  position: relative;
+  vertical-align: top;
+  padding: 24px;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px;
+  border-radius: 8px;
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+  margin-top: 20px;
+  box-sizing: border-box;
+  border: 1px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-27 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-28 {
+  padding: 8px;
+  background-color: rgb(252, 224, 214);
+  border-radius: 9999px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  z-index: 2;
+  left: 20px;
+  top: -16px;
+  position: absolute;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-29 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-30 {
+  display: block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-31 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-32 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-33 {
+  display: block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-34 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-35 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-36 {
+  line-height: 26px;
+  font-size: 16px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-37 {
+  gap: 16px;
+  display: flex;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-38 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-39 {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-40 {
+  color: rgb(163, 163, 163);
+  font-size: 14px;
+  line-height: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  margin: 0px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-41 {
+  margin-right: 16px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-42 {
+  width: 372px;
+  min-height: 270px;
+  position: relative;
+  vertical-align: top;
+  padding: 24px;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px;
+  border-radius: 8px;
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+  margin-top: 20px;
+  box-sizing: border-box;
+  border: 1px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-43 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-44 {
+  padding: 8px;
+  background-color: rgb(252, 224, 214);
+  border-radius: 9999px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  z-index: 2;
+  left: 20px;
+  top: -16px;
+  position: absolute;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-45 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-46 {
+  display: block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-47 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-48 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-49 {
+  display: block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-50 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-51 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-52 {
+  line-height: 26px;
+  font-size: 16px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-53 {
+  gap: 16px;
+  display: flex;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-54 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-55 {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-56 {
+  color: rgb(163, 163, 163);
+  font-size: 14px;
+  line-height: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  margin: 0px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-57 {
+  margin-right: 16px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-58 {
+  width: 372px;
+  min-height: 270px;
+  position: relative;
+  vertical-align: top;
+  padding: 24px;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px;
+  border-radius: 8px;
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+  margin-top: 20px;
+  box-sizing: border-box;
+  border: 1px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-59 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-60 {
+  padding: 8px;
+  background-color: rgb(252, 224, 214);
+  border-radius: 9999px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  z-index: 2;
+  left: 20px;
+  top: -16px;
+  position: absolute;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-61 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-62 {
+  display: block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-63 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-64 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-65 {
+  display: block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-66 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-67 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-68 {
+  line-height: 26px;
+  font-size: 16px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-69 {
+  gap: 16px;
+  display: flex;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-70 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-71 {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-72 {
+  color: rgb(163, 163, 163);
+  font-size: 14px;
+  line-height: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  margin: 0px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-73 {
+  margin-right: 16px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-74 {
+  width: 372px;
+  min-height: 270px;
+  position: relative;
+  vertical-align: top;
+  padding: 24px;
+  background-color: rgb(255, 255, 255);
+  border-width: 1px;
+  border-radius: 8px;
+  justify-content: space-between;
+  flex-direction: column;
+  display: flex;
+  margin-top: 20px;
+  box-sizing: border-box;
+  border: 1px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-75 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-76 {
+  padding: 8px;
+  background-color: rgb(252, 224, 214);
+  border-radius: 9999px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  z-index: 2;
+  left: 20px;
+  top: -16px;
+  position: absolute;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-77 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-78 {
+  display: block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-79 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-80 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-81 {
+  display: block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-82 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-83 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-84 {
+  line-height: 26px;
+  font-size: 16px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-85 {
+  gap: 16px;
+  display: flex;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-86 {
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-87 {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 400;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.ReviewPage .style-88 {
+  color: rgb(163, 163, 163);
+  font-size: 14px;
+  line-height: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  margin: 0px;
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+

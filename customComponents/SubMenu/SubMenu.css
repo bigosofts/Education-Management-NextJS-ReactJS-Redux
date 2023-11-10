@@ -1,0 +1,426 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.submenu {
+  position: sticky;
+  top: 0px;
+  background-color: #013030;
+  width: 100%;
+  z-index: 1000;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+.submenu .container {
+  max-width: 75rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+}
+
+.submenu .logo-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.submenu .nav-btn {
+  flex: 3;
+  display: flex;
+}
+
+.submenu .nav-links {
+  flex: 2;
+}
+
+.submenu .log-sign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.submenu .logo {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 3rem;
+}
+
+.submenu .logo span {
+  font-weight: 300;
+}
+
+.submenu .btn {
+  display: inline-block;
+  padding: 0.5rem 1.3rem;
+  font-size: 0.8rem;
+  border: 2px solid #fff;
+  border-radius: 2rem;
+  line-height: 1;
+  margin: 0 0.2rem;
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+
+.submenu .btn.solid,
+.submenu .btn.transparent:hover {
+  background-color: #fff;
+  color: #69bde7;
+}
+
+.submenu .btn.transparent,
+.submenu .btn.solid:hover {
+  background-color: transparent;
+  color: #fff;
+}
+
+.submenu .nav-links > ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submenu .nav-link {
+  position: relative;
+}
+
+.submenu .nav-link > a {
+  line-height: 3rem;
+  color: #fff;
+  padding: 0 0.8rem;
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.5s;
+}
+
+.submenu .nav-link > a > i {
+  margin-left: 0.2rem;
+}
+
+.submenu .nav-link:hover > a {
+  transform: scale(1.1);
+}
+
+.submenu .dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 10rem;
+  transform: translateY(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.submenu .dropdown ul {
+  position: relative;
+}
+
+.submenu .dropdown-link > a {
+  display: flex;
+  background-color: #fff;
+  color: #013030;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.3s;
+}
+
+.submenu .dropdown-link:hover > a {
+  background-color: #013030;
+  color: #fff;
+}
+
+.submenu .dropdown-link:not(:nth-last-child(2)) {
+  border-bottom: 1px solid #efefef;
+}
+
+.submenu .dropdown-link i {
+  transform: rotate(-90deg);
+}
+
+.submenu .arrow {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  top: -5.5px;
+  left: 32px;
+  background-color: #fff;
+  transform: rotate(45deg);
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: -1;
+}
+
+.submenu .dropdown-link:first-child:hover ~ .arrow {
+  background-color: #013030;
+}
+
+.submenu .dropdown-link {
+  position: relative;
+}
+
+.submenu .dropdown.second {
+  top: 0;
+  left: 100%;
+  padding-left: 0.8rem;
+  cursor: pointer;
+  transform: translateX(10px);
+}
+
+.submenu .dropdown.second .arrow {
+  top: 10px;
+  left: -5.5px;
+}
+
+.submenu .nav-link:hover > .dropdown,
+.submenu .dropdown-link:hover > .dropdown {
+  transform: translate(0, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.submenu .hamburger-menu-container {
+  flex: 1;
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.submenu .hamburger-menu {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.submenu .hamburger-menu div {
+  width: 1.6rem;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #fff;
+  position: relative;
+  z-index: 1001;
+  transition: 0.5s;
+}
+
+.submenu .hamburger-menu div:before,
+.submenu .hamburger-menu div:after {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+
+.submenu .hamburger-menu div:before {
+  transform: translateY(-7px);
+}
+
+.submenu .hamburger-menu div:after {
+  transform: translateY(7px);
+}
+
+#check {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  z-index: 90000;
+  cursor: pointer;
+  opacity: 0;
+  display: none;
+}
+
+#check:checked ~ .hamburger-menu-container .hamburger-menu div {
+  background-color: transparent;
+}
+
+#check:checked ~ .hamburger-menu-container .hamburger-menu div:before {
+  transform: translateY(0) rotate(-45deg);
+}
+
+#check:checked ~ .hamburger-menu-container .hamburger-menu div:after {
+  transform: translateY(0) rotate(45deg);
+}
+
+@keyframes animation {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@media (max-width: 920px) {
+  .submenu .hamburger-menu-container {
+    display: flex;
+  }
+
+  #check {
+    display: block;
+  }
+
+  .submenu .nav-btn {
+    position: fixed;
+    height: calc(100vh - 3rem);
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    background-color: #013030;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: 0.65s;
+  }
+
+  #check:checked ~ .nav-btn {
+    transform: translateX(0);
+  }
+
+  #check:checked ~ .nav-btn .nav-link,
+  #check:checked ~ .nav-btn .log-sign {
+    animation: animation 0.5s ease forwards var(--i);
+  }
+
+  .submenu .nav-links {
+    flex: initial;
+    width: 100%;
+  }
+
+  .submenu .nav-links > ul {
+    flex-direction: column;
+  }
+
+  .submenu .nav-link {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  .submenu .nav-link > a {
+    line-height: 1;
+    padding: 1.6rem 2rem;
+  }
+
+  .submenu .nav-link:hover > a {
+    transform: scale(1);
+    background-color: #013030;
+  }
+
+  .submenu .dropdown,
+  .submenu .dropdown.second {
+    position: initial;
+    top: initial;
+    left: initial;
+    transform: initial;
+    opacity: 1;
+    pointer-events: auto;
+    width: 100%;
+    padding: 0;
+    background-color: #013030;
+    display: none;
+  }
+
+  .submenu .nav-link:hover > .dropdown,
+  .submenu .dropdown-link:hover > .dropdown {
+    display: block;
+  }
+
+  .submenu .nav-link:hover > a > i,
+  .submenu .dropdown-link:hover > a > i {
+    transform: rotate(360deg);
+  }
+
+  .submenu .dropdown-link > a {
+    background-color: transparent;
+    color: #fff;
+    padding: 1.2rem 2rem;
+    line-height: 1;
+  }
+
+  .submenu .dropdown.second .dropdown-link > a {
+    padding: 1.2rem 2rem 1.2rem 3rem;
+  }
+
+  .submenu .dropdown.second .dropdown.second .dropdown-link > a {
+    padding: 1.2rem 2rem 1.2rem 4rem;
+  }
+
+  .submenu .dropdown-link:not(:nth-last-child(2)) {
+    border-bottom: none;
+  }
+
+  .submenu .arrow {
+    z-index: 1;
+    background-color: #013030;
+    left: 10%;
+    transform: scale(1.1) rotate(45deg);
+    transition: 0.5s;
+  }
+
+  .submenu .nav-link:hover .arrow {
+    background-color: #013030;
+  }
+
+  .submenu .dropdown .dropdown .arrow {
+    display: none;
+  }
+
+  .submenu .dropdown-link:hover > a {
+    background-color: #013030;
+  }
+
+  .submenu .dropdown-link:first-child:hover ~ .arrow {
+    background-color: #013030;
+  }
+
+  .submenu .nav-link > a > i {
+    font-size: 1.1rem;
+    transform: rotate(-90deg);
+    transition: 0.7s;
+  }
+
+  .submenu .dropdown i {
+    font-size: 1rem;
+    transition: 0.7s;
+  }
+
+  .submenu .log-sign {
+    flex: initial;
+    width: 100%;
+    padding: 1.5rem 1.9rem;
+    justify-content: flex-start;
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}
