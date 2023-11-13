@@ -5,7 +5,6 @@ import mytoast from "@/components/toast/toast";
 import html2canvas from "html2canvas";
 
 const Page = () => {
-    
   const componentref = useRef();
   const triggerCaptureAndDownload = async () => {
     var btn = document.getElementById("button-cptr");
@@ -13,11 +12,19 @@ const Page = () => {
     const container = componentref.current;
 
     if (container) {
-      const node = container;
-      const canvas = await html2canvas(node, {
+      // Get the total height of the scrollable container
+      const totalHeight = container.scrollHeight;
+
+      // Set the height of the container to its total height to capture the entire content
+      container.style.height = totalHeight + "px";
+
+      const canvas = await html2canvas(container, {
         scale: 5,
         backgroundColor: null,
       });
+
+      // Reset the container's height to its original value
+      container.style.height = "";
 
       const dataUrl = canvas.toDataURL("image/png");
       const link = document.createElement("a");
