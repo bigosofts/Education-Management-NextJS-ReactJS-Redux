@@ -93,7 +93,7 @@ exports.selectAbacusStudents = (req, res) => {
 exports.updateAbacusStudent = async (req, res) => {
   let reqBody = req.body;
   let filter = reqBody["_id"];
-  let hashedPass = await hashedPasswordCustom(reqBody.studentPass);
+  let hashedPass = await hashedPasswordCustom(reqBody.password);
   var postBody;
   if (hashedPass == null) {
     postBody = {

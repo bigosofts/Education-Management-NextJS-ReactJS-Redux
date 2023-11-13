@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 
 const DataSchema = mongoose.Schema(
   {
-    madrashaAbacusID: { type: String, required: true, unique: True },
-    madrashaAbacusPass: { type: String, required: true, unique: True },
+    madrashaAbacusID: { type: String, required: true, unique: true },
+    madrashaAbacusPass: { type: String, required: true, unique: true },
     madrashaName: { type: String, required: true },
     directorName: { type: String, required: true },
     directorPhone: { type: String, required: true },
@@ -19,7 +19,7 @@ const DataSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    madrashaEmail: { type: String, required: true },
+    madrashaEmail: { type: String, required: true, unique:true },
     createdDate: { type: Date, required: true },
     updatedDate: { type: Date, required: true },
   },

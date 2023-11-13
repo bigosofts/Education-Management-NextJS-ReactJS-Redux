@@ -95,11 +95,12 @@ exports.selectMadrashaAbacus = (req, res) => {
 exports.updateMadrashaAbacus = async (req, res) => {
   let reqBody = req.body;
   let filter = reqBody["_id"];
-  let hashedPass = await hashedPasswordCustom(reqBody.madrashaAbacusPass);
+  let hashedPass = await hashedPasswordCustom(reqBody.password);
   var postBody;
   if (hashedPass == null) {
-    postBody = { 
+    postBody = {
       madrashaAbacusID: reqBody.madrashaAbacusID,
+      madrashaName: reqBody.madrashaName,
       directorName: reqBody.directorName,
       directorPhone: reqBody.directorPhone,
       responsiblePerson: reqBody.responsiblePerson,
@@ -110,7 +111,8 @@ exports.updateMadrashaAbacus = async (req, res) => {
     };
   } else {
     postBody = {
-      madrashaAbacusID : reqBody.madrashaAbacusID,
+      madrashaAbacusID: reqBody.madrashaAbacusID,
+      madrashaName: reqBody.madrashaName,
       madrashaAbacusPass: hashedPass,
       directorName: reqBody.directorName,
       directorPhone: reqBody.directorPhone,

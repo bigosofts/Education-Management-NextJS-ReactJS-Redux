@@ -14,6 +14,9 @@ const profileController = require("../controllers/profileController");
 const loginController = require("../controllers/loginController");
 const resultController = require("../controllers/resultController");
 const logController = require("../controllers/logController");
+const abacusStudentController = require("../controllers/abacusStudentController");
+const abacusTeacherController = require("../controllers/abacusTeacherController");
+const madrashaAbacusController = require("../controllers/madrashaAbacusController");
 
 //Middleware Import
 const passEncrypted = require("../middlewares/passwordEncryption");
@@ -61,10 +64,30 @@ router.post(
   passEncrypted.hashedPassword,
   profileController.createTeacher
 );
+
 router.post(
   "/create-student",
   passEncrypted.hashedPassword,
   profileController.createStudent
+);
+
+
+
+//abacus
+router.post(
+  "/create-madrasha-abacus",
+  passEncrypted.hashedPassword,
+  madrashaAbacusController.createMadrashaAbacus
+);
+router.post(
+  "/create-abacus-student",
+  passEncrypted.hashedPassword,
+  abacusStudentController.createAbacusStudent
+);
+router.post(
+  "/create-abacus-teacher",
+  passEncrypted.hashedPassword,
+  abacusTeacherController.createAbacusTeacher
 );
 
 //Login api for students and teachers
@@ -106,6 +129,22 @@ router.post(
   authverify,
   profileController.selectAllTeachers
 );
+
+
+//abacus
+router.post(
+  "/select-all-madrasha-abacus",
+  madrashaAbacusController.selectMadrashaAbacus
+);
+router.post(
+  "/select-all-abacus-students",
+  abacusStudentController.selectAbacusStudents
+);
+router.post(
+  "/select-all-abacus-teachers",
+  abacusTeacherController.selectAbacusTeachers
+);
+
 router.post("/select-courses", authverify, courseController.selectCourses);
 router.post("/select-menus", authverify, menuController.selectMenus);
 router.post("/select-sliders", authverify, sliderController.selectSliders);
@@ -139,6 +178,26 @@ router.put("/update-widget", authverify, widgetController.updateWidget);
 router.put("/update-result", authverify, resultController.updateResult);
 router.put("/update-log", authverify, logController.updateLog);
 
+
+//abacus update
+
+router.put(
+  "/update-madrasha-abacus",
+  madrashaAbacusController.updateMadrashaAbacus
+);
+router.put(
+  "/update-abacus-student",
+  abacusStudentController.updateAbacusStudent
+);
+router.put(
+  "/update-abacus-teacher",
+  abacusTeacherController.updateAbacusTeacher
+);
+
+
+
+router.put("/update-log", authverify, logController.updateLog);
+
 //Delete the data from the database
 router.delete(
   "/delete-teacher/:id",
@@ -170,5 +229,20 @@ router.delete("/delete-about/:id", authverify, aboutController.deleteAbout);
 router.delete("/delete-widget/:id", authverify, widgetController.deleteWidget);
 router.delete("/delete-result/:id", authverify, resultController.deleteResult);
 router.delete("/delete-log/:id", authverify, logController.deleteLog);
+
+
+//abacus delete
+router.delete(
+  "/delete-madrasha-abacus/:id",
+  madrashaAbacusController.deleteMadrashaAbacus
+);
+router.delete(
+  "/delete-abacus-student/:id",
+  abacusStudentController.deleteAbacusStudent
+);
+router.delete(
+  "/delete-abacus-teacher/:id",
+  abacusTeacherController.deleteAbacusTeacher
+);
 
 module.exports = router;
