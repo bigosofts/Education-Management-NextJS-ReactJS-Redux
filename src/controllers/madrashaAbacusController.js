@@ -9,7 +9,7 @@ exports.createMadrashaAbacus = (req, res) => {
   //Receive Post Request Data from req body
 
   let madrashaName = reqBody.madrashaName;
-  let madrashaAbacusID = `${madrashaName}${randomInteger}`;
+  let madrashaAbacusID = `${madrashaName.replace(/\s/g, "")}${randomInteger}`;
   let directorName = reqBody.directorName;
   let directorPhone = reqBody.directorPhone;
   let responsiblePerson = reqBody.responsiblePerson;

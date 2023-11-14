@@ -180,12 +180,27 @@
     gap:50px;
 }
 
+
 .container-abacus-madrasha{
     max-width: 70vw !important;
 }
 .login-wrap-abacus-madrasha{
     max-width: 70vw !important;
 }
+
+@media only screen and (max-width: 768px){
+    .flex-form-abacus{
+        flex-direction: column;
+        gap:0px
+    } 
+    .container-abacus-madrasha{
+        max-width: 100vw !important;
+    }
+    .login-wrap-abacus-madrasha{
+        max-width: 100vw !important;
+    }
+}
+
 .flex-item-abacus-madrasha{
     width: 100%;
 }

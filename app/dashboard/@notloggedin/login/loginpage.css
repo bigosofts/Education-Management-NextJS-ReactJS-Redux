@@ -2,7 +2,7 @@
     overflow: hidden;
     background: #e5e7eb;
     padding-bottom: 8vh;
-    height: 100vh;
+   
 }
 @media (max-width: 991px) {
     .page-wrapper {

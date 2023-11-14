@@ -62,7 +62,7 @@ function page(props) {
 
   return (
     <div className="page-wrapper">
-      <div className="page-content--bge5">
+     
         <div className="container-loginpage">
           <div className="login-wrap">
             <div className="login-content">
@@ -130,7 +130,7 @@ function page(props) {
             </div>
           </div>
         </div>
-      </div>
+     
     </div>
   );
 }
