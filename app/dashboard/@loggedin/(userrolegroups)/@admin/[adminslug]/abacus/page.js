@@ -19,7 +19,7 @@ const Page = () => {
       container.style.height = totalHeight + "px";
 
       const canvas = await html2canvas(container, {
-        scale: 5,
+        scale: 10,
         backgroundColor: null,
       });
 
