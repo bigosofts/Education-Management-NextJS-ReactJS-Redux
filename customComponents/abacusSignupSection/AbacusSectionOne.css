@@ -1,0 +1,508 @@
+.abacusSecOne {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+  margin-top: 50px;
+}
+
+.abacusSecOne .style-1 {
+  margin-bottom: 40px;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-2 {
+  color: initial;
+  max-width: 600px;
+  text-align: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.abacusSecOne .style-3 {
+  margin-left: auto;
+  margin-right: auto;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-4 {
+  line-height: 56px;
+  font-size: 44px;
+  margin-bottom: 16px;
+  color: rgb(17, 24, 39);
+  font-weight: 600;
+  margin: 0px 0px 16px;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-5 {
+  letter-spacing: normal;
+  line-height: 28px;
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: rgb(75, 85, 99);
+  font-weight: 400;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-6 {
+  max-width: 1200px;
+  padding-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 100%;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-7 {
+  gap: 40px;
+  grid-template-columns: 544px 544px;
+  display: grid;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-8 {
+  color: rgb(17, 24, 39);
+  text-decoration: none solid rgb(17, 24, 39);
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-9 {
+  padding-bottom: 40px;
+  padding-top: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  transition-duration: 0.3s;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgb(255, 255, 255);
+  border-width: 1px;
+  border-radius: 8px;
+  gap: 24px;
+  align-items: center;
+  display: flex;
+  border: 1px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-10 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-11 {
+  width: 72px;
+  height: 72px;
+  display: block;
+  vertical-align: middle;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-12 {
+  mask-type: alpha;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.abacusSecOne .style-13 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-14 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-15 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-16 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-17 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-18 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-19 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-20 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-21 {
+  flex: 1 1 0%;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-22 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  margin: 0px 0px 4px;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-23 {
+  font-size: 18px;
+  line-height: 28px;
+  color: rgb(115, 115, 115);
+  margin: 0px;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-24 {
+  color: rgb(115, 115, 115);
+  display: block;
+  vertical-align: middle;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-25 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-26 {
+  color: rgb(17, 24, 39);
+  text-decoration: none solid rgb(17, 24, 39);
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-27 {
+  padding-bottom: 40px;
+  padding-top: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  transition-duration: 0.3s;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgb(255, 255, 255);
+  border-width: 1px;
+  border-radius: 8px;
+  gap: 24px;
+  align-items: center;
+  display: flex;
+  border: 1px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-28 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-29 {
+  width: 72px;
+  height: 72px;
+  display: block;
+  vertical-align: middle;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-30 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-31 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-32 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-33 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-34 {
+  flex: 1 1 0%;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-35 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  margin: 0px 0px 4px;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-36 {
+  font-size: 18px;
+  line-height: 28px;
+  color: rgb(115, 115, 115);
+  margin: 0px;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-37 {
+  color: rgb(115, 115, 115);
+  display: block;
+  vertical-align: middle;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-38 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-39 {
+  color: rgb(17, 24, 39);
+  text-decoration: none solid rgb(17, 24, 39);
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-40 {
+  padding-bottom: 40px;
+  padding-top: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  transition-duration: 0.3s;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgb(255, 255, 255);
+  border-width: 1px;
+  border-radius: 8px;
+  gap: 24px;
+  align-items: center;
+  display: flex;
+  border: 1px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-41 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-42 {
+  width: 72px;
+  height: 72px;
+  display: block;
+  vertical-align: middle;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-43 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-44 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-45 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-46 {
+  flex: 1 1 0%;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-47 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  margin: 0px 0px 4px;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-48 {
+  font-size: 18px;
+  line-height: 28px;
+  color: rgb(115, 115, 115);
+  margin: 0px;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-49 {
+  color: rgb(115, 115, 115);
+  display: block;
+  vertical-align: middle;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-50 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-51 {
+  color: rgb(17, 24, 39);
+  text-decoration: none solid rgb(17, 24, 39);
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-52 {
+  padding-bottom: 40px;
+  padding-top: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+  transition-duration: 0.3s;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgb(255, 255, 255);
+  border-width: 1px;
+  border-radius: 8px;
+  gap: 24px;
+  align-items: center;
+  display: flex;
+  border: 1px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-53 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-54 {
+  width: 72px;
+  height: 72px;
+  display: block;
+  vertical-align: middle;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-55 {
+  mask-type: alpha;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+  border: 0px solid rgb(219, 225, 235);
+}
+
+.abacusSecOne .style-56 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-57 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-58 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-59 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-60 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-61 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-62 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-63 {
+  flex: 1 1 0%;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-64 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  margin: 0px 0px 4px;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-65 {
+  font-size: 18px;
+  line-height: 28px;
+  color: rgb(115, 115, 115);
+  margin: 0px;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-66 {
+  color: rgb(115, 115, 115);
+  display: block;
+  vertical-align: middle;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}
+
+.abacusSecOne .style-67 {
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+}

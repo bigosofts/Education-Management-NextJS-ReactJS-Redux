@@ -103,11 +103,14 @@ a {
   color: #fff;
   padding: 0 0.8rem;
   letter-spacing: 1px;
-  font-size: 0.95rem;
+  font-size: 11px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: 0.5s;
+  text-transform: uppercase;
+}
+.submenu .nav-link > a:hover{
+  color: #dbbfa7;
 }
 
 .submenu .nav-link > a > i {

@@ -49,18 +49,17 @@ figure.slider {
 }
 figure.slider figure {
   width: 20%;
-  height: 65vh;
+  height: 75vh;
   display: inline-block;
   position: inherit;
 }
 figure.slider img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 figure.slider figure figcaption {
   position: absolute;
   bottom: 0;
-  
   color: #fff;
   width: 100%;
   font-size: 2rem;
