@@ -188,3 +188,12 @@
   
  
 }
+
+@media only screen and (max-width: 380px) {
+
+  .mainmenu{
+    margin-bottom: 0px;
+  }
+  
+ 
+}

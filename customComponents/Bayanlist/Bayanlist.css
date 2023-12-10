@@ -1894,3 +1894,26 @@
     
   }
 }
+@media only screen and (max-width: 540px) {
+  .Bayanlist .style-1{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .Bayanlist .style-67{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .Bayanlist .style-131{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .Bayanlist .style-16{
+    padding: 0 10%;
+  }
+  .Bayanlist .style-80{
+    padding: 0 10%;
+  }
+  .Bayanlist .style-144{
+    padding: 0 10%;
+  }
+}

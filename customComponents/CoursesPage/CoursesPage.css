@@ -1705,7 +1705,7 @@
 }
 @media only screen and (max-width: 540px){
   .CoursesPage .style-1{
-    width: 80%;
+    width: 90%;
   }
   .CoursesPage .style-5{
     flex-direction: column;
@@ -1764,5 +1764,11 @@
     flex: 100%;
     max-width: unset;
     margin-top: 20px;
+  }
+  .CoursesPage .style-16{
+    width: 49%;
+  }
+  .CoursesPage .style-17{
+    width: 49%;
   }
 }

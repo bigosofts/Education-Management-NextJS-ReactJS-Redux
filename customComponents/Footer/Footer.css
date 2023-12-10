@@ -705,7 +705,7 @@
 
 @media only screen and (max-width: 540px) {
   .Footer .style-1 {
-    width: 80%;
+    width: 90%;
   }
   .Footer .style-2 {
     flex-direction: column;

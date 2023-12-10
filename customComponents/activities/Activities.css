@@ -791,7 +791,7 @@
 
 @media only screen and (max-width: 540px) {
   .Activities .style-1 {
-    width: 80%;
+    width: 90%;
   }
   .Activities .style-5 {
     flex-direction: column;

@@ -1767,7 +1767,7 @@
 
 @media only screen and (max-width: 540px) {
   .NoticeEvent .style-1 {
-    width: 80%;
+    width: 90%;
   }
   .NoticeEvent .style-2 {
     flex-direction: column;

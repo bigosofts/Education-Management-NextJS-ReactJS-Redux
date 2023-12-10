@@ -19,7 +19,7 @@
 }
 @media only screen and (max-width: 540px) {
   .studentCourses {
-    width: 80%;
+    width: 90%;
   }
   .studentCourses h2 {
     font-size: 24px;
