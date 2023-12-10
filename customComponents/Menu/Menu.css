@@ -197,3 +197,11 @@
   
  
 }
+@media only screen and (max-width: 320px) {
+
+  .mainmenu{
+    margin-bottom: -20px;
+  }
+  
+ 
+}
