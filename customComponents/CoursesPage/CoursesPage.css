@@ -1703,3 +1703,66 @@
   box-sizing: border-box;
   background-color: rgb(0, 104, 55);
 }
+@media only screen and (max-width: 540px){
+  .CoursesPage .style-1{
+    width: 80%;
+  }
+  .CoursesPage .style-5{
+    flex-direction: column;
+  }
+  .CoursesPage .style-6{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-18{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-30{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-42{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-54{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-66{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-78{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-90{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-102{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-114{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-126{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+}

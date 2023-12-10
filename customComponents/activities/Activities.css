@@ -1,789 +1,844 @@
 .Activities {
-    padding: 50px 0px;
-    background: rgb(247, 247, 247) none repeat scroll 0% 0% / auto padding-box border-box;
-    border-bottom: 1px solid rgb(224, 222, 222);
-    margin: 0px;
-    box-sizing: border-box;
-    display: block;
+  padding: 50px 0px;
+  background: rgb(247, 247, 247) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border-bottom: 1px solid rgb(224, 222, 222);
+  margin: 0px;
+  box-sizing: border-box;
+  display: block;
 }
 
 .Activities .style-1 {
-    max-width: 1200px;
-    margin: 0px 381.5px;
-    padding: 0px 15px;
-    box-sizing: border-box;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+  max-width: 1200px;
+  margin: 0px 381.5px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .Activities .style-2 {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    display: block;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  display: block;
 }
 
 .Activities .style-3 {
-    font-family: 'PT Sans', sans-serif;
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: rgb(94, 94, 94);
-    text-transform: capitalize;
-    margin: 0px 0px 30px;
-    padding: 0px;
-    box-sizing: border-box;
-    line-height: 43.2px;
-    margin-top: 0px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: rgb(94, 94, 94);
+  text-transform: capitalize;
+  margin: 0px 0px 30px;
+  padding: 0px;
+  box-sizing: border-box;
+  line-height: 43.2px;
+  margin-top: 0px;
 }
 
 .Activities .style-4 {
-    font-weight: 500;
-    margin-bottom: 30px;
-    margin: 0px 0px 30px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-top: 0px;
+  font-weight: 500;
+  margin-bottom: 30px;
+  margin: 0px 0px 30px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
 }
 
 .Activities .style-5 {
-    margin: 0px -15px;
-    padding: 0px;
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+  margin: 0px -15px;
+  padding: 0px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
 .Activities .style-6 {
-    -webkit-box-flex: 0;
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-    margin: 0px;
-    padding: 0px 15px;
-    box-sizing: border-box;
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .Activities .style-7 {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-8 {
-    width: 60px;
-    height: 60px;
-    float: left;
-    margin-left: -13px;
-    margin: 0px 0px 0px -13px;
-    padding: 0px;
-    box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-left: -13px;
+  margin: 0px 0px 0px -13px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-9 {
-    width: 100%;
-    height: 60px;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    vertical-align: middle;
-    border-style: none;
+  width: 100%;
+  height: 60px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
 }
 
 .Activities .style-10 {
-    padding-top: 6px;
-    margin: 0px;
-    box-sizing: border-box;
+  padding-top: 6px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-11 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    margin: 0px 0px 6px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 21.6px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  margin: 0px 0px 6px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 21.6px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-12 {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0px 0px 8px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-bottom: 8px;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 19.2px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px 0px 8px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 19.2px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-13 {
-    line-height: 19px;
-    margin: 0px 0px 16px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-top: 0px;
-    margin-bottom: 16px;
+  line-height: 19px;
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
 }
 
 .Activities .style-14 {
-    -webkit-box-flex: 0;
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-    margin: 0px;
-    padding: 0px 15px;
-    box-sizing: border-box;
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .Activities .style-15 {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-16 {
-    width: 60px;
-    height: 60px;
-    float: left;
-    margin-left: -13px;
-    margin: 0px 0px 0px -13px;
-    padding: 0px;
-    box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-left: -13px;
+  margin: 0px 0px 0px -13px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-17 {
-    width: 100%;
-    height: 60px;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    vertical-align: middle;
-    border-style: none;
+  width: 100%;
+  height: 60px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
 }
 
 .Activities .style-18 {
-    padding-top: 6px;
-    margin: 0px;
-    box-sizing: border-box;
+  padding-top: 6px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-19 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    margin: 0px 0px 6px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 21.6px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  margin: 0px 0px 6px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 21.6px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-20 {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0px 0px 8px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-bottom: 8px;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 19.2px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px 0px 8px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 19.2px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-21 {
-    line-height: 19px;
-    margin: 0px 0px 16px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-top: 0px;
-    margin-bottom: 16px;
+  line-height: 19px;
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
 }
 
 .Activities .style-22 {
-    -webkit-box-flex: 0;
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-    margin: 0px;
-    padding: 0px 15px;
-    box-sizing: border-box;
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .Activities .style-23 {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-24 {
-    width: 60px;
-    height: 60px;
-    float: left;
-    margin-left: -13px;
-    margin: 0px 0px 0px -13px;
-    padding: 0px;
-    box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-left: -13px;
+  margin: 0px 0px 0px -13px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-25 {
-    width: 100%;
-    height: 60px;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    vertical-align: middle;
-    border-style: none;
+  width: 100%;
+  height: 60px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
 }
 
 .Activities .style-26 {
-    padding-top: 6px;
-    margin: 0px;
-    box-sizing: border-box;
+  padding-top: 6px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-27 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    margin: 0px 0px 6px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 21.6px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  margin: 0px 0px 6px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 21.6px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-28 {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0px 0px 8px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-bottom: 8px;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 19.2px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px 0px 8px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 19.2px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-29 {
-    line-height: 19px;
-    margin: 0px 0px 16px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-top: 0px;
-    margin-bottom: 16px;
+  line-height: 19px;
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
 }
 
 .Activities .style-30 {
-    -webkit-box-flex: 0;
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-    margin: 0px;
-    padding: 0px 15px;
-    box-sizing: border-box;
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .Activities .style-31 {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-32 {
-    width: 60px;
-    height: 60px;
-    float: left;
-    margin-left: -13px;
-    margin: 0px 0px 0px -13px;
-    padding: 0px;
-    box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-left: -13px;
+  margin: 0px 0px 0px -13px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-33 {
-    width: 100%;
-    height: 60px;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    vertical-align: middle;
-    border-style: none;
+  width: 100%;
+  height: 60px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
 }
 
 .Activities .style-34 {
-    padding-top: 6px;
-    margin: 0px;
-    box-sizing: border-box;
+  padding-top: 6px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-35 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    margin: 0px 0px 6px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 21.6px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  margin: 0px 0px 6px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 21.6px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-36 {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0px 0px 8px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-bottom: 8px;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 19.2px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px 0px 8px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 19.2px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-37 {
-    line-height: 19px;
-    margin: 0px 0px 16px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-top: 0px;
-    margin-bottom: 16px;
+  line-height: 19px;
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
 }
 
 .Activities .style-38 {
-    -webkit-box-flex: 0;
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-    margin: 0px;
-    padding: 0px 15px;
-    box-sizing: border-box;
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .Activities .style-39 {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-40 {
-    width: 60px;
-    height: 60px;
-    float: left;
-    margin-left: -13px;
-    margin: 0px 0px 0px -13px;
-    padding: 0px;
-    box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-left: -13px;
+  margin: 0px 0px 0px -13px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-41 {
-    width: 100%;
-    height: 60px;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    vertical-align: middle;
-    border-style: none;
+  width: 100%;
+  height: 60px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
 }
 
 .Activities .style-42 {
-    padding-top: 6px;
-    margin: 0px;
-    box-sizing: border-box;
+  padding-top: 6px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-43 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    margin: 0px 0px 6px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 21.6px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  margin: 0px 0px 6px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 21.6px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-44 {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0px 0px 8px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-bottom: 8px;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 19.2px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px 0px 8px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 19.2px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-45 {
-    line-height: 19px;
-    margin: 0px 0px 16px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-top: 0px;
-    margin-bottom: 16px;
+  line-height: 19px;
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
 }
 
 .Activities .style-46 {
-    -webkit-box-flex: 0;
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-    margin: 0px;
-    padding: 0px 15px;
-    box-sizing: border-box;
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .Activities .style-47 {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-48 {
-    width: 60px;
-    height: 60px;
-    float: left;
-    margin-left: -13px;
-    margin: 0px 0px 0px -13px;
-    padding: 0px;
-    box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-left: -13px;
+  margin: 0px 0px 0px -13px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-49 {
-    width: 100%;
-    height: 60px;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    vertical-align: middle;
-    border-style: none;
+  width: 100%;
+  height: 60px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
 }
 
 .Activities .style-50 {
-    padding-top: 6px;
-    margin: 0px;
-    box-sizing: border-box;
+  padding-top: 6px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-51 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    margin: 0px 0px 6px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 21.6px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  margin: 0px 0px 6px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 21.6px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-52 {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0px 0px 8px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-bottom: 8px;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 19.2px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px 0px 8px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 19.2px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-53 {
-    line-height: 19px;
-    margin: 0px 0px 16px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-top: 0px;
-    margin-bottom: 16px;
+  line-height: 19px;
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
 }
 
 .Activities .style-54 {
-    -webkit-box-flex: 0;
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-    margin: 0px;
-    padding: 0px 15px;
-    box-sizing: border-box;
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .Activities .style-55 {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-56 {
-    width: 60px;
-    height: 60px;
-    float: left;
-    margin-left: -13px;
-    margin: 0px 0px 0px -13px;
-    padding: 0px;
-    box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-left: -13px;
+  margin: 0px 0px 0px -13px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-57 {
-    width: 100%;
-    height: 60px;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    vertical-align: middle;
-    border-style: none;
+  width: 100%;
+  height: 60px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
 }
 
 .Activities .style-58 {
-    padding-top: 6px;
-    margin: 0px;
-    box-sizing: border-box;
+  padding-top: 6px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-59 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    margin: 0px 0px 6px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 21.6px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  margin: 0px 0px 6px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 21.6px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-60 {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0px 0px 8px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-bottom: 8px;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 19.2px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px 0px 8px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 19.2px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-61 {
-    line-height: 19px;
-    margin: 0px 0px 16px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-top: 0px;
-    margin-bottom: 16px;
+  line-height: 19px;
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
 }
 
 .Activities .style-62 {
-    -webkit-box-flex: 0;
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-    margin: 0px;
-    padding: 0px 15px;
-    box-sizing: border-box;
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .Activities .style-63 {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-64 {
-    width: 60px;
-    height: 60px;
-    float: left;
-    margin-left: -13px;
-    margin: 0px 0px 0px -13px;
-    padding: 0px;
-    box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-left: -13px;
+  margin: 0px 0px 0px -13px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-65 {
-    width: 100%;
-    height: 60px;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    vertical-align: middle;
-    border-style: none;
+  width: 100%;
+  height: 60px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
 }
 
 .Activities .style-66 {
-    padding-top: 6px;
-    margin: 0px;
-    box-sizing: border-box;
+  padding-top: 6px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-67 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    margin: 0px 0px 6px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 21.6px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  margin: 0px 0px 6px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 21.6px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-68 {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0px 0px 8px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-bottom: 8px;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 19.2px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px 0px 8px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 19.2px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-69 {
-    line-height: 19px;
-    margin: 0px 0px 16px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-top: 0px;
-    margin-bottom: 16px;
+  line-height: 19px;
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
 }
 
 .Activities .style-70 {
-    -webkit-box-flex: 0;
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-    margin: 0px;
-    padding: 0px 15px;
-    box-sizing: border-box;
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .Activities .style-71 {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-72 {
-    width: 60px;
-    height: 60px;
-    float: left;
-    margin-left: -13px;
-    margin: 0px 0px 0px -13px;
-    padding: 0px;
-    box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-left: -13px;
+  margin: 0px 0px 0px -13px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-73 {
-    width: 100%;
-    height: 60px;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    vertical-align: middle;
-    border-style: none;
+  width: 100%;
+  height: 60px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
 }
 
 .Activities .style-74 {
-    padding-top: 6px;
-    margin: 0px;
-    box-sizing: border-box;
+  padding-top: 6px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 .Activities .style-75 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 6px;
-    margin: 0px 0px 6px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 21.6px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  margin: 0px 0px 6px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 21.6px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-76 {
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0px 0px 8px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-bottom: 8px;
-    font-family: 'Hind Siliguri', sans-serif;
-    line-height: 19.2px;
-    color: rgb(94, 94, 94);
-    margin-top: 0px;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px 0px 8px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 19.2px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
 }
 
 .Activities .style-77 {
-    line-height: 19px;
-    margin: 0px 0px 16px;
-    padding: 0px;
-    box-sizing: border-box;
-    margin-top: 0px;
-    margin-bottom: 16px;
+  line-height: 19px;
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+@media only screen and (max-width: 540px) {
+  .Activities .style-1 {
+    width: 80%;
+  }
+  .Activities .style-5 {
+    flex-direction: column;
+  }
+  .Activities .style-6 {
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .Activities .style-14 {
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .Activities .style-22 {
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .Activities .style-30 {
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .Activities .style-38 {
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .Activities .style-46 {
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .Activities .style-54 {
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .Activities .style-62 {
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .Activities .style-70 {
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
 }

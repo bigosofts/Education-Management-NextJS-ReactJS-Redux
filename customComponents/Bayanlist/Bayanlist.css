@@ -1867,3 +1867,30 @@
   font-size: 11px;
   transition: all 0.1s ease-in 0s;
 }
+
+@media only screen and (max-width: 540px){
+  .Bayanlist .style-1{
+    width: 100%;
+    padding-bottom: 20px;
+    padding-top: 50px;
+  }
+  .Bayanlist .style-67{
+    width: 100%;
+    padding-bottom: 20px;
+  }
+  .Bayanlist .style-131{
+    width: 100%;
+    padding-bottom: 20px;
+  }
+  .Bayanlist .style-2{
+    display: none;
+  }
+  .Bayanlist .style-68{
+    display: none;
+    
+  }
+  .Bayanlist .style-132{
+    display: none;
+    
+  }
+}

@@ -182,6 +182,9 @@
   .mainmenu .style-16 {
     display: none;
   }
+  .mainmenu{
+    margin-bottom: 30px;
+  }
   
  
 }

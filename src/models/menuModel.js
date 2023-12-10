@@ -11,7 +11,8 @@ const DataSchema= mongoose.Schema({
     activeStatus:{
         type: String,
         required: true,
-    }
+    },
+    subMenu: {type:Object, required:true}
 },{versionKey: false});
 
 const menuModel = mongoose.model("menus",DataSchema);

@@ -741,4 +741,10 @@
   border: 0px solid rgb(219, 225, 235);
 }
 
+@media only screen and (max-width: 540px){
+  .ReviewPage .style-3{
+    font-size: 36px;
+  }
+}
+
 

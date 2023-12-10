@@ -15,7 +15,6 @@ const loginController = require("../controllers/loginController");
 const resultController = require("../controllers/resultController");
 const logController = require("../controllers/logController");
 const abacusStudentController = require("../controllers/allAbacusController/abacusStudentController");
-const abacusTeacherController = require("../controllers/allAbacusController/abacusTeacherController");
 const madrashaAbacusController = require("../controllers/allAbacusController/madrashaAbacusController");
 
 //Middleware Import
@@ -82,11 +81,7 @@ router.post(
   passEncrypted.hashedPassword,
   abacusStudentController.createAbacusStudent
 );
-router.post(
-  "/create-abacus-teacher",
-  passEncrypted.hashedPassword,
-  abacusTeacherController.createAbacusTeacher
-);
+
 
 //Login api for students and teachers
 router.post(
@@ -137,10 +132,7 @@ router.post(
   "/select-all-abacus-students",
   abacusStudentController.selectAbacusStudents
 );
-router.post(
-  "/select-all-abacus-teachers",
-  abacusTeacherController.selectAbacusTeachers
-);
+
 
 router.post("/select-courses", authverify, courseController.selectCourses);
 router.post("/select-menus", authverify, menuController.selectMenus);
@@ -185,10 +177,7 @@ router.put(
   "/update-abacus-student",
   abacusStudentController.updateAbacusStudent
 );
-router.put(
-  "/update-abacus-teacher",
-  abacusTeacherController.updateAbacusTeacher
-);
+
 
 router.put("/update-log", authverify, logController.updateLog);
 
@@ -233,9 +222,6 @@ router.delete(
   "/delete-abacus-student/:id",
   abacusStudentController.deleteAbacusStudent
 );
-router.delete(
-  "/delete-abacus-teacher/:id",
-  abacusTeacherController.deleteAbacusTeacher
-);
+
 
 module.exports = router;
