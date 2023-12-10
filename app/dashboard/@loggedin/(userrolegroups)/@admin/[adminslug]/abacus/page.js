@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { selectAllData } from "@/apiservices/madrashaAbacusApiServices";
+import { selectAllData } from "@/apiservices/allAbacusApiServices/madrashaAbacusApiServices";
 import mytoast from "@/components/toast/toast";
 import html2canvas from "html2canvas";
 

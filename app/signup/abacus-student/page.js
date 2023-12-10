@@ -1,4 +1,4 @@
-import AbacusStudentSignupForm from "@/customComponents/abacusStudentSignup/abacusStudentSignupForm";
+import AbacusStudentSignupForm from "@/customComponents/allCustomComponents/abacusStudentSignup/abacusStudentSignupForm";
 
 const Page = () => {
   return <AbacusStudentSignupForm />;

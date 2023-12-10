@@ -4,9 +4,6 @@ import {isAdmin} from "@/apiservices/checklogin";
 
 
 
-
-import React from 'react';
-
 import { useRouter } from 'next/navigation';
 
 function layout({admin, student, teacher}) {

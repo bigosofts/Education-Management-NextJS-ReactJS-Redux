@@ -1,13 +1,13 @@
 import MainMenu from "@/customComponents/Menu/Menu";
 import SubMenu from "@/customComponents/SubMenu/SubMenu";
 import Slider from "@/customComponents/slider/Slider";
-import AbacusSectionOne from "@/customComponents/abacusSignupSection/AbacusSectionOne";
-import Multiplication from "@/customComponents/multiplicationSection/MultiplicationSection";
-import CustomVideoGallery from "@/customComponents/customVideoGallery/CustomVideoGallery";
+import AbacusSectionOne from "@/customComponents/allCustomComponents/abacusSignupSection/AbacusSectionOne";
+import Multiplication from "@/customComponents/allCustomComponents/multiplicationSection/MultiplicationSection";
+import CustomVideoGallery from "@/customComponents/allCustomComponents/customVideoGallery/CustomVideoGallery";
 import Footer from "@/customComponents/Footer/Footer";
-import AbacusGenerator from "@/customComponents/abacusGenerator/AbacusGenerator";
-import AbacusStudentCourses from "@/components/AbacusStudentCourse/AbacusStudentCourses";
-import AboutAbacus from "@/customComponents/aboutAbacus/AboutAbacus";
+import AbacusGenerator from "@/customComponents/allCustomComponents/abacusGenerator/AbacusGenerator";
+import AbacusStudentCourses from "@/components/allAbacusComponents/AbacusStudentCourse/AbacusStudentCourses";
+import AboutAbacus from "@/customComponents/allCustomComponents/aboutAbacus/AboutAbacus";
 function Abacus() {
   const letImageObject = [
     { image: "/images/abacus1.jpg", caption: "1" },
@@ -22,7 +22,7 @@ function Abacus() {
       <SubMenu />
       <Slider linkObj={letImageObject} />
       <AbacusGenerator />
-      
+
       <AbacusSectionOne />
       <AboutAbacus />
       <Multiplication />

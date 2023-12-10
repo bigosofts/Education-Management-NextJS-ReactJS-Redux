@@ -1171,3 +1171,24 @@
   padding-left: 15px;
   box-sizing: border-box;
 }
+
+@media only screen and (max-width: 540px) {
+  .abacusGenerator {
+    padding-top: 30px;
+    padding-bottom: 0px;
+  }
+  .abacusGenerator .style-5 {
+   flex-direction: column;
+  }
+  .abacusGenerator .style-68 {
+   flex-direction: column;
+  }
+  .abacusGenerator .style-6, .abacusGenerator .style-13, .abacusGenerator .style-21, .abacusGenerator .style-32,.abacusGenerator .style-69,.abacusGenerator .style-71,.abacusGenerator .style-73{
+    max-width:unset;
+    margin-bottom: 10px;
+    padding-right: unset;
+  }
+  .abacusGenerator .style-1{
+    width: 80%;
+  }
+}

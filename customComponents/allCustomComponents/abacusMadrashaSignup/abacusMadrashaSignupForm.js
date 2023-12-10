@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import {
   createData,
   selectAllData,
-} from "@/apiservices/madrashaAbacusApiServices";
+} from "@/apiservices/allAbacusApiServices/madrashaAbacusApiServices";
 
 function AbacusMadrashaSignupForm(props) {
   const [abacusID, setAbacusID] = useState("");

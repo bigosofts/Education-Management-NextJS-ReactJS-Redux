@@ -14,9 +14,9 @@ const profileController = require("../controllers/profileController");
 const loginController = require("../controllers/loginController");
 const resultController = require("../controllers/resultController");
 const logController = require("../controllers/logController");
-const abacusStudentController = require("../controllers/abacusStudentController");
-const abacusTeacherController = require("../controllers/abacusTeacherController");
-const madrashaAbacusController = require("../controllers/madrashaAbacusController");
+const abacusStudentController = require("../controllers/allAbacusController/abacusStudentController");
+const abacusTeacherController = require("../controllers/allAbacusController/abacusTeacherController");
+const madrashaAbacusController = require("../controllers/allAbacusController/madrashaAbacusController");
 
 //Middleware Import
 const passEncrypted = require("../middlewares/passwordEncryption");
@@ -70,8 +70,6 @@ router.post(
   passEncrypted.hashedPassword,
   profileController.createStudent
 );
-
-
 
 //abacus
 router.post(
@@ -130,7 +128,6 @@ router.post(
   profileController.selectAllTeachers
 );
 
-
 //abacus
 router.post(
   "/select-all-madrasha-abacus",
@@ -178,7 +175,6 @@ router.put("/update-widget", authverify, widgetController.updateWidget);
 router.put("/update-result", authverify, resultController.updateResult);
 router.put("/update-log", authverify, logController.updateLog);
 
-
 //abacus update
 
 router.put(
@@ -193,8 +189,6 @@ router.put(
   "/update-abacus-teacher",
   abacusTeacherController.updateAbacusTeacher
 );
-
-
 
 router.put("/update-log", authverify, logController.updateLog);
 
@@ -229,7 +223,6 @@ router.delete("/delete-about/:id", authverify, aboutController.deleteAbout);
 router.delete("/delete-widget/:id", authverify, widgetController.deleteWidget);
 router.delete("/delete-result/:id", authverify, resultController.deleteResult);
 router.delete("/delete-log/:id", authverify, logController.deleteLog);
-
 
 //abacus delete
 router.delete(

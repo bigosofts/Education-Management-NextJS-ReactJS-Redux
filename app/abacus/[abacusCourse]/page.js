@@ -2,9 +2,9 @@ import MainMenu from "@/customComponents/Menu/Menu";
 import SubMenu from "@/customComponents/SubMenu/SubMenu";
 import Slider from "@/customComponents/slider/Slider";
 
-import CustomVideoGallery from "@/customComponents/customVideoGallery/CustomVideoGallery";
-import AbacusStudentCourses from "@/components/AbacusStudentCourse/AbacusStudentCourses";
-import AbacusCourse from "@/customComponents/AbacusCourses/AbacusCourses";
+import CustomVideoGallery from "@/customComponents/allCustomComponents/customVideoGallery/CustomVideoGallery";
+import AbacusStudentCourses from "@/components/allAbacusComponents/AbacusStudentCourse/AbacusStudentCourses";
+import AbacusCourse from "@/customComponents/allCustomComponents/AbacusCourses/AbacusCourses";
 
 import Footer from "@/customComponents/Footer/Footer";
 

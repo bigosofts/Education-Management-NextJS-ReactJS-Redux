@@ -1,5 +1,6 @@
 .aboutAbacus {
-background: rgb(247, 247, 247) none repeat scroll 0% 0% / auto padding-box border-box;
+  background: rgb(247, 247, 247) none repeat scroll 0% 0% / auto padding-box
+    border-box;
   background-image: url("https://abacuspro.in/images/cta-2-bg-1-1.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -150,4 +151,43 @@ background: rgb(247, 247, 247) none repeat scroll 0% 0% / auto padding-box borde
   transition: all 0.4s ease 0s;
   text-decoration: none solid rgb(28, 29, 63);
   box-sizing: border-box;
+}
+
+@media only screen and (max-width: 960px) {
+  .aboutAbacus .style-4 {
+    width: 400px;
+    margin-left: -55px;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .aboutAbacus .style-1 {
+    display: flex;
+    flex-direction: column;
+  }
+  .aboutAbacus .style-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+
+    width: 100%;
+  }
+  .aboutAbacus .style-2 {
+    position: unset;
+    width: 100%;
+    margin: auto;
+  }
+  .aboutAbacus .style-10 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 24px;
+  }
+  .aboutAbacus .style-11 {
+    font-size: 16px;
+  }
+  .aboutAbacus .style-1 {
+    width: 80%;
+  }
+  .aboutAbacus .style-4 {
+    margin-left: unset;
+  }
 }

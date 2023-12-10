@@ -1,5 +1,7 @@
-const madrashaAbacusModel = require("../models/madrashaAbacusModel");
-const { hashedPasswordCustom } = require("../middlewares/passwordEncryption");
+const madrashaAbacusModel = require("../../models/allAbacusModel/madrashaAbacusModel");
+const {
+  hashedPasswordCustom,
+} = require("../../middlewares/passwordEncryption");
 
 //creating madrasha Abacus records to database
 exports.createMadrashaAbacus = (req, res) => {

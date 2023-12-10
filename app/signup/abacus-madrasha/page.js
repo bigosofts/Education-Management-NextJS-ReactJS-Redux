@@ -1,10 +1,7 @@
-import AbacusMadrashaSignupForm from "@/customComponents/abacusMadrashaSignup/abacusMadrashaSignupForm";
-
+import AbacusMadrashaSignupForm from "@/customComponents/allCustomComponents/abacusMadrashaSignup/abacusMadrashaSignupForm";
 
 const Page = () => {
-    return (
-        <AbacusMadrashaSignupForm/>
-    );
+  return <AbacusMadrashaSignupForm />;
 };
 
 export default Page;

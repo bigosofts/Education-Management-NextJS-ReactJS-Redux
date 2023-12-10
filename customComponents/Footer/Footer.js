@@ -1,4 +1,5 @@
 import "./Footer.css";
+import GoogleMap from "../MapComponent/Map";
 function Footer() {
   return (
     <footer className="Footer">
@@ -117,7 +118,7 @@ function Footer() {
                       target="_blank"
                       className="style-51"
                     >
-                      <i className="style-52" aria-hidden="true"></i>
+                      <i className="fa fa-facebook" aria-hidden="true"></i>
                     </a>
                   </li>
                   <li className="style-53">
@@ -126,7 +127,7 @@ function Footer() {
                       target="_blank"
                       className="style-54"
                     >
-                      <i className="style-55" aria-hidden="true"></i>
+                      <i className="fa fa-youtube" aria-hidden="true"></i>
                     </a>
                   </li>
                   <li className="style-56">
@@ -135,7 +136,7 @@ function Footer() {
                       target="_blank"
                       className="style-57"
                     >
-                      <i className="style-58" aria-hidden="true"></i>
+                      <i className="fa fa-skype" aria-hidden="true"></i>
                     </a>
                   </li>
                   <li className="style-59">
@@ -144,50 +145,24 @@ function Footer() {
                       target="_blank"
                       className="style-60"
                     >
-                      <i className="style-61" aria-hidden="true"></i>
+                      <i className="fa fa-telegram" aria-hidden="true"></i>
                     </a>
                   </li>
-                  <li className="style-62">
-                    <a
-                      href="https://api.whatsapp.com/send?phone=+(88)01674040502"
-                      target="_blank"
-                      className="style-63"
-                    >
-                      <i className="style-64" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li className="style-65">
-                    <a
-                      href="https://www.youtube.com/channel/UCREA5vqNwLPlH_lC6865fBg"
-                      target="_blank"
-                      className="style-66"
-                    >
-                      <i className="style-67" aria-hidden="true"></i>
-                    </a>
-                  </li>
+                 
                 </ul>
               </div>
             </div>
           </div>
           <div className="style-68">
             <div className="style-69">
-              <h3 className="style-70">Get in Touch</h3>{" "}
-              <input type="text" placeholder="Name" className="style-71" />{" "}
-              <input type="email" placeholder="Email" className="style-72" />{" "}
-              <textarea
-                name="message"
-                cols="10"
-                rows="4"
-                placeholder="Message"
-                className="style-73"
-              ></textarea>{" "}
-              <input type="submit" value="Submit" className="style-74" />
+              
+              <GoogleMap />
             </div>
           </div>
         </div>
         <div className="style-75">
           <p className="style-76">
-            Copyright <i className="style-77" aria-hidden="true"></i> 2021
+            &copy;Copyright <i className="style-77" aria-hidden="true"></i> 2024
             Talimul quran was sunna internet madrasa. All right reserved
           </p>
         </div>

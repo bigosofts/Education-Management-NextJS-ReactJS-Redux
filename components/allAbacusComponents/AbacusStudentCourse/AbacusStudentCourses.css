@@ -1,0 +1,27 @@
+.abcstdheading {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 50px;
+}
+.studentCourses {
+  padding: 5% 0%;
+  width: 1200px;
+  margin: 0px auto;
+}
+@media only screen and (max-width: 960px) {
+  .studentCourses {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .studentCourses {
+    width: 80%;
+  }
+  .studentCourses h2 {
+    font-size: 24px;
+  }
+}

@@ -1,4 +1,4 @@
-import AbacusTeacherSignupForm from "@/customComponents/abacusTeacherSignup/abacusTeacherSignupForm";
+import AbacusTeacherSignupForm from "@/customComponents/allCustomComponents/abacusTeacherSignup/abacusTeacherSignupForm";
 
 import React from "react";
 

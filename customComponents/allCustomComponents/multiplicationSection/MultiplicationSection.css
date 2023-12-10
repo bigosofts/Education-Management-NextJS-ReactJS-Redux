@@ -280,3 +280,32 @@
   background-color: rgba(0, 0, 0, 0);
   box-sizing: border-box;
 }
+
+@media only screen and (max-width: 540px) {
+  .multiplicationSection .style-6 {
+    flex: 50%;
+    margin-bottom: 20px;
+  }
+  .multiplicationSection .style-11 {
+    flex: 50%;
+    margin-bottom: 20px;
+  }
+  .multiplicationSection .style-16 {
+    flex: 50%;
+    margin-bottom: 20px;
+  }
+  .multiplicationSection .style-21 {
+    flex: 50%;
+    margin-bottom: 20px;
+  }
+  .multiplicationSection .style-26 {
+    flex: 50%;
+    margin-bottom: 20px;
+  }
+  .multiplicationSection .style-4 {
+    font-size: 24px;
+  }
+  .multiplicationSection .style-1 {
+    width: 80%;
+  }
+}

@@ -1,6 +1,6 @@
 .abacusCourse {
-    margin-top:120px;
-    margin-bottom:120px;
+  margin-top: 120px;
+  margin-bottom: 120px;
   padding-top: 40px;
   gap: 48px;
   flex-direction: row;
@@ -12382,4 +12382,29 @@
   margin-left: 4px;
   border: 0px solid rgb(219, 225, 235);
   box-sizing: border-box;
+}
+
+@media only screen and (max-width: 960px) {
+  .abacusCourse{
+    flex-direction: column;
+  }
+  .abacusCourse .style-1{
+    max-width:unset;
+  }
+  .abacusCourse .style-1135 {
+    max-width: unset;
+  }
+  .abacusCourse .style-1137{
+    max-width: 100%;
+  }
+  .abacusCourse .style-13 {
+    grid-template-columns: 50% 50%;
+   
+  }
+}
+@media only screen and (max-width: 540px){
+  .abacusCourse .style-13 {
+    grid-template-columns: 100%;
+   
+  }
 }

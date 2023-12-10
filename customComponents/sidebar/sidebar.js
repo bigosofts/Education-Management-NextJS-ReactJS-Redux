@@ -23,6 +23,12 @@ function Sidebar(props) {
         setToggleCollapse((prevState)=> !prevState);
     }
 
+    const pageCourse = props.pageCourse;
+    let paddingCustom = pageCourse ? {paddingTop:"0px"} : {};
+    let CustomMargin = pageCourse ? "sidebar__wrapper_custom" : "";
+    
+    
+
     const sidebarItems = props.item;
 
     function iconReturn(name){
@@ -83,7 +89,7 @@ function Sidebar(props) {
     }
 
     return (
-        <div className='sidebar__wrapper'>
+        <div style={paddingCustom} className={`sidebar__wrapper ${CustomMargin}`}>
             
             <button onClick={toggleCollapseHandler} className="btn">
             {isCollapsed ? <MdKeyboardArrowRight /> : <MdKeyboardArrowLeft />}

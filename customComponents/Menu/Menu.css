@@ -2,11 +2,12 @@
   background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
     border-box;
   box-sizing: border-box;
-  height: 160px;
+  height: 105px;
+  padding-top: 15px;
 }
 
 .mainmenu .style-1 {
-  width: 1170px;
+  width: 1200px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -15,14 +16,13 @@
 }
 
 .mainmenu .style-2 {
-  padding: 10px 0px;
   box-sizing: border-box;
 }
 
 .mainmenu .style-3 {
   width: 8.33333%;
   float: left;
-  height: 144px;
+  height: auto;
   position: relative;
   min-height: 1px;
   padding-right: 15px;
@@ -33,7 +33,7 @@
 .mainmenu .style-4 {
   display: table;
   width: 100%;
-  height: 144px;
+  height: auto;
   box-sizing: border-box;
 }
 
@@ -56,7 +56,7 @@
   display: block;
   max-width: 100%;
   height: auto;
-  
+
   box-sizing: border-box;
   border: 0px none rgb(51, 122, 183);
 }
@@ -64,7 +64,7 @@
 .mainmenu .style-8 {
   width: 25%;
   float: left;
-  height: 144px;
+  height: auto;
   position: relative;
   min-height: 1px;
   padding-right: 15px;
@@ -76,7 +76,7 @@
 .mainmenu .style-9 {
   display: table;
   width: 100%;
-  height: 144px;
+  height: auto;
   box-sizing: border-box;
 }
 
@@ -98,7 +98,7 @@
 .mainmenu .style-12 {
   width: 25%;
   float: left;
-  height: 144px;
+  height: auto;
   position: relative;
   min-height: 1px;
   padding-right: 15px;
@@ -110,7 +110,7 @@
 .mainmenu .style-13 {
   display: table;
   width: 100%;
-  height: 144px;
+  height: x;
   box-sizing: border-box;
 }
 
@@ -123,7 +123,7 @@
 
 .mainmenu .style-15 {
   display: inline;
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
   vertical-align: middle;
   box-sizing: border-box;
@@ -133,7 +133,7 @@
 .mainmenu .style-16 {
   width: 41.6667%;
   float: left;
-  height: 144px;
+  height: x;
   position: relative;
   min-height: 1px;
   padding-right: 15px;
@@ -145,7 +145,7 @@
 .mainmenu .style-17 {
   display: table;
   width: 100%;
-  height: 144px;
+  height: x;
   box-sizing: border-box;
 }
 
@@ -162,4 +162,26 @@
   height: auto;
   box-sizing: border-box;
   border: 0px none rgb(51, 51, 51);
+}
+
+@media only screen and (max-width: 992px) {
+  .mainmenu .style-1 {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .mainmenu .style-3 {
+    width: 30%;
+  }
+  .mainmenu .style-8 {
+    width: 70%;
+  }
+  .mainmenu .style-12 {
+    display: none;
+  }
+  .mainmenu .style-16 {
+    display: none;
+  }
+  
+ 
 }
