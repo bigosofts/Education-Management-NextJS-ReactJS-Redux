@@ -1,101 +1,24 @@
+"use client";
+
 import "./Livesection.css";
+import YouTubeEmbed from "../AudioPlayer/AudioPlayer";
+
+
+
 function LiveSection() {
+  
+  
   return (
     <div className="Livestream">
       <div className="style-1">
         <h2 className="style-2">
           Live Broadcasting <span className="style-3">OFFAIR</span>
         </h2>
-        <span className="style-4">Audio Player</span>
-        <div
-          className="style-5"
-          tabindex="0"
-          role="application"
-          aria-label="Audio Player"
-        >
-          <div className="style-6">
-            <div className="style-7">
-              <div className="style-8"></div>
-            </div>
-            <div className="style-9">
-              <div className="style-10">
-                <button
-                  type="button"
-                  aria-controls="mep_0"
-                  title="Play"
-                  aria-label="Play"
-                  tabindex="0"
-                  className="style-11"
-                >play</button>
-              </div>
-              <div className="style-12" role="timer" aria-live="off">
-                <span className="style-13">00:00</span>
-              </div>
-              <div className="style-14">
-                <span
-                  className="style-15"
-                  role="slider"
-                  tabindex="0"
-                  aria-label="Time Slider"
-                  aria-valuemin="0"
-                  aria-valuemax="NaN"
-                  aria-valuenow="0"
-                  aria-valuetext="00:00"
-                >
-                  <span className="style-16"></span>
-                  <span className="style-17"></span>
-                  <span className="style-18"></span>
-                  <span className="style-19"></span>
-                  <span className="style-20">
-                    <span className="style-21">00:00</span>
-                    <span className="style-22"></span>
-                  </span>
-                </span>
-              </div>
-              <div className="style-23">
-                <span className="style-24">00:00</span>
-              </div>
-              <div className="style-25">
-                <button
-                  type="button"
-                  aria-controls="mep_0"
-                  title="Mute"
-                  aria-label="Mute"
-                  tabindex="0"
-                  className="style-26"
-                ></button>
-              </div>
-              <a
-                className="style-27"
-                href="javascript:void(0);"
-                aria-label="Volume Slider"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                aria-valuenow="80"
-                aria-valuetext="80%"
-                role="slider"
-                tabindex="-1"
-              >
-                <span className="style-28">
-                  Use Up/Down Arrow keys to increase or decrease volume.
-                </span>
-                <div className="style-29">
-                  <div className="style-30"></div>
-                  <div className="style-31"></div>
-                </div>
-              </a>
-            </div>
-            <div className="style-32">
-              <mediaelementwrapper className="style-33">
-                <audio
-                  src="http://api.khanqahbd.com/live"
-                  preload="none"
-                  className="style-34"
-                ></audio>
-              </mediaelementwrapper>
-            </div>
-            <div className="style-35"></div>
-          </div>
+        <div style={{padding: "5px 0px", background:"url('/images/pattern.png')"}}>
+
+        <YouTubeEmbed />
+
+
         </div>
         <h2 className="style-36">Get Mobile App</h2>
         <div className="style-37">

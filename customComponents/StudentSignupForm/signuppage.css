@@ -1,176 +1,3635 @@
-.page-wrapper {
-    overflow: hidden;
-    background: #e5e7eb;
-    padding-bottom: 8vh;
-    min-height: 100vh;
-}
-@media (max-width: 991px) {
-    .page-wrapper {
-    overflow: auto;
-    background: #e5e5e5;
-    padding-bottom: 12vh;
-}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap");
+
+/* 
+
+font-family: 'PT Sans', sans-serif;
+
+font-family: 'Hind Siliguri', sans-serif;
+
+*/
+
+.signup-universal {
+  font-family: "Hind Siliguri", sans-serif !important;
+
+  font-size: 15px !important;
+
+  font-weight: 400;
+
+  color: #5e5e5e;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-.container-loginpage {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-@media (min-width: 768px){}
-.container-loginpage {
-    max-width: 720px;
-}
-@media (min-width: 576px){}
-.container-loginpage {
-    max-width: 540px;
+.signup-universal .clearfix {
+  clear: both;
 }
 
-.login-wrap {
-    max-width: 540px;
-    padding-top: 8vh;
-    margin: 20px auto;
-    
+.signup-universal a {
+  text-decoration: none !important;
+
+  color: inherit;
 }
-.login-logo a {
-    display: inline-block;
+.signup-universal a:hover {
+  text-decoration: none !important;
+
+  color: inherit;
 }
 
-.login-logo {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    width: 90px;
+.signup-universal ul {
+  margin: 0;
+
+  list-style: none;
 }
 
-.login-checkbox {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -moz-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+.signup-universal .no-gutters {
+  padding-right: 0;
+
+  padding-left: 0;
 }
 
-.login-checkbox label input[type="checkbox"] {
-    margin-right: 8px;
+/* ....................Css code for Common section start.....................*/
+
+.signup-universal .head-tittle {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 36px;
+
+  font-weight: bold;
+
+  margin-bottom: 30px;
+
+  color: #5e5e5e;
+
+  text-transform: capitalize;
 }
 
-.login-checkbox > label > a {
-    color: #ff2e44;
+.signup-universal .section-head p {
+  font-weight: 500;
+
+  margin-bottom: 30px;
 }
 
-@media (max-width: 991px) {
-    .login-checkbox {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        -moz-box-orient: vertical;
-        -moz-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-    }
+.signup-universal .btnApply {
+  background: #2c6e49;
+
+  font-weight: bold;
+
+  font-family: "PT Sans", sans-serif;
+
+  width: 104px;
+
+  height: 29px;
+
+  line-height: 29px;
+
+  text-align: center;
+
+  border-radius: 5px;
+
+  margin-top: 20px;
+
+  margin-bottom: 15px;
+
+  color: #fff;
+
+  display: inline-block;
+
+  transition: 0.4s;
+
+  border: 1px solid transparent;
 }
 
-.login-content label {
-    display: inline-block;
-    margin-bottom: 0.5rem;
+.signup-universal .btnApply:hover {
+  border: 1px solid #2c6e49;
+
+  background: transparent;
+
+  color: #2c6e49;
+
+  text-decoration: none;
 }
 
-.login-form .form-group label {
-    display: block;
+/* ....................Css code for Common section End.....................*/
+
+/* ....................Css code for Home page start.....................*/
+
+.signup-universal header.header {
+  background: #f4f4f4;
 }
 
-.login-content {
-    background: #fff;
-    padding: 30px 30px 20px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 10px;
+.signup-universal .header-top ul {
+  background: linear-gradient(
+    -180deg,
+    rgba(242, 242, 242, 1) 0%,
+    rgba(46, 110, 73, 1) 20%
+  );
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  list-style: none;
+
+  width: 314px;
+
+  height: 34px;
+
+  border-radius: 5px;
 }
 
-.social-login-content {
-    border-top: 1px solid #e7e7e7;
-    border-bottom: 1px solid #e7e7e7;
-    padding: 20px 0px;
+.signup-universal .header-top ul li a {
+  font-family: "PT Sans", sans-serif;
+
+  text-decoration: none;
+
+  color: #fff;
+
+  font-weight: bold;
+
+  display: inline-block;
 }
 
-.register-link {
-    padding-top: 15px;
-    text-align: center;
-    font-size: 14px;
+.signup-universal .header-top ul li {
+  width: 105px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
 }
 
-.register-link > p > a {
-    color: #ff2e44;
-    padding: 5px;
+.signup-universal .header-top ul li:first-child {
+  background: linear-gradient(
+    -180deg,
+    rgba(242, 242, 242, 1) 0%,
+    rgba(214, 140, 69, 1) 20%
+  );
+
+  border-radius: 5px;
 }
 
-.form-group {
-    margin-bottom: 1rem;
+.signup-universal .header-top ul li:last-child {
+  position: relative;
 }
 
-.au-input {
-    line-height: 43px;
-    border: 1px solid #e5e5e5;
-    font-size: 14px;
-    color: #666;
-    padding: 0 17px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-.au-input--full {
-    width: 100%;
-}
-.au-btn {
-    line-height: 45px;
-    padding: 0 35px;
-    text-transform: uppercase;
-    color: #fff;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    cursor: pointer;
+.signup-universal .header-top ul li:last-child:before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  height: 20px;
+
+  width: 2px;
+
+  background: #fff;
 }
 
-.au-btn:hover {
-    color: #fff;
-    background: #3868cd;
-}
-.au-btn--block {
-    display: block;
-    width: 100%;
-}
-.au-btn--green {
-    background: #63c76a;
+.signup-universal .header-top {
+  display: flex;
+
+  justify-content: flex-end;
 }
 
-.au-btn--green:hover {
-    background: #59bd60;
-}
-.au-btn--red {
-    background: #c13c3c;
+.signup-universal .navbar {
+  /* height: 90px; */
+
+  padding: 7px 0 !important;
 }
 
-.au-btn--red:hover {
-    background: #9d3b3b;
-}
-.m-b-20 {
-    margin-bottom: 20px;
+.signup-universal .navbar-brand {
+  position: relative;
+
+  top: -20px;
 }
 
+.signup-universal .navbar-brand img {
+  height: 65px;
+
+  width: 70px;
+}
+
+.signup-universal .navbar span.logo {
+  font-size: 19px;
+
+  font-weight: 700;
+
+  line-height: 24px;
+
+  position: absolute;
+
+  left: 85px;
+
+  top: 5px;
+}
+
+.signup-universal ul.navbar-nav li a {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  color: #5e5e5e !important;
+
+  margin-left: 0px;
+
+  padding: 0 15px !important;
+
+  transition: all 0.4s;
+}
+
+.signup-universal ul.navbar-nav li a:hover,
+.signup-universal ul.navbar-nav li a.active {
+  color: #00a676 !important;
+}
+
+.signup-universal ul.navbar-nav li:last-child a {
+  padding-right: 0 !important;
+
+  /*color: #5e5e5e !important;*/
+}
+
+.signup-universal .dropdown-item:focus,
+.dropdown-item:hover {
+  background-color: transparent !important;
+}
+
+/* ....................Css code for Banner Area Start.....................*/
+
+.signup-universal .banner {
+  background-image: url(/previmages/BannerColor.png);
+
+  background-size: cover;
+
+  background-position: center;
+
+  width: 100%;
+
+  min-height: 500px;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.signup-universal .bannerMiddle {
+  display: flex;
+
+  align-items: center;
+}
+
+.signup-universal .banner-content h2 {
+  font-size: 28px;
+
+  font-weight: bold;
+
+  color: #fff;
+
+  margin-bottom: 20px;
+}
+
+.signup-universal .banner-content p {
+  color: #fff;
+
+  line-height: 22px;
+
+  margin-bottom: 30px;
+
+  padding-right: 35px;
+}
+
+.signup-universal .banner-content a {
+  background: linear-gradient(
+    -180deg,
+    rgba(242, 242, 242, 1) 0%,
+    rgba(214, 140, 69, 1) 20%
+  );
+
+  border-radius: 5px;
+
+  width: 149px;
+
+  height: 39px;
+
+  display: inline-block;
+
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  text-align: center;
+
+  line-height: 39px;
+
+  color: #fff;
+}
+
+.signup-universal .bannerImage img {
+  width: 100%;
+
+  height: 100%;
+}
+
+.signup-universal .mybuttonoverlap {
+  position: absolute;
+  z-index: 2;
+  top: 44px;
+  display: none;
+  left: 59px;
+}
+
+/* ....................Css code for Banner Area End.....................*/
+
+/* ....................Css code for Highlight Area Start.....................*/
+
+.signup-universal .highlight {
+  padding: 60px 0;
+}
+
+.signup-universal .highlight-heading {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 36px;
+
+  font-weight: bold;
+
+  margin-bottom: 25px;
+
+  color: #5e5e5e;
+}
+
+.signup-universal .list-item {
+  margin-bottom: 18px;
+}
+
+.signup-universal .list-border {
+  position: relative;
+}
+
+.signup-universal .list-border:before {
+  content: "";
+
+  position: absolute;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+
+  width: calc(100% - 110px);
+
+  bottom: -8px;
+
+  left: 100px;
+}
+
+.signup-universal .list-left {
+  width: 70px;
+
+  height: 63px;
+
+  background: #006837;
+
+  color: #fff;
+
+  text-align: center;
+
+  position: relative;
+
+  float: left;
+}
+
+.signup-universal .list-left .date {
+  font-size: 25px;
+
+  font-weight: bold;
+
+  margin-top: 5px;
+
+  display: inline-block;
+}
+
+.signup-universal .list-left .month {
+  font-size: 15px;
+
+  font-weight: bold;
+
+  display: inline-block;
+
+  padding: -21px;
+
+  position: absolute;
+
+  bottom: 11px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.signup-universal .list-left .year {
+  position: absolute;
+
+  bottom: 5px;
+
+  right: 5px;
+
+  font-size: 6px;
+
+  font-weight: bold;
+}
+
+.signup-universal .list-right {
+  margin-left: 100px;
+}
+
+.signup-universal .list-right h6 {
+  font-size: 16px;
+
+  font-weight: bold;
+
+  font-family: "PT Sans", sans-serif;
+
+  color: #000;
+}
+
+.signup-universal .list-right p {
+  margin-bottom: 0;
+
+  color: #353535;
+}
+
+.signup-universal .list-right p i {
+  margin-right: 5px;
+}
+
+.signup-universal .highlight-item a {
+  width: 270px;
+
+  height: 45px;
+
+  display: inline-block;
+
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  text-align: center;
+
+  line-height: 45px;
+
+  color: #262626;
+
+  border-radius: 5px;
+
+  border: 1px solid #006837;
+
+  transition: all 0.4s;
+}
+
+.signup-universal .highlight-item a:hover {
+  background: #006837;
+
+  color: #fff;
+}
+
+.signup-universal .latestBlogImg img {
+  width: 100%;
+
+  margin-bottom: 30px;
+}
+
+.signup-universal ol.carousel-indicators li {
+  width: 12px;
+
+  height: 12px;
+
+  border-radius: 50%;
+
+  bottom: -30px;
+
+  background: #a0a0a0;
+}
+
+.signup-universal ol.carousel-indicators li.active {
+  background: #00a676;
+}
+
+.signup-universal .highlight-item ol.carousel-indicators {
+  left: 10px;
+
+  bottom: 20px;
+}
+
+/* ....................Css code for Highlight Area End.....................*/
+
+/* ....................Css code for Course Area End.....................*/
+
+.signup-universal #course {
+  padding: 60px 0;
+}
+
+.signup-universal .enroll-now {
+  width: 140px;
+
+  height: 38px;
+
+  background: #006837;
+
+  text-align: center;
+
+  line-height: 38px;
+
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  display: inline-block;
+
+  color: #fff;
+
+  border-radius: 5px;
+
+  transition: all 0.4s;
+
+  border: 1px solid transparent;
+}
+
+.signup-universal .enroll-now:hover {
+  background: transparent;
+
+  border: 1px solid #006837;
+
+  color: #006837;
+}
+
+/* ....................Css code for Course Area End.....................*/
+
+/* ....................Css code for Counter Area End.....................*/
+
+.signup-universal .counter {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(/previmages/counter-banner.png) no-repeat center;
+
+  padding: 50px 0;
+
+  background-size: cover;
+}
+
+.signup-universal .counter h3 {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 36px;
+
+  font-weight: bold;
+
+  text-align: center;
+
+  color: #fff;
+
+  margin-bottom: 40px;
+}
+
+.signup-universal .counterItem {
+  text-align: center;
+}
+
+.signup-universal .counterItem h2 {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 48px;
+
+  font-weight: bold;
+
+  color: #006837;
+
+  margin-bottom: 20px;
+}
+
+.signup-universal .counterItem h6 {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 21px;
+
+  font-weight: bold;
+
+  color: #fff;
+}
+
+/* ....................Css code for Counter Area End.....................*/
+
+/* ....................Css code for Testimonial Area Start.....................*/
+
+.signup-universal .testimonial-area .slick-dots {
+  display: flex;
+
+  justify-content: center;
+}
+
+.signup-universal .testimonial-area li {
+  margin: 0 0.25rem;
+}
+
+.signup-universal .testimonial-area li button {
+  display: block;
+
+  width: 12px;
+
+  height: 12px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 100%;
+
+  background-color: #a0a0a0;
+
+  text-indent: -9999px;
+
+  outline: 0;
+}
+
+.signup-universal .testimonial-area li.slick-active button {
+  background-color: #006837;
+
+  border: none;
+}
+
+.signup-universal .testimonial-area .testimonial-item {
+  margin: 0 15px 50px;
+}
+
+.signup-universal .testimonial-item img {
+  height: 60px;
+
+  width: 60px;
+
+  border-radius: 50%;
+
+  float: left;
+
+  margin-right: 10px;
+}
+
+.signup-universal section.testimonial {
+  background: #f9f8f9;
+
+  padding: 50px 0px;
+
+  -webkit-box-shadow: 0px -1px 10px 0px rgba(0, 0, 0, 0.49);
+
+  -moz-box-shadow: 0px -1px 10px 0px rgba(0, 0, 0, 0.49);
+
+  box-shadow: 0px -1px 10px 0px rgba(0, 0, 0, 0.49);
+}
+
+.signup-universal .testimonial-item {
+  background: #fff;
+
+  min-height: 220px;
+
+  padding: 30px 40px;
+
+  margin-bottom: 50px;
+
+  -webkit-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
+
+  -moz-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
+
+  box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.signup-universal .testimonial-item h3 {
+  font-size: 18px;
+
+  margin-bottom: 5px;
+
+  font-weight: bold;
+}
+
+.signup-universal .testimonial-item h5 {
+  font-size: 16px;
+
+  font-weight: 600;
+}
+
+.signup-universal .testimonial-item p {
+  font-size: 15px;
+
+  font-weight: 500;
+
+  line-height: 20px;
+
+  padding-top: 15px;
+}
+
+.signup-universal .one {
+  padding-top: 6px;
+}
+
+/* ....................Css code for Testimonial Area End.....................*/
+
+/* ....................Css code for Footer Area Start.....................*/
+
+.signup-universal footer.footer {
+  background: linear-gradient(
+    to bottom,
+    rgba(46, 110, 73, 1) 40%,
+    rgba(26, 26, 26, 1) 100%
+  );
+
+  color: #ededed;
+
+  padding: 50px 0 30px;
+}
+
+.signup-universal .footer-item h3.madrashaName {
+  font-family: "Hind Siliguri", sans-serif;
+
+  font-size: 19px;
+
+  font-weight: bold;
+
+  margin-bottom: 20px;
+}
+
+.signup-universal .footer-item h3 {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 21px;
+
+  font-weight: bold;
+
+  margin-bottom: 20px;
+}
+
+.signup-universal .footer-item p.description {
+  line-height: 21px;
+}
+
+.signup-universal ul.link {
+  list-style: none;
+}
+
+.signup-universal .signup-universal ul.link li {
+  margin-bottom: 2px;
+}
+
+.signup-universal ul.link li a {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 16px;
+
+  line-height: 20px;
+
+  color: #fff;
+}
+
+.signup-universal .footer-item input {
+  width: 100%;
+
+  margin-bottom: 5px;
+
+  padding: 5px 10px;
+
+  border-radius: 2px;
+
+  border: 1.5px solid #fff;
+
+  background: transparent;
+
+  border-radius: 3px;
+}
+
+.signup-universal .footer-item input::placeholder,
+.signup-universal .footer-item textarea::placeholder {
+  color: #d3d3d3;
+}
+
+.signup-universal .footer-item textarea {
+  background: transparent;
+
+  border: 1.5px solid #fff;
+
+  border-radius: 3px;
+
+  width: 100%;
+
+  padding: 3px 10px;
+}
+
+.signup-universal input[type="submit"] {
+  background: linear-gradient(
+    -180deg,
+    rgba(242, 242, 242, 1) 0%,
+    rgba(214, 140, 69, 1) 20%
+  );
+
+  border: none;
+
+  color: #fff;
+
+  font-weight: 600;
+}
+
+.signup-universal .contact-address tr {
+  border: none;
+
+  padding-bottom: 20px;
+
+  display: inline-block;
+
+  border: none;
+}
+
+.signup-universal .contact-address td {
+  border: none;
+
+  font-size: 16px;
+}
+
+.signup-universal td.contAddItem {
+  padding-right: 10px;
+}
+
+.signup-universal td.td1 {
+  font-size: 21px;
+}
+
+.signup-universal .contact-info h5 {
+  font-weight: normal;
+}
+
+.signup-universal .contact-info ul {
+  margin-left: 0 !important;
+
+  display: flex;
+}
+
+.signup-universal .contact-info ul li a {
+  color: #fff;
+
+  text-decoration: none;
+
+  border: 1px solid #fff;
+
+  width: 24px;
+
+  height: 24px;
+
+  line-height: 24px;
+
+  border-radius: 50%;
+
+  font-size: 12px;
+
+  text-align: center;
+
+  display: inline-block;
+
+  margin: 0 3px;
+}
+
+.signup-universal .footer-bottom {
+  text-align: center;
+
+  color: #fff;
+}
+
+.signup-universal .footer-bottom p {
+  font-size: 14px;
+
+  margin-bottom: 0;
+}
+
+/* ....................Css code for Footer Area End.....................*/
+
+/* ....................Css code for Home page End.....................*/
+
+/* ....................Css code for About page start.....................*/
+
+.signup-universal .about-banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(/previmages/breadcrumb-area-bg.jpg) no-repeat center;
+
+  height: 200px;
+
+  background-size: cover;
+}
+
+.signup-universal .banner-text {
+  padding-top: 85px;
+}
+
+.signup-universal .banner-text h2 {
+  font-size: 40px;
+
+  font-weight: 600;
+
+  margin-bottom: -2px;
+
+  color: #fff;
+}
+
+.signup-universal .banner-text p {
+  color: #fff;
+}
+
+/* about */
+
+.signup-universal section.about {
+  padding: 50px 0 30px;
+
+  background: #f7f7f7;
+
+  border-bottom: 1px solid #e0dede;
+}
+
+.signup-universal .about-img {
+  background: #e8e8e8;
+
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.signup-universal .about-img img {
+  height: 390px;
+
+  width: 100%;
+}
+
+.signup-universal .about-right h2 {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 36px;
+
+  font-weight: bold;
+
+  margin-bottom: 20px;
+
+  text-transform: capitalize;
+}
+
+.signup-universal .mission-item i {
+  height: 40px;
+
+  width: 40px;
+
+  font-size: 18px;
+
+  background: #00a676;
+
+  color: #fff;
+
+  border-radius: 50%;
+
+  line-height: 40px;
+
+  text-align: center;
+
+  float: left;
+
+  margin-right: 10px;
+}
+
+.signup-universal .mission-head {
+  margin-bottom: 15px;
+}
+
+/* service */
+
+.signup-universal section.service {
+  /* margin-top: 50px; */
+
+  padding: 50px 0;
+
+  background: #f7f7f7;
+
+  border-bottom: 1px solid #e0dede;
+}
+
+.signup-universal .service-item {
+  /* margin-top: 30px; */
+}
+
+.signup-universal .service-item .service-icon {
+  width: 60px;
+
+  height: 60px;
+
+  float: left;
+
+  margin-left: -13px;
+}
+
+.signup-universal .service-item .service-icon img {
+  width: 100%;
+
+  height: 100%;
+}
+
+.signup-universal .service-item h3 {
+  font-size: 18px;
+
+  font-weight: bold;
+
+  margin-bottom: 6px;
+}
+
+.signup-universal .service-item h5 {
+  font-size: 16px;
+
+  font-weight: 600;
+}
+
+.signup-universal .service-item p {
+  line-height: 19px;
+}
+
+/* team */
+
+.signup-universal section.team {
+  padding: 50px 0;
+
+  background: #f7f7f7;
+}
+
+.signup-universal section.section-head p {
+  font-weight: 500;
+
+  margin-bottom: 30px;
+}
+
+.signup-universal .team-item {
+  margin-bottom: 30px;
+
+  text-align: center;
+
+  background: #fff;
+
+  padding: 20px 15px;
+
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.signup-universal .team-img img {
+  width: 110px;
+
+  height: 110px;
+
+  border-radius: 50%;
+
+  border: 3px solid #00a676;
+
+  margin-bottom: 5px;
+}
+
+.signup-universal .team-content p.jobTitle {
+  font-size: 14px;
+
+  font-weight: 300;
+
+  margin-bottom: 10px;
+}
+
+.signup-universal .team-content p {
+  font-weight: 400;
+
+  font-size: 13px;
+
+  margin-bottom: 15px;
+}
+
+.signup-universal .team-content h4 {
+  font-size: 15px;
+
+  font-weight: bold;
+
+  margin-bottom: 10px;
+}
+
+.signup-universal .team-content ul {
+  display: flex;
+
+  justify-content: center;
+}
+
+.signup-universal .team-content ul li a {
+  border: 1px solid #00a676;
+
+  color: #5e5e5e;
+
+  width: 20px;
+
+  height: 20px;
+
+  line-height: 20px;
+
+  border-radius: 50%;
+
+  font-size: 12px;
+
+  text-align: center;
+
+  display: inline-block;
+
+  margin: 0 3px;
+}
+
+/* ....................Css code for About page End.....................*/
+
+/* ....................Css code for Donate page start.....................*/
+
+.signup-universal .donate-banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(/images/img_4.jpg) no-repeat top;
+
+  height: 200px;
+
+  background-size: cover;
+}
+
+.signup-universal .campaigns {
+  padding: 60px 0;
+
+  background: #f5f5f5;
+}
+
+.signup-universal .camp-top h3 {
+  font-family: "PT Sans", sans-serif;
+
+  font-weight: bold;
+
+  font-size: 36px;
+
+  margin-bottom: 20px;
+}
+
+.signup-universal .camp-top p {
+  font-size: 14px;
+
+  line-height: 20px;
+
+  color: #5e5e5e;
+}
+
+.signup-universal .campArea {
+  margin-top: 50px;
+}
+
+.signup-universal .compItem {
+  margin-bottom: 30px;
+}
+
+.signup-universal campContent {
+  padding: 15px 22px;
+
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.signup-universal .campContent h6 {
+  font-size: 14px;
+
+  margin-bottom: 15px;
+}
+
+.signup-universal .campContent h6 i {
+  color: #00a676;
+
+  margin-right: 10px;
+}
+
+.signup-universal .campImg img {
+  border-radius: 5px;
+
+  height: 250px;
+
+  width: 100%;
+}
+
+.signup-universal .campContent h4 {
+  font-size: 23px;
+
+  font-weight: bold;
+
+  margin-bottom: 20px;
+}
+
+.signup-universal .campContent p {
+  line-height: 22px;
+}
+
+.signup-universal .campContent .process {
+  height: 7px;
+
+  width: 100%;
+
+  background: #dbdbdb;
+
+  border-radius: 10px;
+
+  position: relative;
+}
+
+.signup-universal .campContent .process:after {
+  content: "";
+
+  position: absolute;
+
+  height: 7px;
+
+  width: 55%;
+
+  background: #00a676;
+
+  left: 0;
+  top: 0;
+}
+
+.signup-universal .campContent .process:before {
+  position: absolute;
+
+  content: "66%";
+
+  height: 30px;
+
+  width: 30px;
+
+  border-radius: 50%;
+
+  background: #00a676;
+
+  text-align: center;
+
+  line-height: 30px;
+
+  color: #fff;
+
+  font-weight: bold;
+
+  font-size: 10px;
+
+  left: 55%;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+}
+
+.signup-universal .campContent ul {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-top: 20px;
+}
+
+.signup-universal .campContent ul li {
+  font-size: 16px;
+}
+
+.signup-universal .donateBtn {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 10px;
+}
+
+.signup-universal .donateBtn li a {
+  height: 35px;
+
+  width: 35px;
+
+  line-height: 35px;
+
+  text-align: center;
+
+  background: #eeeeee;
+
+  color: #7f7f7f;
+
+  display: inline-block;
+
+  margin-left: 5px;
+
+  margin-right: 5px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+
+  transition: 0.3s;
+}
+
+.signup-universal .donateBtn li a.active,
+.signup-universal .donateBtn li a:hover {
+  color: #fff;
+
+  background: #d68c45;
+}
+
+/* ....................Css code for Donate page End.....................*/
+
+/* ....................Css code for Donate-Single page Start.....................*/
+
+.signup-universal .singleDonate {
+  background: #f5f5f5;
+
+  padding: 60px 0 70px;
+}
+
+.signup-universal .singleDonateLeft {
+  background-color: #fff;
+}
+
+.signup-universal .singleDonateLeft .im img {
+  height: 100%;
+
+  width: 100%;
+
+  border-radius: 7px;
+}
+
+.signup-universal .singleDonateLeft .im {
+  height: 270px;
+
+  width: 100%;
+
+  position: relative;
+}
+
+.signup-universal .singleDonateLeft .im:before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.4);
+
+  border-radius: 7px;
+}
+
+.signup-universal .singleDonateLeft {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.signup-universal .singleDonateLeft .im p.pageTag {
+  position: absolute;
+
+  left: 40px;
+
+  bottom: 5px;
+
+  color: #fff;
+}
+
+.signup-universal .singleDonateLeftContent {
+  padding: 35px 40px;
+}
+
+.signup-universal .singleDonateLeftContent h3.title {
+  font-size: 35px;
+
+  font-weight: bold;
+}
+
+.signup-universal .singleDonateLeftContent p.description {
+  line-height: 22px;
+
+  margin-bottom: 30px;
+}
+
+.signup-universal .wantHelp {
+  margin-bottom: 20px;
+}
+
+.signup-universal h4.sectionTitle {
+  font-family: "PT Sans", sans-serif;
+
+  font-weight: bold;
+
+  font-size: 24px;
+
+  margin-bottom: 15px;
+}
+
+.signup-universal .wantHelp ul li {
+  margin-left: 35px;
+
+  font-weight: 600;
+
+  margin-bottom: 12px;
+}
+
+.signup-universal .wantHelp ul li i {
+  font-size: 18px;
+
+  margin-right: 20px;
+}
+
+.signup-universal .shareDonatePage {
+  background: #2c6e49;
+
+  min-height: 40px;
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  color: #fff;
+
+  font-size: 16px;
+
+  font-family: "PT Sans", sans-serif;
+
+  margin-top: 30px;
+
+  margin-bottom: 30px;
+}
+
+.signup-universal .shareDonatePage .left {
+  margin-left: 20px;
+}
+
+.signup-universal .shareDonatePage .left i {
+  margin-right: 10px;
+}
+
+.signup-universal .shareDonatePage .right {
+  margin-right: 10px;
+}
+
+.signup-universal .shareDonatePage .right a {
+  font-size: 18px;
+
+  margin-right: 7px;
+
+  color: #fff;
+}
+
+.signup-universal .donateComments h5 {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  padding-bottom: 10px;
+
+  margin-bottom: 20px;
+
+  border-bottom: 1px solid #333;
+}
+
+.signup-universal .commentItem {
+  margin-bottom: 30px;
+}
+
+.signup-universal .commentItem img {
+  width: 73px;
+
+  height: 73px;
+
+  float: left;
+}
+
+.signup-universal .commentText {
+  margin-left: 90px;
+}
+
+.signup-universal .commentText h6 {
+  font-size: 14px;
+
+  font-weight: bold;
+}
+
+.signup-universal .commentText p {
+  font-size: 13px;
+
+  margin-bottom: 5px;
+}
+
+.signup-universal .commentText p.timeReply {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 11px;
+}
+
+.signup-universal .leaveComment p {
+  margin-top: -10px;
+}
+
+.signup-universal .leaveComment input {
+  background: transparent;
+
+  border: 1.5px solid #5e5e5e;
+
+  height: 38px;
+
+  margin-bottom: 30px;
+}
+
+.signup-universal .leaveComment textarea {
+  background: transparent;
+
+  border: 1.5px solid #5e5e5e;
+
+  margin-bottom: 30px;
+}
+
+.signup-universal .leaveComment button {
+  background: #d68c45;
+
+  display: inline-block;
+
+  padding: 10px 20px;
+
+  color: #fff;
+
+  font-weight: bold;
+
+  border: none;
+
+  border-radius: 5px;
+}
+
+/************ singleDonateRight ************/
+
+.signup-universal .projectInfo {
+  background-color: #fff;
+
+  padding: 15px 20px;
+
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 16px;
+
+  margin-bottom: 20px;
+}
+
+.signup-universal .singleDonateRight h5 {
+  display: inline-block;
+
+  font-weight: bold;
+
+  border-bottom: 2px solid gray;
+}
+
+.signup-universal .listSideBar li {
+  border-bottom: 1px solid gray;
+
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 16px;
+
+  padding: 5px 0;
+
+  color: #5e5e5e;
+}
+
+.signup-universal .listSideBar li span {
+  display: inline-block;
+
+  width: 80px;
+
+  margin-right: 30px;
+}
+
+.signup-universal .latestCamp .carousel-inner .carousel-item img {
+  width: 100%;
+
+  height: 180px;
+}
+
+.signup-universal .latestCamp .carousel-control-next,
+.signup-universal .latestCamp .carousel-control-prev {
+  opacity: 1 !important;
+}
+
+.signup-universal .latestCamp .carousel-control-prev i {
+  font-weight: bold;
+
+  font-size: 20px;
+
+  background: #2c6e49;
+
+  width: 29px;
+
+  height: 29px;
+
+  text-align: center;
+
+  line-height: 29px;
+
+  color: #fff;
+
+  margin-left: -22px;
+}
+
+.signup-universal .latestCamp .carousel-control-next i {
+  font-weight: bold;
+
+  font-size: 20px;
+
+  background: #2c6e49;
+
+  width: 29px;
+
+  height: 29px;
+
+  text-align: center;
+
+  line-height: 29px;
+
+  color: #fff;
+
+  margin-right: -22px;
+}
+
+.signup-universal .latestCamp h3 {
+  font-size: 21px;
+
+  font-weight: bold;
+
+  text-align: center;
+
+  padding: 10px 0 20px;
+}
+
+.signup-universal .recentPostItem {
+  margin-bottom: 15px;
+}
+
+.signup-universal .recentPostItem img {
+  width: 70px;
+
+  height: 70px;
+
+  border-radius: 5px;
+
+  float: left;
+}
+
+.signup-universal .recentPostItem .recentText {
+  margin-left: 90px;
+}
+
+.signup-universal .recentPostItem .recentText p {
+  font-size: 14px;
+
+  font-weight: 600;
+
+  margin-bottom: 7px;
+}
+
+.signup-universal .recentPostItem .recentText p.timerecentPost {
+  font-size: 12px;
+
+  font-family: "PT Sans", sans-serif;
+}
+
+.signup-universal .contactUsDonate p {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 16px;
+}
+
+.signup-universal .contactUsDonate div i {
+  height: 39px;
+
+  width: 50px;
+
+  font-size: 14px;
+
+  color: #fff;
+
+  text-align: center;
+
+  line-height: 39px;
+
+  background: #d68c45;
+}
+
+.signup-universal .contactUsDonate div span {
+  height: 39px;
+
+  display: inline-block;
+
+  padding: 0 20px;
+
+  font-size: 16px;
+
+  color: #fff;
+
+  text-align: center;
+
+  line-height: 39px;
+
+  background: #2c6e49;
+
+  margin-top: -2px;
+}
+
+/* ....................Css code for Donate-Single page End.....................*/
+
+/* ....................Css code for Blog page start.....................*/
+
+.signup-universal .blog-banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(/previmages/blog-bannter.png) no-repeat top;
+
+  height: 200px;
+
+  background-size: cover;
+}
+
+.signup-universal .blog {
+  padding: 60px 0;
+
+  background: #f5f5f5;
+}
+
+.signup-universal .blogItem {
+  margin-bottom: 30px;
+}
+
+.signup-universal .blogImg img {
+  height: 250px;
+
+  border-radius: 5px;
+}
+
+.signup-universal .blogContent {
+  padding: 20px;
+
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.signup-universal .blogContent h4 {
+  font-size: 23px;
+
+  font-weight: bold;
+
+  margin-bottom: 15px;
+}
+
+.signup-universal .blogContent h6 {
+  font-size: 14px;
+
+  margin-bottom: 18px;
+}
+
+.signup-universal .blogContent h6 i {
+  color: #00a676;
+
+  margin-right: 10px;
+}
+
+.signup-universal .blogContent p {
+  line-height: 20px;
+
+  margin-bottom: 20px;
+}
+
+.signup-universal .blogContent a {
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #00a676;
+}
+
+/* ....................Css code for Blog page End.....................*/
+
+/* ....................Css code for Course page start.....................*/
+
+.signup-universal .course-banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(/previmages/course-banner.png) no-repeat top;
+
+  height: 200px;
+
+  background-size: cover;
+}
+
+.signup-universal .course {
+  margin-top: 60px;
+}
+
+.signup-universal .courseArea {
+  margin-top: 30px;
+}
+
+.signup-universal .course-item {
+  margin-bottom: 30px;
+}
+
+.signup-universal .course-list-bottom {
+  margin-bottom: 430px;
+}
+
+.signup-universal .course-list img {
+  height: 285px;
+
+  width: 100%;
+
+  border-radius: 3px;
+}
+
+.signup-universal .card-body {
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+
+  border-radius: 3px;
+}
+
+.signup-universal .course-title {
+  font-size: 23px;
+
+  font-weight: bold;
+
+  margin-bottom: 10px;
+
+  color: #5e5e5e;
+}
+
+.signup-universal .card-body p {
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #5e5e5e;
+}
+
+/* ....................Css code for Course page End.....................*/
+
+/* ....................Css code for Course-Single page start.....................*/
+
+.signup-universal .singleCourse {
+  background: #f5f5f5;
+
+  padding: 60px 0 70px;
+}
+
+.signup-universal .singleCourseLeft {
+  background-color: #fff;
+}
+
+.signup-universal .singleCourseLeft .im img {
+  height: 100%;
+
+  width: 100%;
+
+  border-radius: 7px;
+}
+
+.signup-universal .singleCourseLeft .im {
+  height: 250px;
+
+  width: 100%;
+
+  position: relative;
+}
+
+.signup-universal .singleCourseLeft .im:before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.4);
+
+  border-radius: 7px;
+}
+
+.signup-universal .singleCourseLeft {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.signup-universal .singleCourseLeft .im p.pageTag {
+  position: absolute;
+
+  left: 40px;
+
+  bottom: 5px;
+
+  color: #fff;
+}
+
+.signup-universal .singleCourseLeftContent {
+  padding: 35px 40px;
+}
+
+.signup-universal .singleCourseLeftContent h3.title {
+  font-size: 35px;
+
+  font-weight: bold;
+}
+
+.signup-universal .singleCourseLeftContent p.descroption {
+  line-height: 22px;
+
+  margin-bottom: 30px;
+}
+
+.signup-universal .willLearn {
+  margin-bottom: 20px;
+}
+
+.signup-universal h4.sectionTitle {
+  font-family: "PT Sans", sans-serif;
+
+  font-weight: bold;
+
+  font-size: 24px;
+
+  margin-bottom: 15px;
+}
+
+.signup-universal .willLearn ul li {
+  font-weight: 600;
+
+  margin-bottom: 12px;
+}
+
+.signup-universal .willLearn ul li i {
+  font-size: 18px;
+
+  color: #2c6d48;
+
+  margin-right: 20px;
+}
+
+.signup-universal .courseOverView table {
+  margin-top: 25px;
+
+  margin-bottom: 40px;
+
+  text-align: center;
+
+  margin-left: 30px;
+
+  width: calc(100% - 60px);
+}
+
+.signup-universal .courseOverView table,
+tr,
+th,
+td {
+  border: 5px solid #7c7c7b;
+}
+
+.signup-universal .courseOverView table th,
+td {
+  font-size: 16px;
+}
+
+.signup-universal .courseOverView table .courseName {
+  font-size: 14px;
+}
+
+.signup-universal .courseOverView table .rowspan {
+  vertical-align: middle;
+}
+
+.signup-universal .referenceBooks ul {
+  margin-bottom: 25px;
+}
+
+.signup-universal .referenceBooks ul li {
+  margin-bottom: 10px;
+}
+
+.signup-universal .referenceBooks p {
+  margin-bottom: 25px;
+}
+
+/************ singleCourseRight ************/
+
+.signup-universal .singleCourseRight {
+  background-color: #fff;
+
+  padding: 15px 20px;
+
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 16px;
+}
+
+.signup-universal .singleCourseRight h5 {
+  font-weight: bold;
+}
+
+.signup-universal .singleCourseRight h5 span {
+  border-bottom: 2px solid gray;
+
+  margin-right: 30px;
+}
+
+.signup-universal .singleCourseRight table tr {
+  border-bottom: 1px solid gray;
+}
+
+.signup-universal .singleCourseRight table td {
+  padding: 10px 0;
+}
+
+.signup-universal .singleCourseRight table .one {
+  margin-right: 20px;
+
+  display: inline-block;
+}
+
+/* ....................Css code for Course-Single page End.....................*/
+
+/* ....................Css code for Contact page start.....................*/
+
+.signup-universal .contact-banner {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(/previmages/contact-us-banner.png) no-repeat top;
+
+  height: 200px;
+
+  background-size: cover;
+}
+
+.signup-universal .contact-detailse {
+  margin-top: 60px;
+}
+
+.signup-universal .cont-title {
+  font-size: 36px;
+
+  font-weight: bold;
+}
+
+.signup-universal .info-left-side {
+  margin-top: 30px;
+
+  padding: 50px 20px;
+
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+
+  line-height: 45px;
+
+  height: 490px;
+}
+
+.signup-universal .cont-sub {
+  font-size: 18px;
+}
+
+.signup-universal .info-right-side {
+  margin-top: 30px;
+
+  padding: 50px 50px;
+
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+
+  height: 490px;
+}
+
+/*.info-left-side, .info-right-side{
+
+    color:#5E5E5E;
+
+    font-weight:bold;
+
+}*/
+
+.signup-universal .info-list i {
+  color: #2c6e49;
+
+  padding-right: 40px;
+}
+
+.signup-universal .info-list tr {
+  border: none !important;
+}
+
+.signup-universal .info-list td {
+  color: #494948;
+
+  font-size: 21px;
+
+  border: none;
+}
+
+.signup-universal .info-icon ul {
+  display: flex;
+
+  color: #5e5e5e;
+
+  font-size: 21px;
+
+  margin-top: 50px;
+}
+
+.signup-universal .info-icon li i {
+  margin: 0 5px;
+
+  color: #5e5e5e;
+}
+
+.signup-universal .info-icon li {
+  padding: 0 5px;
+}
+
+.signup-universal .info-icon a {
+  width: 30px;
+
+  height: 30px;
+
+  border: 1px solid #5e5e5e;
+
+  border-radius: 10px;
+}
+
+.signup-universal .form-control {
+  background-color: #f7f7f7;
+
+  border: 1px solid #f7f7f7;
+}
+
+.signup-universal .btn-primary {
+  background-color: #2c6e49;
+
+  height: 50px;
+
+  width: 130px;
+}
+
+.signup-universal .teacher-area {
+  margin-top: 80px;
+}
+
+.signup-universal .teacher-info {
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+
+  text-align: center;
+
+  padding: 50px 25px;
+}
+
+.signup-universal .teacher-name {
+  font-size: 16px;
+
+  color: #5e5e5e;
+
+  font-weight: 700;
+}
+
+.signup-universal .teacher-mail {
+  font-size: 18px;
+
+  color: #7e7e7e;
+
+  padding-right: 10px;
+}
+
+.signup-universal .teacher-info i {
+  padding-right: 10px;
+
+  color: #2c6d48;
+}
+
+.signup-universal .map {
+  margin: 130px 0;
+}
+
+/* ....................Css code for Contact page end.....................*/
+
+/* ....................Css code for Login  page start.....................*/
+
+.signup-universal .login-area,
+.regist-area {
+  background-color: #f7f7f7;
+}
+
+.signup-universal .logIn {
+  padding: 80px 0;
+}
+
+.signup-universal .login-left {
+  /* margin:80px 0; */
+
+  text-align: center;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(46, 110, 73, 1) 40%,
+    rgba(26, 26, 26, 1) 100%
+  );
+
+  height: 500px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.3);
+
+  border-radius: 10px 10px 10px 10px;
+
+  position: relative;
+
+  z-index: 900;
+}
+
+.signup-universal .one-log-reg {
+  background: #fff;
+
+  padding: 0 !important;
+
+  margin: 0 !important;
+
+  border-radius: 10px;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -ms-border-radius: 10px;
+
+  -o-border-radius: 10px;
+}
+
+.signup-universal .one-log-reg .two-log-reg {
+  padding: 0 !important;
+}
+
+.signup-universal .login-content {
+  background-color: #fff;
+
+  height: 220px;
+
+  width: 220px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  color: #282828;
+
+  font-weight: bold;
+}
+
+.signup-universal .login-content img {
+  width: 140px;
+
+  height: 140px;
+}
+
+.signup-universal .login-num {
+  color: #fff;
+
+  font-size: 16px;
+
+  margin-top: 80px;
+
+  text-align: center;
+}
+
+.signup-universal .login-right {
+  /* margin:80px 0; */
+
+  /* background-color:#fff; */
+
+  /* height:500px;*/
+
+  /* box-shadow: 0px 10px 10px 0px rgba(0,0,0,.3); */
+
+  border-radius: 0 10px 10px 0;
+
+  padding: 0 30px;
+}
+
+.signup-universal .login-title {
+  font-size: 28px;
+
+  font-weight: bold;
+
+  color: #006837;
+
+  text-align: center;
+
+  padding-top: 20px;
+}
+
+.signup-universal .time-server {
+  float: left;
+
+  font-size: 14px;
+
+  color: #474747;
+
+  margin-top: 15px;
+}
+
+.signup-universal .forget-pass a {
+  float: right;
+
+  font-size: 14px;
+
+  color: #474747;
+
+  margin-top: 15px;
+}
+
+.signup-universal .login-right .btn {
+  height: 45px;
+
+  width: 100%;
+
+  background-color: #006837;
+
+  color: #fff;
+
+  font-size: 22px;
+
+  width: bold;
+}
+
+.signup-universal .form-control {
+  background-color: #eeeeee;
+
+  border: none;
+}
+
+/* ....................Css code for Login page end.....................*/
+
+/* ....................Css code for Registration page start.....................*/
+
+.signup-universal .regist-left {
+  margin: 80px 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(46, 110, 73, 1) 40%,
+    rgba(26, 26, 26, 1) 100%
+  );
+
+  height: 560px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.3);
+
+  border-radius: 10px 10px 10px 10px;
+
+  position: relative;
+
+  z-index: 900;
+
+  color: #fff;
+}
+
+.signup-universal .regist-head {
+  font-size: 28px;
+
+  padding: 0 35px;
+}
+
+.signup-universal .regist-text {
+  font-size: 16px;
+
+  padding: 0 35px;
+}
+
+.signup-universal .nav-pills {
+  background-color: #efefef;
+
+  border-radius: 8px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  color: #262626;
+}
+
+.signup-universal .nav-pills .nav-link {
+  font-size: 16px;
+
+  font-weight: bold;
+
+  color: #262626;
+
+  background-color: #efefef;
+
+  text-align: center;
+}
+
+.signup-universal .nav-pills .nav-link.active {
+  color: #fff;
+
+  background-color: #d68c45;
+}
+
+.signup-universal .regist-right .tab-content {
+  margin-top: 20px;
+}
+
+.signup-universal .regist-right .btn {
+  height: 45px;
+
+  width: 100%;
+
+  background-color: #006837;
+
+  color: #fff;
+
+  font-size: 22px;
+
+  width: bold;
+}
+
+.signup-universal .regist-right {
+  margin: 80px 0;
+
+  background-color: #fff;
+
+  height: 560px;
+
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.3);
+
+  border-radius: 0 10px 10px 0;
+
+  padding: 0 60px;
+
+  color: #262626;
+
+  font-size: 16px;
+}
+
+.signup-universal .regist-right .nav-item {
+  width: 33.33%;
+}
+
+.signup-universal .regist-right .btn {
+  margin-top: 50px;
+}
+
+.signup-universal .regist-num {
+  color: #fff;
+
+  font-size: 16px;
+
+  margin-top: 80px;
+
+  text-align: center;
+}
+
+.signup-universal .log-reg:hover {
+  background-color: #fff;
+
+  color: #006837;
+
+  border: 2px solid #2c6e49;
+
+  font-weight: 500;
+
+  transition-duration: 1s;
+}
+
+/* ....................Css code for Registration page end.....................*/
+
+/* ....................Css code for Student Panel page start.....................*/
+
+.signup-universal .stHeaderArea {
+  padding: 17px 0;
+
+  background: #f0efef;
+}
+
+.signup-universal .stHeader {
+  display: flex;
+
+  justify-content: space-between;
+
+  position: relative;
+
+  align-items: center;
+}
+
+.signup-universal .stHeadArea {
+  padding: 17px 0;
+
+  background: #f0efef;
+
+  align-items: center;
+}
+
+.signup-universal .stLeft {
+  /* width: 240px; */
+
+  position: relative;
+}
+
+.signup-universal .stLogo img {
+  height: 65px;
+
+  width: 70px;
+}
+
+.signup-universal span.logo2 {
+  font-size: 18px;
+
+  font-weight: 700;
+
+  line-height: 24px;
+
+  position: absolute;
+
+  left: 85px;
+
+  top: 10px;
+}
+
+.signup-universal .st-title {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  height: 100%;
+}
+
+.signup-universal .st-title p {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 21px;
+
+  text-align: center;
+
+  margin-bottom: 0;
+}
+
+.signup-universal .stRightAlign {
+  display: flex;
+
+  justify-content: flex-end;
+
+  align-items: center;
+
+  height: 100%;
+}
+
+.signup-universal .stRight {
+  display: flex;
+
+  align-items: center;
+}
+
+.signup-universal .hIcon {
+  margin-right: 10px;
+
+  padding-right: 5px;
+
+  border-right: 1px solid #dddddd;
+}
+
+.signup-universal .hIcon i {
+  background: #dddddd;
+
+  width: 29px;
+
+  height: 29px;
+
+  line-height: 29px;
+
+  text-align: center;
+
+  color: #3a3a3a;
+
+  font-size: 17px;
+
+  border-radius: 50%;
+
+  -webkit-border-radius: 50%;
+
+  -moz-border-radius: 50%;
+
+  -ms-border-radius: 50%;
+
+  -o-border-radius: 50%;
+
+  margin-right: 5px;
+}
+
+.signup-universal .profIcon {
+  background: #dddddd;
+
+  width: 48px;
+
+  height: 48px;
+
+  line-height: 48px;
+
+  text-align: center;
+
+  border-radius: 50%;
+
+  -webkit-border-radius: 50%;
+
+  -moz-border-radius: 50%;
+
+  -ms-border-radius: 50%;
+
+  -o-border-radius: 50%;
+
+  margin-right: 10px;
+}
+
+.signup-universal .profIcon img {
+  width: 32px;
+
+  height: 32px;
+}
+
+.signup-universal .stName p {
+  font-size: 11px;
+
+  margin-bottom: 0;
+}
+
+.signup-universal #studentPanel,
+#booklist {
+  margin-top: 30px;
+}
+
+.signup-universal .panelLeft ul li {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 16px;
+
+  color: #2d2d2d;
+
+  font-weight: bold;
+
+  /* background: gray; */
+
+  height: 49px;
+
+  line-height: 49px;
+
+  padding-left: 60px;
+}
+
+.signup-universal .panelLeft ul li:hover,
+.signup-universal .panelLeft ul li.active {
+  background: #036032;
+
+  color: #fff;
+
+  border-radius: 7px;
+
+  -webkit-border-radius: 7px;
+
+  -moz-border-radius: 7px;
+
+  -ms-border-radius: 7px;
+
+  -o-border-radius: 7px;
+}
+
+.signup-universal .panelLeft ul li i {
+  font-size: 18px;
+
+  margin-right: 30px;
+}
+
+.signup-universal .panelRightTopItem {
+  background: linear-gradient(
+    to bottom,
+    rgba(46, 110, 73, 1) 40%,
+    rgba(26, 26, 26, 1) 100%
+  );
+
+  padding: 18px 40px 18px 45px;
+
+  color: #fff;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -ms-border-radius: 10px;
+
+  -o-border-radius: 10px;
+}
+
+.signup-universal .panelRightTopItem .left img {
+  height: 38px;
+
+  margin-bottom: 10px;
+}
+
+.signup-universal .panelRightTopItem .left p {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  margin: 0;
+}
+
+.signup-universal .panelRightTopItem .right h3 {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 36px;
+
+  font-weight: bold;
+}
+
+.signup-universal .panelMiddle {
+  margin-top: 50px;
+}
+
+.signup-universal .profileInfo {
+  background: #f0efef;
+
+  padding: 25px 20px;
+
+  border-radius: 10px;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -ms-border-radius: 10px;
+
+  -o-border-radius: 10px;
+}
+
+.signup-universal .profileInfoTop {
+  width: 148px;
+}
+
+.signup-universal .profileInfoTop h2 {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 21px;
+
+  font-weight: bold;
+
+  color: #222222;
+}
+
+.signup-universal .profileInfoTop .profilePic {
+  text-align: center;
+
+  background: #dddddd;
+
+  padding: 17px 0;
+
+  border-radius: 10px;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -ms-border-radius: 10px;
+
+  -o-border-radius: 10px;
+}
+
+.signup-universal .profileInfoTop .profileIcon {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-top: 18px;
+}
+
+.signup-universal .panelMiddle table {
+  margin-top: 20px;
+}
+
+/*.panelMiddle table, tr,td{
+
+  width: 100%;
+
+  border: none !important;
+
+}*/
+
+.signup-universal .panelMiddle table {
+  width: 100%;
+
+  border: none !important;
+}
+
+.signup-universal .panelMiddle tr {
+  width: 100%;
+
+  border: none !important;
+}
+
+.signup-universal .panelMiddle td {
+  width: 100%;
+
+  border: none !important;
+}
+
+.signup-universal .panelMiddle table tr {
+  display: flex;
+
+  margin-top: 7px;
+}
+
+.signup-universal .panelMiddle table td {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 16px;
+
+  color: #262626;
+}
+
+.signup-universal .noticeSide {
+  background: #f0efef;
+
+  padding: 25px;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+  border-radius: 10px;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -ms-border-radius: 10px;
+
+  -o-border-radius: 10px;
+}
+
+.signup-universal .noticeSide-heading {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 21px;
+
+  font-weight: bold;
+
+  margin-bottom: 15px;
+
+  color: #5e5e5e;
+}
+
+.signup-universal .notice-item {
+  margin-bottom: 18px;
+}
+
+.signup-universal .notice-border {
+  position: relative;
+}
+
+.signup-universal .notice-border:before {
+  content: "";
+
+  position: absolute;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+
+  width: calc(100% - 80px);
+
+  bottom: -8px;
+
+  left: 70px;
+}
+
+.signup-universal .notice-left {
+  width: 50px;
+
+  height: 45px;
+
+  background: #006837;
+
+  color: #fff;
+
+  text-align: center;
+
+  position: relative;
+
+  float: left;
+}
+
+.signup-universal .notice-left .date {
+  font-size: 18px;
+
+  font-weight: bold;
+
+  margin-top: 5px;
+
+  display: inline-block;
+}
+
+.signup-universal .notice-left .month {
+  font-size: 10px;
+
+  font-weight: bold;
+
+  display: inline-block;
+
+  position: absolute;
+
+  bottom: 8px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.signup-universal .notice-left .year {
+  position: absolute;
+
+  bottom: 3px;
+
+  right: 4px;
+
+  font-size: 5px;
+
+  font-weight: bold;
+}
+
+.signup-universal .notice-right {
+  margin-left: 70px;
+}
+
+.signup-universal .notice-right h6 {
+  font-size: 12px;
+
+  font-family: "PT Sans", sans-serif;
+
+  color: #000;
+}
+
+.signup-universal .notice-list {
+  height: 250px;
+
+  overflow: auto;
+}
+
+.signup-universal .notice-list::-webkit-scrollbar {
+  width: 8px;
+
+  /* background-color: red; */
+}
+
+.signup-universal .notice-list::-webkit-scrollbar-track {
+  border-radius: 10px;
+
+  background-color: #d8d8d8;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -ms-border-radius: 10px;
+
+  -o-border-radius: 10px;
+}
+
+.signup-universal .notice-list::-webkit-scrollbar-thumb {
+  background-color: #006937;
+
+  border-radius: 10px;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -ms-border-radius: 10px;
+
+  -o-border-radius: 10px;
+}
+
+.signup-universal .examMarks {
+  background: #f0efef;
+
+  padding: 25px 20px;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+  border-radius: 10px;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -ms-border-radius: 10px;
+
+  -o-border-radius: 10px;
+
+  margin-top: 30px;
+}
+
+.signup-universal .marks-heading {
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 21px;
+
+  font-weight: bold;
+
+  margin-bottom: 8px;
+
+  color: #5e5e5e;
+}
+
+.signup-universal .examMarks table {
+  margin-top: 3px !important;
+}
+
+.signup-universal .tableScroll {
+  height: 230px;
+
+  overflow: auto;
+}
+
+.signup-universal .tableScroll::-webkit-scrollbar {
+  width: 8px;
+
+  /* background-color: red; */
+}
+
+.signup-universal .tableScroll::-webkit-scrollbar-track {
+  border-radius: 10px;
+
+  background-color: #d8d8d8;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -ms-border-radius: 10px;
+
+  -o-border-radius: 10px;
+}
+
+.signup-universal .tableScroll::-webkit-scrollbar-thumb {
+  background-color: #006937;
+
+  border-radius: 10px;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -ms-border-radius: 10px;
+
+  -o-border-radius: 10px;
+}
+
+.signup-universal #markTable tr {
+  margin-top: 0;
+
+  border-bottom: 1px solid #d8d8d8 !important;
+}
+
+.signup-universal .tableHead .theadArea {
+  border: 1px solid rgba(0, 0, 0, 0.452) !important;
+
+  border-radius: 7px;
+
+  -webkit-border-radius: 7px;
+
+  -moz-border-radius: 7px;
+
+  -ms-border-radius: 7px;
+
+  -o-border-radius: 7px;
+
+  margin-bottom: 10px;
+}
+
+.signup-universal .tableHead tr th {
+  border: none !important;
+
+  padding: 3px 5px !important;
+}
+
+.signup-universal #markTable tr td {
+  font-size: 12px;
+
+  padding: 5px;
+
+  text-align: center;
+}
+
+.signup-universal .studentPanelFooter {
+  background: linear-gradient(
+    to bottom,
+    rgba(46, 110, 73, 1) 40%,
+    rgba(26, 26, 26, 1) 100%
+  );
+
+  height: 100px;
+
+  line-height: 100px;
+
+  font-family: "PT Sans", sans-serif;
+
+  font-size: 21px;
+
+  font-weight: bold;
+
+  text-align: center;
+
+  color: #fff;
+
+  margin-top: 225px;
+}
+
+/* ....................Css code for Student Panel page end.....................*/
+
+/* ....................Css code for To-Do page start.....................*/
+
+.signup-universal ul.nav.nav-tabs {
+  background: #e8e8e8;
+
+  border-radius: 10px;
+
+  display: inline-flex;
+
+  margin-bottom: 15px;
+}
+
+.signup-universal ul.nav.nav-tabs li a {
+  height: 38px;
+
+  width: 139px;
+
+  border-radius: 10px;
+
+  line-height: 38px;
+
+  text-align: center;
+
+  display: inline-block;
+}
+
+.signup-universal ul.nav.nav-tabs li a.active {
+  background: #036032;
+
+  color: white;
+}
+
+.signup-universal ul.nav.nav-tabs li a {
+  font-size: 14px;
+
+  font-weight: bold;
+
+  color: #262626;
+}
+
+.signup-universal .todoExam li {
+  display: flex;
+
+  justify-content: space-between;
+
+  background: #f0efef;
+
+  height: 60px;
+
+  align-items: center;
+
+  padding: 0 15px;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+  border-radius: 10px;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -ms-border-radius: 10px;
+
+  -o-border-radius: 10px;
+
+  margin-bottom: 15px;
+}
+
+.signup-universal todoExam li .left i {
+  width: 35px;
+
+  height: 35px;
+
+  line-height: 35px;
+
+  font-size: 17px;
+
+  background-color: #c9c9c9;
+
+  text-align: center;
+
+  color: #666766;
+
+  border-radius: 50%;
+
+  -webkit-border-radius: 50%;
+
+  -moz-border-radius: 50%;
+
+  -ms-border-radius: 50%;
+
+  -o-border-radius: 50%;
+
+  float: left;
+}
+
+.signup-universal .todoExam li .left .leftContent {
+  margin-left: 45px;
+}
+
+.signup-universal .todoExam li .left .leftContent h6 {
+  font-size: 14px;
+
+  font-weight: bold;
+
+  margin-bottom: 5px;
+}
+
+.signup-universal .todoExam li .left .leftContent p {
+  font-size: 11px;
+
+  margin-bottom: 0;
+}
+
+.signup-universal .todoExam li .right p {
+  margin-bottom: 0;
+
+  font-size: 12px;
+}
+
+/* ....................Css code for To-Do page end.....................*/
+
+/* ....................Css code for To-Do-submit page Start.....................*/
+
+.signup-universal .toSubmit {
+  background: #f0efef;
+
+  padding: 30px 25px;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+  border-radius: 10px;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -ms-border-radius: 10px;
+
+  -o-border-radius: 10px;
+}
+
+.signup-universal .toSubmit h2 {
+  font-size: 28px;
+
+  font-weight: bold;
+
+  text-align: center;
+
+  margin-bottom: 30px;
+
+  color: #262626;
+}
+
+.signup-universal .toSubmit label {
+  font-size: 16px;
+
+  font-weight: bold;
+
+  color: #262626;
+}
+
+.signup-universal .toSubmit select {
+  background: #fff;
+
+  height: 42px;
+
+  border-radius: 7px;
+
+  padding-right: 15px;
+
+  -webkit-border-radius: 7px;
+
+  -moz-border-radius: 7px;
+
+  -ms-border-radius: 7px;
+
+  -o-border-radius: 7px;
+
+  position: relative;
+}
+
+.signup-universal .toSubmi select i {
+  padding-right: 5px;
+}
+
+.signup-universal .toSubmit button {
+  background: #036032;
+
+  height: 48px;
+
+  width: 100%;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  border-radius: 7px;
+
+  -webkit-border-radius: 7px;
+
+  -moz-border-radius: 7px;
+
+  -ms-border-radius: 7px;
+
+  -o-border-radius: 7px;
+}
+
+.signup-universal .toSubmit input[type="file"] {
+  display: none;
+}
+
+.signup-universal .fileUpload {
+  border: 1px dashed #595a5a;
+
+  width: 100%;
+
+  height: 42px;
+
+  line-height: 42px;
+
+  text-align: center;
+
+  font-size: 13px !important;
+
+  border-radius: 6px;
+
+  color: #262626;
+
+  -webkit-border-radius: 6px;
+
+  -moz-border-radius: 6px;
+
+  -ms-border-radius: 6px;
+
+  -o-border-radius: 6px;
+}
+
+.signup-universal .fileUpload i {
+  margin-right: 3px;
+}
+
+.signup-universal .fileUpload span {
+  border: 1px solid #b2b2b4;
+
+  margin-left: 5px;
+
+  padding: 0 5px;
+
+  border-radius: 5px;
+
+  -webkit-border-radius: 5px;
+
+  -moz-border-radius: 5px;
+
+  -ms-border-radius: 5px;
+
+  -o-border-radius: 5px;
+}
+
+.signup-universal .fileText {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #262626;
+
+  font-size: 12px;
+}
+
+/* ....................Css code for To-Do-submit page end.....................*/
+
+/* ....................Css code for To-Do-work-submit page Start.....................*/
+
+.signup-universal .finalExamDetails {
+  background: #f1efef;
+
+  padding: 20px 25px;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+  border-radius: 10px;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -ms-border-radius: 10px;
+
+  -o-border-radius: 10px;
+}
+
+.signup-universal .finalExamDetails i {
+  font-size: 52px;
+
+  color: #666766;
+
+  float: left;
+}
+
+.signup-universal .finalExamDetails .rightContent {
+  margin-left: 55px;
+}
+
+.signup-universal .finalExamDetails .rightContent p {
+  font-size: 12px;
+
+  font-weight: 500;
+
+  margin-bottom: 7px;
+
+  color: #262626;
+}
+
+.signup-universal .finalExamDetails .rightContent h3 {
+  font-size: 18px;
+
+  font-weight: bold;
+
+  color: #262626;
+}
+
+.signup-universal .finalExamDetails ul li {
+  font-size: 14px;
+
+  font-weight: 500;
+
+  color: #262626;
+}
+
+.signup-universal .finalExamDetails .examDes {
+  margin-top: 20px;
+}
+
+.signup-universal .workSubmitHere {
+  background: #f1efef;
+
+  padding: 20px 25px;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+  border-radius: 10px;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -ms-border-radius: 10px;
+
+  -o-border-radius: 10px;
+}
+
+.signup-universal .workSubmitHere h2 {
+  font-size: 17px;
+
+  font-weight: bold;
+
+  text-align: center;
+
+  color: #231f20;
+
+  margin-bottom: 15px;
+}
+
+.signup-universal .fileAdd {
+  border: 1px solid #353535;
+
+  width: 100%;
+
+  height: 32px;
+
+  line-height: 32px;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  color: #2d2d2d;
+
+  margin-bottom: 0;
+
+  border-radius: 6px;
+
+  -webkit-border-radius: 6px;
+
+  -moz-border-radius: 6px;
+
+  -ms-border-radius: 6px;
+
+  -o-border-radius: 6px;
+}
+
+.signup-universal .fileAdd i {
+  margin-right: 5px;
+}
+
+.signup-universal .workSubmitHere input[type="file"] {
+  display: none;
+}
+
+.signup-universal .workSubmitHere button {
+  background: #036032;
+
+  height: 34px;
+
+  width: 100%;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  border-radius: 6px;
+
+  -webkit-border-radius: 6px;
+
+  -moz-border-radius: 6px;
+
+  -ms-border-radius: 6px;
+
+  -o-border-radius: 6px;
+}
+
+/* ....................Css code for To-Do-work-submit page end.....................*/
+
+.signup-universal .hide {
+  display: none;
+}
+
+.signup-universal .show {
+  display: block;
+}

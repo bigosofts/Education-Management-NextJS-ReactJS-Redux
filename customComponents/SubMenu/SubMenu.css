@@ -15,7 +15,7 @@ ul {
 a {
   text-decoration: none;
 }
-.submenu .container {
+.submenu .container-submenu {
   max-width: 75rem;
   padding: 0 2rem;
   margin: 0 auto;
@@ -51,7 +51,7 @@ a {
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  line-height: 3rem;
+  line-height: unset;
 }
 
 .submenu .logo span {
@@ -89,10 +89,12 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: unset;
 }
 
 .submenu .nav-link {
   position: relative;
+  padding: unset;
 }
 
 .submenu .nav-link > a {

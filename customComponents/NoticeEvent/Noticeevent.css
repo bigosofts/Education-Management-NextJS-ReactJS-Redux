@@ -1784,4 +1784,10 @@
     flex: 80%;
     max-width: unset;
   }
+  .NoticeEvent .style-6 {
+    height: 396px;
+  }
+  .NoticeEvent .style-74 {
+    height: 396px;
+  }
 }

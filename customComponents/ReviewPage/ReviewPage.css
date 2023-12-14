@@ -15,8 +15,6 @@
   margin-right: auto;
   box-sizing: border-box;
   border: 0px solid rgb(219, 225, 235);
- 
-  
 }
 
 .ReviewPage .style-2 {
@@ -84,7 +82,6 @@
   box-sizing: border-box;
   border: 0px solid rgb(219, 225, 235);
 }
-
 
 .ReviewPage .style-9 {
   margin-right: 16px;
@@ -741,10 +738,11 @@
   border: 0px solid rgb(219, 225, 235);
 }
 
-@media only screen and (max-width: 540px){
-  .ReviewPage .style-3{
+@media only screen and (max-width: 540px) {
+  .ReviewPage .style-3 {
     font-size: 36px;
   }
+  .ReviewPage .style-10 {
+    width: 270px;
+  }
 }
-
-

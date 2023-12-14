@@ -1,10 +1,11 @@
-import TeacherSignupForm from "@/customComponents/TeacherSignupForm/TeacherSignupForm";
-
-function page(props) {
-    return (
-      
-        <TeacherSignupForm/>
-    );
+function TeacherPage() {
+    return ( 
+        <>
+        <div>
+            Teacher Page
+        </div>
+        </>
+     );
 }
 
-export default page;
+export default TeacherPage;

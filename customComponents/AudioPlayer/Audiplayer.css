@@ -1,0 +1,52 @@
+/* Add this CSS code to your styles */
+.iframe-mask {
+  width: 100%; /* Set the desired width */
+  height: 30px; /* Set the desired height */
+  overflow: hidden;
+  position: relative;
+}
+.iframe-mask .control-youtube-left {
+  position: absolute;
+  position: absolute;
+  top: 0px; /* Adjust the top offset to show the desired portion */
+  right: 0%;
+  top: 0%;
+
+  width: 45%;
+  height: 100%;
+  border: 0;
+  background: url("/images/pattern.png");
+  z-index: 999;
+  transition: 3s ease-out;
+}
+
+
+
+
+.iframe-mask .control-youtube-right {
+  position: absolute;
+  position: absolute;
+  top: 0px; /* Adjust the top offset to show the desired portion */
+  left: 0%;
+  top: 0%;
+
+  width: 45%;
+  height: 100%;
+  border: 0;
+  background: url("/images/pattern.png");
+  z-index: 999;
+  transition: 3s ease-out;
+}
+
+
+
+
+
+@media only screen and (max-width: 540px){
+    .iframe-mask .control-youtube-right{
+        width: 40%;
+    }
+    .iframe-mask .control-youtube-left{
+        width: 40%;
+    }
+}

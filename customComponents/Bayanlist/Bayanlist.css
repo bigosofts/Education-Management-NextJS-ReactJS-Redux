@@ -1868,52 +1868,59 @@
   transition: all 0.1s ease-in 0s;
 }
 
-@media only screen and (max-width: 540px){
-  .Bayanlist .style-1{
+@media only screen and (max-width: 540px) {
+  .Bayanlist .style-1 {
     width: 100%;
     padding-bottom: 20px;
     padding-top: 50px;
   }
-  .Bayanlist .style-67{
+  .Bayanlist .style-67 {
     width: 100%;
     padding-bottom: 20px;
   }
-  .Bayanlist .style-131{
+  .Bayanlist .style-131 {
     width: 100%;
     padding-bottom: 20px;
   }
-  .Bayanlist .style-2{
+  .Bayanlist .style-2 {
     display: none;
   }
-  .Bayanlist .style-68{
+  .Bayanlist .style-68 {
     display: none;
-    
   }
-  .Bayanlist .style-132{
+  .Bayanlist .style-132 {
     display: none;
-    
   }
 }
 @media only screen and (max-width: 540px) {
-  .Bayanlist .style-1{
+  .Bayanlist .style-1 {
     padding-left: 0px;
     padding-right: 0px;
   }
-  .Bayanlist .style-67{
+  .Bayanlist .style-67 {
     padding-left: 0px;
     padding-right: 0px;
   }
-  .Bayanlist .style-131{
+  .Bayanlist .style-131 {
     padding-left: 0px;
     padding-right: 0px;
   }
-  .Bayanlist .style-16{
+  .Bayanlist .style-16 {
     padding: 0 10%;
   }
-  .Bayanlist .style-80{
+  .Bayanlist .style-80 {
     padding: 0 10%;
   }
-  .Bayanlist .style-144{
+  .Bayanlist .style-144 {
+    padding: 0 10%;
+  }
+  .Bayanlist .style-11 {
+    padding: 0 10%;
+  }
+  .Bayanlist .style-76 {
+    padding: 0 10%;
+  }
+  .Bayanlist .style-140 {
     padding: 0 10%;
   }
 }

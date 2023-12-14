@@ -5,13 +5,11 @@ import "./SubMenu.css";
 function SubMenu() {
   return (
     <div className="submenu">
-      <div className="container">
+      <div className="container-submenu">
         <input type="checkbox" name="" id="check" />
 
         <div className="logo-container">
-          <h3 className="logo">
-            Internet<span> Madrasha</span>
-          </h3>
+          <h3 className="logo">Home</h3>
         </div>
 
         <div className="nav-btn">

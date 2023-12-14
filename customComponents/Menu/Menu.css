@@ -182,26 +182,18 @@
   .mainmenu .style-16 {
     display: none;
   }
-  .mainmenu{
+  .mainmenu {
     margin-bottom: 30px;
   }
-  
- 
 }
 
 @media only screen and (max-width: 380px) {
-
-  .mainmenu{
+  .mainmenu {
     margin-bottom: 0px;
   }
-  
- 
 }
 @media only screen and (max-width: 320px) {
-
-  .mainmenu{
-    margin-bottom: -20px;
+  .mainmenu {
+    padding-top: 25px;
   }
-  
- 
 }

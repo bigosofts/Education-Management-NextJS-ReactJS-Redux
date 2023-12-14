@@ -17,6 +17,13 @@ const logController = require("../controllers/logController");
 const abacusStudentController = require("../controllers/allAbacusController/abacusStudentController");
 const madrashaAbacusController = require("../controllers/allAbacusController/madrashaAbacusController");
 
+const bookController = require("../controllers/bookController");
+const departmentController = require("../controllers/departmentController");
+const jamatController = require("../controllers/jamatController");
+const paymentController = require("../controllers/paymentController");
+const SemesterController = require("../controllers/semesterController");
+const StudentRoleController = require("../controllers/studentRoleController");
+
 //Middleware Import
 const passEncrypted = require("../middlewares/passwordEncryption");
 const authverify = require("../middlewares/authverifyMiddleware");
@@ -82,7 +89,6 @@ router.post(
   abacusStudentController.createAbacusStudent
 );
 
-
 //Login api for students and teachers
 router.post(
   "/student-login",
@@ -109,6 +115,21 @@ router.post("/create-widget", authverify, widgetController.createWidget);
 router.post("/create-result", authverify, resultController.createResult);
 router.post("/create-log", authverify, logController.createLog);
 
+router.post("/create-book", authverify, bookController.createBook);
+router.post(
+  "/create-department",
+  authverify,
+  departmentController.createDepartment
+);
+router.post("/create-jamat", authverify, jamatController.createJamat);
+router.post("/create-payment", authverify, paymentController.createPayments);
+router.post("/create-semester", authverify, SemesterController.createSemester);
+router.post(
+  "/create-studentrole",
+  authverify,
+  StudentRoleController.createStudentRole
+);
+
 //Select or find the data from the database
 router.post("/select-students", authverify, profileController.selectStudents);
 router.post(
@@ -133,7 +154,6 @@ router.post(
   abacusStudentController.selectAbacusStudents
 );
 
-
 router.post("/select-courses", authverify, courseController.selectCourses);
 router.post("/select-menus", authverify, menuController.selectMenus);
 router.post("/select-sliders", authverify, sliderController.selectSliders);
@@ -151,6 +171,25 @@ router.post("/select-widgets", authverify, widgetController.selectWidgets);
 router.post("/select-results", authverify, resultController.selectResults);
 router.post("/select-logs", authverify, logController.selectLogs);
 
+router.post("/select-books", authverify, bookController.selectBooks);
+router.post(
+  "/select-departments",
+  authverify,
+  departmentController.selectDepartments
+);
+router.post("/select-jamats", authverify, jamatController.selectJamats);
+router.post("/select-payments", authverify, paymentController.selectPayments);
+router.post(
+  "/select-semesters",
+  authverify,
+  SemesterController.selectSemesters
+);
+router.post(
+  "/select-studentroles",
+  authverify,
+  StudentRoleController.selectStudentRoles
+);
+
 //Select or update the data from the database
 router.put("/update-student", authverify, profileController.updateStudent);
 router.put("/update-teacher", authverify, profileController.updateTeacher);
@@ -167,6 +206,21 @@ router.put("/update-widget", authverify, widgetController.updateWidget);
 router.put("/update-result", authverify, resultController.updateResult);
 router.put("/update-log", authverify, logController.updateLog);
 
+router.put("/update-book", authverify, bookController.updateBook);
+router.put(
+  "/update-department",
+  authverify,
+  departmentController.updateDepartment
+);
+router.put("/update-jamat", authverify, jamatController.updateJamat);
+router.put("/update-payment", authverify, paymentController.updatePayment);
+router.put("/update-semester", authverify, SemesterController.updateSemester);
+router.put(
+  "/update-studentrole",
+  authverify,
+  StudentRoleController.updateStudentRole
+);
+
 //abacus update
 
 router.put(
@@ -177,7 +231,6 @@ router.put(
   "/update-abacus-student",
   abacusStudentController.updateAbacusStudent
 );
-
 
 router.put("/update-log", authverify, logController.updateLog);
 
@@ -213,6 +266,25 @@ router.delete("/delete-widget/:id", authverify, widgetController.deleteWidget);
 router.delete("/delete-result/:id", authverify, resultController.deleteResult);
 router.delete("/delete-log/:id", authverify, logController.deleteLog);
 
+router.delete("/delete-book", authverify, bookController.deleteBook);
+router.delete(
+  "/delete-department",
+  authverify,
+  departmentController.deleteDepartment
+);
+router.delete("/delete-jamat", authverify, jamatController.deleteJamat);
+router.delete("/delete-payment", authverify, paymentController.deletePayment);
+router.delete(
+  "/delete-semester",
+  authverify,
+  SemesterController.deleteSemester
+);
+router.delete(
+  "/delete-studentrole",
+  authverify,
+  StudentRoleController.deleteStudentRole
+);
+
 //abacus delete
 router.delete(
   "/delete-madrasha-abacus/:id",
@@ -222,6 +294,5 @@ router.delete(
   "/delete-abacus-student/:id",
   abacusStudentController.deleteAbacusStudent
 );
-
 
 module.exports = router;
