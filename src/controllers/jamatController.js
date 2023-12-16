@@ -64,6 +64,7 @@ exports.updateJamat = (req, res) => {
     activeStatus: reqBody.activeStatus,
   };
 
+
   jamatModel
     .updateOne({ _id: filter }, { $set: postBody }, { upsert: true })
     .then((data) => {

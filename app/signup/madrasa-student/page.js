@@ -3,7 +3,7 @@ import SignupConditionMadrasaStudent from "@/customComponents/SignupConditionMad
 function MadrasaStudentPage() {
   return (
     <>
-      <SignupConditionMadrasaStudent/>
+      <SignupConditionMadrasaStudent />
     </>
   );
 }

@@ -14,6 +14,7 @@ exports.createDepartment = (req, res) => {
     departmentUpdatedDate: new Date(Date.now()).toISOString(),
     activeStatus: reqBody.activeStatus,
   };
+  console.log(reqBody)
 
   // Create Database record
   departMentModel
