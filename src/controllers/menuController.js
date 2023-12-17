@@ -20,6 +20,8 @@ exports.createMenu = (req, res) => {
     subMenu: subMenu,
   };
 
+  
+
   // Create Database record
   menuModel
     .create(postBody)

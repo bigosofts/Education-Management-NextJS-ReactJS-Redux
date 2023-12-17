@@ -63,6 +63,7 @@ function SliderCard(props) {
                                 </a>
 
                                 <p className="mb-3 font-normal text-orange-700 dark:text-orange-400 bg-slate-50 py-1 rounded-md"> Slider ID: {item.sliderId}</p>
+                                <p className="mb-3 font-normal text-orange-700 dark:text-orange-400 bg-slate-50 py-1 rounded-md"> Slider Name: {item.sliderName}</p>
                                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md"> Button Title: {item.sliderButtonTitle.en}</p>
                                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md"> বাটন টাইটেল: {item.sliderButtonTitle.bn}</p>
                                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md"> Button Link: {item.sliderButtonLink}</p>
@@ -113,6 +114,7 @@ function SliderCard(props) {
                                 </a>
 
                                 <p className="mb-3 font-normal text-orange-700 dark:text-orange-400 bg-slate-50 py-1 rounded-md"> Slider ID: {item.sliderId}</p>
+                                <p className="mb-3 font-normal text-orange-700 dark:text-orange-400 bg-slate-50 py-1 rounded-md"> Slider Name: {item.sliderName}</p>
                                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md"> Button Title: {item.sliderButtonTitle.en}</p>
                                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md"> বাটন টাইটেল: {item.sliderButtonTitle.bn}</p>
                                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md"> Button Link: {item.sliderButtonLink}</p>

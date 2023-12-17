@@ -1,161 +1,149 @@
 "use client";
+import { useState, useEffect } from "react";
+import { selectData } from "@/apiservices/menuapiservices";
 
 import "./SubMenu.css";
 
 function SubMenu() {
-  return (
-    <div className="submenu">
-      <div className="container-submenu">
-        <input type="checkbox" name="" id="check" />
+  const [data, setData] = useState();
 
-        <div className="logo-container">
-          <h3 className="logo">Home</h3>
-        </div>
+  function niceDate(isoTime) {
+    var date = new Date(isoTime);
 
-        <div className="nav-btn">
-          <div className="nav-links">
-            <ul>
-              <li className="nav-link" style={{ "--i": ".6s" }}>
-                <a href="#">Home</a>
-              </li>
-              <li className="nav-link" style={{ "--i": "0.85s" }}>
-                <a href="#">
-                  Menu<i className="fa fa-caret-down"></i>
-                </a>
-                <div className="dropdown">
-                  <ul>
-                    <li className="dropdown-link">
-                      <a href="#">Link 1</a>
-                    </li>
-                    <li className="dropdown-link">
-                      <a href="#">Link 2</a>
-                    </li>
-                    <li className="dropdown-link">
-                      <a href="#">
-                        Link 3<i className="fa fa-caret-down"></i>
-                      </a>
-                      <div className="dropdown second">
-                        <ul>
-                          <li className="dropdown-link">
-                            <a href="#">Link 1</a>
-                          </li>
-                          <li className="dropdown-link">
-                            <a href="#">Link 2</a>
-                          </li>
-                          <li className="dropdown-link">
-                            <a href="#">Link 3</a>
-                          </li>
-                          <li className="dropdown-link">
-                            <a href="#">
-                              More<i className="fa fa-caret-down"></i>
-                            </a>
-                            <div className="dropdown second">
-                              <ul>
-                                <li className="dropdown-link">
-                                  <a href="#">Link 1</a>
-                                </li>
-                                <li className="dropdown-link">
-                                  <a href="#">Link 2</a>
-                                </li>
-                                <li className="dropdown-link">
-                                  <a href="#">Link 3</a>
-                                </li>
-                                <div className="arrow"></div>
-                              </ul>
-                            </div>
-                          </li>
-                          <div className="arrow"></div>
-                        </ul>
-                      </div>
-                    </li>
-                    <li className="dropdown-link">
-                      <a href="#">Link 4</a>
-                    </li>
-                    <div className="arrow"></div>
-                  </ul>
-                </div>
-              </li>
-              <li className="nav-link" style={{ "--i": "1.1s" }}>
-                <a href="#">
-                  Services<i className="fa fa-caret-down"></i>
-                </a>
-                <div className="dropdown">
-                  <ul>
-                    <li className="dropdown-link">
-                      <a href="#">Link 1</a>
-                    </li>
-                    <li className="dropdown-link">
-                      <a href="#">Link 2</a>
-                    </li>
-                    <li className="dropdown-link">
-                      <a href="#">
-                        Link 3<i className="fa fa-caret-down"></i>
-                      </a>
-                      <div className="dropdown second">
-                        <ul>
-                          <li className="dropdown-link">
-                            <a href="#">Link 1</a>
-                          </li>
-                          <li className="dropdown-link">
-                            <a href="#">Link 2</a>
-                          </li>
-                          <li className="dropdown-link">
-                            <a href="#">Link 3</a>
-                          </li>
-                          <li className="dropdown-link">
-                            <a href="#">
-                              More<i className="fa fa-caret-down"></i>
-                            </a>
-                            <div className="dropdown second">
-                              <ul>
-                                <li className="dropdown-link">
-                                  <a href="#">Link 1</a>
-                                </li>
-                                <li className="dropdown-link">
-                                  <a href="#">Link 2</a>
-                                </li>
-                                <li className="dropdown-link">
-                                  <a href="#">Link 3</a>
-                                </li>
-                                <div className="arrow"></div>
-                              </ul>
-                            </div>
-                          </li>
-                          <div className="arrow"></div>
-                        </ul>
-                      </div>
-                    </li>
-                    <li className="dropdown-link">
-                      <a href="#">Link 4</a>
-                    </li>
-                    <div className="arrow"></div>
-                  </ul>
-                </div>
-              </li>
-              <li className="nav-link" style={{ "--i": "1.35s" }}>
-                <a href="#">About</a>
-              </li>
-            </ul>
+    var options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+
+    var formattedDate = date.toLocaleDateString("en-US", options);
+    return formattedDate;
+  }
+  function output(item){
+    console.log(item)
+  }
+
+  useEffect(() => {
+    async function getData() {
+      const res = await selectData({
+        activeStatus: "active",
+        menuType: "header",
+      });
+      if (res.status == "Alhamdulillah") {
+        setData(res.data);
+      } else {
+        mytoast.danger("Data fetching error. Try Refreshing the page");
+      }
+    }
+    getData();
+  }, []);
+
+  if (data) {
+    return (
+      <div className="submenu">
+        <div className="container-submenu">
+          <input type="checkbox" name="" id="check" />
+
+          <div className="logo-container">
+            <h3 className="logo">Home</h3>
           </div>
 
-          <div className="log-sign" style={{ "--i": "1.8s" }}>
-            <a href="#" className="btn transparent">
-              Log in
-            </a>
-            <a href="#" className="btn solid">
-              Sign up
-            </a>
-          </div>
-        </div>
+          <div className="nav-btn">
+            <div className="nav-links">
+              <ul>
+                {data.map((item) => (
+                  <li className="nav-link" key={item.menuTitle.en}>
+                    {item.subMenu ? (
+                      <>
+                        <a href={item.}>
+                          {item.menuTitle.en}
+                          <i className="fa fa-caret-down"></i>
+                        </a>
+                        <div className="dropdown">
+                          <ul>
+                            {item.subMenu.map((item2) => (
+                              <li className="dropdown-link">
+                                {item2.subMenu ? (
+                                  <>
+                                    <a href="#">
+                                      {item2.menuTitle.en}
+                                      <i className="fa fa-caret-down"></i>
+                                    </a>
+                                    <div className="dropdown second">
+                                      <ul>
+                                        {item2.subMenu.map((item3) => (
+                                          <li className="dropdown-link">
+                                            {item3.subMenu ? (
+                                              <>
+                                                <a href="#">
+                                                  {item3.menuTitle.en}
+                                                  <i className="fa fa-caret-down"></i>
+                                                </a>
+                                                <div className="dropdown second">
+                                                  <ul>
+                                                    {item3.subMenu.map((item4) => (
+                                                      <li className="dropdown-link">
+                                                        <a
+                                                          href={item4.item4}
+                                                        >
+                                                          {item4.menuTitle.en}
+                                                        </a>
+                                                      </li>
+                                                    ))}
+                                                  </ul>
+                                                </div>
+                                              </>
+                                            ) : (
+                                              <a href={item3.menuLink}>
+                                                {item3.menuTitle.en}
+                                              </a>
+                                            )}
+                                          </li>
+                                        ))}
 
-        <div className="hamburger-menu-container">
-          <div className="hamburger-menu">
-            <div></div>
+                                        
+                                      </ul>
+                                    </div>
+                                  </>
+                                ) : (
+                                  <a href={item2.menuLink}>
+                                    {item2.menuTitle.en}
+                                  </a>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </>
+                    ) : (
+                      <a href={item.menuLink}>{item.menuTitle.en}</a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="log-sign" style={{ "--i": "1.8s" }}>
+              <a href="#" className="btn transparent">
+                Log in
+              </a>
+              <a href="#" className="btn solid">
+                Sign up
+              </a>
+            </div>
+          </div>
+
+          <div className="hamburger-menu-container">
+            <div className="hamburger-menu">
+              <div></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <div> Loading.. </div>;
+  }
 }
 
 export default SubMenu;

@@ -44,13 +44,14 @@ exports.deleteData = async(id) => {
 }
 
 
-exports.createData = async(sliderImageLink,sliderId,sliderTitleen,sliderTitlebn,sliderDescriptionen,sliderDescriptionbn,sliderButtonTitleen,sliderButtonTitlebn,sliderButtonLink,activeStatus) => {
+exports.createData = async(sliderImageLink,sliderId,sliderTitleen,sliderTitlebn,sliderDescriptionen,sliderDescriptionbn,sliderButtonTitleen,sliderButtonTitlebn,sliderButtonLink,activeStatus,sliderName) => {
 
   
 
   const aboutdata={
     sliderImageLink:sliderImageLink,
     sliderId:sliderId,
+    sliderName:sliderName,
     sliderTitle:{
        en:sliderTitleen,
        bn:sliderTitlebn
@@ -75,6 +76,8 @@ exports.createData = async(sliderImageLink,sliderId,sliderTitleen,sliderTitlebn,
       body: JSON.stringify(aboutdata)
   })
 
+  console.log(res);
+
   if(!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
@@ -84,7 +87,7 @@ exports.createData = async(sliderImageLink,sliderId,sliderTitleen,sliderTitlebn,
 }
 
 
-exports.updateData = async(sliderImageLink,sliderId,sliderTitleen,sliderTitlebn,sliderDescriptionen,sliderDescriptionbn,sliderButtonTitleen,sliderButtonTitlebn,sliderButtonLink,activeStatus,idValue) => {
+exports.updateData = async(sliderImageLink,sliderId,sliderTitleen,sliderTitlebn,sliderDescriptionen,sliderDescriptionbn,sliderButtonTitleen,sliderButtonTitlebn,sliderButtonLink,activeStatus,idValue,sliderName) => {
 
   
 
@@ -92,6 +95,7 @@ exports.updateData = async(sliderImageLink,sliderId,sliderTitleen,sliderTitlebn,
     _id: idValue,
     sliderImageLink:sliderImageLink,
     sliderId:sliderId,
+    sliderName:sliderName,
     sliderTitle:{
        en:sliderTitleen,
        bn:sliderTitlebn

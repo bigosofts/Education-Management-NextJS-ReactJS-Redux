@@ -9,12 +9,14 @@ exports.createSlider = (req, res) => {
     let sliderButtonTitle = reqBody.sliderButtonTitle;
     let sliderButtonLink = reqBody.sliderButtonLink;
     let sliderId = reqBody.sliderId;
+    let sliderName = reqBody.sliderName;
     let activeStatus = reqBody.activeStatus;
     //Make res body for posting to the Database
 
     let postBody={
         sliderImageLink:sliderImageLink,
         sliderTitle:sliderTitle,
+        sliderName: sliderName,
         sliderDescription:sliderDescription,
         sliderButtonTitle:sliderButtonTitle,
         sliderButtonLink:sliderButtonLink,
@@ -62,6 +64,7 @@ exports.updateSlider=(req,res)=>{
     let postBody={
         sliderImageLink:reqBody.sliderImageLink,
         sliderId:reqBody.sliderId,
+        sliderName: reqBody.sliderName,
         sliderTitle: {
             en:reqBody.sliderTitle.en,
             bn:reqBody.sliderTitle.bn

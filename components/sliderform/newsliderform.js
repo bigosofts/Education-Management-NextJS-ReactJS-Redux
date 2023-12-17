@@ -11,6 +11,7 @@ function NewSliderForm(props) {
     const slidertitleref = useRef();
     const slidertitlebnref = useRef();
     const slideridref = useRef();
+    const sliderNameref = useRef();
     const sliderbuttontitleref = useRef();
     const sliderbuttontitlebnref = useRef();
     const buttonlinkref = useRef();
@@ -25,6 +26,7 @@ function NewSliderForm(props) {
         const slidertitle = slidertitleref.current.value;
         const slidertitlebn = slidertitlebnref.current.value;
         const sliderid = slideridref.current.value;
+        const sliderName = sliderNameref.current.value;
         const sliderbuttontitle = sliderbuttontitleref.current.value;
         const sliderbuttontitlebn = sliderbuttontitlebnref.current.value;
         const buttonlink = buttonlinkref.current.value;
@@ -35,7 +37,7 @@ function NewSliderForm(props) {
         const sliderradio2 = sliderradio2ref.current.checked;
         const status = sliderradio1 ? "active" : sliderradio2 ? "inactive" : "inactive";
 
-        const res = await createData(imagelink,sliderid,slidertitle,slidertitlebn,sliderdescription,sliderdescriptionbn,sliderbuttontitle,sliderbuttontitlebn,buttonlink,status);
+        const res = await createData(imagelink,sliderid,slidertitle,slidertitlebn,sliderdescription,sliderdescriptionbn,sliderbuttontitle,sliderbuttontitlebn,buttonlink,status, sliderName);
 
         if(res){
             props.statechanger();
@@ -58,6 +60,9 @@ function NewSliderForm(props) {
             </div>
             <div className="input-type">
                 <input ref={slideridref} className="border w-full px-5 py-3 focus:outline-none" type='text' name='sliderid' placeholder='Enter slider id'></input>
+            </div>
+            <div className="input-type">
+                <input ref={sliderNameref} className="border w-full px-5 py-3 focus:outline-none" type='text' name='sliderName' placeholder='Enter slider Name'></input>
             </div>
             <div className="input-type">
                 <input ref={sliderbuttontitleref} className="border w-full px-5 py-3 focus:outline-none" type='text' name='buttontitle' placeholder='Enter button title'></input>
