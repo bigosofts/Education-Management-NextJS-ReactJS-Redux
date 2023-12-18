@@ -55,7 +55,7 @@ function SubMenu() {
                   <li className="nav-link" key={item.menuTitle.en}>
                     {item.subMenu ? (
                       <>
-                        <a href={item.}>
+                        <a href={item.menuLink}>
                           {item.menuTitle.en}
                           <i className="fa fa-caret-down"></i>
                         </a>
@@ -65,7 +65,7 @@ function SubMenu() {
                               <li className="dropdown-link">
                                 {item2.subMenu ? (
                                   <>
-                                    <a href="#">
+                                    <a href={item.menuLink}>
                                       {item2.menuTitle.en}
                                       <i className="fa fa-caret-down"></i>
                                     </a>
@@ -75,7 +75,7 @@ function SubMenu() {
                                           <li className="dropdown-link">
                                             {item3.subMenu ? (
                                               <>
-                                                <a href="#">
+                                                <a href={item.menuLink}>
                                                   {item3.menuTitle.en}
                                                   <i className="fa fa-caret-down"></i>
                                                 </a>

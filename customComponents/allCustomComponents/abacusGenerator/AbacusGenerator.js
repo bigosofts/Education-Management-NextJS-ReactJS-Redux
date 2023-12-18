@@ -10,14 +10,14 @@ function AbacusGenerator() {
               <div className="style-5">
                 <div className="style-6">
                   <label for="inputState" className="style-7">
-                    Operators
+                    {true ? "Operators:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-8" name="ddSumType">
                     <option value="1" className="style-9">
                       Addition Only
                     </option>
                     <option value="2" className="style-10">
-                      Addition &amp; Subtraction
+                      Addition & Substraction
                     </option>
                     <option value="3" className="style-11">
                       Multiplication
@@ -29,7 +29,7 @@ function AbacusGenerator() {
                 </div>
                 <div className="style-13">
                   <label for="inputState" className="style-14">
-                    No. Of Questions
+                    {true ? "No. Of Questions:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-15" name="ddTotalQuestions">
                     <option value="25" className="style-16">
@@ -57,7 +57,7 @@ function AbacusGenerator() {
                 </div>
                 <div className="style-21">
                   <label for="inputState" className="style-22">
-                    No. of Rows
+                    {true ? "No. of Rows:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-23" name="ddTotalRows">
                     <option value="2" className="style-24">
@@ -88,7 +88,7 @@ function AbacusGenerator() {
                 </div>
                 <div className="style-32">
                   <label for="inputState" className="style-33">
-                    No. of Digits
+                    {true ? "No. of Digits:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-34" name="ddSumDigits">
                     <option value="1" className="style-35">
@@ -110,7 +110,7 @@ function AbacusGenerator() {
                 </div>
                 <div className="style-40">
                   <label for="inputState" className="style-41">
-                    Multiplicand digits:
+                    {true ? "Multiplicand digits:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-42" name="ddMultiplicand">
                     <option value="1" className="style-43">
@@ -132,7 +132,7 @@ function AbacusGenerator() {
                 </div>
                 <div className="style-48">
                   <label for="inputState" className="style-49">
-                    Multiplier digits:
+                    {true ? "Multiplier digits:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-50" name="ddMultiplier">
                     <option value="1" className="style-51">
@@ -148,7 +148,7 @@ function AbacusGenerator() {
                 </div>
                 <div className="style-54">
                   <label for="inputState" className="style-55">
-                    Dividend digits:
+                    {true ? "Dividend digits:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-56" name="ddDividend">
                     <option value="2" className="style-57">
@@ -167,7 +167,7 @@ function AbacusGenerator() {
                 </div>
                 <div className="style-61">
                   <label for="inputState" className="style-62">
-                    Divisor digits:
+                    {true ? "Divisor digits:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-63" name="ddDivisor">
                     <option value="1" className="style-64">
@@ -222,7 +222,7 @@ function AbacusGenerator() {
                   className="style-79"
                   onclick="LoadGenerateQuestion1();"
                 >
-                  Generate Worksheet
+                  {true ? "Generate Worksheet" : "অপারেটর"}
                 </button>
               </div>
               <div className="style-80">

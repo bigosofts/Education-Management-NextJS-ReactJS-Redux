@@ -11,6 +11,7 @@ import AbacusGenerator from "@/customComponents/allCustomComponents/abacusGenera
 import AbacusStudentCourses from "@/components/allAbacusComponents/AbacusStudentCourse/AbacusStudentCourses";
 import AboutAbacus from "@/customComponents/allCustomComponents/aboutAbacus/AboutAbacus";
 import { selectData } from "@/apiservices/sliderapiservices";
+
 import { useState, useEffect } from "react";
 
 function Abacus() {
@@ -20,8 +21,9 @@ function Abacus() {
     async function getData() {
       const res = await selectData({
         activeStatus: "active",
-        sliderName: "abacus"
+        sliderName: "abacus",
       });
+
       if (res.status == "Alhamdulillah") {
         setData(res.data);
       } else {
@@ -41,7 +43,6 @@ function Abacus() {
     });
     return letImageObject;
   };
-  
 
   if (data) {
     return (
