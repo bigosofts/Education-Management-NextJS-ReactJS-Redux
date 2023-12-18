@@ -28,7 +28,7 @@ function Abacus() {
       if (res.status == "Alhamdulillah") {
         setData(res.data);
       } else {
-        console.log(res);
+        
         mytoast.danger("Data fetching error. Try Refreshing the page");
       }
     }
