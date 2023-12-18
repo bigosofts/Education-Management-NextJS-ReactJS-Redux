@@ -11,6 +11,7 @@ import AbacusGenerator from "@/customComponents/allCustomComponents/abacusGenera
 import AbacusStudentCourses from "@/components/allAbacusComponents/AbacusStudentCourse/AbacusStudentCourses";
 import AboutAbacus from "@/customComponents/allCustomComponents/aboutAbacus/AboutAbacus";
 import { selectData } from "@/apiservices/sliderapiservices";
+import mytoast from "@/components/toast/toast";
 
 import { useState, useEffect } from "react";
 
@@ -27,6 +28,7 @@ function Abacus() {
       if (res.status == "Alhamdulillah") {
         setData(res.data);
       } else {
+        console.log(res);
         mytoast.danger("Data fetching error. Try Refreshing the page");
       }
     }

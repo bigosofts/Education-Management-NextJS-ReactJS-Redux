@@ -13,6 +13,7 @@ import ReviewPage from "@/customComponents/ReviewPage/ReveiwPage";
 import Footer from "@/customComponents/Footer/Footer";
 import { selectData } from "@/apiservices/sliderapiservices";
 import { useState, useEffect } from "react";
+import mytoast from "@/components/toast/toast";
 
 export default function Home() {
 
