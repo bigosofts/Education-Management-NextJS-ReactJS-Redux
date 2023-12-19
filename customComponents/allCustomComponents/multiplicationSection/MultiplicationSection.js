@@ -10,7 +10,7 @@ function Multiplication() {
     async function getData() {
       const res = await selectData({
         activeStatus: "active",
-        widgetName: "roles_of_solution",
+        widgetName: "abacus_page_roles_of_solution",
       });
 
       if (res.status == "Alhamdulillah") {

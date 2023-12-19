@@ -23,6 +23,7 @@ const jamatController = require("../controllers/jamatController");
 const paymentController = require("../controllers/paymentController");
 const SemesterController = require("../controllers/semesterController");
 const StudentRoleController = require("../controllers/studentRoleController");
+const videoController = require("../controllers/videoController");
 
 //Middleware Import
 const passEncrypted = require("../middlewares/passwordEncryption");
@@ -116,14 +117,12 @@ router.post("/create-result", authverify, resultController.createResult);
 router.post("/create-log", authverify, logController.createLog);
 
 router.post("/create-book", authverify, bookController.createBook);
-router.post(
-  "/create-department",
-  departmentController.createDepartment
-);
+router.post("/create-department", departmentController.createDepartment);
 router.post("/create-jamat", jamatController.createJamat);
 router.post("/create-payment", paymentController.createPayments);
 router.post("/create-semester", SemesterController.createSemester);
 router.post("/create-studentrole", StudentRoleController.createStudentRole);
+router.post("/create-video", videoController.createVideo);
 
 //Select or find the data from the database
 router.post("/select-students", authverify, profileController.selectStudents);
@@ -149,39 +148,26 @@ router.post(
   abacusStudentController.selectAbacusStudents
 );
 
-router.post("/select-courses", authverify, courseController.selectCourses);
-router.post("/select-menus", authverify, menuController.selectMenus);
-router.post("/select-sliders", authverify, sliderController.selectSliders);
-router.post("/select-notices", authverify, noticeController.selectNotices);
-router.post("/select-events", authverify, eventController.selectEvents);
-router.post("/select-posts", authverify, postController.selectPosts);
-router.post(
-  "/select-activities",
-  authverify,
-  activityController.selectActivities
-);
-router.post("/select-comments", authverify, commentController.selectComments);
-router.post("/select-abouts", authverify, aboutController.selectAbouts);
-router.post("/select-widgets", authverify, widgetController.selectWidgets);
-router.post("/select-results", authverify, resultController.selectResults);
-router.post("/select-logs", authverify, logController.selectLogs);
+router.post("/select-courses", courseController.selectCourses);
+router.post("/select-menus", menuController.selectMenus);
+router.post("/select-sliders", sliderController.selectSliders);
+router.post("/select-notices", noticeController.selectNotices);
+router.post("/select-events", eventController.selectEvents);
+router.post("/select-posts", postController.selectPosts);
+router.post("/select-activities", activityController.selectActivities);
+router.post("/select-comments", commentController.selectComments);
+router.post("/select-abouts", aboutController.selectAbouts);
+router.post("/select-widgets", widgetController.selectWidgets);
+router.post("/select-results", resultController.selectResults);
+router.post("/select-logs", logController.selectLogs);
 
-router.post("/select-books", authverify, bookController.selectBooks);
-router.post(
-  "/select-departments",
-  authverify,
-  departmentController.selectDepartments
-);
+router.post("/select-books", bookController.selectBooks);
+router.post("/select-departments", departmentController.selectDepartments);
 router.post("/select-jamats", jamatController.selectJamats);
 router.post("/select-payments", paymentController.selectPayments);
-router.post(
-  "/select-semesters",
-  SemesterController.selectSemesters
-);
-router.post(
-  "/select-studentroles",
-  StudentRoleController.selectStudentRoles
-);
+router.post("/select-semesters", SemesterController.selectSemesters);
+router.post("/select-studentroles", StudentRoleController.selectStudentRoles);
+router.post("/select-videos", videoController.selectVideos);
 
 //Select or update the data from the database
 router.put("/update-student", authverify, profileController.updateStudent);
@@ -200,17 +186,16 @@ router.put("/update-result", authverify, resultController.updateResult);
 router.put("/update-log", authverify, logController.updateLog);
 
 router.put("/update-book", authverify, bookController.updateBook);
-router.put(
-  "/update-department",
-  departmentController.updateDepartment
-);
-router.put("/update-jamat", jamatController.updateJamat);
-router.put("/update-payment", paymentController.updatePayment);
-router.put("/update-semester", SemesterController.updateSemester);
+router.put("/update-department", departmentController.updateDepartment);
+router.put("/update-jamat", authverify, jamatController.updateJamat);
+router.put("/update-payment", authverify, paymentController.updatePayment);
+router.put("/update-semester", authverify, SemesterController.updateSemester);
 router.put(
   "/update-studentrole",
+  authverify,
   StudentRoleController.updateStudentRole
 );
+router.put("/update-video", authverify, videoController.updateVideo);
 
 //abacus update
 
@@ -258,20 +243,12 @@ router.delete("/delete-result/:id", authverify, resultController.deleteResult);
 router.delete("/delete-log/:id", authverify, logController.deleteLog);
 
 router.delete("/delete-book", authverify, bookController.deleteBook);
-router.delete(
-  "/delete-department",
-  departmentController.deleteDepartment
-);
+router.delete("/delete-department", departmentController.deleteDepartment);
 router.delete("/delete-jamat", jamatController.deleteJamat);
 router.delete("/delete-payment", paymentController.deletePayment);
-router.delete(
-  "/delete-semester",
-  SemesterController.deleteSemester
-);
-router.delete(
-  "/delete-studentrole",
-  StudentRoleController.deleteStudentRole
-);
+router.delete("/delete-semester", SemesterController.deleteSemester);
+router.delete("/delete-studentrole", StudentRoleController.deleteStudentRole);
+router.delete("/delete-video", authverify, videoController.deleteVideo);
 
 //abacus delete
 router.delete(

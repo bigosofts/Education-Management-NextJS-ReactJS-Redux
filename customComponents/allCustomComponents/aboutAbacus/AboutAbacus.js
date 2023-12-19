@@ -11,7 +11,7 @@ function AboutAbacus() {
     async function getData() {
       const res = await selectData({
         activeStatus: "active",
-        widgetName: "benefit_of_abacus",
+        widgetName: "abacus_page_benefit_of_abacus",
       });
 
       if (res.status == "Alhamdulillah") {
