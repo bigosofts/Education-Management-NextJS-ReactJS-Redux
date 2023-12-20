@@ -19,7 +19,9 @@ function updateResultForm(props) {
         studentSubMark : props.payload.studentSubMark,
         studentGrade: props.payload.studentGrade,
         studentMerit: props.payload.studentMerit,
-        activeStatus: props.payload.activeStatus
+        activeStatus: props.payload.activeStatus,
+        passingYear: props.payload.passingYear,
+        picture: props.payload.picture,
 
 
     });
@@ -34,9 +36,11 @@ function updateResultForm(props) {
             studentSubMark : props.payload.studentSubMark,
             studentGrade: props.payload.studentGrade,
             studentMerit: props.payload.studentMerit,
-            activeStatus: props.payload.activeStatus
+            activeStatus: props.payload.activeStatus,
+            passingYear: props.payload.passingYear,
+            picture: props.payload.picture,
         })
-    },[props.payload.resultRollNo,props.payload.resultRegNo,props.payload.studentUserId,props.payload.studentExamMadrasha,props.payload.studentExamCentre,props.payload.studentSubMark,props.payload.studentGrade,props.payload.studentMerit,props.payload.activeStatus]);
+    },[props.payload.resultRollNo,props.payload.resultRegNo,props.payload.studentUserId,props.payload.studentExamMadrasha,props.payload.studentExamCentre,props.payload.studentSubMark,props.payload.studentGrade,props.payload.studentMerit,props.payload.activeStatus,props.payload.passingYear,props.payload.picture]);
     
    
 
@@ -51,6 +55,8 @@ function updateResultForm(props) {
     const studentmeritref = useRef();
     const resultradio1ref = useRef();
     const resultradio2ref = useRef();
+    const passingYearref = useRef();
+    const pictureref = useRef();
 
     const clickHandler =async (e)=>{
         e.preventDefault();
@@ -64,13 +70,16 @@ function updateResultForm(props) {
 
         const studentgrade = studentgraderef.current.value;
         const studentmerit = studentmeritref.current.value;
+        const passingYear = passingYearref.current.value;
+        const picture = pictureref.current.picture;
+
         const resultradio1 = resultradio1ref.current.checked;
         const resultradio2 = resultradio2ref.current.checked;
         const status = resultradio1 ? "active" : resultradio2 ? "inactive" : "inactive";
         const idValue = props.data;
         
 
-        const res = await updateData(resultroolno, regno, studentid, madrashaname, examcentre, subMark, studentgrade, studentmerit, status, idValue);
+        const res = await updateData(resultroolno, regno, studentid, madrashaname, examcentre, subMark, studentgrade, studentmerit, status, idValue, passingYear, picture);
 
         if(res){
             props.statechanger();
@@ -121,6 +130,16 @@ function updateResultForm(props) {
             studentMerit: e.target.value
         });
     }
+    const onChangeHandler9 = (e) =>{
+        setResult({
+            passingYear: e.target.value
+        });
+    }
+    const onChangeHandler10 = (e) =>{
+        setResult({
+            picture: e.target.value
+        });
+    }
     
 
 
@@ -150,6 +169,12 @@ function updateResultForm(props) {
             </div>
             <div className="input-type">
                 <input ref={studentmeritref} onChange={onChangeHandler8} value={result.studentMerit} className="border w-full px-5 py-3 focus:outline-none rounded-md" type='number' name='studentmerit' placeholder='Enter student merit'></input>
+            </div>
+            <div className="input-type">
+                <input ref={passingYearref} onChange={onChangeHandler9} value={result.passingYear} className="border w-full px-5 py-3 focus:outline-none rounded-md" type='number' name='passingYearref' placeholder='Enter student passing year'></input>
+            </div>
+            <div className="input-type">
+                <input ref={pictureref} onChange={onChangeHandler10} value={result.picture} className="border w-full px-5 py-3 focus:outline-none rounded-md" type='text' name='pictureref' placeholder='Enter student result picture'></input>
             </div>
             <div className='flex gap-10 items-center'>
             {

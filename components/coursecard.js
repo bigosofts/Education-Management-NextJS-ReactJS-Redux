@@ -4,6 +4,7 @@ import {BiEdit, BiTrashAlt} from "react-icons/bi";
 import {selectData, deleteData} from "@/apiservices/courseapiservices";
 import { useEffect, useState } from 'react';
 import myToast from '@/components/toast/toast';
+import ReactHighlightSyntax from 'react-highlight-syntax';
 
 function CourseCard(props) {
 
@@ -90,6 +91,21 @@ function CourseCard(props) {
                             <h5 className="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">Description</h5>
                             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 block max-h-24 overflow-y-scroll">{item.description.en}</p>
                             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 block max-h-24 overflow-y-scroll">{item.description.bn}</p>
+
+                            <h5 className="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">Description: </h5>
+                            <ReactHighlightSyntax 
+                                language={'JavaScript'}
+                                theme={'Base16Darcula'}
+                                copy={true}
+                                copyBtnTheme={'Dark'}
+                                showLineNumbers={true}
+                            >
+                                {JSON.stringify(
+                                    item.widgetPayload
+                                )}
+                               
+                            </ReactHighlightSyntax>
+                            
                             <div className='flex justify-end gap-2'>
                                 <button onClick={()=>updateHandler(item._id,props.fromupdateform)} className='w-2 px-5 py-5 allColorFont'><BiEdit size={24}/> </button>
                                 <button onClick={()=>props.deleteHandler(item._id)} className='w-2 px-5 py-5 text-red-400'> <BiTrashAlt size={24}/> </button>

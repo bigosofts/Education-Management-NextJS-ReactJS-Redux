@@ -44,7 +44,7 @@ exports.deleteData = async(id) => {
 }
 
 
-exports.createData = async(resultRollNo,resultRegNo,studentUserId,studentExamMadrasha,studentExamCentre,studentSubMark,studentGrade,studentMerit,activeStatus) => {
+exports.createData = async(resultRollNo,resultRegNo,studentUserId,studentExamMadrasha,studentExamCentre,studentSubMark,studentGrade,studentMerit,activeStatus, passingYear, picture) => {
 
  
 
@@ -57,7 +57,9 @@ exports.createData = async(resultRollNo,resultRegNo,studentUserId,studentExamMad
     studentSubMark:studentSubMark,
     studentGrade:studentGrade,
     studentMerit:studentMerit,
-    activeStatus:activeStatus
+    activeStatus:activeStatus,
+    passingYear:passingYear,
+    picture:picture,
  }
 
   const res = await fetch(`/apis/v1/create-result`, {
@@ -77,7 +79,7 @@ exports.createData = async(resultRollNo,resultRegNo,studentUserId,studentExamMad
 }
 
 
-exports.updateData = async(resultRollNo,resultRegNo,studentUserId,studentExamMadrasha,studentExamCentre,studentSubMark,studentGrade,studentMerit,activeStatus,idValue) => {
+exports.updateData = async(resultRollNo,resultRegNo,studentUserId,studentExamMadrasha,studentExamCentre,studentSubMark,studentGrade,studentMerit,activeStatus,idValue,passingYear, picture) => {
 
  
 
@@ -91,7 +93,9 @@ exports.updateData = async(resultRollNo,resultRegNo,studentUserId,studentExamMad
     studentSubMark:studentSubMark,
     studentGrade:studentGrade,
     studentMerit:studentMerit,
-    activeStatus:activeStatus
+    activeStatus:activeStatus,
+    passingYear:passingYear , 
+    picture:picture,
  }
 
   const res = await fetch(`/apis/v1/update-result`, {

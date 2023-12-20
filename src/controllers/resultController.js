@@ -12,6 +12,8 @@ exports.createResult = (req, res) => {
     let studentGrade =reqBody.studentGrade;
     let studentMerit =reqBody.studentMerit;
     let activeStatus =reqBody.activeStatus;
+    let passingYear =reqBody.passingYear;
+    let picture =reqBody.picture;
     
 
     //Make res body for posting to the Database
@@ -26,6 +28,8 @@ exports.createResult = (req, res) => {
         studentGrade: studentGrade,
         studentMerit: studentMerit,
         activeStatus: activeStatus,
+        passingYear: passingYear,
+        picture: picture,
     };
 
     // Create Database record
@@ -75,7 +79,10 @@ exports.updateResult=(req,res)=>{
         studentSubMark:reqBody.studentSubMark,
         studentGrade:reqBody.studentGrade,
         studentMerit:reqBody.studentMerit,
-        activeStatus:reqBody.activeStatus
+        activeStatus:reqBody.activeStatus,
+        passingYear:reqBody.passingYear,
+        picture:reqBody.picture,
+
     }
 
     resultModel.updateOne({_id:filter}, {$set:postBody},{upsert:true}).then((data)=>{

@@ -18,6 +18,8 @@ function NewResultForm(props) {
     const studentmeritref = useRef();
     const resultradio1ref = useRef();
     const resultradio2ref = useRef();
+    const passingYearref = useRef();
+    const pictureref = useRef();
 
     const clickHandler = async (e)=>{
         e.preventDefault();
@@ -31,11 +33,14 @@ function NewResultForm(props) {
 
         const studentgrade = studentgraderef.current.value;
         const studentmerit = studentmeritref.current.value;
+        const passingYear = passingYearref.current.value;
+        const picture = pictureref.current.value;
+
         const resultradio1 = resultradio1ref.current.checked;
         const resultradio2 = resultradio2ref.current.checked;
         const status = resultradio1 ? "active" : resultradio2 ? "inactive" : "inactive";
 
-        const res = await createData(resultroolno,regno,studentid,madrashaname,examcentre,subMark,studentgrade,studentmerit,status);
+        const res = await createData(resultroolno,regno,studentid,madrashaname,examcentre,subMark,studentgrade,studentmerit,status,passingYear,picture);
 
         if(res){
             props.statechanger();
@@ -74,6 +79,12 @@ function NewResultForm(props) {
         </div>
         <div className="input-type">
             <input ref={studentmeritref} className="border w-full px-5 py-3 focus:outline-none rounded-md" type='number' name='studentmerit' placeholder='Enter student merit'></input>
+        </div>
+        <div className="input-type">
+            <input ref={passingYearref} className="border w-full px-5 py-3 focus:outline-none rounded-md" type='number' name='passingYearref' placeholder='Enter passing year'></input>
+        </div>
+        <div className="input-type">
+            <input ref={pictureref} className="border w-full px-5 py-3 focus:outline-none rounded-md" type='text' name='studentmerit' placeholder='Enter Image link'></input>
         </div>
         <div className='flex gap-10 items-center'>
             <div className='form-check'>

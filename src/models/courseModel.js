@@ -107,7 +107,7 @@ const DataSchema = mongoose.Schema(
         },
       },
     ],
-    courseSyllabus: [
+    faq: [
       {
         question: {
           en: { type: String },
