@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useRef, useEffect, useState } from "react";
 import "./loginpage.css";
-import { studentLogin } from "@/apiservices/checklogin";
+import { teacherLogin } from "@/apiservices/checklogin";
 import { isAdmin } from "@/apiservices/checklogin";
 
 function page(props) {
@@ -40,7 +40,7 @@ function page(props) {
 
     if (data) {
       if (data.status == "noToken") {
-        const res = await studentLogin(userName, password);
+        const res = await teacherLogin(userName, password);
         if (res.status == "Alhamdulillah") {
           console.log("login successfull");
           setShouldRefresh(true);
