@@ -19,7 +19,7 @@ const DataSchema = mongoose.Schema({
     },
     emailAddress:{type: String, required: true, unique: true},
     password:{type: String},
-    mobileNumber:{type:String, required: true},
+    mobileNumber:{type:String},
     teacherCourseCode:{type: String},
     teacherJamatCode:{type: String},
     gender:{type: String},
