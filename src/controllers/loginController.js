@@ -33,6 +33,7 @@ exports.studentLogin=(req,res)=>{
 
 exports.teacherLogin=(req,res)=>{
     let userName=req.headers["userName"];
+   
     teacherProfileModel.findOne({userName:userName},{password: false}).then((data)=>{
     
             // Create Auth Token
