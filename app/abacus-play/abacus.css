@@ -1,0 +1,23 @@
+.abacusDesign {
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1100px) {
+  .abacusChild {
+    width: 880px;
+    overflow: hidden;
+  }
+}
+@media only screen and (max-width: 760px) {
+  .abacusChild {
+    width: 560px;
+    overflow: hidden;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .abacusChild {
+    width: 338px;
+    overflow: hidden;
+  }
+}

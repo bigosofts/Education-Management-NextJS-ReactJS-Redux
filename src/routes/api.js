@@ -24,6 +24,7 @@ const paymentController = require("../controllers/paymentController");
 const SemesterController = require("../controllers/semesterController");
 const StudentRoleController = require("../controllers/studentRoleController");
 const videoController = require("../controllers/videoController");
+const qaFormController = require("../controllers/qaFormController");
 
 //Middleware Import
 const passEncrypted = require("../middlewares/passwordEncryption");
@@ -123,6 +124,7 @@ router.post("/create-payment", paymentController.createPayments);
 router.post("/create-semester", SemesterController.createSemester);
 router.post("/create-studentrole", StudentRoleController.createStudentRole);
 router.post("/create-video", videoController.createVideo);
+router.post("/create-qaform", qaFormController.createQAForm);
 
 //Select or find the data from the database
 router.post("/select-students", authverify, profileController.selectStudents);
@@ -168,6 +170,7 @@ router.post("/select-payments", paymentController.selectPayments);
 router.post("/select-semesters", SemesterController.selectSemesters);
 router.post("/select-studentroles", StudentRoleController.selectStudentRoles);
 router.post("/select-videos", videoController.selectVideos);
+router.post("/select-qaforms", qaFormController.selectQAForm);
 
 //Select or update the data from the database
 router.put("/update-student", authverify, profileController.updateStudent);
@@ -196,6 +199,7 @@ router.put(
   StudentRoleController.updateStudentRole
 );
 router.put("/update-video", authverify, videoController.updateVideo);
+router.put("/update-qaform", authverify, qaFormController.updateQAForm);
 
 //abacus update
 
@@ -242,13 +246,17 @@ router.delete("/delete-widget/:id", authverify, widgetController.deleteWidget);
 router.delete("/delete-result/:id", authverify, resultController.deleteResult);
 router.delete("/delete-log/:id", authverify, logController.deleteLog);
 
-router.delete("/delete-book", authverify, bookController.deleteBook);
-router.delete("/delete-department", departmentController.deleteDepartment);
-router.delete("/delete-jamat", jamatController.deleteJamat);
-router.delete("/delete-payment", paymentController.deletePayment);
-router.delete("/delete-semester", SemesterController.deleteSemester);
-router.delete("/delete-studentrole", StudentRoleController.deleteStudentRole);
-router.delete("/delete-video", authverify, videoController.deleteVideo);
+router.delete("/delete-book/:id", authverify, bookController.deleteBook);
+router.delete("/delete-department/:id", departmentController.deleteDepartment);
+router.delete("/delete-jamat/:id", jamatController.deleteJamat);
+router.delete("/delete-payment/:id", paymentController.deletePayment);
+router.delete("/delete-semester/:id", SemesterController.deleteSemester);
+router.delete(
+  "/delete-studentrole/:id",
+  StudentRoleController.deleteStudentRole
+);
+router.delete("/delete-video/:id", authverify, videoController.deleteVideo);
+router.delete("/delete-qaform/:id", authverify, qaFormController.deleteQAForm);
 
 //abacus delete
 router.delete(

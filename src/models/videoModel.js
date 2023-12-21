@@ -10,6 +10,8 @@ const DataSchema = mongoose.Schema(
           bn: { type: String },
         },
         link: { type: String },
+        qaformid: {type: String},
+        resourcelink:{type: String}
       },
     ],
     courseID: { type: String },
@@ -23,3 +25,24 @@ const DataSchema = mongoose.Schema(
 const videoModel = mongoose.model("videos", DataSchema);
 
 module.exports = videoModel;
+
+[
+  {
+    "title": {
+      "en": "",
+      "bn": ""
+    },
+    "link": "",
+    "qaformid": "",
+    "resourcelink":""
+  },
+  {
+    "title": {
+      "en": "",
+      "bn": ""
+    },
+    "link": "",
+    "qaformid": "",
+    "resourcelink":""
+  }
+]

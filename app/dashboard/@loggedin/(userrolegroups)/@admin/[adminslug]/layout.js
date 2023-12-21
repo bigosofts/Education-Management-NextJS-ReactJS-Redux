@@ -101,6 +101,16 @@ function layout({children, params}) {
             name: "Abacus",
             href: `/dashboard/${params.adminslug}/abacus`,
             icon: "LuGraduationCap",
+          },
+          {
+            name: "Videos",
+            href: `/dashboard/${params.adminslug}/videos`,
+            icon: "LuGraduationCap",
+          },
+          {
+            name: "QAForm",
+            href: `/dashboard/${params.adminslug}/qaform`,
+            icon: "BiCode",
           }
     ];
 

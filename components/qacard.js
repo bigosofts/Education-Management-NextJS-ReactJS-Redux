@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 import { BiEdit, BiTrashAlt } from "react-icons/bi";
-import { selectData, deleteData } from "@/apiservices/resultapiservices";
+import { selectData, deleteData } from "@/apiservices/qaformapiservices";
 import { useEffect, useState } from "react";
 import myToast from "@/components/toast/toast";
 import ReactHighlightSyntax from "react-highlight-syntax";
 
-function ResultCard(props) {
+function Qacard(props) {
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -40,7 +40,7 @@ function ResultCard(props) {
               <a href="#">
                 <img
                   className="rounded-t-lg w-full h-64"
-                  src={item.picture}
+                  src={item.questionimage}
                   alt=""
                 />
               </a>
@@ -59,30 +59,19 @@ function ResultCard(props) {
               <div className="p-5">
                 <a href="#">
                   <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    Student ID: {item.studentUserId}
+                    QA Form ID: {item.qaformid}
                   </h5>
                 </a>
-
-                <p className="mb-3 font-normal text-orange-700 dark:text-orange-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Roll No: {item.resultRollNo}
-                </p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Reg NO: {item.resultRegNo}
-                </p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Madrasha Name: {item.studentExamMadrasha}
-                </p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Exam Centre: {item.studentExamCentre}
-                </p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Exam Passing Year: {item.passingYear}
-                </p>
+                <a href="#">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Question text: {item.questiontext}
+                  </h5>
+                </a>
+                <a href="#">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Correct Answer: {item.correctanswer}
+                  </h5>
+                </a>
 
                 <ReactHighlightSyntax
                   language={"JavaScript"}
@@ -91,21 +80,8 @@ function ResultCard(props) {
                   copyBtnTheme={"Dark"}
                   showLineNumbers={true}
                 >
-                  {JSON.stringify(item.studentSubMark)}
+                  {JSON.stringify(item.multiplechoice)}
                 </ReactHighlightSyntax>
-
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Grade: {item.studentGrade}
-                </p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Merit No: {item.studentMerit}
-                </p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Merit No: {item.marhala}
-                </p>
 
                 <div className="flex justify-end gap-2">
                   <button
@@ -142,7 +118,7 @@ function ResultCard(props) {
               <a href="#">
                 <img
                   className="rounded-t-lg w-full h-64"
-                  src={item.picture}
+                  src={item.questionimage}
                   alt=""
                 />
               </a>
@@ -161,30 +137,19 @@ function ResultCard(props) {
               <div className="p-5">
                 <a href="#">
                   <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    Student ID: {item.studentUserId}
+                    QA Form ID: {item.qaformid}
                   </h5>
                 </a>
-
-                <p className="mb-3 font-normal text-orange-700 dark:text-orange-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Roll No: {item.resultRollNo}
-                </p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Reg NO: {item.resultRegNo}
-                </p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Madrasha Name: {item.studentExamMadrasha}
-                </p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Exam Centre: {item.studentExamCentre}
-                </p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Exam Passing Year: {item.passingYear}
-                </p>
+                <a href="#">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Question text: {item.questiontext}
+                  </h5>
+                </a>
+                <a href="#">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Correct Answer: {item.correctanswer}
+                  </h5>
+                </a>
 
                 <ReactHighlightSyntax
                   language={"JavaScript"}
@@ -193,22 +158,8 @@ function ResultCard(props) {
                   copyBtnTheme={"Dark"}
                   showLineNumbers={true}
                 >
-                  {JSON.stringify(item.studentSubMark)}
+                  {JSON.stringify(item.multiplechoice)}
                 </ReactHighlightSyntax>
-
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Grade: {item.studentGrade}
-                </p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Merit No: {item.studentMerit}
-                </p>
-
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Marhala Name: {item.marhala}
-                </p>
 
                 <div className="flex justify-end gap-2">
                   <button
@@ -236,4 +187,4 @@ function ResultCard(props) {
   }
 }
 
-export default ResultCard;
+export default Qacard;
