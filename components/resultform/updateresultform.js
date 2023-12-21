@@ -22,6 +22,7 @@ function updateResultForm(props) {
         activeStatus: props.payload.activeStatus,
         passingYear: props.payload.passingYear,
         picture: props.payload.picture,
+        marhala: props.payload.marhala
 
 
     });
@@ -39,8 +40,9 @@ function updateResultForm(props) {
             activeStatus: props.payload.activeStatus,
             passingYear: props.payload.passingYear,
             picture: props.payload.picture,
+            marhala: props.payload.marhala
         })
-    },[props.payload.resultRollNo,props.payload.resultRegNo,props.payload.studentUserId,props.payload.studentExamMadrasha,props.payload.studentExamCentre,props.payload.studentSubMark,props.payload.studentGrade,props.payload.studentMerit,props.payload.activeStatus,props.payload.passingYear,props.payload.picture]);
+    },[props.payload.resultRollNo,props.payload.resultRegNo,props.payload.studentUserId,props.payload.studentExamMadrasha,props.payload.studentExamCentre,props.payload.studentSubMark,props.payload.studentGrade,props.payload.studentMerit,props.payload.activeStatus,props.payload.passingYear,props.payload.picture,props.payload.marhala]);
     
    
 
@@ -57,6 +59,7 @@ function updateResultForm(props) {
     const resultradio2ref = useRef();
     const passingYearref = useRef();
     const pictureref = useRef();
+    const marhalaref = useRef();
 
     const clickHandler =async (e)=>{
         e.preventDefault();
@@ -72,6 +75,7 @@ function updateResultForm(props) {
         const studentmerit = studentmeritref.current.value;
         const passingYear = passingYearref.current.value;
         const picture = pictureref.current.picture;
+        const marhala = marhalaref.current.marhala;
 
         const resultradio1 = resultradio1ref.current.checked;
         const resultradio2 = resultradio2ref.current.checked;
@@ -79,7 +83,7 @@ function updateResultForm(props) {
         const idValue = props.data;
         
 
-        const res = await updateData(resultroolno, regno, studentid, madrashaname, examcentre, subMark, studentgrade, studentmerit, status, idValue, passingYear, picture);
+        const res = await updateData(resultroolno, regno, studentid, madrashaname, examcentre, subMark, studentgrade, studentmerit, status, idValue, passingYear, picture,marhala);
 
         if(res){
             props.statechanger();
@@ -140,6 +144,11 @@ function updateResultForm(props) {
             picture: e.target.value
         });
     }
+    const onChangeHandler11 = (e) =>{
+        setResult({
+            marhala: e.target.value
+        });
+    }
     
 
 
@@ -175,6 +184,9 @@ function updateResultForm(props) {
             </div>
             <div className="input-type">
                 <input ref={pictureref} onChange={onChangeHandler10} value={result.picture} className="border w-full px-5 py-3 focus:outline-none rounded-md" type='text' name='pictureref' placeholder='Enter student result picture'></input>
+            </div>
+            <div className="input-type">
+                <input ref={marhalaref} onChange={onChangeHandler11} value={result.marhala} className="border w-full px-5 py-3 focus:outline-none rounded-md" type='text' name='marhalaref' placeholder='Enter exam marhala'></input>
             </div>
             <div className='flex gap-10 items-center'>
             {

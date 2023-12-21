@@ -44,7 +44,7 @@ exports.deleteData = async(id) => {
 }
 
 
-exports.createData = async(resultRollNo,resultRegNo,studentUserId,studentExamMadrasha,studentExamCentre,studentSubMark,studentGrade,studentMerit,activeStatus, passingYear, picture) => {
+exports.createData = async(resultRollNo,resultRegNo,studentUserId,studentExamMadrasha,studentExamCentre,studentSubMark,studentGrade,studentMerit,activeStatus, passingYear, picture,marhala) => {
 
  
 
@@ -60,6 +60,7 @@ exports.createData = async(resultRollNo,resultRegNo,studentUserId,studentExamMad
     activeStatus:activeStatus,
     passingYear:passingYear,
     picture:picture,
+    marhala:marhala
  }
 
   const res = await fetch(`/apis/v1/create-result`, {
@@ -79,7 +80,7 @@ exports.createData = async(resultRollNo,resultRegNo,studentUserId,studentExamMad
 }
 
 
-exports.updateData = async(resultRollNo,resultRegNo,studentUserId,studentExamMadrasha,studentExamCentre,studentSubMark,studentGrade,studentMerit,activeStatus,idValue,passingYear, picture) => {
+exports.updateData = async(resultRollNo,resultRegNo,studentUserId,studentExamMadrasha,studentExamCentre,studentSubMark,studentGrade,studentMerit,activeStatus,idValue,passingYear, picture,marhala) => {
 
  
 
@@ -96,6 +97,7 @@ exports.updateData = async(resultRollNo,resultRegNo,studentUserId,studentExamMad
     activeStatus:activeStatus,
     passingYear:passingYear , 
     picture:picture,
+    marhala:marhala
  }
 
   const res = await fetch(`/apis/v1/update-result`, {

@@ -14,6 +14,7 @@ exports.createResult = (req, res) => {
     let activeStatus =reqBody.activeStatus;
     let passingYear =reqBody.passingYear;
     let picture =reqBody.picture;
+    let marhala =reqBody.marhala;
     
 
     //Make res body for posting to the Database
@@ -30,6 +31,7 @@ exports.createResult = (req, res) => {
         activeStatus: activeStatus,
         passingYear: passingYear,
         picture: picture,
+        marhala:marhala
     };
 
     // Create Database record
@@ -82,6 +84,7 @@ exports.updateResult=(req,res)=>{
         activeStatus:reqBody.activeStatus,
         passingYear:reqBody.passingYear,
         picture:reqBody.picture,
+        marhala: reqBody.marhala
 
     }
 

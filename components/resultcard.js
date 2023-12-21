@@ -102,6 +102,10 @@ function ResultCard(props) {
                   {" "}
                   Merit No: {item.studentMerit}
                 </p>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
+                  {" "}
+                  Merit No: {item.marhala}
+                </p>
 
                 <div className="flex justify-end gap-2">
                   <button
@@ -199,6 +203,11 @@ function ResultCard(props) {
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
                   {" "}
                   Merit No: {item.studentMerit}
+                </p>
+
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
+                  {" "}
+                  Merit No: {item.marhala}
                 </p>
 
                 <div className="flex justify-end gap-2">
