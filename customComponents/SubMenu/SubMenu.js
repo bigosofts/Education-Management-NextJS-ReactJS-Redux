@@ -19,9 +19,7 @@ function SubMenu() {
     var formattedDate = date.toLocaleDateString("en-US", options);
     return formattedDate;
   }
-  function output(item){
-    console.log(item)
-  }
+  
 
   useEffect(() => {
     async function getData() {

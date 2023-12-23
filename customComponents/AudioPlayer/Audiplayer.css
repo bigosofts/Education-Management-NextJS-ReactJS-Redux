@@ -20,9 +20,6 @@
   transition: 3s ease-out;
 }
 
-
-
-
 .iframe-mask .control-youtube-right {
   position: absolute;
   position: absolute;
@@ -38,15 +35,19 @@
   transition: 3s ease-out;
 }
 
-
-
-
-
-@media only screen and (max-width: 540px){
-    .iframe-mask .control-youtube-right{
-        width: 40%;
-    }
-    .iframe-mask .control-youtube-left{
-        width: 40%;
-    }
+@media only screen and (max-width: 540px) {
+  .iframe-mask .control-youtube-right {
+    width: 44%;
+  }
+  .iframe-mask .control-youtube-left {
+    width: 44%;
+  }
+}
+@media only screen and (max-width: 340px) {
+  .iframe-mask .control-youtube-right {
+    width: 40%;
+  }
+  .iframe-mask .control-youtube-left {
+    width: 40%;
+  }
 }

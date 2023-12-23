@@ -117,6 +117,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  text-transform: uppercase;
 }
 
 .NoticeEvent .style-12 {
@@ -792,6 +793,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  text-transform: uppercase;
 }
 
 .NoticeEvent .style-80 {
@@ -1385,6 +1387,7 @@
   box-sizing: border-box;
   vertical-align: middle;
   border-style: none;
+  height: 107px;
 }
 
 .NoticeEvent .style-134 {
