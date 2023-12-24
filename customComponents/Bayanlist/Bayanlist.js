@@ -52,19 +52,9 @@ function BayanList() {
               </div>
             </div>
           </div>
-          <h1 class="style-8">Hazrat Wala R.A. Majalis</h1>
+          <h1 class="style-8">koumi Madrasa Books</h1>
           <div class="style-9">
-            <div class="style-10">
-              <div class="style-11">
-                <strong class="style-12">Bayanaat</strong>Bayanaat of Shaikh ul
-                Arab wal Ajam
-                <br class="style-13" />
-                Arif Billah Mujaddid-e-Zamana Hazrat Maulana
-                <br class="style-14" />
-                Shah Hakeem Muhammad Akhtar Sahib R.A
-                <strong class="style-15">Muhammad Akhtar</strong>
-              </div>
-            </div>
+            <div class="style-10"></div>
           </div>
           <ul class="style-16">
             {data.widgetPayload.map((item) => (
@@ -106,17 +96,9 @@ function BayanList() {
               </div>
             </div>
           </div>
-          <h1 class="style-73">Bayanaat</h1>
+          <h1 class="style-73">All Notices</h1>
           <div class="style-74">
-            <div class="style-75">
-              <div class="style-76">
-                <strong class="style-77">Bayanaat</strong>Bayanaat of Hazrat
-                Aqdas Shah
-                <br class="style-78" />
-                <strong class="style-79">Feroz Abdullah Memon</strong>Feroz
-                Abdullah Memon Sahib D.B
-              </div>
-            </div>
+            <div class="style-75"></div>
           </div>
           <ul class="style-80">
             {data2.widgetPayload.map((item) => (
@@ -158,17 +140,9 @@ function BayanList() {
               </div>
             </div>
           </div>
-          <h1 class="style-137">Majalis</h1>
+          <h1 class="style-137">Madrasa Routines</h1>
           <div class="style-138">
-            <div class="style-139">
-              <div class="style-140">
-                <strong class="style-141">Majalis</strong>Majalis of Hazrat
-                Aqdas Shah
-                <br class="style-142" />
-                <strong class="style-143">Feroz Abdullah Memon</strong>Feroz
-                Abdullah Memon Sahib D.B
-              </div>
-            </div>
+            <div class="style-139"></div>
           </div>
           <ul class="style-144">
             {data3.widgetPayload.map((item) => (

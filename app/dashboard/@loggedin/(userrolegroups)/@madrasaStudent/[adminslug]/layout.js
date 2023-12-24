@@ -8,7 +8,7 @@ import SubMenu from "@/customComponents/SubMenu/SubMenu";
 import Footer from "@/customComponents/Footer/Footer";
 import "./dashsidebar.css";
 
-function layout({ student, teacher, params }) {
+function layout({ children, params }) {
   const router = useRouter();
 
   const [data, setData] = useState();
@@ -24,40 +24,44 @@ function layout({ student, teacher, params }) {
   const sidebarItems = [
     {
       name: "Dashboard",
-      href: `/abacus/course/${params.abacusCourse}`,
+      href: `/dashboard/${params.adminslug}`,
       icon: "MdOutlineDashboard",
     },
     {
       name: "Abacus",
-      href: `/abacus/course/${params.abacusCourse}/abacus`,
+      href: `/dashboard/${params.adminslug}/abacus`,
       icon: "LuGraduationCap",
     },
     {
       name: "Alem Alema",
-      href: `/abacus/course/${params.abacusCourse}/alemalema`,
+      href: `/dashboard/${params.adminslug}/alemalema`,
       icon: "MdEventAvailable",
     },
     {
       name: "Hifz",
-      href: `/abacus/course/${params.abacusCourse}/hifz`,
+      href: `/dashboard/${params.adminslug}/hifz`,
       icon: "MdPostAdd",
     },
   ];
 
   if (data) {
-    if (true) {
-      return (
-        <>
-          <MainMenu />
-          <SubMenu />
-          <div className="layout">
-            <Sidebar item={sidebarItems} pageCourse={true} />
+    if (params.adminslug == data.data.userName) {
+      if (true) {
+        return (
+          <>
+            <MainMenu />
+            <SubMenu />
+            <div className="layout">
+              <Sidebar item={sidebarItems} pageCourse={true} />
 
-            {teacher}
-          </div>
-          <Footer />
-        </>
-      );
+              {children}
+            </div>
+            <Footer />
+          </>
+        );
+      }
+    } else {
+      router.replace(`/dashboard/${data.data.userName}`);
     }
   }
 }

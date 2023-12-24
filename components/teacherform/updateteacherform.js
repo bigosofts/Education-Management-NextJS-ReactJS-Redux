@@ -158,7 +158,7 @@ function updateTeacherForm(props) {
         if(res){
             props.statechanger();
             myToast.success("Data was Updated successfully");
-            console.log(res);
+        
         }else{
             myToast.warning("something went wrong");
         }

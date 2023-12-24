@@ -163,6 +163,8 @@ exports.updateData = async (
   activeStatus,
   idValue
 ) => {
+
+
   const aboutdata = {
     _id: idValue,
     firstName: {
@@ -200,7 +202,7 @@ exports.updateData = async (
     userName: userName,
     admissionDate: admissionDate,
   };
-
+console.log(aboutdata);
   const res = await fetch(`/apis/v1/update-student`, {
     method: "PUT",
     headers: {

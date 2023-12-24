@@ -7,7 +7,7 @@ dotenv.config({path: "../../config.env"});
 
 exports.studentLogin=(req,res)=>{
     let userName=req.headers["userName"];
-    studentProfileModel.findOne({userName:userName},{password: false}).then((data)=>{
+    studentProfileModel.findOne({userName:userName, activeStatus:"active"},{password: false}).then((data)=>{
     
             // Create Auth Token
             let Payload={exp: Math.floor(Date.now() / 1000) + (720*60*60), data:data}
@@ -34,7 +34,7 @@ exports.studentLogin=(req,res)=>{
 exports.teacherLogin=(req,res)=>{
     let userName=req.headers["userName"];
    
-    teacherProfileModel.findOne({userName:userName},{password: false}).then((data)=>{
+    teacherProfileModel.findOne({userName:userName, activeStatus:"active"},{password: false}).then((data)=>{
     
             // Create Auth Token
             let Payload={exp: Math.floor(Date.now() / 1000) + (24*60*60), data:data}

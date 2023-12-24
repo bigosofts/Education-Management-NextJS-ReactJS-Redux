@@ -24,6 +24,38 @@ function LiveSection() {
     getData();
   }, []);
 
+  function dayDifferenceWithTime(iso1, iso2) {
+    const date1 = new Date(iso1);
+    const date2 = new Date(iso2);
+
+    const timeDifference = date1 - date2;
+
+    const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const remainingTime = timeDifference % (1000 * 60 * 60 * 24);
+
+    const hours = Math.floor(remainingTime / (1000 * 60 * 60));
+    const minutes = Math.floor(
+      (remainingTime % (1000 * 60 * 60)) / (1000 * 60)
+    );
+
+    let result = "";
+
+    if (daysDifference > 0) {
+      result += daysDifference + (daysDifference === 1 ? " day " : " days ");
+    }
+
+    if (hours > 0) {
+      result += hours + (hours === 1 ? " hour " : " hours ");
+    }
+
+    if (minutes > 0) {
+      result += minutes + (minutes === 1 ? " minute " : " minutes ");
+    }
+
+    return result.trim();
+  }
+
+
   if (data) {
     return (
       <div className="Livestream">
@@ -79,13 +111,10 @@ function LiveSection() {
           <div className="style-48">After</div>
           <div className="style-49">
             <div className="style-50">
-              <div className="style-51">hours</div>
-              <strong className="style-52">19</strong>
+              <div className="style-51">Remaining...</div>
+              <strong className="style-52">{dayDifferenceWithTime(data.widgetPayload[0].nextLive, new Date(Date.now()).toISOString())}</strong>
             </div>
-            <div className="style-53">
-              <div className="style-54">minutes</div>
-              <strong className="style-55">20</strong>
-            </div>
+            
           </div>
           <div className="style-56">Tuesday Bayan at Khanqah</div>
           <div className="style-57">
@@ -127,7 +156,10 @@ function LiveSection() {
                 </td>
                 <td className="style-73">
                   <span className="style-74">
-                    <a href="https://t.me/internet_madrasa" className="style-75">
+                    <a
+                      href="https://t.me/internet_madrasa"
+                      className="style-75"
+                    >
                       (+880)-1674-04-05-02
                     </a>
                   </span>
