@@ -14,8 +14,7 @@ const profileController = require("../controllers/profileController");
 const loginController = require("../controllers/loginController");
 const resultController = require("../controllers/resultController");
 const logController = require("../controllers/logController");
-const abacusStudentController = require("../controllers/allAbacusController/abacusStudentController");
-const madrashaAbacusController = require("../controllers/allAbacusController/madrashaAbacusController");
+
 
 const bookController = require("../controllers/bookController");
 const departmentController = require("../controllers/departmentController");
@@ -79,17 +78,7 @@ router.post(
   profileController.createStudent
 );
 
-//abacus
-router.post(
-  "/create-madrasha-abacus",
-  passEncrypted.hashedPassword,
-  madrashaAbacusController.createMadrashaAbacus
-);
-router.post(
-  "/create-abacus-student",
-  passEncrypted.hashedPassword,
-  abacusStudentController.createAbacusStudent
-);
+
 
 //Login api for students and teachers
 router.post(
@@ -140,15 +129,7 @@ router.post(
   profileController.selectAllTeachers
 );
 
-//abacus
-router.post(
-  "/select-all-madrasha-abacus",
-  madrashaAbacusController.selectMadrashaAbacus
-);
-router.post(
-  "/select-all-abacus-students",
-  abacusStudentController.selectAbacusStudents
-);
+
 
 router.post("/select-courses", courseController.selectCourses);
 router.post("/select-menus", menuController.selectMenus);
@@ -201,16 +182,7 @@ router.put(
 router.put("/update-video", authverify, videoController.updateVideo);
 router.put("/update-qaform", authverify, qaFormController.updateQAForm);
 
-//abacus update
 
-router.put(
-  "/update-madrasha-abacus",
-  madrashaAbacusController.updateMadrashaAbacus
-);
-router.put(
-  "/update-abacus-student",
-  abacusStudentController.updateAbacusStudent
-);
 
 router.put("/update-log", authverify, logController.updateLog);
 
@@ -258,14 +230,6 @@ router.delete(
 router.delete("/delete-video/:id", authverify, videoController.deleteVideo);
 router.delete("/delete-qaform/:id", authverify, qaFormController.deleteQAForm);
 
-//abacus delete
-router.delete(
-  "/delete-madrasha-abacus/:id",
-  madrashaAbacusController.deleteMadrashaAbacus
-);
-router.delete(
-  "/delete-abacus-student/:id",
-  abacusStudentController.deleteAbacusStudent
-);
+
 
 module.exports = router;
