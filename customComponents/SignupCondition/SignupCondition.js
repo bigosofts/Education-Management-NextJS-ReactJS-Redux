@@ -20,6 +20,10 @@ function SignupCondition(props) {
     e.preventDefault();
     router.push("/signup/general-student");
   };
+  const clickHandler5 = (e) => {
+    e.preventDefault();
+    router.push("/signup/gardian");
+  };
 
   return (
     <div className="our-service-sass hide-pr show-pr">
@@ -114,6 +118,40 @@ function SignupCondition(props) {
                 <a className="detail-button">
                   <i class="icon-img">
                     <img src="/images/checklist.gif" width="100%"></img>
+                  </i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="flex-special">
+            <div
+              onClick={clickHandler5}
+              className="single-block aos-init aos-animate flex-signup-item"
+              data-aos="fade-up"
+            >
+              <div className="service-block">
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <div className="hover-content"></div>
+                <i className="flaticon-web user"></i>
+                <h5 className="title">
+                  <a>Gardian Account</a>
+                </h5>
+                <p>
+                  Want to learn something new from our Website to teach your
+                  child?
+                </p>
+                <a className="detail-button">
+                  <i className="icon-img">
+                    <img
+                      src="https://cdn-icons-gif.flaticon.com/6172/6172532.gif"
+                      width="100%"
+                    ></img>
                   </i>
                 </a>
               </div>

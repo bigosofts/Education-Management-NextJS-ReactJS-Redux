@@ -28,10 +28,20 @@ function SignupConditionMadrasaStudent(props) {
     e.preventDefault();
     router.push("/signup/madrasa-student/hifz");
   };
+  const clickHandler7 = (e) => {
+    e.preventDefault();
+    router.push("/signup/madrasa-student/urdu");
+  };
+  const clickHandler8 = (e) => {
+    e.preventDefault();
+    router.push("/signup/madrasa-student/ezra");
+  };
 
   return (
     <div className="our-service-sass hide-pr show-pr">
+     
       <div className="container-signuppage">
+      <h1 style={{fontSize:"28px", textAlign: "center", fontWeight:"900", textTransform:"uppercase"}}>Choose where do you want to admit ?</h1>
         <div className="inner-wrapper">
           <div className="flex-signup">
             <div
@@ -53,7 +63,7 @@ function SignupConditionMadrasaStudent(props) {
                   <a>Alem Alema</a>
                 </h5>
                 <p>
-                  Its a very long course and run based on a complete koumi madrasa syllabus and curriculam
+                  It is run based on a complete koumi madrasa syllabus and curriculam. (Mijan Jamat to Daoraye Hadis)
                 </p>
                 <a className="detail-button">
                   <i className="icon-img">
@@ -215,6 +225,70 @@ function SignupConditionMadrasaStudent(props) {
                 </a>
               </div>
             </div>
+            
+          </div>
+          <div className="flex-special">
+            <div
+              onClick={clickHandler7}
+              className="single-block aos-init aos-animate flex-signup-item"
+              data-aos="fade-up"
+            >
+              <div className="service-block">
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <div className="hover-content"></div>
+                <i className="flaticon-web user"></i>
+                <h5 className="title">
+                  <a>Urdu Jamat</a>
+                </h5>
+                <p>
+                  Want to learn Urdu?
+                </p>
+                <a className="detail-button">
+                  <i className="icon-img">
+                    <img
+                      src="/images/tech-support.gif"
+                      width="100%"
+                    ></img>
+                  </i>
+                </a>
+              </div>
+            </div>
+            <div
+              onClick={clickHandler8}
+              className="single-block aos-init aos-animate flex-signup-item"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div className="service-block">
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <span className="snow-dot"></span>
+                <div className="hover-content"></div>
+                <i className="flaticon-value icon-s"></i>
+                <h5 className="title">
+                  <a>Ezra</a>
+                </h5>
+                <p>
+                  Want to participate nahu sorof ezra jamat ?
+                </p>
+                <a className="detail-button">
+                  <i className="icon-img">
+                    <img src="/images/diagram.gif" width="100%"></img>
+                  </i>
+                </a>
+              </div>
+            </div>
+            
             
           </div>
         </div>

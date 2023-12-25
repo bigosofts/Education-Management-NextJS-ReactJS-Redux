@@ -103,8 +103,8 @@ function page(props) {
         <div className="login-wrap">
           <div className="login-content">
             <div className="switchButton">
-              <div onClick={changer}>Student Login</div>
-              <div onClick={changer1}>Teacher Login</div>
+              <div onClick={changer}>Student/Guest Login</div>
+              <div onClick={changer1}>Teacher/Gardian Login</div>
             </div>
             <div className="login-logo">
               <a className="" href="#">
@@ -118,7 +118,7 @@ function page(props) {
             >
               <form action="" method="post">
                 <div className="form-group">
-                  <label>Teacher Username</label>
+                  <label>Teacher/Gardian Username</label>
                   <input
                     ref={userNameRef}
                     className="au-input au-input--full"
@@ -177,7 +177,7 @@ function page(props) {
             >
               <form action="" method="post">
                 <div className="form-group">
-                  <label>Student Username</label>
+                  <label>Student/Guest Username</label>
                   <input
                     ref={studentUserNameRef}
                     className="au-input au-input--full"

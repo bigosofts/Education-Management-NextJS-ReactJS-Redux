@@ -55,7 +55,6 @@ function LiveSection() {
     return result.trim();
   }
 
-
   if (data) {
     return (
       <div className="Livestream">
@@ -112,9 +111,13 @@ function LiveSection() {
           <div className="style-49">
             <div className="style-50">
               <div className="style-51">Remaining...</div>
-              <strong className="style-52">{dayDifferenceWithTime(data.widgetPayload[0].nextLive, new Date(Date.now()).toISOString())}</strong>
+              <strong className="style-52">
+                {dayDifferenceWithTime(
+                  data.widgetPayload[0].nextLive,
+                  new Date(Date.now()).toISOString()
+                )}
+              </strong>
             </div>
-            
           </div>
           <div className="style-56">Tuesday Bayan at Khanqah</div>
           <div className="style-57">
@@ -140,8 +143,12 @@ function LiveSection() {
                 </td>
                 <td className="style-67">
                   <span className="style-68">
-                    <a href="" className="style-69">
-                      (+880)-1674-04-05-02
+                    <a
+                      target="_blank"
+                      href="https://join.skype.com/invite/NxyjksCQosR4"
+                      className="style-69"
+                    >
+                      internetmadrasa
                     </a>
                   </span>
                 </td>
@@ -160,7 +167,26 @@ function LiveSection() {
                       href="https://t.me/internet_madrasa"
                       className="style-75"
                     >
-                      (+880)-1674-04-05-02
+                      (+880)-1674-04-05-02 (Male)
+                    </a>
+                  </span>
+                </td>
+              </tr>
+              <tr className="style-70">
+                <td height="40" className="style-71">
+                  <img
+                    src="/images/telegram.png"
+                    height="40"
+                    className="style-72"
+                  />
+                </td>
+                <td className="style-73">
+                  <span className="style-74">
+                    <a
+                      href="https://t.me/internet_madrasa_female"
+                      className="style-75"
+                    >
+                      (+880)-1791-84-51-22 (Female)
                     </a>
                   </span>
                 </td>

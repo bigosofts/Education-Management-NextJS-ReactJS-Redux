@@ -27,6 +27,8 @@ function layout({ admin, madrasaStudent, teacher }) {
       return <>{student}</>;
     } else if (data.data.userRole == "madrasaStudent") {
       return <>{madrasaStudent}</>;
+    }else if (data.data.userRole == "teacher") {
+      return <>{teacher}</>;
     }
   }
 }
