@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { selectData } from "@/apiservices/menuapiservices";
+import Link from "next/link";
 
 import "./SubMenu.css";
 
@@ -19,7 +20,6 @@ function SubMenu() {
     var formattedDate = date.toLocaleDateString("en-US", options);
     return formattedDate;
   }
-  
 
   useEffect(() => {
     async function getData() {
@@ -79,15 +79,15 @@ function SubMenu() {
                                                 </a>
                                                 <div className="dropdown second">
                                                   <ul>
-                                                    {item3.subMenu.map((item4) => (
-                                                      <li className="dropdown-link">
-                                                        <a
-                                                          href={item4.item4}
-                                                        >
-                                                          {item4.menuTitle.en}
-                                                        </a>
-                                                      </li>
-                                                    ))}
+                                                    {item3.subMenu.map(
+                                                      (item4) => (
+                                                        <li className="dropdown-link">
+                                                          <a href={item4.item4}>
+                                                            {item4.menuTitle.en}
+                                                          </a>
+                                                        </li>
+                                                      )
+                                                    )}
                                                   </ul>
                                                 </div>
                                               </>
@@ -98,8 +98,6 @@ function SubMenu() {
                                             )}
                                           </li>
                                         ))}
-
-                                        
                                       </ul>
                                     </div>
                                   </>
@@ -122,12 +120,12 @@ function SubMenu() {
             </div>
 
             <div className="log-sign" style={{ "--i": "1.8s" }}>
-              <a href="#" className="btn transparent">
+              <Link href="/dashboard/login" className="btn transparent">
                 Log in
-              </a>
-              <a href="#" className="btn solid">
+              </Link>
+              <Link href="/signup" className="btn solid">
                 Sign up
-              </a>
+              </Link>
             </div>
           </div>
 

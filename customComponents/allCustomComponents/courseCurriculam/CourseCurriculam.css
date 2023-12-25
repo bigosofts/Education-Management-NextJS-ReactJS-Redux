@@ -23,7 +23,7 @@
   padding-bottom: 56.25%;
   overflow: hidden;
 }
-iframe {
+#mainContent iframe {
   position: absolute;
   top: 0;
   left: 0;

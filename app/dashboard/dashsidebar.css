@@ -19,7 +19,7 @@ body {
 .main-box::-webkit-scrollbar {
   display: none;
 }
-.main-box{
+.main-box {
   -ms-overflow-style: none;
   scrollbar-width: none;
   margin-top: 88px;
@@ -35,9 +35,9 @@ body {
   margin-top: 0px;
   padding-top: 80px;
 }
-@media screen and (max-width:991px){
+@media screen and (max-width: 991px) {
   .sidebar__wrapper {
-    padding-top:0px;
+    padding-top: 0px;
     margin-top: 170px;
   }
 }
@@ -83,16 +83,15 @@ body {
   margin-bottom: 0.5rem;
   border-radius: 0.8rem;
   transition: 0.3s ease-out;
-  
 }
-.sidebar__link:hover{
+.sidebar__link:hover {
   scale: 1.1;
   background-color: var(--color-sidebar-item);
 }
 
 .sidebar__link--active {
   color: #fff;
-  background-color: #496F82;
+  background-color: #496f82;
 }
 .sidebar__link--active:hover {
   color: #fff;
@@ -107,18 +106,20 @@ body {
 .sidebar__name {
   margin-left: 0.5rem;
 }
-
+[data-destroy="true"] {
+  display: none;
+}
 [data-collapse="true"] {
   width: 5.5rem;
 }
 
-[data-collapse="true"] .sidebar__link{
+[data-collapse="true"] .sidebar__link {
   background-color: var(--color-sidebar-item);
 }
 
-[data-collapse="true"] .sidebar__link:hover{
+[data-collapse="true"] .sidebar__link:hover {
   color: #fff;
-  background-color: #81A7B4;
+  background-color: #81a7b4;
 }
 
 [data-collapse="true"] .sidebar__link--active:hover {
@@ -128,7 +129,7 @@ body {
 
 [data-collapse="true"] .sidebar__link--active {
   color: #fff;
-  background-color: #496F82;
+  background-color: #496f82;
 }
 
 [data-collapse="true"] .sidebar__name,

@@ -10,8 +10,8 @@ const DataSchema = mongoose.Schema(
           bn: { type: String },
         },
         link: { type: String },
-        qaformid: {type: String},
-        resourcelink:{type: String}
+        qaformid: [{ type: String }],
+        resourcelink: { type: String },
       },
     ],
     courseID: { type: String },
@@ -26,23 +26,24 @@ const videoModel = mongoose.model("videos", DataSchema);
 
 module.exports = videoModel;
 
-[
-  {
-    "title": {
-      "en": "",
-      "bn": ""
-    },
-    "link": "",
-    "qaformid": "",
-    "resourcelink":""
-  },
-  {
-    "title": {
-      "en": "",
-      "bn": ""
-    },
-    "link": "",
-    "qaformid": "",
-    "resourcelink":""
-  }
-]
+// [
+//   {
+//     "title": {
+//       "en": "",
+//       "bn": ""
+//     },
+//     "link": "",
+//     "qaformid": [""],
+//     "resourcelink":""
+//   },
+//   {
+//     "title": {
+//       "en": "",
+//       "bn": ""
+//     },
+//     "link": "",
+//     "qaformid": [""],
+//     "resourcelink":""
+//   }
+// ]
+[{"title":{"en":"","bn":""},"link":"","qaformid":[""],"resourcelink":"","_id":"65844333f143762656dfc945"},{"title":{"en":"","bn":""},"link":"","qaformid":[""],"resourcelink":"","_id":"65844333f143762656dfc946"}]

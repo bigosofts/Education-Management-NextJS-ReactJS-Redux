@@ -1,6 +1,8 @@
 "use client";
 import { useEffect } from "react";
 import "./CourseCurriculam.css";
+import QuizApp from "@/customComponents/quizApplication/quiz";
+
 
 function CourseCurriculam() {
   useEffect(() => {
@@ -146,7 +148,10 @@ function CourseCurriculam() {
             CSS Toggle Tutorial Part 5
           </a>
         </div>
+     
       </div>
+      
+      <QuizApp/>
     </div>
   );
 }

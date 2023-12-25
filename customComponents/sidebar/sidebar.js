@@ -11,6 +11,7 @@ import { TiContacts } from "react-icons/ti";
 import { FiMail } from "react-icons/fi";
 import {LuGraduationCap} from "react-icons/lu";
 import {FaChalkboardTeacher,FaRegQuestionCircle} from "react-icons/fa";
+import {IoIosClose  } from "react-icons/io";
 import { usePathname } from 'next/navigation';
 
 
@@ -18,9 +19,13 @@ function Sidebar(props) {
 
     const pathname = usePathname()
     const [isCollapsed, setToggleCollapse] =useState(false);
+    const [isDestroy, setIsDestroy] =useState(false);
 
     const toggleCollapseHandler = () =>{
         setToggleCollapse((prevState)=> !prevState);
+    }
+    const toggleCollapseHandler2 = () =>{
+        setIsDestroy((prevState)=> !prevState);
     }
 
     const pageCourse = props.pageCourse;
@@ -94,7 +99,10 @@ function Sidebar(props) {
             <button onClick={toggleCollapseHandler} className="btn">
             {isCollapsed ? <MdKeyboardArrowRight /> : <MdKeyboardArrowLeft />}
             </button>
-            <aside className='sidebar' data-collapse={isCollapsed}>
+            <button style={{marginTop:"40px"}} onClick={toggleCollapseHandler2} className="btn">
+            {isCollapsed ? <IoIosClose /> : <IoIosClose   />}
+            </button>
+            <aside className='sidebar' data-collapse={isCollapsed} data-destroy={isDestroy}>
                 <ul className='sidebar__list'>
                     {sidebarItems.map(({name, href, icon})=>(
                         <li key={name} className='sidebar__item'>

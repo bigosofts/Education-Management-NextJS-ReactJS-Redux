@@ -108,6 +108,10 @@ body {
   margin-left: 0.5rem;
 }
 
+[data-destroy="true"]{
+  display: none;
+}
+
 [data-collapse="true"] {
   width: 5.5rem;
 }
