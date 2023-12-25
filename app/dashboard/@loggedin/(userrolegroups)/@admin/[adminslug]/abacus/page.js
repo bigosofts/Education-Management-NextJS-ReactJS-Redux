@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { selectAllData } from "@/apiservices/allAbacusApiServices/madrashaAbacusApiServices";
+// import { selectAllData } from "@/apiservices/allAbacusApiServices/madrashaAbacusApiServices";
 import mytoast from "@/components/toast/toast";
 import html2canvas from "html2canvas";
 
@@ -48,18 +48,10 @@ const Page = () => {
   }
   const [data, setData] = useState();
   useEffect(() => {
-    async function getData() {
-      const res = await selectAllData({}, { madrashaAbacusPass: false });
-      if (res.status == "Alhamdulillah") {
-        setData(res.data);
-      } else {
-        mytoast.danger("Data fetching error. Try Refreshing the page");
-      }
-    }
-    getData();
+   
   }, []);
   if (data) {
-    console.log(data);
+   
     return (
       <div
         ref={componentref}
