@@ -30,40 +30,41 @@ function AbacusMadrashaSignupForm(props) {
       [name]: fieldValue,
     });
   };
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   if (formData.agree === true) {
-  //     const res1 = await selectAllData({
-  //       madrashaEmail: formData.madrashaEmail,
-  //     });
-  //     if (res1.data.length >= 1) {
-  //       mytoast.warning("The email is already been used. Try another");
-  //     } else {
-  //       const res = await createData({
-  //         madrashaName: formData.madrashaName,
-  //         madrashaAbacusPass: formData.madrashaAbacusPass,
-  //         directorName: formData.directorName,
-  //         directorPhone: formData.directorPhone,
-  //         responsiblePerson: formData.responsiblePerson,
-  //         responsiblePersonMobile: formData.responsiblePersonMobile,
-  //         madrashaAddress: formData.madrashaAddress,
-  //         madrashaEmail: formData.madrashaEmail,
-  //       });
-  //       console.log(res);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (formData.agree === true) {
+      const res1 = await selectAllData({
+        madrashaEmail: formData.madrashaEmail,
+      });
+      
+      if (res1.data.length >= 1) {
+        mytoast.warning("The email is already been used. Try another");
+      } else {
+        const res = await createData({
+          madrashaName: formData.madrashaName,
+          madrashaAbacusPass: formData.madrashaAbacusPass,
+          directorName: formData.directorName,
+          directorPhone: formData.directorPhone,
+          responsiblePerson: formData.responsiblePerson,
+          responsiblePersonMobile: formData.responsiblePersonMobile,
+          madrashaAddress: formData.madrashaAddress,
+          madrashaEmail: formData.madrashaEmail,
+        });
+        console.log(res);
 
-  //       if (res.status == "Alhamdulillah") {
-  //         mytoast.success("Registration has been Successful");
-  //         setAbacusID(res.data.madrashaAbacusID);
-  //       } else {
-  //         mytoast.warning(
-  //           "Something Went Wrong. Check the field and Try Again"
-  //         );
-  //       }
-  //     }
-  //   } else {
-  //     mytoast.danger("You need to Agree the terms and Conditions");
-  //   }
-  // };
+        if (res.status == "Alhamdulillah") {
+          mytoast.success("Registration has been Successful");
+          setAbacusID(res.data.madrashaAbacusID);
+        } else {
+          mytoast.warning(
+            "Something Went Wrong. Check the field and Try Again"
+          );
+        }
+      }
+    } else {
+      mytoast.danger("You need to Agree the terms and Conditions");
+    }
+  };
   const clickHandlerSignin = (e) => {
     e.preventDefault();
     router.push("/dashboard/login");

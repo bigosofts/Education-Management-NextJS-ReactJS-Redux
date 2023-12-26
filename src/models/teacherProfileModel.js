@@ -32,7 +32,9 @@ const DataSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    isAdmin:{type:Boolean, default:false}
+    isAdmin:{type:Boolean, default:false},
+    createdData: {type: Date},
+    updatedData:{type: Date}
 
 
 },{versionKey: false});

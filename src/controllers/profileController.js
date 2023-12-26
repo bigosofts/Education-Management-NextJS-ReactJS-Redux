@@ -34,7 +34,7 @@ exports.createStudent = (req, res) => {
   let studentMotive = reqBody.studentMotive;
   let paymentStatus = reqBody.paymentStatus;
   let activeStatus = reqBody.activeStatus;
-  let userRole = "student";
+  let userRole = reqBody.userRole;
 
   //Make res body for posting to the Database
 
@@ -264,7 +264,7 @@ exports.createTeacher = (req, res) => {
   let fullPermanentAddress = reqBody.fullPermanentAddress;
   let educationalBackground = reqBody.educationalBackground;
   let activeStatus = reqBody.activeStatus;
-  let userRole = "teacher";
+  let userRole = reqBody.userRole;
 
   //Make res body for posting to the Database
 

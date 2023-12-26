@@ -6,7 +6,7 @@ import { createData, selectAllData } from "@/apiservices/teacherapiservices";
 import { isAdmin } from "@/apiservices/checklogin";
 import mytoast from "@/components/toast/toast";
 
-function TeacherSignUp(props) {
+function GardianPage(props) {
   const [data, setData] = useState();
   const [userID, setUserID] = useState("");
 
@@ -50,7 +50,7 @@ function TeacherSignUp(props) {
     let password = passwordRef.current.value;
     let email = emailref.current.value;
     let mobile = mobilenoref.current.value;
-    let courseCode = courseref.current.value;
+    // let courseCode = courseref.current.value;
 
     const res2 = await selectAllData(
       {
@@ -78,7 +78,7 @@ function TeacherSignUp(props) {
             email,
             password,
             mobile,
-            courseCode,
+            "",
             "",
             "",
             null,
@@ -86,7 +86,7 @@ function TeacherSignUp(props) {
             "",
             "",
             "",
-            "teacher",
+            "gardian",
             "active"
           );
           if (res.status == "Alhamdulillah") {
@@ -111,7 +111,7 @@ function TeacherSignUp(props) {
         <h1
           style={{ textAlign: "center", marginTop: "50px", fontSize: "32px" }}
         >
-          Teacher Signup
+          Gardian Signup
         </h1>
 
         <div className="login-wrap">
@@ -157,7 +157,7 @@ function TeacherSignUp(props) {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label>Teacher Email Address: </label>
+                  <label>Email Address: </label>
                   <input
                     ref={emailref}
                     className="au-input au-input--full"
@@ -180,7 +180,7 @@ function TeacherSignUp(props) {
                     pattern="^\+[1-9]{1}[0-9]{3,12}$"
                   ></input>
                 </div>
-                <div className="form-group">
+                {/* <div className="form-group">
                   <label for="selectOption">Select Course:</label>
                   <select
                     style={{
@@ -201,7 +201,7 @@ function TeacherSignUp(props) {
                     <option value="urdu">Urdu</option>
                     <option value="nahusorofezra">Nahu sorof Ezra</option>
                   </select>
-                </div>
+                </div> */}
                 <div className="form-group">
                   <label>Password: </label>
                   <input
@@ -256,4 +256,4 @@ function TeacherSignUp(props) {
   );
 }
 
-export default TeacherSignUp;
+export default GardianPage;

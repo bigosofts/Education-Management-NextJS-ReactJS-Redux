@@ -15,7 +15,6 @@ const loginController = require("../controllers/loginController");
 const resultController = require("../controllers/resultController");
 const logController = require("../controllers/logController");
 
-
 const bookController = require("../controllers/bookController");
 const departmentController = require("../controllers/departmentController");
 const jamatController = require("../controllers/jamatController");
@@ -78,8 +77,6 @@ router.post(
   profileController.createStudent
 );
 
-
-
 //Login api for students and teachers
 router.post(
   "/student-login",
@@ -123,13 +120,7 @@ router.post(
   profileController.selectAllStudents
 );
 router.post("/select-teachers", authverify, profileController.selectTeachers);
-router.post(
-  "/select-all-teachers",
-  authverify,
-  profileController.selectAllTeachers
-);
-
-
+router.post("/select-all-teachers", profileController.selectAllTeachers);
 
 router.post("/select-courses", courseController.selectCourses);
 router.post("/select-menus", menuController.selectMenus);
@@ -182,8 +173,6 @@ router.put(
 router.put("/update-video", authverify, videoController.updateVideo);
 router.put("/update-qaform", authverify, qaFormController.updateQAForm);
 
-
-
 router.put("/update-log", authverify, logController.updateLog);
 
 //Delete the data from the database
@@ -229,7 +218,5 @@ router.delete(
 );
 router.delete("/delete-video/:id", authverify, videoController.deleteVideo);
 router.delete("/delete-qaform/:id", authverify, qaFormController.deleteQAForm);
-
-
 
 module.exports = router;

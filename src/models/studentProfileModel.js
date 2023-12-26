@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const DataSchema = mongoose.Schema(
   {
     userName: { type: String, required: true, unique: true },
-    details: { type: Object },
+    details: {},
     userRole: { type: String, required: true },
     firstName: {
       en: { type: String },
