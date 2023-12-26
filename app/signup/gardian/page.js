@@ -3,12 +3,12 @@ import { useRouter } from "next/navigation";
 import { useRef, useEffect, useState } from "react";
 import "./loginpage.css";
 import { createData, selectAllData } from "@/apiservices/teacherapiservices";
+import { teacherLogin } from "@/apiservices/checklogin";
 import { isAdmin } from "@/apiservices/checklogin";
 import mytoast from "@/components/toast/toast";
 
 function GardianPage(props) {
   const [data, setData] = useState();
-  const [userID, setUserID] = useState("");
 
   const [shouldRefresh, setShouldRefresh] = useState(false);
   const router = useRouter();
@@ -91,7 +91,11 @@ function GardianPage(props) {
           );
           if (res.status == "Alhamdulillah") {
             mytoast.success("Signup has been done");
-            setUserID(res.data.userName);
+            const res3 = await teacherLogin(res.data.userName, password);
+            if (res3.status == "Alhamdulillah") {
+              mytoast.success("You are logging in");
+              router.push("/dashboard/loading");
+            }
           }
         } else {
           setShouldRefresh(true);
@@ -239,19 +243,6 @@ function GardianPage(props) {
           </div>
         </div>
       </div>
-      {userID ? (
-        <div style={{ marginTop: "50px", width: "50%", margin: "auto" }}>
-          <h1
-            style={{ fontSize: "24px", textAlign: "center", fontWeight: "900" }}
-          >
-            This is your User ID: <span style={{ color: "red" }}>{userID}</span>
-            <br />
-            Copy it on a safe place. You will need this later
-          </h1>
-        </div>
-      ) : (
-        <div></div>
-      )}
     </div>
   );
 }

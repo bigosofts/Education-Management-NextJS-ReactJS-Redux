@@ -4,7 +4,7 @@ import { isAdmin } from "@/apiservices/checklogin";
 
 import { useRouter } from "next/navigation";
 
-function layout({ admin, madrasaStudent, teacher }) {
+function layout({ admin, madrasaStudent, teacher,gardian, guest, genralStudent }) {
   const router = useRouter();
 
   const [data, setData] = useState();
@@ -29,6 +29,8 @@ function layout({ admin, madrasaStudent, teacher }) {
       return <>{madrasaStudent}</>;
     }else if (data.data.userRole == "teacher") {
       return <>{teacher}</>;
+    }else if (data.data.userRole == "gardian") {
+      return <>{gardian}</>;
     }
   }
 }

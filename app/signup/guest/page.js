@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { useRef, useEffect, useState } from "react";
 import "./loginpage.css";
 import { createData, selectAllData } from "@/apiservices/teacherapiservices";
+import { teacherLogin } from "@/apiservices/checklogin";
 import { isAdmin } from "@/apiservices/checklogin";
 import mytoast from "@/components/toast/toast";
 

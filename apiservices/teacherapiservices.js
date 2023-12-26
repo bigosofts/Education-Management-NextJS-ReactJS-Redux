@@ -78,6 +78,7 @@ exports.createData = async (
   userRole,
   activeStatus
 ) => {
+  
   const aboutdata = {
     firstName: {
       en: firstNameen,
@@ -105,7 +106,9 @@ exports.createData = async (
     fullPermanentAddress: fullPermanentAddress,
     educationalBackground: educationalBackground,
     activeStatus: activeStatus,
+    userRole:userRole,
   };
+  
 
   const res = await fetch(`/apis/v1/create-teacher`, {
     method: "POST",
