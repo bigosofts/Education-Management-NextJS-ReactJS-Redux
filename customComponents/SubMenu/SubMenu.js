@@ -2,11 +2,24 @@
 import { useState, useEffect } from "react";
 import { selectData } from "@/apiservices/menuapiservices";
 import Link from "next/link";
+import { isAdmin, logout } from "@/apiservices/checklogin";
 
 import "./SubMenu.css";
 
 function SubMenu() {
   const [data, setData] = useState();
+  const [adminData, setAdminData] = useState();
+  const hardRefresh = () => {
+    if (typeof window !== "undefined") {
+      window.location.href = "/";
+    }
+  };
+
+  function handleLogoutClick(e) {
+    e.preventDefault();
+    logout();
+    hardRefresh();
+  }
 
   function niceDate(isoTime) {
     var date = new Date(isoTime);
@@ -20,6 +33,13 @@ function SubMenu() {
     var formattedDate = date.toLocaleDateString("en-US", options);
     return formattedDate;
   }
+  useEffect(() => {
+    async function getData() {
+      const response = await isAdmin();
+      setAdminData(response);
+    }
+    getData();
+  }, []);
 
   useEffect(() => {
     async function getData() {
@@ -36,7 +56,7 @@ function SubMenu() {
     getData();
   }, []);
 
-  if (data) {
+  if (data && adminData) {
     return (
       <div className="submenu">
         <div className="container-submenu">
@@ -120,11 +140,26 @@ function SubMenu() {
             </div>
 
             <div className="log-sign" style={{ "--i": "1.8s" }}>
-              <Link href="/dashboard/login" className="btn transparent">
-                Log in
+              <Link
+                href={
+                  adminData.status == "Alhamdulillah"
+                    ? "/dashboard/loading"
+                    : "/dashboard/login"
+                }
+                className="btn transparent"
+              >
+                {adminData.status == "Alhamdulillah"
+                  ? adminData.data.userName
+                  : "Log in"}
               </Link>
-              <Link href="/signup" className="btn solid">
-                Sign up
+              <Link
+                onClick={
+                  adminData.status == "Alhamdulillah" ? handleLogoutClick : ""
+                }
+                href={adminData.status == "Alhamdulillah" ? "" : "/signup"}
+                className="btn solid"
+              >
+                {adminData.status == "Alhamdulillah" ? "Log Out" : "Sign up"}
               </Link>
             </div>
           </div>

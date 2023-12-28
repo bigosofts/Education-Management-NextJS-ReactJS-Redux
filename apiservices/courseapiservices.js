@@ -12,7 +12,6 @@ exports.selectData = async (query, projection) => {
   });
 
   if (!res.ok) {
-    console.log(payloaddata)
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
@@ -36,19 +35,14 @@ exports.deleteData = async (id) => {
   return res.json();
 };
 
-exports.createData = async (
-  imageLink,
+exports.createData = async ({
   courseCode,
-  titleen,
-  titlebn,
-  descriptionen,
-  descriptionbn,
-  categoriesen,
-  categoriesbn,
-  startingDateen,
-  startingDatebn,
-  popularityen,
-  popularitybn,
+  imageLink,
+  title,
+  description,
+  categories,
+  startingDate,
+  popularity,
   jamatName,
   activeStatus,
   instructor,
@@ -61,45 +55,31 @@ exports.createData = async (
   commentID,
   courseMaterial,
   commonQuestion,
-  courseVideoID
-) => {
+  courseVideoID,
+}) => {
   const aboutdata = {
-    imageLink: imageLink,
-    courseCode: courseCode,
-    title: {
-      en: titleen,
-      bn: titlebn,
-    },
-    description: {
-      en: descriptionen,
-      bn: descriptionbn,
-    },
-    categories: {
-      en: categoriesen,
-      bn: categoriesbn,
-    },
-    startingDate: {
-      en: startingDateen,
-      bn: startingDatebn,
-    },
-    popularity: {
-      en: popularityen,
-      bn: popularitybn,
-    },
-    jamatName: jamatName,
-    activeStatus: activeStatus,
-    instructor: instructor,
-    coursePrice: coursePrice,
-    courseButton: courseButton,
-    courseInfo: courseInfo,
-    detailData: detailData,
-    courseSyllabus: courseSyllabus,
-    faq: faq,
-    commentID: commentID,
-    courseMaterial: courseMaterial,
-    commonQuestion: commonQuestion,
-    courseVideoID: courseVideoID,
+    courseCode,
+    imageLink,
+    title,
+    description,
+    categories,
+    startingDate,
+    popularity,
+    jamatName,
+    activeStatus,
+    instructor,
+    coursePrice,
+    courseButton,
+    courseInfo,
+    detailData,
+    courseSyllabus,
+    faq,
+    commentID,
+    courseMaterial,
+    commonQuestion,
+    courseVideoID,
   };
+
 
   const res = await fetch(`/apis/v1/create-course`, {
     method: "POST",
@@ -118,22 +98,16 @@ exports.createData = async (
   return res.json();
 };
 
-exports.updateData = async (
-  imageLink,
+exports.updateData = async ({
   courseCode,
-  titleen,
-  titlebn,
-  descriptionen,
-  descriptionbn,
-  categoriesen,
-  categoriesbn,
-  startingDateen,
-  startingDatebn,
-  popularityen,
-  popularitybn,
+  imageLink,
+  title,
+  description,
+  categories,
+  startingDate,
+  popularity,
   jamatName,
   activeStatus,
-  idValue,
   instructor,
   coursePrice,
   courseButton,
@@ -144,46 +118,31 @@ exports.updateData = async (
   commentID,
   courseMaterial,
   commonQuestion,
-  courseVideoID
-) => {
+  courseVideoID,
+  idValue,
+}) => {
   const aboutdata = {
     _id: idValue,
-    imageLink: imageLink,
-    courseCode: courseCode,
-    title: {
-      en: titleen,
-      bn: titlebn,
-    },
-    description: {
-      en: descriptionen,
-      bn: descriptionbn,
-    },
-    categories: {
-      en: categoriesen,
-      bn: categoriesbn,
-    },
-    startingDate: {
-      en: startingDateen,
-      bn: startingDatebn,
-    },
-    popularity: {
-      en: popularityen,
-      bn: popularitybn,
-    },
-    jamatName: jamatName,
-    activeStatus: activeStatus,
-
-    instructor: instructor,
-    coursePrice: coursePrice,
-    courseButton: courseButton,
-    courseInfo: courseInfo,
-    detailData: detailData,
-    courseSyllabus: courseSyllabus,
-    faq: faq,
-    commentID: commentID,
-    courseMaterial: courseMaterial,
-    commonQuestion: commonQuestion,
-    courseVideoID: courseVideoID,
+    courseCode,
+    imageLink,
+    title,
+    description,
+    categories,
+    startingDate,
+    popularity,
+    jamatName,
+    activeStatus,
+    instructor,
+    coursePrice,
+    courseButton,
+    courseInfo,
+    detailData,
+    courseSyllabus,
+    faq,
+    commentID,
+    courseMaterial,
+    commonQuestion,
+    courseVideoID,
   };
 
   const res = await fetch(`/apis/v1/update-course`, {

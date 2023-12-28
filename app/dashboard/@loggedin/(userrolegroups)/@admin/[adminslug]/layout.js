@@ -98,13 +98,13 @@ function layout({children, params}) {
             icon: "BiCode",
           },
           {
-            name: "Abacus",
-            href: `/dashboard/${params.adminslug}/abacus`,
+            name: "Videos",
+            href: `/dashboard/${params.adminslug}/videos`,
             icon: "LuGraduationCap",
           },
           {
-            name: "Videos",
-            href: `/dashboard/${params.adminslug}/videos`,
+            name: "Media",
+            href: `/dashboard/${params.adminslug}/medias`,
             icon: "LuGraduationCap",
           },
           {

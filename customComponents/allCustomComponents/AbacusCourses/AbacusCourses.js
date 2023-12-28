@@ -39,7 +39,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-17"
-                          src="https://cdn.10minuteschool.com/images/instructors/instructors_cdn/5_sajan.jpg"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -60,7 +60,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-24"
-                          src="https://cdn.10minuteschool.com/images/quiz/course_instructor/Sabrina_Monsur_120.jpg"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -83,7 +83,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-31"
-                          src="https://cdn.10minuteschool.com/images/instructors/instructors_cdn/38_toufiq.jpg"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -107,7 +107,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-38"
-                          src="https://cdn.10minuteschool.com/images/instructors/instructors_cdn/17_khairul.jpg"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -128,7 +128,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-45"
-                          src="https://cdn.10minuteschool.com/images/instructors/instructors_cdn/15_tanmoy.jpg"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -149,7 +149,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-52"
-                          src="https://lms10.s3.ap-southeast-1.amazonaws.com/crm/square_images/2022-10-06T10:20:34.295Z.jpeg"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -172,7 +172,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-59"
-                          src="https://lms10.s3.ap-southeast-1.amazonaws.com/crm/thumbnails/2022-10-18T11:17:01.347Z.jpeg"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -193,7 +193,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-66"
-                          src="https://cdn.10minuteschool.com/images/k-12-courses/shourov_saha.jpeg"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -217,7 +217,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-75"
-                          src="https://cdn.10minuteschool.com/images/k-12-courses/instructor_maruf.jpeg"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -238,7 +238,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-82"
-                          src="https://cdn.10minuteschool.com/images/instructors/emaz-uddin.jpg"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -259,7 +259,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-89"
-                          src="https://cdn.10minuteschool.com/images/quiz/course_thumbnail/aman-islam-siyam-square.jpg"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -280,7 +280,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-96"
-                          src="https://cdn.10minuteschool.com/images/instructors/asif-billah.jpg"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -301,7 +301,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-103"
-                          src="https://lms10.s3.ap-southeast-1.amazonaws.com/crm/square_images/2023-10-03T13:14:59.023Z.png"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -322,7 +322,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-110"
-                          src="https://lms10.s3.ap-southeast-1.amazonaws.com/crm/square_images/2023-10-03T13:16:42.241Z.png"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -343,7 +343,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-117"
-                          src="https://lms10.s3.ap-southeast-1.amazonaws.com/crm/square_images/2023-10-03T13:19:01.160Z.png"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -364,7 +364,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-124"
-                          src="https://lms10.s3.ap-southeast-1.amazonaws.com/crm/square_images/2023-10-03T13:29:35.193Z.png"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>
@@ -385,7 +385,7 @@ function AbacusCourse() {
                           decoding="async"
                           data-nimg="1"
                           class="style-131"
-                          src="https://cdn.10minuteschool.com/images/instructors/fardin_ihsan_chem.jpg"
+                          src="/images/shaikh.png"
                         />
                       </div>
                     </div>

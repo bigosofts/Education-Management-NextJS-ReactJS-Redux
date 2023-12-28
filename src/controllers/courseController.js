@@ -3,10 +3,11 @@ const courseModel = require("../models/courseModel");
 exports.createCourse = (req, res) => {
   //Receive Post Request Data from req body
   let reqBody = req.body;
-  let title = reqBody.title;
+
   let courseCode = reqBody.courseCode;
-  let description = reqBody.description;
   let imageLink = reqBody.imageLink;
+  let title = reqBody.title;
+  let description = reqBody.description;
   let categories = reqBody.categories;
   let createdDate = new Date(Date.now()).toISOString();
   let updatedDate = new Date(Date.now()).toISOString();
@@ -14,7 +15,6 @@ exports.createCourse = (req, res) => {
   let popularity = reqBody.popularity;
   let jamatName = reqBody.jamatName;
   let activeStatus = reqBody.activeStatus;
-
   let instructor = reqBody.instructor;
   let coursePrice = reqBody.coursePrice;
   let courseButton = reqBody.courseButton;
@@ -30,29 +30,28 @@ exports.createCourse = (req, res) => {
   //Make res body for posting to the Database
 
   let postBody = {
-    imageLink: imageLink,
-    title: title,
-    courseCode: courseCode,
-    description: description,
-    categories: categories,
-    createdDate: createdDate,
-    updatedDate: updatedDate,
-    startingDate: startingDate,
-    popularity: popularity,
-    jamatName: jamatName,
-    activeStatus: activeStatus,
-
-    instructor: instructor,
-    coursePrice: coursePrice,
-    courseButton: courseButton,
-    courseInfo: courseInfo,
-    detailData: detailData,
-    courseSyllabus: courseSyllabus,
-    faq: faq,
-    commentID: commentID,
-    courseMaterial: courseMaterial,
-    commonQuestion: commonQuestion,
-    courseVideoID: courseVideoID,
+    courseCode,
+    imageLink,
+    title,
+    description,
+    categories,
+    createdDate,
+    updatedDate,
+    startingDate,
+    popularity,
+    jamatName,
+    activeStatus,
+    instructor,
+    coursePrice,
+    courseButton,
+    courseInfo,
+    detailData,
+    courseSyllabus,
+    faq,
+    commentID,
+    courseMaterial,
+    commonQuestion,
+    courseVideoID,
   };
 
   // Create Database record
@@ -96,29 +95,51 @@ exports.selectCourses = (req, res) => {
 exports.updateCourse = (req, res) => {
   let reqBody = req.body;
   let filter = reqBody["_id"];
-  let postBody = {
-    imageLink: reqBody.imageLink,
-    title: reqBody.title,
-    courseCode: reqBody.courseCode,
-    description: reqBody.description,
-    categories: reqBody.categories,
-    updatedDate: new Date(Date.now()).toISOString(),
-    startingDate: reqBody.startingDate,
-    popularity: reqBody.popularity,
-    jamatName: reqBody.jamatName,
-    activeStatus: reqBody.activeStatus,
 
-    instructor: reqBody.instructor,
-    coursePrice: reqBody.coursePrice,
-    courseButton: reqBody.courseButton,
-    courseInfo: reqBody.courseInfo,
-    detailData: reqBody.detailData,
-    courseSyllabus: reqBody.courseSyllabus,
-    faq: reqBody.faq,
-    commentID: reqBody.commentID,
-    courseMaterial: reqBody.courseMaterial,
-    commonQuestion: reqBody.commonQuestion,
-    courseVideoID: reqBody.courseVideoID,
+  let courseCode = reqBody.courseCode;
+  let imageLink = reqBody.imageLink;
+  let title = reqBody.title;
+  let description = reqBody.description;
+  let categories = reqBody.categories;
+  let updatedDate = new Date(Date.now()).toISOString();
+  let startingDate = reqBody.startingDate;
+  let popularity = reqBody.popularity;
+  let jamatName = reqBody.jamatName;
+  let activeStatus = reqBody.activeStatus;
+  let instructor = reqBody.instructor;
+  let coursePrice = reqBody.coursePrice;
+  let courseButton = reqBody.courseButton;
+  let courseInfo = reqBody.courseInfo;
+  let detailData = reqBody.detailData;
+  let courseSyllabus = reqBody.courseSyllabus;
+  let faq = reqBody.faq;
+  let commentID = reqBody.commentID;
+  let courseMaterial = reqBody.courseMaterial;
+  let commonQuestion = reqBody.commonQuestion;
+  let courseVideoID = reqBody.courseVideoID;
+
+  let postBody = {
+    courseCode,
+    imageLink,
+    title,
+    description,
+    categories,
+    updatedDate,
+    startingDate,
+    popularity,
+    jamatName,
+    activeStatus,
+    instructor,
+    coursePrice,
+    courseButton,
+    courseInfo,
+    detailData,
+    courseSyllabus,
+    faq,
+    commentID,
+    courseMaterial,
+    commonQuestion,
+    courseVideoID,
   };
 
   courseModel

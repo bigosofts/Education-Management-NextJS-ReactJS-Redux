@@ -87,7 +87,7 @@ function Updateqaform(props) {
   };
   const onChangeHandler2 = (e) => {
     setQaForm({
-      multiplechoiceParsed: JSON.parse(e.target.value),
+      multiplechoiceParsed: e.target.value,
     });
   };
   const onChangeHandler3 = (e) => {

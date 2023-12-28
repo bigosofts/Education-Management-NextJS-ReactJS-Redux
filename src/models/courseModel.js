@@ -5,67 +5,52 @@ const DataSchema = mongoose.Schema(
     courseCode: { type: String, required: true, unique: true },
     imageLink: {
       type: String,
-      required: true,
     },
     title: {
       en: {
         type: String,
-        required: true,
       },
       bn: {
         type: String,
-        required: true,
       },
     },
     description: {
       en: {
         type: String,
-        required: true,
       },
       bn: {
         type: String,
-        required: true,
       },
     },
     categories: {
       en: {
         type: String,
-        required: true,
       },
       bn: {
         type: String,
-        required: true,
       },
     },
     createdDate: { type: Date },
     updatedDate: { type: Date },
     startingDate: {
       en: {
-        type: Date,
-        required: true,
+        type: String,
       },
       bn: {
         type: String,
-        required: true,
       },
     },
     popularity: {
       en: {
         type: String,
-        required: true,
       },
       bn: {
         type: String,
-        required: true,
       },
     },
-    jamatName: {
-      type: String,
-      required: true,
-    },
+    jamatName: [{ type: String }],
     activeStatus: {
       type: String,
-      required: true,
     },
     instructor: [
       {
@@ -88,16 +73,24 @@ const DataSchema = mongoose.Schema(
     },
     courseInfo: [
       {
-        icon: { type: String },
         title: {
           en: { type: String },
           bn: { type: String },
         },
       },
     ],
-    detailData: {
-      type: String,
-    },
+    detailData: [
+      {
+        title: {
+          en: { type: String },
+          bn: { type: String },
+        },
+        desc: {
+          en: { type: String },
+          bn: { type: String },
+        },
+      },
+    ],
     courseSyllabus: [
       {
         icon: { type: String },
@@ -105,6 +98,11 @@ const DataSchema = mongoose.Schema(
           en: { type: String },
           bn: { type: String },
         },
+        desc: {
+          en: { type: String },
+          bn: { type: String },
+        },
+        img: { type: String },
       },
     ],
     faq: [
@@ -119,7 +117,7 @@ const DataSchema = mongoose.Schema(
         },
       },
     ],
-    commentID: [],
+    commentID: [{ type: String }],
     courseMaterial: [
       {
         en: { type: String },
@@ -138,7 +136,7 @@ const DataSchema = mongoose.Schema(
         },
       },
     ],
-    courseVideoID: [],
+    courseVideoID: [{ type: String }],
   },
   { versionKey: false }
 );

@@ -32,16 +32,6 @@ function layout({ children, params }) {
       href: `/dashboard/${params.adminslug}/abacus`,
       icon: "LuGraduationCap",
     },
-    {
-      name: "Alem Alema",
-      href: `/dashboard/${params.adminslug}/alemalema`,
-      icon: "MdEventAvailable",
-    },
-    {
-      name: "Hifz",
-      href: `/dashboard/${params.adminslug}/hifz`,
-      icon: "MdPostAdd",
-    },
   ];
 
   if (data) {

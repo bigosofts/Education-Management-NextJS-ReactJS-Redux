@@ -67,7 +67,7 @@ function updateWidgetForm(props) {
   const onChangeHandler2 = (e) => {
 
     setWidget({
-      widgetpayloadParsed: JSON.parse(e.target.value),
+      widgetpayloadParsed: e.target.value,
     });
   };
 

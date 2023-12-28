@@ -75,12 +75,12 @@ function UpdateVideosForm(props) {
   };
   const onChangeHandler2 = (e) => {
     setVideos({
-      videosParsed: JSON.parse(e.target.value),
+      videosParsed: e.target.value,
     });
   };
   const onChangeHandler3 = (e) => {
     setVideos({
-      courseID: JSON.parse(e.target.value),
+      courseID: e.target.value,
     });
   };
 

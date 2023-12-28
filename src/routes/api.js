@@ -23,6 +23,7 @@ const SemesterController = require("../controllers/semesterController");
 const StudentRoleController = require("../controllers/studentRoleController");
 const videoController = require("../controllers/videoController");
 const qaFormController = require("../controllers/qaFormController");
+const imageController = require("../controllers/imageController");
 
 //Middleware Import
 const passEncrypted = require("../middlewares/passwordEncryption");
@@ -49,6 +50,10 @@ router.get("/isAdmin", authverify, (req, res) => {
     },
   });
 });
+
+//read image
+router.get("/read-image", imageController.readImage);
+
 router.get("/logout", authverify, (req, res) => {
   let userName = req.headers["userName"];
   let userRole = req.headers["userRole"];
