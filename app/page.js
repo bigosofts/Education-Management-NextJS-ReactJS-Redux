@@ -14,6 +14,7 @@ import Footer from "@/customComponents/Footer/Footer";
 import { selectData } from "@/apiservices/sliderapiservices";
 import { useState, useEffect } from "react";
 import mytoast from "@/components/toast/toast";
+import Counter from "@/customComponents/counterDay/counter";
 
 export default function Home() {
 
@@ -53,6 +54,7 @@ export default function Home() {
       <MainMenu />
       <SubMenu />
       <Slider linkObj={ObjArray(data)}/>
+      <Counter/>
       <LiveSection/>
       <BayanList/>
       <NoticeEvent/>
