@@ -59,8 +59,14 @@ const DataSchema = mongoose.Schema(
       },
     ],
     coursePrice: {
-      tk: { type: Number },
-      us: { type: Number },
+      registration: {
+        tk: { type: Number },
+        us: { type: Number },
+      },
+      monthly: {
+        tk: { type: Number },
+        us: { type: Number },
+      },
     },
     courseButton: {
       text: {

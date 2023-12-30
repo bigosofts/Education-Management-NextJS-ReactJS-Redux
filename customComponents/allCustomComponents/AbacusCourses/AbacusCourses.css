@@ -10213,10 +10213,8 @@
 .abacusCourse .style-934 {
   line-height: 26px;
   font-size: 16px;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  overflow: hidden;
+  height: 150px;
+  overflow-y: scroll;
   border: 0px solid rgb(219, 225, 235);
   box-sizing: border-box;
 }

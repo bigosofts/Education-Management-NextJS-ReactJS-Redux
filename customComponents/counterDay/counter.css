@@ -1,7 +1,6 @@
 .countDownContainer {
   position: relative;
-  height: 300px;
-  margin-top: 50px;
+  height: 240px;
 }
 #countdown {
   width: 465px;
@@ -127,56 +126,239 @@
   text-transform: uppercase;
   display: inline-block;
 }
+.grandOut {
+  background-color: #0a3030;
+}
+.counterFlex {
+  display: flex;
+  background-color: #0a3030;
+  justify-content: space-evenly;
+  padding: 50px 0px;
+}
+
 .CounterContWrap {
   position: relative;
+  width: 33.33%;
+}
+.otherSection1 {
+  width: 33.33%;
+  display: flex;
+}
+.otherSection2 {
+  width: 33.33%;
+}
+@media only screen and (max-width: 1500px) {
+  .CounterContWrap {
+    scale: 70%;
+  }
+  .otherSection1 {
+    scale: 70%;
+  }
+  .otherSection2 {
+    scale: 70%;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .CounterContWrap {
+    scale: 50%;
+  }
+  .otherSection1 {
+    scale: 50%;
+  }
+  .otherSection2 {
+    scale: 50%;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .CounterContWrap {
+    scale: 30%;
+  }
+  .otherSection1 {
+    scale: 30%;
+  }
+  .otherSection2 {
+    scale: 30%;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .counterFlex {
+    display: flex;
+    flex-direction: column;
+  }
+  .CounterContWrap {
+    scale: 100%;
+  }
+  .otherSection1 {
+    scale: 100%;
+  }
+  .otherSection2 {
+    scale: 100%;
+  }
 }
 
 h1.counterContainer {
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-transform: uppercase;
   font-family: consolas;
-  font-size: 32px;
+  font-size: 24px;
   text-align: center;
   letter-spacing: 5px;
   margin: 0;
   padding: 0;
-  color: transparent;
-  white-space: nowrap;
+  font-weight: 900;
+  color: #fff;
+  white-space: wrap;
+  width: 465px;
+  margin: 0px auto;
 }
 
-h1.counterContainer:before {
-  content: attr(data-text);
-  position: absolute;
-  top: 100;
-  left: 0;
+@media only screen and (max-width: 320px) {
+  h1.counterContainer {
+    font-size: 14px !important;
+  }
+}
+
+.counterFlex .style-60 {
   width: 100%;
-  height: 100%;
-  color: #000;
-  overflow: hidden;
-  border-right: 1px solid #000;
-  animation: type 20s steps(25) infinite;
-  /*   white-space: nowrap; */
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 60px;
+  padding-left: 15px;
+  text-align: center;
+  box-sizing: border-box;
+  height: 310px;
+  padding-top: 10px;
+  background: #0a3030;
 }
 
-@keyframes type {
-  0% {
-    width: 0;
-  }
-  50% {
-    width: 100%;
-  }
-  75%{
-    width: 100%
-  }
-  100% {
-    width: 0;
-  }
+.counterFlex .style-61 {
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  font-size: 24px;
+  margin-top: 20px;
+  font-family: "open sans", tahoma, arial;
+  line-height: 26.4px;
+  box-sizing: border-box;
+  text-align: center;
 }
-@media only screen and (max-width:320px){
-    h1.counterContainer{
-        font-size: 14px !important;
-    }
+
+.counterFlex .style-62 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-right: auto;
+  background-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  border-spacing: 0px 0px;
+  border-collapse: collapse;
+}
+
+.counterFlex .style-63 {
+  box-sizing: border-box;
+}
+.counterFlex .style-63 img {
+  width: 62px;
+  padding: 10px;
+}
+
+.counterFlex .style-64 {
+  box-sizing: border-box;
+}
+
+.counterFlex .style-65 {
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.counterFlex .style-66 {
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px none rgb(51, 51, 51);
+}
+
+.counterFlex .style-67 {
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.counterFlex .style-68 {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.counterFlex .style-69 {
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  text-decoration: none solid rgb(255, 255, 255);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.counterFlex .style-70 {
+  box-sizing: border-box;
+}
+
+.counterFlex .style-71 {
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.counterFlex .style-72 {
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px none rgb(51, 51, 51);
+}
+
+.counterFlex .style-73 {
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.counterFlex .style-74 {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.counterFlex .style-75 {
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  text-decoration: none solid rgb(255, 255, 255);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.counterFlex .style-76 {
+  box-sizing: border-box;
+}
+
+.counterFlex .style-77 {
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.counterFlex .style-78 {
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 0px none rgb(51, 51, 51);
+}
+
+.counterFlex .style-79 {
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+.counterFlex .style-80 {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.counterFlex .style-81 {
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  text-decoration: none solid rgb(255, 255, 255);
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
 }
