@@ -584,7 +584,7 @@ function AbacusCourse({ info }) {
                             </div>
                             <div class="style-1152">
                               Monthly: {info.coursePrice.monthly.tk} Taka <br/>
-                              <span style={{color: "red"}}>(Foreigner: {info.coursePrice.monthly.us} US Dollar)</span>
+                              <span style={{color: "red", fontSize:"16px"}}>(Foreigner: {info.coursePrice.monthly.us} US Dollar)</span>
                             </div>
                           </div>
                         </div>

@@ -1,22 +1,45 @@
 "use client";
-import { useEffect } from "react";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+
+import "./swiperCustom.css";
+
+import {
+  Navigation,
+  Pagination,
+  Mousewheel,
+  Keyboard,
+  Autoplay,
+} from "swiper/modules";
+
 function Slider(props) {
   let imageArray = props.linkObj;
-
-  useEffect(() => {
-    import("./Slider.css");
-  }, []);
   return (
-    <div id="captioned-gallery">
-      <figure className="slider">
-        {imageArray.map((item) => (
-          <figure>
-            <img src={item.image} alt />
-            <figcaption>{item.caption}</figcaption>
-          </figure>
+    <>
+      <Swiper
+        cssMode={true}
+        navigation={true}
+        pagination={{
+          clickable: true,
+        }}
+        mousewheel={true}
+        keyboard={true}
+        autoplay={true}
+        modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay]}
+        className="mySwiper"
+      >
+        {imageArray.map((item, i) => (
+          <SwiperSlide key={i}>
+            <img src={item.image} alt={item.caption}></img>
+          </SwiperSlide>
         ))}
-      </figure>
-    </div>
+      </Swiper>
+    </>
   );
 }
 

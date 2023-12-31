@@ -664,9 +664,10 @@
   padding-left: 15px;
   text-align: center;
   box-sizing: border-box;
-  height: 310px;
+  height: 400px;
   padding-top: 10px;
   background: #eaeaea;
+  margin-top: 30px;
 }
 
 .Livestream .style-61 {
@@ -802,7 +803,6 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
-
 @media only screen and (max-width: 540px) {
   .Livestream .style-1 {
     width: 100%;
@@ -816,6 +816,6 @@
   .Livestream .style-60 {
     width: 100%;
     padding-bottom: 20px;
-    height: 300px;
+    height: 400px;
   }
 }

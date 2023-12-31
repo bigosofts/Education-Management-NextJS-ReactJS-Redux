@@ -130,13 +130,13 @@ function LiveSection() {
           </div>
         </div>
         <div className="style-60">
-          <h2 className="style-61">Contact Us</h2>
+          <h2 className="style-61">Donate US:</h2>
           <table className="style-62">
             <tbody className="style-63">
               <tr className="style-64">
                 <td className="style-65">
                   <img
-                    src="/images/skype.png"
+                    src="/images/bkash.png"
                     height="50"
                     className="style-66"
                   />
@@ -145,10 +145,10 @@ function LiveSection() {
                   <span className="style-68">
                     <a
                       target="_blank"
-                      href="https://join.skype.com/invite/NxyjksCQosR4"
+                      href="tel:01674040502"
                       className="style-69"
                     >
-                      internetmadrasa
+                      01674-040502 (Personal)
                     </a>
                   </span>
                 </td>
@@ -156,18 +156,15 @@ function LiveSection() {
               <tr className="style-70">
                 <td height="40" className="style-71">
                   <img
-                    src="/images/telegram.png"
+                    src="/images/bkash.png"
                     height="40"
                     className="style-72"
                   />
                 </td>
                 <td className="style-73">
                   <span className="style-74">
-                    <a
-                      href="https://t.me/internet_madrasa"
-                      className="style-75"
-                    >
-                      (+880)-1674-04-05-02 (Male)
+                    <a href="tel:01791845122" className="style-75">
+                      01791-845122 (Merchant)
                     </a>
                   </span>
                 </td>
@@ -175,18 +172,15 @@ function LiveSection() {
               <tr className="style-70">
                 <td height="40" className="style-71">
                   <img
-                    src="/images/telegram.png"
+                    src="/images/nagad.png"
                     height="40"
                     className="style-72"
                   />
                 </td>
                 <td className="style-73">
                   <span className="style-74">
-                    <a
-                      href="https://t.me/internet_madrasa_female"
-                      className="style-75"
-                    >
-                      (+880)-1791-84-51-22 (Female)
+                    <a href="tel:01674040502" className="style-75">
+                      01674-040502 (Personal)
                     </a>
                   </span>
                 </td>
@@ -194,18 +188,15 @@ function LiveSection() {
               <tr className="style-76">
                 <td height="50" className="style-77">
                   <img
-                    src="/images/gmail.png"
+                    src="/images/rocket.png"
                     height="35"
                     className="style-78"
                   />
                 </td>
                 <td className="style-79">
                   <span className="style-80">
-                    <a
-                      href="mailto:internetmadrasa@outlook.com"
-                      className="style-81"
-                    >
-                      internetmadrasa@outlook.com
+                    <a href="tel:01674040502" className="style-81">
+                      01674-040502 (Personal)
                     </a>
                   </span>
                 </td>

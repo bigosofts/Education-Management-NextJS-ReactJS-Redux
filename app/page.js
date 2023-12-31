@@ -15,7 +15,6 @@ import { selectData } from "@/apiservices/sliderapiservices";
 import { useState, useEffect } from "react";
 import mytoast from "@/components/toast/toast";
 import Counter from "@/customComponents/counterDay/counter";
-
 export default function Home() {
 
 
