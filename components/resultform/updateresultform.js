@@ -79,8 +79,8 @@ function updateResultForm(props) {
     const studentgrade = studentgraderef.current.value;
     const studentmerit = studentmeritref.current.value;
     const passingYear = passingYearref.current.value;
-    const picture = pictureref.current.picture;
-    const marhala = marhalaref.current.marhala;
+    const picture = pictureref.current.value;
+    const marhala = marhalaref.current.value;
 
     const resultradio1 = resultradio1ref.current.checked;
     const resultradio2 = resultradio2ref.current.checked;

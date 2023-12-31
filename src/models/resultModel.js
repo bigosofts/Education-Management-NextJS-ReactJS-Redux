@@ -37,7 +37,7 @@ const DataSchema = mongoose.Schema(
     },
     passingYear: { type: Number },
     picture: { type: String },
-    marhala:{type:String}
+    marhala: { type: String },
   },
   { versionKey: false }
 );

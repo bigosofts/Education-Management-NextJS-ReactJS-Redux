@@ -14,7 +14,7 @@
   padding-right: 15px;
   padding-left: 60px;
   box-sizing: border-box;
-  height: 265px;
+  height: 324px;
   padding-top: 10px;
   background: #eaeaea;
 }
@@ -546,7 +546,7 @@
   padding-left: 15px;
   text-align: center;
   box-sizing: border-box;
-  height: 265px;
+  height: 324px;
   padding-top: 10px;
   background: #eaeaea;
 }
@@ -664,10 +664,9 @@
   padding-left: 15px;
   text-align: center;
   box-sizing: border-box;
-  height: 400px;
+  height: 324px;
   padding-top: 10px;
   background: #eaeaea;
-  margin-top: 30px;
 }
 
 .Livestream .style-61 {
@@ -815,7 +814,8 @@
   }
   .Livestream .style-60 {
     width: 100%;
-    padding-bottom: 20px;
-    height: 400px;
+    padding-bottom: 0px;
+    height: 370px;
+    
   }
 }
