@@ -18,6 +18,7 @@ import mytoast from "@/components/toast/toast";
 import Counter from "@/customComponents/counterDay/counter";
 
 import ResultCardSlider from "@/customComponents/allCustomComponents/ResultCardSlider/ResultCardSlider";
+import GalleryCard from "@/customComponents/GalleryCard/GalleryCard";
 
 export default function Home() {
   const [data, setData] = useState();
@@ -62,6 +63,42 @@ export default function Home() {
     return letImageObject;
   };
 
+  let letImageObject = [
+    {
+      image: "/images/act1.jpg",
+    },
+    {
+      image: "/images/act2.jpg",
+    },
+    {
+      image: "/images/act10.jpg",
+    },
+    {
+      image: "/images/act9.jpg",
+    },
+    {
+      image: "/images/act7.jpg",
+    },
+    {
+      image: "/images/act8.jpg",
+    },
+    {
+      image: "/images/act6.jpg",
+    },
+    {
+      image: "/images/act4.jpg",
+    },
+    {
+      image: "/images/act5.jpg",
+    },
+    {
+      image: "/images/act3.jpg",
+    },
+    {
+      image: "/images/act11.jpg",
+    },
+  ];
+
   if (data && data2) {
     return (
       <>
@@ -80,6 +117,7 @@ export default function Home() {
         <CoursePage />
         <InfoPage />
         <ReviewPage />
+        <GalleryCard linkObj={letImageObject} />
         <Footer />
       </>
     );

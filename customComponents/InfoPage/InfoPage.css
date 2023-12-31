@@ -1,12 +1,16 @@
+.InfoOuter {
+  background: url("/images/pattern.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 .InfoPage {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) repeat
-      scroll 0% 0% / cover padding-box border-box,
-    rgba(0, 0, 0, 0) url("/images/counter-banner.png") no-repeat scroll 50% 50% /
-      cover padding-box border-box;
   padding: 50px 0px;
   margin: 0px;
   box-sizing: border-box;
   display: block;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .InfoPage .style-1 {
