@@ -54,8 +54,22 @@ const DataSchema = mongoose.Schema(
     },
     instructor: [
       {
-        name: { type: String },
-        experience: { type: String },
+        name: {
+          en: {
+            type: String,
+          },
+          bn: {
+            type: String,
+          },
+        },
+        experience: {
+          en: {
+            type: String,
+          },
+          bn: {
+            type: String,
+          },
+        },
       },
     ],
     coursePrice: {

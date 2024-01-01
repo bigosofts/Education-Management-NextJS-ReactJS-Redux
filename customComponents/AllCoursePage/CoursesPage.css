@@ -1,0 +1,1776 @@
+.CoursesPage {
+  padding: 60px 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.CoursesPage .style-1 {
+  max-width: 1200px;
+  margin: 0px 381.5px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.CoursesPage .style-2 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.CoursesPage .style-3 {
+  font-family: "PT Sans", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: rgb(94, 94, 94);
+  text-transform: capitalize;
+  margin: 0px 0px 30px;
+  padding: 0px;
+  box-sizing: border-box;
+  line-height: 43.2px;
+  margin-top: 0px;
+}
+
+.CoursesPage .style-4 {
+  margin-top: 30px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-5 {
+  margin: 0px -15px;
+  padding: 0px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.CoursesPage .style-6 {
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.CoursesPage .style-7 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-8 {
+  margin-bottom: 30px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-9 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-10 {
+  height: 285px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.CoursesPage .style-11 {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 10px 0px;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+}
+
+.CoursesPage .style-12 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-13 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 27.6px;
+  margin-top: 0px;
+}
+
+.CoursesPage .style-14 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.CoursesPage .style-15 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Free";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 14px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-16 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-17 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-18 {
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.CoursesPage .style-19 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-20 {
+  margin-bottom: 30px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-21 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-22 {
+  height: 285px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.CoursesPage .style-23 {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 10px 0px;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+}
+
+.CoursesPage .style-24 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-25 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 27.6px;
+  margin-top: 0px;
+}
+
+.CoursesPage .style-26 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.CoursesPage .style-27 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Free";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 14px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-28 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-29 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-30 {
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.CoursesPage .style-31 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-32 {
+  margin-bottom: 30px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-33 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-34 {
+  height: 285px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.CoursesPage .style-35 {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 10px 0px;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+}
+
+.CoursesPage .style-36 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-37 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 27.6px;
+  margin-top: 0px;
+}
+
+.CoursesPage .style-38 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.CoursesPage .style-39 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Free";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 14px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-40 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-41 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-42 {
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.CoursesPage .style-43 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-44 {
+  margin-bottom: 30px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-45 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-46 {
+  height: 285px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.CoursesPage .style-47 {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 10px 0px;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+}
+
+.CoursesPage .style-48 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-49 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 27.6px;
+  margin-top: 0px;
+}
+
+.CoursesPage .style-50 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.CoursesPage .style-51 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Free";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 14px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-52 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-53 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-54 {
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.CoursesPage .style-55 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-56 {
+  margin-bottom: 30px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-57 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-58 {
+  height: 285px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.CoursesPage .style-59 {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 10px 0px;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+}
+
+.CoursesPage .style-60 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-61 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 27.6px;
+  margin-top: 0px;
+}
+
+.CoursesPage .style-62 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.CoursesPage .style-63 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Free";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 14px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-64 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-65 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-66 {
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.CoursesPage .style-67 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-68 {
+  margin-bottom: 30px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-69 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-70 {
+  height: 285px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.CoursesPage .style-71 {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 10px 0px;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+}
+
+.CoursesPage .style-72 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-73 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 27.6px;
+  margin-top: 0px;
+}
+
+.CoursesPage .style-74 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.CoursesPage .style-75 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Free";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 14px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-76 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-77 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-78 {
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.CoursesPage .style-79 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-80 {
+  margin-bottom: 30px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-81 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-82 {
+  height: 285px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.CoursesPage .style-83 {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 10px 0px;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+}
+
+.CoursesPage .style-84 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-85 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 27.6px;
+  margin-top: 0px;
+}
+
+.CoursesPage .style-86 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.CoursesPage .style-87 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Free";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 14px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-88 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-89 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-90 {
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.CoursesPage .style-91 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-92 {
+  margin-bottom: 30px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-93 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-94 {
+  height: 285px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.CoursesPage .style-95 {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 10px 0px;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+}
+
+.CoursesPage .style-96 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-97 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 27.6px;
+  margin-top: 0px;
+}
+
+.CoursesPage .style-98 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.CoursesPage .style-99 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Free";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 14px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-100 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-101 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-102 {
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.CoursesPage .style-103 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-104 {
+  margin-bottom: 30px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-105 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-106 {
+  height: 285px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.CoursesPage .style-107 {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 10px 0px;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+}
+
+.CoursesPage .style-108 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-109 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 27.6px;
+  margin-top: 0px;
+}
+
+.CoursesPage .style-110 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.CoursesPage .style-111 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Free";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 14px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-112 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-113 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-114 {
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.CoursesPage .style-115 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-116 {
+  margin-bottom: 30px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-117 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-118 {
+  height: 285px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.CoursesPage .style-119 {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 10px 0px;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+}
+
+.CoursesPage .style-120 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-121 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 27.6px;
+  margin-top: 0px;
+}
+
+.CoursesPage .style-122 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.CoursesPage .style-123 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Free";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 14px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-124 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-125 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-126 {
+  -webkit-box-flex: 0;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.CoursesPage .style-127 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-128 {
+  margin-bottom: 30px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-129 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-130 {
+  height: 285px;
+  width: 100%;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.CoursesPage .style-131 {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 10px 0px;
+  border-radius: 3px;
+  margin: 0px;
+  padding: 20px;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+}
+
+.CoursesPage .style-132 {
+  color: rgb(94, 94, 94);
+  text-decoration: none solid rgb(94, 94, 94);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.CoursesPage .style-133 {
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 27.6px;
+  margin-top: 0px;
+}
+
+.CoursesPage .style-134 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(94, 94, 94);
+  margin: 0px 0px 16px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.CoursesPage .style-135 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Free";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 14px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.CoursesPage .style-136 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+
+.CoursesPage .style-137 {
+  width: 140px;
+  height: 38px;
+  background: rgb(0, 104, 55) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 38px;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease 0s;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none solid rgb(255, 255, 255);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgb(0, 104, 55);
+}
+@media only screen and (max-width: 540px){
+  .CoursesPage .style-1{
+    width: 90%;
+  }
+  .CoursesPage .style-5{
+    flex-direction: column;
+  }
+  .CoursesPage .style-6{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-18{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-30{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-42{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-54{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-66{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-78{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-90{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-102{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-114{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-126{
+    flex: 100%;
+    max-width: unset;
+    margin-top: 20px;
+  }
+  .CoursesPage .style-16{
+    width: 100px;
+    font-size: 0.7rem;
+  }
+  .CoursesPage .style-17{ 
+    width: 100px;
+    font-size: 0.7rem;
+  }
+}

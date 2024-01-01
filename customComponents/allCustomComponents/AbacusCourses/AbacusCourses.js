@@ -61,8 +61,8 @@ function AbacusCourse({ info }) {
                           </div>
                         </div>
                         <div class="style-18">
-                          <h3 class="style-19">{item.name}</h3>
-                          <div class="style-20">{item.experience}</div>
+                          <h3 class="style-19">{item.name.en}</h3>
+                          <div class="style-20">{item.experience.en}</div>
                         </div>
                       </div>
                     ))}
@@ -567,7 +567,7 @@ function AbacusCourse({ info }) {
                       __idm_id__="245761"
                       class="style-1141"
                     ></iframe> */}
-                    <img src={info.imageLink}/>
+                    <img src={info.imageLink} />
                   </div>
 
                   <div class="style-1145">
@@ -579,12 +579,19 @@ function AbacusCourse({ info }) {
                         <div class="style-1150">
                           <div class="style-1151">
                             <div class="style-1152">
-                              Registration: {info.coursePrice.registration.tk} Taka <br/> 
-                              <span style={{color: "red", fontSize:"16px"}}>(Foreigner: {info.coursePrice.registration.us} US Dollar)</span>
+                              Registration: {info.coursePrice.registration.tk}{" "}
+                              Taka <br />
+                              <span style={{ color: "red", fontSize: "16px" }}>
+                                (Foreigner: {info.coursePrice.registration.us}{" "}
+                                US Dollar)
+                              </span>
                             </div>
                             <div class="style-1152">
-                              Monthly: {info.coursePrice.monthly.tk} Taka <br/>
-                              <span style={{color: "red", fontSize:"16px"}}>(Foreigner: {info.coursePrice.monthly.us} US Dollar)</span>
+                              Monthly: {info.coursePrice.monthly.tk} Taka <br />
+                              <span style={{ color: "red", fontSize: "16px" }}>
+                                (Foreigner: {info.coursePrice.monthly.us} US
+                                Dollar)
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -657,3 +664,5 @@ function AbacusCourse({ info }) {
 }
 
 export default AbacusCourse;
+
+
