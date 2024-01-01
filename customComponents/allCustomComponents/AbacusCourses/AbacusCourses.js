@@ -40,7 +40,7 @@ function AbacusCourse({ info }) {
               <div class="style-10">
                 <div class="style-11">
                   <h2 class="style-12">
-                    {true ? "Course Instructors" : "কোর্স ইন্সট্রাক্টর"}
+                    {true ? "Ostad" : "ওস্তাদ"}
                   </h2>
                   <div class="style-13">
                     {info.instructor.map((item, i) => (
@@ -77,7 +77,7 @@ function AbacusCourse({ info }) {
                 <div class="style-508">
                   <div class="style-509">
                     <h2 class="style-510">
-                      {true ? "Course Syllabus" : "কোর্স সিলেবাস"}
+                      {true ? "Syllabus" : "সিলেবাস"}
                     </h2>
                   </div>
                   <div class="style-511">
@@ -174,7 +174,7 @@ function AbacusCourse({ info }) {
               <div class="style-856">
                 <div class="style-857">
                   <h2 class="style-858">
-                    {true ? "Course Details" : "কোর্স সম্পর্কে বিস্তারিত"}
+                    {true ? "Details" : "বিস্তারিত"}
                   </h2>
                   <div class="style-859">
                     {info.detailData.map((item, i) => (
@@ -629,7 +629,7 @@ function AbacusCourse({ info }) {
                 </div>
                 <p class="style-1187">
                   <span class="style-1188">
-                    কোর্সটি সম্পর্কে বিস্তারিত জানতে
+                    এটি সম্পর্কে বিস্তারিত জানতে
                   </span>
                   <span class="style-1189">
                     <svg
@@ -664,5 +664,4 @@ function AbacusCourse({ info }) {
 }
 
 export default AbacusCourse;
-
 
