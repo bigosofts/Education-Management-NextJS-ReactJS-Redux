@@ -35,7 +35,7 @@ function SliderResult(props) {
         modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay]}
         className="mySwiper"
         breakpoints={{
-          640: {
+          240: {
             slidesPerView: 1,
             spaceBetween: 20,
           },
