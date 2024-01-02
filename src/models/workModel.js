@@ -11,6 +11,9 @@ const DataSchema = mongoose.Schema(
     img: {
       type: String,
     },
+    jamat: {
+      type: String,
+    },
     createdDate: { type: Date },
     updateDate: { type: Date },
     activeStatus: {

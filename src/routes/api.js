@@ -24,6 +24,7 @@ const StudentRoleController = require("../controllers/studentRoleController");
 const videoController = require("../controllers/videoController");
 const qaFormController = require("../controllers/qaFormController");
 const imageController = require("../controllers/imageController");
+const workController = require("../controllers/workController");
 
 //Middleware Import
 const passEncrypted = require("../middlewares/passwordEncryption");
@@ -116,6 +117,7 @@ router.post("/create-semester", SemesterController.createSemester);
 router.post("/create-studentrole", StudentRoleController.createStudentRole);
 router.post("/create-video", videoController.createVideo);
 router.post("/create-qaform", qaFormController.createQAForm);
+router.post("/create-work", workController.createWork);
 
 //Select or find the data from the database
 router.post("/select-students", authverify, profileController.selectStudents);
@@ -148,6 +150,7 @@ router.post("/select-semesters", SemesterController.selectSemesters);
 router.post("/select-studentroles", StudentRoleController.selectStudentRoles);
 router.post("/select-videos", videoController.selectVideos);
 router.post("/select-qaforms", qaFormController.selectQAForm);
+router.post("/select-works", workController.selectWorks);
 
 //Select or update the data from the database
 router.put("/update-student", authverify, profileController.updateStudent);
@@ -177,6 +180,7 @@ router.put(
 );
 router.put("/update-video", authverify, videoController.updateVideo);
 router.put("/update-qaform", authverify, qaFormController.updateQAForm);
+router.put("/update-work", authverify, workController.updateWorks);
 
 router.put("/update-log", authverify, logController.updateLog);
 
@@ -223,5 +227,6 @@ router.delete(
 );
 router.delete("/delete-video/:id", authverify, videoController.deleteVideo);
 router.delete("/delete-qaform/:id", authverify, qaFormController.deleteQAForm);
+router.delete("/delete-work/:id", authverify, workController.deleteWork);
 
 module.exports = router;

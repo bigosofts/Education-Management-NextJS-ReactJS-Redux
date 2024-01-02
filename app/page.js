@@ -6,23 +6,26 @@ import Slider from "@/customComponents/slider/Slider";
 import LiveSection from "@/customComponents/liveSection/Livesection";
 import BayanList from "@/customComponents/Bayanlist/Bayanlist";
 import NoticeEvent from "@/customComponents/NoticeEvent/NoticeEvent";
-import Activities from "@/customComponents/activities/Activities";
+// import Activities from "@/customComponents/activities/Activities";
 import CoursePage from "@/customComponents/CoursesPage/CoursesPage";
 import InfoPage from "@/customComponents/InfoPage/InfoPage";
 import ReviewPage from "@/customComponents/ReviewPage/ReveiwPage";
 import Footer from "@/customComponents/Footer/Footer";
 import { selectData } from "@/apiservices/sliderapiservices";
 import { selectData as selectResults } from "@/apiservices/resultapiservices";
+import { selectData as selectWorks } from "@/apiservices/workapiservices";
 import { useState, useEffect } from "react";
 import mytoast from "@/components/toast/toast";
 import Counter from "@/customComponents/counterDay/counter";
 
 import ResultCardSlider from "@/customComponents/allCustomComponents/ResultCardSlider/ResultCardSlider";
-import GalleryCard from "@/customComponents/GalleryCard/GalleryCard";
+// import GalleryCard from "@/customComponents/GalleryCard/GalleryCard";
+import GalleryAll from "@/customComponents/GalleryALL/GalleryALL";
 
 export default function Home() {
   const [data, setData] = useState();
   const [data2, setData2] = useState();
+  const [data3, setData3] = useState();
 
   useEffect(() => {
     async function getData() {
@@ -33,9 +36,17 @@ export default function Home() {
       const res2 = await selectResults({
         activeStatus: "active",
       });
-      if (res.status == "Alhamdulillah" && res2.status == "Alhamdulillah") {
+      const res3 = await selectWorks({
+        activeStatus: "active",
+      });
+      if (
+        res.status == "Alhamdulillah" &&
+        res2.status == "Alhamdulillah" &&
+        res3.status == "Alhamdulillah"
+      ) {
         setData(res.data);
         setData2(res2.data);
+        setData3(res3.data);
       } else {
         mytoast.danger("Data fetching error. Try Refreshing the page");
       }
@@ -62,44 +73,19 @@ export default function Home() {
     });
     return letImageObject;
   };
+  const ObjArray3 = (data) => {
+    const letImageObject = [];
+    data.map((item) => {
+      letImageObject.push({
+        img: item.img,
+        sid: item.sid,
+        name: item.name,
+      });
+    });
+    return letImageObject;
+  };
 
-  let letImageObject = [
-    {
-      image: "/images/act1.jpg",
-    },
-    {
-      image: "/images/act2.jpg",
-    },
-    {
-      image: "/images/act10.jpg",
-    },
-    {
-      image: "/images/act9.jpg",
-    },
-    {
-      image: "/images/act7.jpg",
-    },
-    {
-      image: "/images/act8.jpg",
-    },
-    {
-      image: "/images/act6.jpg",
-    },
-    {
-      image: "/images/act4.jpg",
-    },
-    {
-      image: "/images/act5.jpg",
-    },
-    {
-      image: "/images/act3.jpg",
-    },
-    {
-      image: "/images/act11.jpg",
-    },
-  ];
-
-  if (data && data2) {
+  if (data && data2 && data3) {
     return (
       <>
         <MainMenu />
@@ -112,12 +98,11 @@ export default function Home() {
 
         <NoticeEvent />
 
-        <Activities />
-
         <CoursePage />
         <InfoPage />
         <ReviewPage />
-        <GalleryCard linkObj={letImageObject} />
+        {/* <GalleryCard linkObj={ObjArray3(data3)} /> */}
+        <GalleryAll linkObj={ObjArray3(data3).slice(0, 8)} />
         <Footer />
       </>
     );

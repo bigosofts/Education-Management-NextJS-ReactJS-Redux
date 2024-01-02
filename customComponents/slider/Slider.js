@@ -30,7 +30,7 @@ function Slider(props) {
         mousewheel={true}
         keyboard={true}
         autoplay={{
-          delay: 10000,
+          delay: 7000,
         }}
         modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay]}
         className="mySwiper"
