@@ -29,13 +29,17 @@ function Slider(props) {
         }}
         mousewheel={true}
         keyboard={true}
-        autoplay={true}
+        autoplay={{
+          delay: 10000,
+        }}
         modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay]}
         className="mySwiper"
       >
         {imageArray.map((item, i) => (
           <SwiperSlide key={i}>
-            <img src={item.image} alt={item.caption}></img>
+            <a href="/course">
+              <img src={item.image} alt={item.caption}></img>
+            </a>
           </SwiperSlide>
         ))}
       </Swiper>

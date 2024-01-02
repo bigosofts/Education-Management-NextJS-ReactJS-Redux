@@ -73,38 +73,40 @@ function SubMenu() {
                   <li className="nav-link" key={item.menuTitle.en}>
                     {item.subMenu ? (
                       <>
-                        <a href={item.menuLink}>
+                        <Link href={item.menuLink}>
                           {item.menuTitle.en}
                           <i className="fa fa-caret-down"></i>
-                        </a>
+                        </Link>
                         <div className="dropdown">
                           <ul>
                             {item.subMenu.map((item2) => (
                               <li className="dropdown-link">
                                 {item2.subMenu ? (
                                   <>
-                                    <a href={item.menuLink}>
+                                    <Link href={item.menuLink}>
                                       {item2.menuTitle.en}
                                       <i className="fa fa-caret-down"></i>
-                                    </a>
+                                    </Link>
                                     <div className="dropdown second">
                                       <ul>
                                         {item2.subMenu.map((item3) => (
                                           <li className="dropdown-link">
                                             {item3.subMenu ? (
                                               <>
-                                                <a href={item.menuLink}>
+                                                <Link href={item.menuLink}>
                                                   {item3.menuTitle.en}
                                                   <i className="fa fa-caret-down"></i>
-                                                </a>
+                                                </Link>
                                                 <div className="dropdown second">
                                                   <ul>
                                                     {item3.subMenu.map(
                                                       (item4) => (
                                                         <li className="dropdown-link">
-                                                          <a href={item4.item4}>
+                                                          <Link
+                                                            href={item4.item4}
+                                                          >
                                                             {item4.menuTitle.en}
-                                                          </a>
+                                                          </Link>
                                                         </li>
                                                       )
                                                     )}
@@ -112,9 +114,9 @@ function SubMenu() {
                                                 </div>
                                               </>
                                             ) : (
-                                              <a href={item3.menuLink}>
+                                              <Link href={item3.menuLink}>
                                                 {item3.menuTitle.en}
-                                              </a>
+                                              </Link>
                                             )}
                                           </li>
                                         ))}
@@ -122,9 +124,9 @@ function SubMenu() {
                                     </div>
                                   </>
                                 ) : (
-                                  <a href={item2.menuLink}>
+                                  <Link href={item2.menuLink}>
                                     {item2.menuTitle.en}
-                                  </a>
+                                  </Link>
                                 )}
                               </li>
                             ))}
@@ -132,7 +134,7 @@ function SubMenu() {
                         </div>
                       </>
                     ) : (
-                      <a href={item.menuLink}>{item.menuTitle.en}</a>
+                      <Link href={item.menuLink}>{item.menuTitle.en}</Link>
                     )}
                   </li>
                 ))}

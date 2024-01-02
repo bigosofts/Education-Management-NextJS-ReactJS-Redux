@@ -111,7 +111,12 @@ function layout({children, params}) {
             name: "QAForm",
             href: `/dashboard/${params.adminslug}/qaform`,
             icon: "BiCode",
-          }
+          },
+          {
+            name: "Work",
+            href: `/dashboard/${params.adminslug}/works`,
+            icon: "BsClipboardData",
+          },
     ];
 
     if(data){
