@@ -28,11 +28,17 @@ function SearchComponent(props) {
     const uniqueNamesArray = Array.from(uniqueNamesSet);
     return uniqueNamesArray;
   }
- 
+  function uniqueGradeArray(old) {
+    const modifiedArray = old.map((item) => item.studentGrade);
+    const uniqueNamesSet = new Set(modifiedArray);
+    const uniqueNamesArray = Array.from(uniqueNamesSet);
+    return uniqueNamesArray;
+  }
 
   const resultRollNoref = useRef();
   const marhalaref = useRef();
   const passingYearref = useRef();
+  const graderef = useRef();
 
   function createSearchParams() {
     const hardRefreshCustom = (link) => {
@@ -45,12 +51,14 @@ function SearchComponent(props) {
       marhalaref.current.value == "Select Marhala"
         ? ""
         : marhalaref.current.value;
+    const grade =
+      graderef.current.value == "Select Grade" ? "" : graderef.current.value;
     const passingYear =
       passingYearref.current.value == "Select Passing Year"
         ? ""
         : passingYearref.current.value;
     hardRefreshCustom(
-      `/result?roll=${resultRollNo}&marhala=${marhala}&passingYear=${passingYear}`
+      `/result?roll=${resultRollNo}&marhala=${marhala}&passingYear=${passingYear}&grade=${grade}`
     );
   }
 
@@ -65,7 +73,7 @@ function SearchComponent(props) {
           <div className="container">
             <div className="searchwrapper">
               <div className="searchbox">
-                <div className="row">
+                <div style={{alignItems:"center"}} className="row">
                   <div className="col-md-5">
                     <input
                       ref={resultRollNoref}
@@ -74,7 +82,15 @@ function SearchComponent(props) {
                       placeholder="Enter Roll Number"
                     />
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-md-2">
+                    <select ref={graderef} className="form-control category">
+                      <option>Select Grade</option>
+                      {uniqueGradeArray(data).map((item, i) => (
+                        <option key={i}>{item}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="col-md-2">
                     <select ref={marhalaref} className="form-control category">
                       <option>Select Marhala</option>
                       {uniqueMarhalaArray(data).map((item, i) => (
@@ -82,8 +98,11 @@ function SearchComponent(props) {
                       ))}
                     </select>
                   </div>
-                  <div className="col-md-3">
-                    <select ref={passingYearref} className="form-control category">
+                  <div className="col-md-2">
+                    <select
+                      ref={passingYearref}
+                      className="form-control category"
+                    >
                       <option>Select Passing Year</option>
                       {uniquePassingYearArray(data).map((item, i) => (
                         <option key={i}>{item}</option>

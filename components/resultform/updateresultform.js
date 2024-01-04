@@ -241,15 +241,20 @@ function updateResultForm(props) {
         ></textarea>
       </div>
       <div className="input-type">
-        <input
+        <select
           onChange={onChangeHandler7}
+          value={result.studentGrade}
           ref={studentgraderef}
           className="border w-full px-5 py-3 focus:outline-none rounded-md"
-          type="text"
-          name="studentgrade"
-          placeholder="Enter Student Grade Position"
-          value={result.studentGrade}
-        ></input>
+          name="studentgraderef"
+        >
+          <option value={undefined}>Select Grade</option>
+          <option value="Mumtaj">Mumtaj</option>
+          <option value="Zayyid Jiddan">Zayyid Jiddan</option>
+          <option value="Zayyid">Zayyid</option>
+          <option value="Makbul">Makbul</option>
+          <option value="Rasib">Rasib</option>
+        </select>
       </div>
       <div className="input-type">
         <input
@@ -263,15 +268,19 @@ function updateResultForm(props) {
         ></input>
       </div>
       <div className="input-type">
-        <input
+        <select
           ref={passingYearref}
           onChange={onChangeHandler9}
           value={result.passingYear}
           className="border w-full px-5 py-3 focus:outline-none rounded-md"
-          type="number"
           name="passingYearref"
-          placeholder="Enter student passing year"
-        ></input>
+        >
+          <option value={undefined}>Select Passing Year</option>
+          <option value={2021}>2021</option>
+          <option value={2022}>2022</option>
+          <option value={2023}>2023</option>
+          <option value={2024}>2024</option>
+        </select>
       </div>
       <div className="input-type">
         <input
@@ -285,15 +294,19 @@ function updateResultForm(props) {
         ></input>
       </div>
       <div className="input-type">
-        <input
+        <select
           ref={marhalaref}
           onChange={onChangeHandler11}
           value={result.marhala}
           className="border w-full px-5 py-3 focus:outline-none rounded-md"
-          type="text"
           name="marhalaref"
-          placeholder="Enter exam marhala"
-        ></input>
+        >
+          <option value={undefined}>Select Marhala</option>
+          <option value="Mutawassita">Mutawassita</option>
+          <option value="Sanabiyatul Ulwia">Sanabiyatul Ulwia</option>
+          <option value="Fajilat">Fajilat</option>
+          <option value="Takmil">Takmil</option>
+        </select>
       </div>
       <div className="flex gap-10 items-center">
         {props.payload.activeStatus == "active" ? (

@@ -19,6 +19,7 @@ function ResultPage() {
   const marhala = searchParams.get("marhala");
   const roll = searchParams.get("roll");
   const passingYear = searchParams.get("passingYear");
+  const grade = searchParams.get("grade");
 
   useEffect(() => {
     async function settingData() {
@@ -28,6 +29,7 @@ function ResultPage() {
           marhala: marhala ? marhala : undefined,
           resultRollNo: roll ? roll : undefined,
           passingYear: passingYear ? passingYear : undefined,
+          studentGrade: grade ? grade : undefined,
         });
         const res2 = await selectSlider({
           activeStatus: "active",
