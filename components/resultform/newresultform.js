@@ -149,13 +149,7 @@ function NewResultForm(props) {
         ></input>
       </div>
       <div className="input-type">
-        <input
-          ref={passingYearref}
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
-          type="number"
-          name="passingYearref"
-          placeholder="Enter passing year"
-        ></input>
+     
 
         <select
           ref={passingYearref}
@@ -179,13 +173,7 @@ function NewResultForm(props) {
         ></input>
       </div>
       <div className="input-type">
-        <input
-          ref={marhalaref}
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
-          type="text"
-          name="marhalaref"
-          placeholder="Enter Marhala Name"
-        ></input>
+       
 
         <select
           ref={marhalaref}
