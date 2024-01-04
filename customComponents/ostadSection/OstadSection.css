@@ -1,0 +1,4927 @@
+.OstadSection {
+  padding: 50px 0px;
+  background: rgb(247, 247, 247) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  margin: 0px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.OstadSection .style-1 {
+  max-width: 1140px;
+  margin: 0px 381.5px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.OstadSection .style-2 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.OstadSection .style-3 {
+  font-family: "PT Sans", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: rgb(94, 94, 94);
+  text-transform: capitalize;
+  margin: 0px 0px 30px;
+  padding: 0px;
+  box-sizing: border-box;
+  line-height: 43.2px;
+  margin-top: 0px;
+}
+
+.OstadSection .style-4 {
+  font-weight: 500;
+  margin-bottom: 30px;
+  margin: 0px 0px 30px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-5 {
+  margin: 0px -15px;
+  padding: 0px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.OstadSection .style-6 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-7 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-8 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-9 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-10 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-11 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-12 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-13 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-14 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-15 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-16 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-17 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-18 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-19 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-20 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-21 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-22 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-23 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-24 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-25 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-26 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-27 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-28 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-29 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-30 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-31 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-32 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-33 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-34 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-35 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-36 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-37 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-38 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-39 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-40 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-41 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-42 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-43 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-44 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-45 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-46 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-47 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-48 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-49 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-50 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-51 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-52 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-53 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-54 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-55 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-56 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-57 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-58 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-59 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-60 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-61 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-62 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-63 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-64 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-65 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-66 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-67 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-68 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-69 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-70 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-71 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-72 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-73 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-74 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-75 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-76 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-77 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-78 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-79 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-80 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-81 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-82 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-83 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-84 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-85 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-86 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-87 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-88 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-89 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-90 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-91 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-92 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-93 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-94 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-95 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-96 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-97 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-98 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-99 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-100 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-101 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-102 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-103 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-104 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-105 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-106 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-107 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-108 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-109 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-110 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-111 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-112 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-113 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-114 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-115 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-116 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-117 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-118 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-119 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-120 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-121 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-122 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-123 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-124 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-125 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-126 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-127 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-128 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-129 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-130 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-131 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-132 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-133 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-134 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-135 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-136 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-137 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-138 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-139 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-140 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-141 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-142 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-143 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-144 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-145 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-146 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-147 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-148 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-149 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-150 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-151 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-152 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-153 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-154 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-155 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-156 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-157 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-158 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-159 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-160 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-161 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-162 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-163 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-164 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-165 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-166 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-167 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-168 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-169 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-170 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-171 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-172 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-173 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-174 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-175 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-176 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-177 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-178 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-179 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-180 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-181 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-182 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-183 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-184 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-185 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-186 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-187 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-188 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-189 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-190 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-191 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-192 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-193 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-194 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-195 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-196 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-197 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-198 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-199 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-200 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-201 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-202 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-203 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-204 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-205 {
+  margin: 0px -15px;
+  padding: 0px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.OstadSection .style-206 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-207 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-208 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-209 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-210 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-211 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-212 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-213 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-214 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-215 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-216 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-217 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-218 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-219 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-220 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-221 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-222 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-223 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-224 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-225 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-226 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-227 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-228 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-229 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-230 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-231 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-232 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-233 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-234 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-235 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-236 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-237 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-238 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-239 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-240 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-241 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-242 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-243 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-244 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-245 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-246 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-247 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-248 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-249 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-250 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-251 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-252 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-253 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-254 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-255 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-256 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-257 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-258 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-259 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-260 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-261 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-262 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-263 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-264 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-265 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-266 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-267 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-268 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-269 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-270 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-271 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-272 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-273 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-274 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-275 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-276 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-277 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-278 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-279 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-280 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-281 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-282 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-283 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-284 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-285 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-286 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-287 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-288 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-289 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-290 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-291 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-292 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-293 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-294 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-295 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-296 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-297 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-298 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-299 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-300 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-301 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-302 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-303 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-304 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-305 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-306 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-307 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-308 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-309 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-310 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-311 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-312 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-313 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-314 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-315 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-316 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-317 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-318 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-319 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-320 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-321 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-322 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-323 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-324 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-325 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-326 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-327 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-328 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-329 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-330 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-331 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-332 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-333 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-334 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-335 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-336 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-337 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-338 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-339 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-340 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-341 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-342 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-343 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-344 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-345 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-346 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-347 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-348 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-349 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-350 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-351 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-352 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-353 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-354 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-355 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-356 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-357 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-358 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-359 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-360 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-361 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-362 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-363 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-364 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-365 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-366 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-367 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-368 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-369 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-370 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-371 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-372 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-373 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-374 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-375 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-376 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-377 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-378 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-379 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-380 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-381 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-382 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-383 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-384 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-385 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-386 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-387 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-388 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-389 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-390 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-391 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-392 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-393 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-394 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-395 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-396 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-397 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-398 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-399 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-400 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-401 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-402 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-403 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-404 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-405 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-406 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-407 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-408 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-409 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-410 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-411 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-412 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-413 {
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.OstadSection .style-414 {
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-415 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-416 {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 166, 118);
+  margin-bottom: 5px;
+  margin: 0px 0px 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-style: solid;
+}
+
+.OstadSection .style-417 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-418 {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-419 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin: 0px 0px 10px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Hind Siliguri", sans-serif;
+  line-height: 18px;
+  color: rgb(94, 94, 94);
+  margin-top: 0px;
+}
+
+.OstadSection .style-420 {
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin: 0px 0px 15px;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+}
+
+.OstadSection .style-421 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-422 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-423 {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.OstadSection .style-424 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-425 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-426 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-427 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-428 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-429 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-430 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-431 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-432 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-433 {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.OstadSection .style-434 {
+  border: 1px solid rgb(0, 166, 118);
+  color: rgb(94, 94, 94);
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 3px;
+  text-decoration: none solid rgb(94, 94, 94);
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.OstadSection .style-435 {
+  font-weight: 400;
+  font-family: "Font Awesome 6 Brands";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 12px;
+  text-rendering: auto;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 540px) {
+  .OstadSection .style-1 {
+    width: 90%;
+  }
+  .OstadSection .style-5 {
+    flex-direction: column;
+  }
+  .OstadSection .style-6 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-27 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-48 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-69 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-90 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-112 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-135 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-157 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-180 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-205 {
+    flex-direction: column;
+  }
+
+
+  .OstadSection .style-206 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-232 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-255 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-277 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-300 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-326 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-348 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-367 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-390 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+  .OstadSection .style-413 {
+    flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  }
+}
