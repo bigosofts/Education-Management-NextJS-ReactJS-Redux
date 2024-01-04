@@ -26,16 +26,20 @@
 
 .CoursesPage .style-3 {
   font-family: "PT Sans", sans-serif;
-  font-size: 36px;
+
   font-weight: 700;
-  margin-bottom: 30px;
-  color: rgb(94, 94, 94);
+
   text-transform: capitalize;
-  margin: 0px 0px 30px;
+
   padding: 0px;
   box-sizing: border-box;
-  line-height: 43.2px;
-  margin-top: 0px;
+
+  line-height: 56px;
+  font-size: 44px;
+  margin-bottom: 50px;
+  color: rgb(17, 24, 39);
+  font-weight: 600;
+  text-align: center;
 }
 
 .CoursesPage .style-4 {
@@ -1703,73 +1707,73 @@
   box-sizing: border-box;
   background-color: rgb(0, 104, 55);
 }
-@media only screen and (max-width: 540px){
-  .CoursesPage .style-1{
+@media only screen and (max-width: 540px) {
+  .CoursesPage .style-1 {
     width: 90%;
   }
-  .CoursesPage .style-5{
+  .CoursesPage .style-5 {
     flex-direction: column;
   }
-  .CoursesPage .style-6{
+  .CoursesPage .style-6 {
     flex: 100%;
     max-width: unset;
     margin-top: 20px;
   }
-  .CoursesPage .style-18{
+  .CoursesPage .style-18 {
     flex: 100%;
     max-width: unset;
     margin-top: 20px;
   }
-  .CoursesPage .style-30{
+  .CoursesPage .style-30 {
     flex: 100%;
     max-width: unset;
     margin-top: 20px;
   }
-  .CoursesPage .style-42{
+  .CoursesPage .style-42 {
     flex: 100%;
     max-width: unset;
     margin-top: 20px;
   }
-  .CoursesPage .style-54{
+  .CoursesPage .style-54 {
     flex: 100%;
     max-width: unset;
     margin-top: 20px;
   }
-  .CoursesPage .style-66{
+  .CoursesPage .style-66 {
     flex: 100%;
     max-width: unset;
     margin-top: 20px;
   }
-  .CoursesPage .style-78{
+  .CoursesPage .style-78 {
     flex: 100%;
     max-width: unset;
     margin-top: 20px;
   }
-  .CoursesPage .style-90{
+  .CoursesPage .style-90 {
     flex: 100%;
     max-width: unset;
     margin-top: 20px;
   }
-  .CoursesPage .style-102{
+  .CoursesPage .style-102 {
     flex: 100%;
     max-width: unset;
     margin-top: 20px;
   }
-  .CoursesPage .style-114{
+  .CoursesPage .style-114 {
     flex: 100%;
     max-width: unset;
     margin-top: 20px;
   }
-  .CoursesPage .style-126{
+  .CoursesPage .style-126 {
     flex: 100%;
     max-width: unset;
     margin-top: 20px;
   }
-  .CoursesPage .style-16{
+  .CoursesPage .style-16 {
     width: 100px;
     font-size: 0.7rem;
   }
-  .CoursesPage .style-17{ 
+  .CoursesPage .style-17 {
     width: 100px;
     font-size: 0.7rem;
   }

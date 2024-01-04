@@ -3,6 +3,8 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
+
+  
   const res = await fetch("/apis/v1/select-results", {
     method: "POST",
     headers: {
@@ -15,7 +17,7 @@ exports.selectData = async (query, projection) => {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
-
+  
   return res.json();
 };
 
