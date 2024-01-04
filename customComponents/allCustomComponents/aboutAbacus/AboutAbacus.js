@@ -54,9 +54,7 @@ function AboutAbacus() {
         </div>
       </section>
     );
-  } else {
-    return <div>Loading...</div>;
-  }
+  } 
 }
 
 export default AboutAbacus;

@@ -183,9 +183,7 @@ function NoticeEvent() {
         </div>
       </div>
     );
-  } else {
-    <div>Loading...</div>;
-  }
+  } 
 }
 
 export default NoticeEvent;

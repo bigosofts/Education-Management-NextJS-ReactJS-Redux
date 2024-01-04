@@ -8,6 +8,7 @@ import { selectData } from "@/apiservices/sliderapiservices";
 import { selectData as selectCourses } from "@/apiservices/courseapiservices";
 import { useState, useEffect } from "react";
 import AllCoursePage from "@/customComponents/AllCoursePage/CoursesPage";
+import Loader from "@/customComponents/loader/Loader";
 
 function AbacusCourses({ params }) {
   const [data, setData] = useState();
@@ -53,12 +54,12 @@ function AbacusCourses({ params }) {
         <MainMenu />
         <SubMenu />
         <Slider linkObj={ObjArray(data)} />
-        <AllCoursePage/>
+        <AllCoursePage />
         <Footer />
       </>
     );
-  } else {
-    return <div>Loading...</div>;
+  }else{
+    return <Loader/>
   }
 }
 

@@ -11,11 +11,8 @@ function Counter() {
     <div className="grandOut">
       <div className="counterFlex">
         <div className="CounterContWrap">
-          <h1
-            className="counterContainer"
-            
-          >
-            Alem Alema Academic session is about to start
+          <h1 className="counterContainer">
+            Alem Alema Academic session is about to start after
           </h1>
           <div className="countDownContainer">
             <div id="countdown">
@@ -30,7 +27,7 @@ function Counter() {
           </div>
         </div>
         <div className="otherSection1">
-        <NoteCard/>
+          <NoteCard />
         </div>
         <div className="otherSection2">
           <div className="style-60">

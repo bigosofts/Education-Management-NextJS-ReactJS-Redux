@@ -102,9 +102,7 @@ function ReviewPage() {
         </div>
       </div>
     );
-  } else {
-    return <div>Loading...</div>;
-  }
+  } 
 }
 
 export default ReviewPage;

@@ -206,8 +206,6 @@ function LiveSection() {
         </div>
       </div>
     );
-  } else {
-    return <div>Loading ... </div>;
   }
 }
 

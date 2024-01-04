@@ -275,8 +275,6 @@ function DashboardNav(props) {
                 </div>
             </header>
           );
-    }else{
-        return <div>Loading Navbar...</div>
     }
 }
 

@@ -91,8 +91,6 @@ function AllCoursePage() {
         </div>
       </div>
     );
-  } else {
-    return <div>Loading ... </div>;
   }
 }
 

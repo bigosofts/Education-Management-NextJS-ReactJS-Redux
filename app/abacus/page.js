@@ -12,6 +12,7 @@ import AbacusStudentCourses from "@/components/allAbacusComponents/AbacusStudent
 import AboutAbacus from "@/customComponents/allCustomComponents/aboutAbacus/AboutAbacus";
 import { selectData } from "@/apiservices/sliderapiservices";
 import mytoast from "@/components/toast/toast";
+import Loader from "@/customComponents/loader/Loader";
 
 import { useState, useEffect } from "react";
 
@@ -28,7 +29,6 @@ function Abacus() {
       if (res.status == "Alhamdulillah") {
         setData(res.data);
       } else {
-        
         mytoast.danger("Data fetching error. Try Refreshing the page");
       }
     }
@@ -62,8 +62,8 @@ function Abacus() {
         <Footer />
       </>
     );
-  } else {
-    return <div> Loading ... </div>;
+  }else{
+    return <Loader/>
   }
 }
 

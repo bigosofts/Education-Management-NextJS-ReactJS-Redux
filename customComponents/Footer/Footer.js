@@ -112,8 +112,6 @@ function Footer() {
         </div>
       </footer>
     );
-  } else {
-    return <div>Loading...</div>;
   }
 }
 

@@ -38,6 +38,7 @@ function NewTeacherForm(props) {
       const teacherpresentaddressref = useRef();
       const teacherparmanentaddressref = useRef();
       const teachercountryref = useRef();
+      const designationref = useRef();
       
       const teacherradio1ref = useRef();
       const teacherradio2ref = useRef();
@@ -64,12 +65,13 @@ function NewTeacherForm(props) {
           const teacherpresentaddress = teacherpresentaddressref.current.value;
           const teacherparmanentaddress = teacherparmanentaddressref.current.value;
           const teachercountry = teachercountryref.current.value;
+          const designation = designationref.current.value;
         
           const teacherradio1 = teacherradio1ref.current.checked;
           const teacherradio2 = teacherradio2ref.current.checked;
         const status = teacherradio1 ? "active" : teacherradio2 ? "inactive" : "inactive";
 
-        const res = await createData(teacherfirstname, teacherfirstnamebn, teacherlastname, teacherlastnamebn, teachernid, tacherbirthreg, fathername, fathernamebn, tacheremail, resetpass, teachermobile, teachercoursecode, teacherjamatcode, teachergender, teacherbirthdate, teachercountry, teacherpresentaddress, teacherparmanentaddress, teachereducation, tacherrole, status);
+        const res = await createData(teacherfirstname, teacherfirstnamebn, teacherlastname, teacherlastnamebn, teachernid, tacherbirthreg, fathername, fathernamebn, tacheremail, resetpass, teachermobile, teachercoursecode, teacherjamatcode, teachergender, teacherbirthdate, teachercountry, teacherpresentaddress, teacherparmanentaddress, teachereducation, tacherrole, status,designation);
 
         if(res){
             props.statechanger();
@@ -95,6 +97,9 @@ function NewTeacherForm(props) {
             </div>
             <div className="input-type">
                 <input ref={teacherlastnamebnref} className="border w-full px-5 py-3 focus:outline-none" type='text' name='teacherlastnamebn' placeholder='নামের শেষের অংশ লিখুন'></input>
+            </div>
+            <div className="input-type">
+                <input ref={designationref} className="border w-full px-5 py-3 focus:outline-none" type='text' name='designationref' placeholder='Enter Current Designation'></input>
             </div>
             <div className="input-type">
                 <input ref={fathernameref} className="border w-full px-5 py-3 focus:outline-none" type='text' name='teacherfathername' placeholder='Enter Fathers Name'></input>

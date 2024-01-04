@@ -21,6 +21,7 @@ import Counter from "@/customComponents/counterDay/counter";
 import ResultCardSlider from "@/customComponents/allCustomComponents/ResultCardSlider/ResultCardSlider";
 // import GalleryCard from "@/customComponents/GalleryCard/GalleryCard";
 import GalleryAll from "@/customComponents/GalleryALL/GalleryALL";
+import Loader from "@/customComponents/loader/Loader";
 
 export default function Home() {
   const [data, setData] = useState();
@@ -107,6 +108,6 @@ export default function Home() {
       </>
     );
   } else {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 }

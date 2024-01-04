@@ -312,8 +312,6 @@ function AbacusSectionOne() {
         </div>
       </div>
     );
-  } else {
-    return <div>Loading...</div>;
   }
 }
 

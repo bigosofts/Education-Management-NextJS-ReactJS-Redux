@@ -8,6 +8,7 @@ import { selectData as selectWorks } from "@/apiservices/workapiservices";
 import Footer from "@/customComponents/Footer/Footer";
 
 import GalleryAll from "@/customComponents/GalleryALL/GalleryALL";
+import Loader from "@/customComponents/loader/Loader";
 function WorkPage() {
   const [data, setData] = useState();
   const [data2, setData2] = useState();
@@ -22,8 +23,7 @@ function WorkPage() {
         activeStatus: "active",
       });
 
-      if (res.status == "Alhamdulillah" &&
-      res2.status == "Alhamdulillah") {
+      if (res.status == "Alhamdulillah" && res2.status == "Alhamdulillah") {
         setData(res.data);
         setData2(res2.data);
       } else {
@@ -61,12 +61,12 @@ function WorkPage() {
         <MainMenu />
         <SubMenu />
         <Slider linkObj={ObjArray(data)} />
-        <GalleryAll linkObj={ObjArray2(data2)}/>
-        <Footer/>
+        <GalleryAll linkObj={ObjArray2(data2)} />
+        <Footer />
       </>
     );
   } else {
-    return <div>Loading ... </div>;
+    return <Loader />;
   }
 }
 

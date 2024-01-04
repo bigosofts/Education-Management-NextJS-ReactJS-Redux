@@ -11,6 +11,7 @@ import Footer from "@/customComponents/Footer/Footer";
 import { selectData } from "@/apiservices/sliderapiservices";
 import { selectData as selectCourses } from "@/apiservices/courseapiservices";
 import { useState, useEffect } from "react";
+import Loader from "@/customComponents/loader/Loader";
 
 function AbacusCourses({ params }) {
   const [data, setData] = useState();
@@ -64,8 +65,8 @@ function AbacusCourses({ params }) {
         <Footer />
       </>
     );
-  } else {
-    return <div>Loading...</div>;
+  }else{
+    return <Loader/>
   }
 }
 

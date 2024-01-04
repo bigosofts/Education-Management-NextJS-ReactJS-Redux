@@ -58,8 +58,6 @@ function Activities() {
         </div>
       </div>
     );
-  } else {
-    return <div>Loading...</div>;
   }
 }
 

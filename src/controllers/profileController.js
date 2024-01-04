@@ -265,6 +265,7 @@ exports.createTeacher = (req, res) => {
   let educationalBackground = reqBody.educationalBackground;
   let activeStatus = reqBody.activeStatus;
   let userRole = reqBody.userRole;
+  let designation = reqBody.designation;
 
   //Make res body for posting to the Database
 
@@ -288,6 +289,7 @@ exports.createTeacher = (req, res) => {
     educationalBackground: educationalBackground,
     activeStatus: activeStatus,
     userRole: userRole,
+    designation: designation,
   };
 
   // Create Database record
@@ -382,6 +384,7 @@ exports.updateTeacher = async (req, res) => {
       activeStatus: reqBody.activeStatus,
       userRole: reqBody.userRole,
       userName: reqBody.userName,
+      designation: reqBody.designation,
     };
   } else {
     postBody = {
@@ -414,6 +417,7 @@ exports.updateTeacher = async (req, res) => {
       activeStatus: reqBody.activeStatus,
       userRole: reqBody.userRole,
       userName: reqBody.userName,
+      designation: reqBody.designation,
     };
   }
 

@@ -34,7 +34,8 @@ const DataSchema = mongoose.Schema({
     },
     isAdmin:{type:Boolean, default:false},
     createdData: {type: Date},
-    updatedData:{type: Date}
+    updatedData:{type: Date},
+    designation:{type:String}
 
 
 },{versionKey: false});

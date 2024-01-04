@@ -57,7 +57,6 @@ function DashboardMetrics(props) {
   },[])
 
   if(data){
-    console.log(data)
     return (
       <div className="main-box w-full min-w-[250px] overflow-y-scroll mx-5 pb-10">
         <div className="dsh-container">
@@ -354,8 +353,6 @@ function DashboardMetrics(props) {
       </div>
 
     );
-  }else{
-    return <div>Loading...</div>
   }
 }
 

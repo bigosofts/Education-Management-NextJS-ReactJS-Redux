@@ -76,7 +76,8 @@ exports.createData = async (
   fullPermanentAddress,
   educationalBackground,
   userRole,
-  activeStatus
+  activeStatus,
+  designation
 ) => {
   
   const aboutdata = {
@@ -107,6 +108,7 @@ exports.createData = async (
     educationalBackground: educationalBackground,
     activeStatus: activeStatus,
     userRole:userRole,
+    designation:designation
   };
   
 
@@ -149,7 +151,8 @@ exports.updateData = async (
   educationalBackground,
   userRole,
   activeStatus,
-  idValue
+  idValue,
+  designation
 ) => {
   const aboutdata = {
     _id: idValue,
@@ -181,6 +184,7 @@ exports.updateData = async (
     activeStatus: activeStatus,
     userRole: userRole,
     userName: userName,
+    designation:designation
   };
 
   const res = await fetch(`/apis/v1/update-teacher`, {

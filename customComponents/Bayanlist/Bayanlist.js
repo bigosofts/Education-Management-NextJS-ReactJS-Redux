@@ -174,9 +174,7 @@ function BayanList() {
         </div>
       </div>
     );
-  } else {
-    return <div>Loading ... </div>;
-  }
+  } 
 }
 
 export default BayanList;

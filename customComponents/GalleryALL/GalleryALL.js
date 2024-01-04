@@ -1,7 +1,7 @@
 import "./GalleryALL.css";
 
 function GalleryAll({ linkObj }) {
-  console.log(linkObj);
+ 
   return (
     <div className="galleryALL">
       <h1

@@ -10,6 +10,7 @@ import SubMenu from "@/customComponents/SubMenu/SubMenu";
 import Slider from "@/customComponents/slider/Slider";
 import Footer from "@/customComponents/Footer/Footer";
 import SearchComponent from "@/customComponents/SearchComponent/SearchComponent";
+import Loader from "@/customComponents/loader/Loader";
 
 function ResultPage() {
   const [data, setData] = useState([]);
@@ -75,8 +76,8 @@ function ResultPage() {
         <Footer/>
       </>
     );
-  } else {
-    return <div>Loading...</div>;
+  }else{
+    return <Loader/>
   }
 }
 

@@ -174,8 +174,6 @@ function SubMenu() {
         </div>
       </div>
     );
-  } else {
-    return <div> Loading.. </div>;
   }
 }
 
