@@ -117,6 +117,11 @@ function layout({children, params}) {
             href: `/dashboard/${params.adminslug}/works`,
             icon: "BsClipboardData",
           },
+          {
+            name: "Rich Text",
+            href: `/dashboard/${params.adminslug}/richtexts`,
+            icon: "BiCode",
+          },
     ];
 
     if(data){

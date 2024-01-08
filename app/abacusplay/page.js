@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import RichTextEditor from "@/customComponents/RichTextEditor/RichTextEditor";
 
 function AbacusPlay() {
   useEffect(() => {
@@ -8,6 +9,7 @@ function AbacusPlay() {
     import("./abacus.js");
   }, []);
   return (
+    <>
     <div className="abacusDesign">
       <div className="abacusChild">
         <div id="myAbacus"></div>
@@ -17,7 +19,11 @@ function AbacusPlay() {
           device
         </p>
       </div>
+      
     </div>
+    <RichTextEditor/>
+    </>
+    
   );
 }
 

@@ -3,7 +3,7 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch("/apis/v1/select-widgets", {
+  const res = await fetch("/apis/v1/select-richtexts", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -20,7 +20,7 @@ exports.selectData = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`/apis/v1/delete-widget/${id}`, {
+  const res = await fetch(`/apis/v1/delete-richtext/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -35,14 +35,14 @@ exports.deleteData = async (id) => {
   return res.json();
 };
 
-exports.createData = async (widgetName, widgetPayload, activeStatus) => {
+exports.createData = async ({ RichTextName, TextPayload, activeStatus }) => {
   const aboutdata = {
-    widgetName: widgetName,
-    widgetPayload: widgetPayload,
-    activeStatus: activeStatus,
+    RichTextName,
+    TextPayload,
+    activeStatus,
   };
 
-  const res = await fetch(`/apis/v1/create-widget`, {
+  const res = await fetch(`/apis/v1/create-richtext`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -58,20 +58,20 @@ exports.createData = async (widgetName, widgetPayload, activeStatus) => {
   return res.json();
 };
 
-exports.updateData = async (
-  widgetName,
-  widgetPayload,
+exports.updateData = async ({
+  RichTextName,
+  TextPayload,
   activeStatus,
-  idValue
-) => {
+  idValue,
+}) => {
   const aboutdata = {
     _id: idValue,
-    widgetName: widgetName,
-    widgetPayload: widgetPayload,
-    activeStatus: activeStatus,
+    RichTextName,
+    TextPayload,
+    activeStatus,
   };
 
-  const res = await fetch(`/apis/v1/update-widget`, {
+  const res = await fetch(`/apis/v1/update-richtext`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
