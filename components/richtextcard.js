@@ -1,11 +1,13 @@
 "use client";
 import React from "react";
 import { BiEdit, BiTrashAlt } from "react-icons/bi";
-import { selectData, deleteData } from "@/apiservices/workapiservices";
+import { selectData, deleteData } from "@/apiservices/richtextapiservices";
 import { useEffect, useState } from "react";
 import myToast from "@/components/toast/toast";
+import ReactHighlightSyntax from "react-highlight-syntax";
+import DOMPurify from "dompurify";
 
-function WorkCard(props) {
+function RichTextCard(props) {
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -39,7 +41,7 @@ function WorkCard(props) {
               <a href="#">
                 <img
                   className="rounded-t-lg w-full h-64"
-                  src={item.img}
+                  src="/images/quran.jpg"
                   alt=""
                 />
               </a>
@@ -58,18 +60,19 @@ function WorkCard(props) {
               <div className="p-5">
                 <a href="#">
                   <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    Sid: {item.sid}
+                    Rich Text Name: {item.RichTextName}
                   </h5>
                 </a>
 
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Student Name: {item.name}
-                </p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Jamat Name: {item.jamat}
-                </p>
+                <ReactHighlightSyntax
+                  language={"JavaScript"}
+                  theme={"Base16Darcula"}
+                  copy={true}
+                  copyBtnTheme={"Dark"}
+                  showLineNumbers={true}
+                >
+                  {DOMPurify.sanitize(item.TextPayload)}
+                </ReactHighlightSyntax>
 
                 <div className="flex justify-end gap-2">
                   <button
@@ -106,7 +109,7 @@ function WorkCard(props) {
               <a href="#">
                 <img
                   className="rounded-t-lg w-full h-64"
-                  src={item.img}
+                  src="/images/quran.jpg"
                   alt=""
                 />
               </a>
@@ -125,19 +128,19 @@ function WorkCard(props) {
               <div className="p-5">
                 <a href="#">
                   <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    Sid: {item.sid}
+                    Rich Text Name: {item.RichTextName}
                   </h5>
                 </a>
 
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Student Name: {item.name}
-                </p>
-
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
-                  {" "}
-                  Jamat Name: {item.jamat}
-                </p>
+                <ReactHighlightSyntax
+                  language={"JavaScript"}
+                  theme={"Base16Darcula"}
+                  copy={true}
+                  copyBtnTheme={"Dark"}
+                  showLineNumbers={true}
+                >
+                  {DOMPurify.sanitize(item.TextPayload)}
+                </ReactHighlightSyntax>
 
                 <div className="flex justify-end gap-2">
                   <button
@@ -165,4 +168,4 @@ function WorkCard(props) {
   }
 }
 
-export default WorkCard;
+export default RichTextCard;

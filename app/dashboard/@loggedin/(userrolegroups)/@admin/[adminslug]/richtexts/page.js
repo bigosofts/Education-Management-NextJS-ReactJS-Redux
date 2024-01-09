@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 import { BiUserPlus } from "react-icons/bi";
-import WorkCard from "@/components/workcard";
+import RichTextCard from "@/components/richtextcard";
 import NewRichTextForm from "@/components/richtextform/newRichTextForm";
-import UpdateWorkForm from "@/components/workform/updateWorkForm";
+import UpdateRichTextEditor from "@/components/richtextform/updateRichTextForm";
 import { useState } from "react";
 import mytoast from "@/components/toast/toast";
-import { selectData, deleteData } from "@/apiservices/workapiservices";
+import { selectData, deleteData } from "@/apiservices/richtextapiservices";
 
 function WorkPage(props) {
   const [visible, setVisible] = useState(false);
@@ -27,6 +27,7 @@ function WorkPage(props) {
     setFlag(false);
     setVisible(true);
     setId(id);
+  
 
     const modified = data.data.find((item) => item._id == id);
 
@@ -51,7 +52,7 @@ function WorkPage(props) {
     <div className="main-box w-full min-w-[250px] overflow-y-scroll mx-5 pb-10">
       <h1 className="animate__animated animate__backInDown text-xl  md:text-5xl font-bold py-10  text-center">
         {" "}
-        Works Management{" "}
+        Rich Text Management{" "}
       </h1>
       <div className="container mx-auto flex justify-between py-5 border-b">
         <div className="left flex gap-3">
@@ -78,7 +79,7 @@ function WorkPage(props) {
       ) : (
         <div className="container mx-auto">
           {visible ? (
-            <UpdateWorkForm
+            <UpdateRichTextEditor
               data={idValue}
               payload={modifieddata}
               statechanger={cardstateupdateHandler}
@@ -90,7 +91,7 @@ function WorkPage(props) {
       )}
 
       <div className="container mx-auto">
-        <WorkCard
+        <RichTextCard
           updateHandler={updateHandler}
           fromupdateform={aftermodifieddata}
           deleteHandler={deleteHandler}

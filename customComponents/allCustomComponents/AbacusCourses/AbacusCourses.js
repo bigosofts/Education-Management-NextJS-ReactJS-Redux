@@ -130,7 +130,7 @@ function AbacusCourse({ info }) {
                                   <div class="style-525">
                                     <h4 class="style-526">{item.desc.en}</h4>
                                     <div class="style-527">
-                                      <img src={item.img} />
+                                      {item.img ? (<img src={item.img} />) : ""}
                                     </div>
                                   </div>
                                 </li>
