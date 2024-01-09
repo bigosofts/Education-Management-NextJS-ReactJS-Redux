@@ -23,7 +23,7 @@ import ResultCardSlider from "@/customComponents/allCustomComponents/ResultCardS
 import GalleryAll from "@/customComponents/GalleryALL/GalleryALL";
 import Loader from "@/customComponents/loader/Loader";
 
-import HifzGrid from "@/customComponents/hifzGrid/hifzGrid";
+import HifzGrid from "@/customComponents/hifzGrid2/hifzGrid";
 
 export default function Home() {
   const [data, setData] = useState();
@@ -98,7 +98,7 @@ export default function Home() {
         <LiveSection />
         <BayanList />
         <ResultCardSlider linkObj={ObjArray2(data2)} />
-        <HifzGrid/>
+        <HifzGrid />
         <NoticeEvent />
 
         <CoursePage />

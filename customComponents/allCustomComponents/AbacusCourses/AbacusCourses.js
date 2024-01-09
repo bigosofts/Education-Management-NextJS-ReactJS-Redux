@@ -2,10 +2,13 @@
 import "./AbacusCourses.css";
 import { useState, useEffect } from "react";
 import { selectData } from "@/apiservices/commentapiservice";
+import { selectData as selectRichText } from "@/apiservices/richtextapiservices";
 
 function AbacusCourse({ info }) {
   const [syllabus, setSyllabus] = useState(3);
   const [comment, setComment] = useState();
+  const [richText, setRichText] = useState();
+
   useEffect(() => {
     async function getData() {
       const idArray = [];
@@ -17,13 +20,34 @@ function AbacusCourse({ info }) {
         activeStatus: "active",
         commentId: { $in: idArray },
       });
+      const res2 = await selectRichText({
+        activeStatus: "active",
+      });
+
+      if (res2) {
+        setRichText(res2.data);
+      }
+
       if (res) {
         setComment(res.data);
       }
     }
     getData();
   }, []);
-  if (comment) {
+  function richtextoutput(text) {
+    if (text.indexOf("rich-") !== -1) {
+      const newArray = richText.filter((item) => item.RichTextName === text);
+      console.log(newArray);
+
+      return (
+        <div style={{maxWidth: "720px", overflowX:"scroll"}} dangerouslySetInnerHTML={{ __html: newArray[0].TextPayload }} />
+      );
+    }else{
+      return text;
+    }
+  }
+
+  if (comment && richText) {
     return (
       <main class="abacusCourse">
         <div class="style-1">
@@ -39,9 +63,7 @@ function AbacusCourse({ info }) {
             <div class="style-9">
               <div class="style-10">
                 <div class="style-11">
-                  <h2 class="style-12">
-                    {true ? "Ostad" : "ওস্তাদ"}
-                  </h2>
+                  <h2 class="style-12">{true ? "Ostad" : "ওস্তাদ"}</h2>
                   <div class="style-13">
                     {info.instructor.map((item, i) => (
                       <div key={i} class="style-14">
@@ -76,9 +98,7 @@ function AbacusCourse({ info }) {
               <div class="style-507">
                 <div class="style-508">
                   <div class="style-509">
-                    <h2 class="style-510">
-                      {true ? "Syllabus" : "সিলেবাস"}
-                    </h2>
+                    <h2 class="style-510">{true ? "Syllabus" : "সিলেবাস"}</h2>
                   </div>
                   <div class="style-511">
                     <div class="style-512">
@@ -105,32 +125,11 @@ function AbacusCourse({ info }) {
                             <div class="style-518">
                               <ul class="style-519">
                                 <li class="style-520">
-                                  <span class="style-521">
-                                    <svg
-                                      stroke="currentColor"
-                                      fill="currentColor"
-                                      stroke-width="0"
-                                      viewBox="0 0 24 24"
-                                      class="style-522"
-                                      height="24"
-                                      width="24"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                      <path
-                                        fill="none"
-                                        d="M0 0h24v24H0z"
-                                        class="style-523"
-                                      ></path>
-                                      <path
-                                        d="M19 5v9h-5v5H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h10l6-6V5c0-1.1-.9-2-2-2zm-7 11H7v-2h5v2zm5-4H7V8h10v2z"
-                                        class="style-524"
-                                      ></path>
-                                    </svg>
-                                  </span>
+                                  
                                   <div class="style-525">
-                                    <h4 class="style-526">{item.desc.en}</h4>
+                                    <h4 class="style-526">{richtextoutput(item.desc.en)}</h4>
                                     <div class="style-527">
-                                      {item.img ? (<img src={item.img} />) : ""}
+                                      {item.img ? <img src={item.img} /> : ""}
                                     </div>
                                   </div>
                                 </li>
@@ -173,9 +172,7 @@ function AbacusCourse({ info }) {
             <div class="style-855">
               <div class="style-856">
                 <div class="style-857">
-                  <h2 class="style-858">
-                    {true ? "Details" : "বিস্তারিত"}
-                  </h2>
+                  <h2 class="style-858">{true ? "Details" : "বিস্তারিত"}</h2>
                   <div class="style-859">
                     {info.detailData.map((item, i) => (
                       <details key={i} open="" class="style-860">
@@ -628,9 +625,7 @@ function AbacusCourse({ info }) {
                   </div>
                 </div>
                 <p class="style-1187">
-                  <span class="style-1188">
-                    এটি সম্পর্কে বিস্তারিত জানতে
-                  </span>
+                  <span class="style-1188">এটি সম্পর্কে বিস্তারিত জানতে</span>
                   <span class="style-1189">
                     <svg
                       stroke="currentColor"
@@ -664,4 +659,3 @@ function AbacusCourse({ info }) {
 }
 
 export default AbacusCourse;
-

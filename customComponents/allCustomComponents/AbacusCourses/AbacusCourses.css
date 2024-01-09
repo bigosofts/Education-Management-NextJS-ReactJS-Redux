@@ -7027,7 +7027,6 @@
 }
 
 .abacusCourse .style-520 {
-  display: flex;
   margin-bottom: 16px;
   border: 0px solid rgb(219, 225, 235);
   box-sizing: border-box;
@@ -7063,14 +7062,8 @@
 }
 
 .abacusCourse .style-526 {
-  color: rgb(17, 24, 39);
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-  flex: 1 1 0%;
-  margin: 0px;
-  border: 0px solid rgb(219, 225, 235);
-  box-sizing: border-box;
+  
+  width:100%;
 }
 
 .abacusCourse .style-527 {
