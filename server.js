@@ -7,7 +7,7 @@ const router = require("./src/routes/api.js");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const multer = require("multer");
-const path = require("path");
+
 
 //Security Middleware
 const rateLimit = require("express-rate-limit");

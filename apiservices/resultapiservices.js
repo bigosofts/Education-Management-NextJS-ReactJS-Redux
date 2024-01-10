@@ -24,14 +24,16 @@ exports.selectDataTwo = async (query, projection) => {
     query: query,
     projection: projection,
   };
-
-  const res = await fetch("http://localhost:3000/apis/v1/select-results", {
+ 
+  const res = await fetch(`${process.env.URL}/apis/v1/select-results`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(payloaddata),
-    cache: "force-cache",
+    next: {
+      revalidate: 3600,
+    },
   });
 
   if (!res.ok) {
