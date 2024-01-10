@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import "./hifzGrid.css";
-import Loader from "../loader/Loader";
 
 import { selectData } from "@/apiservices/widgetapiservices";
 
@@ -79,8 +78,6 @@ function HifzGrid() {
         </div>
       </>
     );
-  } else {
-    return <Loader />;
   }
 }
 

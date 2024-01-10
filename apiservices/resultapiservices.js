@@ -4,7 +4,6 @@ exports.selectData = async (query, projection) => {
     projection: projection,
   };
 
-  
   const res = await fetch("/apis/v1/select-results", {
     method: "POST",
     headers: {
@@ -17,7 +16,29 @@ exports.selectData = async (query, projection) => {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
-  
+
+  return res.json();
+};
+exports.selectDataTwo = async (query, projection) => {
+  const payloaddata = {
+    query: query,
+    projection: projection,
+  };
+
+  const res = await fetch("http://localhost:3000/apis/v1/select-results", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payloaddata),
+    cache: "force-cache",
+  });
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
   return res.json();
 };
 

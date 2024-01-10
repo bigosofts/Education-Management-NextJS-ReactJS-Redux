@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import "./hifzGrid.css";
-import Loader from "../loader/Loader";
+import ButtonComponent from "../ButtonComponent/ButtonComponent";
 
 import { selectData } from "@/apiservices/widgetapiservices";
 
@@ -33,7 +33,7 @@ function HifzGrid() {
             : "Who Completed Their Hifz by Internet Madrasa"}
         </h2>
         <div className="hifzResult">
-          {data[0].widgetPayload.slice(0,4).map((item, i) => (
+          {data[0].widgetPayload.slice(0, 4).map((item, i) => (
             <div key={i} className="style-6">
               <div className="style-7">
                 <div className="style-8">
@@ -76,11 +76,13 @@ function HifzGrid() {
               </div>
             </div>
           ))}
+          <ButtonComponent
+            text="More Students who completed hifz"
+            link="/hifz"
+          />
         </div>
       </>
     );
-  } else {
-    return <Loader />;
   }
 }
 

@@ -1,4 +1,5 @@
 import "./GalleryALL.css";
+import ButtonComponent from "../ButtonComponent/ButtonComponent";
 
 function GalleryAll({ linkObj }) {
  
@@ -40,7 +41,9 @@ function GalleryAll({ linkObj }) {
             </div>
           </>
         ))}
+        
       </div>
+      <ButtonComponent text="All Activities of our students" link="/work"/>
     </div>
   );
 }
