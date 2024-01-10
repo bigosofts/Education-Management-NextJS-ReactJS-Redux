@@ -1,132 +1,166 @@
-exports.selectData = async(query, projection) => {
-
-    
-
-    const payloaddata ={
-        query:query,
-        projection:projection
-    };
-    const res = await fetch('/apis/v1/select-posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payloaddata),
-    })
-
-    if(!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      throw new Error('Failed to fetch data')
-    }
-   
-    return res.json()
-}
-
-
-exports.deleteData = async(id) => {
-
-   
-
-
-    const res = await fetch(`/apis/v1/delete-post/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json' 
-        }
-    })
-
-    if(!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      throw new Error('Failed to fetch data')
-    }
-   
-    return res.json()
-}
-
-
-exports.createData = async(postUser,postImageLink,postId,postTitleen,postTitlebn,postDescriptionen,postDescriptionbn,postCategoryen,postCategorybn,postPopularityen,postPopularitybn,activeStatus) => {
-
-  
-
-  const aboutdata={
-    postUser:postUser,
-    postImageLink:postImageLink,
-    postId:postId,
-    postTitle:{
-        en:postTitleen,
-        bn:postTitlebn
+exports.selectData = async (query, projection) => {
+  const payloaddata = {
+    query: query,
+    projection: projection,
+  };
+  const res = await fetch("/apis/v1/select-posts", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
     },
-    postDescription:{
-        en:postDescriptionen,
-        bn:postDescriptionbn
+    body: JSON.stringify(payloaddata),
+  });
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+};
+exports.selectDataTwo = async (query, projection) => {
+  const payloaddata = {
+    query: query,
+    projection: projection,
+  };
+  const res = await fetch(`${process.env.URL}/apis/v1/select-posts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
     },
-    postCategory:{
-        en:postCategoryen,
-        bn:postCategorybn
+    body: JSON.stringify(payloaddata),
+    next: {
+      revalidate: 3600,
     },
-    postPopularity:{
-        en:postPopularityen,
-        bn:postPopularitybn
+  });
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+};
+
+exports.deleteData = async (id) => {
+  const res = await fetch(`/apis/v1/delete-post/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
     },
-    activeStatus:activeStatus
- }
+  });
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+};
+
+exports.createData = async (
+  postUser,
+  postImageLink,
+  postId,
+  postTitleen,
+  postTitlebn,
+  postDescriptionen,
+  postDescriptionbn,
+  postCategoryen,
+  postCategorybn,
+  postPopularityen,
+  postPopularitybn,
+  activeStatus
+) => {
+  const aboutdata = {
+    postUser: postUser,
+    postImageLink: postImageLink,
+    postId: postId,
+    postTitle: {
+      en: postTitleen,
+      bn: postTitlebn,
+    },
+    postDescription: {
+      en: postDescriptionen,
+      bn: postDescriptionbn,
+    },
+    postCategory: {
+      en: postCategoryen,
+      bn: postCategorybn,
+    },
+    postPopularity: {
+      en: postPopularityen,
+      bn: postPopularitybn,
+    },
+    activeStatus: activeStatus,
+  };
 
   const res = await fetch(`/apis/v1/create-post`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(aboutdata)
-  })
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(aboutdata),
+  });
 
-  if(!res.ok) {
+  if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
+    throw new Error("Failed to fetch data");
   }
- 
-  return res.json()
-}
 
+  return res.json();
+};
 
-exports.updateData = async(postUser,postImageLink,postId,postTitleen,postTitlebn,postDescriptionen,postDescriptionbn,postCategoryen,postCategorybn,postPopularityen,postPopularitybn,activeStatus,idValue) => {
-
-  
-
-  const aboutdata={
+exports.updateData = async (
+  postUser,
+  postImageLink,
+  postId,
+  postTitleen,
+  postTitlebn,
+  postDescriptionen,
+  postDescriptionbn,
+  postCategoryen,
+  postCategorybn,
+  postPopularityen,
+  postPopularitybn,
+  activeStatus,
+  idValue
+) => {
+  const aboutdata = {
     _id: idValue,
-    postUser:postUser,
-    postImageLink:postImageLink,
-    postId:postId,
-    postTitle:{
-        en:postTitleen,
-        bn:postTitlebn
+    postUser: postUser,
+    postImageLink: postImageLink,
+    postId: postId,
+    postTitle: {
+      en: postTitleen,
+      bn: postTitlebn,
     },
-    postDescription:{
-        en:postDescriptionen,
-        bn:postDescriptionbn
+    postDescription: {
+      en: postDescriptionen,
+      bn: postDescriptionbn,
     },
-    postCategory:{
-        en:postCategoryen,
-        bn:postCategorybn
+    postCategory: {
+      en: postCategoryen,
+      bn: postCategorybn,
     },
-    postPopularity:{
-        en:postPopularityen,
-        bn:postPopularitybn
+    postPopularity: {
+      en: postPopularityen,
+      bn: postPopularitybn,
     },
-    activeStatus:activeStatus
- }
+    activeStatus: activeStatus,
+  };
 
   const res = await fetch(`/apis/v1/update-post`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(aboutdata)
-  })
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(aboutdata),
+  });
 
-  if(!res.ok) {
+  if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
+    throw new Error("Failed to fetch data");
   }
-  return res.json()
-}
+  return res.json();
+};

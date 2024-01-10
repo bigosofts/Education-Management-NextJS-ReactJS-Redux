@@ -1,20 +1,21 @@
-"use client";
-import { useState, useEffect } from "react";
-import { selectData } from "@/apiservices/courseapiservices";
+import { selectDataTwo } from "@/apiservices/courseapiservices";
+import Image from "next/image";
 
 import "./CoursesPage.css";
+async function getData() {
+  const res = await selectDataTwo({}, {});
+  if (res) {
+    const dataObject = {
+      course: null,
+    };
+    dataObject.course = res.data;
 
-function CoursePage() {
-  const [data, setData] = useState();
-  useEffect(() => {
-    async function getData() {
-      const res = await selectData({}, {});
-      if (res) {
-        setData(res.data);
-      }
-    }
-    getData();
-  }, []);
+    return dataObject.course;
+  }
+}
+
+async function CoursePage() {
+  const data = await getData();
 
   function niceDate(isoTime) {
     var date = new Date(isoTime);
@@ -51,7 +52,9 @@ function CoursePage() {
                       target="_blank"
                       className="style-9"
                     >
-                      <img
+                      <Image
+                        width={370}
+                        height={285}
                         src={item.imageLink}
                         alt="Card image cap"
                         className="style-10"
@@ -91,7 +94,7 @@ function CoursePage() {
         </div>
       </div>
     );
-  } 
+  }
 }
 
 export default CoursePage;

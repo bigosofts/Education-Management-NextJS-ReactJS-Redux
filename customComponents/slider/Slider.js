@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -38,7 +39,12 @@ function Slider(props) {
         {imageArray.map((item, i) => (
           <SwiperSlide key={i}>
             <a href="/course">
-              <img src={item.image} alt={item.caption}></img>
+              <Image
+                width={1920}
+                height={690}
+                src={item.image}
+                alt={item.caption}
+              ></Image>
             </a>
           </SwiperSlide>
         ))}

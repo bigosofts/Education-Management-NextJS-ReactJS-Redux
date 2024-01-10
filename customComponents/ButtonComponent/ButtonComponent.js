@@ -1,17 +1,23 @@
 import Link from "next/link";
 function ButtonComponent({ text, link }) {
   return (
-    <div style={{ maxWidth: "250px", margin: "auto", padding:"100px 0px 0px 0px" }}>
+    <div
+      style={{
+        maxWidth: "450px",
+        margin: "auto",
+        padding: "100px 0px 0px 0px",
+      }}
+    >
       <Link
         href={link}
         style={{
-          backgroundColor: "#D0996A",
+          backgroundColor: "#fff",
           transitionDuration: "0.3s",
           transitionProperty:
             "color, background-color, border-color, text-decoration-color, fill, stroke",
           transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
-          color: "rgb(255, 255, 255)",
-          fontWeight: 500,
+          color: "#BEA256",
+          fontWeight: 900,
           paddingRight: "20px",
           paddingLeft: "28px",
           paddingBottom: "12px",
@@ -22,7 +28,7 @@ function ButtonComponent({ text, link }) {
           alignItems: "center",
           display: "flex",
           textDecoration: "none solid rgb(255, 255, 255)",
-          border: "0px solid rgb(219, 225, 235)",
+          border: "2px solid rgb(219, 225, 235)",
           boxSizing: "border-box",
           textTransform: "uppercase",
         }}

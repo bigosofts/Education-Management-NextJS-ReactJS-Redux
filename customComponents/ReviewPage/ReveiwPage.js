@@ -1,46 +1,44 @@
-"use client";
-import { useState, useEffect } from "react";
-import { selectData } from "@/apiservices/commentapiservice";
+import { selectDataTwo } from "@/apiservices/commentapiservice";
 
 import "./ReviewPage.css";
-function ReviewPage() {
-  const [data, setData] = useState();
+async function getData() {
+  const res = await selectDataTwo({
+    activeStatus: "active",
+  });
 
-  useEffect(() => {
-    async function getData() {
-      const res = await selectData({
-        activeStatus: "active",
-      });
+  if (res.status == "Alhamdulillah") {
+    const dataObject = {
+      comment: null,
+    };
+    dataObject.comment = res.data;
+    return dataObject.comment;
+  } else {
+    mytoast.danger("Data fetching error. Try Refreshing the page");
+  }
+}
 
-      if (res.status == "Alhamdulillah") {
-        setData(res.data);
-      } else {
-        mytoast.danger("Data fetching error. Try Refreshing the page");
-      }
-    }
-    getData();
-  }, []);
+async function ReviewPage() {
+  const data = await getData();
 
-  if (data) {
-    return (
-      <div className="ReviewPage">
-        <div className="style-1">
-          <div className="style-2">
-            <h2 className="style-3">
-              {true
-                ? "Why we are the first choice of students and parents?"
-                : "কেন আমরাই শিক্ষার্থী ও অভিভাবকগণের প্রথম পছন্দ?"}
-            </h2>
-          </div>
+  return (
+    <div className="ReviewPage">
+      <div className="style-1">
+        <div className="style-2">
+          <h2 className="style-3">
+            {true
+              ? "Why we are the first choice of students and parents?"
+              : "কেন আমরাই শিক্ষার্থী ও অভিভাবকগণের প্রথম পছন্দ?"}
+          </h2>
         </div>
-        <div className="style-4">
-          <div className="style-5">
-            <h2 className="style-6"></h2>
-          </div>
-          <div className="style-7">
-            <div className="style-8">
-              {data.map((item)=>(
-                <div className="style-9">
+      </div>
+      <div className="style-4">
+        <div className="style-5">
+          <h2 className="style-6"></h2>
+        </div>
+        <div className="style-7">
+          <div className="style-8">
+            {data.map((item) => (
+              <div className="style-9">
                 <div className="style-10">
                   <div className="style-11">
                     <div className="style-12">
@@ -78,31 +76,23 @@ function ReviewPage() {
                       </div>
                     </div>
                     <div className="style-19">
-                      <div className="style-20">
-                        {item.comment.en}
-                      </div>
+                      <div className="style-20">{item.comment.en}</div>
                     </div>
                   </div>
                   <div className="style-21">
                     <div className="style-22">
-                      <h3 className="style-23">{
-                      item.userName.en}</h3>
-                      <p className="style-24">
-                        {item.designation.en}
-                      </p>
+                      <h3 className="style-23">{item.userName.en}</h3>
+                      <p className="style-24">{item.designation.en}</p>
                     </div>
                   </div>
                 </div>
               </div>
-              ))}
-              
-              
-            </div>
+            ))}
           </div>
         </div>
       </div>
-    );
-  } 
+    </div>
+  );
 }
 
 export default ReviewPage;

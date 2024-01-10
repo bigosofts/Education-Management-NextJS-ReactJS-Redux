@@ -1,8 +1,8 @@
 import "./GalleryALL.css";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
+import Image from "next/image";
 
 function GalleryAll({ linkObj }) {
- 
   return (
     <div className="galleryALL">
       <h1
@@ -19,7 +19,13 @@ function GalleryAll({ linkObj }) {
           <>
             <div>
               <a href={`#${i}`}>
-                <img src={item.img} loading="lazy" alt="" />
+                <Image
+                  width={300}
+                  height={300}
+                  src={item.img}
+                  loading="lazy"
+                  alt=""
+                />
               </a>
               <p style={{ textAlign: "center", marginTop: "20px" }}>
                 {item.sid}
@@ -41,9 +47,8 @@ function GalleryAll({ linkObj }) {
             </div>
           </>
         ))}
-        
       </div>
-      <ButtonComponent text="All Activities of our students" link="/work"/>
+      <ButtonComponent text="All Activities" link="/work" />
     </div>
   );
 }

@@ -14,6 +14,7 @@ import { selectDataTwo as selectResults } from "@/apiservices/resultapiservices"
 import { selectDataTwo as selectWorks } from "@/apiservices/workapiservices";
 import Counter from "@/customComponents/counterDay/counter";
 
+
 import ResultCardSlider from "@/customComponents/allCustomComponents/ResultCardSlider/ResultCardSlider";
 // import GalleryCard from "@/customComponents/GalleryCard/GalleryCard";
 import GalleryAll from "@/customComponents/GalleryALL/GalleryALL";

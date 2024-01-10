@@ -18,6 +18,7 @@ exports.selectData = async (query, projection) => {
 
   return res.json();
 };
+
 exports.selectDataTwo = async (query, projection) => {
   const payloaddata = {
     query: query,

@@ -1,7 +1,8 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "./counter.css";
 import NoteCard from "../note/note";
+import Image from "next/image";
 
 function Counter() {
   useEffect(() => {
@@ -36,9 +37,10 @@ function Counter() {
               <tbody className="style-63">
                 <tr className="style-64">
                   <td className="style-65">
-                    <img
+                    <Image
+                      width={62}
+                      height={62}
                       src="/images/skype.png"
-                      height="50"
                       className="style-66"
                     />
                   </td>
@@ -56,9 +58,10 @@ function Counter() {
                 </tr>
                 <tr className="style-70">
                   <td height="40" className="style-71">
-                    <img
+                    <Image
+                      width={62}
+                      height={62}
                       src="/images/telegram.png"
-                      height="40"
                       className="style-72"
                     />
                   </td>
@@ -75,9 +78,10 @@ function Counter() {
                 </tr>
                 <tr className="style-70">
                   <td height="40" className="style-71">
-                    <img
+                    <Image
+                      width={62}
+                      height={62}
                       src="/images/telegram.png"
-                      height="40"
                       className="style-72"
                     />
                   </td>
@@ -94,9 +98,10 @@ function Counter() {
                 </tr>
                 <tr className="style-76">
                   <td height="50" className="style-77">
-                    <img
+                    <Image
+                      width={62}
+                      height={62}
                       src="/images/gmail.png"
-                      height="35"
                       className="style-78"
                     />
                   </td>
