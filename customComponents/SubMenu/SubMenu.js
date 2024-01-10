@@ -6,7 +6,7 @@ import { isAdmin, logout } from "@/apiservices/checklogin";
 
 import "./SubMenu.css";
 
-function SubMenu() {
+function SubMenu({pageName}) {
   const [data, setData] = useState();
   const [adminData, setAdminData] = useState();
   const hardRefresh = () => {
@@ -21,18 +21,6 @@ function SubMenu() {
     hardRefresh();
   }
 
-  function niceDate(isoTime) {
-    var date = new Date(isoTime);
-
-    var options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
-
-    var formattedDate = date.toLocaleDateString("en-US", options);
-    return formattedDate;
-  }
   useEffect(() => {
     async function getData() {
       const response = await isAdmin();
@@ -63,7 +51,7 @@ function SubMenu() {
           <input type="checkbox" name="" id="check" />
 
           <div className="logo-container">
-            <h3 className="logo">Home</h3>
+            <h3 className="logo">{pageName}</h3>
           </div>
 
           <div className="nav-btn">
@@ -79,8 +67,8 @@ function SubMenu() {
                         </Link>
                         <div className="dropdown">
                           <ul>
-                            {item.subMenu.map((item2) => (
-                              <li className="dropdown-link">
+                            {item.subMenu.map((item2,i) => (
+                              <li key={i} className="dropdown-link">
                                 {item2.subMenu ? (
                                   <>
                                     <Link href={item.menuLink}>
@@ -89,8 +77,8 @@ function SubMenu() {
                                     </Link>
                                     <div className="dropdown second">
                                       <ul>
-                                        {item2.subMenu.map((item3) => (
-                                          <li className="dropdown-link">
+                                        {item2.subMenu.map((item3,i) => (
+                                          <li key={i} className="dropdown-link">
                                             {item3.subMenu ? (
                                               <>
                                                 <Link href={item.menuLink}>
@@ -100,8 +88,8 @@ function SubMenu() {
                                                 <div className="dropdown second">
                                                   <ul>
                                                     {item3.subMenu.map(
-                                                      (item4) => (
-                                                        <li className="dropdown-link">
+                                                      (item4,i) => (
+                                                        <li key={i} className="dropdown-link">
                                                           <Link
                                                             href={item4.item4}
                                                           >

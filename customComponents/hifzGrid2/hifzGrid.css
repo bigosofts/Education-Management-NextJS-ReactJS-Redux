@@ -6,6 +6,11 @@
   justify-content: space-around;
   margin: auto;
 }
+@media only screen and (max-width: 600px) {
+  .hifzResult {
+    width: 90%;
+  }
+}
 
 .hifzResult .style-6 {
   -webkit-box-flex: 0;

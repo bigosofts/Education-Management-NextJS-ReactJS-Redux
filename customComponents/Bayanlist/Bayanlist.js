@@ -55,8 +55,8 @@ async function BayanList() {
           <div class="style-10"></div>
         </div>
         <ul class="style-16">
-          {data.majlis_music.map((item) => (
-            <li class="style-17">
+          {data.majlis_music.map((item,i) => (
+            <li key={i} class="style-17">
               <a href={item.link} class="style-18">
                 {item.title}
               </a>
@@ -99,8 +99,8 @@ async function BayanList() {
           <div class="style-75"></div>
         </div>
         <ul class="style-80">
-          {data.majlis_music_two.map((item) => (
-            <li class="style-81">
+          {data.majlis_music_two.map((item,i) => (
+            <li key={i} class="style-81">
               <a href={item.link} class="style-82">
                 {item.title}
               </a>
@@ -143,8 +143,8 @@ async function BayanList() {
           <div class="style-139"></div>
         </div>
         <ul class="style-144">
-          {data.majlis_music_three.map((item) => (
-            <li class="style-145">
+          {data.majlis_music_three.map((item,i) => (
+            <li key={i} class="style-145">
               <a href={item.link} class="style-146">
                 {item.title}
               </a>

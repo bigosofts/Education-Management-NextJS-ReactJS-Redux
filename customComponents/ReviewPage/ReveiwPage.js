@@ -37,8 +37,8 @@ async function ReviewPage() {
         </div>
         <div className="style-7">
           <div className="style-8">
-            {data.map((item) => (
-              <div className="style-9">
+            {data.map((item,i) => (
+              <div key={i} className="style-9">
                 <div className="style-10">
                   <div className="style-11">
                     <div className="style-12">

@@ -17,7 +17,7 @@ import Counter from "@/customComponents/counterDay/counter";
 
 import ResultCardSlider from "@/customComponents/allCustomComponents/ResultCardSlider/ResultCardSlider";
 // import GalleryCard from "@/customComponents/GalleryCard/GalleryCard";
-import GalleryAll from "@/customComponents/GalleryALL/GalleryALL";
+import GalleryAll from "@/customComponents/GalleryALLLimited/GalleryALL";
 
 import HifzGrid from "@/customComponents/hifzGrid2/hifzGrid";
 
@@ -93,7 +93,7 @@ export default async function Home() {
   return (
     <>
       <MainMenu />
-      <SubMenu />
+      <SubMenu pageName="Home"/>
       <Slider linkObj={ObjArray(data.sliders)} />
       <Counter />
       <LiveSection />

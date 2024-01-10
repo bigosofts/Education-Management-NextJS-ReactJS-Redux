@@ -1,0 +1,40 @@
+.bgimg {
+  background-image: url("/images/natural.jpg");
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.bgimg .topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bgimg .bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.bgimg .middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.bgimg .middle h1{
+    font-size: 50px;
+    font-weight: 900;
+    color:#fff;
+}
+
+.bgimg hr {
+  margin: auto;
+  width: 40%;
+}

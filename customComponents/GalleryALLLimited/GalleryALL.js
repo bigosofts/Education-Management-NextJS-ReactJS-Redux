@@ -15,7 +15,7 @@ function GalleryAll({ linkObj }) {
         Some Handwork of Our Madrasa Talib/Taliba
       </h1>
       <div className="gallery">
-        {linkObj.map((item, i) => (
+        {linkObj.slice(0, 8).map((item, i) => (
           <>
             <div>
               <a href={`#${i}`}>
@@ -48,6 +48,7 @@ function GalleryAll({ linkObj }) {
           </>
         ))}
       </div>
+      <ButtonComponent text="All Activities" link="/work" />
     </div>
   );
 }

@@ -29,7 +29,9 @@ exports.selectDataTwo = async (query, projection) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(payloaddata),
-    cache: "no-store",
+    next: {
+      revalidate: 3600,
+    },
   });
 
   if (!res.ok) {

@@ -40,7 +40,7 @@ async function CoursePage() {
           <div className="style-4">
             <div className="style-5">
               {data.slice(0, 9).map((item, i) => (
-                <div className="style-6">
+                <div key={i} className="style-6">
                   <a
                     href={`/course/${item.courseCode}`}
                     target="_blank"

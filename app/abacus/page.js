@@ -1,5 +1,3 @@
-"use client";
-
 import MainMenu from "@/customComponents/Menu/Menu";
 import SubMenu from "@/customComponents/SubMenu/SubMenu";
 import Slider from "@/customComponents/slider/Slider";
@@ -10,61 +8,56 @@ import Footer from "@/customComponents/Footer/Footer";
 import AbacusGenerator from "@/customComponents/allCustomComponents/abacusGenerator/AbacusGenerator";
 import AbacusStudentCourses from "@/components/allAbacusComponents/AbacusStudentCourse/AbacusStudentCourses";
 import AboutAbacus from "@/customComponents/allCustomComponents/aboutAbacus/AboutAbacus";
-import { selectData } from "@/apiservices/sliderapiservices";
+import { selectDataTwo } from "@/apiservices/sliderapiservices";
 import mytoast from "@/components/toast/toast";
-import Loader from "@/customComponents/loader/Loader";
 
-import { useState, useEffect } from "react";
+async function getData() {
+  const res = await selectDataTwo({
+    activeStatus: "active",
+    sliderName: "home",
+  });
 
-function Abacus() {
-  const [data, setData] = useState();
+  if (res.status == "Alhamdulillah") {
+    const dataObject = {
+      slider: null,
+    };
 
-  useEffect(() => {
-    async function getData() {
-      const res = await selectData({
-        activeStatus: "active",
-        sliderName: "abacus",
-      });
+    dataObject.slider = res.data;
 
-      if (res.status == "Alhamdulillah") {
-        setData(res.data);
-      } else {
-        mytoast.danger("Data fetching error. Try Refreshing the page");
-      }
-    }
-    getData();
-  }, []);
-
-  const ObjArray = (data) => {
-    const letImageObject = [];
-    data.map((item) => {
-      letImageObject.push({
-        image: item.sliderImageLink,
-        caption: item.sliderId,
-      });
-    });
-    return letImageObject;
-  };
-
-  if (data) {
-    return (
-      <>
-        <MainMenu />
-        <SubMenu />
-        <Slider linkObj={ObjArray(data)} />
-        <AbacusGenerator />
-
-        <AbacusSectionOne />
-        <AboutAbacus />
-        <Multiplication />
-        <CustomVideoGallery />
-        <AbacusStudentCourses />
-        <Footer />
-      </>
-    );
-  }else{
-    return <Loader/>
+    return dataObject.slider;
+  } else {
+    mytoast.danger("Data fetching error. Try Refreshing the page");
   }
+}
+const ObjArray = (data) => {
+  const letImageObject = [];
+  data.map((item) => {
+    letImageObject.push({
+      image: item.sliderImageLink,
+      caption: item.sliderId,
+    });
+  });
+  return letImageObject;
+};
+
+async function Abacus() {
+  const data = await getData();
+
+  return (
+    <>
+      <MainMenu />
+      <SubMenu pageName="Abacus" />
+      <Slider linkObj={ObjArray(data)} />
+      <AbacusGenerator />
+
+      <AbacusSectionOne />
+      <AboutAbacus />
+      <Multiplication />
+      <CustomVideoGallery />
+      <AbacusStudentCourses />
+      <Footer />
+    </>
+  );
 }
 
 export default Abacus;

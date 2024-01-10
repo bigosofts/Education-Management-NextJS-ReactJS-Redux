@@ -7,7 +7,6 @@ async function getData() {
     activeStatus: "active",
     widgetName: "main_footer",
   });
-
   if (res.status == "Alhamdulillah") {
     const dataObject = {
       widgets: null,

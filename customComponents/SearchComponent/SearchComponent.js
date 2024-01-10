@@ -70,10 +70,10 @@ function SearchComponent(props) {
         className="section-front"
       >
         <section id="hero">
-          <div className="container">
+          <div style={{ padding: "0px" }} className="container">
             <div className="searchwrapper">
               <div className="searchbox">
-                <div style={{alignItems:"center"}} className="row">
+                <div style={{ alignItems: "center" }} className="row">
                   <div className="col-md-5">
                     <input
                       ref={resultRollNoref}

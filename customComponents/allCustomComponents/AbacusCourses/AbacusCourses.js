@@ -40,9 +40,12 @@ function AbacusCourse({ info }) {
       console.log(newArray);
 
       return (
-        <div style={{maxWidth: "720px", overflowX:"scroll"}} dangerouslySetInnerHTML={{ __html: newArray[0].TextPayload }} />
+        <div
+          style={{ maxWidth: "720px", overflowX: "scroll" }}
+          dangerouslySetInnerHTML={{ __html: newArray[0].TextPayload }}
+        />
       );
-    }else{
+    } else {
       return text;
     }
   }
@@ -125,9 +128,10 @@ function AbacusCourse({ info }) {
                             <div class="style-518">
                               <ul class="style-519">
                                 <li class="style-520">
-                                  
                                   <div class="style-525">
-                                    <h4 class="style-526">{richtextoutput(item.desc.en)}</h4>
+                                    <h4 class="style-526">
+                                      {richtextoutput(item.desc.en)}
+                                    </h4>
                                     <div class="style-527">
                                       {item.img ? <img src={item.img} /> : ""}
                                     </div>
@@ -653,8 +657,6 @@ function AbacusCourse({ info }) {
         </div>
       </main>
     );
-  } else {
-    return <div>Loading...</div>;
   }
 }
 

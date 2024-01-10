@@ -18,7 +18,7 @@ function Counter() {
           <div className="countDownContainer">
             <div id="countdown">
               <div id="tiles"></div>
-              <div class="labels">
+              <div className="labels">
                 <li>Days</li>
                 <li>Hours</li>
                 <li>Mins</li>

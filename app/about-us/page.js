@@ -9,7 +9,7 @@ function AboutPage() {
   return (
     <>
       <MainMenu />
-      <SubMenu />
+      <SubMenu pageName="About Us" />
       <AboutSection />
       <Activities />
       <OstadSection />

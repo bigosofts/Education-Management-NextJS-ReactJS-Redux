@@ -6,7 +6,7 @@ function ResultCardSlider({ linkObj }) {
     <div className="resultCardSlider">
       <div className="resultCardSlider2">
         <SliderResult linkObj={linkObj} />
-        <ButtonComponent text="All Results" link="/course"/>
+        <ButtonComponent text="All Results" link="/result" />
       </div>
     </div>
   );

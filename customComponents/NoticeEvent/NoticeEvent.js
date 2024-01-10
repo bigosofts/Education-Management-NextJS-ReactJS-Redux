@@ -84,8 +84,8 @@ async function NoticeEvent() {
             <div className="style-4">
               <h2 className="style-5">Notice</h2>
               <div className="style-6">
-                {data.notice.map((item) => (
-                  <div className="style-7">
+                {data.notice.map((item,i) => (
+                  <div key={i} className="style-7">
                     <div className="style-8">
                       <span className="style-9">
                         {dayDate(item.noticeUpdatedDate)}
@@ -118,8 +118,8 @@ async function NoticeEvent() {
             <div className="style-72">
               <h2 className="style-73">Events</h2>
               <div className="style-74">
-                {data.event.map((item) => (
-                  <div className="style-75">
+                {data.event.map((item,i) => (
+                  <div key={i} className="style-75">
                     <div className="style-76">
                       <span className="style-77">
                         {dayDate(item.eventUpdatedDate)}
@@ -159,8 +159,8 @@ async function NoticeEvent() {
                 <div className="style-128">
                   <div className="style-129">
                     <div className="style-130">
-                      {data.post.slice(0, 4).map((item) => (
-                        <div className="style-131">
+                      {data.post.slice(0, 4).map((item,i) => (
+                        <div key={i} className="style-131">
                           <div className="style-132">
                             <Link href={`/${item.postId}`}>
                               <h1>{item.postTitle.en}</h1>
