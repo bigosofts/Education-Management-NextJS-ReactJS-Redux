@@ -49,12 +49,9 @@ const MainMenu = () => {
           <div className="style-16">
             <div className="style-17">
               <div className="style-18">
-                <Image
-                  width={405}
-                  height={78}
-                  src="/images/hazrat-wala-name.png"
-                  className="style-19"
-                />
+                <a href="http://assunnahmuslimit.com/registration.php">
+                  <button>Registration</button>
+                </a>
               </div>
             </div>
           </div>

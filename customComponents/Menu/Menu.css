@@ -154,6 +154,12 @@
   text-align: center;
   vertical-align: middle;
   box-sizing: border-box;
+  border: 1px solid #3a3a3a;
+  height: 77px;
+  border-radius: 5px;
+  background-color: #bf976a;
+  font-size: 24px;
+  color: #fff;
 }
 
 .mainmenu .style-19 {
