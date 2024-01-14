@@ -4,7 +4,7 @@ function GallerySingle() {
       <figure>
         <a
           className="fancybox fancybox.iframe"
-          href="//www.youtube.com/embed/zH3ZohGnjcg"
+          href="//www.youtube.com/watch?v=8D5zaUHi02U"
         >
           <img className="videoThumb" src="/images/abacus3.jpg" />
         </a>

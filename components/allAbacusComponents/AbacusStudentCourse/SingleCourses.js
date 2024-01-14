@@ -10,7 +10,7 @@ function SingleCourses() {
             className="w-full rounded-t-lg"
           >
             <source
-              src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+              src="https://www.youtube.com/watch?v=8D5zaUHi02U"
               type="video/mp4"
             />
             <source src="movie.ogg" type="video/ogg" />
@@ -18,9 +18,11 @@ function SingleCourses() {
           </video>
         </a>
         <div className="p-6">
-          <h5 className="text-gray-900 text-xl font-medium mb-2">অ্যাবাকাস যোগ</h5>
+          <h5 className="text-gray-900 text-xl font-medium mb-2">
+            অ্যাবাকাস যোগ
+          </h5>
           <p className="text-gray-700 text-base mb-4">
-            কোর্সটি করলে তুমি দ্রুত অ্যাবাকাসের সাহায্যে যোগ করতে পারবে।  
+            কোর্সটি করলে তুমি দ্রুত অ্যাবাকাসের সাহায্যে যোগ করতে পারবে।
           </p>
           <button
             type="button"
