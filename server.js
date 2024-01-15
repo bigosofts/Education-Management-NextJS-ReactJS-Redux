@@ -8,7 +8,6 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const multer = require("multer");
 
-
 //Security Middleware
 const rateLimit = require("express-rate-limit");
 const mongoSanitize = require("express-mongo-sanitize");
