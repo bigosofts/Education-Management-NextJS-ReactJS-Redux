@@ -6,7 +6,7 @@ import { isAdmin, logout } from "@/apiservices/checklogin";
 
 import "./SubMenu.css";
 
-function SubMenu({pageName}) {
+function SubMenu({ pageName }) {
   const [data, setData] = useState();
   const [adminData, setAdminData] = useState();
   const hardRefresh = () => {
@@ -67,7 +67,7 @@ function SubMenu({pageName}) {
                         </Link>
                         <div className="dropdown">
                           <ul>
-                            {item.subMenu.map((item2,i) => (
+                            {item.subMenu.map((item2, i) => (
                               <li key={i} className="dropdown-link">
                                 {item2.subMenu ? (
                                   <>
@@ -77,21 +77,24 @@ function SubMenu({pageName}) {
                                     </Link>
                                     <div className="dropdown second">
                                       <ul>
-                                        {item2.subMenu.map((item3,i) => (
+                                        {item2.subMenu.map((item3, i) => (
                                           <li key={i} className="dropdown-link">
                                             {item3.subMenu ? (
                                               <>
-                                                <Link href={item.menuLink}>
+                                                <Link href={item3.menuLink}>
                                                   {item3.menuTitle.en}
                                                   <i className="fa fa-caret-down"></i>
                                                 </Link>
                                                 <div className="dropdown second">
                                                   <ul>
                                                     {item3.subMenu.map(
-                                                      (item4,i) => (
-                                                        <li key={i} className="dropdown-link">
+                                                      (item4, i) => (
+                                                        <li
+                                                          key={i}
+                                                          className="dropdown-link"
+                                                        >
                                                           <Link
-                                                            href={item4.item4}
+                                                            href={item4.menuLink}
                                                           >
                                                             {item4.menuTitle.en}
                                                           </Link>
