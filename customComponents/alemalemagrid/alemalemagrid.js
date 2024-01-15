@@ -6,7 +6,7 @@ import { selectDataTwo } from "@/apiservices/widgetapiservices";
 async function getData() {
   const res = await selectDataTwo({
     activeStatus: "active",
-    widgetName: "hifz_result",
+    widgetName: "alem_alema_testimonial",
   });
 
   if (res.status == "Alhamdulillah") {
@@ -20,18 +20,18 @@ async function getData() {
   }
 }
 
-async function HifzGrid() {
+async function AlemAlemaGrid({ number }) {
   const data = await getData();
 
   return (
-    <>
+    <div style={{ backgroundColor: "#EAEAEA" }}>
       <h2 className="style-14h1">
         {false
-          ? "যারা ইন্টারনেট মাদ্রাসা থেকে হিফজ সম্পন্ন করেছেন"
-          : "Who Completed Their Hifz by Internet Madrasa"}
+          ? "যারা ইন্টারনেট মাদ্রাসা থেকে আলেম/আলেমা হয়েছেন"
+          : "Who Become Alema/Alema from Internet Madrasa"}
       </h2>
-      <div className="hifzResult">
-        {data.hifz_result[0].widgetPayload.slice(0, 4).map((item, i) => (
+      <div className="alemalemagrid">
+        {data.hifz_result[0].widgetPayload.slice(0, number).map((item, i) => (
           <div key={i} className="style-6">
             <div className="style-7">
               <div className="style-8">
@@ -78,10 +78,14 @@ async function HifzGrid() {
             </div>
           </div>
         ))}
-        <ButtonComponent text="See More" link="/hifz" />
+        {number == undefined ? (
+          ""
+        ) : (
+          <ButtonComponent text="See More" link="/alemalema" />
+        )}
       </div>
-    </>
+    </div>
   );
 }
 
-export default HifzGrid;
+export default AlemAlemaGrid;

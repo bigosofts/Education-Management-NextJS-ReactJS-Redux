@@ -14,12 +14,12 @@ import { selectDataTwo as selectResults } from "@/apiservices/resultapiservices"
 import { selectDataTwo as selectWorks } from "@/apiservices/workapiservices";
 import Counter from "@/customComponents/counterDay/counter";
 
-
 import ResultCardSlider from "@/customComponents/allCustomComponents/ResultCardSlider/ResultCardSlider";
 // import GalleryCard from "@/customComponents/GalleryCard/GalleryCard";
 import GalleryAll from "@/customComponents/GalleryALLLimited/GalleryALL";
 
 import HifzGrid from "@/customComponents/hifzGrid2/hifzGrid";
+import AlemAlemaGrid from "@/customComponents/alemalemagrid/alemalemagrid";
 
 async function getData() {
   const res = await selectDataTwo({
@@ -93,13 +93,15 @@ export default async function Home() {
   return (
     <>
       <MainMenu />
-      <SubMenu pageName="Home"/>
+      <SubMenu pageName="Home" />
       <Slider linkObj={ObjArray(data.sliders)} />
       <Counter />
       <LiveSection />
       <BayanList />
       <ResultCardSlider linkObj={ObjArray2(data.results)} />
+      <AlemAlemaGrid number={4} />
       <HifzGrid />
+
       <NoticeEvent />
 
       <CoursePage />

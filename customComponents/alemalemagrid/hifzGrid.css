@@ -1,4 +1,4 @@
-.hifzResult {
+.alemalemagrid {
   width: 1200px;
   padding: 100px 0px;
   display: flex;
@@ -7,12 +7,12 @@
   margin: auto;
 }
 @media only screen and (max-width: 600px) {
-  .hifzResult {
+  .alemalemagrid {
     width: 90%;
   }
 }
 
-.hifzResult .style-6 {
+.alemalemagrid .style-6 {
   -webkit-box-flex: 0;
   flex: 0 0 25%;
   max-width: 25%;
@@ -26,10 +26,10 @@
   padding-left: 15px;
 }
 
-.hifzResult .style-7 {
-  margin-bottom: 30px;
+.alemalemagrid .style-7 {
+  margin-bottom: 80px;
   text-align: center;
-  background: #013030;
+  background: #8E602F;
   padding: 20px 15px;
   box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
   box-sizing: border-box;
@@ -37,17 +37,18 @@
   transition: 0.3s ease-out;
   cursor: pointer;
 }
-.hifzResult .style-7:hover {
+.alemalemagrid .style-7:hover {
   scale: 105%;
 }
 
-.hifzResult .style-8 {
+.alemalemagrid .style-8 {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  margin-top: -80px;
 }
 
-.hifzResult .style-9 {
+.alemalemagrid .style-9 {
   width: 110px;
   height: 110px;
   border-radius: 50%;
@@ -61,7 +62,7 @@
   background-color: #fff;
 }
 
-.hifzResult .style-10 {
+.alemalemagrid .style-10 {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -69,19 +70,19 @@
   overflow-y: scroll;
   transition: 0.5s ease-out !important;
 }
-.hifzResult .style-10::-webkit-scrollbar {
+.alemalemagrid .style-10::-webkit-scrollbar {
   display: none;
 }
-.hifzResult .style-10 {
+.alemalemagrid .style-10 {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.hifzResult .style-10:hover {
+.alemalemagrid .style-10:hover {
   transition: 0.5s ease-out !important;
   height: auto;
 }
 
-.hifzResult .style-11 {
+.alemalemagrid .style-11 {
   font-weight: 300;
   font-size: 14px;
   margin-bottom: 10px;
@@ -92,7 +93,7 @@
   color: #fff;
 }
 
-.hifzResult .style-12 {
+.alemalemagrid .style-12 {
   font-size: 15px;
   font-weight: 700;
   margin-bottom: 10px;
@@ -105,7 +106,7 @@
   margin-top: 0px;
 }
 
-.hifzResult .style-13 {
+.alemalemagrid .style-13 {
   font-weight: 400;
   font-size: 13px;
   margin-bottom: 15px;
@@ -134,11 +135,11 @@
   text-align: center;
 }
 @media only screen and (max-width: 540px) {
-  .hifzResult {
+  .alemalemagrid {
     flex-direction: column;
     padding: 20px 0px;
   }
-  .hifzResult .style-6 {
+  .alemalemagrid .style-6 {
     max-width: 100vw;
   }
   .style-14h1 {

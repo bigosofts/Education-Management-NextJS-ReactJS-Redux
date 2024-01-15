@@ -29,9 +29,9 @@ exports.selectDataTwo = async (query, projection) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(payloaddata),
-    next:{
-      revalidate: 3600
-    }
+    next: {
+      revalidate: 60,
+    },
   });
 
   if (!res.ok) {
@@ -102,7 +102,6 @@ exports.createData = async ({
     commonQuestion,
     courseVideoID,
   };
-
 
   const res = await fetch(`/apis/v1/create-course`, {
     method: "POST",

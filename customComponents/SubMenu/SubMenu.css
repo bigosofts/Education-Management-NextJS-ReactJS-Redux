@@ -8,11 +8,14 @@
   z-index: 1000;
 }
 
-ul {
+.submenu ul {
   list-style: none;
 }
+.submenu ul li {
+   
+}
 
-a {
+.submenu a {
   text-decoration: none;
 }
 .submenu .container-submenu {

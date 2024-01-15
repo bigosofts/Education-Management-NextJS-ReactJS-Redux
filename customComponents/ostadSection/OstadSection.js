@@ -63,23 +63,23 @@ async function OstadSection() {
             </div>
           ))}
         </div>
-        <div className="style-205">
+        <div className="style-5">
           {data.femaleTeacher.map((item, i) => (
-            <div key={i} className="style-413">
-              <div className="style-414">
-                <div className="style-415">
+            <div key={i} className="style-6">
+              <div className="style-7">
+                <div className="style-8">
                   <img
-                    src="images/female_teacher.png"
+                    src="images/shaikh.png"
                     alt="Photo"
-                    className="style-416"
+                    className="style-9"
                   />
                 </div>
-                <div className="style-417">
-                  <p className="style-418">{item.designation}</p>
-                  <h4 className="style-419">
+                <div className="style-10">
+                  <p className="style-11">{item.designation}</p>
+                  <h4 className="style-12">
                     {item.firstName.bn} {item.lastName.bn}
                   </h4>
-                  <p className="style-420">{item.educationalBackground}</p>
+                  <p className="style-13">{item.educationalBackground}</p>
                 </div>
               </div>
             </div>
