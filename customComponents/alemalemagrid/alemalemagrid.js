@@ -53,6 +53,9 @@ async function AlemAlemaGrid({ number }) {
                   {true ? "মাতার নামঃ" : "Mother's name:"} {item.motherName.bn}
                 </p>
                 <p className="style-13">
+                  {true ? "বয়সঃ" : "Age:"} {item.age.bn}
+                </p>
+                <p className="style-13">
                   {true ? "ঠিকানাঃ" : "Address:"} {item.country.bn}
                 </p>
                 <p className="style-13">
@@ -61,12 +64,7 @@ async function AlemAlemaGrid({ number }) {
                 <p className="style-13">
                   {true ? "পেশাঃ" : "Profession:"} {item.profession.bn}
                 </p>
-                <p className="style-13">
-                  {true
-                    ? "কয়েদিনে হিফজ শেষ করেছেনঃ"
-                    : "How long it takes to complete hifz:"}{" "}
-                  {item.time.bn}
-                </p>
+
                 {item.comment ? (
                   <p className="style-13">
                     {true ? "অনুভূতিঃ " : "Comment:"} {item.comment}

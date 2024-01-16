@@ -10,6 +10,7 @@ import AbacusStudentCourses from "@/components/allAbacusComponents/AbacusStudent
 import AboutAbacus from "@/customComponents/allCustomComponents/aboutAbacus/AboutAbacus";
 import { selectDataTwo } from "@/apiservices/sliderapiservices";
 import mytoast from "@/components/toast/toast";
+import QuizApp from "@/customComponents/quizApplicationAbacusPage/quiz";
 
 async function getData() {
   const res = await selectDataTwo({
@@ -49,6 +50,7 @@ async function Abacus() {
       <SubMenu pageName="Abacus" />
       <Slider linkObj={ObjArray(data)} />
       <AbacusGenerator />
+      <QuizApp />
 
       <AbacusSectionOne />
       <AboutAbacus />

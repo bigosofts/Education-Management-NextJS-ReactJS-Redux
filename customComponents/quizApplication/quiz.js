@@ -2,7 +2,6 @@
 import { useEffect } from "react";
 import "./quiz.css";
 
-
 function QuizApp() {
   useEffect(() => {
     import("./quizCustom.js");
@@ -11,7 +10,11 @@ function QuizApp() {
     <div class="wrapperQuiz">
       <div id="quiz">
         <h1>CSS Toggle Tutorial Part 1</h1>
-        <iframe style={{position:"unset", height:"420px", width: "100%"}} src="/abacusplay" title="description"></iframe>
+        <iframe
+          style={{ position: "unset", height: "420px", width: "100%" }}
+          src="/abacusplay"
+          title="description"
+        ></iframe>
         <hr style={{ marginBottom: "30px" }} />
         <p id="question"></p>
 

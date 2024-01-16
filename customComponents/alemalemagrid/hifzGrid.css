@@ -29,7 +29,7 @@
 .alemalemagrid .style-7 {
   margin-bottom: 80px;
   text-align: center;
-  background: #8E602F;
+  background: #8e602f;
   padding: 20px 15px;
   box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 0px;
   box-sizing: border-box;
@@ -133,6 +133,7 @@
   color: rgb(17, 24, 39);
   font-weight: 600;
   text-align: center;
+  margin-bottom: 50px;
 }
 @media only screen and (max-width: 540px) {
   .alemalemagrid {
@@ -146,5 +147,6 @@
     font-size: 24px;
     width: 90%;
     margin: auto;
+    margin-bottom: 50px;
   }
 }

@@ -34,7 +34,9 @@ function updateWidgetForm(props) {
     e.preventDefault();
     const widgettitle = widgettitleref.current.value;
     const widgetpayload = widgetpayloadref.current.value;
-    const widgetpayloadParsed = JSON.parse(widgetpayload);
+    const widgetpayloadParsed = JSON.parse(
+      widgetpayload.replace(/(\r\n|\n|\r)/gm, "")
+    );
     const widgetradio1 = widgetradio1ref.current.checked;
     const widgetradio2 = widgetradio2ref.current.checked;
 
@@ -65,7 +67,6 @@ function updateWidgetForm(props) {
     });
   };
   const onChangeHandler2 = (e) => {
-
     setWidget({
       widgetpayloadParsed: e.target.value,
     });
