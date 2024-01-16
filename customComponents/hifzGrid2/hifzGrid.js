@@ -63,7 +63,7 @@ async function HifzGrid() {
                 </p>
                 <p className="style-13">
                   {true
-                    ? "কয়েদিনে হিফজ শেষ করেছেনঃ"
+                    ? "হিফজের সময়সীমাঃ"
                     : "How long it takes to complete hifz:"}{" "}
                   {item.time.bn}
                 </p>

@@ -55,7 +55,7 @@ function updateMenuForm(props) {
     const menutype = menutyperef.current.value;
 
     const subMenu = subMenuref.current.value;
-    const subMenuParsed = JSON.parse(subMenu);
+    const subMenuParsed = JSON.parse(subMenu.replace(/(\r\n|\n|\r)/gm, ""));
 
     const menuradio1 = menuradio1ref.current.checked;
     const menuradio2 = menuradio2ref.current.checked;

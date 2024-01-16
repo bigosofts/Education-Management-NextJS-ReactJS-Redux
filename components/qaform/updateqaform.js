@@ -47,7 +47,7 @@ function Updateqaform(props) {
     e.preventDefault();
     const qaformid = qaformidref.current.value;
     const multiplechoice = multiplechoiceref.current.value;
-    const multiplechoiceParsed = JSON.parse(multiplechoice);
+    const multiplechoiceParsed = JSON.parse(multiplechoice.replace(/(\r\n|\n|\r)/gm, ""));
     const questionimage = questionimageref.current.value;
     const questiontext = questiontextref.current.value;
     const correctanswer = correctanswerref.current.value;

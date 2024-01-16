@@ -110,54 +110,80 @@ function UpdateCourseForm(props) {
     const courseCode = courseCoderef.current.value;
     const imageLink = imageLinkref.current.value;
     const title = titleref.current.value;
-    const titleParsed = JSON.parse(title);
+    const titleParsed = JSON.parse(title.replace(/(\r\n|\n|\r)/gm, ""));
 
     const description = descriptionref.current.value;
-    const descriptionParsed = JSON.parse(description);
+    const descriptionParsed = JSON.parse(
+      description.replace(/(\r\n|\n|\r)/gm, "")
+    );
 
     const categories = categoriesref.current.value;
-    const categoriesParsed = JSON.parse(categories);
+    const categoriesParsed = JSON.parse(
+      categories.replace(/(\r\n|\n|\r)/gm, "")
+    );
 
     const startingDate = startingDateref.current.value;
-    const startingDateParsed = JSON.parse(startingDate);
+    const startingDateParsed = JSON.parse(
+      startingDate.replace(/(\r\n|\n|\r)/gm, "")
+    );
 
     const popularity = popularityref.current.value;
-    const popularityParsed = JSON.parse(popularity);
+    const popularityParsed = JSON.parse(
+      popularity.replace(/(\r\n|\n|\r)/gm, "")
+    );
 
     const jamatName = jamatNameref.current.value;
-    const jamatNameparsed = JSON.parse(jamatName);
+    const jamatNameparsed = JSON.parse(jamatName.replace(/(\r\n|\n|\r)/gm, ""));
     const instructor = instructorref.current.value;
-    const instructorParsed = JSON.parse(instructor);
+    const instructorParsed = JSON.parse(
+      instructor.replace(/(\r\n|\n|\r)/gm, "")
+    );
 
     const coursePrice = coursePriceref.current.value;
-    const coursePriceParsed = JSON.parse(coursePrice);
+    const coursePriceParsed = JSON.parse(
+      coursePrice.replace(/(\r\n|\n|\r)/gm, "")
+    );
 
     const courseButton = courseButtonref.current.value;
-    const courseButtonParsed = JSON.parse(courseButton);
+    const courseButtonParsed = JSON.parse(
+      courseButton.replace(/(\r\n|\n|\r)/gm, "")
+    );
 
     const courseInfo = courseInforef.current.value;
-    const courseInfoParsed = JSON.parse(courseInfo);
+    const courseInfoParsed = JSON.parse(
+      courseInfo.replace(/(\r\n|\n|\r)/gm, "")
+    );
 
     const detailData = detailDataref.current.value;
-    const detailDataParsed = JSON.parse(detailData);
+    const detailDataParsed = JSON.parse(
+      detailData.replace(/(\r\n|\n|\r)/gm, "")
+    );
 
     const courseSyllabus = courseSyllabusref.current.value;
-    const courseSyllabusParsed = JSON.parse(courseSyllabus);
+    const courseSyllabusParsed = JSON.parse(
+      courseSyllabus.replace(/(\r\n|\n|\r)/gm, "")
+    );
 
     const faq = faqref.current.value;
-    const faqParsed = JSON.parse(faq);
+    const faqParsed = JSON.parse(faq.replace(/(\r\n|\n|\r)/gm, ""));
 
     const commentID = commentIDref.current.value;
-    const commentIDParsed = JSON.parse(commentID);
+    const commentIDParsed = JSON.parse(commentID.replace(/(\r\n|\n|\r)/gm, ""));
 
     const courseMaterial = courseMaterialref.current.value;
-    const courseMaterialParsed = JSON.parse(courseMaterial);
+    const courseMaterialParsed = JSON.parse(
+      courseMaterial.replace(/(\r\n|\n|\r)/gm, "")
+    );
 
     const commonQuestion = commonQuestionref.current.value;
-    const commonQuestionParsed = JSON.parse(commonQuestion);
+    const commonQuestionParsed = JSON.parse(
+      commonQuestion.replace(/(\r\n|\n|\r)/gm, "")
+    );
 
     const courseVideoID = courseVideoIDref.current.value;
-    const courseVideoIDParsed = JSON.parse(courseVideoID);
+    const courseVideoIDParsed = JSON.parse(
+      courseVideoID.replace(/(\r\n|\n|\r)/gm, "")
+    );
 
     const courseradio1 = courseradio1ref.current.checked;
     const courseradio2 = courseradio2ref.current.checked;

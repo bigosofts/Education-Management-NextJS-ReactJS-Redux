@@ -3,7 +3,7 @@ import SubMenu from "@/customComponents/SubMenu/SubMenu";
 import Slider from "@/customComponents/slider/Slider";
 
 import CustomVideoGallery from "@/customComponents/allCustomComponents/customVideoGallery/CustomVideoGallery";
-import AbacusStudentCourses from "@/components/allAbacusComponents/AbacusStudentCourse/AbacusStudentCourses";
+
 import AbacusCourse from "@/customComponents/allCustomComponents/AbacusCourses/AbacusCourses";
 
 import Footer from "@/customComponents/Footer/Footer";
@@ -53,7 +53,6 @@ async function AbacusCourses({ params }) {
       <Slider linkObj={ObjArray(data.slider)} />
       <AbacusCourse info={data.course} />
       <CustomVideoGallery />
-      <AbacusStudentCourses />
       <Footer />
     </>
   );

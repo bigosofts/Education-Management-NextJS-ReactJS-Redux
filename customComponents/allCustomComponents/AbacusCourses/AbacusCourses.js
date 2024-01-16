@@ -55,8 +55,8 @@ function AbacusCourse({ info }) {
       <main class="abacusCourse">
         <div class="style-1">
           <div class="style-2">
-            <h1 class="style-3">{info.title.en}</h1>
-            <div class="style-4">{info.description.en}</div>
+            <h1 class="style-3">{info.title.bn}</h1>
+            <div class="style-4">{info.description.bn}</div>
           </div>
           <div class="style-5">
             <div class="style-6">
@@ -86,8 +86,8 @@ function AbacusCourse({ info }) {
                           </div>
                         </div>
                         <div class="style-18">
-                          <h3 class="style-19">{item.name.en}</h3>
-                          <div class="style-20">{item.experience.en}</div>
+                          <h3 class="style-19">{item.name.bn}</h3>
+                          <div class="style-20">{item.experience.bn}</div>
                         </div>
                       </div>
                     ))}
@@ -123,14 +123,14 @@ function AbacusCourse({ info }) {
                                   src="https://cdn.10minuteschool.com/images/icons/live_class.png"
                                 />
                               </div>
-                              <h3 class="style-517">{item.text.en}</h3>
+                              <h3 class="style-517">{item.text.bn}</h3>
                             </summary>
                             <div class="style-518">
                               <ul class="style-519">
                                 <li class="style-520">
                                   <div class="style-525">
                                     <h4 class="style-526">
-                                      {richtextoutput(item.desc.en)}
+                                      {richtextoutput(item.desc.bn)}
                                     </h4>
                                     <div class="style-527">
                                       {item.img ? <img src={item.img} /> : ""}
@@ -183,13 +183,13 @@ function AbacusCourse({ info }) {
                         <summary class="style-861">
                           <div class="style-862">
                             <h2 class="style-863">
-                              <b class="style-864">{item.title.en}</b>
+                              <b class="style-864">{item.title.bn}</b>
                             </h2>
                           </div>
                         </summary>
                         <div class="style-865">
                           <div class="style-866">
-                            <p class="style-867">{item.desc.en}</p>
+                            <p class="style-867">{item.desc.bn}</p>
                           </div>
                         </div>
                       </details>
@@ -330,8 +330,8 @@ function AbacusCourse({ info }) {
                                 </div>
                               </div>
                               <div class="style-944">
-                                <h3 class="style-945">{item.userName.en}</h3>
-                                <p class="style-946">{item.designation.en}</p>
+                                <h3 class="style-945">{item.userName.bn}</h3>
+                                <p class="style-946">{item.designation.bn}</p>
                               </div>
                             </div>
                           </div>
@@ -373,7 +373,7 @@ function AbacusCourse({ info }) {
                                 class="style-1076"
                               ></path>
                             </svg>
-                            <h3 class="style-1077">{item.en}</h3>
+                            <h3 class="style-1077">{item.bn}</h3>
                           </li>
                         ))}
                       </ul>
@@ -411,10 +411,10 @@ function AbacusCourse({ info }) {
                           .map((item, i) => (
                             <details key={i} open="" class="style-1095">
                               <summary class="style-1096">
-                                <h3 class="style-1097">{item.question.en}</h3>
+                                <h3 class="style-1097">{item.question.bn}</h3>
                               </summary>
                               <div class="style-1098">
-                                <div class="style-1099">{item.answer.en}</div>
+                                <div class="style-1099">{item.answer.bn}</div>
                               </div>
                             </details>
                           ))}
@@ -461,10 +461,10 @@ function AbacusCourse({ info }) {
                         {info.faq.slice(0, `${syllabus}`).map((item, i) => (
                           <details key={i} open="" class="style-1095">
                             <summary class="style-1096">
-                              <h3 class="style-1097">{item.question.en}</h3>
+                              <h3 class="style-1097">{item.question.bn}</h3>
                             </summary>
                             <div class="style-1098">
-                              <div class="style-1099">{item.answer.en}</div>
+                              <div class="style-1099">{item.answer.bn}</div>
                             </div>
                           </details>
                         ))}
@@ -600,7 +600,7 @@ function AbacusCourse({ info }) {
                       </div>
                       <button class="style-1155">
                         <a href="/signup/madrasa-student/alem-alema">
-                          {info.courseButton.text.en}
+                          {info.courseButton.text.bn}
                         </a>
                       </button>
                     </div>
@@ -622,7 +622,7 @@ function AbacusCourse({ info }) {
                               src="https://cdn.10minuteschool.com/images/PDP/course-fact-icons/subject.png"
                             />
                           </div>
-                          <h4 class="style-1161">{item.title.en}</h4>
+                          <h4 class="style-1161">{item.title.bn}</h4>
                         </div>
                       </div>
                     ))}

@@ -28,7 +28,7 @@ function NewResultForm(props) {
     const madrashaname = madrashanameref.current.value;
     const examcentre = examcentreref.current.value;
     const markpayload = markpayloadref.current.value;
-    const subMark = JSON.parse(markpayload);
+    const subMark = JSON.parse(markpayload.replace(/(\r\n|\n|\r)/gm, ""));
 
     const studentgrade = studentgraderef.current.value;
     const studentmerit = studentmeritref.current.value;

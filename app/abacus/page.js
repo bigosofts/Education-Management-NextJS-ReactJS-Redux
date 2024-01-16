@@ -6,7 +6,7 @@ import Multiplication from "@/customComponents/allCustomComponents/multiplicatio
 import CustomVideoGallery from "@/customComponents/allCustomComponents/customVideoGallery/CustomVideoGallery";
 import Footer from "@/customComponents/Footer/Footer";
 import AbacusGenerator from "@/customComponents/allCustomComponents/abacusGenerator/AbacusGenerator";
-import AbacusStudentCourses from "@/components/allAbacusComponents/AbacusStudentCourse/AbacusStudentCourses";
+
 import AboutAbacus from "@/customComponents/allCustomComponents/aboutAbacus/AboutAbacus";
 import { selectDataTwo } from "@/apiservices/sliderapiservices";
 import mytoast from "@/components/toast/toast";
@@ -56,7 +56,6 @@ async function Abacus() {
       <AboutAbacus />
       <Multiplication />
       <CustomVideoGallery />
-      <AbacusStudentCourses />
       <Footer />
     </>
   );

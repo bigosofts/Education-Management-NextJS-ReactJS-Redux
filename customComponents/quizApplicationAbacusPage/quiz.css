@@ -1,10 +1,11 @@
 .wrapperQuiz {
   width: 100%;
   height: auto;
-  background: #fff;
-  margin: 100px auto;
+ 
+ 
   border: 0px solid green;
   padding: 20px 50px 50px 50px;
+  
 }
 
 .wrapperQuiz h1 {
@@ -76,5 +77,24 @@
   border-radius: 50%;
   color: #fff;
   display: inline-block;
+}
+
+.wrapperQuiz .style-3 {
+  margin-left: auto;
+  margin-right: auto;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.wrapperQuiz .style-4 {
+  line-height: 56px;
+  font-size: 44px;
+  margin-bottom: 16px;
+  color: rgb(17, 24, 39);
+  font-weight: 600;
+  margin: 0px 0px 16px;
+  border: 0px solid rgb(219, 225, 235);
+  box-sizing: border-box;
 }
 

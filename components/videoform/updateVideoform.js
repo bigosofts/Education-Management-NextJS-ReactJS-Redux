@@ -39,7 +39,7 @@ function UpdateVideosForm(props) {
     e.preventDefault();
     const VideoGroupID = VideoGroupIDref.current.value;
     const videos = videosref.current.value;
-    const videosParsed = JSON.parse(videos);
+    const videosParsed = JSON.parse(videos.replace(/(\r\n|\n|\r)/gm, ""));
     const courseID = courseIDref.current.value;
 
     const videosradio1 = videosradio1ref.current.checked;

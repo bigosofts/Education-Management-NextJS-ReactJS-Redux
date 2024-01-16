@@ -7062,8 +7062,7 @@
 }
 
 .abacusCourse .style-526 {
-  
-  width:100%;
+  width: 100%;
 }
 
 .abacusCourse .style-527 {
@@ -11878,7 +11877,6 @@
   overflow: hidden;
   justify-content: center;
   align-items: center;
-  aspect-ratio: 16 / 9;
   display: flex;
   border: 0px solid rgb(219, 225, 235);
   box-sizing: border-box;
@@ -12376,26 +12374,24 @@
 }
 
 @media only screen and (max-width: 960px) {
-  .abacusCourse{
+  .abacusCourse {
     flex-direction: column;
   }
-  .abacusCourse .style-1{
-    max-width:unset;
+  .abacusCourse .style-1 {
+    max-width: unset;
   }
   .abacusCourse .style-1135 {
     max-width: unset;
   }
-  .abacusCourse .style-1137{
+  .abacusCourse .style-1137 {
     max-width: 100%;
   }
   .abacusCourse .style-13 {
     grid-template-columns: 50% 50%;
-   
   }
 }
-@media only screen and (max-width: 540px){
+@media only screen and (max-width: 540px) {
   .abacusCourse .style-13 {
     grid-template-columns: 100%;
-   
   }
 }
