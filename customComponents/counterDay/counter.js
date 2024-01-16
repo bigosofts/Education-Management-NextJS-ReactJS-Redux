@@ -13,7 +13,9 @@ function Counter() {
       <div className="counterFlex">
         <div className="CounterContWrap">
           <h1 className="counterContainer">
-            Alem Alema Academic session is about to start after
+            {true
+              ? "আলেম/আলেমা পরবর্তী একাডেমিক সেশন শুরু হতে বাকি"
+              : "Alem Alema Academic session is about to start after"}
           </h1>
           <div className="countDownContainer">
             <div id="countdown">
@@ -32,7 +34,7 @@ function Counter() {
         </div>
         <div className="otherSection2">
           <div className="style-60">
-            <h2 className="style-61">Contact Us</h2>
+            <h2 className="style-61"> {true ? "যোগাযোগ" : "Contact Us"}</h2>
             <table className="style-62">
               <tbody className="style-63">
                 <tr className="style-64">

@@ -26,7 +26,7 @@ async function AlemAlemaGrid({ number }) {
   return (
     <div style={{ backgroundColor: "#EAEAEA" }}>
       <h2 className="style-14h1">
-        {false
+        {true
           ? "যারা ইন্টারনেট মাদ্রাসা থেকে আলেম/আলেমা হয়েছেন"
           : "Who Become Alema/Alema from Internet Madrasa"}
       </h2>

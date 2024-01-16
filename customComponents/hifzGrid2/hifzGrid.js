@@ -26,7 +26,7 @@ async function HifzGrid() {
   return (
     <>
       <h2 className="style-14h1">
-        {false
+        {true
           ? "যারা ইন্টারনেট মাদ্রাসা থেকে হিফজ সম্পন্ন করেছেন"
           : "Who Completed Their Hifz by Internet Madrasa"}
       </h2>

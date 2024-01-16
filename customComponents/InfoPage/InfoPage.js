@@ -4,7 +4,7 @@ function InfoPage() {
     <div className="InfoOuter">
       <div class="InfoPage">
         <div class="style-1">
-          <h3 class="style-2">Some facts about TQIM</h3>
+          <h3 class="style-2">{true ? "আমাদের সাথে যুক্ত আছেন" : "Some facts about TQIM"}</h3>
           <div class="style-3">
             <div class="style-4">
               <div class="style-5">

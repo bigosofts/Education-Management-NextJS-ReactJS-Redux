@@ -22,7 +22,11 @@ function SliderResult(props) {
   let imageArray = props.linkObj;
   return (
     <>
-      <h1 className="resultHeader">Befaq Board Results of our Students</h1>
+      <h1 className="resultHeader">
+        {true
+          ? "ইন্টারনেট মাদ্রাসার তলেব/তলেবাদের বেফাক বোর্ড রেজাল্ট"
+          : "Befaq Board Results of our Students"}
+      </h1>
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
