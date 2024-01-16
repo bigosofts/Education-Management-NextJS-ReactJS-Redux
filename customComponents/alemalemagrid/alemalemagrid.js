@@ -50,6 +50,10 @@ async function AlemAlemaGrid({ number }) {
                   {true ? "পিতার নামঃ" : "Fathers's name:"} {item.fatherName.bn}
                 </p>
                 <p className="style-13">
+                  {true ? "SID: " : "SID: "}
+                  {item.sid}
+                </p>
+                <p className="style-13">
                   {true ? "মাতার নামঃ" : "Mother's name:"} {item.motherName.bn}
                 </p>
                 <p className="style-13">
