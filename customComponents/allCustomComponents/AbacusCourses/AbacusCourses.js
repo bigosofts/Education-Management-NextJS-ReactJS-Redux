@@ -37,7 +37,6 @@ function AbacusCourse({ info }) {
   function richtextoutput(text) {
     if (text.indexOf("rich-") !== -1) {
       const newArray = richText.filter((item) => item.RichTextName === text);
-      console.log(newArray);
 
       return (
         <div
@@ -130,7 +129,7 @@ function AbacusCourse({ info }) {
                                 <li class="style-520">
                                   <div class="style-525">
                                     <h4 class="style-526">
-                                      {richtextoutput(item.desc.bn)}
+                                      {richtextoutput(item.desc.en)}
                                     </h4>
                                     <div class="style-527">
                                       {item.img ? <img src={item.img} /> : ""}
