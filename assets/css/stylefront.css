@@ -1,5 +1,5 @@
 .travelpage-container {
-  background-color: #EAEAEA;
+  background-color: #eaeaea;
 }
 
 .travelpage-container .float_left {
@@ -12,7 +12,7 @@
   font-weight: normal;
 }
 .travelpage-container p {
-  font-size: 16px;
+  font-size: 12px;
   line-height: 150%;
 }
 .travelpage-container a {

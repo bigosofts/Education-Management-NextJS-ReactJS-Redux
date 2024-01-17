@@ -38,8 +38,8 @@ function SinglePackage({ items,key }) {
               {items.studentGrade}
             </span>
           </div>
-          <h4 style={{ textAlign: "center" }}>{items.studentUserId}</h4>
-          <p style={{ textAlign: "center" }}>
+          <h4 style={{ textAlign: "center" }}>SID: {items.studentUserId}</h4>
+          <p style={{ textAlign:"center" }}>
             <span className="review_rating">
               {false ? "Total Marks: " : "মোট মার্কঃ "}
               {realMark}/{totalMark}
