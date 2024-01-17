@@ -3,7 +3,7 @@ const axios = require("axios");
 exports.isAdmin = async() => {
 
     
-    const response = await axios.get('/apis/v1/isAdmin', {
+    const response = await axios.get(`${process.env.URL}/apis/v1/isAdmin`, {
         headers: {
             'Content-Type': 'application/json'
         }
@@ -24,7 +24,7 @@ exports.studentLogin = async(userName, password) => {
         userName,
         password
     };
-    const res = await fetch('/apis/v1/student-login', {
+    const res = await fetch(`${process.env.URL}/apis/v1/student-login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ exports.teacherLogin = async(userName, password) => {
         userName,
         password
     };
-    const res = await fetch('/apis/v1/teacher-login', {
+    const res = await fetch(`${process.env.URL}/apis/v1/teacher-login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ exports.teacherLogin = async(userName, password) => {
 exports.logout = async() => {
 
 
-    const res = await fetch('/apis/v1/logout', {
+    const res = await fetch(`${process.env.URL}/apis/v1/logout`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'

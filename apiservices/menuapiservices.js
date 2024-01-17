@@ -3,7 +3,7 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch("/apis/v1/select-menus", {
+  const res = await fetch(`${process.env.URL}/apis/v1/select-menus`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`/apis/v1/delete-menu/${id}`, {
+  const res = await fetch(`${process.env.URL}/apis/v1/delete-menu/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -79,7 +79,7 @@ exports.createData = async (
     subMenu: subMenu,
   };
 
-  const res = await fetch(`/apis/v1/create-menu`, {
+  const res = await fetch(`${process.env.URL}/apis/v1/create-menu`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -118,7 +118,7 @@ exports.updateData = async (
     subMenu: subMenu,
   };
 
-  const res = await fetch(`/apis/v1/update-menu`, {
+  const res = await fetch(`${process.env.URL}/apis/v1/update-menu`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

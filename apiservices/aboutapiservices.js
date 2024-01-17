@@ -1,24 +1,23 @@
-exports.selectData = async(query, projection) => {
+exports.selectData = async (query, projection) => {
+  const payloaddata = {
+    query: query,
+    projection: projection,
+  };
+  const res = await fetch(`${process.env.URL}/apis/v1/select-abouts`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payloaddata),
+  });
 
-    const payloaddata ={
-        query:query,
-        projection:projection
-    };
-    const res = await fetch('/apis/v1/select-abouts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify(payloaddata),
-    })
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
 
-    if(!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      throw new Error('Failed to fetch data')
-    }
-   
-    return res.json()
-}
+  return res.json();
+};
 exports.selectDataTwo = async (query, projection) => {
   const payloaddata = {
     query: query,
@@ -30,9 +29,9 @@ exports.selectDataTwo = async (query, projection) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(payloaddata),
-    next:{
-      revalidate:300
-    }
+    next: {
+      revalidate: 300,
+    },
   });
 
   if (!res.ok) {
@@ -43,90 +42,86 @@ exports.selectDataTwo = async (query, projection) => {
   return res.json();
 };
 
-
-exports.deleteData = async(id) => {
-
-
-
-    const res = await fetch(`/apis/v1/delete-about/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-    })
-
-    if(!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      throw new Error('Failed to fetch data')
-    }
-   
-    return res.json()
-}
-
-
-exports.createData = async(image,titleen,titlebn,desen,desbn,status) => {
-
-  
-
-  const aboutdata={
-    aboutImageLink:image,
-    aboutTitle:{
-       en:titleen,
-       bn:titlebn
+exports.deleteData = async (id) => {
+  const res = await fetch(`${process.env.URL}/apis/v1/delete-about/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
     },
-    aboutDescription:{
-       en:desen,
-       bn:desbn
-    },
-    activeStatus:status
- }
+  });
 
-  const res = await fetch(`/apis/v1/create-about`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(aboutdata)
-  })
-
-  if(!res.ok) {
+  if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
+    throw new Error("Failed to fetch data");
   }
- 
-  return res.json()
-}
 
+  return res.json();
+};
 
-exports.updateData = async(image,titleen,titlebn,desen,desbn,status,idValue) => {
+exports.createData = async (image, titleen, titlebn, desen, desbn, status) => {
+  const aboutdata = {
+    aboutImageLink: image,
+    aboutTitle: {
+      en: titleen,
+      bn: titlebn,
+    },
+    aboutDescription: {
+      en: desen,
+      bn: desbn,
+    },
+    activeStatus: status,
+  };
 
-  
+  const res = await fetch(`${process.env.URL}/apis/v1/create-about`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(aboutdata),
+  });
 
-  const aboutdata={
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+};
+
+exports.updateData = async (
+  image,
+  titleen,
+  titlebn,
+  desen,
+  desbn,
+  status,
+  idValue
+) => {
+  const aboutdata = {
     _id: idValue,
-    aboutImageLink:image,
-    aboutTitle:{
-       en:titleen,
-       bn:titlebn
+    aboutImageLink: image,
+    aboutTitle: {
+      en: titleen,
+      bn: titlebn,
     },
-    aboutDescription:{
-       en:desen,
-       bn:desbn
+    aboutDescription: {
+      en: desen,
+      bn: desbn,
     },
-    activeStatus:status,
- }
+    activeStatus: status,
+  };
 
-  const res = await fetch(`/apis/v1/update-about`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(aboutdata)
-  })
+  const res = await fetch(`${process.env.URL}/apis/v1/update-about`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(aboutdata),
+  });
 
-  if(!res.ok) {
+  if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
+    throw new Error("Failed to fetch data");
   }
-  return res.json()
-}
+  return res.json();
+};

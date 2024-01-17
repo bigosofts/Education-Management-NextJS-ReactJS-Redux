@@ -3,7 +3,7 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch("/apis/v1/select-students", {
+  const res = await fetch(`${process.env.URL}/apis/v1/select-students`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +23,7 @@ exports.selectAllData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch("/apis/v1/select-all-students", {
+  const res = await fetch(`${process.env.URL}/apis/v1/select-all-students`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -63,7 +63,7 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`/apis/v1/delete-student/${id}`, {
+  const res = await fetch(`${process.env.URL}/apis/v1/delete-student/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -139,7 +139,7 @@ exports.createData = async ({
     activeStatus: activeStatus,
   };
 
-  const res = await fetch(`/apis/v1/create-student`, {
+  const res = await fetch(`${process.env.URL}/apis/v1/create-student`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -226,7 +226,7 @@ exports.updateData = async (
     admissionDate: admissionDate,
   };
 console.log(aboutdata);
-  const res = await fetch(`/apis/v1/update-student`, {
+  const res = await fetch(`${process.env.URL}/apis/v1/update-student`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

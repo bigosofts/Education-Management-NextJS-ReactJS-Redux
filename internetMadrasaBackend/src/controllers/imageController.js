@@ -1,7 +1,3 @@
-const fs = require("fs");
-const path = require("path");
-
-
 exports.readImage = (req, res) => {
   const fs = require("fs");
   const path = require("path");
@@ -25,7 +21,7 @@ exports.readImage = (req, res) => {
     return transformedPaths;
   }
 
-  const directoryPath = "./public/images";
+  const directoryPath = "../public/images";
   const imagePaths = getAllImagePaths(directoryPath);
 
   res.status(200).json({
@@ -33,5 +29,3 @@ exports.readImage = (req, res) => {
     data: imagePaths,
   });
 };
-
-

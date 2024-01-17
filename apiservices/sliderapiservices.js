@@ -3,7 +3,7 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch("/apis/v1/select-sliders", {
+  const res = await fetch(`${process.env.URL}/apis/v1/select-sliders`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -44,7 +44,7 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`/apis/v1/delete-slider/${id}`, {
+  const res = await fetch(`${process.env.URL}/apis/v1/delete-slider/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -92,7 +92,7 @@ exports.createData = async (
     activeStatus: activeStatus,
   };
 
-  const res = await fetch(`/apis/v1/create-slider`, {
+  const res = await fetch(`${process.env.URL}/apis/v1/create-slider`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -145,7 +145,7 @@ exports.updateData = async (
     activeStatus: activeStatus,
   };
 
-  const res = await fetch(`/apis/v1/update-slider`, {
+  const res = await fetch(`${process.env.URL}/apis/v1/update-slider`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

@@ -3,7 +3,7 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch("/apis/v1/select-events", {
+  const res = await fetch(`${process.env.URL}/apis/v1/select-events`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`/apis/v1/delete-event/${id}`, {
+  const res = await fetch(`${process.env.URL}/apis/v1/delete-event/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -85,7 +85,7 @@ exports.createData = async (
     eventImageLink: eventImageLink,
   };
 
-  const res = await fetch(`/apis/v1/create-event`, {
+  const res = await fetch(`${process.env.URL}/apis/v1/create-event`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -130,7 +130,7 @@ exports.updateData = async (
     eventImageLink: eventImageLink,
   };
 
-  const res = await fetch(`/apis/v1/update-event`, {
+  const res = await fetch(`${process.env.URL}/apis/v1/update-event`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

@@ -232,6 +232,10 @@ router.delete(
 router.delete("/delete-video/:id", authverify, videoController.deleteVideo);
 router.delete("/delete-qaform/:id", authverify, qaFormController.deleteQAForm);
 router.delete("/delete-work/:id", authverify, workController.deleteWork);
-router.delete("/delete-richtext/:id", authverify, RichTextController.deleteRichText);
+router.delete(
+  "/delete-richtext/:id",
+  authverify,
+  RichTextController.deleteRichText
+);
 
 module.exports = router;
