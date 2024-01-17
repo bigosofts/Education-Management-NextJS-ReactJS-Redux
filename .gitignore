@@ -33,3 +33,21 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+#backened
+/internetMadrasabackend/node_modules
+/internetMadrasabackend/.pnp
+/internetMadrasabackend/.pnp.js
+/internetMadrasabackend/coverage
+/internetMadrasabackend/.next/
+/internetMadrasabackend/out/
+/internetMadrasabackend/build
+/internetMadrasabackend/.DS_Store
+/internetMadrasabackend/*.pem
+/internetMadrasabackend/npm-debug.log*
+/internetMadrasabackend/yarn-debug.log*
+/internetMadrasabackend/yarn-error.log*
+/internetMadrasabackend/.env*.local 
+/internetMadrasabackend/.vercel
+/internetMadrasabackend/*.tsbuildinfo
+/internetMadrasabackend/next-env.d.ts

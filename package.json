@@ -2,6 +2,11 @@
   "name": "internetmadrasha-tailwind",
   "version": "0.1.0",
   "private": true,
+  "description": "This is Internet Madrasa Website",
+  "main": "index.js",
+  "repository": "/",
+  "author": "Abdullah- Al- Amin",
+  "license": "MIT",
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
