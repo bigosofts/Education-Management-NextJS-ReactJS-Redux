@@ -37,7 +37,6 @@ function AbacusCourse({ info }) {
   function richtextoutput(text) {
     if (text.indexOf("rich-") !== -1) {
       const newArray = richText.filter((item) => item.RichTextName === text);
-
       return (
         <div
           style={{ maxWidth: "720px", overflowX: "scroll" }}

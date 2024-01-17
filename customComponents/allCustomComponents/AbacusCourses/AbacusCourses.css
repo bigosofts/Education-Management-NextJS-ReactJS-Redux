@@ -7064,6 +7064,20 @@
 .abacusCourse .style-526 {
   width: 100%;
 }
+@media only screen and (max-width: 600px) {
+  .abacusCourse .style-526 table p,
+  .abacusCourse .style-526 table span,
+  .abacusCourse .style-526 table h1 {
+    font-size: 10px !important;
+  }
+}
+
+.abacusCourse .style-526 table tr {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.abacusCourse .style-526 table tr td {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
 
 .abacusCourse .style-527 {
   align-items: center;
