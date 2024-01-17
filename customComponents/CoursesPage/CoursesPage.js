@@ -36,7 +36,7 @@ async function CoursePage() {
         <div className="style-1">
           <section className="style-2">
             <h2 className="style-3">
-              {true ? "আমদের একাডেমিক ক্লাস সমূহ" : "Our Courses"}
+              {true ? "আমাদের একাডেমিক ক্লাস সমূহ" : "Our Courses"}
             </h2>
           </section>
           <div className="style-4">
@@ -68,7 +68,7 @@ async function CoursePage() {
                         target="_blank"
                         className="style-12"
                       >
-                        <h4 className="style-13">{item.title.en} </h4>
+                        <h4 className="style-13">{item.title.bn} </h4>
                         <p className="style-14">
                           <i className="style-15" aria-hidden="true"></i> Starts
                           From {niceDate(item.startingDate.en)}

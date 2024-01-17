@@ -35,14 +35,14 @@ async function getData() {
 async function BayanList() {
   const data = await getData();
   return (
-    <div class="Bayanlist">
-      <div class="style-1">
-        <div class="style-2">
-          <div class="style-3">
-            <div class="style-4">
-              <div class="style-5">
-                <div class="style-6">
-                  <span class="style-7">
+    <div className="Bayanlist">
+      <div className="style-1">
+        <div className="style-2">
+          <div className="style-3">
+            <div className="style-4">
+              <div className="style-5">
+                <div className="style-6">
+                  <span className="style-7">
                     <i className="fa fa-wifi" />
                   </span>
                 </div>
@@ -50,25 +50,25 @@ async function BayanList() {
             </div>
           </div>
         </div>
-        <h1 class="style-8">koumi Madrasa Books</h1>
-        <div class="style-9">
-          <div class="style-10"></div>
+        <h1 className="style-8">koumi Madrasa Books</h1>
+        <div className="style-9">
+          <div className="style-10"></div>
         </div>
-        <ul class="style-16">
-          {data.majlis_music.map((item,i) => (
-            <li key={i} class="style-17">
-              <a href={item.link} class="style-18">
+        <ul className="style-16">
+          {data.majlis_music.map((item, i) => (
+            <li key={i} className="style-17">
+              <a href={item.link} className="style-18">
                 {item.title}
               </a>
-              <div class="style-19">
-                <span class="style-20">({item.date})</span>
+              <div className="style-19">
+                <span className="style-20">({item.date})</span>
                 <a
-                  class="style-21"
+                  className="style-21"
                   href={item.downloadLink}
                   target="_blank"
                   download=""
                 >
-                  <span class="style-22">
+                  <span className="style-22">
                     <i className="fa fa-download" />
                   </span>
                 </a>
@@ -76,43 +76,43 @@ async function BayanList() {
             </li>
           ))}
         </ul>
-        <div class="style-65">
-          <a href="/bayanaat/waiz/hazrat-wala-ra" class="style-66">
+        <div className="style-65">
+          <a href="/bayanaat/waiz/hazrat-wala-ra" className="style-66">
             View More
           </a>
         </div>
       </div>
-      <div class="style-67">
-        <div class="style-68">
-          <div class="style-69">
-            <div class="style-70">
-              <div class="style-71">
-                <span class="style-72">
+      <div className="style-67">
+        <div className="style-68">
+          <div className="style-69">
+            <div className="style-70">
+              <div className="style-71">
+                <span className="style-72">
                   <i className="fa fa-clock-o" />
                 </span>
               </div>
             </div>
           </div>
         </div>
-        <h1 class="style-73">All Notices</h1>
-        <div class="style-74">
-          <div class="style-75"></div>
+        <h1 className="style-73">All Notices</h1>
+        <div className="style-74">
+          <div className="style-75"></div>
         </div>
-        <ul class="style-80">
-          {data.majlis_music_two.map((item,i) => (
-            <li key={i} class="style-81">
-              <a href={item.link} class="style-82">
+        <ul className="style-80">
+          {data.majlis_music_two.map((item, i) => (
+            <li key={i} className="style-81">
+              <a href={item.link} className="style-82">
                 {item.title}
               </a>
-              <div class="style-83">
-                <span class="style-84">({item.date})</span>
+              <div className="style-83">
+                <span className="style-84">({item.date})</span>
                 <a
-                  class="style-85"
+                  className="style-85"
                   href={item.downloadLink}
                   target="_blank"
                   download=""
                 >
-                  <span class="style-86">
+                  <span className="style-86">
                     <i className="fa fa-download" />
                   </span>
                 </a>
@@ -120,43 +120,43 @@ async function BayanList() {
             </li>
           ))}
         </ul>
-        <div class="style-129">
-          <a href="/bayanaat/category/bayan" class="style-130">
+        <div className="style-129">
+          <a href="/bayanaat/category/bayan" className="style-130">
             View More
           </a>
         </div>
       </div>
-      <div class="style-131">
-        <div class="style-132">
-          <div class="style-133">
-            <div class="style-134">
-              <div class="style-135">
-                <span class="style-136">
+      <div className="style-131">
+        <div className="style-132">
+          <div className="style-133">
+            <div className="style-134">
+              <div className="style-135">
+                <span className="style-136">
                   <i className="fa fa-whatsapp" />
                 </span>
               </div>
             </div>
           </div>
         </div>
-        <h1 class="style-137">Madrasa Routines</h1>
-        <div class="style-138">
-          <div class="style-139"></div>
+        <h1 className="style-137">Madrasa Routines</h1>
+        <div className="style-138">
+          <div className="style-139"></div>
         </div>
-        <ul class="style-144">
-          {data.majlis_music_three.map((item,i) => (
-            <li key={i} class="style-145">
-              <a href={item.link} class="style-146">
+        <ul className="style-144">
+          {data.majlis_music_three.map((item, i) => (
+            <li key={i} className="style-145">
+              <a href={item.link} className="style-146">
                 {item.title}
               </a>
-              <div class="style-147">
-                <span class="style-148">({item.date})</span>
+              <div className="style-147">
+                <span className="style-148">({item.date})</span>
                 <a
-                  class="style-149"
+                  className="style-149"
                   href={item.downloadLink}
                   target="_blank"
                   download=""
                 >
-                  <span class="style-150">
+                  <span className="style-150">
                     <i className="fa fa-download" />
                   </span>
                 </a>
@@ -164,8 +164,8 @@ async function BayanList() {
             </li>
           ))}
         </ul>
-        <div class="style-193">
-          <a href="/bayanaat/category/majalis" class="style-194">
+        <div className="style-193">
+          <a href="/bayanaat/category/majalis" className="style-194">
             View More
           </a>
         </div>

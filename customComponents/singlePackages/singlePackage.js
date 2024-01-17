@@ -2,7 +2,7 @@
 import React from "react";
 import "./Packages.css";
 
-function SinglePackage({ items }) {
+function SinglePackage({ items,key }) {
   let realMark = items.studentSubMark.reduce(
     (total, mark) => total + mark.mark,
     0
@@ -14,7 +14,7 @@ function SinglePackage({ items }) {
   );
 
   return (
-    <div className="col">
+    <div key={key} className="col">
       <div className="theme_common_box_two img_hover">
         <div className="theme_two_box_img">
           <img src={items.picture} alt="img" />

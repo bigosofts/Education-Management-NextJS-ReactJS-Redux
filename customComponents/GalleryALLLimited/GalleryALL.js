@@ -1,6 +1,7 @@
 import "./GalleryALL.css";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
 import Image from "next/image";
+import React from "react";
 
 function GalleryAll({ linkObj }) {
   return (
@@ -11,12 +12,13 @@ function GalleryAll({ linkObj }) {
           marginBottom: "50px",
         }}
       >
-        {" "}
-        Some Handwork of Our Madrasa Talib/Taliba
+        {true
+          ? "আমাদের মাদ্রাসার তলেব/তলেবাদের কার্যক্রমসমূহ"
+          : "Some Handwork of Our Madrasa Talib/Taliba"}
       </h1>
       <div className="gallery">
         {linkObj.slice(0, 8).map((item, i) => (
-          <>
+          <React.Fragment key={i}>
             <div>
               <a href={`#${i}`}>
                 <Image
@@ -45,7 +47,7 @@ function GalleryAll({ linkObj }) {
                 </a>
               </div>
             </div>
-          </>
+          </React.Fragment>
         ))}
       </div>
       <ButtonComponent text="All Activities" link="/work" />

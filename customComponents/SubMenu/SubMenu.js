@@ -57,8 +57,8 @@ function SubMenu({ pageName }) {
           <div className="nav-btn">
             <div className="nav-links">
               <ul>
-                {data.map((item) => (
-                  <li className="nav-link" key={item.menuTitle.en}>
+                {data.map((item,i) => (
+                  <li className="nav-link" key={i}>
                     {item.subMenu ? (
                       <>
                         <Link href={item.menuLink}>

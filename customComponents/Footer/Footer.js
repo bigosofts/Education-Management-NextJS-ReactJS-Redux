@@ -41,8 +41,8 @@ async function Footer() {
                 {data.widgetPayload[0].section2.title.en}
               </h3>
               <ul className="style-10">
-                {data.widgetPayload[0].section2.list.map((item) => (
-                  <li className="style-11">
+                {data.widgetPayload[0].section2.list.map((item, i) => (
+                  <li key={i} className="style-11">
                     <a
                       href={`${item.link}`}
                       target="_blank"
@@ -63,8 +63,8 @@ async function Footer() {
               <div className="style-32">
                 <table className="style-33">
                   <tbody className="style-34">
-                    {data.widgetPayload[0].section3.list.map((item) => (
-                      <tr className="style-35">
+                    {data.widgetPayload[0].section3.list.map((item, i) => (
+                      <tr key={i} className="style-35">
                         <td className="style-36">
                           <i className="style-37" aria-hidden="true"></i>
                         </td>
@@ -77,8 +77,8 @@ async function Footer() {
               <div className="style-47">
                 <h5 className="style-48">Follow us :</h5>
                 <ul className="style-49">
-                  {data.widgetPayload[0].section3.socialMedia.map((item) => (
-                    <li className="style-50">
+                  {data.widgetPayload[0].section3.socialMedia.map((item, i) => (
+                    <li key={i} className="style-50">
                       <a
                         href={`${item.link}`}
                         target="_blank"

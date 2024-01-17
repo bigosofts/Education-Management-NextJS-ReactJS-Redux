@@ -55,14 +55,16 @@ function SliderResult(props) {
         }}
       >
         {imageArray.map((item, i) => (
-          <SwiperSlide key={i}>
-            <Image
-              width={361}
-              height={368}
-              src={item.image}
-              alt={item.caption}
-            ></Image>
-          </SwiperSlide>
+          <div key={i}>
+            <SwiperSlide>
+              <Image
+                width={361}
+                height={368}
+                src={item.image}
+                alt={item.caption}
+              ></Image>
+            </SwiperSlide>
+          </div>
         ))}
       </Swiper>
     </>

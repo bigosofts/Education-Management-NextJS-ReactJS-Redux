@@ -1,5 +1,5 @@
 import "./GalleryALL.css";
-import ButtonComponent from "../ButtonComponent/ButtonComponent";
+import React from "react";
 import Image from "next/image";
 
 function GalleryAll({ linkObj }) {
@@ -9,6 +9,7 @@ function GalleryAll({ linkObj }) {
         className="galleryALLh"
         style={{
           marginBottom: "50px",
+          width: "90%",
         }}
       >
         {" "}
@@ -16,7 +17,7 @@ function GalleryAll({ linkObj }) {
       </h1>
       <div className="gallery">
         {linkObj.map((item, i) => (
-          <>
+          <React.Fragment key={i}>
             <div>
               <a href={`#${i}`}>
                 <Image
@@ -45,7 +46,7 @@ function GalleryAll({ linkObj }) {
                 </a>
               </div>
             </div>
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>

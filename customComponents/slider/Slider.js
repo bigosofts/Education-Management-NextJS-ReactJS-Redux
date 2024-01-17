@@ -37,16 +37,18 @@ function Slider(props) {
         className="mySwiper"
       >
         {imageArray.map((item, i) => (
-          <SwiperSlide key={i}>
-            <a href="/course">
-              <Image
-                width={1920}
-                height={690}
-                src={item.image}
-                alt={item.caption}
-              ></Image>
-            </a>
-          </SwiperSlide>
+          <div key={i}>
+            <SwiperSlide>
+              <a href="/course">
+                <Image
+                  width={1920}
+                  height={690}
+                  src={item.image}
+                  alt={item.caption}
+                ></Image>
+              </a>
+            </SwiperSlide>
+          </div>
         ))}
       </Swiper>
     </>

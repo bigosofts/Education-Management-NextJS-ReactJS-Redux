@@ -9,7 +9,7 @@ function NoteCard() {
         borderRadius: "5px",
         boxShadow: "0px 0px 8px rgba(0, 0, 0, 0.6)",
       }}
-      classname="noteCard"
+      className="noteCard"
     >
       <div
         style={{
@@ -19,7 +19,7 @@ function NoteCard() {
           textTransform: "capitalize",
           marginBottom: "10px",
         }}
-        classname="main-cat"
+        className="main-cat"
       >
         {true ? "ভর্তি চলমান..." : "Admission Ongoing..."}
       </div>

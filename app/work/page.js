@@ -7,6 +7,7 @@ import Footer from "@/customComponents/Footer/Footer";
 
 import GalleryAll from "@/customComponents/GalleryALL/GalleryALL";
 
+
 async function getData() {
   const res = await selectDataTwo({
     activeStatus: "active",
