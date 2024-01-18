@@ -12,7 +12,7 @@
   font-weight: normal;
 }
 .travelpage-container p {
-  font-size: 12px;
+  font-size: 12px !important;
   line-height: 150%;
 }
 .travelpage-container a {
