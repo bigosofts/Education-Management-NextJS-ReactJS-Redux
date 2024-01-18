@@ -31,7 +31,7 @@ exports.selectDataTwo = async (query, projection) => {
     },
     body: JSON.stringify(payloaddata),
     next: {
-      revalidate: 300,
+      revalidate: 500,
     },
   });
 
