@@ -3,7 +3,7 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.URL}/apis/v1/select-widgets`, {
+  const res = await fetch(`/apis/v1/select-widgets`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`${process.env.URL}/apis/v1/delete-widget/${id}`, {
+  const res = await fetch(`/apis/v1/delete-widget/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -65,7 +65,7 @@ exports.createData = async (widgetName, widgetPayload, activeStatus) => {
     activeStatus: activeStatus,
   };
 
-  const res = await fetch(`${process.env.URL}/apis/v1/create-widget`, {
+  const res = await fetch(`/apis/v1/create-widget`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -94,7 +94,7 @@ exports.updateData = async (
     activeStatus: activeStatus,
   };
 
-  const res = await fetch(`${process.env.URL}/apis/v1/update-widget`, {
+  const res = await fetch(`/apis/v1/update-widget`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

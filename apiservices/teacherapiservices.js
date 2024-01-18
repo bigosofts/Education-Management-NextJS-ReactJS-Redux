@@ -3,7 +3,7 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.URL}/apis/v1/select-teachers`, {
+  const res = await fetch(`/apis/v1/select-teachers`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +23,7 @@ exports.selectAllData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.URL}/apis/v1/select-all-teachers`, {
+  const res = await fetch(`/apis/v1/select-all-teachers`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -63,7 +63,7 @@ exports.selectAllDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`${process.env.URL}/apis/v1/delete-teacher/${id}`, {
+  const res = await fetch(`/apis/v1/delete-teacher/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -133,7 +133,7 @@ exports.createData = async (
     designation: designation,
   };
 
-  const res = await fetch(`${process.env.URL}/apis/v1/create-teacher`, {
+  const res = await fetch(`/apis/v1/create-teacher`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -208,7 +208,7 @@ exports.updateData = async (
     designation: designation,
   };
 
-  const res = await fetch(`${process.env.URL}/apis/v1/update-teacher`, {
+  const res = await fetch(`/apis/v1/update-teacher`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

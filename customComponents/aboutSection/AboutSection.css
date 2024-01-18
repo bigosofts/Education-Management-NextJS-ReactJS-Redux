@@ -9,7 +9,7 @@
 }
 
 .AboutSection .style-1 {
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0px 381.5px;
   padding: 0px 15px;
   box-sizing: border-box;
@@ -45,7 +45,6 @@
   padding-left: 15px;
 }
 
-
 .AboutSection .style-4 {
   background: rgb(232, 232, 232) none repeat scroll 0% 0% / auto padding-box
     border-box;
@@ -78,17 +77,17 @@
   padding-right: 15px;
   padding-left: 15px;
 }
-@media only screen and (max-width:540px){
-    .AboutSection .style-3{
-        flex: 0 0 100%;
-         max-width: 100%;
-         margin-top: 50px;
-    }
-    .AboutSection .style-6{
-        flex: 0 0 100%;
-         max-width: 100%;
-         margin-top: 50px;
-    }
+@media only screen and (max-width: 540px) {
+  .AboutSection .style-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 50px;
+  }
+  .AboutSection .style-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 50px;
+  }
 }
 
 .AboutSection .style-7 {
@@ -228,33 +227,33 @@
   padding-left: 15px;
 }
 
-@media only screen and (max-width:540px){
-    .AboutSection .style-2{
-        justify-content: center;
-    }
-    .AboutSection .style-3{
-        flex: 0 0 100%;
-         max-width: 90%;
-         margin-top: 50px;
-    }
-    .AboutSection .style-6{
-        flex: 0 0 100%;
-         max-width: 90%;
-         margin-top: 50px;
-    }
-    .AboutSection .style-12{
-        justify-content: center;
-    }
-    .AboutSection .style-13{
-        flex: 0 0 100%;
-         max-width: 90%;
-         margin-top: 50px;
-    }
-    .AboutSection .style-19{
-        flex: 0 0 100%;
-         max-width: 90%;
-         margin-top: 50px;
-    }
+@media only screen and (max-width: 540px) {
+  .AboutSection .style-2 {
+    justify-content: center;
+  }
+  .AboutSection .style-3 {
+    flex: 0 0 100%;
+    max-width: 90%;
+    margin-top: 50px;
+  }
+  .AboutSection .style-6 {
+    flex: 0 0 100%;
+    max-width: 90%;
+    margin-top: 50px;
+  }
+  .AboutSection .style-12 {
+    justify-content: center;
+  }
+  .AboutSection .style-13 {
+    flex: 0 0 100%;
+    max-width: 90%;
+    margin-top: 50px;
+  }
+  .AboutSection .style-19 {
+    flex: 0 0 100%;
+    max-width: 90%;
+    margin-top: 50px;
+  }
 }
 
 .AboutSection .style-20 {

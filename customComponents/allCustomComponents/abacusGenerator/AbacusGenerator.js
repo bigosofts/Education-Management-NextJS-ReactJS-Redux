@@ -9,7 +9,7 @@ function AbacusGenerator() {
             <form className="style-4">
               <div className="style-5">
                 <div className="style-6">
-                  <label for="inputState" className="style-7">
+                  <label htmlFor="inputState" className="style-7">
                     {true ? "Operators:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-8" name="ddSumType">
@@ -28,7 +28,7 @@ function AbacusGenerator() {
                   </select>
                 </div>
                 <div className="style-13">
-                  <label for="inputState" className="style-14">
+                  <label htmlFor="inputState" className="style-14">
                     {true ? "No. Of Questions:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-15" name="ddTotalQuestions">
@@ -56,7 +56,7 @@ function AbacusGenerator() {
                   </select>
                 </div>
                 <div className="style-21">
-                  <label for="inputState" className="style-22">
+                  <label htmlFor="inputState" className="style-22">
                     {true ? "No. of Rows:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-23" name="ddTotalRows">
@@ -87,7 +87,7 @@ function AbacusGenerator() {
                   </select>
                 </div>
                 <div className="style-32">
-                  <label for="inputState" className="style-33">
+                  <label htmlFor="inputState" className="style-33">
                     {true ? "No. of Digits:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-34" name="ddSumDigits">
@@ -109,7 +109,7 @@ function AbacusGenerator() {
                   </select>
                 </div>
                 <div className="style-40">
-                  <label for="inputState" className="style-41">
+                  <label htmlFor="inputState" className="style-41">
                     {true ? "Multiplicand digits:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-42" name="ddMultiplicand">
@@ -131,7 +131,7 @@ function AbacusGenerator() {
                   </select>
                 </div>
                 <div className="style-48">
-                  <label for="inputState" className="style-49">
+                  <label htmlFor="inputState" className="style-49">
                     {true ? "Multiplier digits:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-50" name="ddMultiplier">
@@ -147,7 +147,7 @@ function AbacusGenerator() {
                   </select>
                 </div>
                 <div className="style-54">
-                  <label for="inputState" className="style-55">
+                  <label htmlFor="inputState" className="style-55">
                     {true ? "Dividend digits:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-56" name="ddDividend">
@@ -166,7 +166,7 @@ function AbacusGenerator() {
                   </select>
                 </div>
                 <div className="style-61">
-                  <label for="inputState" className="style-62">
+                  <label htmlFor="inputState" className="style-62">
                     {true ? "Divisor digits:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-63" name="ddDivisor">
@@ -220,7 +220,7 @@ function AbacusGenerator() {
                 <button
                   type="button"
                   className="style-79"
-                  onclick="LoadGenerateQuestion1();"
+                  onClick="LoadGenerateQuestion1();"
                 >
                   {true ? "Generate Worksheet" : "অপারেটর"}
                 </button>

@@ -3,7 +3,7 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.URL}/apis/v1/select-books`, {
+  const res = await fetch(`/apis/v1/select-books`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -44,7 +44,7 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`${process.env.URL}/apis/v1/delete-book/${id}`, {
+  const res = await fetch(`/apis/v1/delete-book/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -74,7 +74,7 @@ exports.createData = async ({
     activeStatus,
   };
 
-  const res = await fetch(`${process.env.URL}/apis/v1/create-book`, {
+  const res = await fetch(`/apis/v1/create-book`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -108,7 +108,7 @@ exports.updateData = async ({
     activeStatus,
   };
 
-  const res = await fetch(`${process.env.URL}/apis/v1/update-book`, {
+  const res = await fetch(`/apis/v1/update-book`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

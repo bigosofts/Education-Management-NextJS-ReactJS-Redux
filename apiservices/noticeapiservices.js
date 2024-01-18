@@ -3,7 +3,7 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.URL}/apis/v1/select-notices`, {
+  const res = await fetch(`/apis/v1/select-notices`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`${process.env.URL}/apis/v1/delete-notice/${id}`, {
+  const res = await fetch(`/apis/v1/delete-notice/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -77,7 +77,7 @@ exports.createData = async (
     activeStatus: activeStatus,
   };
 
-  const res = await fetch(`${process.env.URL}/apis/v1/create-notice`, {
+  const res = await fetch(`/apis/v1/create-notice`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -114,7 +114,7 @@ exports.updateData = async (
     activeStatus: activeStatus,
   };
 
-  const res = await fetch(`${process.env.URL}/apis/v1/update-notice`, {
+  const res = await fetch(`/apis/v1/update-notice`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

@@ -3,7 +3,7 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.URL}/apis/v1/select-videos`, {
+  const res = await fetch(`/apis/v1/select-videos`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -44,7 +44,7 @@ exports.selectDataTwo = async (query, projection) => {
 
 exports.deleteData = async (id) => {
     console.log(id);
-  const res = await fetch(`${process.env.URL}/apis/v1/delete-video/${id}`, {
+  const res = await fetch(`/apis/v1/delete-video/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -73,7 +73,7 @@ exports.createData = async ({
     activeStatus,
   };
 
-  const res = await fetch(`${process.env.URL}/apis/v1/create-video`, {
+  const res = await fetch(`/apis/v1/create-video`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -105,7 +105,7 @@ exports.updateData = async ({
     activeStatus,
   };
 
-  const res = await fetch(`${process.env.URL}/apis/v1/update-video`, {
+  const res = await fetch(`/apis/v1/update-video`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
