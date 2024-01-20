@@ -3,7 +3,7 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`/apis/v1/select-activities`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/select-activities`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +23,7 @@ exports.selectDataTwo = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.URL}/apis/v1/select-activities`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/select-activities`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`/apis/v1/delete-activity/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-activity/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -83,7 +83,7 @@ exports.createData = async (
     activeStatus: activitystatus,
   };
 
-  const res = await fetch(`/apis/v1/create-activity`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/create-activity`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -126,7 +126,7 @@ exports.updateData = async (
     _id: idValue,
   };
 
-  const res = await fetch(`/apis/v1/update-activity`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/update-activity`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

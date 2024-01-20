@@ -1,5 +1,5 @@
 exports.selectData = async () => {
-  const res = await fetch(`/apis/v1/read-image`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/read-image`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -18,7 +18,7 @@ exports.selectDataTwo = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.URL}/apis/v1/read-image`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/read-image`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

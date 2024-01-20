@@ -3,13 +3,16 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`/apis/v1/select-works`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payloaddata),
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/select-works`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payloaddata),
+    }
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -23,16 +26,19 @@ exports.selectDataTwo = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.URL}/apis/v1/select-works`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payloaddata),
-    next: {
-      revalidate: 500,
-    },
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/select-works`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payloaddata),
+      next: {
+        revalidate: 500,
+      },
+    }
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -43,12 +49,15 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`/apis/v1/delete-work/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-work/${id}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -67,13 +76,16 @@ exports.createData = async ({ sid, name, img, activeStatus, jamat }) => {
     jamat,
   };
 
-  const res = await fetch(`/apis/v1/create-work`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(aboutdata),
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-work`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(aboutdata),
+    }
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -100,13 +112,16 @@ exports.updateData = async ({
     jamat,
   };
 
-  const res = await fetch(`/apis/v1/update-work`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(aboutdata),
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-work`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(aboutdata),
+    }
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary

@@ -3,7 +3,7 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`/apis/v1/select-departments`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/select-departments`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +23,7 @@ exports.selectDataTwo = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.URL}/apis/v1/select-departments`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/select-departments`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`/apis/v1/delete-department/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-department/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -71,7 +71,7 @@ exports.createData = async ({
     activeStatus,
   };
 
-  const res = await fetch(`/apis/v1/create-department`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/create-department`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -103,7 +103,7 @@ exports.updateData = async ({
     activeStatus,
   };
 
-  const res = await fetch(`/apis/v1/update-department`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/update-department`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

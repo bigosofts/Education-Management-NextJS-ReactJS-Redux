@@ -1,84 +1,83 @@
-const axios = require("axios");
-
-exports.isAdmin = async() => {
-
-    
-    const response = await axios.get(`/apis/v1/isAdmin`, {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-
-    if (!response.status === 200) {
-        // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data');
+exports.isAdmin = async () => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/isAdmin`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
     }
+  );
 
-    return response.data;
-}
+  if (!response.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
 
+  const data = await response.json();
+  return data;
+};
 
-exports.studentLogin = async(userName, password) => {
-
-    const payloaddata ={
-        userName,
-        password
-    };
-    const res = await fetch(`/apis/v1/student-login`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payloaddata),
-    })
-
-    if(!res.ok) {
-        // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data')
+exports.studentLogin = async (userName, password) => {
+  const payloaddata = {
+    userName,
+    password,
+  };
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/student-login`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payloaddata),
     }
+  );
 
-    return res.json()
-}
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
 
-exports.teacherLogin = async(userName, password) => {
+  return res.json();
+};
 
-    const payloaddata ={
-        userName,
-        password
-    };
-    const res = await fetch(`/apis/v1/teacher-login`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payloaddata),
-    })
-
-    if(!res.ok) {
-        // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data')
+exports.teacherLogin = async (userName, password) => {
+  const payloaddata = {
+    userName,
+    password,
+  };
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/teacher-login`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payloaddata),
     }
+  );
 
-    return res.json()
-}
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
 
+  return res.json();
+};
 
-exports.logout = async() => {
+exports.logout = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/logout`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
 
-    const res = await fetch(`/apis/v1/logout`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-
-    if(!res.ok) {
-        // This will activate the closest `error.js` Error Boundary
-        throw new Error('Failed to fetch data')
-    }
-
-    return res.json()
-}
-
-
+  return res.json();
+};

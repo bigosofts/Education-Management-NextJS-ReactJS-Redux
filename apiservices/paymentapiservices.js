@@ -3,7 +3,7 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`/apis/v1/select-payments`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/select-payments`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +23,7 @@ exports.selectDataTwo = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.URL}/apis/v1/select-payments`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/select-payments`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -44,7 +44,7 @@ exports.selectDataTwo = async (query, projection) => {
 
 exports.deleteData = async (id) => {
   const res = await fetch(
-    `/apis/v1/delete-studentrole/${id}`,
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-studentrole/${id}`,
     {
       method: "DELETE",
       headers: {
@@ -68,7 +68,7 @@ exports.createData = async ({ studentRole, departments, activeStatus }) => {
     activeStatus,
   };
 
-  const res = await fetch(`/apis/v1/create-studentrole`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/create-studentrole`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -98,7 +98,7 @@ exports.updateData = async ({
     activeStatus,
   };
 
-  const res = await fetch(`/apis/v1/update-studentrole`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/update-studentrole`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

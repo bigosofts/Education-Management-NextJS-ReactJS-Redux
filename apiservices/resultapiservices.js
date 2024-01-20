@@ -4,7 +4,7 @@ exports.selectData = async (query, projection) => {
     projection: projection,
   };
 
-  const res = await fetch(`/apis/v1/select-results`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/select-results`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -25,7 +25,7 @@ exports.selectDataTwo = async (query, projection) => {
     projection: projection,
   };
 
-  const res = await fetch(`${process.env.URL}/apis/v1/select-results`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/select-results`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -45,7 +45,7 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`/apis/v1/delete-result/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-result/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -89,7 +89,7 @@ exports.createData = async (
     marhala: marhala,
   };
 
-  const res = await fetch(`/apis/v1/create-result`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/create-result`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -137,7 +137,7 @@ exports.updateData = async (
   };
   console.log(aboutdata);
 
-  const res = await fetch(`/apis/v1/update-result`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/update-result`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

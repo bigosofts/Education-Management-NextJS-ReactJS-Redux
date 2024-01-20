@@ -3,7 +3,7 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`/apis/v1/select-posts`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/select-posts`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +23,7 @@ exports.selectDataTwo = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.URL}/apis/v1/select-posts`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/select-posts`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -43,7 +43,7 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`/apis/v1/delete-post/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-post/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -95,7 +95,7 @@ exports.createData = async (
     activeStatus: activeStatus,
   };
 
-  const res = await fetch(`/apis/v1/create-post`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/create-post`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -150,7 +150,7 @@ exports.updateData = async (
     activeStatus: activeStatus,
   };
 
-  const res = await fetch(`/apis/v1/update-post`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/update-post`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
