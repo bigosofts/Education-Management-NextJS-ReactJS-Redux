@@ -3,13 +3,16 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/select-books`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payloaddata),
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/select-books`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payloaddata),
+    }
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -24,16 +27,17 @@ exports.selectDataTwo = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/select-books`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payloaddata),
-    next: {
-      revalidate: 500,
-    },
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/select-books`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payloaddata),
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -44,12 +48,15 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-book/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-book/${id}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -74,13 +81,16 @@ exports.createData = async ({
     activeStatus,
   };
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/create-book`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(aboutdata),
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-book`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(aboutdata),
+    }
+  );
 
   if (!res.ok) {
     console.log(res.json());
@@ -108,13 +118,16 @@ exports.updateData = async ({
     activeStatus,
   };
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/update-book`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(aboutdata),
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-book`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(aboutdata),
+    }
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary

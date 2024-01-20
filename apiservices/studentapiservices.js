@@ -49,9 +49,7 @@ exports.selectDataTwo = async (query, projection) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(payloaddata),
-    next: {
-      revalidate: 500,
-    },
+    cache: "no-store",
   });
 
   if (!res.ok) {

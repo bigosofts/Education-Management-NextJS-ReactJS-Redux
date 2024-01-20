@@ -22,7 +22,12 @@ const mongoose = require("mongoose");
 
 // Security Middleware Implement
 app.use(cookieParser());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://www.internetmadrasa.com",
+    credentials: true,
+  })
+);
 app.use(helmet());
 app.use(mongoSanitize());
 app.use(xssClean());
@@ -31,8 +36,13 @@ app.use(hpp());
 // Body Parser Implement
 app.use(bodyParser.json());
 
+app.set("trust proxy", true);
 // Request Rate Limit
-const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 500000 });
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  validate: { ip: false },
+});
 app.use(limiter);
 
 // Mongo DB Database Connection

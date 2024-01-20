@@ -24,6 +24,8 @@ exports.studentLogin = (req, res) => {
           httpOnly: true,
           maxAge: 30 * 24 * 60 * 60 * 1000,
           sameSite: "None",
+          secure: true,
+          domain: "internetmadrasa.com",
         })
         .status(200)
         .json({
@@ -60,6 +62,8 @@ exports.teacherLogin = (req, res) => {
           httpOnly: true,
           maxAge: 30 * 24 * 60 * 60 * 1000,
           sameSite: "None",
+          secure: true,
+          domain: "internetmadrasa.com",
         })
         .status(200)
         .json({

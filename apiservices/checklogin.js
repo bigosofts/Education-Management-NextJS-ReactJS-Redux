@@ -6,6 +6,7 @@ exports.isAdmin = async () => {
       headers: {
         "Content-Type": "application/json",
       },
+      cache: "no-store",
     }
   );
 
@@ -30,7 +31,10 @@ exports.studentLogin = async (userName, password) => {
       headers: {
         "Content-Type": "application/json",
       },
+      withCredentials: true,
+      mode: "cors",
       body: JSON.stringify(payloaddata),
+      cache: "no-store",
     }
   );
 
@@ -47,6 +51,7 @@ exports.teacherLogin = async (userName, password) => {
     userName,
     password,
   };
+
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/apis/v1/teacher-login`,
     {
@@ -54,7 +59,10 @@ exports.teacherLogin = async (userName, password) => {
       headers: {
         "Content-Type": "application/json",
       },
+      withCredentials: true,
+      mode: "cors",
       body: JSON.stringify(payloaddata),
+      cache: "no-store",
     }
   );
 
@@ -72,6 +80,7 @@ exports.logout = async () => {
     headers: {
       "Content-Type": "application/json",
     },
+    cache: "no-store",
   });
 
   if (!res.ok) {

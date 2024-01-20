@@ -199,7 +199,7 @@ async function LiveSection() {
               <td className="style-79">
                 <span className="style-80">
                   <a href="tel:01674040502" className="style-81">
-                    01674-040502 (Personal)
+                    01674-0405023 (Personal)
                   </a>
                 </span>
               </td>

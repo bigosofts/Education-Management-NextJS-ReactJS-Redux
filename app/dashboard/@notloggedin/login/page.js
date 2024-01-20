@@ -46,8 +46,9 @@ function page(props) {
       if (data.status == "noToken") {
         const res = await teacherLogin(userName, password);
         if (res.status == "Alhamdulillah") {
-          console.log("login successfull");
-          setShouldRefresh(true);
+          setTimeout(() => {
+            setShouldRefresh(true);
+          }, 20000);
         } else if (res.status == "nouser") {
           router.push("/signup");
         }
