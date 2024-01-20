@@ -24,7 +24,7 @@ const mongoose = require("mongoose");
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://www.internetmadrasa.com",
+    origin: `${process.env.Frontend}`,
     credentials: true,
   })
 );

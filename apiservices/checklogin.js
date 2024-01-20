@@ -1,22 +1,45 @@
+const { getToken } = require("@/helper/sessionHelper");
+const data2 = getToken("access_token");
+
 exports.isAdmin = async () => {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_URL}/apis/v1/isAdmin`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      cache: "no-store",
+  if (data2) {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/isAdmin`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          access_token: data2,
+        },
+        cache: "no-store",
+      }
+    );
+    if (!response.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error("Failed to fetch data");
     }
-  );
 
-  if (!response.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
+    const data = await response.json();
+    return data;
+  } else {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/isAdmin`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        cache: "no-store",
+      }
+    );
+    if (!response.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error("Failed to fetch data");
+    }
+
+    const data = await response.json();
+    return data;
   }
-
-  const data = await response.json();
-  return data;
 };
 
 exports.studentLogin = async (userName, password) => {
@@ -51,7 +74,7 @@ exports.teacherLogin = async (userName, password) => {
     userName,
     password,
   };
-
+ 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/apis/v1/teacher-login`,
     {
@@ -75,6 +98,11 @@ exports.teacherLogin = async (userName, password) => {
 };
 
 exports.logout = async () => {
+  if(data2){
+
+  }else{
+    
+  }
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/logout`, {
     method: "GET",
     headers: {

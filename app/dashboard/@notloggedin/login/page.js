@@ -4,6 +4,8 @@ import { useRef, useEffect, useState } from "react";
 import "./loginpage.css";
 import { teacherLogin, studentLogin } from "@/apiservices/checklogin";
 import { isAdmin } from "@/apiservices/checklogin";
+import { setToken } from "@/helper/sessionHelper";
+import mytoast from "@/components/toast/toast";
 
 function page(props) {
   const [data, setData] = useState();
@@ -45,10 +47,13 @@ function page(props) {
     if (data) {
       if (data.status == "noToken") {
         const res = await teacherLogin(userName, password);
+       
         if (res.status == "Alhamdulillah") {
-          setTimeout(() => {
-            setShouldRefresh(true);
-          }, 20000);
+          setToken("access_token", res.token);
+          mytoast.success("You are successfully");
+          setShouldRefresh(true);
+          
+          
         } else if (res.status == "nouser") {
           router.push("/signup");
         }

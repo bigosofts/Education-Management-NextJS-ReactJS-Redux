@@ -57,20 +57,11 @@ exports.teacherLogin = (req, res) => {
         data: data,
       };
       let token = jwt.sign(Payload, process.env.SECRETKEY_JWT_WEBTOKEN);
-      res
-        .cookie("access_token", token, {
-          httpOnly: true,
-          maxAge: 30 * 24 * 60 * 60 * 1000,
-          sameSite: "None",
-          secure: true,
-          domain: "internetmadrasa.com",
-        })
-        .status(200)
-        .json({
-          status: "Alhamdulillah",
-          token: token,
-          data: data,
-        });
+      res.status(200).json({
+        status: "Alhamdulillah",
+        token: token,
+        data: data,
+      });
     })
     .catch((err) => {
       res.status(400).json({

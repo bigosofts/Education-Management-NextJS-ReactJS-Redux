@@ -111,15 +111,23 @@ router.post("/create-result", authverify, resultController.createResult);
 router.post("/create-log", authverify, logController.createLog);
 
 router.post("/create-book", authverify, bookController.createBook);
-router.post("/create-department", departmentController.createDepartment);
-router.post("/create-jamat", jamatController.createJamat);
-router.post("/create-payment", paymentController.createPayments);
-router.post("/create-semester", SemesterController.createSemester);
-router.post("/create-studentrole", StudentRoleController.createStudentRole);
-router.post("/create-video", videoController.createVideo);
-router.post("/create-qaform", qaFormController.createQAForm);
-router.post("/create-work", workController.createWork);
-router.post("/create-richtext", RichTextController.createRichText);
+router.post(
+  "/create-department",
+  authverify,
+  departmentController.createDepartment
+);
+router.post("/create-jamat", authverify, jamatController.createJamat);
+router.post("/create-payment", authverify, paymentController.createPayments);
+router.post("/create-semester", authverify, SemesterController.createSemester);
+router.post(
+  "/create-studentrole",
+  authverify,
+  StudentRoleController.createStudentRole
+);
+router.post("/create-video", authverify, videoController.createVideo);
+router.post("/create-qaform", authverify, qaFormController.createQAForm);
+router.post("/create-work", authverify, workController.createWork);
+router.post("/create-richtext", authverify, RichTextController.createRichText);
 
 //Select or find the data from the database
 router.post("/select-students", authverify, profileController.selectStudents);
@@ -143,7 +151,6 @@ router.post("/select-abouts", aboutController.selectAbouts);
 router.post("/select-widgets", widgetController.selectWidgets);
 router.post("/select-results", resultController.selectResults);
 router.post("/select-logs", logController.selectLogs);
-
 router.post("/select-books", bookController.selectBooks);
 router.post("/select-departments", departmentController.selectDepartments);
 router.post("/select-jamats", jamatController.selectJamats);
@@ -172,7 +179,11 @@ router.put("/update-result", authverify, resultController.updateResult);
 router.put("/update-log", authverify, logController.updateLog);
 
 router.put("/update-book", authverify, bookController.updateBook);
-router.put("/update-department", departmentController.updateDepartment);
+router.put(
+  "/update-department",
+  authverify,
+  departmentController.updateDepartment
+);
 router.put("/update-jamat", authverify, jamatController.updateJamat);
 router.put("/update-payment", authverify, paymentController.updatePayment);
 router.put("/update-semester", authverify, SemesterController.updateSemester);
@@ -221,12 +232,25 @@ router.delete("/delete-result/:id", authverify, resultController.deleteResult);
 router.delete("/delete-log/:id", authverify, logController.deleteLog);
 
 router.delete("/delete-book/:id", authverify, bookController.deleteBook);
-router.delete("/delete-department/:id", departmentController.deleteDepartment);
-router.delete("/delete-jamat/:id", jamatController.deleteJamat);
-router.delete("/delete-payment/:id", paymentController.deletePayment);
-router.delete("/delete-semester/:id", SemesterController.deleteSemester);
+router.delete(
+  "/delete-department/:id",
+  authverify,
+  departmentController.deleteDepartment
+);
+router.delete("/delete-jamat/:id", authverify, jamatController.deleteJamat);
+router.delete(
+  "/delete-payment/:id",
+  authverify,
+  paymentController.deletePayment
+);
+router.delete(
+  "/delete-semester/:id",
+  authverify,
+  SemesterController.deleteSemester
+);
 router.delete(
   "/delete-studentrole/:id",
+  authverify,
   StudentRoleController.deleteStudentRole
 );
 router.delete("/delete-video/:id", authverify, videoController.deleteVideo);
