@@ -41,7 +41,8 @@ app.set("trust proxy", true);
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
-  validate: { ip: false },
+
+  validate: { trustProxy: false, ip: false },
 });
 app.use(limiter);
 
