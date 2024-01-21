@@ -1,41 +1,24 @@
+import "./note.css";
+import Link from "next/link";
 function NoteCard() {
   return (
-    <div
-      style={{
-        width: "450px",
-        backgroundColor: "rgb(243 242 205)",
-        padding: "20px 20px",
-        margin: "auto",
-        borderRadius: "5px",
-        boxShadow: "0px 0px 8px rgba(0, 0, 0, 0.6)",
-      }}
-      className="noteCard"
-    >
-      <div
-        style={{
-          textAlign: "center",
-          fontSize: "24px",
-          fontWeight: "500",
-          textTransform: "capitalize",
-          marginBottom: "10px",
-        }}
-        className="main-cat"
-      >
+    <div className="noteCard">
+      <div className="main-cat">
         {true ? "ভর্তি চলমান..." : "Admission Ongoing..."}
       </div>
-      <h3 style={{ textAlign: "center" }}>
-        <i className="fa fa-check"></i> {true ? "হিফজুল কুরআন" : "Hifzul Quran"}
+      <h3 className="notehone" style={{ textAlign: "center" }}>
+        <i className="fa fa-check"></i><Link href="/course/hifjulquran">{true ? "হিফজুল কুরআন" : "Hifzul Quran"}</Link> 
       </h3>
-      <h3 style={{ textAlign: "center" }}>
-        <i className="fa fa-check"></i> {true ? "শিশু মক্তব" : "Child Maktab"}
+      <h3 className="notehone" style={{ textAlign: "center" }}>
+        <i className="fa fa-check"></i><Link href="/course/shishumaktab">{true ? "শিশু মক্তব" : "Child Maktab"}</Link> 
       </h3>
-      <h3 style={{ textAlign: "center" }}>
+      <h3 className="notehone" style={{ textAlign: "center" }}>
         <i className="fa fa-check"></i>{" "}
-        {true ? "ফরজে আইন নাজেরা" : "Farze Ayin Nazera"}
+        <Link href="/course/farzeayinnajera">{true ? "ফরজে আইন নাজেরা" : "Farze Ayin Nazera"}</Link>
       </h3>
-      <h3 style={{ textAlign: "center" }}>
+      <h3 className="notehone" style={{ textAlign: "center" }}>
         <i className="fa fa-check"></i>{" "}
-        {true ? "অ্যাবাকাস" : "Abacus Brain Math"}
+        <Link href="/abacus">{true ? "অ্যাবাকাস" : "Abacus Brain Math"}</Link>
       </h3>
     </div>
   );

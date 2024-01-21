@@ -1,0 +1,17 @@
+.buttonComponent {
+  max-width: 450px;
+  margin: auto;
+  padding: 100px 0px 0px 0px;
+  
+}
+@media only screen and (max-width: 600px){
+    .buttonComponent {
+        max-width: 180px;
+        margin: auto;
+       
+        padding: 10px 0px 10px 0px;
+      }
+    .buttonComponent a.buttonLinkText{
+        font-size: 10px !important;
+      }
+}

@@ -26,20 +26,16 @@
 
 .CoursesPage .style-3 {
   font-family: "PT Sans", sans-serif;
-
+  font-size: 36px;
   font-weight: 700;
-
+  margin-bottom: 30px;
+  color: rgb(94, 94, 94);
   text-transform: capitalize;
-
+  margin: 0px 0px 30px;
   padding: 0px;
   box-sizing: border-box;
-
-  line-height: 56px;
-  font-size: 44px;
-  margin-bottom: 50px;
-  color: rgb(17, 24, 39);
-  font-weight: 600;
-  text-align: center;
+  line-height: 43.2px;
+  margin-top: 0px;
 }
 
 .CoursesPage .style-4 {
@@ -1707,17 +1703,26 @@
   box-sizing: border-box;
   background-color: rgb(0, 104, 55);
 }
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 600px) {
   .CoursesPage .style-1 {
     width: 90%;
   }
   .CoursesPage .style-5 {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+    gap: 10px;
+    align-items: stretch;
   }
+
   .CoursesPage .style-6 {
     flex: 100%;
     max-width: unset;
-    margin-top: 20px;
+    margin-top: 0px;
+
+    padding: 0px 15px;
+
+    padding-right: 0px;
+    padding-left: 0px;
   }
   .CoursesPage .style-18 {
     flex: 100%;
@@ -1776,5 +1781,44 @@
   .CoursesPage .style-17 {
     width: 100px;
     font-size: 0.7rem;
+  }
+  .CoursesPage {
+    padding: 10px 0px;
+  }
+  .CoursesPage .style-3 {
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+  }
+  .CoursesPage .style-10 {
+    height: 150px;
+  }
+  .CoursesPage .style-13 {
+    font-size: 16px;
+    font-weight: 700;
+
+    line-height: 22px;
+    height: 20px;
+    overflow: hidden; /* Hide the overflow content */
+    text-overflow: ellipsis; /* Optionally, adds an ellipsis (...) if the text overflows the container */
+  }
+  .CoursesPage .style-14 {
+    font-size: 10px;
+  }
+  .CoursesPage .style-11 {
+    padding: 10px 5px 10px 5px;
+  }
+  .CoursesPage .style-16 {
+    width: 100%;
+  }
+  .CoursesPage .style-17 {
+    width: 100%;
+    margin-top: 5px;
+  }
+  .CoursesPage .style-4 {
+    margin-top: 10px;
+  }
+  .CoursesPage .style-3 {
+    margin: 0px 0px 10px;
   }
 }

@@ -9,7 +9,7 @@ function GalleryAll({ linkObj }) {
       <h1
         className="galleryALLh"
         style={{
-          marginBottom: "50px",
+          marginBottom: "10px",
         }}
       >
         {true
@@ -19,7 +19,7 @@ function GalleryAll({ linkObj }) {
       <div className="gallery">
         {linkObj.slice(0, 8).map((item, i) => (
           <React.Fragment key={i}>
-            <div>
+            <div className="galleryGridTemplate">
               <a href={`#${i}`}>
                 <Image
                   width={300}

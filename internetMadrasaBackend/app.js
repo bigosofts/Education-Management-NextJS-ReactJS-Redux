@@ -40,7 +40,7 @@ app.set("trust proxy", true);
 // Request Rate Limit
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 500,
+  max: 50000,
   message: "Too many requests from this IP, please try again later.",
   delayMs: 100,
 

@@ -261,7 +261,7 @@
   margin-top: 0px;
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 600px) {
   .InfoPage .style-1 {
     width: 90%;
   }
@@ -293,4 +293,66 @@
     margin-left: unset;
     max-width: unset;
   }
+  .InfoPage {
+    padding: 20px 0px;
+  }
+  .InfoPage .style-2 {
+    font-size: 16px;
+    margin:0px;
+  }
+  .InfoPage .style-8 {
+  
+    font-size: 40px;
+  
+    margin: 0px 0px 0px;
+  
+   
+    line-height: 32.6px;
+   
+  }
+  .InfoPage .style-9{
+    font-size: 12px;
+  }
+  InfoPage .style-6 {
+    
+    padding: 0px 0px;}
+    .InfoPage .style-12 {
+  
+      font-size: 40px;
+    
+      margin: 0px 0px 0px;
+    
+     
+      line-height: 32.6px;
+     
+    }
+    .InfoPage .style-13{
+      font-size: 12px;
+    }
+    .InfoPage .style-16 {
+  
+      font-size: 40px;
+    
+      margin: 0px 0px 0px;
+    
+     
+      line-height: 32.6px;
+     
+    }
+    .InfoPage .style-17{
+      font-size: 12px;
+    }
+    .InfoPage .style-20 {
+  
+      font-size: 40px;
+    
+      margin: 0px 0px 0px;
+    
+     
+      line-height: 32.6px;
+     
+    }
+    .InfoPage .style-21{
+      font-size: 12px;
+    }
 }

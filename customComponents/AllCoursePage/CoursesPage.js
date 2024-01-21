@@ -1,20 +1,21 @@
-"use client";
-import { useState, useEffect } from "react";
-import { selectData } from "@/apiservices/courseapiservices";
+import { selectDataTwo } from "@/apiservices/courseapiservices";
 
 import "./CoursesPage.css";
+async function getData() {
+  const res = await selectDataTwo({}, {});
+  if (res) {
+    const dataObject = {
+      course: null,
+    };
 
-function AllCoursePage() {
-  const [data, setData] = useState();
-  useEffect(() => {
-    async function getData() {
-      const res = await selectData({}, {});
-      if (res) {
-        setData(res.data);
-      }
-    }
-    getData();
-  }, []);
+    dataObject.course = res.data;
+
+    return dataObject.course;
+  }
+}
+
+async function AllCoursePage() {
+  const data = await getData();
 
   function niceDate(isoTime) {
     var date = new Date(isoTime);

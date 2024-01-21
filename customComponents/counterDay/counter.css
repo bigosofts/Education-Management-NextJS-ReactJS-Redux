@@ -2,6 +2,7 @@
   position: relative;
   height: 240px;
 }
+
 #countdown {
   width: 465px;
   height: 156px;
@@ -57,6 +58,11 @@
   position: absolute;
   top: 48px;
   right: -10px;
+}
+@media screen and (max-width: 600px) {
+  .countDownContainer {
+    height: 190px;
+  }
 }
 
 #countdown #tiles {
@@ -184,8 +190,8 @@
     padding: 0px 10%;
   }
   .otherSection2 {
-    width: 100%;
-    margin-top: 30px;
+    width: 90%;
+    margin-top: 10px;
   }
   #countdown {
     width: 360px;
@@ -194,6 +200,13 @@
     width: 360px !important;
     font-size: 29px !important;
     letter-spacing: 0px !important;
+  }
+  @media only screen and (max-width: 600px) {
+    h1.counterContainer {
+      width: 90% !important;
+      font-size: 16px !important;
+      letter-spacing: 0px !important;
+    }
   }
   #countdown #tiles > span {
     width: 75px;
@@ -212,7 +225,7 @@ h1.counterContainer {
   font-family: consolas;
   font-size: 24px;
   text-align: center;
-  letter-spacing: 5px;
+  letter-spacing: 0px;
   margin: 0;
   padding: 0;
   font-weight: 900;
@@ -254,6 +267,12 @@ h1.counterContainer {
   text-align: center;
 }
 
+@media only screen and (max-width: 600px) {
+  .counterFlex .style-61 {
+    font-size: 16px;
+  }
+}
+
 .counterFlex .style-62 {
   margin-left: auto;
   margin-right: auto;
@@ -267,6 +286,7 @@ h1.counterContainer {
 .counterFlex .style-63 {
   box-sizing: border-box;
 }
+
 .counterFlex .style-63 img {
   width: 62px;
   padding: 10px;
@@ -291,6 +311,14 @@ h1.counterContainer {
   text-align: left;
   box-sizing: border-box;
   padding: 0px;
+}
+@media only screen and (max-width: 600px) {
+  .counterFlex .style-63 img {
+    padding: 0px;
+  }
+  .counterFlex .style-67 {
+    padding-left: 10px;
+  }
 }
 
 .counterFlex .style-68 {
@@ -372,4 +400,38 @@ h1.counterContainer {
   text-decoration: none solid rgb(255, 255, 255);
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0);
+}
+@media only screen and (max-width: 600px) {
+  .counterFlex .style-63 img {
+    padding: 0px;
+  }
+  .counterFlex .style-67 {
+    padding-left: 10px;
+  }
+  .counterFlex .style-73 {
+    padding-left: 10px;
+  }
+  .counterFlex .style-79 {
+    padding-left: 10px;
+  }
+  .counterFlex .style-60 {
+    margin: auto;
+
+    padding-right: 0px;
+    padding-left: 0px;
+    text-align: center;
+  }
+  .counterFlex .style-63 img {
+    width: 24px;
+  }
+  .counterFlex .style-61 {
+    margin-bottom: 10px;
+
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: 900;
+  }
+  .counterFlex .style-60 {
+    height: 230px;
+  }
 }

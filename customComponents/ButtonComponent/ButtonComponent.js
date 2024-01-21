@@ -1,15 +1,11 @@
 import Link from "next/link";
+import "./ButtonComponent.css";
 function ButtonComponent({ text, link }) {
   return (
-    <div
-      style={{
-        maxWidth: "450px",
-        margin: "auto",
-        padding: "100px 0px 0px 0px",
-      }}
-    >
+    <div className="buttonComponent">
       <Link
         href={link}
+        className="buttonLinkText"
         style={{
           backgroundColor: "#fff",
           transitionDuration: "0.3s",

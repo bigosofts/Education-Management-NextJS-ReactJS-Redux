@@ -10,6 +10,9 @@ import Footer from "@/customComponents/Footer/Footer";
 import { selectDataTwo } from "@/apiservices/sliderapiservices";
 import { selectDataTwo as selectCourses } from "@/apiservices/courseapiservices";
 
+import { selectDataTwo as selectComment } from "@/apiservices/commentapiservice";
+import { selectDataTwo as selectRichText } from "@/apiservices/richtextapiservices";
+
 async function getData(params) {
   const res = await selectDataTwo({
     activeStatus: "active",
@@ -32,8 +35,44 @@ async function getData(params) {
   }
 }
 
+async function getData2(data) {
+  
+  const idArray = [];
+  data.course.commentID.map((item) => {
+    idArray.push(item);
+  });
+
+
+  const res3 = await selectComment({
+    activeStatus: "active",
+    commentId: { $in: idArray },
+  });
+
+  const res4 = await selectRichText({
+    activeStatus: "active",
+  });
+ 
+
+
+   
+    const dataObject2 = {
+      comment: null,
+      richText: null,
+    };
+
+    dataObject2.comment = res3.data;
+    dataObject2.richText = res4.data;
+
+    return dataObject2;
+}
+
 async function AbacusCourses({ params }) {
   const data = await getData(params);
+ 
+  const data2 = await getData2(data);
+
+  
+
 
   const ObjArray = (data) => {
     const letImageObject = [];
@@ -46,16 +85,22 @@ async function AbacusCourses({ params }) {
     return letImageObject;
   };
 
-  return (
-    <>
-      <MainMenu />
-      <SubMenu pageName={params.courseID} />
-      <Slider linkObj={ObjArray(data.slider)} />
-      <AbacusCourse info={data.course} />
-      <CustomVideoGallery />
-      <Footer />
-    </>
-  );
+  if (data && data2) {
+    return (
+      <>
+        <MainMenu />
+        <SubMenu pageName={params.courseID} />
+        <Slider linkObj={ObjArray(data.slider)} />
+        <AbacusCourse
+          info={data.course}
+          comment={data2.comment}
+          richtext={data2.richText}
+        />
+        <CustomVideoGallery />
+        <Footer />
+      </>
+    );
+  }
 }
 
 export default AbacusCourses;

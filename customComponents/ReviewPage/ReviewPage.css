@@ -738,11 +738,27 @@
   border: 0px solid rgb(219, 225, 235);
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 600px) {
   .ReviewPage .style-3 {
     font-size: 36px;
   }
   .ReviewPage .style-10 {
     width: 270px;
   }
+  .ReviewPage {
+    
+    padding: 10px 0px;
+  }
+  .ReviewPage .style-3 {
+    font-size: 16px;;
+    line-height: 22px;
+    
+    margin: 0px 0px 0px;
+   
+  }
+  .ReviewPage .style-4 {
+  
+    margin-bottom: 20px;
+  }
+
 }

@@ -802,7 +802,7 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 600px) {
   .Livestream .style-1 {
     width: 100%;
     padding-bottom: 20px;
@@ -816,6 +816,73 @@
     width: 100%;
     padding-bottom: 0px;
     height: 370px;
-    
+  }
+  .Livestream .style-2 {
+    margin-bottom: 10px;
+
+    font-size: 16px;
+    margin-top: 0px;
+  }
+  .Livestream .style-3 {
+    padding: 0px 8px;
+  }
+  .Livestream .style-36 {
+    margin-bottom: 0px;
+
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .Livestream .style-40 {
+    margin-right: 10px;
+    margin-left: 0px;
+  }
+  .Livestream .style-43 {
+    margin-right: 10px;
+    margin-left: 0px;
+  }
+  .Livestream .style-1 {
+    height: 165px;
+  }
+  .Livestream .style-47 {
+    margin-bottom: 10px;
+
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .Livestream .style-46 {
+    height: 240px;
+  }
+
+  .Livestream .style-63 img {
+    padding: 0px;
+  }
+  .Livestream .style-67 {
+    padding-left: 10px;
+  }
+  .Livestream .style-73 {
+    padding-left: 10px;
+  }
+  .Livestream .style-79 {
+    padding-left: 10px;
+  }
+  .Livestream .style-60 {
+    margin: auto;
+
+    padding-right: 0px;
+    padding-left: 0px;
+    text-align: center;
+  }
+  .Livestream .style-63 img {
+    width: 24px;
+  }
+  .Livestream .style-61 {
+    margin-bottom: 10px;
+
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: 900;
+  }
+  .Livestream .style-60 {
+    height: 230px;
   }
 }

@@ -3,6 +3,14 @@ import ButtonComponent from "../ButtonComponent/ButtonComponent";
 import Image from "next/image";
 
 import { selectDataTwo } from "@/apiservices/widgetapiservices";
+
+function fisherYatesShuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 async function getData() {
   const res = await selectDataTwo({
     activeStatus: "active",
@@ -14,6 +22,8 @@ async function getData() {
       hifz_result: null,
     };
     dataObject.hifz_result = res.data;
+    fisherYatesShuffle(dataObject.hifz_result[0].widgetPayload);
+    
     return dataObject;
   } else {
     mytoast.danger("Data fetching error. Try Refreshing the page");
@@ -78,8 +88,8 @@ async function HifzGrid() {
             </div>
           </div>
         ))}
-        <ButtonComponent text="See More" link="/hifz" />
       </div>
+      <ButtonComponent text="See More" link="/hifz" />
     </>
   );
 }

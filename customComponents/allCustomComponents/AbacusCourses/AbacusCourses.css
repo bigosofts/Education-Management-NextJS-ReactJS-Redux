@@ -45,6 +45,7 @@
   margin-bottom: 44px;
   border: 0px solid rgb(219, 225, 235);
   box-sizing: border-box;
+  text-align: justify;
 }
 
 .abacusCourse .style-5 {
@@ -10223,6 +10224,7 @@
   overflow-y: scroll;
   border: 0px solid rgb(219, 225, 235);
   box-sizing: border-box;
+  text-align: justify !important;
 }
 
 .abacusCourse .style-935 {
@@ -12404,8 +12406,135 @@
     grid-template-columns: 50% 50%;
   }
 }
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 600px) {
+  .abacusCourse .style-11 {
+    padding-bottom: 0px;
+  }
   .abacusCourse .style-13 {
     grid-template-columns: 100%;
+  }
+  .abacusCourse {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 0px;
+    overflow: hidden;
+  }
+  .abacusCourse .style-3 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+
+    line-height: 22.5px;
+
+    margin-bottom: 24px;
+    margin: 10px 0px 20px;
+
+    text-align: center;
+  }
+  .abacusCourse .style-4 {
+    margin-bottom: 10px;
+    text-align: justify;
+    font-size: 14px;
+  }
+  .abacusCourse .style-19 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+
+    line-height: 22.5px;
+    margin-bottom: 5px;
+  }
+  .abacusCourse .style-20 {
+    color: rgb(115, 115, 115);
+
+    line-height: 22.5px;
+  }
+  .abacusCourse .style-517 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+
+    line-height: 22.5px;
+  }
+  .abacusCourse .style-852 {
+    transform: matrix(1, 0, 0, 1, -81.5, 0);
+  }
+  .abacusCourse .style-863 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+
+    line-height: 22.5px;
+  }
+  .abacusCourse .style-867 {
+    color: rgb(115, 115, 115);
+
+    line-height: 22.5px;
+  }
+  .abacusCourse .style-858 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+
+    line-height: 22.5px;
+  }
+  .abacusCourse .style-510 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+
+    line-height: 22.5px;
+  }
+  .abacusCourse .style-12 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+
+    line-height: 22.5px;
+  }
+  .abacusCourse .style-912 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+
+    line-height: 22.5px;
+  }
+  .abacusCourse .style-1071 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+
+    line-height: 22.5px;
+  }
+  .abacusCourse .style-1084 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+
+    line-height: 22.5px;
+  }
+  .abacusCourse .style-1092 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+
+    line-height: 22.5px;
+  }
+  .abacusCourse .style-1120 {
+    transform: matrix(1, 0, 0, 1, -81.5, 0);
+  }
+  .abacusCourse .style-1127 {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+
+    line-height: 22.5px;
+  }
+  .abacusCourse .style-924 {
+    width: 325px;
+  
+  }
+  .abacusCourse .style-924 {
+    text-align: justify;
+  
   }
 }

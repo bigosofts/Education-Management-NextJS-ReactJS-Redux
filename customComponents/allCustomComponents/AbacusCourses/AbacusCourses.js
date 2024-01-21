@@ -1,42 +1,14 @@
 "use client";
 import "./AbacusCourses.css";
-import { useState, useEffect } from "react";
-import { selectData } from "@/apiservices/commentapiservice";
-import { selectData as selectRichText } from "@/apiservices/richtextapiservices";
+import { useState } from "react";
 
-function AbacusCourse({ info }) {
+function AbacusCourse({ info, comment, richtext }) {
   const [syllabus, setSyllabus] = useState(3);
-  const [comment, setComment] = useState();
-  const [richText, setRichText] = useState();
+ 
 
-  useEffect(() => {
-    async function getData() {
-      const idArray = [];
-      info.commentID.map((item) => {
-        idArray.push(item);
-      });
-
-      const res = await selectData({
-        activeStatus: "active",
-        commentId: { $in: idArray },
-      });
-      const res2 = await selectRichText({
-        activeStatus: "active",
-      });
-
-      if (res2) {
-        setRichText(res2.data);
-      }
-
-      if (res) {
-        setComment(res.data);
-      }
-    }
-    getData();
-  }, []);
   function richtextoutput(text) {
     if (text.indexOf("rich-") !== -1) {
-      const newArray = richText.filter((item) => item.RichTextName === text);
+      const newArray = richtext.filter((item) => item.RichTextName === text);
       return (
         <div
           style={{ maxWidth: "720px", overflowX: "scroll" }}
@@ -48,7 +20,7 @@ function AbacusCourse({ info }) {
     }
   }
 
-  if (comment && richText) {
+  if (comment) {
     return (
       <main class="abacusCourse">
         <div class="style-1">

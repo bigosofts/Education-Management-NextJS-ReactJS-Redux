@@ -135,18 +135,30 @@
   text-align: center;
   margin-bottom: 50px;
 }
-@media only screen and (max-width: 540px) {
+@media only screen and (max-width: 600px) {
   .alemalemagrid {
-    flex-direction: column;
-    padding: 20px 0px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+    gap: 10px;
+    padding: 20px 0px 0px 0px;
   }
   .alemalemagrid .style-6 {
+    
     max-width: 100vw;
+    padding-right: 0px;
+    padding-left: 0px;
   }
   .style-14h1 {
-    font-size: 24px;
     width: 90%;
     margin: auto;
     margin-bottom: 50px;
+    font-size: 16px !important;
+    padding: 10px 0px 0px 0px !important;
+    line-height: 32px;
+  }
+  .alemalemagrid .style-7 {
+    margin-bottom: 20px;
+    margin-top: 50px;
+   
   }
 }

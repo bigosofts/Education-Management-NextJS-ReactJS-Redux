@@ -1,0 +1,28 @@
+.noteCard {
+  width: 450px;
+  background-color: rgb(243 242 205);
+  padding: 20px 20px;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0px 0px 8px rgba(0; 0; 0; 0.6);
+}
+.main-cat {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 600px) {
+    .main-cat{
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    .noteCard {
+        padding:10px;
+    }
+    .notehone{
+        font-size: 12px;
+    }
+    
+}
