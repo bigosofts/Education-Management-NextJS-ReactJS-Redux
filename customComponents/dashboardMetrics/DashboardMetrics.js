@@ -1,9 +1,9 @@
 "use client";
 import "./css/style.css";
-import BarChart from './Barchart.js';
+import BarChart from "./Barchart.js";
 import PieChart from "./Piechart";
 
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import { selectAllData as selectStudents } from "@/apiservices/studentapiservices";
 import { selectData as selectAbouts } from "@/apiservices/aboutapiservices";
 import { selectData as selectActivities } from "@/apiservices/activityapiservices";
@@ -19,49 +19,70 @@ import { selectAllData as selectTeachers } from "@/apiservices/teacherapiservice
 import { selectData as selectWidgets } from "@/apiservices/widgetapiservices";
 
 function DashboardMetrics(props) {
-  const [data, setData]= useState();
+  const [data, setData] = useState();
 
-  useEffect(()=>{
-    async function getData(){
-      const res =await selectStudents(null, null);
-      const res1 =await selectAbouts(null, null);
-      const res2 =await selectActivities(null, null);
-      const res3 =await selectComments(null, null);
-      const res4 =await selectCourses(null, null);
-      const res5 =await selectEvents(null, null);
-      const res6 =await selectMenus(null, null);
-      const res7 =await selectnotices(null, null);
-      const res8 =await selectPosts(null, null);
-      const res9 =await selectResults(null, null);
-      const res10 =await selectSliders(null, null);
-      const res11 =await selectTeachers(null, null);
-      const res12 =await selectWidgets(null, null);
-      
-      setData({
-        student: res.data.length,
-        about: res1.data.length,
-        activity: res2.data.length,
-        comment: res3.data.length,
-        course: res4.data.length,
-        event: res5.data.length,
-        menu: res6.data.length,
-        notice: res7.data.length,
-        post: res8.data.length,
-        result: res9.data.length,
-        slider: res10.data.length,
-        teacher: res11.data.length,
-        widget: res12.data.length,
-      })
+  useEffect(() => {
+    async function getData() {
+      try {
+        const [
+          res,
+          res1,
+          res2,
+          res3,
+          res4,
+          res5,
+          res6,
+          res7,
+          res8,
+          res9,
+          res10,
+          res11,
+          res12,
+        ] = await Promise.all([
+          selectStudents(null, null),
+          selectAbouts(null, null),
+          selectActivities(null, null),
+          selectComments(null, null),
+          selectCourses(null, null),
+          selectEvents(null, null),
+          selectMenus(null, null),
+          selectnotices(null, null),
+          selectPosts(null, null),
+          selectResults(null, null),
+          selectSliders(null, null),
+          selectTeachers(null, null),
+          selectWidgets(null, null),
+        ]);
+
+        setData({
+          student: res.data.length,
+          about: res1.data.length,
+          activity: res2.data.length,
+          comment: res3.data.length,
+          course: res4.data.length,
+          event: res5.data.length,
+          menu: res6.data.length,
+          notice: res7.data.length,
+          post: res8.data.length,
+          result: res9.data.length,
+          slider: res10.data.length,
+          teacher: res11.data.length,
+          widget: res12.data.length,
+        });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // Handle error (e.g., retry or show an error message)
+      }
     }
-    getData();
-  },[])
 
-  if(data){
+    getData();
+  }, []);
+
+  if (data) {
     return (
       <div className="main-box w-full min-w-[250px] overflow-y-scroll mx-5 pb-10">
         <div className="dsh-container">
           <div class="dsh-card-row">
-          
             <div class="dsh-col-lg-3 dsh-col-md-6">
               <div class="card">
                 <div class="card-body border-left-pink">
@@ -334,8 +355,6 @@ function DashboardMetrics(props) {
                 </div>
               </div>
             </div>
-          
-        
           </div>
           <div class="dsh-card-row">
             <div class="dsh-col-chart">
@@ -349,9 +368,8 @@ function DashboardMetrics(props) {
               </div>
             </div>
           </div>
-        </div>  
+        </div>
       </div>
-
     );
   }
 }

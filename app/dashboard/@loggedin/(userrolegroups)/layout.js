@@ -2,10 +2,10 @@
 import { useState, useEffect } from "react";
 import { isAdmin } from "@/apiservices/checklogin";
 
-import { useRouter } from "next/navigation";
+
 
 function layout({ admin, madrasaStudent, teacher,gardian, guest, genralStudent }) {
-  const router = useRouter();
+
 
   const [data, setData] = useState();
 
@@ -18,7 +18,7 @@ function layout({ admin, madrasaStudent, teacher,gardian, guest, genralStudent }
   }, []);
 
   if (data) {
-    console.log(data);
+  
     if (data.data.isAdmin == true) {
       return <>{admin}</>;
     } else if (data.data.userRole == "teacher") {

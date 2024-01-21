@@ -63,16 +63,17 @@ function RichTextCard(props) {
                     Rich Text Name: {item.RichTextName}
                   </h5>
                 </a>
-
-                <ReactHighlightSyntax
-                  language={"JavaScript"}
-                  theme={"Base16Darcula"}
-                  copy={true}
-                  copyBtnTheme={"Dark"}
-                  showLineNumbers={true}
-                >
-                  {DOMPurify.sanitize(item.TextPayload)}
-                </ReactHighlightSyntax>
+                <div style={{ height: "200px", overflowX: "scroll" }}>
+                  <ReactHighlightSyntax
+                    language={"json"}
+                    theme={"Base16Darcula"}
+                    copy={true}
+                    copyBtnTheme={"Dark"}
+                    showLineNumbers={true}
+                  >
+                    {DOMPurify.sanitize(item.TextPayload)}
+                  </ReactHighlightSyntax>
+                </div>
 
                 <div className="flex justify-end gap-2">
                   <button
@@ -131,17 +132,17 @@ function RichTextCard(props) {
                     Rich Text Name: {item.RichTextName}
                   </h5>
                 </a>
-
-                <ReactHighlightSyntax
-                  language={"JavaScript"}
-                  theme={"Base16Darcula"}
-                  copy={true}
-                  copyBtnTheme={"Dark"}
-                  showLineNumbers={true}
-                >
-                  {DOMPurify.sanitize(item.TextPayload)}
-                </ReactHighlightSyntax>
-
+                <div style={{ height: "200px", overflowX: "scroll" }}>
+                  <ReactHighlightSyntax
+                    language={"JavaScript"}
+                    theme={"Base16Darcula"}
+                    copy={true}
+                    copyBtnTheme={"Dark"}
+                    showLineNumbers={true}
+                  >
+                    {DOMPurify.sanitize(item.TextPayload)}
+                  </ReactHighlightSyntax>
+                </div>
                 <div className="flex justify-end gap-2">
                   <button
                     onClick={() => updateHandler(item._id, data)}

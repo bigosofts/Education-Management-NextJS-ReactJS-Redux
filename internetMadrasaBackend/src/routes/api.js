@@ -61,8 +61,8 @@ router.get("/logout", authverify, (req, res) => {
   let userRole = req.headers["userRole"];
   let isAdmin = req.headers["isAdmin"];
 
-  res.clearCookie("access_token").status(200).json({
-    status: "Alhamdulillah! You are Logged Out",
+  res.status(200).json({
+    status: "Alhamdulillah",
     data: {
       userName,
       userRole,
@@ -131,11 +131,7 @@ router.post("/create-richtext", authverify, RichTextController.createRichText);
 
 //Select or find the data from the database
 router.post("/select-students", profileController.selectStudents);
-router.post(
-  "/select-all-students",
-  authverify,
-  profileController.selectAllStudents
-);
+router.post("/select-all-students", profileController.selectAllStudents);
 router.post("/select-teachers", profileController.selectTeachers);
 router.post("/select-all-teachers", profileController.selectAllTeachers);
 

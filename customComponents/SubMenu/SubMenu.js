@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { selectData } from "@/apiservices/menuapiservices";
 import Link from "next/link";
 import { isAdmin, logout } from "@/apiservices/checklogin";
+import { removeToken } from "@/helper/sessionHelper";
 
 import "./SubMenu.css";
 
@@ -15,10 +16,16 @@ function SubMenu({ pageName }) {
     }
   };
 
-  function handleLogoutClick(e) {
+  async function handleLogoutClick(e) {
     e.preventDefault();
-    logout();
-    hardRefresh();
+
+    const res = await logout();
+
+    if (res.status == "Alhamdulillah") {
+      removeToken("access_token");
+
+      hardRefresh();
+    }
   }
 
   useEffect(() => {
@@ -57,7 +64,7 @@ function SubMenu({ pageName }) {
           <div className="nav-btn">
             <div className="nav-links">
               <ul>
-                {data.map((item,i) => (
+                {data.map((item, i) => (
                   <li className="nav-link" key={i}>
                     {item.subMenu ? (
                       <>

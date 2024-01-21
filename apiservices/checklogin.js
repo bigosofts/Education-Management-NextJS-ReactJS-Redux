@@ -99,20 +99,35 @@ exports.teacherLogin = async (userName, password) => {
 
 exports.logout = async () => {
   if (data2) {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/logout`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        access_token: data2,
+      },
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
   } else {
-  }
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/logout`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    cache: "no-store",
-  });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/logout`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cache: "no-store",
+    });
 
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
+    if (!res.ok) {
+      // This will activate the closest `error.js` Error Boundary
+      throw new Error("Failed to fetch data");
+    }
 
-  return res.json();
+    return res.json();
+  }
 };
