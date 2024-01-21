@@ -74,7 +74,7 @@ exports.teacherLogin = async (userName, password) => {
     userName,
     password,
   };
- 
+
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/apis/v1/teacher-login`,
     {
@@ -98,10 +98,8 @@ exports.teacherLogin = async (userName, password) => {
 };
 
 exports.logout = async () => {
-  if(data2){
-
-  }else{
-    
+  if (data2) {
+  } else {
   }
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/logout`, {
     method: "GET",

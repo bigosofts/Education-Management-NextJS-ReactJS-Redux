@@ -47,13 +47,17 @@ function page(props) {
     if (data) {
       if (data.status == "noToken") {
         const res = await teacherLogin(userName, password);
-       
+
         if (res.status == "Alhamdulillah") {
-          setToken("access_token", res.token);
-          mytoast.success("You are successfully");
-          setShouldRefresh(true);
-          
-          
+          setToken("access_token", res.token)
+            .then(() => {
+              mytoast.success("You are successfully logged in");
+              setShouldRefresh(true);
+            })
+            .catch((error) => {
+              // Handle error if setToken fails
+              console.error("Error setting token:", error);
+            });
         } else if (res.status == "nouser") {
           router.push("/signup");
         }
