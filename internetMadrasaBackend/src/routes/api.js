@@ -130,13 +130,13 @@ router.post("/create-work", authverify, workController.createWork);
 router.post("/create-richtext", authverify, RichTextController.createRichText);
 
 //Select or find the data from the database
-router.post("/select-students", authverify, profileController.selectStudents);
+router.post("/select-students", profileController.selectStudents);
 router.post(
   "/select-all-students",
   authverify,
   profileController.selectAllStudents
 );
-router.post("/select-teachers", authverify, profileController.selectTeachers);
+router.post("/select-teachers", profileController.selectTeachers);
 router.post("/select-all-teachers", profileController.selectAllTeachers);
 
 router.post("/select-courses", courseController.selectCourses);
