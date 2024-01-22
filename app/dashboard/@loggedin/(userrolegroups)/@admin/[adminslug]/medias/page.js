@@ -22,7 +22,7 @@ function MediaPage(props) {
         const formData = new FormData();
         formData.append("fileInput", fileInput.files[0]); // Upload the selected file
 
-        const response = await fetch("/upload", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/upload`, {
           method: "POST",
           body: formData,
         });

@@ -21,8 +21,9 @@
   align-items: center;
 }
 .resultCardSlider .swiper-slide {
-  height: 250px;
+  height: 350px;
 }
+
 
 .swiper-slide img {
   display: block;

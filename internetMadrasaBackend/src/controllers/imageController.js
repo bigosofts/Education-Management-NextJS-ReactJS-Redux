@@ -13,9 +13,10 @@ exports.readImage = (req, res) => {
     const imagePaths = imageFiles.map((file) => path.join(directoryPath, file));
 
     // Replace common root path with an empty string
-    const baseUrl = "public" + path.sep; // Modify the root path as needed
+    
+    
     const transformedPaths = imagePaths.map((imagePath) =>
-      imagePath.replace(baseUrl, "/").replace(/\\/g, "/")
+      imagePath.replace(/\\/g, "/").replace("../public", "")
     );
 
     return transformedPaths;
