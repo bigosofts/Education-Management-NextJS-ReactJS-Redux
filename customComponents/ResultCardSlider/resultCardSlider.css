@@ -1,5 +1,5 @@
 .resultCardSlider .swiper {
-  width: 1200px;
+  width: 63%;
   height: auto;
 }
 .resultCardSlider {
@@ -14,5 +14,4 @@
 }
 .resultCardSlider2 {
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 100px 20px;
 }

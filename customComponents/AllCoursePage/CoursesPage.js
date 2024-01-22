@@ -1,4 +1,6 @@
 import { selectDataTwo } from "@/apiservices/courseapiservices";
+import Image from "next/image";
+import Link from "next/link";
 
 import "./CoursesPage.css";
 async function getData() {
@@ -40,26 +42,28 @@ async function AllCoursePage() {
           <div className="style-4">
             <div className="style-5">
               {data.map((item, i) => (
-                <div className="style-6">
-                  <a
+                <div key={i} className="style-6">
+                  <Link
                     href={`/course/${item.courseCode}`}
                     target="_blank"
                     className="style-7"
-                  ></a>
+                  ></Link>
                   <div className="style-8">
-                    <a
+                    <Link
                       href={`/course/${item.courseCode}`}
                       target="_blank"
                       className="style-9"
                     >
-                      <img
+                      <Image
+                        width={370}
+                        height={285}
                         src={item.imageLink}
                         alt="Card image cap"
                         className="style-10"
                       />{" "}
-                    </a>
+                    </Link>
                     <div className="style-11">
-                      <a
+                      <Link
                         href={`/course/${item.courseCode}`}
                         target="_blank"
                         className="style-12"
@@ -69,20 +73,20 @@ async function AllCoursePage() {
                           <i className="style-15" aria-hidden="true"></i> Starts
                           From {niceDate(item.startingDate.en)}
                         </p>
-                      </a>
-                      <a
+                      </Link>
+                      <Link
                         href={`/signup/madrasa-student`}
                         target="_blank"
                         className="style-16"
                       >
                         Enroll Now
-                      </a>{" "}
-                      <a
+                      </Link>{" "}
+                      <Link
                         href={`/course/${item.courseCode}`}
                         className="style-17"
                       >
                         Course Details
-                      </a>{" "}
+                      </Link>{" "}
                     </div>
                   </div>
                 </div>

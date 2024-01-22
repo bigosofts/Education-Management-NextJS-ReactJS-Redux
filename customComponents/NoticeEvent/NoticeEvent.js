@@ -84,7 +84,7 @@ async function NoticeEvent() {
             <div className="style-4">
               <h2 className="style-5">Notice</h2>
               <div className="style-6">
-                {data.notice.map((item,i) => (
+                {data.notice.map((item, i) => (
                   <div key={i} className="style-7">
                     <div className="style-8">
                       <span className="style-9">
@@ -101,7 +101,7 @@ async function NoticeEvent() {
                     <div className="style-13">
                       <h6 className="style-14">
                         <Link href={item.noticeLink}>
-                          {item.noticeTitle.en}
+                          {item.noticeTitle.bn}
                         </Link>
                       </h6>
                     </div>
@@ -118,7 +118,7 @@ async function NoticeEvent() {
             <div className="style-72">
               <h2 className="style-73">Events</h2>
               <div className="style-74">
-                {data.event.map((item,i) => (
+                {data.event.map((item, i) => (
                   <div key={i} className="style-75">
                     <div className="style-76">
                       <span className="style-77">
@@ -133,7 +133,7 @@ async function NoticeEvent() {
                       </span>
                     </div>
                     <div className="style-81">
-                      <h6 className="style-82">{item.eventTitle.en} </h6>
+                      <h6 className="style-82">{item.eventTitle.bn} </h6>
                       <p className="style-83">
                         <i className="style-84" aria-hidden="true"></i>{" "}
                         {dayDifference(
@@ -159,11 +159,11 @@ async function NoticeEvent() {
                 <div className="style-128">
                   <div className="style-129">
                     <div className="style-130">
-                      {data.post.slice(0, 4).map((item,i) => (
+                      {data.post.slice(0, 4).map((item, i) => (
                         <div key={i} className="style-131">
                           <div className="style-132">
                             <Link href={`/${item.postId}`}>
-                              <h1>{item.postTitle.en}</h1>
+                              <h1>{item.postTitle.bn}</h1>
                             </Link>
                             <Image
                               width={170}

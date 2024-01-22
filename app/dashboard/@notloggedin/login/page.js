@@ -53,7 +53,6 @@ function page(props) {
 
           mytoast.success("You are successfully logged in");
           setShouldRefresh(true);
-          
         } else if (res.status == "nouser") {
           router.push("/signup");
         }
@@ -100,145 +99,153 @@ function page(props) {
   };
 
   return (
-    <div className="page-wrapper">
-      <div className="container-loginpage">
-        <h1 style={{ textAlign: "center", marginTop: "50px" }}>
-          {visibility == "student" ? "Student Login" : "Teacher Login"}
-        </h1>
+    <>
+      <div className="page-wrapper">
+        <div className="container-loginpage">
+          <h1 style={{ textAlign: "center", marginTop: "50px" }}>
+            {visibility == "student" ? "Student Login" : "Teacher Login"}
+          </h1>
 
-        <div className="login-wrap">
-          <div className="login-content">
-            <div className="switchButton">
-              <div onClick={changer}>Student/Guest Login</div>
-              <div onClick={changer1}>Teacher/Gardian Login</div>
-            </div>
-            <div className="login-logo">
-              <a className="" href="#">
-                <img src="/logo.png" alt="CoolAdmin"></img>
-              </a>
-            </div>
-            <div
-              className={`login-form ${
-                visibility == "student" ? "divDisplay" : ""
-              }`}
-            >
-              <form action="" method="post">
-                <div className="form-group">
-                  <label>Teacher/Gardian Username</label>
-                  <input
-                    ref={userNameRef}
-                    className="au-input au-input--full"
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    autoComplete="off"
-                  ></input>
-                </div>
-                <div className="form-group">
-                  <label>Password</label>
-                  <input
-                    ref={passwordRef}
-                    className="au-input au-input--full"
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    autoComplete="off"
-                  ></input>
-                </div>
-                <div className="login-checkbox">
-                  <label>
-                    <input type="checkbox" name="remember"></input>
-                    Remember Me
-                  </label>
-                  <label>
-                    <a href="#">Forgotten Password?</a>
-                  </label>
-                </div>
-                <button
-                  onClick={clickHandlerData}
-                  className="au-btn au-btn--block au-btn--green m-b-20"
-                  type="submit"
-                >
-                  sign in
-                </button>
-                {/* <div className="social-login-content">
-                                        <div className="social-button">
-                                            <button className="au-btn au-btn--block au-btn--red m-b-20">sign in with Google</button>
-                                        </div>
-                                    </div> */}
-              </form>
-              <div className="register-link">
-                <p>
-                  Don't you have account?
-                  <a style={{ cursor: "pointer" }} onClick={clickHandlerSingup}>
-                    Sign Up Here
-                  </a>
-                </p>
+          <div className="login-wrap">
+            <div className="login-content">
+              <div className="switchButton">
+                <div onClick={changer}>Student/Guest Login</div>
+                <div onClick={changer1}>Teacher/Gardian Login</div>
               </div>
-            </div>
-            <div
-              className={`login-form ${
-                visibility == "teacher" ? "divDisplay" : ""
-              }`}
-            >
-              <form action="" method="post">
-                <div className="form-group">
-                  <label>Student/Guest Username</label>
-                  <input
-                    ref={studentUserNameRef}
-                    className="au-input au-input--full"
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    autoComplete="off"
-                  ></input>
-                </div>
-                <div className="form-group">
-                  <label>Password</label>
-                  <input
-                    ref={StudentPasswordRef}
-                    className="au-input au-input--full"
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    autoComplete="off"
-                  ></input>
-                </div>
-                <div className="login-checkbox">
-                  <label>
-                    <input type="checkbox" name="remember"></input>
-                    Remember Me
-                  </label>
-                  <label>
-                    <a href="#">Forgotten Password?</a>
-                  </label>
-                </div>
-                <button
-                  onClick={clickHandlerData2}
-                  className="au-btn au-btn--block au-btn--green m-b-20"
-                  type="submit"
-                >
-                  sign in
-                </button>
-                {/* <div className="social-login-content">
+              <div className="login-logo">
+                <a className="" href="#">
+                  <img src="/logo.png" alt="CoolAdmin"></img>
+                </a>
+              </div>
+              <div
+                className={`login-form ${
+                  visibility == "student" ? "divDisplay" : ""
+                }`}
+              >
+                <form action="" method="post">
+                  <div className="form-group">
+                    <label>Teacher/Gardian Username</label>
+                    <input
+                      ref={userNameRef}
+                      className="au-input au-input--full"
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      autoComplete="off"
+                    ></input>
+                  </div>
+                  <div className="form-group">
+                    <label>Password</label>
+                    <input
+                      ref={passwordRef}
+                      className="au-input au-input--full"
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      autoComplete="off"
+                    ></input>
+                  </div>
+                  <div className="login-checkbox">
+                    <label>
+                      <input type="checkbox" name="remember"></input>
+                      Remember Me
+                    </label>
+                    <label>
+                      <a href="#">Forgotten Password?</a>
+                    </label>
+                  </div>
+                  <button
+                    onClick={clickHandlerData}
+                    className="au-btn au-btn--block au-btn--green m-b-20"
+                    type="submit"
+                  >
+                    sign in
+                  </button>
+                  {/* <div className="social-login-content">
                                         <div className="social-button">
                                             <button className="au-btn au-btn--block au-btn--red m-b-20">sign in with Google</button>
                                         </div>
                                     </div> */}
-              </form>
-              <div className="register-link">
-                <p>
-                  Don't you have account?
-                  <a style={{ cursor: "pointer" }} onClick={clickHandlerSingup}>
-                    Sign Up Here
-                  </a>
-                </p>
+                </form>
+                <div className="register-link">
+                  <p>
+                    Don't you have account?
+                    <a
+                      style={{ cursor: "pointer" }}
+                      onClick={clickHandlerSingup}
+                    >
+                      Sign Up Here
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div
+                className={`login-form ${
+                  visibility == "teacher" ? "divDisplay" : ""
+                }`}
+              >
+                <form action="" method="post">
+                  <div className="form-group">
+                    <label>Student/Guest Username</label>
+                    <input
+                      ref={studentUserNameRef}
+                      className="au-input au-input--full"
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      autoComplete="off"
+                    ></input>
+                  </div>
+                  <div className="form-group">
+                    <label>Password</label>
+                    <input
+                      ref={StudentPasswordRef}
+                      className="au-input au-input--full"
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      autoComplete="off"
+                    ></input>
+                  </div>
+                  <div className="login-checkbox">
+                    <label>
+                      <input type="checkbox" name="remember"></input>
+                      Remember Me
+                    </label>
+                    <label>
+                      <a href="#">Forgotten Password?</a>
+                    </label>
+                  </div>
+                  <button
+                    onClick={clickHandlerData2}
+                    className="au-btn au-btn--block au-btn--green m-b-20"
+                    type="submit"
+                  >
+                    sign in
+                  </button>
+                  {/* <div className="social-login-content">
+                                        <div className="social-button">
+                                            <button className="au-btn au-btn--block au-btn--red m-b-20">sign in with Google</button>
+                                        </div>
+                                    </div> */}
+                </form>
+                <div className="register-link">
+                  <p>
+                    Don't you have account?
+                    <a
+                      style={{ cursor: "pointer" }}
+                      onClick={clickHandlerSingup}
+                    >
+                      Sign Up Here
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

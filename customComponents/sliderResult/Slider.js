@@ -21,7 +21,7 @@ import {
 function SliderResult(props) {
   let imageArray = props.linkObj;
   return (
-    <>
+    <div className="resultSliderContainer">
       <h1 className="resultHeader">
         {true
           ? "ইন্টারনেট মাদ্রাসার তলেব/তলেবাদের বেফাক বোর্ড রেজাল্ট"
@@ -57,17 +57,12 @@ function SliderResult(props) {
         {imageArray.map((item, i) => (
           <div key={i}>
             <SwiperSlide>
-              <Image
-                width={361}
-                height={368}
-                src={item.image}
-                alt={item.caption}
-              ></Image>
+              <Image src={item.image} alt={item.caption} fill={true}></Image>
             </SwiperSlide>
           </div>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 }
 

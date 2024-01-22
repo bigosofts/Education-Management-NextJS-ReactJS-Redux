@@ -14,7 +14,7 @@
   padding: 0px;
   width: 100%;
   height: auto;
-  padding: 100px 0px;
+  padding: 100px 0px 0px 0px;
 }
 
 .galleryALL a,
@@ -53,8 +53,8 @@ a:visited {
 }
 
 .galleryALL .gallery > div:nth-child(odd) img {
-  width: 0;
-  height: 0;
+  width: 0px;
+  height: 0px;
   display: block;
   object-fit: cover;
   min-height: 100%;
@@ -142,5 +142,11 @@ a:visited {
   }
   .galleryGridTemplate {
     margin-bottom: 80px;
+  }
+  .galleryALL .gallery > div:nth-child(odd) img {
+    height: 100px;
+  }
+  .galleryALL .gallery > div:nth-child(odd) {
+    aspect-ratio: unset;
   }
 }

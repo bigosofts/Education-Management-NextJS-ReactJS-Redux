@@ -54,7 +54,7 @@ function AboutAbacus() {
         </div>
       </section>
     );
-  } 
+  }
 }
 
 export default AboutAbacus;

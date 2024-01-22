@@ -18,7 +18,7 @@ function GalleryAll({ linkObj }) {
       <div className="gallery">
         {linkObj.map((item, i) => (
           <React.Fragment key={i}>
-            <div>
+            <div className="galleryGridTemplate">
               <a href={`#${i}`}>
                 <Image
                   width={300}

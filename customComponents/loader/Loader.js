@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "./Loader.css";
 function Loader() {
   return (
@@ -11,16 +12,18 @@ function Loader() {
       }}
     >
       <div>
-        <img
+        <Image
+          width={100}
+          height={100}
           className="animationName"
-          style={{ width: "80%", margin: "auto" }}
+          style={{ margin: "auto" }}
           src="/logo.png"
-        ></img>
+        ></Image>
         <h1
           style={{
             textAlign: "center",
             marginTop: "20px",
-            fontSize: "24px",
+            fontSize: "16px",
             fontWeight: "300",
           }}
         >

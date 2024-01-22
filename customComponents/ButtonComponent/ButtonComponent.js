@@ -6,28 +6,6 @@ function ButtonComponent({ text, link }) {
       <Link
         href={link}
         className="buttonLinkText"
-        style={{
-          backgroundColor: "#fff",
-          transitionDuration: "0.3s",
-          transitionProperty:
-            "color, background-color, border-color, text-decoration-color, fill, stroke",
-          transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
-          color: "#BEA256",
-          fontWeight: 900,
-          paddingRight: "20px",
-          paddingLeft: "28px",
-          paddingBottom: "12px",
-          paddingTop: "12px",
-          borderRadius: "4px",
-          gap: "8px",
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-          textDecoration: "none solid rgb(255, 255, 255)",
-          border: "2px solid rgb(219, 225, 235)",
-          boxSizing: "border-box",
-          textTransform: "uppercase",
-        }}
       >
         {text}
         <svg

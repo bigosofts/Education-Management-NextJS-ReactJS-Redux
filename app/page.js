@@ -57,6 +57,7 @@ async function getData() {
 
     fisherYatesShuffle(dataObject.sliders);
     fisherYatesShuffle(dataObject.works);
+    fisherYatesShuffle(dataObject.results);
 
     return dataObject;
   } else {
@@ -101,7 +102,7 @@ export default async function Home() {
   const data = await getData();
 
   return (
-    <>
+    <div className="completeWrapper">
       <MainMenu />
       <SubMenu pageName="Home" />
       <Slider linkObj={ObjArray(data.sliders)} />
@@ -111,15 +112,15 @@ export default async function Home() {
       <ResultCardSlider linkObj={ObjArray2(data.results)} />
       <AlemAlemaGrid number={4} />
       <HifzGrid />
+      <ReviewPage />
+      <CoursePage />
+      <InfoPage />
 
       <NoticeEvent />
 
-      <CoursePage />
-      <InfoPage />
-      <ReviewPage />
       {/* <GalleryCard linkObj={ObjArray3(data3)} /> */}
       <GalleryAll linkObj={ObjArray3(data.works).slice(0, 8)} />
       <Footer />
-    </>
+    </div>
   );
 }

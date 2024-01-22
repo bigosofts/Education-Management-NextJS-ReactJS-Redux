@@ -8,6 +8,7 @@ function ResultCardSlider({ linkObj }) {
         <SliderResult linkObj={linkObj} />
         <ButtonComponent text="All Results" link="/result" />
       </div>
+     
     </div>
   );
 }

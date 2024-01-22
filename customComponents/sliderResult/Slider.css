@@ -6,6 +6,9 @@
   width: auto;
   height: auto;
 }
+.resultSliderContainer {
+  padding-bottom: 100px;
+}
 
 .swiper-slide {
   text-align: center;
@@ -16,6 +19,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.resultCardSlider .swiper-slide {
+  height: 300px;
 }
 
 .swiper-slide img {
@@ -56,5 +62,8 @@
     margin-top: 2350px;
     font-size: 16px;
     margin-bottom: 10px;
+  }
+  .resultSliderContainer {
+    padding-bottom: 20px;
   }
 }

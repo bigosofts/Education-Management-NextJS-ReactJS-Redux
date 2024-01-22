@@ -7,6 +7,12 @@ import Footer from "@/customComponents/Footer/Footer";
 
 import GalleryAll from "@/customComponents/GalleryALL/GalleryALL";
 
+function fisherYatesShuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
 async function getData() {
   const res = await selectDataTwo({
@@ -26,8 +32,9 @@ async function getData() {
     dataObject.slider = res.data;
     dataObject.work = res2.data;
 
+    fisherYatesShuffle(dataObject.work);
+
     return dataObject;
-  
   } else {
     mytoast.danger("Data fetching error. Try Refreshing the page");
   }
@@ -55,7 +62,6 @@ const ObjArray2 = (data) => {
 };
 
 async function WorkPage() {
-
   const data = await getData();
   return (
     <>

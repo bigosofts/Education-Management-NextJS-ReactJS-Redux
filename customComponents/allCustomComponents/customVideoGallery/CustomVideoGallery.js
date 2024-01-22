@@ -1,4 +1,4 @@
-"use client";
+
 
 import "./CustomVideoGallery.css";
 import "./galleryCustom.js";

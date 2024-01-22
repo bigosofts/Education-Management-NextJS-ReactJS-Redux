@@ -1,28 +1,36 @@
-"use client";
-import { useState, useEffect } from "react";
 import "./hifzGrid.css";
 
 import { selectData } from "@/apiservices/widgetapiservices";
 
-function HifzGrid() {
-  const [data, setData] = useState();
+function fisherYatesShuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
-  useEffect(() => {
-    async function getData() {
-      const res = await selectData({
-        activeStatus: "active",
-        widgetName: "hifz_result",
-      });
+async function getData() {
+  const res = await selectData({
+    activeStatus: "active",
+    widgetName: "hifz_result",
+  });
 
-      if (res.status == "Alhamdulillah") {
-        setData(res.data);
-      } else {
-        mytoast.danger("Data fetching error. Try Refreshing the page");
-      }
-    }
-    getData();
-  }, []);
+  if (res.status == "Alhamdulillah") {
+    const dataObject = {
+      hifz: null,
+    };
 
+    dataObject.hifz = res.data;
+    fisherYatesShuffle(dataObject.hifz[0].widgetPayload);
+
+    return dataObject.hifz;
+  } else {
+    mytoast.danger("Data fetching error. Try Refreshing the page");
+  }
+}
+
+async function HifzGrid() {
+  const data = await getData();
   if (data) {
     return (
       <>
