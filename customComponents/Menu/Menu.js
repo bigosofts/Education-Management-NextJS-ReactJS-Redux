@@ -49,7 +49,7 @@ const MainMenu = () => {
           <div className="style-16">
             <div className="style-17">
               <div className="style-18">
-                <a href="/old-site">
+                <a href="http://assunnahmuslimit.com/registration.php">
                   <button>Registration</button>
                 </a>
               </div>
