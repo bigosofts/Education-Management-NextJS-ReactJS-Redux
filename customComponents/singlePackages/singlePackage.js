@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import "./Packages.css";
+import Image from "next/image";
 
-function SinglePackage({ items,key }) {
+function SinglePackage({ items, key }) {
   let realMark = items.studentSubMark.reduce(
     (total, mark) => total + mark.mark,
     0
@@ -17,7 +18,7 @@ function SinglePackage({ items,key }) {
     <div key={key} className="col">
       <div className="theme_common_box_two img_hover">
         <div className="theme_two_box_img">
-          <img src={items.picture} alt="img" />
+          <Image width={396} height={266} src={items.picture} alt="img" />
 
           <p>
             <i className="fa fa-map-marker"></i>
@@ -39,7 +40,7 @@ function SinglePackage({ items,key }) {
             </span>
           </div>
           <h4 style={{ textAlign: "center" }}>SID: {items.studentUserId}</h4>
-          <p style={{ textAlign:"center" }}>
+          <p style={{ textAlign: "center" }}>
             <span className="review_rating">
               {false ? "Total Marks: " : "মোট মার্কঃ "}
               {realMark}/{totalMark}

@@ -16,7 +16,7 @@ exports.readImage = (req, res) => {
     
     
     const transformedPaths = imagePaths.map((imagePath) =>
-      imagePath.replace(/\\/g, "/").replace("../public", "")
+      imagePath.replace(/\\/g, "/").replace("../public", process.env.BACKEND)
     );
 
     return transformedPaths;

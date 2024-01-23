@@ -2,6 +2,7 @@
 import { BiUserPlus } from "react-icons/bi";
 import { selectData } from "@/apiservices/readImageapiservices";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 function MediaPage(props) {
   const [data, setData] = useState();
@@ -74,18 +75,26 @@ function MediaPage(props) {
             <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-x-5 gap-y-20">
               {data.map((item) => (
                 <div className="max-w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative">
-                  <a href="">
-                    <img
+                  <a href={item}>
+                    <Image
+                      width={367}
+                      height={256}
                       className="rounded-t-lg w-full h-64"
                       src={item}
                       alt=""
                     />
                   </a>
                   <div className="p-5">
-                    <a href="#">
-                      <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <a href={item}>
+                      <span
+                        style={{
+                          overflowWrap: "break-word",
+                          fontSize: "20px",
+                          fontWeight: "800",
+                        }}
+                      >
                         {item}
-                      </h5>
+                      </span>
                     </a>
                   </div>
                 </div>
