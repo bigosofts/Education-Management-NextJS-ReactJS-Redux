@@ -5,6 +5,7 @@ import { selectData, deleteData } from "@/apiservices/courseapiservices";
 import { useEffect, useState } from "react";
 import myToast from "@/components/toast/toast";
 import ReactHighlightSyntax from "react-highlight-syntax";
+import Image from "next/image";
 
 function CourseCard(props) {
   const [data, setData] = useState();
@@ -40,7 +41,9 @@ function CourseCard(props) {
               className="max-w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative"
             >
               <a href="#">
-                <img
+                <Image
+                  width={367}
+                  height={256}
                   className="rounded-t-lg w-full h-64"
                   src={item.imageLink}
                   alt=""
@@ -350,7 +353,9 @@ function CourseCard(props) {
               className="max-w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative"
             >
               <a href="#">
-                <img
+                <Image
+                  width={367}
+                  height={256}
                   className="rounded-t-lg w-full h-64"
                   src={item.imageLink}
                   alt=""

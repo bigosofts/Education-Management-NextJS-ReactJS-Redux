@@ -5,6 +5,7 @@ import { selectData, deleteData } from "@/apiservices/resultapiservices";
 import { useEffect, useState } from "react";
 import myToast from "@/components/toast/toast";
 import ReactHighlightSyntax from "react-highlight-syntax";
+import Image from "next/image";
 
 function ResultCard(props) {
   const [data, setData] = useState();
@@ -38,7 +39,9 @@ function ResultCard(props) {
               className="max-w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative"
             >
               <a href="#">
-                <img
+                <Image
+                  width={367}
+                  height={256}
                   className="rounded-t-lg w-full h-64"
                   src={item.picture}
                   alt=""
@@ -140,7 +143,9 @@ function ResultCard(props) {
               className="max-w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 relative"
             >
               <a href="#">
-                <img
+                <Image
+                  width={367}
+                  height={256}
                   className="rounded-t-lg w-full h-64"
                   src={item.picture}
                   alt=""

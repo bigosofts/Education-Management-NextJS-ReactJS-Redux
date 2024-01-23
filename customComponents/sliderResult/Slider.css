@@ -6,7 +6,7 @@
   width: auto;
   height: auto;
 }
-.swiper-wrapper {
+.resultSliderContainer .swiper-wrapper {
   margin-bottom: 50px;
 }
 .resultSliderContainer {
