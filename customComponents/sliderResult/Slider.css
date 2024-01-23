@@ -6,8 +6,11 @@
   width: auto;
   height: auto;
 }
+.swiper-wrapper {
+  margin-bottom: 50px;
+}
 .resultSliderContainer {
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
 .swiper-slide {
@@ -23,7 +26,6 @@
 .resultCardSlider .swiper-slide {
   height: 350px;
 }
-
 
 .swiper-slide img {
   display: block;
@@ -69,5 +71,8 @@
   }
   .resultCardSlider .swiper-slide {
     height: 200px;
+  }
+  .swiper-wrapper {
+    margin-bottom: unset;
   }
 }
