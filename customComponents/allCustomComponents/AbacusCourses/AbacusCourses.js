@@ -77,70 +77,41 @@ function AbacusCourse({ info, comment, richtext }) {
                   </div>
                   <div className="style-511">
                     <div className="style-512">
-                      {info.courseSyllabus
-                        .slice(0, `${syllabus}`)
-                        .map((item, i) => (
-                          <details key={i} className="style-513">
-                            <summary className="style-514">
-                              <div className="style-515">
-                                <img
-                                  alt="Orientation Class"
-                                  draggable="false"
-                                  loading="lazy"
-                                  width="40"
-                                  height="40"
-                                  decoding="async"
-                                  data-nimg="1"
-                                  className="style-516"
-                                  src="https://cdn.10minuteschool.com/images/icons/live_class.png"
-                                />
-                              </div>
-                              <h3 className="style-517">{item.text.bn}</h3>
-                            </summary>
-                            <div className="style-518">
-                              <ul className="style-519">
-                                <li className="style-520">
-                                  <div className="style-525">
-                                    <h4 className="style-526">
-                                      {richtextoutput(item.desc.en)}
-                                    </h4>
-                                    <div className="style-527">
-                                      {item.img ? <img src={item.img} /> : ""}
-                                    </div>
-                                  </div>
-                                </li>
-                              </ul>
+                      {info.courseSyllabus.map((item, i) => (
+                        <details key={i} className="style-513">
+                          <summary className="style-514">
+                            <div className="style-515">
+                              <img
+                                alt="Orientation Class"
+                                draggable="false"
+                                loading="lazy"
+                                width="40"
+                                height="40"
+                                decoding="async"
+                                data-nimg="1"
+                                className="style-516"
+                                src="https://cdn.10minuteschool.com/images/icons/live_class.png"
+                              />
                             </div>
-                          </details>
-                        ))}
+                            <h3 className="style-517">{item.text.bn}</h3>
+                          </summary>
+                          <div className="style-518">
+                            <ul className="style-519">
+                              <li className="style-520">
+                                <div className="style-525">
+                                  <h4 className="style-526">
+                                    {richtextoutput(item.desc.en)}
+                                  </h4>
+                                  <div className="style-527">
+                                    {item.img ? <img src={item.img} /> : ""}
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </details>
+                      ))}
                     </div>
-                    <button
-                      onClick={() =>
-                        syllabus == 3
-                          ? setSyllabus(info.courseSyllabus.length)
-                          : setSyllabus(3)
-                      }
-                      className="style-852"
-                    >
-                      সকল বিষয়{" "}
-                      <svg
-                        stroke="currentColor"
-                        fill="none"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        height="18"
-                        width="18"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="style-853"
-                      >
-                        <polyline
-                          points="6 9 12 15 18 9"
-                          className="style-854"
-                        ></polyline>
-                      </svg>
-                    </button>
                   </div>
                 </div>
               </div>
