@@ -182,7 +182,7 @@
   width: 50%;
   float: left;
   text-align: center;
-  
+
   border: 5px solid #fff;
   background-color: #07753c;
   color: white;
@@ -191,6 +191,13 @@
 .switchButton div:hover {
   background-color: #08a855;
 }
-.divDisplay{
-    display: none;
+.divDisplay {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  .switchButton div {
+    font-size: 10px;
+    padding: 6px 10px;
+    text-wrap: pretty;
+  }
 }
