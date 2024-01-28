@@ -42,16 +42,16 @@ function AbacusCourse({ info, comment, richtext }) {
                       <div key={i} className="style-14">
                         <div className="style-15">
                           <div className="style-16">
-                            <img
+                            <Image
                               alt=""
                               draggable="false"
                               loading="lazy"
-                              width="73"
-                              height="73"
                               decoding="async"
                               data-nimg="1"
                               className="style-17"
-                              src="/images/shaikh.png"
+                              width={73}
+                              height={73}
+                              src={item.image}
                             />
                           </div>
                         </div>

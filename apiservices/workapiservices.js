@@ -50,7 +50,7 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  if(data2){
+  if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-work/${id}`,
       {
@@ -61,14 +61,14 @@ exports.deleteData = async (id) => {
         },
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
-  }else{
+  } else {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-work/${id}`,
       {
@@ -78,15 +78,14 @@ exports.deleteData = async (id) => {
         },
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
   }
-  
 };
 
 exports.createData = async ({ sid, name, img, activeStatus, jamat }) => {
@@ -97,7 +96,7 @@ exports.createData = async ({ sid, name, img, activeStatus, jamat }) => {
     activeStatus,
     jamat,
   };
-  if(data2){
+  if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-work`,
       {
@@ -109,14 +108,14 @@ exports.createData = async ({ sid, name, img, activeStatus, jamat }) => {
         body: JSON.stringify(aboutdata),
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
-  }else{
+  } else {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-work`,
       {
@@ -127,15 +126,14 @@ exports.createData = async ({ sid, name, img, activeStatus, jamat }) => {
         body: JSON.stringify(aboutdata),
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
   }
-  
 };
 
 exports.updateData = async ({
@@ -154,7 +152,7 @@ exports.updateData = async ({
     activeStatus,
     jamat,
   };
-  if(data2){
+  if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-work`,
       {
@@ -166,13 +164,13 @@ exports.updateData = async ({
         body: JSON.stringify(aboutdata),
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
     return res.json();
-  }else{
+  } else {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-work`,
       {
@@ -183,12 +181,11 @@ exports.updateData = async ({
         body: JSON.stringify(aboutdata),
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-    return res.json(); 
+    return res.json();
   }
-  
 };

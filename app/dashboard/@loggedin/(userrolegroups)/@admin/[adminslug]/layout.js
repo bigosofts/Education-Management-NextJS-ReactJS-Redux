@@ -115,6 +115,11 @@ function layout({ children, params }) {
       href: `/dashboard/${params.adminslug}/richtexts`,
       icon: "BiCode",
     },
+    {
+      name: "Abacus Sheet",
+      href: `/dashboard/${params.adminslug}/abacus-sheet`,
+      icon: "BsClipboardData",
+    },
   ];
 
   if (data) {

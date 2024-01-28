@@ -1,0 +1,1223 @@
+.abacusGenerator {
+  background-color: #eeeeee;
+  padding: 100px 0px 40px;
+  margin: 0px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-1 {
+  max-width: 90%;
+  margin: 0px 351.5px;
+  padding: 0px 15px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-2 {
+  margin: 0px -15px;
+  padding: 0px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-3 {
+  margin: 0px;
+  padding: 0px 15px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  -webkit-box-flex: 0;
+  flex: 0 0 100%;
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-4 {
+  margin: 0px;
+  padding: 0px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-5 {
+  background: rgb(247, 247, 247) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 40px 20px 24px;
+  border: 1px solid rgb(247, 247, 247);
+  margin: 0px -5px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -5px;
+  margin-left: -5px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-6 {
+  padding-right: 16px;
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px 0px 16px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  padding-left: 5px;
+  margin-bottom: 16px;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-7 {
+  color: #8e602f;
+  margin: 0px 0px 8px;
+  font-weight: 700;
+  padding: 0px;
+  border: 0px none #8e602f;
+  font-style: normal;
+  font-variant: normal;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  display: inline-block;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-8 {
+  appearance: none;
+  background-image: url("https://www.mastermindabacus.com/assets/new/images/ang_dw.png");
+  background-repeat: no-repeat;
+  background-position: right 50%;
+  height: 38px;
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(73, 80, 87);
+  background-color: rgb(255, 255, 255);
+  -webkit-background-clip: padding-box;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  text-transform: none;
+  margin: 0px;
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+}
+
+.abacusGenerator .style-9 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-10 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-11 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-12 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-13 {
+  padding-right: 16px;
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px 0px 16px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  padding-left: 5px;
+  margin-bottom: 16px;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-14 {
+  color: #8e602f;
+  margin: 0px 0px 8px;
+  font-weight: 700;
+  padding: 0px;
+  border: 0px none rgb(245, 134, 52);
+  font-style: normal;
+  font-variant: normal;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  display: inline-block;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-15 {
+  appearance: none;
+  background-image: url("https://www.mastermindabacus.com/assets/new/images/ang_dw.png");
+  background-repeat: no-repeat;
+  background-position: right 50%;
+  height: 38px;
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(73, 80, 87);
+  background-color: rgb(255, 255, 255);
+  -webkit-background-clip: padding-box;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  text-transform: none;
+  margin: 0px;
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+}
+
+.abacusGenerator .style-16 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-17 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-18 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-19 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-20 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-21 {
+  padding-right: 16px;
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px 0px 16px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  padding-left: 5px;
+  margin-bottom: 16px;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-22 {
+  color: #8e602f;
+  margin: 0px 0px 8px;
+  font-weight: 700;
+  padding: 0px;
+  border: 0px none rgb(245, 134, 52);
+  font-style: normal;
+  font-variant: normal;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  display: inline-block;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-23 {
+  appearance: none;
+  background-image: url("https://www.mastermindabacus.com/assets/new/images/ang_dw.png");
+  background-repeat: no-repeat;
+  background-position: right 50%;
+  height: 38px;
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(73, 80, 87);
+  background-color: rgb(255, 255, 255);
+  -webkit-background-clip: padding-box;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  text-transform: none;
+  margin: 0px;
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+}
+
+.abacusGenerator .style-24 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-25 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-26 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-27 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-28 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-29 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-30 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-31 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-32 {
+  padding-right: 16px;
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px 0px 16px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  padding-left: 5px;
+  margin-bottom: 16px;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-33 {
+  color: #8e602f;
+  margin: 0px 0px 8px;
+  font-weight: 700;
+  padding: 0px;
+  border: 0px none rgb(245, 134, 52);
+  font-style: normal;
+  font-variant: normal;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  display: inline-block;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-34 {
+  appearance: none;
+  background-image: url("https://www.mastermindabacus.com/assets/new/images/ang_dw.png");
+  background-repeat: no-repeat;
+  background-position: right 50%;
+  height: 38px;
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(73, 80, 87);
+  background-color: rgb(255, 255, 255);
+  -webkit-background-clip: padding-box;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  text-transform: none;
+  margin: 0px;
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+}
+
+.abacusGenerator .style-35 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-36 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-37 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-38 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-39 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-40 {
+  display: none;
+  padding-right: 16px;
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px 0px 16px;
+  padding: 0px 16px 0px 5px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  padding-left: 5px;
+  margin-bottom: 16px;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-41 {
+  color: rgb(245, 134, 52);
+  margin: 0px 0px 8px;
+  font-weight: 700;
+  padding: 0px;
+  border: 0px none rgb(245, 134, 52);
+  font-style: normal;
+  font-variant: normal;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  display: inline-block;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-42 {
+  appearance: none;
+  background-image: url("https://www.mastermindabacus.com/assets/new/images/ang_dw.png");
+  background-repeat: no-repeat;
+  background-position: right 1px 50%;
+  height: 38px;
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(73, 80, 87);
+  background-color: rgb(255, 255, 255);
+  -webkit-background-clip: padding-box;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  text-transform: none;
+  margin: 0px;
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+}
+
+.abacusGenerator .style-43 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-44 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-45 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-46 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-47 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-48 {
+  display: none;
+  padding-right: 16px;
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px 0px 16px;
+  padding: 0px 16px 0px 5px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  padding-left: 5px;
+  margin-bottom: 16px;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-49 {
+  color: rgb(245, 134, 52);
+  margin: 0px 0px 8px;
+  font-weight: 700;
+  padding: 0px;
+  border: 0px none rgb(245, 134, 52);
+  font-style: normal;
+  font-variant: normal;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  display: inline-block;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-50 {
+  appearance: none;
+  background-image: url("https://www.mastermindabacus.com/assets/new/images/ang_dw.png");
+  background-repeat: no-repeat;
+  background-position: right 1px 50%;
+  height: 38px;
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(73, 80, 87);
+  background-color: rgb(255, 255, 255);
+  -webkit-background-clip: padding-box;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  text-transform: none;
+  margin: 0px;
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+}
+
+.abacusGenerator .style-51 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-52 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-53 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-54 {
+  display: none;
+  padding-right: 16px;
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px 0px 16px;
+  padding: 0px 16px 0px 5px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  padding-left: 5px;
+  margin-bottom: 16px;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-55 {
+  color: rgb(245, 134, 52);
+  margin: 0px 0px 8px;
+  font-weight: 700;
+  padding: 0px;
+  border: 0px none rgb(245, 134, 52);
+  font-style: normal;
+  font-variant: normal;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  display: inline-block;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-56 {
+  appearance: none;
+  background-image: url("https://www.mastermindabacus.com/assets/new/images/ang_dw.png");
+  background-repeat: no-repeat;
+  background-position: right 1px 50%;
+  height: 38px;
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(73, 80, 87);
+  background-color: rgb(255, 255, 255);
+  -webkit-background-clip: padding-box;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  text-transform: none;
+  margin: 0px;
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+}
+
+.abacusGenerator .style-57 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-58 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-59 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-60 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-61 {
+  display: none;
+  padding-right: 16px;
+  -webkit-box-flex: 0;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin: 0px 0px 16px;
+  padding: 0px 16px 0px 5px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  padding-left: 5px;
+  margin-bottom: 16px;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-62 {
+  color: rgb(245, 134, 52);
+  margin: 0px 0px 8px;
+  font-weight: 700;
+  padding: 0px;
+  border: 0px none rgb(245, 134, 52);
+  font-style: normal;
+  font-variant: normal;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  display: inline-block;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-63 {
+  appearance: none;
+  background-image: url("https://www.mastermindabacus.com/assets/new/images/ang_dw.png");
+  background-repeat: no-repeat;
+  background-position: right 1px 50%;
+  height: 38px;
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(73, 80, 87);
+  background-color: rgb(255, 255, 255);
+  -webkit-background-clip: padding-box;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  text-transform: none;
+  margin: 0px;
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+}
+
+.abacusGenerator .style-64 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-65 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-66 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-67 {
+  margin: 0px;
+  padding: 0px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-68 {
+  background: rgb(119, 119, 119) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  padding: 30px 20px;
+  margin: 0px -5px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  display: flex;
+  justify-content: space-between;
+  margin-right: -5px;
+  margin-left: -5px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-69 {
+  padding-right: 24px;
+  margin-bottom: 0px;
+  -webkit-box-flex: 0;
+  flex: 0 0 50%;
+  max-width: 50%;
+  margin: 0px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  padding-left: 5px;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-70 {
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(73, 80, 87);
+  background-color: rgb(255, 255, 255);
+  -webkit-background-clip: padding-box;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  overflow: visible;
+  margin: 0px;
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+}
+
+.abacusGenerator .style-71 {
+  padding-right: 24px;
+  margin-bottom: 0px;
+  -webkit-box-flex: 0;
+
+  margin: 0px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  padding-left: 5px;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-72 {
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(73, 80, 87);
+  background-color: rgb(255, 255, 255);
+  -webkit-background-clip: padding-box;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  overflow: visible;
+  margin: 0px;
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+}
+
+.abacusGenerator .style-73 {
+  padding-right: 16px;
+  margin-bottom: 0px;
+  -webkit-box-flex: 0;
+
+  margin: 0px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  padding-left: 5px;
+  position: relative;
+  width: 50%;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-74 {
+  appearance: none;
+  background-image: url("https://www.mastermindabacus.com/assets/new/images/ang_dw.png");
+  background-repeat: no-repeat;
+  background-position: right 50%;
+  height: 38px;
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgb(73, 80, 87);
+  background-color: rgb(255, 255, 255);
+  -webkit-background-clip: padding-box;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  text-transform: none;
+  margin: 0px;
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+  -webkit-background-clip: padding-box;
+}
+
+.abacusGenerator .style-75 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-76 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-77 {
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-78 {
+  text-align: center;
+  width: 100%;
+  margin: 22px 0px 0px;
+  padding: 0px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-79 {
+  margin-right: 10px;
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(245, 134, 52);
+  background: rgb(245, 134, 52) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  text-align: center;
+  line-height: 20px;
+  padding: 15px 25px;
+  letter-spacing: normal;
+  font-weight: 600;
+  font-size: 15px;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 4px;
+  margin-bottom: 0px;
+  appearance: button;
+  text-transform: none;
+  overflow: visible;
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-80 {
+  margin: 0px -15px;
+  padding: 0px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  box-sizing: border-box;
+}
+
+.abacusGenerator .style-81 {
+  -webkit-box-flex: 0;
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin: 16px 0px;
+  padding: 0px 15px;
+  border: 0px none rgb(33, 37, 41);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  line-height: 16px;
+  font-family: Poppins, sans-serif;
+  font-optical-sizing: auto;
+  font-kerning: auto;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 16px;
+  vertical-align: baseline;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 540px) {
+  .abacusGenerator {
+    padding-top: 30px;
+    padding-bottom: 0px;
+  }
+  .abacusGenerator .style-5 {
+    flex-direction: column;
+  }
+  .abacusGenerator .style-68 {
+    flex-direction: column;
+  }
+  .abacusGenerator .style-6,
+  .abacusGenerator .style-13,
+  .abacusGenerator .style-21,
+  .abacusGenerator .style-32,
+  .abacusGenerator .style-69,
+  .abacusGenerator .style-71,
+  .abacusGenerator .style-73 {
+    max-width: unset;
+    margin-bottom: 10px;
+    padding-right: unset;
+  }
+  .abacusGenerator .style-1 {
+    width: 90%;
+  }
+}
+
+.style-71 .style-62 {
+  color: #fff;
+}
+.style-73 .style-62 {
+  color: #fff;
+}
+
+.sheetOutputTable {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 1600px;
+  margin: auto;
+  font-size: 14px !important;
+  overflow-x: scroll;
+}
+.sheetOutputTable th,
+.sheetOutputTable td {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+.sheetOutputTable th {
+  background-color: #f2f2f2;
+}
