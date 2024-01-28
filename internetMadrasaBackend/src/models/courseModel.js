@@ -70,6 +70,7 @@ const DataSchema = mongoose.Schema(
             type: String,
           },
         },
+        image: { type: String },
       },
     ],
     coursePrice: {

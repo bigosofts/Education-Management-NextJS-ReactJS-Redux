@@ -115,7 +115,6 @@ export default async function Home() {
       <ReviewPage />
       <CoursePage />
       <InfoPage />
-
       <NoticeEvent />
 
       {/* <GalleryCard linkObj={ObjArray3(data3)} /> */}
