@@ -6,14 +6,14 @@ import "./abacusGenerator.css";
 
 function SheetSubmission() {
   const [data, setData] = useState();
-  const [render, setRender] = useState(true);
+
   const [friend, setFriend] = useState([]);
   const [formula, setFormula] = useState([]);
   const [row, setRow] = useState([]);
   const [answer, setAnswer] = useState("Enter Answer");
   const [ID, setID] = useState();
   const [serial, setSerial] = useState([]);
-  const [buttonText, setButtonText] = useState("Add Data");
+  const [buttonText, setButtonText] = useState("Add Math");
 
   const operatorRef = useRef();
   const friendRef = useRef();
@@ -271,8 +271,12 @@ function SheetSubmission() {
     }
   }
 
-  function changeButtonText() {
-    setButtonText("Update Math");
+  function changeButtonText(e) {
+    if (e.target.value == "none") {
+      setButtonText("Add Math");
+    } else {
+      setButtonText("Update Math");
+    }
   }
 
   useEffect(() => {
@@ -290,7 +294,7 @@ function SheetSubmission() {
       }
     }
     getData();
-  }, [render]);
+  }, []);
 
   if (data && friend && formula && row && answer && serial && ID) {
     function getOperator() {
@@ -422,7 +426,7 @@ function SheetSubmission() {
                       placeholder="10-20+25-11"
                     />
                   </div>
-                  <div className="style-73">
+                  <div className="style-71">
                     <label htmlFor="answer" className="style-62">
                       {true ? "Input Answer:" : "উত্তর যুক্ত করুন"}
                     </label>
@@ -438,6 +442,11 @@ function SheetSubmission() {
                 </div>
                 <div className="style-78">
                   <button
+                    style={{
+                      backgroundColor: `${
+                        buttonText == "Add Math" ? "green" : "orange"
+                      }`,
+                    }}
                     onClick={() => addMath(data)}
                     type="button"
                     className="style-79"
