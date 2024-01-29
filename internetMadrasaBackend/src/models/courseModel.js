@@ -82,6 +82,10 @@ const DataSchema = mongoose.Schema(
         tk: { type: Number },
         us: { type: Number },
       },
+      time: {
+        heading: { en: { type: String }, bn: { type: String } },
+        text: { en: { type: String }, bn: { type: String } },
+      },
     },
     courseButton: {
       text: {

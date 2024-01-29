@@ -543,6 +543,11 @@ function AbacusCourse({ info, comment, richtext }) {
                                 (Foreigner: {info.coursePrice.registration.us}{" "}
                                 US Dollar)
                               </span>
+                              Class Time: {info.coursePrice.time.heading.bn}
+                              <span style={{ color: "red", fontSize: "16px" }}>
+                                (Schedule: {info.coursePrice.time.text.bn})
+                              </span>
+                              <br />
                             </div>
                             <div className="style-1152">
                               Monthly: {info.coursePrice.monthly.tk} Taka <br />
