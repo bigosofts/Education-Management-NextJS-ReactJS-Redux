@@ -10,6 +10,7 @@ function SheetSubmission() {
   const [friend, setFriend] = useState([]);
   const [formula, setFormula] = useState([]);
   const [row, setRow] = useState([]);
+  const [digit, setDigit] = useState([]);
   const [answer, setAnswer] = useState("Enter Answer");
   const [ID, setID] = useState();
   const [serial, setSerial] = useState([]);
@@ -21,6 +22,7 @@ function SheetSubmission() {
   const rowRef = useRef();
   const mathRef = useRef();
   const serialRef = useRef();
+  const digitRef = useRef();
 
   function changeFriend(data, operator) {
     const operatorValue = operatorRef.current.value;
@@ -107,20 +109,20 @@ function SheetSubmission() {
       }
     });
   }
-  function changeSerial(data, operator, friend, formula, Row) {
+  function changeDigit(data, operator, friend, formula, Row) {
     const operatorValue = operatorRef.current.value;
 
     const friendValue = friendRef.current.value;
     const formulaValue = formulaRef.current.value;
     const rowValue = rowRef.current.value;
 
-    function getSerial(operator, friend, formula, Row) {
-      const row = data[operator].friend[friend].formula[formula].row[
+    function getDigit(operator, friend, formula, Row) {
+      const digit = data[operator].friend[friend].formula[formula].row[
         Row
-      ].math.map((item) => {
-        return item.question;
+      ].digit.map((item) => {
+        return item.digitName;
       });
-      return row;
+      return digit;
     }
 
     operator.forEach((item, i) => {
@@ -136,7 +138,52 @@ function SheetSubmission() {
                 if (formulaValue == i3) {
                   Row.forEach((item, i4) => {
                     if (rowValue == i4) {
-                      setSerial(getSerial(i, i2, i3, i4));
+                      setDigit(getDigit(i, i2, i3, i4));
+                    }
+                  });
+                }
+              });
+            }
+          });
+        }
+      }
+    });
+  }
+  function changeSerial(data, operator, friend, formula, Row, digit) {
+    const operatorValue = operatorRef.current.value;
+
+    const friendValue = friendRef.current.value;
+    const formulaValue = formulaRef.current.value;
+    const rowValue = rowRef.current.value;
+    const digitValue = digitRef.current.value;
+
+    function getSerial(operator, friend, formula, Row, digit) {
+      const math = data[operator].friend[friend].formula[formula].row[
+        Row
+      ].digit[digit].math.map((item) => {
+        return item.question;
+      });
+      return math;
+    }
+
+    operator.forEach((item, i) => {
+      if (operatorValue == i) {
+        if (i == 2) {
+          mytoast.warning("Division have no friend");
+        } else if (i == 3) {
+          mytoast.warning("Multiplication have no friend");
+        } else {
+          friend.forEach((item, i2) => {
+            if (friendValue == i2) {
+              formula.forEach((item, i3) => {
+                if (formulaValue == i3) {
+                  Row.forEach((item, i4) => {
+                    if (rowValue == i4) {
+                      digit.forEach((item, i5) => {
+                        if (digitValue == i5) {
+                          setSerial(getSerial(i, i2, i3, i4, i5));
+                        }
+                      });
                     }
                   });
                 }
@@ -194,6 +241,7 @@ function SheetSubmission() {
     const rowValue = rowRef.current.value;
     const math = mathRef.current.value;
     const serialValue = serialRef.current.value;
+    const digitValue = digitRef.current.value;
 
     if (operatorValue === "none") {
       mytoast.warning("select the operator");
@@ -203,13 +251,15 @@ function SheetSubmission() {
       mytoast.warning("select the Formula");
     } else if (rowValue === "none") {
       mytoast.warning("select Row");
+    } else if (digitValue === "none") {
+      mytoast.warning("select Digit");
     } else if (math === "") {
-      mytoast.warning("select Math");
+      mytoast.warning("input Math");
     } else if (serialValue === "none") {
       const newArray = [...data];
       newArray[operatorValue].friend[friendValue].formula[formulaValue].row[
         rowValue
-      ].math.push({ question: math, answer: answer });
+      ].digit[digitValue].math.push({ question: math, answer: answer });
 
       async function update() {
         const res = await updateData(
@@ -229,7 +279,7 @@ function SheetSubmission() {
 
           const operator = getOperator();
 
-          changeSerial(data, operator, friend, formula, row);
+          changeSerial(data, operator, friend, formula, row, digit);
         } else {
           console.log(res);
         }
@@ -240,7 +290,10 @@ function SheetSubmission() {
       const newArray = [...data];
       newArray[operatorValue].friend[friendValue].formula[formulaValue].row[
         rowValue
-      ].math[serialValue] = { question: math, answer: answer };
+      ].digit[digitValue].math[serialValue] = {
+        question: math,
+        answer: answer,
+      };
 
       async function update() {
         const res = await updateData(
@@ -261,7 +314,7 @@ function SheetSubmission() {
 
           const operator = getOperator();
 
-          changeSerial(data, operator, friend, formula, row);
+          changeSerial(data, operator, friend, formula, row, digit);
         } else {
           console.log(res);
         }
@@ -296,7 +349,7 @@ function SheetSubmission() {
     getData();
   }, []);
 
-  if (data && friend && formula && row && answer && serial && ID) {
+  if (data && friend && formula && row && answer && serial && ID && digit) {
     function getOperator() {
       const operator = data.map((item) => {
         return item.name;
@@ -376,7 +429,7 @@ function SheetSubmission() {
                     </label>{" "}
                     <select
                       onChange={() =>
-                        changeSerial(data, operator, friend, formula, row)
+                        changeDigit(data, operator, friend, formula, row)
                       }
                       ref={rowRef}
                       className="style-34"
@@ -384,6 +437,33 @@ function SheetSubmission() {
                     >
                       <option value="none">Select Row</option>
                       {row.map((item, i) => (
+                        <option value={i} key={i} className="style-16">
+                          {item}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="style-32">
+                    <label htmlFor="inputState" className="style-33">
+                      {true ? "No. of Digit:" : "সারি নাম্বার"}
+                    </label>{" "}
+                    <select
+                      onChange={() =>
+                        changeSerial(
+                          data,
+                          operator,
+                          friend,
+                          formula,
+                          row,
+                          digit
+                        )
+                      }
+                      ref={digitRef}
+                      className="style-34"
+                      name="ddSumDigits"
+                    >
+                      <option value="none">Select Digit</option>
+                      {digit.map((item, i) => (
                         <option value={i} key={i} className="style-16">
                           {item}
                         </option>
