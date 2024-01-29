@@ -43,15 +43,15 @@ function AbacusCourse({ info, comment, richtext }) {
                         <div className="style-15">
                           <div className="style-16">
                             <Image
+                              width={73}
+                              height={73}
+                              src={item.image}
                               alt=""
                               draggable="false"
                               loading="lazy"
                               decoding="async"
                               data-nimg="1"
                               className="style-17"
-                              width={73}
-                              height={73}
-                              src={item.image}
                             />
                           </div>
                         </div>
@@ -571,8 +571,7 @@ function AbacusCourse({ info, comment, richtext }) {
                               alt="icon"
                               draggable="false"
                               loading="lazy"
-                              width="20"
-                              height="20"
+                              style={{ width: "20px", height: "20px" }}
                               decoding="async"
                               data-nimg="1"
                               className="style-1160"
