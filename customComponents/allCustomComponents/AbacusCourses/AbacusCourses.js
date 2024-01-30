@@ -116,6 +116,48 @@ function AbacusCourse({ info, comment, richtext }) {
                 </div>
               </div>
             </div>
+
+            <div className="style-1067">
+              <div className="style-1068">
+                <div className="style-1069">
+                  <div className="style-1070">
+                    <h2 className="style-1071">
+                      {true
+                        ? "What Will You Need?"
+                        : "ক্লাস করার জন্য প্রয়োজন হবে"}
+                    </h2>
+                    <div className="style-1072">
+                      <ul className="style-1073">
+                        {info.courseMaterial.map((item, i) => (
+                          <li key={i} className="style-1074">
+                            <svg
+                              stroke="currentColor"
+                              fill="currentColor"
+                              strokeWidth="0"
+                              viewBox="0 0 20 20"
+                              aria-hidden="true"
+                              className="style-1075"
+                              height="24"
+                              width="24"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clipRule="evenodd"
+                                className="style-1076"
+                              ></path>
+                            </svg>
+                            <h3 className="style-1077">{item.bn}</h3>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="style-855">
               <div className="style-856">
                 <div className="style-857">
@@ -293,46 +335,7 @@ function AbacusCourse({ info, comment, richtext }) {
                 </div>
               </div>
             </div>
-            <div className="style-1067">
-              <div className="style-1068">
-                <div className="style-1069">
-                  <div className="style-1070">
-                    <h2 className="style-1071">
-                      {true
-                        ? "What Will You Need?"
-                        : "ক্লাস করার জন্য প্রয়োজন হবে"}
-                    </h2>
-                    <div className="style-1072">
-                      <ul className="style-1073">
-                        {info.courseMaterial.map((item, i) => (
-                          <li key={i} className="style-1074">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              strokeWidth="0"
-                              viewBox="0 0 20 20"
-                              aria-hidden="true"
-                              className="style-1075"
-                              height="24"
-                              width="24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                clipRule="evenodd"
-                                className="style-1076"
-                              ></path>
-                            </svg>
-                            <h3 className="style-1077">{item.bn}</h3>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
             <div className="style-1082">
               <div className="style-1083">
                 <h2 className="style-1084">
