@@ -34,10 +34,7 @@ function QaPage(props) {
 
     mytoast.info(`item ${id} selected for update`);
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+   
   };
   const deleteHandler = (id) => {
     deleteData(id);
