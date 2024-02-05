@@ -36,17 +36,17 @@ app.use(hpp());
 // Body Parser Implement
 app.use(bodyParser.json());
 
-app.set("trust proxy", true);
-// Request Rate Limit
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 500000,
-  message: "Too many requests from this IP, please try again later.",
-  delayMs: 100,
+// app.set("trust proxy", true);
+// // Request Rate Limit
+// const limiter = rateLimit({
+//   windowMs: 15 * 60 * 1000,
+//   max: 500000,
+//   message: "Too many requests from this IP, please try again later.",
+//   delayMs: 100,
 
-  validate: { trustProxy: false, ip: false },
-});
-app.use(limiter);
+//   validate: { trustProxy: false, ip: false },
+// });
+// app.use(limiter);
 
 // Mongo DB Database Connection
 let URI = `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@internetmadrasha.oo78neo.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority`;
