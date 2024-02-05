@@ -1,6 +1,7 @@
+import React from "react";
 import CourseCurriculam from "@/customComponents/allCustomComponents/courseCurriculam/CourseCurriculam";
 
-function AbacusStudentPage() {
+function page(props) {
   return (
     <div
       style={{
@@ -16,4 +17,4 @@ function AbacusStudentPage() {
   );
 }
 
-export default AbacusStudentPage;
+export default page;

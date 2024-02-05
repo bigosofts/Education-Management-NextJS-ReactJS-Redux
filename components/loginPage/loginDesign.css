@@ -1,0 +1,9 @@
+.image-div {
+  background-position: top;
+  background-size: cover;
+}
+@media only screen and (max-width: 768px) {
+  .image-div {
+    height: 250px;
+  }
+}

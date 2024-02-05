@@ -37,6 +37,7 @@ exports.selectAllData = async (query, projection) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payloaddata),
+      cache: "no-store",
     }
   );
 
@@ -133,7 +134,8 @@ exports.createData = async (
   educationalBackground,
   userRole,
   activeStatus,
-  designation
+  designation,
+  userName
 ) => {
   const aboutdata = {
     firstName: {
@@ -164,7 +166,9 @@ exports.createData = async (
     activeStatus: activeStatus,
     userRole: userRole,
     designation: designation,
+    userName: userName,
   };
+  console.log(aboutdata);
   if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-teacher`,

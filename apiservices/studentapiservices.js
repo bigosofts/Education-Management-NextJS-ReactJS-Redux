@@ -37,6 +37,7 @@ exports.selectAllData = async (query, projection) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payloaddata),
+      cache: "no-store",
     }
   );
 
@@ -137,6 +138,8 @@ exports.createData = async ({
   extracurricular,
   details,
   activeStatus,
+  userRole,
+  userName
 }) => {
   const aboutdata = {
     firstName: {
@@ -170,7 +173,10 @@ exports.createData = async ({
     details: details,
     paymentStatus: paymentStatus,
     activeStatus: activeStatus,
+    userRole: userRole,
+    userName:userName
   };
+  console.log(aboutdata);
   if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-student`,

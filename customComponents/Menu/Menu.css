@@ -189,9 +189,6 @@
   .mainmenu .style-16 {
     display: none;
   }
-  .mainmenu {
-    margin-bottom: 30px;
-  }
 }
 
 @media only screen and (max-width: 380px) {
