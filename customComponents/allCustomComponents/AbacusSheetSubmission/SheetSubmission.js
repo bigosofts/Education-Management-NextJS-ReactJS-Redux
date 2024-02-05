@@ -349,7 +349,7 @@ function SheetSubmission() {
     getData();
   }, []);
 
-  if (data && friend && formula && row && answer && serial && ID && digit) {
+  if (data && friend && formula && row && serial && ID && digit) {
     function getOperator() {
       const operator = data.map((item) => {
         return item.name;
@@ -512,7 +512,7 @@ function SheetSubmission() {
                     </label>
                     <input
                       value={answer}
-                      type="number"
+                      type="text"
                       className="style-72"
                       required=""
                       name="answer"
