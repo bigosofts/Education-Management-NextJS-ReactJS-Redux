@@ -12,7 +12,7 @@ function AbacusPlay() {
       <div className="abacusDesign">
         <div className="abacusChild">
           <div id="myAbacus"></div>
-          <p style={{ textAlign: "center" }}>
+          <p style={{ textAlign: "center", width: "90%", margin: "auto" }}>
             <span style={{ fontWeight: "bolder" }}>NB: </span>For more beads you
             can simply rotate your phone to horizontal or use higher resolution
             device

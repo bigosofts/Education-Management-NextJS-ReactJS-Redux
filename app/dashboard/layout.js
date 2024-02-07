@@ -19,11 +19,9 @@ function DashboardLayout({ loggedin, notloggedin }) {
   }, []);
 
   if (data) {
-   
     if (data.status == "noToken") {
       return notloggedin;
     } else {
-     
       return loggedin;
     }
   }

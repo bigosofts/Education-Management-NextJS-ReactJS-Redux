@@ -41,6 +41,7 @@
   height: 55vh;
   overflow-y: scroll;
   overflow-x: hidden;
+  padding-top: 0px;
 }
 #videoList a {
   text-decoration: none;
@@ -53,6 +54,9 @@
   width: 100%;
   transition: 0.4s;
   border: 1px white solid;
+}
+#videoList a:first-child{
+  margin-top:0px;
 }
 #videoList a:hover,
 #videoList a:active {
@@ -77,5 +81,7 @@ input:checked ~ a {
   #videoList {
     padding-top: 20px;
     margin: 5px 0;
+    flex: unset;
+    height: 37vh;
   }
 }

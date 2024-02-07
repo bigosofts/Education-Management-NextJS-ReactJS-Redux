@@ -4,7 +4,7 @@
   background: #fff;
   margin: 100px auto;
   border: 0px solid green;
-  padding: 20px 50px 50px 50px;
+  padding: 20px 0px 50px 0px;
 }
 
 .wrapperQuiz h1 {
@@ -12,9 +12,11 @@
   font-family: sans-serif;
   background: green;
   color: #fff;
-  padding:10px 0px;
+  padding: 10px 0px;
   border-radius: 5px;
   font-size: 24px !important;
+  width: 90%;
+  margin: auto;
 }
 
 .wrapperQuiz #question {
@@ -29,6 +31,8 @@
   margin-top: 30px;
   width: 80%;
   margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .wrapperQuiz #btn0,
@@ -41,7 +45,7 @@
   color: #fff;
   border: 1px solid #1d3c6a;
   padding: 10px;
-  margin: 10px 40px 10px 0;
+  margin: 10px auto;
   border-radius: 50px;
 }
 .wrapperQuiz #btn0:hover,
@@ -63,6 +67,8 @@
   font-size: 18px;
   color: #2f2f2f;
   padding-top: 50px;
+  width: 90%;
+  margin: auto;
 }
 
 .wrapperQuiz .progress-number {
@@ -77,4 +83,18 @@
   color: #fff;
   display: inline-block;
 }
-
+.question{
+  width: 90%;
+  margin: auto;
+}
+@media only screen and (max-width: 768px) {
+  .wrapperQuiz .buttons {
+    flex-direction: column;
+  }
+  .wrapperQuiz #progress {
+    text-align: center;
+  }
+  .wrapperQuiz {
+    margin-top: 20px;
+  }
+}

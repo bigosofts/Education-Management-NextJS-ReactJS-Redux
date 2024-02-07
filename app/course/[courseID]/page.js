@@ -1,7 +1,7 @@
 import MainMenu from "@/customComponents/Menu/Menu";
 import SubMenu from "@/customComponents/SubMenu/SubMenu";
 import Slider from "@/customComponents/slider/Slider";
-import Image from "next/image";
+
 
 import CustomVideoGallery from "@/customComponents/allCustomComponents/customVideoGallery/CustomVideoGallery";
 

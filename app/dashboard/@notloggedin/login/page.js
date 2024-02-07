@@ -74,7 +74,9 @@ function page(props) {
       if (data.status == "noToken") {
         const res = await studentLogin(StudentUserName, StudentPassword);
         if (res.status == "Alhamdulillah") {
-          console.log("login successfull");
+          setToken("access_token", res.token);
+
+          mytoast.success("You are successfully logged in");
           setShouldRefresh(true);
         } else if (res.status == "nouser") {
           router.push("/signup");
@@ -109,8 +111,8 @@ function page(props) {
           <div className="login-wrap">
             <div className="login-content">
               <div className="switchButton">
-                <div onClick={changer}>Student/Guest Login</div>
-                <div onClick={changer1}>Teacher/Gardian Login</div>
+                <div onClick={changer}>Student</div>
+                <div onClick={changer1}>Teacher</div>
               </div>
               <div className="login-logo">
                 <a className="" href="#">

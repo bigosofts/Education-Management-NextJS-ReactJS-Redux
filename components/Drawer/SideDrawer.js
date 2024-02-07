@@ -1,20 +1,67 @@
+"use client";
 import { IoMdClose } from "react-icons/io";
-function SideDrawer() {
+import Image from "next/image";
+import { useRouter, usePathname } from "next/navigation";
+
+import home from "../../public/images/home.svg";
+import "./SideDrawer.css";
+
+function SideDrawer({ changeDrawerState, show, sidebarItems, user }) {
+  const router = useRouter();
+  const pathName = usePathname();
+
   return (
-    <div className="bg-white w-5/6 box-border">
-      <div className="flex justify-between p-2 h-1/6 bg-pink-100">
-        <div className="text-xl text-slate-500">Abdullah Limon</div>
-        <IoMdClose className="text-3xl text-slate-500" />
-      </div>
-      <div>
-        <ul>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-            <li>Hello</li>
-        </ul>
+    <div
+      className={`${
+        show ? "w-full " : "w-0 "
+      }box-border absolute h-screen z-50 sideDrawer`}
+    >
+      <div className={`w-full bg-[rgba(0,0,0,0.5)] overflow-none h-screen`}>
+        <div
+          className={`${
+            show ? "w-5/6 md:w-1/4 " : "w-0 md:w-0"
+          } bg-white h-screen transition-all ease-in-out duration-1000 overflow-y-scroll sideDrawerOverflow`}
+        >
+          <div
+            className="flex justify-between p-2 h-1/6 bg-[#013030]
+          "
+          >
+            <div className="text-xl md:text-2xl text-white">
+              <p>{user.userName}</p>
+              <p className="text-sm md:text-lg">({user.userRole})</p>
+            </div>
+            <IoMdClose
+              onClick={changeDrawerState}
+              className="cursor-pointer text-3xl text-white"
+            />
+          </div>
+          <div className="">
+            <ul className="p-5">
+              <li
+                onClick={() => router.push("/")}
+                className="flex align-middle border-[1px] p-2 rounded-md mb-2 md:mb-5 hover:bg-[#013030] cursor-pointer hover:text-white transition-all ease-in-out duration-500"
+              >
+                <Image width={30} height={30} src={home} />
+                <h1 className="my-auto px-5 text-[20px] md:text-2xl text-[inherit]">
+                  Home
+                </h1>
+              </li>
+              {sidebarItems.map((item) => (
+                <li
+                  onClick={() => router.push(item.href)}
+                  className={`flex align-middle border-[1px] p-2 rounded-md mb-2 md:mb-5 hover:bg-[#013030] cursor-pointer hover:text-white transition-all ease-in-out duration-500 ${
+                    pathName == item.href ? "bg-[#013030] text-white" : ""
+                  }`}
+                >
+                  <Image width={30} height={30} src={item.icon} />
+                  <h1 className="my-auto px-5 text-[20px] md:text-2xl text-[inherit]">
+                    {item.name}
+                  </h1>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -12,6 +12,7 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
+  background-color: #fff !important;
 }
 .completeWrapper {
   width: 100vw;

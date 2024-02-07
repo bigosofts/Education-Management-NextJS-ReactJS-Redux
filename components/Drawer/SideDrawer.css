@@ -1,0 +1,8 @@
+.sideDrawerOverflow::-webkit-scrollbar {
+  display: none;
+}
+.sideDrawerOverflow {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background-color: #fff !important;
+}
