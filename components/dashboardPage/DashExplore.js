@@ -102,7 +102,7 @@ function DashExplore() {
       </div>
     );
   } else {
-    return <div>You need to login to see this Section</div>;
+    return <div>Loading...</div>;
   }
 }
 
