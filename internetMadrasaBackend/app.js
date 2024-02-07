@@ -34,7 +34,8 @@ app.use(xssClean());
 app.use(hpp());
 
 // Body Parser Implement
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: "10mb" }));
+app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
 
 // app.set("trust proxy", true);
 // // Request Rate Limit
