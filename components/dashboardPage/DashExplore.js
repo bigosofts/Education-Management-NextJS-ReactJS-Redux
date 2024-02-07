@@ -57,7 +57,7 @@ function DashExplore() {
       },
 
       {
-        name: "Courses",
+        name: "Classes",
         href: `/dashboard/${data.data.userName}/classes`,
         icon: "/images/course.svg",
       },

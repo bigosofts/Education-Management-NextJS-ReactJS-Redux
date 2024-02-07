@@ -18,10 +18,12 @@ module.exports = (req, res, next) => {
           let authorizedUser = decoded["data"]["userName"];
           let authorizedRole = decoded["data"]["userRole"];
           let authorizedAdmin = decoded["data"]["isAdmin"];
+          let userDetails = decoded["data"];
 
           req.headers["userName"] = authorizedUser;
           req.headers["userRole"] = authorizedRole;
           req.headers["isAdmin"] = authorizedAdmin;
+          req.headers["userDetails"] = userDetails;
 
           next();
         }

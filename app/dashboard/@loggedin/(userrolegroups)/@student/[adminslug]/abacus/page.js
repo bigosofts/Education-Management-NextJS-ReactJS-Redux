@@ -1,5 +1,6 @@
 import CourseCurriculam from "@/customComponents/allCustomComponents/courseCurriculam/CourseCurriculam";
 
+
 function AbacusPage(props) {
   return (
     <div

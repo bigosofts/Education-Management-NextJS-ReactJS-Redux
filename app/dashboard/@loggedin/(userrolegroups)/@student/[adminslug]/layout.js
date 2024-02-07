@@ -61,7 +61,7 @@ function StudentLayout({ children, params }) {
     },
 
     {
-      name: "Courses",
+      name: "Classes",
       href: `/dashboard/${params.adminslug}/classes`,
       icon: "/images/course.svg",
     },

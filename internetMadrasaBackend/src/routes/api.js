@@ -42,6 +42,7 @@ router.get("/isAdmin", authverify, (req, res) => {
   let userName = req.headers["userName"];
   let userRole = req.headers["userRole"];
   let isAdmin = req.headers["isAdmin"];
+  let userDetails = req.headers["userDetails"];
 
   res.status(200).json({
     status: "Alhamdulillah",
@@ -49,6 +50,7 @@ router.get("/isAdmin", authverify, (req, res) => {
       userName,
       userRole,
       isAdmin,
+      userDetails,
     },
   });
 });
