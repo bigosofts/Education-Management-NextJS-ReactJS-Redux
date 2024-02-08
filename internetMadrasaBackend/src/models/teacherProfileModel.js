@@ -37,6 +37,7 @@ const DataSchema = mongoose.Schema(
     createdData: { type: Date },
     updatedData: { type: Date },
     designation: { type: String },
+    details: { type: Object },
   },
   { versionKey: false }
 );

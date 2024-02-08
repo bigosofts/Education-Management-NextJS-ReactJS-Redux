@@ -290,6 +290,7 @@ exports.createTeacher = (req, res) => {
   let activeStatus = reqBody.activeStatus;
   let userRole = reqBody.userRole;
   let designation = reqBody.designation;
+  let details = reqBody.details;
 
   //Make res body for posting to the Database
 
@@ -314,6 +315,7 @@ exports.createTeacher = (req, res) => {
     activeStatus: activeStatus,
     userRole: userRole,
     designation: designation,
+    details:details
   };
 
   // Create Database record

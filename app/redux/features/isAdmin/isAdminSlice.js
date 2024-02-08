@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Define the initial state as null
 const initialState = {
-  value: { status: "noToken", data: "" },
+  value: null,
 };
 
 export const isAdminSlice = createSlice({

@@ -49,7 +49,8 @@ function LoginPageDesign({ userData }) {
               "teacher",
               "active",
               "",
-              `${userData.length + 1}`
+              `${userData.length + 1}`,
+              {}
             );
             if (res.status == "Alhamdulillah") {
               userData.push({
@@ -78,8 +79,8 @@ function LoginPageDesign({ userData }) {
               password,
               mobileNumber: mobile,
               occupation: "",
-              studentCourseCode: "",
-              studentJamatCode: "",
+              studentCourseCode: [],
+              studentJamatCode: [],
               gender: "",
               dateOfBirth: "",
               countryName: "",
@@ -89,7 +90,7 @@ function LoginPageDesign({ userData }) {
               studentMotive: "",
               paymentStatus: "",
               extracurricular: "",
-              details: "",
+              details: {},
               activeStatus: "active",
               userRole: "student",
               userName: `${userData.length + 1}`,

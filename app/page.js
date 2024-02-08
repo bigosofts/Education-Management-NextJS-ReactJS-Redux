@@ -21,6 +21,8 @@ import GalleryAll from "@/customComponents/GalleryALLLimited/GalleryALL";
 import HifzGrid from "@/customComponents/hifzGrid2/hifzGrid";
 import AlemAlemaGrid from "@/customComponents/alemalemagrid/alemalemagrid";
 
+
+
 function fisherYatesShuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -103,6 +105,7 @@ export default async function Home() {
 
   return (
     <div className="completeWrapper">
+      
       <MainMenu />
       <SubMenu pageName="Home" />
       <Slider linkObj={ObjArray(data.sliders)} />

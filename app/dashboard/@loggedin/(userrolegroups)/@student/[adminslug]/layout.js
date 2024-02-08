@@ -6,10 +6,17 @@ import { useRouter } from "next/navigation";
 import CommonMenu from "@/components/CommonMenu/CommonMenu";
 import SideDrawer from "@/components/Drawer/SideDrawer";
 
+import { useSelector, useDispatch } from "react-redux";
+
+import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
+
 function StudentLayout({ children, params }) {
+  const dispatch = useDispatch();
+
+  const data = useSelector((state) => state.isAdmin.value);
+
   const router = useRouter();
 
-  const [data, setData] = useState();
   const [show, setShow] = useState(false);
 
   function changeDrawerState() {
@@ -18,7 +25,10 @@ function StudentLayout({ children, params }) {
   useEffect(() => {
     async function fetchData() {
       const payload = await isAdmin();
-      setData(payload);
+      debugger;
+
+      dispatch(setInitialData(payload));
+      debugger;
     }
     fetchData();
   }, []);

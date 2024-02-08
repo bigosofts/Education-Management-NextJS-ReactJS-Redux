@@ -135,7 +135,8 @@ exports.createData = async (
   userRole,
   activeStatus,
   designation,
-  userName
+  userName,
+  details
 ) => {
   const aboutdata = {
     firstName: {
@@ -167,6 +168,7 @@ exports.createData = async (
     userRole: userRole,
     designation: designation,
     userName: userName,
+    details:details
   };
   console.log(aboutdata);
   if (data2) {
@@ -233,7 +235,8 @@ exports.updateData = async (
   userRole,
   activeStatus,
   idValue,
-  designation
+  designation,
+  details
 ) => {
   const aboutdata = {
     _id: idValue,
@@ -266,6 +269,7 @@ exports.updateData = async (
     userRole: userRole,
     userName: userName,
     designation: designation,
+    details
   };
   if (data2) {
     const res = await fetch(

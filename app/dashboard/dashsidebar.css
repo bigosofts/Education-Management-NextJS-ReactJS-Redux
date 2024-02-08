@@ -14,8 +14,16 @@ body {
 .layout {
   display: flex;
   height: 100vh;
+  overflow-y: scroll;
   position: relative;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background-color: #eaeaea !important;
 }
+.layout::-webkit-scrollbar {
+  display: none;
+}
+
 .main-box::-webkit-scrollbar {
   display: none;
 }

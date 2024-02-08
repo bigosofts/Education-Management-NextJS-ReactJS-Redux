@@ -1,12 +1,15 @@
 "use client";
-import { useState, useEffect } from "react";
-
+import { useEffect } from "react";
 import Link from "next/link";
 import { isAdmin, logout } from "@/apiservices/checklogin";
 import { removeToken } from "@/helper/sessionHelper";
 
+import { useSelector, useDispatch } from "react-redux";
+import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
+
 function SigninSignupmenuButton() {
-  const [adminData, setAdminData] = useState();
+  const dispatch = useDispatch();
+  const adminData = useSelector((state) => state.isAdmin.value);
 
   const hardRefresh = () => {
     if (typeof window !== "undefined") {
@@ -21,15 +24,13 @@ function SigninSignupmenuButton() {
 
     if (res.status == "Alhamdulillah") {
       removeToken("access_token");
-
       hardRefresh();
     }
   }
-
   useEffect(() => {
     async function getData() {
       const response = await isAdmin();
-      setAdminData(response);
+      dispatch(setInitialData(response));
     }
     getData();
   }, []);
