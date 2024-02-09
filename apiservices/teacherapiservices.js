@@ -168,7 +168,7 @@ exports.createData = async (
     userRole: userRole,
     designation: designation,
     userName: userName,
-    details:details
+    details: details,
   };
   console.log(aboutdata);
   if (data2) {
@@ -185,6 +185,7 @@ exports.createData = async (
     );
 
     if (!res.ok) {
+      console.log(res);
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
@@ -269,7 +270,7 @@ exports.updateData = async (
     userRole: userRole,
     userName: userName,
     designation: designation,
-    details
+    details,
   };
   if (data2) {
     const res = await fetch(
