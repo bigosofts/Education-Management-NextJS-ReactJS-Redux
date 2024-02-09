@@ -21,8 +21,8 @@ const DataSchema = mongoose.Schema(
     emailAddress: { type: String, required: true, unique: true },
     password: { type: String },
     mobileNumber: { type: String, required: true },
-    teacherCourseCode: { type: String },
-    teacherJamatCode: { type: String },
+    teacherCourseCode: [],
+    teacherJamatCode: [],
     gender: { type: String },
     dateOfBirth: { type: Date },
     countryName: { type: String },
@@ -37,7 +37,7 @@ const DataSchema = mongoose.Schema(
     createdData: { type: Date },
     updatedData: { type: Date },
     designation: { type: String },
-    details: { type: Object },
+    details: { type: Object, required: true },
   },
   { versionKey: false }
 );

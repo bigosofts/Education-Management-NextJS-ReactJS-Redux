@@ -38,8 +38,8 @@ function LoginPageDesign({ userData }) {
               email,
               password,
               mobile,
-              "",
-              "",
+              [],
+              [],
               "",
               "",
               "",
@@ -50,7 +50,7 @@ function LoginPageDesign({ userData }) {
               "active",
               "",
               `${userData.length + 1}`,
-              {}
+              { status: "ok" }
             );
             if (res.status == "Alhamdulillah") {
               userData.push({
@@ -90,7 +90,7 @@ function LoginPageDesign({ userData }) {
               studentMotive: "",
               paymentStatus: "",
               extracurricular: "",
-              details: {},
+              details: { status: "ok" },
               activeStatus: "active",
               userRole: "student",
               userName: `${userData.length + 1}`,

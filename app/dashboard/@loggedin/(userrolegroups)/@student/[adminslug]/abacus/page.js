@@ -3,12 +3,13 @@
 import { useSelector } from "react-redux";
 
 import CourseCurriculam from "@/customComponents/allCustomComponents/courseCurriculam/CourseCurriculam";
+import EnrollPlease from "@/components/dashboardPage/enrollPlease";
 
 function AbacusPage(props) {
   const data = useSelector((state) => state.isAdmin.value);
   if (data) {
-    if (data.data.userDetails.studentCourseCode.length == 1) {
-      return <div>Please Enroll a course first to avail this options</div>;
+    if (data.data.userDetails.studentCourseCode.length < 1) {
+      return <EnrollPlease/>
     } else {
       return (
         <div

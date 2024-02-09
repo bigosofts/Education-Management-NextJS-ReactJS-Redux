@@ -1,9 +1,17 @@
+"use client";
+
+import { useSelector } from "react-redux";
+import EnrollPlease from "@/components/dashboardPage/enrollPlease";
+
 function BookPage() {
-  return (
-    <div className="py-2 md:py-12">
-      <h1 className="text-lg md:text-3xl mt-2 text-slate-500">Explore</h1>
-    </div>
-  );
+  const data = useSelector((state) => state.isAdmin.value);
+  if (data) {
+    if (data.data.userDetails.studentCourseCode.length < 1) {
+      return <EnrollPlease />;
+    } else {
+      return <div>Book Page</div>;
+    }
+  }
 }
 
 export default BookPage;
