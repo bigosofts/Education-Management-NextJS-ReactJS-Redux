@@ -41,7 +41,9 @@ exports.checkPasswordStudent = (req, res, next) => {
           req.headers["userName"] = userName;
           next();
         } else {
-          console.log("Password Verification Failed");
+          res.json({
+            status: "wrongpass",
+          });
         }
       });
     } else {

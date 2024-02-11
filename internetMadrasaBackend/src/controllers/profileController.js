@@ -47,6 +47,8 @@ exports.createStudent = (req, res) => {
   let paymentStatus = reqBody.paymentStatus;
   let activeStatus = reqBody.activeStatus;
   let userRole = reqBody.userRole;
+  let studentDepartment = reqBody.studentDepartment;
+  let studentSemester = reqBody.studentSemester;
 
   //Make res body for posting to the Database
 
@@ -76,6 +78,8 @@ exports.createStudent = (req, res) => {
     paymentStatus: paymentStatus,
     activeStatus: activeStatus,
     userRole: userRole,
+    studentDepartment: studentDepartment,
+    studentSemester: studentSemester,
   };
 
   // Create Database record
@@ -174,6 +178,8 @@ exports.updateStudent = async (req, res) => {
       userName: reqBody.userName,
       details: reqBody.details,
       admissionDate: reqBody.admissionDate,
+      studentDepartment: reqBody.studentDepartment,
+      studentSemester: reqBody.studentSemester,
     };
   } else {
     postBody = {
@@ -211,6 +217,8 @@ exports.updateStudent = async (req, res) => {
       userName: reqBody.userName,
       details: reqBody.details,
       admissionDate: reqBody.admissionDate,
+      studentDepartment: studentDepartment,
+      studentSemester: studentSemester,
     };
   }
 
@@ -315,7 +323,7 @@ exports.createTeacher = (req, res) => {
     activeStatus: activeStatus,
     userRole: userRole,
     designation: designation,
-    details:details
+    details: details,
   };
 
   // Create Database record

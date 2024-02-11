@@ -8,6 +8,12 @@ import "./SideDrawer.css";
 
 function SideDrawer({ changeDrawerState, show, sidebarItems, user }) {
   const router = useRouter();
+  function pushAndChange(name) {
+    router.push(name);
+
+    changeDrawerState(false);
+  }
+
   const pathName = usePathname();
 
   return (
@@ -38,7 +44,7 @@ function SideDrawer({ changeDrawerState, show, sidebarItems, user }) {
           <div className="">
             <ul className="p-5">
               <li
-                onClick={() => router.push("/")}
+                onClick={() => pushAndChange("/")}
                 className="flex align-middle border-[1px] p-2 rounded-md mb-2 md:mb-5 hover:bg-[#013030] cursor-pointer hover:text-white transition-all ease-out duration-300"
               >
                 <Image width={30} height={30} src={home} />
@@ -48,7 +54,7 @@ function SideDrawer({ changeDrawerState, show, sidebarItems, user }) {
               </li>
               {sidebarItems.map((item) => (
                 <li
-                  onClick={() => router.push(item.href)}
+                  onClick={() => pushAndChange(item.href)}
                   className={`flex align-middle border-[1px] p-2 rounded-md mb-2 md:mb-5 hover:bg-[#013030] cursor-pointer hover:text-white transition-all ease-in-out duration-500 ${
                     pathName == item.href ? "bg-[#013030] text-white" : ""
                   } relative`}

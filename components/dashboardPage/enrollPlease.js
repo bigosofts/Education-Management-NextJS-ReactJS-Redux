@@ -9,9 +9,8 @@ function EnrollPlease() {
   return (
     <div className="h-[80vh] flex justify-center align-middle p-5">
       <div className="my-auto">
-        <h1 className="w-full md:w-[50%] mx-auto text-sm md:text-3xl text-justify mb-10">
-          First, you need to enroll a class and complete admission payment for
-          avail these options
+        <h1 className="w-full md:w-[50%] mx-auto text-lg md:text-3xl text-center mb-10">
+          এই পেজটি ব্যাবহার করতে, প্রথমে আপনাকে  যেকোনো একটি কোর্সে ইনরোল করে পেমেন্ট সম্পন্ন করতে হবে।
         </h1>
         <div className="flex gap-5 justify-center">
           <div
@@ -27,7 +26,7 @@ function EnrollPlease() {
               src="/images/course.svg"
             />
             <h2 className="mt-5 text-[12px] md:text-2xl text-center">
-              Select Class for enrolling
+              কোর্স দেখে ইনরোল করতে এখানে চাপুন
             </h2>
           </div>
           <div
@@ -41,7 +40,7 @@ function EnrollPlease() {
               src="/images/fees.svg"
             />
             <h2 className="mt-5 text-[12px] md:text-2xl text-center">
-              Complete Admission Fees
+              সরাসরি কোর্সের পেমেন্ট দিতে এখানে চাপুন
             </h2>
           </div>
         </div>

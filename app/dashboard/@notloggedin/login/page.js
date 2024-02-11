@@ -53,6 +53,8 @@ function page(props) {
 
           mytoast.success("You are successfully logged in");
           setShouldRefresh(true);
+        } else if (res.status == "wrongpass") {
+          mytoast.danger("you entered wrong combination");
         } else if (res.status == "nouser") {
           router.push("/signup");
         }
@@ -78,6 +80,8 @@ function page(props) {
 
           mytoast.success("You are successfully logged in");
           setShouldRefresh(true);
+        } else if (res.status == "wrongpass") {
+          mytoast.danger("you entered wrong combination");
         } else if (res.status == "nouser") {
           router.push("/signup");
         }

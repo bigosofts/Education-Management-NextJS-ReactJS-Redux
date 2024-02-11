@@ -1,5 +1,6 @@
 import { selectDataTwo } from "@/apiservices/courseapiservices";
 import Image from "next/image";
+import EnrollButton from "@/components/dashboardPage/courses/enroll";
 
 import "./CoursesPage.css";
 async function getData() {
@@ -44,13 +45,13 @@ async function CoursePage() {
               {data.slice(0, 9).map((item, i) => (
                 <div key={i} className="style-6">
                   <a
-                    href={`/course/${item.courseCode}`}
+                    href={`/classes/${item.courseCode}`}
                     target="_blank"
                     className="style-7"
                   ></a>
                   <div className="style-8">
                     <a
-                      href={`/course/${item.courseCode}`}
+                      href={`/classes/${item.courseCode}`}
                       target="_blank"
                       className="style-9"
                     >
@@ -64,7 +65,7 @@ async function CoursePage() {
                     </a>
                     <div className="style-11">
                       <a
-                        href={`/course/${item.courseCode}`}
+                        href={`/classes/${item.courseCode}`}
                         target="_blank"
                         className="style-12"
                       >
@@ -74,15 +75,9 @@ async function CoursePage() {
                           From {niceDate(item.startingDate.en)}
                         </p>
                       </a>
+                      <EnrollButton courseCode={item.courseCode} />
                       <a
-                        href={`/signup/madrasa-student`}
-                        target="_blank"
-                        className="style-16"
-                      >
-                        Enroll Now
-                      </a>{" "}
-                      <a
-                        href={`/course/${item.courseCode}`}
+                        href={`/classes/${item.courseCode}`}
                         className="style-17"
                       >
                         Course Details

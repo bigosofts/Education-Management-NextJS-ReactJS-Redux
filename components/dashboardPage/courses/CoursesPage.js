@@ -1,6 +1,7 @@
 import { selectDataTwo } from "@/apiservices/courseapiservices";
 import Image from "next/image";
 import Link from "next/link";
+import EnrollButton from "./enroll";
 
 import "./CoursesPage.css";
 async function getData() {
@@ -44,13 +45,13 @@ async function DashCourses() {
                 {data.map((item, i) => (
                   <div key={i} className="style-6">
                     <Link
-                      href={`/course/${item.courseCode}`}
+                      href={`/classes/${item.courseCode}`}
                       target="_blank"
                       className="style-7"
                     ></Link>
                     <div className="style-8">
                       <Link
-                        href={`/course/${item.courseCode}`}
+                        href={`/classes/${item.courseCode}`}
                         target="_blank"
                         className="style-9"
                       >
@@ -64,25 +65,19 @@ async function DashCourses() {
                       </Link>
                       <div className="style-11">
                         <Link
-                          href={`/course/${item.courseCode}`}
+                          href={`/classes/${item.courseCode}`}
                           target="_blank"
                           className="style-12"
                         >
                           <h4 className="style-13">{item.title.en} </h4>
                           <p className="style-14">
-                            <i className="style-15" aria-hidden="true"></i>{" "}
+                            <i className="style-15" aria-shidden="true"></i>{" "}
                             Starts From {niceDate(item.startingDate.en)}
                           </p>
                         </Link>
+                        <EnrollButton courseCode={item.courseCode} />
                         <Link
-                          href={`/signup/madrasa-student`}
-                          target="_blank"
-                          className="style-16"
-                        >
-                          Enroll Now
-                        </Link>{" "}
-                        <Link
-                          href={`/course/${item.courseCode}`}
+                          href={`/classes/${item.courseCode}`}
                           className="style-17"
                         >
                           Course Details

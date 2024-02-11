@@ -1,5 +1,6 @@
 const { getToken } = require("@/helper/sessionHelper");
 const data2 = getToken("access_token");
+
 exports.selectData = async (query, projection) => {
   const payloaddata = {
     query: query,

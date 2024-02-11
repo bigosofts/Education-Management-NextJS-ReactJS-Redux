@@ -24,7 +24,6 @@ function StudentLayout({ children, params }) {
   useEffect(() => {
     async function fetchData() {
       const payload = await isAdmin();
-
       dispatch(setInitialData(payload));
     }
     fetchData();

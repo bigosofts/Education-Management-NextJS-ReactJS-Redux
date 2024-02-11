@@ -1,6 +1,7 @@
 import { selectDataTwo } from "@/apiservices/courseapiservices";
 import Image from "next/image";
 import Link from "next/link";
+import EnrollButton from "@/components/dashboardPage/courses/enroll";
 
 import "./CoursesPage.css";
 async function getData() {
@@ -46,13 +47,13 @@ async function AllCoursePage() {
               {data.map((item, i) => (
                 <div key={i} className="style-6">
                   <Link
-                    href={`/course/${item.courseCode}`}
+                    href={`/classes/${item.courseCode}`}
                     target="_blank"
                     className="style-7"
                   ></Link>
                   <div className="style-8">
                     <Link
-                      href={`/course/${item.courseCode}`}
+                      href={`/classes/${item.courseCode}`}
                       target="_blank"
                       className="style-9"
                     >
@@ -66,7 +67,7 @@ async function AllCoursePage() {
                     </Link>
                     <div className="style-11">
                       <Link
-                        href={`/course/${item.courseCode}`}
+                        href={`/classes/${item.courseCode}`}
                         target="_blank"
                         className="style-12"
                       >
@@ -76,15 +77,9 @@ async function AllCoursePage() {
                           From {niceDate(item.startingDate.en)}
                         </p>
                       </Link>
+                      <EnrollButton courseCode={item.courseCode}/>
                       <Link
-                        href={`/signup/madrasa-student`}
-                        target="_blank"
-                        className="style-16"
-                      >
-                        Enroll Now
-                      </Link>{" "}
-                      <Link
-                        href={`/course/${item.courseCode}`}
+                        href={`/classes/${item.courseCode}`}
                         className="style-17"
                       >
                         Course Details

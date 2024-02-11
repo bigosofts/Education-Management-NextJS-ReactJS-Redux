@@ -11,15 +11,15 @@ import {
 const mytoast = {
   success: (msg) => {
     toastConfig({
-      duration: 4000,
-      zIndex: 999,
+      duration: 6000,
+      zIndex: 999999,
       className: "custom-toast",
       clickClosable: true,
-      position: "top-right",
+      position: "top-center",
       maxVisibleToasts: 10,
       isReversedOrder: false,
       render: (message) => (
-        <div className="allColor border border-white-200 rounded-md shadow-md py-5 px-10 text-white flex justify-center text-lg">
+        <div className="border border-white-200 rounded-md shadow-md py-1 md:py-5 px-2 md:px-10 text-white flex justify-center text-sm md:text-lg bg-lime-400">
           <span className="px-2 inline-block">
             <BiCheckSquare size={32} />
           </span>
@@ -31,17 +31,17 @@ const mytoast = {
   },
   warning: (msg) => {
     toastConfig({
-      duration: 4000,
-      zIndex: 999,
+      duration: 6000,
+      zIndex: 999999,
       className: "custom-toast",
       clickClosable: true,
-      position: "top-right",
+      position: "top-center",
       maxVisibleToasts: 10,
       isReversedOrder: false,
       render: (message) => (
-        <div className="allColor border border-white-200 rounded-md shadow-md py-5 px-10 text-white flex justify-center text-lg">
+        <div className="border border-white-200 rounded-md shadow-md py-1 md:py-5 px-2 md:px-10 text-white flex justify-center text-sm md:text-lg bg-orange-400">
           <span className="px-2 inline-block">
-            <BiCheckSquare size={32} />
+            <BiShieldQuarter size={32} />
           </span>
           {message}
         </div>
@@ -51,15 +51,15 @@ const mytoast = {
   },
   danger: (msg) => {
     toastConfig({
-      duration: 4000,
-      zIndex: 999,
+      duration: 6000,
+      zIndex: 999999,
       className: "custom-toast",
       clickClosable: true,
-      position: "top-right",
+      position: "top-center",
       maxVisibleToasts: 10,
       isReversedOrder: false,
       render: (message) => (
-        <p className="allColor border border-white-300 rounded-md shadow-md py-5 px-10 text-white flex justify-center text-lg">
+        <p className="border border-white-200 rounded-md shadow-md py-1 md:py-5 px-2 md:px-10 text-white flex justify-center text-sm md:text-lg bg-red-400">
           <span className="px-2 inline-block">
             <BiNoEntry size={32} />
           </span>
@@ -71,15 +71,15 @@ const mytoast = {
   },
   info: (msg) => {
     toastConfig({
-      duration: 4000,
-      zIndex: 999,
+      duration: 6000,
+      zIndex: 999999,
       className: "custom-toast",
       clickClosable: true,
-      position: "top-right",
+      position: "top-center",
       maxVisibleToasts: 10,
       isReversedOrder: false,
       render: (message) => (
-        <p className="allColor border border-white-300 rounded-md shadow-md py-5 px-10 text-white flex justify-center text-lg">
+        <p className="border border-white-200 rounded-md shadow-md py-1 md:py-5 px-2 md:px-10 text-white flex justify-center text-sm md:text-lg bg-sky-400">
           <span className="px-2 inline-block">
             <BiMessageRoundedDetail size={32} />
           </span>
