@@ -24,10 +24,34 @@ const DataSchema = mongoose.Schema(
     mobileNumber: { type: String, required: true },
     occupation: { type: String },
     extracurricular: { type: String },
-    studentCourseCode: [],
-    studentDepartment:[],
-    studentJamatCode: [],
-    studentSemester:[],
+    studentCourseCode: [
+      {
+        code: { type: String },
+        startedDate: { type: Date },
+        endDate: { type: Date },
+      },
+    ],
+    studentDepartment: [
+      {
+        code: { type: String },
+        startedDate: { type: Date },
+        endDate: { type: Date },
+      },
+    ],
+    studentJamatCode: [
+      {
+        code: { type: String },
+        startedDate: { type: Date },
+        endDate: { type: Date },
+      },
+    ],
+    studentSemester: [
+      {
+        code: { type: String },
+        startedDate: { type: Date },
+        endDate: { type: Date },
+      },
+    ],
     gender: { type: String },
     dateOfBirth: { type: Date },
     countryName: { type: String },
@@ -36,7 +60,11 @@ const DataSchema = mongoose.Schema(
     admissionDate: { type: Date },
     admissionSession: { type: String },
     studentMotive: { type: String },
-    paymentStatus: { type: Object },
+    paymentStatus: {
+      addmissionDueStatus: { type: Boolean },
+      monthlyDueStatus: { type: Boolean },
+      paymentID: { type: String },
+    },
     activeStatus: {
       type: String,
       required: true,

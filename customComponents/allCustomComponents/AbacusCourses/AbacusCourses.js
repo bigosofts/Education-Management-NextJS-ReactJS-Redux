@@ -2,6 +2,7 @@
 import "./AbacusCourses.css";
 import { useState } from "react";
 import Image from "next/image";
+import EnrollCondition from "@/components/dashboardPage/courses/enrollCondition";
 
 function AbacusCourse({ info, comment, richtext }) {
   const [syllabus, setSyllabus] = useState(3);
@@ -569,11 +570,9 @@ function AbacusCourse({ info, comment, richtext }) {
                         </div>
                         <div className="style-1154"></div>
                       </div>
-                      <button className="style-1155">
-                        <a href="/signup/madrasa-student/alem-alema">
-                          {info.courseButton.text.bn}
-                        </a>
-                      </button>
+                      <div className="style-1155">
+                        <EnrollCondition />
+                      </div>
                     </div>
                   </div>
                   <div className="style-1156">

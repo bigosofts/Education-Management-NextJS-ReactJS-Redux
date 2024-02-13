@@ -4,8 +4,10 @@ import { useState } from "react";
 import { updateData } from "@/apiservices/studentapiservices";
 import { useSelector } from "react-redux";
 import mytoast from "../toast/toast";
+import allCountry from "./allCountry";
 
 function ProfileUpdate() {
+  const countries = allCountry();
   const [inputType, setInputType] = useState("text");
   const handleFocus = () => {
     setInputType("date");
@@ -80,7 +82,7 @@ function ProfileUpdate() {
         undefined,
         finalData.gender,
         finalData.dateOfBirth,
-        finalData.countryName.toLowerCase().replace(/\s/g, ""),
+        finalData.countryName,
         finalData.fullPresentAddress,
         finalData.fullPermanentAddress,
         undefined,
@@ -95,7 +97,9 @@ function ProfileUpdate() {
       );
 
       if (res.status == "Alhamdulillah") {
-        mytoast.success("User Data has been Updated Successfully");
+        mytoast.success(
+          "User Data has been Updated Successfully. You need to Sign out and Sign in Again to see Profile changes"
+        );
       } else {
         console.log(res);
       }
@@ -197,7 +201,7 @@ function ProfileUpdate() {
           name="nidnumber"
           className="my-4 p-4 box-border w-full rounded-3xl"
           type="number"
-          placeholder="Enter your NID Number"
+          placeholder="Your NID (না থাকলে বাবা/মা)"
         ></input>
         {/* Input Field */}
         <label className="font-bold" htmlFor="birthregno">
@@ -210,7 +214,7 @@ function ProfileUpdate() {
           name="birthregno"
           className="my-4 p-4 box-border w-full rounded-3xl"
           type="number"
-          placeholder="Enter Birth Registration No."
+          placeholder="Your Birth Reg. (না থাকলে বাবা/মা)"
         ></input>
         {/* Input Field */}
         <label className="font-bold" htmlFor="occupation">
@@ -274,17 +278,24 @@ function ProfileUpdate() {
         ></input>
         {/* Input Field */}
         <label className="font-bold" htmlFor="country">
-          Your Current Living Country:
+          Your Current Living Country: ( আপনি বর্তমানে যে দেশে বসবাস করছেন )
         </label>
-        <input
+
+        <select
           onChange={(e) => onChangeHander("countryName", e.target.value)}
           value={finalData.countryName}
           id="country"
           name="country"
-          className="my-4 p-4 box-border w-full rounded-3xl"
           type="text"
-          placeholder="Enter your Country Name"
-        ></input>
+          className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10"
+        >
+          <option value="">বর্তমানে আপনি কোন দেশে বাস করছেন</option>
+          {countries.data.map((item, i) => (
+            <option key={i} value={item.name}>
+              {item.name}
+            </option>
+          ))}
+        </select>
 
         {/* Input Field */}
         <label className="font-bold" htmlFor="presentaddress">
@@ -332,7 +343,7 @@ function ProfileUpdate() {
           placeholder="আপনার জীবনের উদ্যেশ্য কি?"
         ></textarea>
         <button
-          className="mt-10 w-full p-4 bg-lime-900 hover:bg-lime-700 transition duration-500 ease-out text-white absolute bottom-0 left-0"
+          className="mt-10 w-full p-4 bg-lime-900 hover:bg-lime-700 transition duration-500 ease-out text-white fixed bottom-0 left-0"
           type="submit"
         >
           {" "}

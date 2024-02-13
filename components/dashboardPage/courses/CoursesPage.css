@@ -4,8 +4,18 @@
   box-sizing: border-box;
   display: block;
 }
-
 .CoursesPage2 .style-1 {
+  max-width: 1200px;
+  margin: 0px 381.5px;
+  padding: 0px 15px;
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.CoursesPage2 .style-16 {
   max-width: 1200px;
   margin: 0px 381.5px;
   padding: 0px 15px;

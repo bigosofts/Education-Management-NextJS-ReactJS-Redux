@@ -135,8 +135,7 @@
 }
 
 .abacusCourse .style-16 {
-  font-size: 0px;
-  opacity: 1;
+  font-size: 20px;
   opacity: 1;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.3s;
@@ -12029,6 +12028,7 @@
   margin: 0px;
   border: 0px solid rgb(219, 225, 235);
   box-sizing: border-box;
+  text-align: center;
 }
 
 .abacusCourse .style-1156 {

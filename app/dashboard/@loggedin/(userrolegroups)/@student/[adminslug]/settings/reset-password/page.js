@@ -114,7 +114,7 @@ function ResetPassword() {
         ></input>
 
         <button
-          className="mt-10 w-full p-4 bg-lime-900 hover:bg-lime-700 transition duration-500 ease-out text-white absolute bottom-0 left-0"
+          className="mt-10 w-full p-4 bg-lime-900 hover:bg-lime-700 transition duration-500 ease-out text-white fixed bottom-0 left-0"
           type="submit"
         >
           {" "}

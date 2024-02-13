@@ -5,7 +5,7 @@ function notLoggedInlayout({ children }) {
   return (
     <>
       <MainMenu />
-      <SubMenu />
+      <SubMenu pageName="Login"/>
       {children}
       <Footer />
     </>

@@ -1,6 +1,6 @@
 import { selectDataTwo } from "@/apiservices/courseapiservices";
 import Image from "next/image";
-import EnrollButton from "@/components/dashboardPage/courses/enroll";
+import EnrollCondition from "@/components/dashboardPage/courses/enrollCondition";
 
 import "./CoursesPage.css";
 async function getData() {
@@ -75,7 +75,7 @@ async function CoursePage() {
                           From {niceDate(item.startingDate.en)}
                         </p>
                       </a>
-                      <EnrollButton courseCode={item.courseCode} />
+                      <EnrollCondition courseCode={item.courseCode} />
                       <a
                         href={`/classes/${item.courseCode}`}
                         className="style-17"

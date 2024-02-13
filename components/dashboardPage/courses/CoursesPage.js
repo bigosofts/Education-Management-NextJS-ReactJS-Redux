@@ -1,7 +1,8 @@
 import { selectDataTwo } from "@/apiservices/courseapiservices";
 import Image from "next/image";
 import Link from "next/link";
-import EnrollButton from "./enroll";
+
+import EnrollCondition from "./enrollCondition";
 
 import "./CoursesPage.css";
 async function getData() {
@@ -17,7 +18,7 @@ async function getData() {
   }
 }
 
-async function DashCourses() {
+async function DashCourses({ setProfileUpdate }) {
   const data = await getData();
 
   function niceDate(isoTime) {
@@ -75,7 +76,10 @@ async function DashCourses() {
                             Starts From {niceDate(item.startingDate.en)}
                           </p>
                         </Link>
-                        <EnrollButton courseCode={item.courseCode} />
+                        <EnrollCondition
+                          courseCode={item.courseCode}
+                          setProfileUpdate={setProfileUpdate}
+                        />
                         <Link
                           href={`/classes/${item.courseCode}`}
                           className="style-17"

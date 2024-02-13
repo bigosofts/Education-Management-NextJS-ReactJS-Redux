@@ -16,6 +16,8 @@ const DataSchema = mongoose.Schema(
         Price: { type: Number },
         currency: { type: String },
         transactionID: { type: String },
+        senderNo: { type: String },
+        paymentWay: { type: String },
       },
     ],
     monthlyPaymentHistory: [
@@ -25,6 +27,8 @@ const DataSchema = mongoose.Schema(
         Price: { type: Number },
         currency: { type: String },
         transactionID: { type: String },
+        senderNo: { type: String },
+        paymentWay: { type: String },
       },
     ],
     paymentCreatedDate: { type: Date },
