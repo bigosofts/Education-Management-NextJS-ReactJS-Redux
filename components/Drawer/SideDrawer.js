@@ -52,8 +52,9 @@ function SideDrawer({ changeDrawerState, show, sidebarItems, user }) {
                   Home
                 </h1>
               </li>
-              {sidebarItems.map((item) => (
+              {sidebarItems.map((item, i) => (
                 <li
+                  key={i}
                   onClick={() => pushAndChange(item.href)}
                   className={`flex align-middle border-[1px] p-2 rounded-md mb-2 md:mb-5 hover:bg-[#013030] cursor-pointer hover:text-white transition-all ease-in-out duration-500 ${
                     pathName == item.href ? "bg-[#013030] text-white" : ""

@@ -5,6 +5,8 @@ import { updateData } from "@/apiservices/studentapiservices";
 import { useSelector } from "react-redux";
 import mytoast from "../toast/toast";
 import allCountry from "./allCountry";
+import { logout } from "@/apiservices/checklogin";
+import { removeToken } from "@/helper/sessionHelper";
 
 function ProfileUpdate() {
   const countries = allCountry();
@@ -16,7 +18,11 @@ function ProfileUpdate() {
   const handleBlur = () => {
     setInputType("text");
   };
-
+  const hardRefresh = () => {
+    if (typeof window !== "undefined") {
+      window.location.href = "/dashboard/login";
+    }
+  };
   const data = useSelector((state) => state.isAdmin.value);
 
   const [finalData, setFinalData] = useState({
@@ -98,8 +104,18 @@ function ProfileUpdate() {
 
       if (res.status == "Alhamdulillah") {
         mytoast.success(
-          "User Data has been Updated Successfully. You need to Sign out and Sign in Again to see Profile changes"
+          "User Data has been Updated Successfully" 
         );
+        
+
+        const res3 = await logout();
+        if (res3.status == "Alhamdulillah") {
+          mytoast.info(
+            "You are logging out" 
+          );
+          removeToken("access_token");
+          hardRefresh();
+        }
       } else {
         console.log(res);
       }

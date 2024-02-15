@@ -7,8 +7,8 @@ const DataSchema = mongoose.Schema(
     admissionDate: { type: Date, required: true },
     nextAdmissionDate: { type: Date, required: true },
     nextMonthlyPaymentDate: { type: Date, required: true },
-    admissionPrice: { type: Number, required: true },
-    monthlyPaymentPrice: { type: Number, required: true },
+    admissionPrice: { type: Object, required: true },
+    monthlyPaymentPrice: { type: Object, required: true },
     admissionPaymentHistory: [
       {
         Date: { type: Date },

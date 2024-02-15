@@ -571,7 +571,7 @@ function AbacusCourse({ info, comment, richtext }) {
                         <div className="style-1154"></div>
                       </div>
                       <div className="style-1155">
-                        <EnrollCondition />
+                        <EnrollCondition courseCode={info.courseCode} />
                       </div>
                     </div>
                   </div>

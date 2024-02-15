@@ -29,6 +29,7 @@ const DataSchema = mongoose.Schema(
         code: { type: String },
         startedDate: { type: Date },
         endDate: { type: Date },
+        status: { type: String },
       },
     ],
     studentDepartment: [
@@ -36,6 +37,7 @@ const DataSchema = mongoose.Schema(
         code: { type: String },
         startedDate: { type: Date },
         endDate: { type: Date },
+        status: { type: String },
       },
     ],
     studentJamatCode: [
@@ -43,6 +45,7 @@ const DataSchema = mongoose.Schema(
         code: { type: String },
         startedDate: { type: Date },
         endDate: { type: Date },
+        status: { type: String },
       },
     ],
     studentSemester: [
@@ -50,6 +53,7 @@ const DataSchema = mongoose.Schema(
         code: { type: String },
         startedDate: { type: Date },
         endDate: { type: Date },
+        status: { type: String },
       },
     ],
     gender: { type: String },
@@ -60,11 +64,7 @@ const DataSchema = mongoose.Schema(
     admissionDate: { type: Date },
     admissionSession: { type: String },
     studentMotive: { type: String },
-    paymentStatus: {
-      addmissionDueStatus: { type: Boolean },
-      monthlyDueStatus: { type: Boolean },
-      paymentID: { type: String },
-    },
+    paymentStatus: { type: String },
     activeStatus: {
       type: String,
       required: true,

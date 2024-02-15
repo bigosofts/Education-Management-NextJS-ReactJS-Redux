@@ -6,9 +6,17 @@ import { selectDataTwo as selectDepartment } from "@/apiservices/departmentapise
 import { selectDataTwo as seletcJamat } from "@/apiservices/jamatapiservices";
 import { selectDataTwo as selectSemester } from "@/apiservices/semesterapiservices";
 import ShowPaymentDetails from "./showpaymentDetail";
-import { selectDataTwo as selectCourse } from "@/apiservices/courseapiservices";
+import { useSearchParams } from "next/navigation";
+
+import { createData } from "@/apiservices/paymentapiservices";
+import { updateData } from "@/apiservices/studentapiservices";
+import mytoast from "../toast/toast";
 
 function PreFeeSection({ profile }) {
+  const searchParams = useSearchParams();
+
+  const enroll = searchParams.get("enroll");
+  const [money, setMoney] = useState();
   const [course, setCourse] = useState();
   const [department, setDepartment] = useState();
   const [jamat, setJamat] = useState();
@@ -18,6 +26,7 @@ function PreFeeSection({ profile }) {
   const [extraSemester, setExtraSemester] = useState(false);
   const [extraTransaction, setExtraTransaction] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
+  const [currencyrate, setCurrencyrate] = useState();
 
   const [mainData, setMainData] = useState({
     currency: "",
@@ -25,12 +34,12 @@ function PreFeeSection({ profile }) {
     department: "",
     semester: "",
     jamat: "",
-    admissionDate: "",
     amountPaid: "",
     transactionID: "",
     accountNo: "",
     paymentWay: "",
   });
+
   function transactionDecision(e) {
     e.preventDefault();
     const transactionID = e.target.value;
@@ -39,6 +48,7 @@ function PreFeeSection({ profile }) {
       transactionID: transactionID,
     }));
   }
+
   function paymentWayDecision(e) {
     e.preventDefault();
     const paymentWay = e.target.value;
@@ -52,6 +62,7 @@ function PreFeeSection({ profile }) {
       setShowPayment(true);
     }
   }
+
   function accountNoDecision(e) {
     e.preventDefault();
     const accountNo = e.target.value;
@@ -60,6 +71,7 @@ function PreFeeSection({ profile }) {
       accountNo: accountNo,
     }));
   }
+
   function amountPaidDecision(e) {
     e.preventDefault();
     const amountPaid = e.target.value;
@@ -79,17 +91,69 @@ function PreFeeSection({ profile }) {
   }
 
   function changeDepartment(name1) {
-    const ID = department.map((item) => {
-      if (item.name == name1) {
-        return item.ID;
-      }
-    });
-    return ID[0];
+    if (name1 == "none") {
+      return "";
+    } else {
+      const ID = department.filter((item) => {
+        if (item.name == name1) {
+          return item.ID;
+        }
+      });
+
+      return ID[0].ID;
+    }
   }
 
   function classDecision(e) {
     e.preventDefault();
     const classes = e.target.value;
+    function PriceDecision(coursePriceData) {
+      if (course) {
+        if (
+          profile.data.userDetails.countryName == "Bangladesh" ||
+          profile.data.userDetails.countryName == "India"
+        ) {
+          if (coursePriceData) {
+            let [dObj] = course.filter((item) => {
+              if (item.code == coursePriceData) {
+                return item.price;
+              }
+            });
+
+            if (dObj) {
+              if (currencyrate) {
+                let tkC = dObj.price.registration.tk;
+                let usC = Math.round(dObj.price.registration.tk / currencyrate);
+
+                let mtkC = dObj.price.monthly.tk;
+                let musC = Math.round(dObj.price.monthly.tk / currencyrate);
+                setMoney({ tk: tkC, us: usC, mtk: mtkC, mus: musC });
+              }
+            }
+          }
+        } else {
+          if (coursePriceData) {
+            let [dObj] = course.filter((item) => {
+              if (item.code == coursePriceData) {
+                return item.price;
+              }
+            });
+
+            if (dObj) {
+              if (currencyrate) {
+                let tkC = Math.round(dObj.price.registration.us * currencyrate);
+                let usC = dObj.price.registration.us;
+                let mtkC = Math.round(dObj.price.monthly.us * currencyrate);
+                let musC = dObj.price.monthly.us;
+
+                setMoney({ tk: tkC, us: usC, mtk: mtkC, mus: musC });
+              }
+            }
+          }
+        }
+      }
+    }
+    PriceDecision(classes);
 
     setMainData((prev) => ({
       ...prev,
@@ -117,6 +181,7 @@ function PreFeeSection({ profile }) {
       setExtraSemester(false);
     }
   }
+
   function jamatDecision(e) {
     e.preventDefault();
     const jamat = e.target.value;
@@ -136,6 +201,7 @@ function PreFeeSection({ profile }) {
       setExtraTransaction(false);
     }
   }
+
   function semseterDecision(e) {
     e.preventDefault();
     const semester = e.target.value;
@@ -157,35 +223,127 @@ function PreFeeSection({ profile }) {
       const res2 = await selectDepartment(null, null);
       const res3 = await seletcJamat(null, null);
       const res4 = await selectSemester(null, null);
+      const response = await fetch(
+        "https://v6.exchangerate-api.com/v6/6beb79e3dfb29569d6a2ca2f/pair/USD/BDT"
+      );
+      const conversionRate = await response.json();
 
-      const [course, department, jamat, semester] = await Promise.all([
+      const [course, department, jamat, semester, rate] = await Promise.all([
         res,
         res2,
         res3,
         res4,
+        conversionRate,
       ]);
 
       if (
         course.status == "Alhamdulillah" &&
         department.status == "Alhamdulillah" &&
         jamat.status == "Alhamdulillah" &&
-        semester.status == "Alhamdulillah"
+        semester.status == "Alhamdulillah" &&
+        rate.result == "success"
       ) {
         setCourse(
           course.data.map((item) => {
-            return { title: item.title.bn, code: item.courseCode };
+            return {
+              title: item.title.bn,
+              code: item.courseCode,
+              price: item.coursePrice,
+            };
           })
         );
+        setCurrencyrate(rate.conversion_rate);
+
+        function changeDepartment(name1) {
+          const ID = department.data.filter((item) => {
+            if (item.departmentName == name1) {
+              return item.departmentID;
+            }
+          });
+
+          return ID[0].departmentID;
+        }
+
+        if (enroll) {
+          setMainData((prev) => ({
+            ...prev,
+            course: enroll,
+            department: changeDepartment(enroll),
+          }));
+          PriceDecision(enroll);
+          if (enroll == "alemalema") {
+            setExtraJamat(true);
+          }
+        }
+
+        function PriceDecision(coursePriceData) {
+          if (course) {
+            if (
+              profile.data.userDetails.countryName == "Bangladesh" ||
+              profile.data.userDetails.countryName == "India"
+            ) {
+              if (coursePriceData) {
+                let [dObj] = course.data.filter((item) => {
+                  if (item.courseCode == coursePriceData) {
+                    return item;
+                  }
+                });
+
+                if (dObj) {
+                  if (rate) {
+                    let tkC = dObj.coursePrice.registration.tk;
+                    let usC = Math.round(
+                      dObj.coursePrice.registration.tk / rate.conversion_rate
+                    );
+                    let mtkC = dObj.coursePrice.monthly.tk;
+                    let musC = Math.round(
+                      dObj.coursePrice.monthly.tk / rate.conversion_rate
+                    );
+
+                    setMoney({ tk: tkC, us: usC, mtk: mtkC, mus: musC });
+                  }
+                }
+              }
+            } else {
+              if (coursePriceData) {
+                let [dObj] = course.data.filter((item) => {
+                  if (item.courseCode == coursePriceData) {
+                    return item;
+                  }
+                });
+
+                if (dObj) {
+                  if (rate) {
+                    let tkC = Math.round(
+                      dObj.coursePrice.registration.us * rate.conversion_rate
+                    );
+
+                    let usC = dObj.coursePrice.registration.us;
+                    let mtkC = Math.round(
+                      dObj.coursePrice.monthly.us * rate.conversion_rate
+                    );
+
+                    let musC = dObj.coursePrice.monthly.us;
+                    setMoney({ tk: tkC, us: usC, mtk: mtkC, mus: musC });
+                  }
+                }
+              }
+            }
+          }
+        }
+
         setDepartment(
           department.data.map((item) => {
             return { ID: item.departmentID, name: item.departmentName };
           })
         );
+
         setJamat(
           jamat.data.map((item) => {
             return { ID: item.jamatID, name: item.jamatName };
           })
         );
+
         setSemester(
           semester.data.map((item) => {
             return { ID: item.semesterID, name: item.semesterName };
@@ -196,7 +354,150 @@ function PreFeeSection({ profile }) {
     getData();
   }, []);
 
-  function submitData() {}
+  async function submitData(e) {
+    e.preventDefault();
+    let currentDate = new Date();
+    let oneYearLater = new Date(currentDate);
+
+    var currentMonth = currentDate.getMonth();
+    var currentYear = currentDate.getFullYear();
+
+    var nextMonth = currentMonth + 1;
+    var nextYear = currentYear;
+    if (nextMonth > 11) {
+      nextMonth = 0; // January (0-indexed)
+      nextYear++;
+    }
+
+    var oneMonthLater = new Date(
+      nextYear,
+      nextMonth,
+      currentDate.getDate(),
+      currentDate.getHours(),
+      currentDate.getMinutes(),
+      currentDate.getSeconds(),
+      currentDate.getMilliseconds()
+    );
+
+    oneYearLater.setFullYear(currentDate.getFullYear() + 1);
+
+    const resPayment = await createData({
+      paymentID: "payment-" + profile.data.userName,
+      paymentCurrency: mainData.currency,
+      admissionDate: new Date(Date.now()).toISOString(),
+      nextAdmissionDate: oneYearLater.toISOString(),
+      nextMonthlyPaymentDate: oneMonthLater.toISOString(),
+      admissionPrice: money
+        ? { tk: money.tk, us: money.us }
+        : { tk: "", us: "" },
+      monthlyPaymentPrice: money
+        ? { tk: money.mtk, us: money.mus }
+        : { tk: "", us: "" },
+      admissionPaymentHistory: [
+        {
+          Date: new Date(Date.now()).toISOString(),
+          PaymentStatus: false,
+          Price: mainData.amountPaid,
+          currency: mainData.currency,
+          transactionID: mainData.transactionID,
+          senderNo: mainData.accountNo,
+          paymentWay: mainData.paymentWay,
+        },
+        {
+          Date: oneYearLater.toISOString(),
+          PaymentStatus: false,
+          Price: "",
+          currency: "",
+          transactionID: "",
+          senderNo: "",
+          paymentWay: "",
+        },
+      ],
+      monthlyPaymentHistory: [
+        {
+          Date: oneMonthLater.toISOString(),
+          PaymentStatus: false,
+          Price: "",
+          currency: "",
+          transactionID: "",
+          senderNo: "",
+          paymentWay: "",
+        },
+      ],
+      activeStatus: "active",
+    });
+
+    if (resPayment.status == "Alhamdulillah") {
+      mytoast.success(
+        "Your Payment Request is Accepted. Please Wait for the verificiation"
+      );
+      const studentCourseCode = {
+        code: mainData.course,
+        startedDate: new Date(Date.now()).toISOString(),
+        endDate: null,
+        status: "inactive",
+      };
+
+      const studentDepartment = {
+        code: mainData.department,
+        startedDate: new Date(Date.now()).toISOString(),
+        endDate: null,
+        status: "inactive",
+      };
+
+      const studentJamatCode = {
+        code: mainData.jamat,
+        startedDate: new Date(Date.now()).toISOString(),
+        endDate: null,
+        status: "inactive",
+      };
+
+      const studentSemester = {
+        code: mainData.semester,
+        startedDate: new Date(Date.now()).toISOString(),
+        endDate: null,
+        status: "inactive",
+      };
+
+      const resStudent = await updateData(
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        studentCourseCode,
+        mainData.jamat ? studentJamatCode : undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        new Date(Date.now()).toISOString(),
+        undefined,
+        undefined,
+        undefined,
+        resPayment.data.paymentID,
+        undefined,
+        undefined,
+        undefined,
+        profile.data.userDetails._id,
+        mainData.department ? studentDepartment : undefined,
+        mainData.semester ? studentSemester : undefined
+      );
+
+      if (resStudent.status == "Alhamdulillah") {
+        mytoast.info("If verification Delays, Do not forget to reach us");
+      }
+    }
+  }
 
   return (
     <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">
@@ -218,7 +519,7 @@ function PreFeeSection({ profile }) {
                     name="currency"
                     value="taka"
                   />
-                  <label for="option1">
+                  <label htmlFor="option1">
                     <div className="w-full md:w-[300px] cursor-pointer shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative">
                       <Image
                         className="m-auto h-12"
@@ -227,7 +528,7 @@ function PreFeeSection({ profile }) {
                         src="/images/taka.svg"
                       />
                       <h2 className="mt-5 text-[12px] md:text-2xl text-center">
-                        টাকা
+                        {money ? money.tk : ""} টাকা
                       </h2>
                     </div>
                   </label>
@@ -242,7 +543,7 @@ function PreFeeSection({ profile }) {
                     name="currency"
                     value="dollar"
                   />
-                  <label for="option2">
+                  <label htmlFor="option2">
                     <div className="cursor-pointer w-full md:w-[300px] shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative">
                       <Image
                         className="m-auto h-12"
@@ -251,7 +552,7 @@ function PreFeeSection({ profile }) {
                         src="/images/dollar.svg"
                       />
                       <h2 className="mt-5 text-[12px] md:text-2xl text-center">
-                        ডলার
+                        {money ? money.us : ""} ডলার
                       </h2>
                     </div>
                   </label>
@@ -435,7 +736,7 @@ function PreFeeSection({ profile }) {
               <input
                 onChange={amountPaidDecision}
                 value={mainData.amountPaid}
-                type="text"
+                type="number"
                 id="payment"
                 name="payment"
                 className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"

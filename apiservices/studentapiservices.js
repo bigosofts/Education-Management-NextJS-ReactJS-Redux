@@ -139,7 +139,9 @@ exports.createData = async ({
   details,
   activeStatus,
   userRole,
-  userName
+  userName,
+  studentDepartment,
+  studentSemester,
 }) => {
   const aboutdata = {
     firstName: {
@@ -174,9 +176,11 @@ exports.createData = async ({
     paymentStatus: paymentStatus,
     activeStatus: activeStatus,
     userRole: userRole,
-    userName:userName
+    userName: userName,
+    studentDepartment: studentDepartment,
+    studentSemester: studentSemester,
   };
-  
+console.log(aboutdata)
   if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-student`,
@@ -209,7 +213,7 @@ exports.createData = async ({
     );
 
     if (!res.ok) {
-      console.log(res)
+      console.log(res);
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
@@ -247,7 +251,9 @@ exports.updateData = async (
   userRole,
   extracurricular,
   activeStatus,
-  idValue
+  idValue,
+  studentDepartment,
+  studentSemester
 ) => {
   const aboutdata = {
     _id: idValue,
@@ -285,6 +291,8 @@ exports.updateData = async (
     userRole: userRole,
     userName: userName,
     admissionDate: admissionDate,
+    studentDepartment: studentDepartment,
+    studentSemester: studentSemester,
   };
 
   if (data2) {

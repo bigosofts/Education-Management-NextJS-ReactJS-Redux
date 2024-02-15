@@ -34,7 +34,6 @@ const authverify = require("../middlewares/authverifyMiddleware");
 router.get("/hello", (req, res) => {
   res.json({ message: "Hello from Express.js!" });
 });
-
 //api for data management
 
 //authentication
@@ -62,6 +61,7 @@ router.get("/logout", authverify, (req, res) => {
   let userName = req.headers["userName"];
   let userRole = req.headers["userRole"];
   let isAdmin = req.headers["isAdmin"];
+  let userDetails = req.headers["userDetails"];
 
   res.status(200).json({
     status: "Alhamdulillah",
@@ -69,6 +69,7 @@ router.get("/logout", authverify, (req, res) => {
       userName,
       userRole,
       isAdmin,
+      userDetails,
     },
   });
 });
@@ -152,7 +153,7 @@ router.post("/select-logs", logController.selectLogs);
 router.post("/select-books", bookController.selectBooks);
 router.post("/select-departments", departmentController.selectDepartments);
 router.post("/select-jamats", jamatController.selectJamats);
-router.post("/select-payments", paymentController.selectPayments);
+router.post("/select-payments",authverify, paymentController.selectPayments);
 router.post("/select-semesters", SemesterController.selectSemesters);
 router.post("/select-studentroles", StudentRoleController.selectStudentRoles);
 router.post("/select-videos", videoController.selectVideos);

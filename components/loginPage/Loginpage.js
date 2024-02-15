@@ -88,16 +88,14 @@ function LoginPageDesign({ userData }) {
               fullPermanentAddress: "",
               admissionSession: "",
               studentMotive: "",
-              paymentStatus: {
-                addmissionDueStatus: true,
-                monthlyDueStatus: true,
-                paymentID: "",
-              },
+              paymentStatus: "",
               extracurricular: "",
               details: { status: "ok" },
               activeStatus: "active",
               userRole: "student",
               userName: `${userData.length + 1}`,
+              studentDepartment: [],
+              studentSemester: [],
             });
             if (res2.status == "Alhamdulillah") {
               userData.push({
