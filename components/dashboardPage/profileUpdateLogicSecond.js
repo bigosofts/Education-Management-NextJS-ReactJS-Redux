@@ -39,7 +39,7 @@ function ProfileUpdateLogicSecond() {
               className="m-auto h-12"
               width={100}
               height={100}
-              src="/images/course.svg"
+              src="/images/home.svg"
             />
             <h2 className="mt-5 text-[12px] md:text-2xl text-center">
               হোম পেইজে চলে যেতে এখানে চাপুন

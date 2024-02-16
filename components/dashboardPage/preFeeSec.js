@@ -275,6 +275,8 @@ function PreFeeSection({ profile }) {
           PriceDecision(enroll);
           if (enroll == "alemalema") {
             setExtraJamat(true);
+          } else {
+            setExtraTransaction(true);
           }
         }
 
