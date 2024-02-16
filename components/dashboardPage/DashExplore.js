@@ -44,6 +44,12 @@ function DashExplore() {
         show: true,
       },
       {
+        name: "Upload Exam",
+        href: `/dashboard/${data.data.userName}/upload-exam`,
+        icon: "/images/upload.svg",
+        show: true,
+      },
+      {
         name: "Handwork",
         href: `/dashboard/${data.data.userName}/works`,
         icon: "/images/work.svg",
@@ -91,8 +97,12 @@ function DashExplore() {
       },
     ];
 
-    let newArray= [];
-    if (data.data.userDetails.studentCourseCode < 1) {
+    let newArray = [];
+    if (
+      data.data.userDetails.studentCourseCode[
+        data.data.userDetails.studentCourseCode.length - 1
+      ].status == "inactive"
+    ) {
       newArray = sidebarItems.map((item) => {
         if (item.name == "Library") {
           return {
@@ -101,50 +111,57 @@ function DashExplore() {
             icon: "/images/books.svg",
             show: false,
           };
-        }else if(item.name == "Results"){
+        } else if (item.name == "Results") {
           return {
             name: "Results",
             href: `/dashboard/${data.data.userName}/results`,
             icon: "/images/result.svg",
             show: false,
           };
-        }else if(item.name == "Handwork"){
+        } else if (item.name == "Handwork") {
           return {
             name: "Handwork",
             href: `/dashboard/${data.data.userName}/works`,
             icon: "/images/work.svg",
             show: false,
-          }
-        }else if(item.name == "Comments"){
+          };
+        } else if (item.name == "Comments") {
           return {
             name: "Comments",
             href: `/dashboard/${data.data.userName}/comments`,
             icon: "/images/comment.svg",
             show: false,
-          }
-        }else if(item.name == "Switch"){
-          return  {
+          };
+        } else if (item.name == "Switch") {
+          return {
             name: "Switch",
             href: `/dashboard/${data.data.userName}/switches`,
             icon: "/images/switch.svg",
             show: false,
-          }
-        }else if(item.name == "Abacus"){
-          return   {
+          };
+        } else if (item.name == "Abacus") {
+          return {
             name: "Abacus",
             href: `/dashboard/${data.data.userName}/abacus`,
             icon: "/images/abacus.svg",
             show: false,
-          }
-        }else if(item.name == "Attendance"){
-          return   {
+          };
+        } else if (item.name == "Attendance") {
+          return {
             name: "Attendance",
             href: `/dashboard/${data.data.userName}/attendance`,
             icon: "/images/attendance.svg",
             show: false,
-          }
-        }else{
-          return item
+          };
+        } else if (item.name == "Upload Exam") {
+          return {
+            name: "Upload Exam",
+            href: `/dashboard/${data.data.userName}/upload-exam`,
+            icon: "/images/upload.svg",
+            show: false,
+          };
+        } else {
+          return item;
         }
       });
     }

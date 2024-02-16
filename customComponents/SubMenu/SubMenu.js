@@ -1,11 +1,11 @@
-import { selectData } from "@/apiservices/menuapiservices";
+import { selectDataTwo } from "@/apiservices/menuapiservices";
 import Link from "next/link";
 
 import "./SubMenu.css";
 import SigninSignupmenuButton from "../SigninSignupmenuButton/SigninSignupmenuButton";
 
 async function getData() {
-  const res = await selectData({
+  const res = await selectDataTwo({
     activeStatus: "active",
     menuType: "header",
   });

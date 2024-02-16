@@ -180,7 +180,7 @@ exports.createData = async ({
     studentDepartment: studentDepartment,
     studentSemester: studentSemester,
   };
-console.log(aboutdata)
+  console.log(aboutdata);
   if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-student`,
@@ -310,6 +310,7 @@ exports.updateData = async (
 
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
+      console.log(res);
       throw new Error("Failed to fetch data");
     }
     return res.json();

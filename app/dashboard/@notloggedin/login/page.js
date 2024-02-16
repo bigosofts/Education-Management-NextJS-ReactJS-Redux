@@ -130,7 +130,7 @@ function page(props) {
               >
                 <form action="" method="post">
                   <div className="form-group">
-                    <label>Teacher/Gardian Username</label>
+                    <label>Teacher</label>
                     <input
                       ref={userNameRef}
                       className="au-input au-input--full"
@@ -192,7 +192,7 @@ function page(props) {
               >
                 <form action="" method="post">
                   <div className="form-group">
-                    <label>Student/Guest Username</label>
+                    <label>Student</label>
                     <input
                       ref={studentUserNameRef}
                       className="au-input au-input--full"

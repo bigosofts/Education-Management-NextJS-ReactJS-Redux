@@ -64,7 +64,10 @@ const DataSchema = mongoose.Schema(
     admissionDate: { type: Date },
     admissionSession: { type: String },
     studentMotive: { type: String },
-    paymentStatus: { type: String },
+    paymentStatus: {
+      addmissionDueStatus: { type: Boolean },
+      paymentID: { type: String },
+    },
     activeStatus: {
       type: String,
       required: true,

@@ -10,29 +10,26 @@ function WaitingApproval() {
     <div className="h-[80vh] flex justify-center align-middle p-5">
       <div className="my-auto">
         <h1 className="w-full md:w-[50%] mx-auto text-lg md:text-3xl text-center mb-10">
-          এডমিশন ফি প্রদান করতে হলে আপনাকে আপনার প্রোফাইল আপডেট করতে হবে।
+          আপনার একাউন্টটি এপ্রুভালের জন্য অপেক্ষমান আছে। অনুগ্রহপূর্বক অপেক্ষা
+          করুন। এপ্রুভ হতে বেশী দেরী হলে আমাদের সাথে যোগাযোগ করুন।
         </h1>
         <div className="flex gap-5 justify-center">
           <div
-            onClick={() =>
-              router.push(
-                `/dashboard/${data.data.userName}/settings/profile-update`
-              )
-            }
+            onClick={() => router.push(`/`)}
             className="cursor-pointer w-full md:w-[300px] shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
           >
             <Image
               className="m-auto h-12"
               width={100}
               height={100}
-              src="/images/setting.svg"
+              src="/images/home.svg"
             />
             <h2 className="mt-5 text-[12px] md:text-2xl text-center">
-              প্রোফাইল আপডেট করতে এখানে চাপুন
+              হোম পেইজে যেতে এখানে চাপুন
             </h2>
           </div>
           <div
-            onClick={() => router.push(`/`)}
+            onClick={() => router.push(`/classes`)}
             className="w-full md:w-[300px] cursor-pointer shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
           >
             <Image
@@ -42,7 +39,7 @@ function WaitingApproval() {
               src="/images/course.svg"
             />
             <h2 className="mt-5 text-[12px] md:text-2xl text-center">
-              হোম পেইজে চলে যেতে এখানে চাপুন
+              ক্ল্যাস পেইজে যেতে এখানে ক্লিক করুন
             </h2>
           </div>
         </div>

@@ -217,8 +217,8 @@ exports.updateStudent = async (req, res) => {
       userName: reqBody.userName,
       details: reqBody.details,
       admissionDate: reqBody.admissionDate,
-      studentDepartment: studentDepartment,
-      studentSemester: studentSemester,
+      studentDepartment: reqBody.studentDepartment,
+      studentSemester: reqBody.studentSemester,
     };
   }
 

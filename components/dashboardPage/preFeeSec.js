@@ -11,6 +11,8 @@ import { useSearchParams } from "next/navigation";
 import { createData } from "@/apiservices/paymentapiservices";
 import { updateData } from "@/apiservices/studentapiservices";
 import mytoast from "../toast/toast";
+import { logout } from "@/apiservices/checklogin";
+import { removeToken } from "@/helper/sessionHelper";
 
 function PreFeeSection({ profile }) {
   const searchParams = useSearchParams();
@@ -461,14 +463,14 @@ function PreFeeSection({ profile }) {
 
       const resStudent = await updateData(
         undefined,
+        profile.data.userDetails.firstName.en,
+        profile.data.userDetails.firstName.bn,
+        profile.data.userDetails.lastName.en,
+        profile.data.userDetails.lastName.bn,
         undefined,
         undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
+        profile.data.userDetails.fatherName.en,
+        profile.data.userDetails.fatherName.bn,
         undefined,
         undefined,
         undefined,
@@ -484,7 +486,7 @@ function PreFeeSection({ profile }) {
         undefined,
         undefined,
         undefined,
-        resPayment.data.paymentID,
+        { addmissionDueStatus: true, paymentID: resPayment.data.paymentID },
         undefined,
         undefined,
         undefined,
@@ -495,6 +497,18 @@ function PreFeeSection({ profile }) {
 
       if (resStudent.status == "Alhamdulillah") {
         mytoast.info("If verification Delays, Do not forget to reach us");
+
+        const resLogOut = await logout();
+        if (resLogOut.status == "Alhamdulillah") {
+          mytoast.info("You are logging out");
+          removeToken("access_token");
+          const hardRefresh = () => {
+            if (typeof window !== "undefined") {
+              window.location.href = "/dashboard/login";
+            }
+          };
+          hardRefresh();
+        }
       }
     }
   }

@@ -5,6 +5,8 @@ import { studentLogin } from "@/apiservices/checklogin";
 import { updateData } from "@/apiservices/studentapiservices";
 import { useSelector } from "react-redux";
 import mytoast from "@/components/toast/toast";
+import { logout } from "@/apiservices/checklogin";
+import { removeToken } from "@/helper/sessionHelper";
 
 function ResetPassword() {
   const data = useSelector((state) => state.isAdmin.value);
@@ -45,7 +47,7 @@ function ResetPassword() {
     if (res.status == "wrongpass") {
       mytoast.danger("You entered wrong Password");
     } else if (res.status == "Alhamdulillah") {
-      const res2 = updateData(
+      const res2 = await updateData(
         undefined,
         finalData.firstNameen,
         finalData.firstnamebn,
@@ -58,7 +60,7 @@ function ResetPassword() {
         undefined,
         newref.current.value,
         undefined,
-        finalData.occupation,
+        undefined,
         undefined,
         undefined,
         finalData.gender,
@@ -69,18 +71,31 @@ function ResetPassword() {
         undefined,
         undefined,
         finalData.studentMotive,
-        undefined,
+        { status: "ok" },
         undefined,
         undefined,
         finalData.extracurricular,
         undefined,
-        data.data.userDetails._id
+        data.data.userDetails._id,
+        undefined,
+        undefined
       );
-     
-      if (res) {
-        
+
+      if (res2.status == "Alhamdulillah") {
         mytoast.success("Password reset Successfully");
-      } 
+
+        const res3 = await logout();
+        if (res3.status == "Alhamdulillah") {
+          mytoast.info("You are logging out");
+          removeToken("access_token");
+          const hardRefresh = () => {
+            if (typeof window !== "undefined") {
+              window.location.href = "/dashboard/login";
+            }
+          };
+          hardRefresh();
+        }
+      }
     }
   }
 

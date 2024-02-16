@@ -1,14 +1,11 @@
 "use client";
 
 import { useSelector } from "react-redux";
-
-import CourseCurriculam from "@/customComponents/allCustomComponents/courseCurriculam/CourseCurriculam";
 import EnrollPlease from "@/components/dashboardPage/enrollPlease";
 import WaitingApproval from "@/components/dashboardPage/WaitingApproval";
 
-function AbacusPage(props) {
+function UploadExam() {
   const data = useSelector((state) => state.isAdmin.value);
-
   if (data) {
     if (data.data.userDetails.studentCourseCode.length < 1) {
       return <EnrollPlease />;
@@ -19,19 +16,9 @@ function AbacusPage(props) {
     ) {
       return <WaitingApproval />;
     } else {
-      return (
-        <div
-          style={{
-            width: "100%",
-            height: "auto",
-            overflowY: "scroll",
-          }}
-        >
-          <CourseCurriculam />
-        </div>
-      );
+      return <div>Download Exam Page</div>;
     }
   }
 }
 
-export default AbacusPage;
+export default UploadExam;

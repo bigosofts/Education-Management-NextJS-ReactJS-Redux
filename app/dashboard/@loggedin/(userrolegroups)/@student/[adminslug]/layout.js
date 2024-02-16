@@ -61,6 +61,12 @@ function StudentLayout({ children, params }) {
       show: true,
     },
     {
+      name: "Upload Exam",
+      href: `/dashboard/${params.adminslug}/upload-exam`,
+      icon: "/images/upload.svg",
+      show: true,
+    },
+    {
       name: "Handwork",
       href: `/dashboard/${params.adminslug}/works`,
       icon: "/images/work.svg",
@@ -110,7 +116,12 @@ function StudentLayout({ children, params }) {
 
   if (data) {
     let newArray = [];
-    if (data.data.userDetails.studentCourseCode < 1) {
+
+    if (
+      data.data.userDetails.studentCourseCode[
+        data.data.userDetails.studentCourseCode.length - 1
+      ].status == "inactive"
+    ) {
       newArray = sidebarItems.map((item) => {
         if (item.name == "Library") {
           return {
@@ -161,11 +172,19 @@ function StudentLayout({ children, params }) {
             icon: "/images/attendance.svg",
             show: false,
           };
+        } else if (item.name == "Upload Exam") {
+          return {
+            name: "Upload Exam",
+            href: `/dashboard/${data.data.userName}/upload-exam`,
+            icon: "/images/upload.svg",
+            show: false,
+          };
         } else {
           return item;
         }
       });
     }
+
     if (params.adminslug == data.data.userName) {
       return (
         <CommonMenu changeDrawerState={changeDrawerState}>
