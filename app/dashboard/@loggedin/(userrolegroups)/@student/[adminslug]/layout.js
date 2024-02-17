@@ -8,11 +8,11 @@ import SideDrawer from "@/components/Drawer/SideDrawer";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
-
-
+import { selectDataTwo } from "@/apiservices/studentapiservices";
 
 function StudentLayout({ children, params }) {
   
+
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.isAdmin.value);
@@ -27,7 +27,26 @@ function StudentLayout({ children, params }) {
   useEffect(() => {
     async function fetchData() {
       const payload = await isAdmin();
-      dispatch(setInitialData(payload));
+      if (payload.status == "Alhamdulillah") {
+        
+        const res = await selectDataTwo(
+          { userName: payload.data.userName },
+          null
+        );
+        if (res.status == "Alhamdulillah") {
+          const desiredObj = {
+            status: "Alhamdulillah",
+            data: {
+              userName: res.data[0].userName,
+              userRole: res.data[0].userRole,
+              isAdmin: res.data[0].isAdmin,
+              userDetails: res.data[0],
+            },
+          };
+
+          dispatch(setInitialData(desiredObj));
+        }
+      }
     }
     fetchData();
   }, []);

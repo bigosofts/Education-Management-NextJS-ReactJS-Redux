@@ -366,8 +366,6 @@ function PreFeeSection({ profile }) {
               return item;
           })
         );
-        console.log(paymentData);
-        console.log(profile.data.userDetails.paymentStatus.paymentID);
       }
     }
     getData();
@@ -481,64 +479,59 @@ function PreFeeSection({ profile }) {
         };
 
         const resStudent = await updateData(
-          undefined,
+          profile.data.userDetails.userName,
           profile.data.userDetails.firstName.en,
           profile.data.userDetails.firstName.bn,
           profile.data.userDetails.lastName.en,
           profile.data.userDetails.lastName.bn,
-          undefined,
-          undefined,
+          profile.data.userDetails.nidNumber,
+          profile.data.userDetails.birthRegNumber,
           profile.data.userDetails.fatherName.en,
           profile.data.userDetails.fatherName.bn,
+          profile.data.userDetails.emailAddress,
           undefined,
-          undefined,
-          undefined,
-          undefined,
+          profile.data.userDetails.mobileNumber,
+          profile.data.userDetails.occupation,
           studentCourseCode,
           mainData.jamat ? studentJamatCode : undefined,
-          undefined,
-          undefined,
-          undefined,
-          undefined,
-          undefined,
+          profile.data.userDetails.gender,
+          profile.data.userDetails.dateOfBirth,
+          profile.data.userDetails.countryName,
+          profile.data.userDetails.fullPresentAddress,
+          profile.data.userDetails.fullPermanentAddress,
           new Date(Date.now()).toISOString(),
-          undefined,
-          undefined,
-          undefined,
+          profile.data.userDetails.admissionDate,
+          profile.data.userDetails.studentMotive,
+          profile.data.userDetails.details,
           {
             addmissionDueStatus: true,
             consequentDueStatus: false,
             paymentID: resPayment.data.paymentID,
           },
-          undefined,
-          undefined,
-          undefined,
+          profile.data.userDetails.userRole,
+          profile.data.userDetails.extracurricular,
+          profile.data.userDetails.activeStatus,
           profile.data.userDetails._id,
           mainData.department ? studentDepartment : undefined,
           mainData.semester ? studentSemester : undefined
         );
         if (resStudent.status == "Alhamdulillah") {
           mytoast.info("If verification Delays, Do not forget to reach us");
-
-          const resLogOut = await logout();
-          if (resLogOut.status == "Alhamdulillah") {
-            mytoast.info("You are logging out");
-            removeToken("access_token");
-            const hardRefresh = () => {
-              if (typeof window !== "undefined") {
-                window.location.href = "/dashboard/login";
-              }
-            };
-            hardRefresh();
-          }
+          const hardRefresh = () => {
+            if (typeof window !== "undefined") {
+              window.location.href = "/dashboard/login";
+            }
+          };
+          hardRefresh();
+          
         }
       }
     } else {
-      const currentAdmissionPaymentHistory =
+      let currentAdmissionPaymentHistory =
         Unpaid[0].admissionPaymentHistory.map((item) => {
           if (item._id == UnpaidRef.current.value) {
             return {
-              Date: undefined,
+              Date: new Date(Date.now()).toISOString(),
               PaymentStatus: false,
               Price: mainData.amountPaid,
               currency: mainData.currency,
@@ -547,8 +540,11 @@ function PreFeeSection({ profile }) {
               paymentWay: mainData.paymentWay,
               nextAdmissionDate: oneYearLater.toISOString(),
             };
+          } else {
+            return item;
           }
         });
+
       currentAdmissionPaymentHistory.push({
         Date: oneYearLater.toISOString(),
         PaymentStatus: false,
@@ -557,6 +553,7 @@ function PreFeeSection({ profile }) {
         transactionID: "",
         senderNo: "",
         paymentWay: "",
+        nextAdmissionDate: undefined,
       });
 
       let CurrentID = Unpaid[0]._id;
@@ -577,10 +574,12 @@ function PreFeeSection({ profile }) {
         activeStatus: "active",
         idValue: CurrentID,
       });
+
       if (resPayment.status == "Alhamdulillah") {
         mytoast.success(
           "Your Payment Request is Accepted. Please Wait for the verificiation"
         );
+        console.log(resPayment);
 
         let studentCourseCode = profile.data.userDetails.studentCourseCode;
         const pushObjCourse = {
@@ -614,7 +613,7 @@ function PreFeeSection({ profile }) {
 
         let studentSemester = profile.data.userDetails.studentSemester;
         const pushObjSemester = {
-          code: mainData.jamat,
+          code: mainData.semester,
           startedDate: new Date(Date.now()).toISOString(),
           endDate: null,
           status: "inactive",
@@ -623,56 +622,51 @@ function PreFeeSection({ profile }) {
         studentSemesterTwoFinal.push(pushObjSemester);
 
         const resStudent = await updateData(
-          undefined,
+          profile.data.userDetails.userName,
           profile.data.userDetails.firstName.en,
           profile.data.userDetails.firstName.bn,
           profile.data.userDetails.lastName.en,
           profile.data.userDetails.lastName.bn,
-          undefined,
-          undefined,
+          profile.data.userDetails.nidNumber,
+          profile.data.userDetails.birthRegNumber,
           profile.data.userDetails.fatherName.en,
           profile.data.userDetails.fatherName.bn,
+          profile.data.userDetails.emailAddress,
           undefined,
-          undefined,
-          undefined,
-          undefined,
+          profile.data.userDetails.mobileNumber,
+          profile.data.userDetails.occupation,
           studentCourseCodeTwoFinal,
           mainData.jamat ? studentJamatCodeTwoFinal : undefined,
-          undefined,
-          undefined,
-          undefined,
-          undefined,
-          undefined,
-          new Date(Date.now()).toISOString(),
-          undefined,
-          undefined,
-          undefined,
+          profile.data.userDetails.gender,
+          profile.data.userDetails.dateOfBirth,
+          profile.data.userDetails.countryName,
+          profile.data.userDetails.fullPresentAddress,
+          profile.data.userDetails.fullPermanentAddress,
+          profile.data.userDetails.admissionSession,
+          profile.data.userDetails.admissionDate,
+          profile.data.userDetails.studentMotive,
+          profile.data.userDetails.details,
           {
             addmissionDueStatus: true,
             consequentDueStatus: true,
-            paymentID: resPayment.data.paymentID,
+            paymentID: profile.data.userDetails.paymentStatus.paymentID,
           },
-          undefined,
-          undefined,
-          undefined,
+          profile.data.userDetails.userRole,
+          profile.data.userDetails.extracurricular,
+          profile.data.userDetails.activeStatus,
           profile.data.userDetails._id,
           mainData.department ? studentDepartmentTwoFinal : undefined,
           mainData.semester ? studentSemesterTwoFinal : undefined
         );
         if (resStudent.status == "Alhamdulillah") {
           mytoast.info("If verification Delays, Do not forget to reach us");
-
-          const resLogOut = await logout();
-          if (resLogOut.status == "Alhamdulillah") {
-            mytoast.info("You are logging out");
-            removeToken("access_token");
-            const hardRefresh = () => {
-              if (typeof window !== "undefined") {
-                window.location.href = "/dashboard/login";
-              }
-            };
-            hardRefresh();
-          }
+          const hardRefresh = () => {
+            if (typeof window !== "undefined") {
+              window.location.href = "/dashboard/login";
+            }
+          };
+          hardRefresh();
+          
         }
       }
     }

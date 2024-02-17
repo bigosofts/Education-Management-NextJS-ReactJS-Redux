@@ -107,15 +107,15 @@ function ProfileUpdate() {
           "User Data has been Updated Successfully" 
         );
         
-
-        const res3 = await logout();
-        if (res3.status == "Alhamdulillah") {
-          mytoast.info(
-            "You are logging out" 
-          );
-          removeToken("access_token");
-          hardRefresh();
-        }
+        hardRefresh();
+        // const res3 = await logout();
+        // if (res3.status == "Alhamdulillah") {
+        //   mytoast.info(
+        //     "You are logging out" 
+        //   );
+        //   removeToken("access_token");
+        //   hardRefresh();
+        // }
       } else {
         console.log(res);
       }

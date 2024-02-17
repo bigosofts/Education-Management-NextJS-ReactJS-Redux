@@ -10,29 +10,6 @@ import { removeToken } from "@/helper/sessionHelper";
 
 function ResetPassword() {
   const data = useSelector((state) => state.isAdmin.value);
-  const [finalData, setFinalData] = useState({
-    firstNameen: data.data.userDetails.firstName.en,
-    lastNameen: data.data.userDetails.lastName.en,
-    firstnamebn: data.data.userDetails.firstName.bn,
-    lastnamebn: data.data.userDetails.lastName.bn,
-    nidNumber: data.data.userDetails.nidNumber,
-    birthRegNumber: data.data.userDetails.birthRegNumber,
-    fatherNameen: data.data.userDetails.fatherName.en,
-    fatherNamebn: data.data.userDetails.fatherName.bn,
-
-    occupation: data.data.userDetails.occupation,
-
-    gender: data.data.userDetails.gender,
-    dateOfBirth: data.data.userDetails.dateOfBirth,
-    countryName: data.data.userDetails.countryName,
-
-    fullPresentAddress: data.data.userDetails.fullPresentAddress,
-    fullPermanentAddress: data.data.userDetails.fullPermanentAddress,
-
-    studentMotive: data.data.userDetails.studentMotive,
-
-    extracurricular: data.data.userDetails.birthRegNumber,
-  });
 
   const oldref = useRef();
   const newref = useRef();
@@ -48,39 +25,39 @@ function ResetPassword() {
       mytoast.danger("You entered wrong Password");
     } else if (res.status == "Alhamdulillah") {
       const res2 = await updateData(
-        undefined,
-        finalData.firstNameen,
-        finalData.firstnamebn,
-        finalData.lastNameen,
-        finalData.lastnamebn,
-        finalData.nidNumber,
-        finalData.birthRegNumber,
-        finalData.fatherNameen,
-        finalData.fatherNamebn,
-        undefined,
+        data.data.userDetails.userName,
+        data.data.userDetails.firstName.en,
+        data.data.userDetails.firstName.bn,
+        data.data.userDetails.lastName.en,
+        data.data.userDetails.lastName.bn,
+        data.data.userDetails.nidNumber,
+        data.data.userDetails.birthRegNumber,
+        data.data.userDetails.fatherName.en,
+        data.data.userDetails.fatherName.bn,
+        data.data.userDetails.emailAddress,
         newref.current.value,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        finalData.gender,
-        finalData.dateOfBirth,
-        finalData.countryName,
-        finalData.fullPresentAddress,
-        finalData.fullPermanentAddress,
-        undefined,
-        undefined,
-        finalData.studentMotive,
-        { status: "ok" },
-        undefined,
-        undefined,
-        finalData.extracurricular,
-        undefined,
+        data.data.userDetails.mobileNumber,
+        data.data.userDetails.occupation,
+        data.data.userDetails.studentCourseCode,
+        data.data.userDetails.studentJamatCode,
+        data.data.userDetails.gender,
+        data.data.userDetails.dateOfBirth,
+        data.data.userDetails.countryName,
+        data.data.userDetails.fullPresentAddress,
+        data.data.userDetails.fullPermanentAddress,
+        data.data.userDetails.admissionSession,
+        data.data.userDetails.admissionDate,
+        data.data.userDetails.studentMotive,
+        data.data.userDetails.details,
+        data.data.userDetails.paymentStatus,
+        data.data.userDetails.userRole,
+        data.data.userDetails.extracurricular,
+        data.data.userDetails.activeStatus,
         data.data.userDetails._id,
-        undefined,
-        undefined
+        data.data.userDetails.studentDepartment,
+        data.data.userDetails.studentSemester
       );
-
+      
       if (res2.status == "Alhamdulillah") {
         mytoast.success("Password reset Successfully");
 

@@ -73,8 +73,6 @@ function FeesPage() {
     }
   }
 
-  console.log(getDayDifference());
-
   if (getDayDifference() > 1) {
     if (
       data.data.userDetails.paymentStatus.addmissionDueStatus == true &&

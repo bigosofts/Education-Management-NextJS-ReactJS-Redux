@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import mytoast from "@/components/toast/toast";
 import { isAdmin } from "@/apiservices/checklogin";
 import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
+import { selectDataTwo } from "@/apiservices/studentapiservices";
 
 function EnrollButton({ courseCode, setProfileUpdate }) {
   const dispatch = useDispatch();
@@ -13,12 +14,29 @@ function EnrollButton({ courseCode, setProfileUpdate }) {
   const data = useSelector((state) => state.isAdmin.value);
 
   useEffect(() => {
-    async function getData() {
-      const response = await isAdmin();
+    async function fetchData() {
+      const payload = await isAdmin();
+      if (payload.status == "Alhamdulillah") {
+        const res = await selectDataTwo(
+          { userName: payload.data.userName },
+          null
+        );
+        if (res.status == "Alhamdulillah") {
+          const desiredObj = {
+            status: "Alhamdulillah",
+            data: {
+              userName: res.data[0].userName,
+              userRole: res.data[0].userRole,
+              isAdmin: res.data[0].isAdmin,
+              userDetails: res.data[0],
+            },
+          };
 
-      dispatch(setInitialData(response));
+          dispatch(setInitialData(desiredObj));
+        }
+      }
     }
-    getData();
+    fetchData();
   }, []);
 
   const [finalData, setFinalData] = useState({
