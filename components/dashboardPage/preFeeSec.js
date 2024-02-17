@@ -1,14 +1,18 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { selectDataTwo } from "@/apiservices/courseapiservices";
 import { selectDataTwo as selectDepartment } from "@/apiservices/departmentapiservices";
 import { selectDataTwo as seletcJamat } from "@/apiservices/jamatapiservices";
 import { selectDataTwo as selectSemester } from "@/apiservices/semesterapiservices";
 import ShowPaymentDetails from "./showpaymentDetail";
+import { selectDataTwo as selectPayments } from "@/apiservices/paymentapiservices";
 import { useSearchParams } from "next/navigation";
 
-import { createData } from "@/apiservices/paymentapiservices";
+import {
+  createData,
+  updateData as upDatePayment,
+} from "@/apiservices/paymentapiservices";
 import { updateData } from "@/apiservices/studentapiservices";
 import mytoast from "../toast/toast";
 import { logout } from "@/apiservices/checklogin";
@@ -16,8 +20,10 @@ import { removeToken } from "@/helper/sessionHelper";
 
 function PreFeeSection({ profile }) {
   const searchParams = useSearchParams();
+  const UnpaidRef = useRef();
 
   const enroll = searchParams.get("enroll");
+  const [Unpaid, setUnpaid] = useState();
   const [money, setMoney] = useState();
   const [course, setCourse] = useState();
   const [department, setDepartment] = useState();
@@ -225,25 +231,22 @@ function PreFeeSection({ profile }) {
       const res2 = await selectDepartment(null, null);
       const res3 = await seletcJamat(null, null);
       const res4 = await selectSemester(null, null);
+      const res5 = await selectPayments(null, null);
       const response = await fetch(
         "https://v6.exchangerate-api.com/v6/6beb79e3dfb29569d6a2ca2f/pair/USD/BDT"
       );
       const conversionRate = await response.json();
 
-      const [course, department, jamat, semester, rate] = await Promise.all([
-        res,
-        res2,
-        res3,
-        res4,
-        conversionRate,
-      ]);
+      const [course, department, jamat, semester, rate, paymentData] =
+        await Promise.all([res, res2, res3, res4, conversionRate, res5]);
 
       if (
-        course.status == "Alhamdulillah" &&
-        department.status == "Alhamdulillah" &&
-        jamat.status == "Alhamdulillah" &&
-        semester.status == "Alhamdulillah" &&
-        rate.result == "success"
+        (course.status == "Alhamdulillah" &&
+          department.status == "Alhamdulillah" &&
+          jamat.status == "Alhamdulillah" &&
+          semester.status == "Alhamdulillah" &&
+          rate.result == "success",
+        paymentData.status == "Alhamdulillah")
       ) {
         setCourse(
           course.data.map((item) => {
@@ -353,6 +356,18 @@ function PreFeeSection({ profile }) {
             return { ID: item.semesterID, name: item.semesterName };
           })
         );
+
+        setUnpaid(
+          paymentData.data.filter((item) => {
+            if (
+              item.paymentID ==
+              `${profile.data.userDetails.paymentStatus.paymentID}`
+            )
+              return item;
+          })
+        );
+        console.log(paymentData);
+        console.log(profile.data.userDetails.paymentStatus.paymentID);
       }
     }
     getData();
@@ -385,136 +400,287 @@ function PreFeeSection({ profile }) {
 
     oneYearLater.setFullYear(currentDate.getFullYear() + 1);
 
-    const resPayment = await createData({
-      paymentID: "payment-" + profile.data.userName,
-      paymentCurrency: mainData.currency,
-      admissionDate: new Date(Date.now()).toISOString(),
-      nextAdmissionDate: oneYearLater.toISOString(),
-      nextMonthlyPaymentDate: oneMonthLater.toISOString(),
-      admissionPrice: money
-        ? { tk: money.tk, us: money.us }
-        : { tk: "", us: "" },
-      monthlyPaymentPrice: money
-        ? { tk: money.mtk, us: money.mus }
-        : { tk: "", us: "" },
-      admissionPaymentHistory: [
-        {
-          Date: new Date(Date.now()).toISOString(),
-          PaymentStatus: false,
-          Price: mainData.amountPaid,
-          currency: mainData.currency,
-          transactionID: mainData.transactionID,
-          senderNo: mainData.accountNo,
-          paymentWay: mainData.paymentWay,
-        },
-        {
-          Date: oneYearLater.toISOString(),
-          PaymentStatus: false,
-          Price: "",
-          currency: "",
-          transactionID: "",
-          senderNo: "",
-          paymentWay: "",
-        },
-      ],
-      monthlyPaymentHistory: [
-        {
-          Date: oneMonthLater.toISOString(),
-          PaymentStatus: false,
-          Price: "",
-          currency: "",
-          transactionID: "",
-          senderNo: "",
-          paymentWay: "",
-        },
-      ],
-      activeStatus: "active",
-    });
+    if (profile.data.userDetails.studentCourseCode.length < 1) {
+      const resPayment = await createData({
+        paymentID: "payment-" + profile.data.userName,
+        paymentCurrency: mainData.currency,
+        admissionDate: new Date(Date.now()).toISOString(),
 
-    if (resPayment.status == "Alhamdulillah") {
-      mytoast.success(
-        "Your Payment Request is Accepted. Please Wait for the verificiation"
-      );
-      const studentCourseCode = {
-        code: mainData.course,
-        startedDate: new Date(Date.now()).toISOString(),
-        endDate: null,
-        status: "inactive",
-      };
+        admissionPrice: money
+          ? { tk: money.tk, us: money.us }
+          : { tk: "", us: "" },
+        monthlyPaymentPrice: money
+          ? { tk: money.mtk, us: money.mus }
+          : { tk: "", us: "" },
+        admissionPaymentHistory: [
+          {
+            Date: new Date(Date.now()).toISOString(),
+            PaymentStatus: false,
+            Price: mainData.amountPaid,
+            currency: mainData.currency,
+            transactionID: mainData.transactionID,
+            senderNo: mainData.accountNo,
+            paymentWay: mainData.paymentWay,
+            nextAdmissionDate: oneYearLater.toISOString(),
+          },
+          {
+            Date: oneYearLater.toISOString(),
+            PaymentStatus: false,
+            Price: "",
+            currency: "",
+            transactionID: "",
+            senderNo: "",
+            paymentWay: "",
+            nextAdmissionDate: undefined,
+          },
+        ],
+        monthlyPaymentHistory: [
+          {
+            Date: oneMonthLater.toISOString(),
+            PaymentStatus: false,
+            Price: "",
+            currency: "",
+            transactionID: "",
+            senderNo: "",
+            paymentWay: "",
+            nextMonthlyDate: undefined,
+          },
+        ],
+        activeStatus: "active",
+      });
+      if (resPayment.status == "Alhamdulillah") {
+        mytoast.success(
+          "Your Payment Request is Accepted. Please Wait for the verificiation"
+        );
+        const studentCourseCode = {
+          code: mainData.course,
+          startedDate: new Date(Date.now()).toISOString(),
+          endDate: null,
+          status: "inactive",
+        };
 
-      const studentDepartment = {
-        code: mainData.department,
-        startedDate: new Date(Date.now()).toISOString(),
-        endDate: null,
-        status: "inactive",
-      };
+        const studentDepartment = {
+          code: mainData.department,
+          startedDate: new Date(Date.now()).toISOString(),
+          endDate: null,
+          status: "inactive",
+        };
 
-      const studentJamatCode = {
-        code: mainData.jamat,
-        startedDate: new Date(Date.now()).toISOString(),
-        endDate: null,
-        status: "inactive",
-      };
+        const studentJamatCode = {
+          code: mainData.jamat,
+          startedDate: new Date(Date.now()).toISOString(),
+          endDate: null,
+          status: "inactive",
+        };
 
-      const studentSemester = {
-        code: mainData.semester,
-        startedDate: new Date(Date.now()).toISOString(),
-        endDate: null,
-        status: "inactive",
-      };
+        const studentSemester = {
+          code: mainData.semester,
+          startedDate: new Date(Date.now()).toISOString(),
+          endDate: null,
+          status: "inactive",
+        };
 
-      const resStudent = await updateData(
-        undefined,
-        profile.data.userDetails.firstName.en,
-        profile.data.userDetails.firstName.bn,
-        profile.data.userDetails.lastName.en,
-        profile.data.userDetails.lastName.bn,
-        undefined,
-        undefined,
-        profile.data.userDetails.fatherName.en,
-        profile.data.userDetails.fatherName.bn,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        studentCourseCode,
-        mainData.jamat ? studentJamatCode : undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        new Date(Date.now()).toISOString(),
-        undefined,
-        undefined,
-        undefined,
-        { addmissionDueStatus: true, paymentID: resPayment.data.paymentID },
-        undefined,
-        undefined,
-        undefined,
-        profile.data.userDetails._id,
-        mainData.department ? studentDepartment : undefined,
-        mainData.semester ? studentSemester : undefined
-      );
+        const resStudent = await updateData(
+          undefined,
+          profile.data.userDetails.firstName.en,
+          profile.data.userDetails.firstName.bn,
+          profile.data.userDetails.lastName.en,
+          profile.data.userDetails.lastName.bn,
+          undefined,
+          undefined,
+          profile.data.userDetails.fatherName.en,
+          profile.data.userDetails.fatherName.bn,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          studentCourseCode,
+          mainData.jamat ? studentJamatCode : undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          new Date(Date.now()).toISOString(),
+          undefined,
+          undefined,
+          undefined,
+          {
+            addmissionDueStatus: true,
+            consequentDueStatus: false,
+            paymentID: resPayment.data.paymentID,
+          },
+          undefined,
+          undefined,
+          undefined,
+          profile.data.userDetails._id,
+          mainData.department ? studentDepartment : undefined,
+          mainData.semester ? studentSemester : undefined
+        );
+        if (resStudent.status == "Alhamdulillah") {
+          mytoast.info("If verification Delays, Do not forget to reach us");
 
-      if (resStudent.status == "Alhamdulillah") {
-        mytoast.info("If verification Delays, Do not forget to reach us");
+          const resLogOut = await logout();
+          if (resLogOut.status == "Alhamdulillah") {
+            mytoast.info("You are logging out");
+            removeToken("access_token");
+            const hardRefresh = () => {
+              if (typeof window !== "undefined") {
+                window.location.href = "/dashboard/login";
+              }
+            };
+            hardRefresh();
+          }
+        }
+      }
+    } else {
+      const currentAdmissionPaymentHistory =
+        Unpaid[0].admissionPaymentHistory.map((item) => {
+          if (item._id == UnpaidRef.current.value) {
+            return {
+              Date: undefined,
+              PaymentStatus: false,
+              Price: mainData.amountPaid,
+              currency: mainData.currency,
+              transactionID: mainData.transactionID,
+              senderNo: mainData.accountNo,
+              paymentWay: mainData.paymentWay,
+              nextAdmissionDate: oneYearLater.toISOString(),
+            };
+          }
+        });
+      currentAdmissionPaymentHistory.push({
+        Date: oneYearLater.toISOString(),
+        PaymentStatus: false,
+        Price: "",
+        currency: "",
+        transactionID: "",
+        senderNo: "",
+        paymentWay: "",
+      });
 
-        const resLogOut = await logout();
-        if (resLogOut.status == "Alhamdulillah") {
-          mytoast.info("You are logging out");
-          removeToken("access_token");
-          const hardRefresh = () => {
-            if (typeof window !== "undefined") {
-              window.location.href = "/dashboard/login";
-            }
-          };
-          hardRefresh();
+      let CurrentID = Unpaid[0]._id;
+
+      const resPayment = await upDatePayment({
+        paymentID: "payment-" + profile.data.userName,
+        paymentCurrency: undefined,
+        admissionDate: undefined,
+
+        admissionPrice: money
+          ? { tk: money.tk, us: money.us }
+          : { tk: "", us: "" },
+        monthlyPaymentPrice: money
+          ? { tk: money.mtk, us: money.mus }
+          : { tk: "", us: "" },
+        admissionPaymentHistory: currentAdmissionPaymentHistory,
+        monthlyPaymentHistory: undefined,
+        activeStatus: "active",
+        idValue: CurrentID,
+      });
+      if (resPayment.status == "Alhamdulillah") {
+        mytoast.success(
+          "Your Payment Request is Accepted. Please Wait for the verificiation"
+        );
+
+        let studentCourseCode = profile.data.userDetails.studentCourseCode;
+        const pushObjCourse = {
+          code: mainData.course,
+          startedDate: new Date(Date.now()).toISOString(),
+          endDate: null,
+          status: "inactive",
+        };
+        let studentCourseCodeTwoFinal = [...studentCourseCode];
+        studentCourseCodeTwoFinal.push(pushObjCourse);
+
+        let studentDepartment = profile.data.userDetails.studentDepartment;
+        const pushObjDepartment = {
+          code: mainData.department,
+          startedDate: new Date(Date.now()).toISOString(),
+          endDate: null,
+          status: "inactive",
+        };
+        let studentDepartmentTwoFinal = [...studentDepartment];
+        studentDepartmentTwoFinal.push(pushObjDepartment);
+
+        let studentJamatCode = profile.data.userDetails.studentJamatCode;
+        const pushObjJamat = {
+          code: mainData.jamat,
+          startedDate: new Date(Date.now()).toISOString(),
+          endDate: null,
+          status: "inactive",
+        };
+        let studentJamatCodeTwoFinal = [...studentJamatCode];
+        studentJamatCodeTwoFinal.push(pushObjJamat);
+
+        let studentSemester = profile.data.userDetails.studentSemester;
+        const pushObjSemester = {
+          code: mainData.jamat,
+          startedDate: new Date(Date.now()).toISOString(),
+          endDate: null,
+          status: "inactive",
+        };
+        let studentSemesterTwoFinal = [...studentSemester];
+        studentSemesterTwoFinal.push(pushObjSemester);
+
+        const resStudent = await updateData(
+          undefined,
+          profile.data.userDetails.firstName.en,
+          profile.data.userDetails.firstName.bn,
+          profile.data.userDetails.lastName.en,
+          profile.data.userDetails.lastName.bn,
+          undefined,
+          undefined,
+          profile.data.userDetails.fatherName.en,
+          profile.data.userDetails.fatherName.bn,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          studentCourseCodeTwoFinal,
+          mainData.jamat ? studentJamatCodeTwoFinal : undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          new Date(Date.now()).toISOString(),
+          undefined,
+          undefined,
+          undefined,
+          {
+            addmissionDueStatus: true,
+            consequentDueStatus: true,
+            paymentID: resPayment.data.paymentID,
+          },
+          undefined,
+          undefined,
+          undefined,
+          profile.data.userDetails._id,
+          mainData.department ? studentDepartmentTwoFinal : undefined,
+          mainData.semester ? studentSemesterTwoFinal : undefined
+        );
+        if (resStudent.status == "Alhamdulillah") {
+          mytoast.info("If verification Delays, Do not forget to reach us");
+
+          const resLogOut = await logout();
+          if (resLogOut.status == "Alhamdulillah") {
+            mytoast.info("You are logging out");
+            removeToken("access_token");
+            const hardRefresh = () => {
+              if (typeof window !== "undefined") {
+                window.location.href = "/dashboard/login";
+              }
+            };
+            hardRefresh();
+          }
         }
       }
     }
   }
-
+  if (Unpaid) {
+    console.log("Unpaid");
+    console.log(Unpaid);
+  }
   return (
     <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">
       <div className="flex justify-center p-5 pb-10">
@@ -664,6 +830,39 @@ function PreFeeSection({ profile }) {
                 extraTransaction ? "h-[300px]md:h-[400px]" : "h-[0px]"
               } overflow-hidden transition-all duration-1000 ease-out`}
             >
+              {" "}
+              {profile.data.userDetails.studentCourseCode.length >= 1 ? (
+                <>
+                  <label htmlFor="yearAdmission">
+                    <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
+                      কোন বছরের এডমিশন ফী দিতে চাচ্ছেন?
+                    </h1>
+                  </label>
+                  <select
+                    ref={UnpaidRef}
+                    id="yearAdmission"
+                    name="yearAdmission"
+                    className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
+                  >
+                    <option value="none">
+                      এডমিশন ফী কোন বছরের তা নির্বাচন করুন?
+                    </option>
+                    {Unpaid
+                      ? Unpaid[0].admissionPaymentHistory.map((item, i) =>
+                          item.PaymentStatus == false ? (
+                            <option key={i} value={item._id}>
+                              {item.Date}
+                            </option>
+                          ) : (
+                            ""
+                          )
+                        )
+                      : ""}
+                  </select>
+                </>
+              ) : (
+                ""
+              )}
               <label htmlFor="paymentWay">
                 <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
                   আপনি নিচের যেকোনো একটি অপশনে টাকা জমা দিতে পারবেন
@@ -703,19 +902,16 @@ function PreFeeSection({ profile }) {
                   EBL Bank Account No. 170 145 000 1520
                 </option>
               </select>
-
               {showPayment ? (
                 <ShowPaymentDetails account={mainData.paymentWay} />
               ) : (
                 ""
               )}
-
               <label htmlFor="transactionalID">
                 <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
                   আপনার ট্রানজ্যাকশন কোডটি লিখুন
                 </h1>
               </label>
-
               <input
                 onChange={transactionDecision}
                 value={mainData.transactionID}
@@ -725,7 +921,6 @@ function PreFeeSection({ profile }) {
                 className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
                 placeholder="213C34OP54ST5GJI5"
               ></input>
-
               <label htmlFor="accountno">
                 <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
                   আপনি যেখান থেকে টাকা দিয়েছেন, মোবাইল ব্যাংকিং হলে প্রেরকের
@@ -733,7 +928,6 @@ function PreFeeSection({ profile }) {
                   প্রেরকের ইমেইল আইডি লিখুন
                 </h1>
               </label>
-
               <input
                 onChange={accountNoDecision}
                 value={mainData.accountNo}
@@ -748,7 +942,6 @@ function PreFeeSection({ profile }) {
                   আপনার জমাকৃত অর্থের পরিমাণ লিখুন
                 </h1>
               </label>
-
               <input
                 onChange={amountPaidDecision}
                 value={mainData.amountPaid}

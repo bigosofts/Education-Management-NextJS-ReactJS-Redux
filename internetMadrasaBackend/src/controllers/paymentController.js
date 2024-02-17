@@ -10,8 +10,7 @@ exports.createPayments = (req, res) => {
     paymentID: reqBody.paymentID,
     paymentCurrency: reqBody.paymentCurrency,
     admissionDate: reqBody.admissionDate,
-    nextAdmissionDate: reqBody.nextAdmissionDate,
-    nextMonthlyPaymentDate: reqBody.nextMonthlyPaymentDate,
+   
     admissionPrice: reqBody.admissionPrice,
     monthlyPaymentPrice: reqBody.monthlyPaymentPrice,
     admissionPaymentHistory: reqBody.admissionPaymentHistory,
@@ -66,8 +65,7 @@ exports.updatePayment = (req, res) => {
     paymentID: reqBody.paymentID,
     paymentCurrency: reqBody.paymentCurrency,
     admissionDate: reqBody.admissionDate,
-    nextAdmissionDate: reqBody.nextAdmissionDate,
-    nextMonthlyPaymentDate: reqBody.nextMonthlyPaymentDate,
+    
     admissionPrice: reqBody.admissionPrice,
     monthlyPaymentPrice: reqBody.monthlyPaymentPrice,
     admissionPaymentHistory: reqBody.admissionPaymentHistory,

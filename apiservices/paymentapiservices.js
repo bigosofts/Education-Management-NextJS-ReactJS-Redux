@@ -17,7 +17,7 @@ exports.selectData = async (query, projection) => {
           access_token: data2,
         },
         body: JSON.stringify(payloaddata),
-        cache: "no-store"
+        cache: "no-store",
       }
     );
     if (!res.ok) {
@@ -35,7 +35,7 @@ exports.selectData = async (query, projection) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(payloaddata),
-        cache: "no-store"
+        cache: "no-store",
       }
     );
     if (!res.ok) {
@@ -136,8 +136,6 @@ exports.createData = async ({
   paymentID,
   paymentCurrency,
   admissionDate,
-  nextAdmissionDate,
-  nextMonthlyPaymentDate,
   admissionPrice,
   monthlyPaymentPrice,
   admissionPaymentHistory,
@@ -148,15 +146,13 @@ exports.createData = async ({
     paymentID,
     paymentCurrency,
     admissionDate,
-    nextAdmissionDate,
-    nextMonthlyPaymentDate,
     admissionPrice,
     monthlyPaymentPrice,
     admissionPaymentHistory,
     monthlyPaymentHistory,
     activeStatus,
   };
- 
+  console.log(aboutdata);
   if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-payment`,
@@ -171,7 +167,7 @@ exports.createData = async ({
     );
 
     if (!res.ok) {
-      console.log(res.json());
+      console.log(res);
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
@@ -203,8 +199,7 @@ exports.updateData = async ({
   paymentID,
   paymentCurrency,
   admissionDate,
-  nextAdmissionDate,
-  nextMonthlyPaymentDate,
+
   admissionPrice,
   monthlyPaymentPrice,
   admissionPaymentHistory,
@@ -217,8 +212,7 @@ exports.updateData = async ({
     paymentID,
     paymentCurrency,
     admissionDate,
-    nextAdmissionDate,
-    nextMonthlyPaymentDate,
+
     admissionPrice,
     monthlyPaymentPrice,
     admissionPaymentHistory,

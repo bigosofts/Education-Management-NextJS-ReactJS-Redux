@@ -88,7 +88,11 @@ function LoginPageDesign({ userData }) {
               fullPermanentAddress: "",
               admissionSession: "",
               studentMotive: "",
-              paymentStatus: { addmissionDueStatus: true, paymentID: "" },
+              paymentStatus: {
+                addmissionDueStatus: true,
+                consequentDueStatus: false,
+                paymentID: "",
+              },
               extracurricular: "",
               details: { status: "ok" },
               activeStatus: "active",

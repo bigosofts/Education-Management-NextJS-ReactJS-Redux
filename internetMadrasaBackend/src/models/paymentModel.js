@@ -5,8 +5,7 @@ const DataSchema = mongoose.Schema(
     paymentID: { type: String, required: true, unique: true },
     paymentCurrency: { type: String, required: true },
     admissionDate: { type: Date, required: true },
-    nextAdmissionDate: { type: Date, required: true },
-    nextMonthlyPaymentDate: { type: Date, required: true },
+   
     admissionPrice: { type: Object, required: true },
     monthlyPaymentPrice: { type: Object, required: true },
     admissionPaymentHistory: [
@@ -18,6 +17,7 @@ const DataSchema = mongoose.Schema(
         transactionID: { type: String },
         senderNo: { type: String },
         paymentWay: { type: String },
+        nextAdmissionDate: { type: Date },
       },
     ],
     monthlyPaymentHistory: [
@@ -29,6 +29,7 @@ const DataSchema = mongoose.Schema(
         transactionID: { type: String },
         senderNo: { type: String },
         paymentWay: { type: String },
+        nextMonthlyDate: { type: Date },
       },
     ],
     paymentCreatedDate: { type: Date },

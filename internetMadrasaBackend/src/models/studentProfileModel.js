@@ -66,6 +66,7 @@ const DataSchema = mongoose.Schema(
     studentMotive: { type: String },
     paymentStatus: {
       addmissionDueStatus: { type: Boolean },
+      consequentDueStatus: { type: Boolean },
       paymentID: { type: String },
     },
     activeStatus: {
