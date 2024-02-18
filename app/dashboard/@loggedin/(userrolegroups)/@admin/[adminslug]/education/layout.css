@@ -1,0 +1,25 @@
+.title-edu {
+  padding-top: 2.5rem /* 40px */;
+  padding-bottom: 2.5rem /* 40px */;
+}
+.h1-edu {
+  font-size: 1.5rem /* 24px */;
+  line-height: 2rem /* 32px */;
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity));
+  margin-top: 150px !important;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .title-edu {
+    padding-left: 3rem /* 48px */;
+    padding-top: 3rem /* 48px */;
+    padding-bottom: 3rem /* 48px */;
+  }
+  .h1-edu {
+    font-size: 2.25rem /* 36px */;
+    line-height: 2.5rem /* 40px */;
+    margin-top: 0px;
+  }
+}

@@ -6,15 +6,22 @@ import React from "react";
 import { isAdmin } from "@/apiservices/checklogin";
 import { useRouter } from "next/navigation";
 
+import { useSelector, useDispatch } from "react-redux";
+import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
+import { selectDataTwo } from "@/apiservices/studentapiservices";
+
 function layout({ children, params }) {
   const router = useRouter();
+  const dispatch = useDispatch();
 
-  const [data, setData] = useState();
+  const data = useSelector((state) => state.isAdmin.value);
 
   useEffect(() => {
     async function fetchData() {
       const payload = await isAdmin();
-      setData(payload);
+      if (payload.status == "Alhamdulillah") {
+        dispatch(setInitialData(payload));
+      }
     }
     fetchData();
   }, []);
@@ -119,6 +126,11 @@ function layout({ children, params }) {
       name: "Abacus Sheet",
       href: `/dashboard/${params.adminslug}/abacus-sheet`,
       icon: "BsClipboardData",
+    },
+    {
+      name: "Education",
+      href: `/dashboard/${params.adminslug}/education`,
+      icon: "GoGear",
     },
   ];
 

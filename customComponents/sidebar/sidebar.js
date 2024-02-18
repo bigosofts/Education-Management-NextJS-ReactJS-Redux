@@ -12,6 +12,7 @@ import { FiMail } from "react-icons/fi";
 import {LuGraduationCap} from "react-icons/lu";
 import {FaChalkboardTeacher,FaRegQuestionCircle} from "react-icons/fa";
 import {IoIosClose  } from "react-icons/io";
+import { GoGear } from "react-icons/go";
 import { usePathname } from 'next/navigation';
 
 
@@ -90,6 +91,9 @@ function Sidebar(props) {
         }
         else if(name == "BiCode"){
             return <BiCode />
+        }
+        else if(name == "GoGear"){
+            return <GoGear />
         }
     }
 

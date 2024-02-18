@@ -19,7 +19,7 @@ const mytoast = {
       maxVisibleToasts: 10,
       isReversedOrder: false,
       render: (message) => (
-        <div className="border border-white-200 rounded-md shadow-md py-1 md:py-5 px-2 md:px-10 text-white flex justify-center text-sm md:text-lg bg-lime-400">
+        <div className="border border-white-200 rounded-md shadow-md py-1 md:py-5 px-2 md:px-10 text-white flex justify-center text-sm md:text-lg bg-[#013030]">
           <span className="px-2 inline-block">
             <BiCheckSquare size={32} />
           </span>
