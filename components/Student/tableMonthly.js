@@ -1,136 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { selectDataTwo as selectPay } from "@/apiservices/paymentapiservices";
-import { updateData } from "@/apiservices/studentapiservices";
-import { updateData as updatePayment } from "@/apiservices/paymentapiservices";
-import mytoast from "../toast/toast";
 
-function Table({ profile, paymentID, students }) {
-  async function updateProfile(id, modDate) {
-    let modifiedadmissionPaymentHistory = payments.admissionPaymentHistory.map(
-      (item) => {
-        if (item._id === id) {
-          return {
-            Date: item.Date,
-            PaymentStatus: true,
-            Price: item.Price,
-            currency: item.currency,
-            transactionID: item.transactionID,
-            senderNo: item.senderNo,
-            paymentWay: item.paymentWay,
-            _id: id,
-          };
-        } else {
-          return item;
-        }
-      }
-    );
-
-    const resPay = await updatePayment({
-      paymentID: payments.paymentID,
-      paymentCurrency: payments.paymentCurrency,
-      admissionDate: payments.admissionDate,
-      admissionPrice: payments.admissionPrice,
-      monthlyPaymentPrice: payments.monthlyPaymentPrice,
-      admissionPaymentHistory: modifiedadmissionPaymentHistory,
-      monthlyPaymentHistory: payments.monthlyPaymentHistory,
-      activeStatus: payments.activeStatus,
-      idValue: payments._id,
-    });
-    if (resPay.status == "Alhamdulillah") {
-      mytoast.success("Payments Modified Successfully");
-      let student = students.filter((item) => {
-        if (item.paymentStatus.paymentID == paymentID) {
-          return item;
-        }
-      });
-
-      let modifiedStudentCourseCode = student[0].studentCourseCode.map(
-        (item) => {
-          return {
-            code: item.code,
-            startedDate: item.startedDate,
-            endDate: item.endDate,
-            status: "active",
-            _id: item._id,
-          };
-        }
-      );
-
-      let modifiedStudentJamatCode = student[0].studentJamatCode.map((item) => {
-        return {
-          code: item.code,
-          startedDate: item.startedDate,
-          endDate: item.endDate,
-          status: "active",
-          _id: item._id,
-        };
-      });
-
-      let modifiedStudentDepartment = student[0].studentDepartment.map(
-        (item) => {
-          return {
-            code: item.code,
-            startedDate: item.startedDate,
-            endDate: item.endDate,
-            status: "active",
-            _id: item._id,
-          };
-        }
-      );
-
-      let modifiedStudentSemester = student[0].studentSemester.map((item) => {
-        return {
-          code: item.code,
-          startedDate: item.startedDate,
-          endDate: item.endDate,
-          status: "active",
-          _id: item._id,
-        };
-      });
-
-      const res = await updateData(
-        student[0].userName,
-        student[0].firstName.en,
-        student[0].firstName.bn,
-        student[0].lastName.en,
-        student[0].lastName.bn,
-        student[0].nidNumber,
-        student[0].birthRegNumber,
-        student[0].fatherName.en,
-        student[0].fatherName.bn,
-        student[0].emailAddress,
-        undefined,
-        student[0].mobileNumber,
-        student[0].occupation,
-        modifiedStudentCourseCode,
-        modifiedStudentJamatCode,
-        student[0].gender,
-        student[0].dateOfBirth,
-        student[0].countryName,
-        student[0].fullPresentAddress,
-        student[0].fullPermanentAddress,
-        modDate,
-        student[0].admissionDate,
-        student[0].studentMotive,
-        student[0].details,
-        {
-          addmissionDueStatus: false,
-          consequentDueStatus: false,
-          paymentID: student[0].paymentStatus.paymentID,
-        },
-        student[0].userRole,
-        student[0].extracurricular,
-        student[0].activeStatus,
-        student[0]._id,
-        modifiedStudentDepartment,
-        modifiedStudentSemester
-      );
-      if (res.status == "Alhamdulillah") {
-        mytoast.success("Account Approved Successfully");
-      }
-    }
-  }
+function TableMonthly({ profile, paymentID, students }) {
   const [payments, setPayments] = useState();
   useEffect(() => {
     async function getData() {
@@ -156,12 +28,12 @@ function Table({ profile, paymentID, students }) {
   }
   if (payments) {
     return (
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <div className="w-[90vw] mx-auto relative overflow-x-auto shadow-md rounded-md sm:rounded-lg">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 rounded-md overflow-hidden">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
-                Admission Price
+                Monthly Price
               </th>
               <th scope="col" className="px-6 py-3">
                 Course Overview
@@ -187,19 +59,19 @@ function Table({ profile, paymentID, students }) {
               </th>
 
               <th scope="col" className="px-6 py-3">
-                Action
+                Current Status
               </th>
             </tr>
           </thead>
           <tbody>
-            {payments.admissionPaymentHistory.map((item, i) => (
+            {payments.monthlyPaymentHistory.map((item, i) => (
               <tr
                 key={i}
                 className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
               >
                 <td className="px-6 py-4">
-                  Taka: {payments.admissionPrice.tk}
-                  <br /> Dollar: {payments.admissionPrice.us}
+                  Taka: {payments.monthlyPaymentPrice.tk}
+                  <br /> Dollar: {payments.monthlyPaymentPrice.us}
                 </td>
                 <td className="px-6 py-4">
                   {
@@ -261,7 +133,6 @@ function Table({ profile, paymentID, students }) {
                         </span>
                       ) : (
                         <span
-                          onClick={() => updateProfile(item._id, item.Date)}
                           style={{
                             display: "inline-block",
                             backgroundColor: "#fbbc05",
@@ -271,10 +142,9 @@ function Table({ profile, paymentID, students }) {
                             marginLeft: "10px",
                             fontSize: "14px",
                             fontWeight: "900",
-                            cursor: "pointer",
                           }}
                         >
-                          Approve
+                          Pending
                         </span>
                       )
                     ) : (
@@ -304,4 +174,4 @@ function Table({ profile, paymentID, students }) {
   }
 }
 
-export default Table;
+export default TableMonthly;

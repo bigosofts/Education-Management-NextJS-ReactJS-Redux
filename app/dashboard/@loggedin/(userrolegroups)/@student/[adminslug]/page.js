@@ -5,6 +5,11 @@ import DashSlider from "@/components/dashboardPage/DashSlider";
 import DashExplore from "@/components/dashboardPage/DashExplore";
 
 import { updateData } from "@/apiservices/studentapiservices";
+import {
+  updateData as upDatePayment,
+  selectDataTwo,
+} from "@/apiservices/paymentapiservices";
+
 import { useSelector } from "react-redux";
 import mytoast from "@/components/toast/toast";
 
@@ -74,7 +79,7 @@ function page(props) {
           );
 
           if (res.status == "Alhamdulillah") {
-            mytoast.danger("Your Next Year Admission Fee is Overdue");
+            mytoast.danger("Admission Fee for the Next Year is Overdue");
           } else {
             console.log(res);
           }
@@ -83,6 +88,91 @@ function page(props) {
       }
     }
     getData();
+
+    async function writePayment() {
+      const res2 = await selectDataTwo(
+        { paymentID: data.data.userDetails.paymentStatus.paymentID },
+        null
+      );
+      if ((res2.status = "Alhamdulillah")) {
+        if(res2.data[0]){
+          if(res2.data[0].monthlyPaymentHistory.length >= 1){
+            function isDatePassed(date) {
+              let currentDate = new Date();
+              let paymentDate = new Date(date);
+              return currentDate.getTime() > paymentDate.getTime();
+            }
+            if (
+              isDatePassed(
+                res2.data[0].monthlyPaymentHistory[
+                  res2.data[0].monthlyPaymentHistory.length - 1
+                ].Date
+              )
+            ) {
+              let currentDate = new Date();
+              var currentMonth = currentDate.getMonth();
+              var currentYear = currentDate.getFullYear();
+    
+              var nextMonth = currentMonth + 1;
+              var nextYear = currentYear;
+              if (nextMonth > 11) {
+                nextMonth = 0; // January (0-indexed)
+                nextYear++;
+              }
+    
+              var oneMonthLater = new Date(
+                nextYear,
+                nextMonth,
+                currentDate.getDate(),
+                currentDate.getHours(),
+                currentDate.getMinutes(),
+                currentDate.getSeconds(),
+                currentDate.getMilliseconds()
+              );
+    
+              let newMonthlyPayment = [...res2.data[0].monthlyPaymentHistory];
+    
+              newMonthlyPayment.push({
+                Date: oneMonthLater.toISOString(),
+                PaymentStatus: false,
+                Price: "",
+                currency: "",
+                transactionID: "",
+                senderNo: "",
+                paymentWay: "",
+                nextMonthlyDate: undefined,
+              });
+              const res4 = await upDatePayment({
+                paymentID: "payment-" + data.data.userDetails.userName,
+                paymentCurrency: res2.data[0].paymentCurrency,
+                admissionDate: res2.data[0].admissionDate,
+    
+                admissionPrice: {
+                  tk: res2.data[0].admissionPrice.tk,
+                  us: res2.data[0].admissionPrice.us,
+                },
+                monthlyPaymentPrice: {
+                  tk: res2.data[0].monthlyPaymentPrice.tk,
+                  us: res2.data[0].monthlyPaymentPrice.us,
+                },
+                admissionPaymentHistory: res2.data[0].admissionPaymentHistory,
+    
+                monthlyPaymentHistory: newMonthlyPayment,
+                activeStatus: "active",
+                idValue: res2.data[0]._id,
+              });
+    
+              if (res4.status == "Alhamdulillah") {
+                mytoast.warning("Monthly Payment Overdue");
+              }
+            }
+          }
+        }
+        
+        
+      }
+    }
+    writePayment();
   }, []);
 
   return (

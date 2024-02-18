@@ -59,7 +59,7 @@ function SigninSignupmenuButton() {
             null
           );
           if (res.status == "Alhamdulillah") {
-            
+            console.log(res)
             const desiredObj = {
               status: "Alhamdulillah",
               data: {

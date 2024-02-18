@@ -61,7 +61,7 @@ function Accordion() {
         <span
           style={{
             display: "inline-block",
-            backgroundColor: "green",
+            backgroundColor: "#34a853",
             padding: "5px 10px",
             borderRadius: "15px",
             color: "white",

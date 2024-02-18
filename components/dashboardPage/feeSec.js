@@ -1,22 +1,125 @@
 "use client";
 import { useSearchParams, useRouter } from "next/navigation";
-function FeeSection({profile}) {
+import Table from "../Student/table";
+import { selectDataTwo } from "@/apiservices/studentapiservices";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import TableMonthly from "../Student/tableMonthly";
+import PreFeeSection from "./preFeeSec";
+import { selectDataTwo as selectPayments } from "@/apiservices/paymentapiservices";
+import MonthlyPayment from "./monthlyPayment";
+
+function FeeSection({ profile }) {
+  const [students, setStudents] = useState();
+  const [payments, setPayments] = useState();
+  const [store, setStore] = useState("0 taka");
+  const data = useSelector((state) => state.isAdmin.value);
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const res = await selectDataTwo(null, null);
+        const res2 = await selectPayments(
+          { paymentID: data.data.userDetails.paymentStatus.paymentID },
+          null
+        );
+        if (res.status === "Alhamdulillah" && res2.status === "Alhamdulillah") {
+          setStudents(res.data);
+          setPayments(res2.data[0]);
+          function calculate() {
+ 
+            function isDatePassed(date) {
+              let currentDate = new Date();
+              let paymentDate = new Date(date);
+        
+              return currentDate.getTime() > paymentDate.getTime();
+            }
+            if (res2.data[0]) {
+              
+              let havePassed = isDatePassed(
+                res2.data[0].admissionPaymentHistory[
+                  res2.data[0].admissionPaymentHistory.length - 1
+                ].Date
+              );
+              if (!havePassed) {
+               
+                setStore(
+                  `${
+                    res2.data[0].admissionPaymentHistory[
+                      res2.data[0].admissionPaymentHistory.length - 2
+                    ].Price
+                  } ${
+                    res2.data[0].admissionPaymentHistory[
+                      res2.data[0].admissionPaymentHistory.length - 2
+                    ].currency
+                  }`
+                );
+              }else{
+                alert("cliked 2")
+              }
+            }
+          }
+          calculate()
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+    getData();
+    
+  }, []);
+
+  
+ 
   const router = useRouter();
   const searchParams = useSearchParams();
-  
 
   const enroll = searchParams.get("enroll");
-  if(enroll){
-    router.push(`/dashboard/${profile.data.userName}/switches?enroll=${enroll}`)
-  }else{
-    return ( 
-      <div className="p-4 h-[200px] bg-[#013030] text-white text-lg md:text-3xl">
-      <div>Current Balance</div>
-      <div>200Tk</div>
-    </div>
-   );
+  if (enroll) {
+    router.push(
+      `/dashboard/${profile.data.userName}/switches?enroll=${enroll}`
+    );
+  } else {
+    return (
+      <div className="p-4 h-[300px] bg-[#013030] text-white text-[32px] md:text-3xl">
+        <div className=" flex justify-between">
+          <div>Current Balance</div>
+          <div>{store} <br/><div className=" text-center text-lg md:text-xl">(1 year)</div></div>
+         
+        </div>
+        <div className="">
+          <h1 className="text-[26px] md:text-md mt-12 mb-10 text-white text-center">
+            Yearly Admission history
+          </h1>
+          <Table
+            profile={data.data.userDetails}
+            students={students}
+            paymentID={data.data.userDetails.paymentStatus.paymentID}
+          />
+          <h1 className="text-[26px] md:text-md mt-12 mb-10 text-slate-600 text-center">
+            Monthly Payment history
+          </h1>
+          <TableMonthly
+            profile={data.data.userDetails}
+            students={students}
+            paymentID={data.data.userDetails.paymentStatus.paymentID}
+          />
+          <div className="text-slate-800 mt-[200px]">
+          <h1 className="text-[26px] md:text-md mt-12 mb-10 text-slate-600 text-center">
+            Give Monthly Payment before due date
+          </h1>
+            <MonthlyPayment profile={data} />
+          </div>
+          <div className="text-slate-800 mt-[200px]">
+          <h1 className="text-[26px] md:text-md mt-12 mb-10 text-slate-600 text-center">
+            Give Yearly Payment before due date
+          </h1>
+            <PreFeeSection profile={data} />
+          </div>
+        </div>
+      </div>
+    );
   }
-   
 }
 
 export default FeeSection;
