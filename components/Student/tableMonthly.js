@@ -28,7 +28,7 @@ function TableMonthly({ profile, paymentID, students }) {
   }
   if (payments) {
     return (
-      <div className="w-[90vw] mx-auto relative overflow-x-auto shadow-md rounded-md sm:rounded-lg">
+      <div className="w-[90%] mx-auto relative overflow-x-auto shadow-md rounded-md sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 rounded-md overflow-hidden">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>

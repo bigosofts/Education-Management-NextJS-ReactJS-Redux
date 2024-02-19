@@ -16,7 +16,7 @@ import {
 import { updateData } from "@/apiservices/studentapiservices";
 import mytoast from "../toast/toast";
 
-function PreFeeSection({ profile }) {
+function PreFeeSectionMonthly({ profile }) {
   const searchParams = useSearchParams();
   const UnpaidRef = useRef();
 
@@ -952,7 +952,7 @@ function PreFeeSection({ profile }) {
             </div>
             <div className="submitSection">
               <button
-                className="mt-10 w-full p-4 bg-lime-900 hover:bg-lime-700 transition duration-500 ease-out text-white fixed bottom-0 left-0 z-50 text-sm md:text-2xl"
+                className="mt-10 w-full p-4 bg-lime-900 hover:bg-lime-700 transition duration-500 ease-out text-white z-50 text-sm md:text-2xl rounded-3xl"
                 type="submit"
               >
                 {" "}
@@ -966,4 +966,4 @@ function PreFeeSection({ profile }) {
   );
 }
 
-export default PreFeeSection;
+export default PreFeeSectionMonthly;

@@ -32,15 +32,14 @@ function SigninSignupmenuButton() {
   useEffect(() => {
     async function fetchData() {
       const payload = await isAdmin();
-      
+
       if (payload.status == "Alhamdulillah") {
-        if(payload.data.userRole == "teacher"){
+        if (payload.data.userRole == "teacher") {
           const res = await selectTeachers(
             { userName: payload.data.userName },
             null
           );
           if (res.status == "Alhamdulillah") {
-            
             const desiredObj = {
               status: "Alhamdulillah",
               data: {
@@ -50,30 +49,36 @@ function SigninSignupmenuButton() {
                 userDetails: res.data[0],
               },
             };
-  
+
             dispatch(setInitialData(desiredObj));
           }
-        }else if(payload.data.userRole == "student"){
+        } else if (payload.data.userRole == "student") {
           const res = await selectStudents(
             { userName: payload.data.userName },
             null
           );
           if (res.status == "Alhamdulillah") {
-            console.log(res)
-            const desiredObj = {
-              status: "Alhamdulillah",
-              data: {
-                userName: res.data[0].userName,
-                userRole: res.data[0].userRole,
-                isAdmin: res.data[0].isAdmin,
-                userDetails: res.data[0],
-              },
-            };
-  
+            console.log(res);
+            let desiredObj;
+            if (res.data.length < 1) {
+              desiredObj = {
+                status: "noToken",
+              };
+            } else {
+              desiredObj = {
+                status: "Alhamdulillah",
+                data: {
+                  userName: res.data[0].userName,
+                  userRole: res.data[0].userRole,
+                  isAdmin: res.data[0].isAdmin,
+                  userDetails: res.data[0],
+                },
+              };
+            }
+
             dispatch(setInitialData(desiredObj));
           }
         }
-       
       }
     }
     fetchData();

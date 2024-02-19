@@ -95,8 +95,8 @@ function page(props) {
         null
       );
       if ((res2.status = "Alhamdulillah")) {
-        if(res2.data[0]){
-          if(res2.data[0].monthlyPaymentHistory.length >= 1){
+        if (res2.data[0]) {
+          if (res2.data[0].monthlyPaymentHistory.length >= 1) {
             function isDatePassed(date) {
               let currentDate = new Date();
               let paymentDate = new Date(date);
@@ -112,14 +112,14 @@ function page(props) {
               let currentDate = new Date();
               var currentMonth = currentDate.getMonth();
               var currentYear = currentDate.getFullYear();
-    
+
               var nextMonth = currentMonth + 1;
               var nextYear = currentYear;
               if (nextMonth > 11) {
                 nextMonth = 0; // January (0-indexed)
                 nextYear++;
               }
-    
+
               var oneMonthLater = new Date(
                 nextYear,
                 nextMonth,
@@ -129,11 +129,11 @@ function page(props) {
                 currentDate.getSeconds(),
                 currentDate.getMilliseconds()
               );
-    
+
               let newMonthlyPayment = [...res2.data[0].monthlyPaymentHistory];
-    
+
               newMonthlyPayment.push({
-                Date: oneMonthLater.toISOString(),
+                Date: new Date(oneMonthLater),
                 PaymentStatus: false,
                 Price: "",
                 currency: "",
@@ -146,7 +146,7 @@ function page(props) {
                 paymentID: "payment-" + data.data.userDetails.userName,
                 paymentCurrency: res2.data[0].paymentCurrency,
                 admissionDate: res2.data[0].admissionDate,
-    
+
                 admissionPrice: {
                   tk: res2.data[0].admissionPrice.tk,
                   us: res2.data[0].admissionPrice.us,
@@ -156,20 +156,18 @@ function page(props) {
                   us: res2.data[0].monthlyPaymentPrice.us,
                 },
                 admissionPaymentHistory: res2.data[0].admissionPaymentHistory,
-    
+
                 monthlyPaymentHistory: newMonthlyPayment,
                 activeStatus: "active",
                 idValue: res2.data[0]._id,
               });
-    
+
               if (res4.status == "Alhamdulillah") {
                 mytoast.warning("Monthly Payment Overdue");
               }
             }
           }
         }
-        
-        
       }
     }
     writePayment();

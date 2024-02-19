@@ -4,13 +4,8 @@ import "./accordion.css";
 import Table from "@/components/Admin/table";
 import { selectDataTwo } from "@/apiservices/studentapiservices";
 
-
-
-
 function Accordion() {
   const [students, setStudents] = useState();
- 
-
 
   useEffect(() => {
     // Event delegation for accordion items
@@ -89,7 +84,7 @@ function Accordion() {
             fontSize: "14px",
           }}
         >
-          Payment Due
+          Due
         </span>
       );
     } else if (
@@ -109,7 +104,7 @@ function Accordion() {
             marginBottom: "10px",
           }}
         >
-          Pending Approval
+          Pending
         </span>
       );
     }
