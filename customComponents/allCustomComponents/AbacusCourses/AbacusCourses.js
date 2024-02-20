@@ -4,8 +4,9 @@ import { useState } from "react";
 import Image from "next/image";
 import EnrollCondition from "@/components/dashboardPage/courses/enrollCondition";
 
-function AbacusCourse({ info, comment, richtext }) {
+function AbacusCourse({ info, comment, richtext, parameter }) {
   const [syllabus, setSyllabus] = useState(3);
+  const pageName = parameter.courseID;
 
   function richtextoutput(text) {
     if (text.indexOf("rich-") !== -1) {
@@ -466,46 +467,85 @@ function AbacusCourse({ info, comment, richtext }) {
               <div className="style-1124">
                 <div className="style-1125">
                   <div className="style-1126">
-                    <h2 className="style-1127">
-                      {true
-                        ? "Do you have any question?"
-                        : "আরও কোন জিজ্ঞাসা আছে?"}
-                    </h2>
-                    <div className="style-1128">
-                      <a href="tel:16910" className="style-1129">
-                        <div className="style-1130">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="28"
-                            height="28"
-                            fill="none"
-                            viewBox="0 0 29 28"
-                            className="style-1131"
+                    {pageName == "abacus_student" && (
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          gap: "20px",
+                          marginTop: "50px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            borderRadius: "20px",
+                            overflow: "hidden",
+                            boxShadow: "0px 1px 5px rgba(0,0,0,0.3)",
+                            border: "1px solid rgba(0,0,0,0.1)",
+                          }}
+                        >
+                          <img src="/images/play_nursery.jpg" />
+                          <div
+                            style={{
+                              padding: "10px 10%",
+                              fontSize: "16px",
+                              lineHeight: "22px",
+                              textAlign: "center",
+                              backgroundColor: "#efefef",
+                              fontWeight: "900",
+                            }}
                           >
-                            <path
-                              stroke="#1CAB55"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2.223"
-                              d="M17.246 2.917a9.298 9.298 0 018.213 8.204M17.246 7.05a5.164 5.164 0 014.083 4.083"
-                              className="style-1132"
-                            ></path>
-                            <path
-                              stroke="#1CAB55"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2.223"
-                              d="M13.37 14.551c4.655 4.653 5.71-.73 8.673 2.231 2.857 2.856 4.5 3.428.88 7.047-.454.364-3.334 4.748-13.457-5.373C-.658 8.335 3.722 5.451 4.086 4.998c3.629-3.628 4.193-1.977 7.05.879 2.961 2.962-2.42 4.022 2.235 8.674z"
-                              clipRule="evenodd"
-                              className="style-1133"
-                            ></path>
-                          </svg>
-                          <h3 className="style-1134">
-                            কল করুন (+880) -1674- 040502 নম্বরে
-                          </h3>
+                            <p>
+                              Package 1: Brain Math Abacus (Play & Nursery) +
+                              Abacus Kit
+                            </p>
+                          </div>
+                          <a
+                            target="_blank"
+                            href="https://forms.gle/woUGcJ6rGE7ewUYH7"
+                          >
+                            {" "}
+                            <div className="style-1155">
+                            ক্রয় করুন
+                            </div>
+                          </a>
                         </div>
-                      </a>
-                    </div>
+                        <div
+                          style={{
+                            borderRadius: "20px",
+                            overflow: "hidden",
+                            boxShadow: "0px 1px 5px rgba(0,0,0,0.3)",
+                            border: "1px solid rgba(0,0,0,0.1)",
+                          }}
+                        >
+                          <img src="/images/Level-1.jpg" />
+                          <div
+                            style={{
+                              padding: "10px 10%",
+                              fontSize: "16px",
+                              lineHeight: "22px",
+                              textAlign: "center",
+                              backgroundColor: "#efefef",
+                              fontWeight: "900",
+                            }}
+                          >
+                            <p>
+                              Package 2: Brain Math Abacus (Level 1) + Abacus
+                              Kit
+                            </p>
+                          </div>
+                          <a
+                            target="_blank"
+                            href="https://forms.gle/woUGcJ6rGE7ewUYH7"
+                          >
+                            {" "}
+                            <div className="style-1155">
+                            ক্রয় করুন
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

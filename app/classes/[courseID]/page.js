@@ -96,6 +96,7 @@ async function AbacusCourses({ params }) {
           info={data.course}
           comment={data2.comment}
           richtext={data2.richText}
+          parameter={params}
         />
         {/* <CustomVideoGallery /> */}
         <Footer />
