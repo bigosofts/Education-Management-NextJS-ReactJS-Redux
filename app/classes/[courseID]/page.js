@@ -97,7 +97,7 @@ async function AbacusCourses({ params }) {
           comment={data2.comment}
           richtext={data2.richText}
         />
-        <CustomVideoGallery />
+        {/* <CustomVideoGallery /> */}
         <Footer />
       </>
     );

@@ -18,7 +18,7 @@ function EnrollButton({ courseCode, setProfileUpdate }) {
     async function fetchData() {
       const payload = await isAdmin();
       if (payload.status == "Alhamdulillah") {
-        if(payload.data.userRole == "teacher"){
+        if (payload.data.userRole == "teacher") {
           const res = await selectTeachers(
             { userName: payload.data.userName },
             null
@@ -33,10 +33,10 @@ function EnrollButton({ courseCode, setProfileUpdate }) {
                 userDetails: res.data[0],
               },
             };
-  
+
             dispatch(setInitialData(desiredObj));
           }
-        }else if(payload.data.userRole == "student"){
+        } else if (payload.data.userRole == "student") {
           const res = await selectDataTwo(
             { userName: payload.data.userName },
             null
@@ -51,11 +51,10 @@ function EnrollButton({ courseCode, setProfileUpdate }) {
                 userDetails: res.data[0],
               },
             };
-  
+
             dispatch(setInitialData(desiredObj));
           }
         }
-       
       }
     }
     fetchData();
@@ -121,7 +120,7 @@ function EnrollButton({ courseCode, setProfileUpdate }) {
   return (
     <>
       <Link href="#" onClick={enrollFunction} className="style-16">
-        Enroll Now
+        ইনরোল করুন
       </Link>{" "}
     </>
   );

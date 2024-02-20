@@ -71,7 +71,7 @@ async function AllCoursePage() {
                         target="_blank"
                         className="style-12"
                       >
-                        <h4 className="style-13">{item.title.en} </h4>
+                        <h4 className="style-13">{item.title.bn} </h4>
                         <p className="style-14">
                           <i className="style-15" aria-hidden="true"></i> Starts
                           From {niceDate(item.startingDate.en)}
@@ -82,7 +82,7 @@ async function AllCoursePage() {
                         href={`/classes/${item.courseCode}`}
                         className="style-17"
                       >
-                        Course Details
+                        বিস্তারিত দেখুন
                       </Link>{" "}
                     </div>
                   </div>
