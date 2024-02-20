@@ -57,8 +57,8 @@ function AbacusCourse({ info, comment, richtext }) {
                           </div>
                         </div>
                         <div className="style-18">
-                          <h3 className="style-19">{item.name.en}</h3>
-                          <div className="style-20">{item.experience.en}</div>
+                          <h3 className="style-19">{item.name.bn}</h3>
+                          <div className="style-20">{item.experience.bn}</div>
                         </div>
                       </div>
                     ))}
