@@ -7,7 +7,7 @@ import { selectAllData } from "@/apiservices/studentapiservices";
 import { useState, useEffect } from "react";
 import Error from "next/error";
 
-function ConfirmationPage({ params }) {
+function ConfirmationPage() {
   const [studentCourseCode, setStudentCourseCode] = useState();
 
   const searchParams = useSearchParams();
