@@ -545,7 +545,7 @@ function PreFeeSection({ profile }) {
             mytoast.info("If verification Delays, Do not forget to reach us");
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/dashboard/${profile.data.userDetails.userName}/fees/confirmation?enroll=${mainData.course}`;
+                window.location.href = `/confirmation?username=${profile.data.userDetails.userName}`;
               }
             };
             hardRefresh();
@@ -690,7 +690,7 @@ function PreFeeSection({ profile }) {
             mytoast.info("If verification Delays, Do not forget to reach us");
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/dashboard/${profile.data.userDetails.userName}/fees/confirmation?enroll=${mainData.course}`;
+                window.location.href = `/confirmation?username=${profile.data.userDetails.userName}`;
               }
             };
             hardRefresh();
@@ -856,7 +856,7 @@ function PreFeeSection({ profile }) {
             mytoast.info("If verification Delays, Do not forget to reach us");
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/dashboard/${profile.data.userDetails.userName}/fees/confirmation?enroll=${mainData.course}`;
+                window.location.href = `/confirmation?username=${profile.data.userDetails.userName}`;
               }
             };
             hardRefresh();
@@ -1001,7 +1001,7 @@ function PreFeeSection({ profile }) {
             mytoast.info("If verification Delays, Do not forget to reach us");
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/dashboard/${profile.data.userDetails.userName}/fees/confirmation?enroll=${mainData.course}`;
+                window.location.href = `/confirmation?username=${profile.data.userDetails.userName}`;
               }
             };
             hardRefresh();
