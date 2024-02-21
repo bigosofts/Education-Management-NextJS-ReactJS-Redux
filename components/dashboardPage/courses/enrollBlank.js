@@ -13,7 +13,7 @@ function EnrollButtonb() {
   return (
     <>
       <a href="" onClick={enrollFunction} className="style-16">
-        Enroll Now
+        রেজিস্ট্রেশন
       </a>{" "}
     </>
   );

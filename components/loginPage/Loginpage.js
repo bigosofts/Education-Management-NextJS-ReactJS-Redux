@@ -1,12 +1,27 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { createData as createStudent } from "@/apiservices/studentapiservices";
 import { createData as createTeacher } from "@/apiservices/teacherapiservices";
 import mytoast from "../toast/toast";
+import { teacherLogin, studentLogin } from "@/apiservices/checklogin";
+import { isAdmin } from "@/apiservices/checklogin";
+import { setToken } from "@/helper/sessionHelper";
+import { useRouter } from "next/navigation";
 
 import "./loginDesign.css";
 function LoginPageDesign({ userData }) {
+  const [Admin, setIsAdmin] = useState();
   const [data, setDatas] = useState();
+  const router = useRouter();
+
+  useEffect(() => {
+    async function getData() {
+      const res = await isAdmin();
+      setIsAdmin(res);
+    }
+    getData();
+  }, []);
+
   function addUser(e) {
     e.preventDefault();
     function checkEmail(
@@ -59,6 +74,40 @@ function LoginPageDesign({ userData }) {
               });
               setDatas(res.data.userName);
               mytoast.success("Your Teacher Account has been created");
+
+              //login logic
+              if (Admin) {
+                if (Admin.status == "noToken") {
+                  const res3 = await teacherLogin(res.data.userName, password);
+
+                  if (res3.status == "Alhamdulillah") {
+                    setToken("access_token", res3.token);
+
+                    mytoast.success("You are successfully logged in");
+
+                    const hardRefresh = () => {
+                      if (typeof window !== "undefined") {
+                        window.location.href = "/dashboard/loading";
+                      }
+                    };
+                    hardRefresh();
+                  } else if (res3.status == "wrongpass") {
+                    mytoast.danger("you entered wrong combination");
+                  } else if (res3.status == "nouser") {
+                    router.push("/signup");
+                  }
+                } else if (Admin.status == "UnauthorizedAccess") {
+                  console.log("Unauthorized access");
+                } else {
+                  const hardRefresh = () => {
+                    if (typeof window !== "undefined") {
+                      window.location.href = "/dashboard/loading";
+                    }
+                  };
+                  hardRefresh();
+                }
+              }
+              //end login logic
             } else {
               console.log(res);
             }
@@ -108,6 +157,38 @@ function LoginPageDesign({ userData }) {
               });
               setDatas(res2.data.userName);
               mytoast.success("Your Student Account has been created");
+
+              //login logic
+              if (Admin) {
+                if (Admin.status == "noToken") {
+                  const res5 = await studentLogin(res2.data.userName, password);
+                  if (res5.status == "Alhamdulillah") {
+                    setToken("access_token", res5.token);
+
+                    mytoast.success("You are successfully logged in");
+                    const hardRefresh = () => {
+                      if (typeof window !== "undefined") {
+                        window.location.href = "/dashboard/loading";
+                      }
+                    };
+                    hardRefresh();
+                  } else if (res5.status == "wrongpass") {
+                    mytoast.danger("you entered wrong combination");
+                  } else if (res5.status == "nouser") {
+                    router.push("/signup");
+                  }
+                } else if (Admin.status == "UnauthorizedAccess") {
+                  console.log("Unauthorized access");
+                } else {
+                  const hardRefresh = () => {
+                    if (typeof window !== "undefined") {
+                      window.location.href = "/dashboard/loading";
+                    }
+                  };
+                  hardRefresh();
+                }
+              }
+              //end login logic
             } else {
               console.log(res2);
             }
