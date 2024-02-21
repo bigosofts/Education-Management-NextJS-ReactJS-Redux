@@ -6,6 +6,7 @@ import Head from "next/head";
 import { Providers } from "./redux/provider";
 import { GoogleTagManagerBeforeBody } from "@/helper/googleTagBeforeBody";
 import { GoogleTagManagerBeforeHeader } from "@/helper/googleTagBeforeHeader";
+import { MetaPixelSetup } from "@/helper/metaPixelBeforeHead";
 
 export const metadata = {
   title: "Internet Madrasa",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Head>
         <GoogleTagManagerBeforeHeader />
+        <MetaPixelSetup />
       </Head>
 
       <body>
