@@ -15,10 +15,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <GoogleTagManagerBeforeHeader/>
+      <Head>
+        <GoogleTagManagerBeforeHeader />
+      </Head>
 
       <body>
-        {/* <GoogleTagManagerBeforeBody /> */}
+        <GoogleTagManagerBeforeBody />
         <Providers>{children}</Providers>
       </body>
     </html>
