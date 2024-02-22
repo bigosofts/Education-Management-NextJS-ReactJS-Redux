@@ -35,9 +35,13 @@ function LoginPageDesign({ userData }) {
       const haveEmail = userData.some((item) => item.emailAddress == email);
       const haveMobile = userData.some((item) => item.mobileNumber == mobile);
       if (haveEmail) {
-        mytoast.warning("Your Email already Exist. Try Different One");
+        mytoast.info(
+          "আপনার ইমেইলে একটি একাউন্ট আগে থেকেই আছে, দয়া করে অন্য ইমেইল ব্যাবহার করুন"
+        );
       } else if (haveMobile) {
-        mytoast.warning("Your Mobile No. already Exist. Try Different One");
+        mytoast.info(
+          "Your Mobile No. already Exist. Try Different One আপনার মোবাইল নাম্বারটি দিয়ে একটি একাউন্ট আগে থেকেই আছে, দয়া করে অন্য মোবাইল নাম্বার ব্যাবহার করুন"
+        );
       } else {
         if (studentRole == "teacher") {
           async function setData() {
@@ -73,7 +77,9 @@ function LoginPageDesign({ userData }) {
                 mobileNumber: mobile,
               });
               setDatas(res.data.userName);
-              mytoast.success("Your Teacher Account has been created");
+              mytoast.success(
+                "আলহামদুলিল্লাহ, আপনার শিক্ষক/শিক্ষিকা একাউন্ট তৈরী হয়ে গেছে"
+              );
 
               //login logic
               if (Admin) {
@@ -83,7 +89,9 @@ function LoginPageDesign({ userData }) {
                   if (res3.status == "Alhamdulillah") {
                     setToken("access_token", res3.token);
 
-                    mytoast.success("You are successfully logged in");
+                    mytoast.success(
+                      "আলহামদুলিল্লাহ, আপনি সফলভাবে একাউন্টটি তৈরী করেছেন"
+                    );
 
                     const hardRefresh = () => {
                       if (typeof window !== "undefined") {
@@ -92,7 +100,7 @@ function LoginPageDesign({ userData }) {
                     };
                     hardRefresh();
                   } else if (res3.status == "wrongpass") {
-                    mytoast.danger("you entered wrong combination");
+                    mytoast.danger("আপনার পাসওয়ার্ড অথবা ইউজার আইডি ভুল হয়েছে");
                   } else if (res3.status == "nouser") {
                     router.push("/signup");
                   }
@@ -156,7 +164,7 @@ function LoginPageDesign({ userData }) {
                 mobileNumber: mobile,
               });
               setDatas(res2.data.userName);
-              mytoast.success("Your Student Account has been created");
+              mytoast.success("আপনার স্টুডেন্ট একাউন্টটি সফলভাবে তৈরী হয়েছে");
 
               //login logic
               if (Admin) {
@@ -165,7 +173,7 @@ function LoginPageDesign({ userData }) {
                   if (res5.status == "Alhamdulillah") {
                     setToken("access_token", res5.token);
 
-                    mytoast.success("You are successfully logged in");
+                    mytoast.success("আলহামদুলিলাহ, আপনি সফলভাবে লগিন করেছেন");
                     const hardRefresh = () => {
                       if (typeof window !== "undefined") {
                         window.location.href = "/dashboard/loading";
@@ -206,33 +214,33 @@ function LoginPageDesign({ userData }) {
       password
     ) {
       let patternName = /^[a-zA-Z_ ]*$/;
-      let patternEmail = /[^@]+@[^@]+.[a-zA-Z]{2,6}/;
+      let patternEmail = /[^@]+@[^@]+\.(com)/;
       let patternMobile = /^\+[1-9]{1}[0-9]{3,12}$/;
       if (!patternName.test(firstName)) {
-        mytoast.warning("Invalid FirstName. Use Only Alphabets");
+        mytoast.info("নামের প্রথম অংশ ভুল হয়েছে, শুধুই ইংরেজী বর্ণমালা ব্যাবহার করুন");
       } else if (!patternName.test(lastname)) {
-        mytoast.warning("Invalid Lastname. Use Only Alphabets");
+        mytoast.info("নামের দ্বিতীয় অংশ ভুল হয়েছে, শুধুই ইংরেজী বর্ণমালা ব্যাবহার করুন");
       } else if (!patternEmail.test(email)) {
-        mytoast.warning("Invalid Email fromat");
+        mytoast.info("ইমেইল ফরম্যাটটি সঠিক হয় নি");
       } else if (!patternMobile.test(mobile)) {
-        mytoast.warning("Invalid Mobile fromat");
+        mytoast.info("মোবাইলের ফরম্যাটটি সঠিক হয় নি");
       } else {
         checkEmail(firstName, lastname, studentRole, email, mobile, password);
       }
     }
 
     if (!firstNameref.current.value) {
-      mytoast.warning("First Name need to be filled up");
+      mytoast.info("নামের প্রথম অংশ অবশ্যই ফিলাপ করতে হবে");
     } else if (!lastNameref.current.value) {
-      mytoast.warning("Last Name need to be filled up");
+      mytoast.info("নামের ্দ্বিতীয় অংশ অবশ্যই ফিলাপ করতে হবে");
     } else if (studentRoleref.current.value == "none") {
-      mytoast.warning("Role need to be filled up");
+      mytoast.info("একাউন্টের ধরন অবশ্যই ফিলাপ করতে হবে");
     } else if (!emailIdref.current.value) {
-      mytoast.warning("Email ID need to be filled up");
+      mytoast.info("ইমেইল আইডি অবশ্যই ফিলাপ করতে হবে");
     } else if (!mobileNoref.current.value) {
-      mytoast.warning("Mobile Name need to be filled up");
+      mytoast.info("মোবাইল নাম্বার অবশ্যই ফিলাপ করতে হবে");
     } else if (!passwordref.current.value) {
-      mytoast.warning("Password need to be filled up");
+      mytoast.info("পাসওয়ার্ড অবশ্যই ফিলাপ করতে হবে");
     } else {
       AddReaction(
         firstNameref.current.value,
@@ -325,7 +333,7 @@ function LoginPageDesign({ userData }) {
               className="block mb-2 text-lg text-slate-600"
               htmlFor="email"
             >
-              মোবাইল নাম্বার ইংরেজীতে লিখুনঃ
+              মোবাইল নাম্বার এভাবে লিখুন (+8801756668432)। প্লাস সাইন + কান্ট্রিকোড + নাম্বারে বাকি ডিজিট লিখতে ভুল হলে রেজিস্ট্রেশন হবে না।
             </label>
             <input
               className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"

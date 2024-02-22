@@ -1,13 +1,16 @@
 
-
-import mytoast from "@/components/toast/toast";
-
 function EnrollButtonb() {
+  const hardRefresh = () => {
+    if (typeof window !== "undefined") {
+      window.location.href = `/signup`;
+    }
+  };
+ 
   
   function enrollFunction(e) {
-    e.preventDefault();
+    e.preventDefault(); 
+    hardRefresh();
 
-    mytoast.danger("You need to login for enrolling");
   }
 
   return (
