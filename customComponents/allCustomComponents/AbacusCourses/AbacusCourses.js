@@ -3,6 +3,7 @@ import "./AbacusCourses.css";
 import { useState } from "react";
 import Image from "next/image";
 import EnrollCondition from "@/components/dashboardPage/courses/enrollCondition";
+import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 function AbacusCourse({ info, comment, richtext, parameter }) {
   const [syllabus, setSyllabus] = useState(3);
@@ -96,6 +97,15 @@ function AbacusCourse({ info, comment, richtext, parameter }) {
                               />
                             </div>
                             <h3 className="style-517">{item.text.bn}</h3>
+                            <span
+                              style={{
+                                fontSize: "26px",
+                                position: "absolute",
+                                right: "0px",
+                              }}
+                            >
+                              <MdKeyboardDoubleArrowDown />
+                            </span>
                           </summary>
                           <div className="style-518">
                             <ul className="style-519">
@@ -500,14 +510,9 @@ function AbacusCourse({ info, comment, richtext, parameter }) {
                               Abacus Kit
                             </p>
                           </div>
-                          <a
-                            target="_blank"
-                            href="https://forms.gle/woUGcJ6rGE7ewUYH7"
-                          >
+                          <a target="_blank" href="/abacus-purchase">
                             {" "}
-                            <div className="style-1155">
-                            ক্রয় করুন
-                            </div>
+                            <div className="style-1155">ক্রয় করুন</div>
                           </a>
                         </div>
                         <div
@@ -534,14 +539,9 @@ function AbacusCourse({ info, comment, richtext, parameter }) {
                               Kit
                             </p>
                           </div>
-                          <a
-                            target="_blank"
-                            href="https://forms.gle/woUGcJ6rGE7ewUYH7"
-                          >
+                          <a target="_blank" href="/abacus-purchase">
                             {" "}
-                            <div className="style-1155">
-                            ক্রয় করুন
-                            </div>
+                            <div className="style-1155">ক্রয় করুন</div>
                           </a>
                         </div>
                       </div>
