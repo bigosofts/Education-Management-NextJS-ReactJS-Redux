@@ -8,8 +8,10 @@ function EnrollCondition({ courseCode, setProfileUpdate }) {
 
   if (data) {
     if (data.status == "noToken") {
-      return <EnrollButtonb />;
+    
+      return <EnrollButtonb code={courseCode} />;
     } else {
+     
       return (
         <EnrollButton
           setProfileUpdate={setProfileUpdate}
@@ -18,7 +20,7 @@ function EnrollCondition({ courseCode, setProfileUpdate }) {
       );
     }
   } else {
-    return <EnrollButtonb />;
+    return <EnrollButtonb code={courseCode}/>;
   }
 }
 

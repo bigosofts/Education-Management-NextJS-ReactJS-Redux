@@ -232,6 +232,9 @@ function AbacusGenerator() {
           </div>
         </div>
       </div>
+      <div className="blur_system">
+        <p style={{ textAlign: "center" }}>Coming soon ...</p>
+      </div>
     </div>
   );
 }

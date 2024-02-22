@@ -10,12 +10,7 @@ function DashExplore() {
   const router = useRouter();
 
   function push(url) {
-    
-      if (typeof window !== "undefined") {
-        window.location.href = url;
-      }
-  
-   
+    router.push(url);
   }
 
   if (data) {

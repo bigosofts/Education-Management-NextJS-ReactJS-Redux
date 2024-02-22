@@ -72,25 +72,30 @@ function AccordionSecond() {
       }
     });
 
-    let actualArray = [...desiredPayment[0].monthlyPaymentHistory];
-    actualArray.pop();
-    let decision = actualArray.some((item) => {
-      if (item.PaymentStatus == false) {
-        return true;
-      }
-    });
+    if (desiredPayment[0]) {
+      let actualArray = [...desiredPayment[0].monthlyPaymentHistory];
+      actualArray.pop();
+      let decision = actualArray.some((item) => {
+        if (item.PaymentStatus == false) {
+          return true;
+        }
+      });
 
-    if (
-      actualArray[0] && actualArray[actualArray.length - 1].Price &&
-      actualArray[actualArray.length - 1].PaymentStatus == false
-    ) {
-      return "pending";
-    } else if (decision == true) {
+      if (
+        actualArray[0] &&
+        actualArray[actualArray.length - 1].Price &&
+        actualArray[actualArray.length - 1].PaymentStatus == false
+      ) {
+        return "pending";
+      } else if (decision == true) {
+        return "due";
+      } else if (decision == false) {
+        return "ok";
+      } else {
+        return "ok";
+      }
+    } else {
       return "due";
-    } else if (decision == false) {
-      return "ok";
-    }else{
-      return "ok"
     }
   }
 

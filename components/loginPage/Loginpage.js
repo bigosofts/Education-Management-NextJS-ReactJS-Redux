@@ -6,12 +6,15 @@ import mytoast from "../toast/toast";
 import { teacherLogin, studentLogin } from "@/apiservices/checklogin";
 import { isAdmin } from "@/apiservices/checklogin";
 import { setToken } from "@/helper/sessionHelper";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import "./loginDesign.css";
 function LoginPageDesign({ userData }) {
   const [Admin, setIsAdmin] = useState();
   const [data, setDatas] = useState();
+  const searchParams = useSearchParams();
+  const code = searchParams.get("code");
+
   const router = useRouter();
 
   useEffect(() => {
@@ -40,7 +43,7 @@ function LoginPageDesign({ userData }) {
         );
       } else if (haveMobile) {
         mytoast.info(
-          "Your Mobile No. already Exist. Try Different One আপনার মোবাইল নাম্বারটি দিয়ে একটি একাউন্ট আগে থেকেই আছে, দয়া করে অন্য মোবাইল নাম্বার ব্যাবহার করুন"
+          "আপনার মোবাইল নাম্বারটি দিয়ে একটি একাউন্ট আগে থেকেই আছে, দয়া করে অন্য মোবাইল নাম্বার ব্যাবহার করুন"
         );
       } else {
         if (studentRole == "teacher") {
@@ -95,7 +98,7 @@ function LoginPageDesign({ userData }) {
 
                     const hardRefresh = () => {
                       if (typeof window !== "undefined") {
-                        window.location.href = "/dashboard/loading";
+                        window.location.href = `/dashboard/${res.data.userName}/settings/profile-update?code=${code}`;
                       }
                     };
                     hardRefresh();
@@ -109,7 +112,7 @@ function LoginPageDesign({ userData }) {
                 } else {
                   const hardRefresh = () => {
                     if (typeof window !== "undefined") {
-                      window.location.href = "/dashboard/loading";
+                      window.location.href = `/dashboard/${res.data.userName}/settings/profile-update?code=${code}`;
                     }
                   };
                   hardRefresh();
@@ -176,7 +179,7 @@ function LoginPageDesign({ userData }) {
                     mytoast.success("আলহামদুলিলাহ, আপনি সফলভাবে লগিন করেছেন");
                     const hardRefresh = () => {
                       if (typeof window !== "undefined") {
-                        window.location.href = "/dashboard/loading";
+                        window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update?code=${code}`;
                       }
                     };
                     hardRefresh();
@@ -190,7 +193,7 @@ function LoginPageDesign({ userData }) {
                 } else {
                   const hardRefresh = () => {
                     if (typeof window !== "undefined") {
-                      window.location.href = "/dashboard/loading";
+                      window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update?code=${code}`;
                     }
                   };
                   hardRefresh();

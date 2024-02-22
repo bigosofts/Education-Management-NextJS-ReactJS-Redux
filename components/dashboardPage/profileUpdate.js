@@ -7,10 +7,15 @@ import mytoast from "../toast/toast";
 import allCountry from "./allCountry";
 import { logout } from "@/apiservices/checklogin";
 import { removeToken } from "@/helper/sessionHelper";
+import { useSearchParams } from "next/navigation";
 
 function ProfileUpdate() {
   const countries = allCountry();
   const [inputType, setInputType] = useState("text");
+  const searchParams = useSearchParams();
+
+  const code = searchParams.get("code");
+
   const handleFocus = () => {
     setInputType("date");
   };
@@ -18,9 +23,14 @@ function ProfileUpdate() {
   const handleBlur = () => {
     setInputType("text");
   };
-  const hardRefresh = () => {
+  const hardRefresh = (code) => {
     if (typeof window !== "undefined") {
-      window.location.href = "/dashboard/login";
+      if(code){
+        window.location.href = `/dashboard/${data.data.userDetails.userName}/fees?enroll=${code}`;
+      }else{
+        window.location.href = `/dashboard/${data.data.userDetails.userName}/classes`;
+      }
+     
     }
   };
   const data = useSelector((state) => state.isAdmin.value);
@@ -103,15 +113,13 @@ function ProfileUpdate() {
       );
 
       if (res.status == "Alhamdulillah") {
-        mytoast.success(
-          "User Data has been Updated Successfully" 
-        );
-        
-        hardRefresh();
+        mytoast.success("User Data has been Updated Successfully");
+
+        hardRefresh(code);
         // const res3 = await logout();
         // if (res3.status == "Alhamdulillah") {
         //   mytoast.info(
-        //     "You are logging out" 
+        //     "You are logging out"
         //   );
         //   removeToken("access_token");
         //   hardRefresh();

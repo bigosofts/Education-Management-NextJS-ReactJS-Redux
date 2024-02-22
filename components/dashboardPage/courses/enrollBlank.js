@@ -1,16 +1,15 @@
-
-function EnrollButtonb() {
+function EnrollButtonb({ code }) {
+  
+ 
   const hardRefresh = () => {
     if (typeof window !== "undefined") {
-      window.location.href = `/signup`;
+      window.location.href = `/signup?code=${code}`;
     }
   };
- 
-  
-  function enrollFunction(e) {
-    e.preventDefault(); 
-    hardRefresh();
 
+  function enrollFunction(e) {
+    e.preventDefault();
+    hardRefresh();
   }
 
   return (
