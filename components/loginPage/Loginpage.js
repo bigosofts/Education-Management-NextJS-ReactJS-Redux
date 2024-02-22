@@ -215,11 +215,15 @@ function LoginPageDesign({ userData }) {
     ) {
       let patternName = /^[a-zA-Z_ ]*$/;
       let patternEmail = /[^@]+@[^@]+\.(com)/;
-      let patternMobile = /^\+[1-9]{1}[0-9]{3,12}$/;
+      let patternMobile = /^\+\d+$/;
       if (!patternName.test(firstName)) {
-        mytoast.info("নামের প্রথম অংশ ভুল হয়েছে, শুধুই ইংরেজী বর্ণমালা ব্যাবহার করুন");
+        mytoast.info(
+          "নামের প্রথম অংশ ভুল হয়েছে, শুধুই ইংরেজী বর্ণমালা ব্যাবহার করুন"
+        );
       } else if (!patternName.test(lastname)) {
-        mytoast.info("নামের দ্বিতীয় অংশ ভুল হয়েছে, শুধুই ইংরেজী বর্ণমালা ব্যাবহার করুন");
+        mytoast.info(
+          "নামের দ্বিতীয় অংশ ভুল হয়েছে, শুধুই ইংরেজী বর্ণমালা ব্যাবহার করুন"
+        );
       } else if (!patternEmail.test(email)) {
         mytoast.info("ইমেইল ফরম্যাটটি সঠিক হয় নি");
       } else if (!patternMobile.test(mobile)) {
@@ -333,7 +337,9 @@ function LoginPageDesign({ userData }) {
               className="block mb-2 text-lg text-slate-600"
               htmlFor="email"
             >
-              মোবাইল নাম্বার এভাবে লিখুন (+8801756668432)। প্লাস সাইন + কান্ট্রিকোড + নাম্বারে বাকি ডিজিট লিখতে ভুল হলে রেজিস্ট্রেশন হবে না।
+              মোবাইল নাম্বার এভাবে লিখুন (+8801756668432)। প্লাস সাইন +
+              কান্ট্রিকোড + নাম্বারে বাকি ডিজিট লিখতে ভুল হলে রেজিস্ট্রেশন হবে
+              না।
             </label>
             <input
               className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"

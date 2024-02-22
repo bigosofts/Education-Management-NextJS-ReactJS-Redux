@@ -8,9 +8,16 @@ function DashExplore() {
   const data = useSelector((state) => state.isAdmin.value);
 
   const router = useRouter();
+
   function push(url) {
-    router.push(url);
+    
+      if (typeof window !== "undefined") {
+        window.location.href = url;
+      }
+  
+   
   }
+
   if (data) {
     const sidebarItems = [
       {
