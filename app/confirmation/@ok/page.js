@@ -24,10 +24,10 @@ function ConfirmationPage() {
           </p>
 
           <button
-            onClick={() => push(`/dashboard/${data.data.userName}`)}
+            onClick={() => push("/dashboard/loading")}
             className="mt-10 p-5 bg-lime-950 text-white rounded-3xl"
           >
-            পুনরায় ড্যাশবোর্ডে ফেরত যেতে এখানে করুন
+            পুনরায় ড্যাশবোর্ডে ফেরত যেতে এখানে ক্লিক করুন
           </button>
         </div>
       </div>
