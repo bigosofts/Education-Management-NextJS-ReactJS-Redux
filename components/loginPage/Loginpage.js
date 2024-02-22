@@ -214,7 +214,7 @@ function LoginPageDesign({ userData }) {
       password
     ) {
       let patternName = /^[a-zA-Z_ ]*$/;
-      let patternEmail = /[^@]+@[^@]+\.(com)/;
+      let patternEmail = /[^@]+@[^@]+\.[a-zA-Z]{2,6}/;
       let patternMobile = /^\+\d+$/;
       if (!patternName.test(firstName)) {
         mytoast.info(
@@ -337,9 +337,8 @@ function LoginPageDesign({ userData }) {
               className="block mb-2 text-lg text-slate-600"
               htmlFor="email"
             >
-              মোবাইল নাম্বার এভাবে লিখুন (+8801756668432)। প্লাস সাইন +
-              কান্ট্রিকোড + নাম্বারে বাকি ডিজিট লিখতে ভুল হলে রেজিস্ট্রেশন হবে
-              না।
+              মোবাইল নাম্বার এভাবে লিখুন (+8801756668432)। প্লাস সাইন + আপনি যে
+              দেশে আছেন সেই দেশের কান্ট্রিকোড + নাম্বারে বাকি ডিজিট লিখুন
             </label>
             <input
               className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"

@@ -2,6 +2,12 @@
 import { TiTick } from "react-icons/ti";
 
 function ConfirmationPage() {
+  function push(url) {
+    if (typeof window !== "undefined") {
+      window.location.href = url;
+    }
+  }
+
   return (
     <div className="w-[100vw] pb-[100px]">
       <div className="text-center bg-slate-200 w-[80%] md:w-[50%] mx-auto py-[50px] mt-[50px] rounded-3xl">
@@ -18,7 +24,7 @@ function ConfirmationPage() {
           </p>
 
           <button
-            onClick={() => router.push(`/dashboard/${data.data.userName}`)}
+            onClick={() => push(`/dashboard/${data.data.userName}`)}
             className="mt-10 p-5 bg-lime-950 text-white rounded-3xl"
           >
             পুনরায় ড্যাশবোর্ডে ফেরত যেতে এখানে করুন
