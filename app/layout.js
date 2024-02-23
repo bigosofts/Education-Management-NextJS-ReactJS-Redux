@@ -4,7 +4,9 @@ import "animate.css";
 
 import { Providers } from "./redux/provider";
 import { GoogleTagManagerBeforeBody } from "@/helper/googleTagBeforeBody";
+import { GoogleTagManagerBeforeBodyTwo } from "@/helper/googleTagBeforeBodyTwo";
 import { GoogleTagManagerBeforeHeader } from "@/helper/googleTagBeforeHeader";
+import { GoogleTagManagerBeforeHeaderTwo } from "@/helper/googleTagBeforeHeaderTwo";
 import { MetaPixelSetup } from "@/helper/metaPixelBeforeHead";
 
 export const metadata = {
@@ -17,7 +19,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <GoogleTagManagerBeforeHeader />
+        <GoogleTagManagerBeforeHeaderTwo />
         <GoogleTagManagerBeforeBody />
+        <GoogleTagManagerBeforeBodyTwo />
+        
         <MetaPixelSetup />
         <Providers>{children}</Providers>
       </body>
