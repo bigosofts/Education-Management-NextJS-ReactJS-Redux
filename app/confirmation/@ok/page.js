@@ -1,7 +1,11 @@
 "use client";
 import { TiTick } from "react-icons/ti";
+import { useSearchParams } from "next/navigation";
 
 function ConfirmationPage() {
+  const searchParams = useSearchParams();
+  const usd = searchParams.get("usd");
+
   function push(url) {
     if (typeof window !== "undefined") {
       window.location.href = url;
@@ -16,7 +20,7 @@ function ConfirmationPage() {
         </div>
         <div className="mt-[10px] p-5">
           <h1 className="text-lime-900">
-            Your payment request has been received
+            Your {usd ? usd : ""} dollar payment request has been received
           </h1>
           <p className="text-lime-900 mt-10 text-xl">
             জাঝাকাল্লাহু খইরন। আপনার রিকুয়েস্টটি আমরা গ্রহণ করেছি, অনুগ্রপূর্বক

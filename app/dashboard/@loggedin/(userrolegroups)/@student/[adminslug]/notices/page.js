@@ -1,3 +1,4 @@
+"use client";
 function BookPage() {
     return ( 
         <div>Notices Page</div>

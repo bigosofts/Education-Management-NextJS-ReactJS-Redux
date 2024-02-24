@@ -18,12 +18,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <GoogleTagManagerBeforeHeader />
+        {/* <GoogleTagManagerBeforeHeader /> */}
         <GoogleTagManagerBeforeHeaderTwo />
-        <GoogleTagManagerBeforeBody />
+        {/* <GoogleTagManagerBeforeBody /> */}
         <GoogleTagManagerBeforeBodyTwo />
         
-        <MetaPixelSetup />
+        {/* <MetaPixelSetup /> */}
         <Providers>{children}</Providers>
       </body>
     </html>

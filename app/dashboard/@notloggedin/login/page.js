@@ -136,7 +136,7 @@ function page(props) {
                       className="au-input au-input--full"
                       type="email"
                       name="email"
-                      placeholder="Email"
+                      placeholder="Teacher ID"
                       autoComplete="off"
                     ></input>
                   </div>
@@ -198,7 +198,7 @@ function page(props) {
                       className="au-input au-input--full"
                       type="email"
                       name="email"
-                      placeholder="Email"
+                      placeholder="Student ID"
                       autoComplete="off"
                     ></input>
                   </div>

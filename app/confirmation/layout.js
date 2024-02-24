@@ -2,7 +2,7 @@
 import { useSearchParams } from "next/navigation";
 import { selectAllData } from "@/apiservices/studentapiservices";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+
 
 function ConfirmationLayout({ ok, no }) {
   const [studentCourseCode, setStudentCourseCode] = useState();
