@@ -155,6 +155,7 @@ function Table({ profile, paymentID, students }) {
     var formattedDate = date.toLocaleDateString("en-US", options);
     return formattedDate;
   }
+ 
   if (payments) {
     return (
       <div className="mx-auto relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -210,6 +211,7 @@ function Table({ profile, paymentID, students }) {
                   }
                   <br />
                   {
+                    
                     profile.studentDepartment[
                       profile.studentDepartment.length - 1
                     ].code
@@ -276,36 +278,38 @@ function Table({ profile, paymentID, students }) {
                           Approve
                         </span>
                       )
-                    ) : ( item.Price == 0 && item.PaymentStatus == true ? ( <span
-                      onClick={() => updateProfile(item._id, item.Date)}
-                      style={{
-                        display: "inline-block",
-                        backgroundColor: "#fbbc05",
-                        padding: "10px 20px",
-                        borderRadius: "15px",
-                        color: "white",
-                        marginLeft: "10px",
-                        fontSize: "14px",
-                        fontWeight: "900",
-                        cursor: "pointer",
-                      }}
-                    >
-                      Approve
-                    </span>) : (<span
-                      style={{
-                        display: "inline-block",
-                        backgroundColor: "blue",
-                        padding: "10px 20px",
-                        borderRadius: "15px",
-                        color: "white",
-                        marginLeft: "10px",
-                        fontSize: "14px",
-                        fontWeight: "900",
-                      }}
-                    >
-                      Upcoming
-                    </span>)
-                      
+                    ) : item.Price == 0 && item.PaymentStatus == true ? (
+                      <span
+                        onClick={() => updateProfile(item._id, item.Date)}
+                        style={{
+                          display: "inline-block",
+                          backgroundColor: "#fbbc05",
+                          padding: "10px 20px",
+                          borderRadius: "15px",
+                          color: "white",
+                          marginLeft: "10px",
+                          fontSize: "14px",
+                          fontWeight: "900",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Approve
+                      </span>
+                    ) : (
+                      <span
+                        style={{
+                          display: "inline-block",
+                          backgroundColor: "blue",
+                          padding: "10px 20px",
+                          borderRadius: "15px",
+                          color: "white",
+                          marginLeft: "10px",
+                          fontSize: "14px",
+                          fontWeight: "900",
+                        }}
+                      >
+                        Upcoming
+                      </span>
                     )}
                   </div>
                 </td>

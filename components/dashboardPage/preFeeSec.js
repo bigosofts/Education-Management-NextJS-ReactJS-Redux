@@ -698,6 +698,8 @@ function PreFeeSection({ profile }) {
         }
       }
     } else if (
+      mainData.currency &&
+      mainData.course &&
       mainData.amountPaid == "none" &&
       mainData.transactionID == "none" &&
       mainData.accountNo == "none" &&
