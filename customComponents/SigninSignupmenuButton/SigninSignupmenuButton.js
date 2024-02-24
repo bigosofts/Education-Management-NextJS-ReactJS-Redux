@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
 import { selectDataTwo as selectStudents } from "@/apiservices/studentapiservices";
 import { selectAllDataTwo as selectTeachers } from "@/apiservices/teacherapiservices";
+import "./tooltip.css";
 
 function SigninSignupmenuButton() {
   const dispatch = useDispatch();
@@ -88,6 +89,7 @@ function SigninSignupmenuButton() {
     return (
       <div className="log-sign" style={{ "--i": "1.8s" }}>
         <Link
+          title="Dashboard"
           href={
             adminData.status == "Alhamdulillah"
               ? "/dashboard/loading"
@@ -95,9 +97,12 @@ function SigninSignupmenuButton() {
           }
           className="btn transparent"
         >
-          {adminData.status == "Alhamdulillah"
-            ? adminData.data.userName
-            : "Log in"}
+          <div class="tooltip">
+            {adminData.status == "Alhamdulillah"
+              ? adminData.data.userName
+              : "Log in"}
+            <span class="tooltiptext">Dashboard</span>
+          </div>
         </Link>
         <Link
           onClick={adminData.status == "Alhamdulillah" ? handleLogoutClick : ""}

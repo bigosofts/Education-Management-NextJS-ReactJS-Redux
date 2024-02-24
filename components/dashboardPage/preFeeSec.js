@@ -181,6 +181,25 @@ function PreFeeSection({ profile }) {
     if (classes == "alemalema") {
       setExtraJamat(true);
       setExtraTransaction(false);
+    } else if (classes == "abacus_student") {
+      setMainData((prev) => ({
+        ...prev,
+        amountPaid: "none",
+        transactionID: "none",
+        accountNo: "none",
+        paymentWay: "none",
+      }));
+      setExtraJamat(false);
+      setMainData((prev) => ({
+        ...prev,
+        jamat: "none",
+      }));
+      setExtraSemester(false);
+      setMainData((prev) => ({
+        ...prev,
+        semester: "none",
+      }));
+      setExtraTransaction(false);
     } else if (classes == "none") {
       setExtraJamat(false);
       setMainData((prev) => ({

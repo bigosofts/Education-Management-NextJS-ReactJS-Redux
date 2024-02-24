@@ -20,79 +20,42 @@ function AbacusMainPage() {
     },
     {
       name: "Books & kit",
-      href: `/dashboard/${data.data.userName}/books`,
+      href: `/dashboard/${data.data.userName}/abacus/books`,
       icon: "/images/books.svg",
       show: true,
     },
     
     {
-      name: "Fees",
-      href: `/dashboard/${data.data.userName}/fees`,
-      icon: "/images/fees.svg",
+      name: "Groups & Class schedule",
+      href: `/dashboard/${data.data.userName}/group`,
+      icon: "/images/population.svg",
       show: true,
     },
     {
-      name: "Results",
-      href: `/dashboard/${data.data.userName}/results`,
-      icon: "/images/result.svg",
+      name: "Sheet Genrator",
+      href: `/dashboard/${data.data.userName}/abacus-sheet-generator`,
+      icon: "/images/abacus.svg",
       show: true,
     },
     {
-      name: "Upload Exam",
-      href: `/dashboard/${data.data.userName}/upload-exam`,
+      name: "Recorded Class & Quiz",
+      href: `/dashboard/${data.data.userName}/recorded-classes`,
       icon: "/images/upload.svg",
       show: true,
     },
     {
-      name: "Handwork",
-      href: `/dashboard/${data.data.userName}/works`,
-      icon: "/images/work.svg",
+      name: "Abacus Play",
+      href: `/dashboard/${data.data.userName}/abacus-play`,
+      icon: "/images/play.svg",
       show: true,
     },
-    {
-      name: "Comments",
-      href: `/dashboard/${data.data.userName}/comments`,
-      icon: "/images/comment.svg",
-      show: true,
-    },
+   
 
-    {
-      name: "Classes",
-      href: `/dashboard/${data.data.userName}/classes`,
-      icon: "/images/course.svg",
-      show: true,
-    },
-    {
-      name: "Switch",
-      href: `/dashboard/${data.data.userName}/switches`,
-      icon: "/images/switch.svg",
-      show: true,
-    },
-
-    {
-      name: "Abacus",
-      href: `/dashboard/${data.data.userName}/abacus`,
-      icon: "/images/abacus.svg",
-      show: true,
-    },
-
-    {
-      name: "Attendance",
-      href: `/dashboard/${data.data.userName}/attendance`,
-      icon: "/images/attendance.svg",
-      show: true,
-    },
-
-    {
-      name: "Settings",
-      href: `/dashboard/${data.data.userName}/settings`,
-      icon: "/images/setting.svg",
-      show: true,
-    },
+   
   ];
 
   return (
-    <div className="grid grid-cols-3 md:grid-cols-5 gap-3 md:gap-12">
+    <div className="w-11/12 overflow-hidden mt-5 m-auto grid grid-cols-3 md:grid-cols-5 gap-3 md:gap-12">
       {newArray.map((item) => (
         <DashboardExploreSingle
           image={item.icon}

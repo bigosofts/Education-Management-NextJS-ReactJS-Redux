@@ -155,7 +155,7 @@ function Table({ profile, paymentID, students }) {
     var formattedDate = date.toLocaleDateString("en-US", options);
     return formattedDate;
   }
- 
+ console.log(profile)
   if (payments) {
     return (
       <div className="mx-auto relative overflow-x-auto shadow-md sm:rounded-lg">
