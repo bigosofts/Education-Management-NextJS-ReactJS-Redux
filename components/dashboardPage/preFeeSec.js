@@ -1042,7 +1042,10 @@ function PreFeeSection({ profile }) {
                         src="/images/taka.svg"
                       />
                       <h2 className="mt-5 text-[12px] md:text-2xl text-center">
-                        {money ? money.tk : ""} টাকা
+                        <span id="checkoutPriceTaka">
+                          {money ? money.tk : ""}
+                        </span>{" "}
+                        টাকা
                       </h2>
                     </div>
                   </label>
@@ -1066,7 +1069,10 @@ function PreFeeSection({ profile }) {
                         src="/images/dollar.svg"
                       />
                       <h2 className="mt-5 text-[12px] md:text-2xl text-center">
-                        {money ? money.us : ""} ডলার
+                        <span id="checkoutPriceDollar">
+                          {money ? money.us : ""}
+                        </span>{" "}
+                        ডলার
                       </h2>
                     </div>
                   </label>
