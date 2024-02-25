@@ -28,37 +28,37 @@ function Table({ profile, paymentID, students }) {
   }
   if (payments) {
     return (
-      <div className="w-[90%] mx-auto relative overflow-x-auto shadow-md rounded-md sm:rounded-lg">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 rounded-md overflow-hidden">
+      <div className="w-[95%] mx-auto relative overflow-x-auto shadow-md rounded-md sm:rounded-lg scale">
+        <table className="w-full text-[12px] md:text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 rounded-md overflow-hidden">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-1 md:px-6 py-1">
                 Admission Price
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-1 md:px-6 py-1">
                 Course Overview
               </th>
 
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-1 md:px-6 py-1">
                 Date of Payment
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-1 md:px-6 py-1">
                 Payment Status
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-1 md:px-6 py-1">
                 Amount Paid
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-1 md:px-6 py-1">
                 Sender Account
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-1 md:px-6 py-1">
                 Transaction ID
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-1 md:px-6 py-1">
                 Payment Method
               </th>
 
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-1 md:px-6 py-1">
                 Current Status
               </th>
             </tr>
@@ -69,11 +69,11 @@ function Table({ profile, paymentID, students }) {
                 key={i}
                 className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
               >
-                <td className="px-6 py-4">
+                <td className="px-1 md:px-6 py-4">
                   Taka: {payments.admissionPrice.tk}
                   <br /> Dollar: {payments.admissionPrice.us}
                 </td>
-                <td className="px-6 py-4">
+                <td className="px-1 md:px-6 py-4">
                   {
                     profile.studentCourseCode[
                       profile.studentCourseCode.length - 1
@@ -95,23 +95,23 @@ function Table({ profile, paymentID, students }) {
                     profile.studentSemester[profile.studentSemester.length - 1]
                       .code}
                 </td>
-                <td className="px-6 py-4">{niceDate(item.Date)}</td>
-                <td className="px-6 py-4">
+                <td className="px-1 md:px-6 py-4">{niceDate(item.Date)}</td>
+                <td className="px-1 md:px-6 py-4">
                   {item.PaymentStatus == true ? "Ok" : "Unpaid"}
                 </td>
-                <td className="px-6 py-4">
+                <td className="px-1 md:px-6 py-4">
                   {`${item.Price ? item.Price : "Not Paid"}`}{" "}
                   {`${item.Price ? item.currency : ""}`}
                 </td>
-                <td className="px-6 py-4">
+                <td className="px-1 md:px-6 py-4">
                   {item.senderNo ? item.senderNo : "Not Submitted"}
                 </td>
-                <td className="px-6 py-4">
+                <td className="px-1 md:px-6 py-4">
                   {item.transactionID ? item.transactionID : "Not Submitted"}
                 </td>
-                <td className="px-6 py-4">{item.paymentWay}</td>
+                <td className="px-1 md:px-6 py-4">{item.paymentWay ? item.paymentWay : "Not Applicable"}</td>
 
-                <td className="px-6 py-4">
+                <td className="px-1 md:px-6 py-4">
                   <div>
                     {item.Price ? (
                       item.PaymentStatus == true ? (

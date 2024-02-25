@@ -131,7 +131,8 @@ function MonthlyPayment() {
       mainData.amountPaid &&
       mainData.currency &&
       mainData.paymentWay &&
-      mainData.transactionID
+      mainData.transactionID &&
+      UnpaidRef.current.value != "none"
     ) {
       let currentMonthlyPaymentHistory = Unpaid[0].monthlyPaymentHistory.map(
         (item) => {
@@ -181,7 +182,7 @@ function MonthlyPayment() {
   }
 
   return (
-    <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5 text-sm md:text-2xl">
+    <div className="w-full md:w-[50%] mx-auto p-5 border-2 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5 text-sm md:text-2xl">
       <form onSubmit={submitMonthlyPayment}>
         <label htmlFor="monthlyAdmission">
           কোন মাসের মাসিক ফী দিতে চাচ্ছেন?
