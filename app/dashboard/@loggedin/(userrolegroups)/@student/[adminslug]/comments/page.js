@@ -72,9 +72,9 @@ function CommentPage() {
     } else if (showPage) {
       return <div>Comment Page</div>;
     } else {
-      setTimeout(()=>{
+     
         return <NotAllow allowList={allowList} />;
-      },1000)
+    
     }
   }
 }

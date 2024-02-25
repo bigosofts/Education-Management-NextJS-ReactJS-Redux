@@ -71,9 +71,9 @@ function BookPage() {
     } else if (showPage) {
       return <div>Book Page</div>;
     } else {
-      setTimeout(()=>{
+    
         return <NotAllow allowList={allowList} />;
-      },1000)
+   
     }
   }
 }

@@ -60,9 +60,9 @@ function UploadExam() {
     } else if (showPage) {
       return <div>Upload Exam Page</div>;
     } else {
-      setTimeout(()=>{
+     
         return <NotAllow allowList={allowList} />;
-      },1000)
+   
     }
   }
 }
