@@ -29,11 +29,11 @@ function AbacusGenerator() {
                 </div>
                 <div className="style-13">
                   <label htmlFor="inputState" className="style-14">
-                    {true ? "No. Of Questions:" : "অপারেটর"}
+                    {true ? "Formula:" : "অপারেটর"}
                   </label>{" "}
                   <select className="style-15" name="ddTotalQuestions">
-                    <option value="25" className="style-16">
-                      25
+                    <option value="+1=(10-9)" className="style-16">
+                      +1=(10-9)
                     </option>
                     <option value="50" className="style-17">
                       50

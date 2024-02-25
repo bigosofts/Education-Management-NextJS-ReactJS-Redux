@@ -35,7 +35,7 @@ async function SubMenu({ pageName }) {
           <div className="nav-links">
             <ul>
               {data.map((item, i) => (
-                <li className="nav-link" key={i}>
+                <li className={`nav-link nav-link-${i}`} key={i}>
                   {item.subMenu ? (
                     <>
                       <Link href={item.menuLink}>

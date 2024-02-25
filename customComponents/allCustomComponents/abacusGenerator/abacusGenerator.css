@@ -35,8 +35,9 @@
   font-weight: 900;
   color: #fff;
   opacity: 0;
+  line-height: 32px;
 }
-.blur_system:hover p{
+.blur_system:hover p {
   opacity: 1;
 }
 
@@ -197,11 +198,11 @@
 }
 
 .abacusGenerator .style-7 {
-  color: rgb(245, 134, 52);
+  color: rgb(33, 37, 41);
   margin: 0px 0px 8px;
   font-weight: 700;
   padding: 0px;
-  border: 0px none rgb(245, 134, 52);
+  border: 0px none rgb(33, 37, 41);
   font-style: normal;
   font-variant: normal;
   font-stretch: 100%;
@@ -286,11 +287,11 @@
 }
 
 .abacusGenerator .style-14 {
-  color: rgb(245, 134, 52);
+  color: rgb(33, 37, 41);
   margin: 0px 0px 8px;
   font-weight: 700;
   padding: 0px;
-  border: 0px none rgb(245, 134, 52);
+  border: 0px none rgb(33, 37, 41);
   font-style: normal;
   font-variant: normal;
   font-stretch: 100%;
@@ -379,11 +380,11 @@
 }
 
 .abacusGenerator .style-22 {
-  color: rgb(245, 134, 52);
+  color: rgb(33, 37, 41);
   margin: 0px 0px 8px;
   font-weight: 700;
   padding: 0px;
-  border: 0px none rgb(245, 134, 52);
+  border: 0px none rgb(33, 37, 41);
   font-style: normal;
   font-variant: normal;
   font-stretch: 100%;
@@ -484,11 +485,11 @@
 }
 
 .abacusGenerator .style-33 {
-  color: rgb(245, 134, 52);
+  color: rgb(33, 37, 41);
   margin: 0px 0px 8px;
   font-weight: 700;
   padding: 0px;
-  border: 0px none rgb(245, 134, 52);
+  border: 0px none rgb(33, 37, 41);
   font-style: normal;
   font-variant: normal;
   font-stretch: 100%;
@@ -579,11 +580,11 @@
 }
 
 .abacusGenerator .style-41 {
-  color: rgb(245, 134, 52);
+  color: rgb(33, 37, 41);
   margin: 0px 0px 8px;
   font-weight: 700;
   padding: 0px;
-  border: 0px none rgb(245, 134, 52);
+  border: 0px none rgb(33, 37, 41);
   font-style: normal;
   font-variant: normal;
   font-stretch: 100%;
@@ -674,11 +675,11 @@
 }
 
 .abacusGenerator .style-49 {
-  color: rgb(245, 134, 52);
+  color: rgb(33, 37, 41);
   margin: 0px 0px 8px;
   font-weight: 700;
   padding: 0px;
-  border: 0px none rgb(245, 134, 52);
+  border: 0px none rgb(33, 37, 41);
   font-style: normal;
   font-variant: normal;
   font-stretch: 100%;
@@ -761,11 +762,11 @@
 }
 
 .abacusGenerator .style-55 {
-  color: rgb(245, 134, 52);
+  color: rgb(33, 37, 41);
   margin: 0px 0px 8px;
   font-weight: 700;
   padding: 0px;
-  border: 0px none rgb(245, 134, 52);
+  border: 0px none rgb(33, 37, 41);
   font-style: normal;
   font-variant: normal;
   font-stretch: 100%;
@@ -852,11 +853,11 @@
 }
 
 .abacusGenerator .style-62 {
-  color: rgb(245, 134, 52);
+  color: rgb(33, 37, 41);
   margin: 0px 0px 8px;
   font-weight: 700;
   padding: 0px;
-  border: 0px none rgb(245, 134, 52);
+  border: 0px none rgb(33, 37, 41);
   font-style: normal;
   font-variant: normal;
   font-stretch: 100%;
@@ -1132,8 +1133,8 @@
 .abacusGenerator .style-79 {
   margin-right: 10px;
   color: rgb(255, 255, 255);
-  border: 1px solid rgb(245, 134, 52);
-  background: rgb(245, 134, 52) none repeat scroll 0% 0% / auto padding-box
+  border: 1px solid rgb(33, 37, 41);
+  background: rgb(33, 37, 41) none repeat scroll 0% 0% / auto padding-box
     border-box;
   text-align: center;
   line-height: 20px;

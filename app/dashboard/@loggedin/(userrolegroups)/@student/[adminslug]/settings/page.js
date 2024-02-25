@@ -68,6 +68,19 @@ function BookPage() {
                 <i className="text-lg fa fa-arrow-right"></i>
               </span>
             </li>
+            <li
+              onClick={() =>
+                router.push(
+                  `/dashboard/${data.data.userName}/settings/profile-update-additional`
+                )
+              }
+              className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
+            >
+              Additional Data
+              <span className="float-right">
+                <i className="text-lg fa fa-arrow-right"></i>
+              </span>
+            </li>
 
             <li
               onClick={signout}

@@ -89,7 +89,6 @@ function SigninSignupmenuButton() {
     return (
       <div className="log-sign" style={{ "--i": "1.8s" }}>
         <Link
-          title="Dashboard"
           href={
             adminData.status == "Alhamdulillah"
               ? "/dashboard/loading"
@@ -98,10 +97,14 @@ function SigninSignupmenuButton() {
           className="btn transparent"
         >
           <div class="tooltip">
-            {adminData.status == "Alhamdulillah"
-              ? adminData.data.userName
-              : "Log in"}
-            <span class="tooltiptext">Dashboard</span>
+            {adminData.status == "Alhamdulillah" ? "Dashboard" : "Log in"}
+            <span class="tooltiptext">
+              Your SID:{" "}
+              <span style={{ fontWeight: "900", color: "#013030" }}>
+                {adminData.data.userName}
+              </span>{" "}
+              <br /> Enter to your Dashboard.
+            </span>
           </div>
         </Link>
         <Link

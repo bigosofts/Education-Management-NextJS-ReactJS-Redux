@@ -4,19 +4,27 @@
 }
 
 .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
+  opacity: 0;
+  width: 220px;
+  height: auto;
+  background-color: #BF976A;
   color: #fff;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-
+  font-size: 16px;
   /* Position the tooltip */
   position: absolute;
-  z-index: 1;
+  top: 30px;
+  left: -50px;
+  z-index: 10;
+  padding: 10px 10px;
+  line-height: 22px;
+  transition: 0.3s ease-out;
+  box-shadow: 1px 1px 5px rgba(100, 87, 87, 0.3);
 }
 
 .tooltip:hover .tooltiptext {
-  visibility: visible;
+  opacity: 1;
+  transition: 0.3s ease-out;
 }
