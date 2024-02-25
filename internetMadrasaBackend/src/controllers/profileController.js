@@ -123,6 +123,7 @@ exports.selectAllStudents = (req, res) => {
   let projection = req.body.projection;
   studentProfileModel
     .find(query, projection)
+    .sort({ admissionDate: -1 })
     .then((data) => {
       res.status(200).json({
         status: "Alhamdulillah",

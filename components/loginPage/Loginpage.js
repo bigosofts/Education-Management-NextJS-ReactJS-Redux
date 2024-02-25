@@ -98,7 +98,7 @@ function LoginPageDesign({ userData }) {
 
                     const hardRefresh = () => {
                       if (typeof window !== "undefined") {
-                        window.location.href = `/dashboard/${res.data.userName}/settings/profile-update?code=${code}`;
+                        window.location.href = `/dashboard/${res.data.userName}`;
                       }
                     };
                     hardRefresh();
@@ -112,7 +112,7 @@ function LoginPageDesign({ userData }) {
                 } else {
                   const hardRefresh = () => {
                     if (typeof window !== "undefined") {
-                      window.location.href = `/dashboard/${res.data.userName}/settings/profile-update?code=${code}`;
+                      window.location.href = `/dashboard/${res.data.userName}`;
                     }
                   };
                   hardRefresh();

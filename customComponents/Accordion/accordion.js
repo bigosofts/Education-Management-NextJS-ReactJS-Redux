@@ -130,7 +130,7 @@ function Accordion() {
           <div key={i} className="accordion-item">
             <div className="accordion-item-header">
               <div>
-                {item.userName} ({item.paymentStatus.paymentID}){" "}
+              {item.firstName.en} {item.lastName.en} | <span style={{color:"green"}}>{item.mobileNumber}</span> <br/>{item.userName} ({item.paymentStatus.paymentID})<br/><span style={{color:"green"}}>{item.emailAddress}</span>
               </div>
               <div style={{ textAlign: "right" }}>{getStatus(item)}</div>
             </div>

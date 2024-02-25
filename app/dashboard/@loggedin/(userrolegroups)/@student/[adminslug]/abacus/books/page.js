@@ -25,10 +25,11 @@ function AbacusBooks() {
         >
           <img src="/images/play_nursery.jpg" />
           <div
+            className="text-[12px] md:text-2xl"
             style={{
               padding: "10px 10%",
-              fontSize: "12px",
-              lineHeight: "18px",
+
+              lineHeight: "32px",
               textAlign: "center",
               backgroundColor: "#efefef",
               fontWeight: "900",
@@ -54,10 +55,11 @@ function AbacusBooks() {
         >
           <img src="/images/Level-1.jpg" />
           <div
+            className="text-[12px] md:text-2xl"
             style={{
               padding: "10px 10%",
-              fontSize: "12px",
-              lineHeight: "18px",
+
+              lineHeight: "32px",
               textAlign: "center",
               backgroundColor: "#efefef",
               fontWeight: "900",

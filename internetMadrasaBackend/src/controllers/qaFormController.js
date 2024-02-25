@@ -40,6 +40,7 @@ exports.selectQAForm = (req, res) => {
   let projection = req.body.projection;
   qaFormModel
     .find(query, projection)
+    .sort({ createdDate: -1 })
     .then((data) => {
       res.status(200).json({
         status: "Alhamdulillah",

@@ -47,6 +47,7 @@ exports.selectWorks = (req, res) => {
   let projection = req.body.projection;
   workModel
     .find(query, projection)
+    .sort({ createdDate: -1 })
     .then((data) => {
       res.status(200).json({
         status: "Alhamdulillah",

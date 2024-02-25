@@ -38,6 +38,7 @@ exports.selectVideos = (req, res) => {
   let projection = req.body.projection;
   videoModel
     .find(query, projection)
+    .sort({ createdDate: -1 })
     .then((data) => {
       res.status(200).json({
         status: "Alhamdulillah",

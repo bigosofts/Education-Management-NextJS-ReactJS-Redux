@@ -42,7 +42,7 @@ exports.createNotice = (req, res) => {
 exports.selectNotices=(req,res)=>{
     let query=req.body.query;
     let projection=req.body.projection
-    noticeModel.find(query, projection).then((data)=>{
+    noticeModel.find(query, projection).sort({ noticeCreatedDate: -1 }).then((data)=>{
         res.status(200).json({
             status:"Alhamdulillah",
             data: data

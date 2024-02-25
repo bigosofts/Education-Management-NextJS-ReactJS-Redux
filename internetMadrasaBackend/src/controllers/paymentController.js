@@ -10,7 +10,7 @@ exports.createPayments = (req, res) => {
     paymentID: reqBody.paymentID,
     paymentCurrency: reqBody.paymentCurrency,
     admissionDate: reqBody.admissionDate,
-   
+
     admissionPrice: reqBody.admissionPrice,
     monthlyPaymentPrice: reqBody.monthlyPaymentPrice,
     admissionPaymentHistory: reqBody.admissionPaymentHistory,
@@ -43,6 +43,7 @@ exports.selectPayments = (req, res) => {
   let projection = req.body.projection;
   paymentModel
     .find(query, projection)
+    .sort({ paymentCreatedDate: -1 })
     .then((data) => {
       res.status(200).json({
         status: "Alhamdulillah",
@@ -65,7 +66,7 @@ exports.updatePayment = (req, res) => {
     paymentID: reqBody.paymentID,
     paymentCurrency: reqBody.paymentCurrency,
     admissionDate: reqBody.admissionDate,
-    
+
     admissionPrice: reqBody.admissionPrice,
     monthlyPaymentPrice: reqBody.monthlyPaymentPrice,
     admissionPaymentHistory: reqBody.admissionPaymentHistory,
