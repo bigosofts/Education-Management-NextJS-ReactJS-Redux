@@ -30,7 +30,7 @@ function AbacusGroup() {
   }
   return (
     <div className="w-full">
-      <h1 className="w-full md:w-[50%] mx-auto px-5 text-lg md:text-3xl mt-2 text-slate-500 mb-4">
+      <h1 className="w-full md:w-[50%] mx-auto px-5 text-lg md:text-3xl mt-10 text-slate-500 mb-4 text-center">
         Live Class Telegram Link
       </h1>
 
@@ -62,9 +62,7 @@ function AbacusGroup() {
           ক্ল্যাস রমজানের প্রথম দিন থেকে শুরু হবে ইং শা আল্লাহ। আপনারা উপরোক্ত
           লিংক থেকে নিজ নিজ ক্ল্যাস গ্রুপে জয়েন থাকুন। ক্ল্যাসের শিডিউল খুব
           শীঘ্রই ওয়েবসাইটে পাবলিশ করা হবে।
-          <span className="float-right">
-            <i className="text-lg fa fa-arrow-right"></i>
-          </span>
+          
         </div>
       </div>
     </div>

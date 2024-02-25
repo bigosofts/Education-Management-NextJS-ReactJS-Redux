@@ -21,7 +21,12 @@ function CommonMenu({ children, changeDrawerState }) {
             />
           </div>
           <div className="flex-auto">
-            <h1 className="text-[14px] text-center md:text-lg lg:text-3xl">আপনার এস আইডি (SID): <span className="text-red-500 font-extrabold">{data.data.userDetails.userName}</span></h1>
+            <h1 className="text-[12px] text-center md:text-lg lg:text-3xl">
+              আপনার এস আইডি (SID):{" "}
+              <span className="text-red-500 font-extrabold">
+                {data.data.userDetails.userName}
+              </span>
+            </h1>
           </div>
           <div className="flex-auto">
             <div className="flex justify-end">

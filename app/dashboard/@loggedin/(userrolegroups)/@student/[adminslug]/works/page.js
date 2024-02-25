@@ -72,7 +72,9 @@ function WorkPage() {
     } else if (showPage) {
       return <div>Handwork Page</div>;
     } else {
-      return <NotAllow allowList={allowList} />;
+      setTimeout(()=>{
+        return <NotAllow allowList={allowList} />;
+      },1000)
     }
   }
 }

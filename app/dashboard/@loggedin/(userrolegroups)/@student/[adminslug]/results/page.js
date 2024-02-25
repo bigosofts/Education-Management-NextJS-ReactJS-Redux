@@ -60,7 +60,9 @@ function ResultPage() {
     } else if (showPage) {
       return <div>Result Page</div>;
     } else {
-      return <NotAllow allowList={allowList} />;
+      setTimeout(()=>{
+        return <NotAllow allowList={allowList} />;
+      },1000)
     }
   }
 }

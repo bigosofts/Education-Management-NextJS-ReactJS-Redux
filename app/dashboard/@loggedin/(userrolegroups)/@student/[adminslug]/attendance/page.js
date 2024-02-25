@@ -71,7 +71,9 @@ function AttendancePage() {
     } else if (showPage) {
       return <div>Attendance Page</div>;
     } else {
-      return <NotAllow allowList={allowList} />;
+      setTimeout(()=>{
+        return <NotAllow allowList={allowList} />;
+      },1000)
     }
   }
 }

@@ -65,7 +65,10 @@ function AbacusPage(props) {
         <AbacusMainPage/>
       );
     } else {
-      return <NotAllow allowList={allowList} />;
+      setTimeout(()=>{
+        return <NotAllow allowList={allowList} />;
+      },1000)
+      
     }
   }
 }
