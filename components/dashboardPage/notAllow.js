@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 function NotAllow({ allowList }) {
+  const data = useSelector((state) => state.isAdmin.value);
   const router = useRouter();
   return (
     <div className="h-[80vh] flex justify-center align-middle p-5">
@@ -14,9 +16,7 @@ function NotAllow({ allowList }) {
         </h1>
         <div className="flex gap-5 justify-center">
           <div
-            onClick={() =>
-              router.push(`/dashboard/${data.data.userName}`)
-            }
+            onClick={() => router.push(`/dashboard/${data.data.userName}`)}
             className="w-full md:w-[300px] cursor-pointer shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
           >
             <Image

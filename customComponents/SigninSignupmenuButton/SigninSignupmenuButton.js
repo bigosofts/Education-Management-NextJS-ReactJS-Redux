@@ -96,9 +96,9 @@ function SigninSignupmenuButton() {
           }
           className="btn transparent"
         >
-          <div class="tooltip">
+          <div class="tooltipC">
             {adminData.status == "Alhamdulillah" ? "Dashboard" : "Log in"}
-            <span class="tooltiptext">
+            <span class="tooltiptextC">
               Your SID:{" "}
               <span style={{ fontWeight: "900", color: "#013030" }}>
                 {adminData.data.userName}

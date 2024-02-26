@@ -1,13 +1,13 @@
-.tooltip {
+.tooltipC {
   position: relative;
   display: inline-block;
 }
 
-.tooltip .tooltiptext {
+.tooltipC .tooltiptextC {
   opacity: 0;
   width: 220px;
   height: auto;
-  background-color: #BF976A;
+  background-color: #bf976a;
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -24,7 +24,7 @@
   box-shadow: 1px 1px 5px rgba(100, 87, 87, 0.3);
 }
 
-.tooltip:hover .tooltiptext {
+.tooltipC:hover .tooltiptextC {
   opacity: 1;
   transition: 0.3s ease-out;
 }
