@@ -1,4 +1,4 @@
-export const oneSignalPushNotification = () => {
+export const OneSignalPush = () => {
   return (
     <>
       <script
@@ -25,4 +25,4 @@ export const oneSignalPushNotification = () => {
   );
 };
 
-<script></script>;
+

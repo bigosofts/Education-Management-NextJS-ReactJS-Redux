@@ -8,7 +8,7 @@ import { GoogleTagManagerBeforeBodyTwo } from "@/helper/googleTagBeforeBodyTwo";
 import { GoogleTagManagerBeforeHeader } from "@/helper/googleTagBeforeHeader";
 import { GoogleTagManagerBeforeHeaderTwo } from "@/helper/googleTagBeforeHeaderTwo";
 import { MetaPixelSetup } from "@/helper/metaPixelBeforeHead";
-import { oneSignalPushNotification } from "@/helper/oneSignalPushNotification";
+import { OneSignalPush } from "@/helper/oneSignalPushNotification";
 
 export const metadata = {
   title: "Internet Madrasa",
@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
         <GoogleTagManagerBeforeHeaderTwo />
         {/* <GoogleTagManagerBeforeBody /> */}
         <GoogleTagManagerBeforeBodyTwo />
-        <oneSignalPushNotification />
+        <OneSignalPush />
 
         {/* <MetaPixelSetup /> */}
         <Providers>{children}</Providers>
