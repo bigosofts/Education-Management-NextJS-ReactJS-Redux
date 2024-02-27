@@ -70,7 +70,7 @@ function BookPage() {
       return <WaitingApproval />;
     } else if (showPage) {
       return <div>Book Page</div>;
-    } else {
+    } else if(!showPage) {
     
         return <NotAllow allowList={allowList} />;
    

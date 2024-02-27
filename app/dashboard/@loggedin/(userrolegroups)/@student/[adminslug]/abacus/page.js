@@ -64,7 +64,7 @@ function AbacusPage(props) {
       return (
         <AbacusMainPage/>
       );
-    } else {
+    } else if(!showPage) {
      
         return <NotAllow allowList={allowList} />;
      

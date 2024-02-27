@@ -59,7 +59,7 @@ function UploadExam() {
       return <WaitingApproval />;
     } else if (showPage) {
       return <div>Upload Exam Page</div>;
-    } else {
+    } else if(!showPage) {
      
         return <NotAllow allowList={allowList} />;
    

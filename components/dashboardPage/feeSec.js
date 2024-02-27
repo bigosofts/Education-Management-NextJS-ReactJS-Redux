@@ -24,7 +24,6 @@ function FeeSection({ profile }) {
     let yearsDifference = timeDifference / oneYearInMillis;
     return yearsDifference;
   }
-  
 
   useEffect(() => {
     async function getData() {
@@ -85,12 +84,12 @@ function FeeSection({ profile }) {
   } else {
     return (
       <div className="p-3 h-[300px] bg-[#013030] text-white text-[32px] md:text-3xl w-[100vw] box-border">
-        <div className="flex justify-between px-2">
+        <div className="w-[95%] mx-auto flex justify-between px-2">
           <div className="text-lg md:text-2xl">Current Balance</div>
           <div className="text-lg md:text-2xl">{store} </div>
         </div>
         <div className="pb-[100px]">
-          <h1 className="text-[26px] md:text-md mt-12 mb-10 text-white text-center">
+          <h1 className="text-[16px] md:text-2xl mt-12 mb-10 text-white text-center">
             Yearly Admission history
           </h1>
           <div className="w-[90vw] md:w-[100vw]">
@@ -101,7 +100,7 @@ function FeeSection({ profile }) {
             />
           </div>
 
-          <h1 className="text-[26px] md:text-md mt-12 mb-10 text-slate-600 text-center">
+          <h1 className="text-[16px] md:text-2xl mt-12 mb-10 text-slate-600 text-center">
             Monthly Payment history
           </h1>
           <div className="w-[90vw] md:w-[100vw]">
@@ -113,7 +112,7 @@ function FeeSection({ profile }) {
           </div>
 
           <div className="text-slate-800 mt-[80px] border-[1px]">
-            <h1 className="text-[26px] md:text-md mt-12 mb-10 text-slate-600 text-center">
+            <h1 className="text-[16px] md:text-2xl mt-12 mb-10 text-slate-600 text-center">
               Give Monthly Payment for due date
             </h1>
             <MonthlyPayment profile={data} />
@@ -121,7 +120,7 @@ function FeeSection({ profile }) {
 
           {getDayDifference() > 1 && (
             <div className="text-slate-800 mt-[200px] mb-12">
-              <h1 className="text-[26px] md:text-md mt-12 mb-10 text-slate-600 text-center">
+              <h1 className="text-[16px] md:text-2xl mt-12 mb-10 text-slate-600 text-center">
                 Give Yearly Payment for due date
               </h1>
               <PreFeeSectionMonthly profile={data} />

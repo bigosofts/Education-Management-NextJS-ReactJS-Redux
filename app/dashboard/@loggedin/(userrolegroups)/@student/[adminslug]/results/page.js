@@ -59,7 +59,7 @@ function ResultPage() {
       return <WaitingApproval />;
     } else if (showPage) {
       return <div>Result Page</div>;
-    } else {
+    } else if(!showPage) {
       
         return <NotAllow allowList={allowList} />;
      

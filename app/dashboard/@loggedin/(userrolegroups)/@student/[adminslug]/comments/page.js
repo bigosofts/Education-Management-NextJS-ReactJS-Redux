@@ -71,7 +71,7 @@ function CommentPage() {
       return <WaitingApproval />;
     } else if (showPage) {
       return <div>Comment Page</div>;
-    } else {
+    } else if(!showPage) {
      
         return <NotAllow allowList={allowList} />;
     

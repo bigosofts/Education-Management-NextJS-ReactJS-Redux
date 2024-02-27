@@ -70,7 +70,7 @@ function AttendancePage() {
       return <WaitingApproval />;
     } else if (showPage) {
       return <div>Attendance Page</div>;
-    } else {
+    } else if(!showPage) {
      
         return <NotAllow allowList={allowList} />;
     

@@ -48,80 +48,81 @@ function LoginPageDesign({ userData }) {
       } else {
         if (studentRole == "teacher") {
           async function setData() {
-            const res = await createTeacher(
-              firstName,
-              "",
-              lastname,
-              "",
-              "",
-              "",
-              "",
-              "",
-              email,
-              password,
-              mobile,
-              [],
-              [],
-              "",
-              "",
-              "",
-              "",
-              "",
-              "",
-              "teacher",
-              "active",
-              "",
-              `${userData.length + 1}`,
-              { status: "ok" }
-            );
-            if (res.status == "Alhamdulillah") {
-              userData.push({
-                emailAddress: email,
-                mobileNumber: mobile,
-              });
-              setDatas(res.data.userName);
-              mytoast.success(
-                "আলহামদুলিল্লাহ, আপনার শিক্ষক/শিক্ষিকা একাউন্ট তৈরী হয়ে গেছে"
-              );
+            mytoast.danger("এই মুহুর্তে শিক্ষক একাউন্ট আবেদন নেয়া হচ্ছে না");
+            // const res = await createTeacher(
+            //   firstName,
+            //   "",
+            //   lastname,
+            //   "",
+            //   "",
+            //   "",
+            //   "",
+            //   "",
+            //   email,
+            //   password,
+            //   mobile,
+            //   [],
+            //   [],
+            //   "",
+            //   "",
+            //   "",
+            //   "",
+            //   "",
+            //   "",
+            //   "teacher",
+            //   "active",
+            //   "",
+            //   `${userData.length + 1}`,
+            //   { status: "ok" }
+            // );
+            // if (res.status == "Alhamdulillah") {
+            //   userData.push({
+            //     emailAddress: email,
+            //     mobileNumber: mobile,
+            //   });
+            //   setDatas(res.data.userName);
+            //   mytoast.success(
+            //     "আলহামদুলিল্লাহ, আপনার শিক্ষক/শিক্ষিকা একাউন্ট তৈরী হয়ে গেছে"
+            //   );
 
-              //login logic
-              if (Admin) {
-                if (Admin.status == "noToken") {
-                  const res3 = await teacherLogin(res.data.userName, password);
+            //   //login logic
+            //   if (Admin) {
+            //     if (Admin.status == "noToken") {
+            //       const res3 = await teacherLogin(res.data.userName, password);
 
-                  if (res3.status == "Alhamdulillah") {
-                    setToken("access_token", res3.token);
+            //       if (res3.status == "Alhamdulillah") {
+            //         setToken("access_token", res3.token);
 
-                    mytoast.success(
-                      "আলহামদুলিল্লাহ, আপনি সফলভাবে একাউন্টটি তৈরী করেছেন"
-                    );
+            //         mytoast.success(
+            //           "আলহামদুলিল্লাহ, আপনি সফলভাবে একাউন্টটি তৈরী করেছেন"
+            //         );
 
-                    const hardRefresh = () => {
-                      if (typeof window !== "undefined") {
-                        window.location.href = `/dashboard/${res.data.userName}`;
-                      }
-                    };
-                    hardRefresh();
-                  } else if (res3.status == "wrongpass") {
-                    mytoast.danger("আপনার পাসওয়ার্ড অথবা ইউজার আইডি ভুল হয়েছে");
-                  } else if (res3.status == "nouser") {
-                    router.push("/signup");
-                  }
-                } else if (Admin.status == "UnauthorizedAccess") {
-                  console.log("Unauthorized access");
-                } else {
-                  const hardRefresh = () => {
-                    if (typeof window !== "undefined") {
-                      window.location.href = `/dashboard/${res.data.userName}`;
-                    }
-                  };
-                  hardRefresh();
-                }
-              }
-              //end login logic
-            } else {
-              console.log(res);
-            }
+            //         const hardRefresh = () => {
+            //           if (typeof window !== "undefined") {
+            //             window.location.href = `/dashboard/${res.data.userName}`;
+            //           }
+            //         };
+            //         hardRefresh();
+            //       } else if (res3.status == "wrongpass") {
+            //         mytoast.danger("আপনার পাসওয়ার্ড অথবা ইউজার আইডি ভুল হয়েছে");
+            //       } else if (res3.status == "nouser") {
+            //         router.push("/signup");
+            //       }
+            //     } else if (Admin.status == "UnauthorizedAccess") {
+            //       console.log("Unauthorized access");
+            //     } else {
+            //       const hardRefresh = () => {
+            //         if (typeof window !== "undefined") {
+            //           window.location.href = `/dashboard/${res.data.userName}`;
+            //         }
+            //       };
+            //       hardRefresh();
+            //     }
+            //   }
+            //   //end login logic
+            // } else {
+            //   console.log(res);
+            // }
           }
           setData();
         } else if (studentRole == "student") {

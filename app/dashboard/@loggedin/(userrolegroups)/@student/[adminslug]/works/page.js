@@ -71,7 +71,7 @@ function WorkPage() {
       return <WaitingApproval />;
     } else if (showPage) {
       return <div>Handwork Page</div>;
-    } else {
+    } else if (!showPage) {
       return <NotAllow allowList={allowList} />;
     }
   }
