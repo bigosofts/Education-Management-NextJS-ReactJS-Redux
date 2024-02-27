@@ -31,6 +31,11 @@ const RichTextController = require("../controllers/RichTextController");
 const passEncrypted = require("../middlewares/passwordEncryption");
 const authverify = require("../middlewares/authverifyMiddleware");
 
+//Email utility import
+const emailController = require("../controllers/emailController");
+
+router.post("/send-email", emailController.sendEmail);
+
 router.get("/hello", (req, res) => {
   res.json({ message: "Hello from Express.js!" });
 });
@@ -153,7 +158,7 @@ router.post("/select-logs", logController.selectLogs);
 router.post("/select-books", bookController.selectBooks);
 router.post("/select-departments", departmentController.selectDepartments);
 router.post("/select-jamats", jamatController.selectJamats);
-router.post("/select-payments",authverify, paymentController.selectPayments);
+router.post("/select-payments", authverify, paymentController.selectPayments);
 router.post("/select-semesters", SemesterController.selectSemesters);
 router.post("/select-studentroles", StudentRoleController.selectStudentRoles);
 router.post("/select-videos", videoController.selectVideos);

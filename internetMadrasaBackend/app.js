@@ -20,13 +20,7 @@ const cors = require("cors");
 // Database Lib Import
 const mongoose = require("mongoose");
 
-// const SendEmailUtility = require("./src/utility/sendEmailUtility.js");
 
-// SendEmailUtility(
-//   "abdullah.limonbau@gmail.com",
-//   "Welcome to the Internet Madrasa",
-//   "Greetings from Internet Madrasa"
-// );
 // Security Middleware Implement
 app.use(cookieParser());
 app.use(
