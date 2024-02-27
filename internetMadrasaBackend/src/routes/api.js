@@ -26,6 +26,7 @@ const qaFormController = require("../controllers/qaFormController");
 const imageController = require("../controllers/imageController");
 const workController = require("../controllers/workController");
 const RichTextController = require("../controllers/RichTextController");
+const otpController = require("../controllers/otpController");
 
 //Middleware Import
 const passEncrypted = require("../middlewares/passwordEncryption");
@@ -136,6 +137,8 @@ router.post("/create-video", authverify, videoController.createVideo);
 router.post("/create-qaform", authverify, qaFormController.createQAForm);
 router.post("/create-work", authverify, workController.createWork);
 router.post("/create-richtext", authverify, RichTextController.createRichText);
+router.post("/create-otp", otpController.createOTP);
+
 
 //Select or find the data from the database
 router.post("/select-students", profileController.selectStudents);
@@ -165,6 +168,7 @@ router.post("/select-videos", videoController.selectVideos);
 router.post("/select-qaforms", qaFormController.selectQAForm);
 router.post("/select-works", workController.selectWorks);
 router.post("/select-richtexts", RichTextController.selectRichTexts);
+router.post("/select-otps", otpController.selectOTPS);
 
 //Select or update the data from the database
 router.put("/update-student", authverify, profileController.updateStudent);
@@ -200,8 +204,8 @@ router.put("/update-video", authverify, videoController.updateVideo);
 router.put("/update-qaform", authverify, qaFormController.updateQAForm);
 router.put("/update-work", authverify, workController.updateWorks);
 router.put("/update-richtext", authverify, RichTextController.updateRichText);
-
 router.put("/update-log", authverify, logController.updateLog);
+router.put("/update-otp", otpController.updateOTP);
 
 //Delete the data from the database
 router.delete(
@@ -265,5 +269,6 @@ router.delete(
   authverify,
   RichTextController.deleteRichText
 );
+router.delete("/delete-otp/:id", authverify, otpController.deleteOTP);
 
 module.exports = router;

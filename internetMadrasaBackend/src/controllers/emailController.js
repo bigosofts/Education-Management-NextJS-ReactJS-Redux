@@ -6,7 +6,7 @@ exports.sendEmail = (req, res) => {
   const text = req.body.text;
   const html = req.body.html;
 
-  SendEmailUtility(toEmail, subject, text, html)
+  SendEmailUtility(toEmail, text, subject, html)
     .then((result) => {
       res.status(200).json({
         status: "Alhamdulillah",
@@ -19,6 +19,4 @@ exports.sendEmail = (req, res) => {
         data: error,
       });
     });
-
- 
 };

@@ -4,6 +4,7 @@ import mytoast from "@/components/toast/toast";
 import { selectDataTwo as selectStudents } from "@/apiservices/studentapiservices";
 import { selectAllData as selectTeachers } from "@/apiservices/teacherapiservices";
 import { useSearchParams } from "next/navigation";
+import { checkandSendOTP } from "@/helper/accountRecover/send-OTP";
 
 function SendOTP() {
   const searchParams = useSearchParams();
@@ -20,6 +21,7 @@ function SendOTP() {
       mytoast.warning("You entered wrong Email Address");
     } else {
       if (role == "teacher") {
+        mytoast.warning("Teachers have not this option yet")
       } else if (role == "student") {
         async function getData() {
           const res = await selectStudents(
@@ -28,7 +30,7 @@ function SendOTP() {
           );
           if (res.status == "Alhamdulillah") {
             if (res.data.length > 0) {
-              mytoast.success("Email found");
+              checkandSendOTP(res.data[0].emailAddress);
             } else {
               mytoast.success("Email not found");
             }
