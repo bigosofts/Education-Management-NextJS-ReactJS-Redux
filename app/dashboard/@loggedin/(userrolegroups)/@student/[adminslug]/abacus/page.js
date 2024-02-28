@@ -27,6 +27,7 @@ function AbacusPage(props) {
     "urdu",
     "ramadanquranulkarim",
     "farzeayinampara",
+    "abacus_teacher"
   ];
   const allowList = ["abacus_student"];
 

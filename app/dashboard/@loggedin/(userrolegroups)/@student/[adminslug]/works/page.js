@@ -24,6 +24,7 @@ function WorkPage() {
     "urdu",
     "ramadanquranulkarim",
     "farzeayinampara",
+    "abacus_teacher",
   ];
   const allowList = [
     "alemalema",
@@ -37,6 +38,7 @@ function WorkPage() {
     "urdu",
     "ramadanquranulkarim",
     "farzeayinampara",
+    "abacus_teacher",
   ];
 
   useEffect(() => {

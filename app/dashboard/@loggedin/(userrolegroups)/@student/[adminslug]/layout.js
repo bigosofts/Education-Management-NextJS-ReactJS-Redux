@@ -11,8 +11,6 @@ import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
 import { selectDataTwo } from "@/apiservices/studentapiservices";
 
 function StudentLayout({ children, params }) {
-  
-
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.isAdmin.value);
@@ -28,7 +26,6 @@ function StudentLayout({ children, params }) {
     async function fetchData() {
       const payload = await isAdmin();
       if (payload.status == "Alhamdulillah") {
-        
         const res = await selectDataTwo(
           { userName: payload.data.userName },
           null
@@ -120,6 +117,12 @@ function StudentLayout({ children, params }) {
       icon: "/images/abacus.svg",
       show: true,
     },
+    {
+      name: "Abacus Teachers Training",
+      href: `/dashboard/${params.adminslug}/abacus-teacher`,
+      icon: "/images/abacus_teacher.svg",
+      show: true,
+    },
 
     {
       name: "Attendance",
@@ -180,6 +183,13 @@ function StudentLayout({ children, params }) {
             name: "Abacus",
             href: `/dashboard/${data.data.userName}/abacus`,
             icon: "/images/abacus.svg",
+            show: false,
+          };
+        } else if (item.name == "Abacus Teachers Training") {
+          return {
+            name: "Abacus Teachers Training",
+            href: `/dashboard/${params.adminslug}/abacus-teacher`,
+            icon: "/images/abacus_teacher.svg",
             show: false,
           };
         } else if (item.name == "Attendance") {
@@ -246,6 +256,13 @@ function StudentLayout({ children, params }) {
             name: "Abacus",
             href: `/dashboard/${data.data.userName}/abacus`,
             icon: "/images/abacus.svg",
+            show: false,
+          };
+        } else if (item.name == "Abacus Teachers Training") {
+          return {
+            name: "Abacus Teachers Training",
+            href: `/dashboard/${params.adminslug}/abacus-teacher`,
+            icon: "/images/abacus_teacher.svg",
             show: false,
           };
         } else if (item.name == "Attendance") {
@@ -334,6 +351,12 @@ function StudentLayout({ children, params }) {
           name: "Abacus",
           href: `/dashboard/${params.adminslug}/abacus`,
           icon: "/images/abacus.svg",
+          show: true,
+        },
+        {
+          name: "Abacus Teachers Training",
+          href: `/dashboard/${params.adminslug}/abacus-teacher`,
+          icon: "/images/abacus_teacher.svg",
           show: true,
         },
 

@@ -1,13 +1,16 @@
 "use client";
 
 import { useSelector } from "react-redux";
+
+
 import EnrollPlease from "@/components/dashboardPage/enrollPlease";
 import WaitingApproval from "@/components/dashboardPage/WaitingApproval";
 import { useState, useEffect } from "react";
 import { selectDataTwo } from "@/apiservices/studentapiservices";
 import NotAllow from "@/components/dashboardPage/notAllow";
+import AbacusMainPage from "@/components/dashboardPage/abacusPage/abacusMainPage";
 
-function CommentPage() {
+function AbacusPage(props) {
   const data = useSelector((state) => state.isAdmin.value);
 
   const [showPage, setShowPage] = useState();
@@ -24,22 +27,8 @@ function CommentPage() {
     "urdu",
     "ramadanquranulkarim",
     "farzeayinampara",
-    "abacus_teacher"
   ];
-  const allowList = [
-    "alemalema",
-    "abacus_student",
-    "shishunajera",
-    "shishumaktab",
-    "farzeayinmaktab",
-    "farzeayinnajera",
-    "hifjulquran",
-    "ezranahusorof",
-    "urdu",
-    "ramadanquranulkarim",
-    "farzeayinampara",
-    "abacus_teacher"
-  ];
+  const allowList = ["abacus_teacher"];
 
   useEffect(() => {
     async function getData() {
@@ -72,13 +61,16 @@ function CommentPage() {
     ) {
       return <WaitingApproval />;
     } else if (showPage) {
-      return <div>Comment Page</div>;
+      return (
+        <AbacusMainPage/>
+      );
     } else if(!showPage) {
      
         return <NotAllow allowList={allowList} />;
-    
+     
+      
     }
   }
 }
 
-export default CommentPage;
+export default AbacusPage;

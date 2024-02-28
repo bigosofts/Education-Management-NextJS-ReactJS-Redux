@@ -23,6 +23,7 @@ function AttendancePage() {
     "urdu",
     "ramadanquranulkarim",
     "farzeayinampara",
+    "abacus_teacher"
   ];
   const allowList = [
     "alemalema",
@@ -36,6 +37,7 @@ function AttendancePage() {
     "urdu",
     "ramadanquranulkarim",
     "farzeayinampara",
+    "abacus_teacher"
   ];
 
   useEffect(() => {

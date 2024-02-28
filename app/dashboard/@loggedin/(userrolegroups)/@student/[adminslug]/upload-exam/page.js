@@ -24,6 +24,7 @@ function UploadExam() {
     "urdu",
     "ramadanquranulkarim",
     "farzeayinampara",
+    "abacus_teacher"
   ];
   const allowList = ["alemalema"];
 

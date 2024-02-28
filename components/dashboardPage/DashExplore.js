@@ -83,6 +83,12 @@ function DashExplore() {
         icon: "/images/abacus.svg",
         show: true,
       },
+      {
+        name: "Abacus Teachers Training",
+        href: `/dashboard/${data.data.userName}/abacus-teacher`,
+        icon: "/images/abacus_teacher.svg",
+        show: true,
+      },
 
       {
         name: "Attendance",
@@ -143,6 +149,13 @@ function DashExplore() {
             name: "Abacus",
             href: `/dashboard/${data.data.userName}/abacus`,
             icon: "/images/abacus.svg",
+            show: false,
+          };
+        } else if (item.name == "Abacus Teachers Training") {
+          return {
+            name: "Abacus Teachers Training",
+            href: `/dashboard/${data.data.userName}/abacus-teacher`,
+            icon: "/images/abacus_teacher.svg",
             show: false,
           };
         } else if (item.name == "Attendance") {
@@ -209,6 +222,13 @@ function DashExplore() {
             name: "Abacus",
             href: `/dashboard/${data.data.userName}/abacus`,
             icon: "/images/abacus.svg",
+            show: false,
+          };
+        } else if (item.name == "Abacus Teachers Training") {
+          return {
+            name: "Abacus Teachers Training",
+            href: `/dashboard/${data.data.userName}/abacus-teacher`,
+            icon: "/images/abacus_teacher.svg",
             show: false,
           };
         } else if (item.name == "Attendance") {
@@ -297,6 +317,12 @@ function DashExplore() {
           name: "Abacus",
           href: `/dashboard/${data.data.userName}/abacus`,
           icon: "/images/abacus.svg",
+          show: true,
+        },
+        {
+          name: "Abacus Teachers Training",
+          href: `/dashboard/${data.data.userName}/abacus-teacher`,
+          icon: "/images/abacus_teacher.svg",
           show: true,
         },
 
