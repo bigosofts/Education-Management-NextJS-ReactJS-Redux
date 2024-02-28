@@ -237,20 +237,7 @@ function CreatePassword() {
         </form>
       </div>
     );
-  } else {
-    return (
-      <div className="w-11/12 md:w-4/12 mx-auto bg-sky-500 text-white mt-12 text-lg md:text-3xl p-5 rounded-lg">
-        Something Went Wrong. Please send OTP again.
-        <br />
-        <a
-          className="text-slate-600 px-2 rounded-lg bg-amber-200"
-          href="/dashboard/login"
-        >
-          Go to this page to resend OTP
-        </a>
-      </div>
-    );
-  }
+  } 
 }
 
 export default CreatePassword;
