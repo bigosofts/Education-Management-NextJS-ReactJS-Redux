@@ -39,7 +39,7 @@ function Slider(props) {
         {imageArray.map((item, i) => (
           <div key={i}>
             <SwiperSlide>
-              <a href="/course">
+              <a href="/classes">
                 <Image
                   width={1920}
                   height={690}
