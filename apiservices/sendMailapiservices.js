@@ -5,17 +5,14 @@ exports.sendMail = async (toEmail, subject, text, html) => {
     text: text,
     html: html,
   };
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL}/apis/v1/send-email`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payloaddata),
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/send-email`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payloaddata),
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary

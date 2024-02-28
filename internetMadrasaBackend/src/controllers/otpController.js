@@ -4,6 +4,7 @@ exports.createOTP = (req, res) => {
   //Receive Post Request Data from req body
   let reqBody = req.body;
 
+
   //Make res body for posting to the Database
 
   let postBody = {
@@ -12,6 +13,7 @@ exports.createOTP = (req, res) => {
     createdDate: new Date(Date.now()).toISOString(),
     status: reqBody.status,
   };
+
 
   // Create Database record
   otpModel

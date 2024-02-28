@@ -9,8 +9,7 @@ const DataSchema = mongoose.Schema(
     },
     createdDate: { type: Date },
     status: {
-      type: Boolean,
-      default: false,
+      type: String,
     },
   },
   { versionKey: false }

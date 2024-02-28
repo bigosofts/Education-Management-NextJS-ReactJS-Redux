@@ -91,6 +91,7 @@ exports.deleteData = async (id) => {
 
 exports.createData = async ({ email, otp, status }) => {
   const aboutdata = { email, otp, status };
+  console.log(aboutdata)
 
   if (data2) {
     const res = await fetch(
