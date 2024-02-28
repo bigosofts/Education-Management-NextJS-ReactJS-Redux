@@ -546,6 +546,75 @@ function AbacusCourse({ info, comment, richtext, parameter }) {
                         </div>
                       </div>
                     )}
+                    {pageName == "abacus_teacher" && (
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          gap: "20px",
+                          marginTop: "50px",
+                        }}
+                      >
+                        <div
+                          style={{
+                            borderRadius: "20px",
+                            overflow: "hidden",
+                            boxShadow: "0px 1px 5px rgba(0,0,0,0.3)",
+                            border: "1px solid rgba(0,0,0,0.1)",
+                          }}
+                        >
+                          <img src="/images/play_nursery.jpg" />
+                          <div
+                            style={{
+                              padding: "10px 10%",
+                              fontSize: "16px",
+                              lineHeight: "22px",
+                              textAlign: "center",
+                              backgroundColor: "#efefef",
+                              fontWeight: "900",
+                            }}
+                          >
+                            <p>
+                              Package 1: Brain Math Abacus (Play & Nursery) +
+                              Abacus Kit
+                            </p>
+                          </div>
+                          <a target="_blank" href="/abacus-purchase">
+                            {" "}
+                            <div className="style-1155">ক্রয় করুন</div>
+                          </a>
+                        </div>
+                        <div
+                          style={{
+                            borderRadius: "20px",
+                            overflow: "hidden",
+                            boxShadow: "0px 1px 5px rgba(0,0,0,0.3)",
+                            border: "1px solid rgba(0,0,0,0.1)",
+                          }}
+                        >
+                          <img src="/images/Level-1.jpg" />
+                          <div
+                            style={{
+                              padding: "10px 10%",
+                              fontSize: "16px",
+                              lineHeight: "22px",
+                              textAlign: "center",
+                              backgroundColor: "#efefef",
+                              fontWeight: "900",
+                            }}
+                          >
+                            <p>
+                              Package 2: Brain Math Abacus (Level 1) + Abacus
+                              Kit
+                            </p>
+                          </div>
+                          <a target="_blank" href="/abacus-purchase">
+                            {" "}
+                            <div className="style-1155">ক্রয় করুন</div>
+                          </a>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

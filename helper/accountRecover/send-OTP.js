@@ -18,12 +18,12 @@ export function checkandSendOTP(email) {
 
   let OTP = Math.floor(100000 + Math.random() * 900000);
 
-  const subject = "Recover SID and Password";
-  const text = `আপনার ইমেইলটি ভেরিফাই করার জন্য এই লিংকে ক্লিক করুন অথবা লিংকটি কপি করে যেকোন ব্রাউজারে ওপেন করুন। https://www.internetmadrasa.com/verifyOTP?otp=${OTP}`;
-
-  const html = `<h1>আপনার ইমেইলটি ভেরিফাই করার জন্য এই লিংকে ক্লিক করুন অথবা লিংকটি কপি করে যেকোনো ব্রাউজারে ওপেন করুন।</h1> <br/><br/> <a href="https://www.internetmadrasa.com/verifyOTP?otp=${OTP}">https://www.internetmadrasa.com/verifyOTP?otp=${OTP}</a>`;
-
   async function sendOTP(emailAdd) {
+    const subject = "Recover SID and Password";
+    const text = `আপনার OTP হলোঃ ${OTP}। অথবা আপনার OTP ভেরিফাই করার জন্য এই লিংকে ক্লিক করুন অথবা লিংকটি কপি করে যেকোন ব্রাউজারে ওপেন করুন। https://www.internetmadrasa.com/verifyOTP?email=${emailAdd}&otp=${OTP}`;
+
+    const html = `<h1>আপনার OTP হলোঃ <span style="color:red">${OTP}</span></h1> <br/><br/> <h1>অথবা আপনার OTP ভেরিফাই করার জন্য এই লিংকে ক্লিক করুন অথবা লিংকটি কপি করে যেকোনো ব্রাউজারে ওপেন করুন।</h1> <br/><br/> <a href="https://www.internetmadrasa.com/verifyOTP?otp=${OTP}">https://www.internetmadrasa.com/verifyOTP?email=${emailAdd}&otp=${OTP}</a>`;
+
     const res = await sendMail(emailAdd, subject, text, html);
     if (res.status == "Alhamdulillah") {
       return res;
@@ -48,7 +48,9 @@ export function checkandSendOTP(email) {
               mytoast.success(
                 "A verification code has been sent to your Email Address"
               );
-              hardRefresh("/verifyOTP");
+              setTimeout(() => {
+                hardRefresh(`/verifyOTP?email=${email}`);
+              }, 1000);
             }
           }
         }
@@ -68,7 +70,9 @@ export function checkandSendOTP(email) {
               mytoast.success(
                 "A verification code has been sent to your Email Address"
               );
-              hardRefresh("/verifyOTP");
+              setTimeout(() => {
+                hardRefresh(`/verifyOTP?email=${email}`);
+              }, 1000);
             }
           }
         } else if (
@@ -88,7 +92,9 @@ export function checkandSendOTP(email) {
                 mytoast.success(
                   "A verification code has been sent to your Email Address"
                 );
-                hardRefresh("/verifyOTP");
+                setTimeout(() => {
+                  hardRefresh(`/verifyOTP?email=${email}`);
+                }, 1000);
               }
             }
           }

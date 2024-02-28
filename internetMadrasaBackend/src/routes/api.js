@@ -139,7 +139,6 @@ router.post("/create-work", authverify, workController.createWork);
 router.post("/create-richtext", authverify, RichTextController.createRichText);
 router.post("/create-otp", otpController.createOTP);
 
-
 //Select or find the data from the database
 router.post("/select-students", profileController.selectStudents);
 router.post("/select-all-students", profileController.selectAllStudents);
@@ -171,8 +170,8 @@ router.post("/select-richtexts", RichTextController.selectRichTexts);
 router.post("/select-otps", otpController.selectOTPS);
 
 //Select or update the data from the database
-router.put("/update-student", authverify, profileController.updateStudent);
-router.put("/update-teacher", authverify, profileController.updateTeacher);
+router.put("/update-student", profileController.updateStudent);
+router.put("/update-teacher", profileController.updateTeacher);
 router.put("/update-course", authverify, courseController.updateCourse);
 router.put("/update-menu", authverify, menuController.updateMenu);
 router.put("/update-slider", authverify, sliderController.updateSlider);

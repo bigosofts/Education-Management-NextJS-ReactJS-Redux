@@ -28,6 +28,7 @@ exports.createRichText = (req, res) => {
     });
 };
 
+
 //Read or select Database Record
 exports.selectRichTexts = (req, res) => {
   let query = req.body.query;
