@@ -1,7 +1,7 @@
-import CourseVideo from "@/components/dashboardPage/abacusPage/courseVideo";
+import CourseCurriculamTeacher from "@/customComponents/allCustomComponents/courseCurriculam/CourseCurriculamTeacher";
 
 function RecordedClasses() {
-  return <CourseVideo />;
+  return <CourseCurriculamTeacher />;
 }
 
 export default RecordedClasses;

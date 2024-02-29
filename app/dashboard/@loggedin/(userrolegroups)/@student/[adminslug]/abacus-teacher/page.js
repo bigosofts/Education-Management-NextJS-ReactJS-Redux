@@ -8,7 +8,7 @@ import WaitingApproval from "@/components/dashboardPage/WaitingApproval";
 import { useState, useEffect } from "react";
 import { selectDataTwo } from "@/apiservices/studentapiservices";
 import NotAllow from "@/components/dashboardPage/notAllow";
-import AbacusMainPage from "@/components/dashboardPage/abacusPage/abacusMainPage";
+import AbacusMainPageTeacher from "@/components/dashboardPage/abacusPage/abacusMainPageTeacher";
 
 function AbacusPage(props) {
   const data = useSelector((state) => state.isAdmin.value);
@@ -27,7 +27,9 @@ function AbacusPage(props) {
     "urdu",
     "ramadanquranulkarim",
     "farzeayinampara",
+    "abacus_teacher"
   ];
+
   const allowList = ["abacus_teacher"];
 
   useEffect(() => {
@@ -62,7 +64,7 @@ function AbacusPage(props) {
       return <WaitingApproval />;
     } else if (showPage) {
       return (
-        <AbacusMainPage/>
+        <AbacusMainPageTeacher/>
       );
     } else if(!showPage) {
      

@@ -75,6 +75,76 @@ function AbacusBooks() {
           </a>
         </div>
       </div>
+      <div
+        className="flex gap-5"
+        style={{
+          justifyContent: "center",
+
+          marginTop: "50px",
+        }}
+      >
+        <div
+          style={{
+            borderRadius: "20px",
+            overflow: "hidden",
+            boxShadow: "0px 1px 5px rgba(0,0,0,0.3)",
+            border: "1px solid rgba(0,0,0,0.1)",
+          }}
+        >
+          <img src="/images/nurani_kayda.png" />
+          <div
+            className="text-[12px] md:text-2xl"
+            style={{
+              padding: "10px 10%",
+
+              lineHeight: "32px",
+              textAlign: "center",
+              backgroundColor: "#efefef",
+              fontWeight: "900",
+            }}
+          >
+            <p style={{ fontSize: "16px" }}>নূরানী সহজ কায়দা</p>
+          </div>
+          <a
+            className="p-2 bg-sky-500 block text-white text-center text-xl"
+            href="/book/নূরানী_সহজ_কায়দা.pdf"
+            download
+          >
+            {" "}
+            <div className="style-1155">ডাউনলোড করুন</div>
+          </a>
+        </div>
+        <div
+          style={{
+            borderRadius: "20px",
+            overflow: "hidden",
+            boxShadow: "0px 1px 5px rgba(0,0,0,0.3)",
+            border: "1px solid rgba(0,0,0,0.1)",
+          }}
+        >
+          <img src="/images/quran_sharif.png" />
+          <div
+            className="text-[12px] md:text-2xl"
+            style={{
+              padding: "10px 10%",
+
+              lineHeight: "32px",
+              textAlign: "center",
+              backgroundColor: "#efefef",
+              fontWeight: "900",
+            }}
+          >
+            <p style={{ fontSize: "16px" }}>আল-কুরআনুল কারীম</p>
+          </div>
+          <a
+            className="p-2 bg-sky-500 block text-white text-center text-xl"
+            href="/book/Imdadia-Nurani-Quran.pdf"
+            download
+          >
+            <div className="style-1155">ডাউনলোড করুন</div>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

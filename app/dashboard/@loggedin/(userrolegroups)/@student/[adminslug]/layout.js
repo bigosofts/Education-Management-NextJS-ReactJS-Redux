@@ -112,7 +112,7 @@ function StudentLayout({ children, params }) {
     },
 
     {
-      name: "Abacus",
+      name: "Abacus Student",
       href: `/dashboard/${params.adminslug}/abacus`,
       icon: "/images/abacus.svg",
       show: true,
@@ -121,6 +121,12 @@ function StudentLayout({ children, params }) {
       name: "Abacus Teachers Training",
       href: `/dashboard/${params.adminslug}/abacus-teacher`,
       icon: "/images/abacus_teacher.svg",
+      show: true,
+    },
+    {
+      name: "Ramadan Quran",
+      href: `/dashboard/${params.adminslug}/ramadan-quran`,
+      icon: "/images/quran.svg",
       show: true,
     },
 
@@ -178,9 +184,9 @@ function StudentLayout({ children, params }) {
             icon: "/images/switch.svg",
             show: false,
           };
-        } else if (item.name == "Abacus") {
+        } else if (item.name == "Abacus Student") {
           return {
-            name: "Abacus",
+            name: "Abacus Student",
             href: `/dashboard/${data.data.userName}/abacus`,
             icon: "/images/abacus.svg",
             show: false,
@@ -190,6 +196,13 @@ function StudentLayout({ children, params }) {
             name: "Abacus Teachers Training",
             href: `/dashboard/${params.adminslug}/abacus-teacher`,
             icon: "/images/abacus_teacher.svg",
+            show: false,
+          };
+        } else if (item.name == "Ramadan Quran") {
+          return {
+            name: "Ramadan Quran",
+            href: `/dashboard/${params.adminslug}/ramadan-quran`,
+            icon: "/images/quran.svg",
             show: false,
           };
         } else if (item.name == "Attendance") {
@@ -251,9 +264,9 @@ function StudentLayout({ children, params }) {
             icon: "/images/switch.svg",
             show: false,
           };
-        } else if (item.name == "Abacus") {
+        } else if (item.name == "Abacus Student") {
           return {
-            name: "Abacus",
+            name: "Abacus Student",
             href: `/dashboard/${data.data.userName}/abacus`,
             icon: "/images/abacus.svg",
             show: false,
@@ -263,6 +276,13 @@ function StudentLayout({ children, params }) {
             name: "Abacus Teachers Training",
             href: `/dashboard/${params.adminslug}/abacus-teacher`,
             icon: "/images/abacus_teacher.svg",
+            show: false,
+          };
+        }else if (item.name == "Ramadan Quran") {
+          return {
+            name: "Ramadan Quran",
+            href: `/dashboard/${params.adminslug}/ramadan-quran`,
+            icon: "/images/quran.svg",
             show: false,
           };
         } else if (item.name == "Attendance") {
@@ -348,7 +368,7 @@ function StudentLayout({ children, params }) {
         },
 
         {
-          name: "Abacus",
+          name: "Abacus Student",
           href: `/dashboard/${params.adminslug}/abacus`,
           icon: "/images/abacus.svg",
           show: true,
@@ -359,7 +379,12 @@ function StudentLayout({ children, params }) {
           icon: "/images/abacus_teacher.svg",
           show: true,
         },
-
+        {
+          name: "Ramadan Quran",
+          href: `/dashboard/${params.adminslug}/ramadan-quran`,
+          icon: "/images/quran.svg",
+          show: true,
+        },
         {
           name: "Attendance",
           href: `/dashboard/${params.adminslug}/attendance`,
