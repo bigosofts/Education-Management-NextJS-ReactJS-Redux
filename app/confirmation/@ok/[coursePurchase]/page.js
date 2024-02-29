@@ -2,7 +2,8 @@
 import { TiTick } from "react-icons/ti";
 import { useSearchParams } from "next/navigation";
 
-function ConfirmationPage() {
+function ConfirmationPage({ params }) {
+  const course = params.coursePurchase;
   const searchParams = useSearchParams();
   const usd = searchParams.get("usd");
 
@@ -23,7 +24,8 @@ function ConfirmationPage() {
             Amount Paid: {usd ? usd : ""} US Dollar
           </div>
           <h1 className="text-lime-900">
-            Your payment request has been received
+            Your payment request has been received for course:{" "}
+            {course ? course : ""}
           </h1>
           <p className="text-lime-900 mt-10 text-xl">
             জাঝাকাল্লাহু খইরন। আপনার রিকুয়েস্টটি আমরা গ্রহণ করেছি, অনুগ্রপূর্বক

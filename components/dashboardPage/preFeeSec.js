@@ -200,6 +200,45 @@ function PreFeeSection({ profile }) {
         semester: "none",
       }));
       setExtraTransaction(false);
+    } else if (classes == "abacus_teacher") {
+      setMainData((prev) => ({
+        ...prev,
+        amountPaid: "none",
+        transactionID: "none",
+        accountNo: "none",
+        paymentWay: "none",
+      }));
+      setExtraJamat(false);
+      setMainData((prev) => ({
+        ...prev,
+        jamat: "none",
+      }));
+      setExtraSemester(false);
+      setMainData((prev) => ({
+        ...prev,
+        semester: "none",
+      }));
+      setExtraTransaction(false);
+    } else if (classes == "none") {
+    } else if (classes == "ramadanquranulkarim") {
+      setMainData((prev) => ({
+        ...prev,
+        amountPaid: "none",
+        transactionID: "none",
+        accountNo: "none",
+        paymentWay: "none",
+      }));
+      setExtraJamat(false);
+      setMainData((prev) => ({
+        ...prev,
+        jamat: "none",
+      }));
+      setExtraSemester(false);
+      setMainData((prev) => ({
+        ...prev,
+        semester: "none",
+      }));
+      setExtraTransaction(false);
     } else if (classes == "none") {
       setExtraJamat(false);
       setMainData((prev) => ({
@@ -564,7 +603,7 @@ function PreFeeSection({ profile }) {
             mytoast.info("If verification Delays, Do not forget to reach us");
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/confirmation?username=${profile.data.userDetails.userName}&usd=${money.us}`;
+                window.location.href = `/confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
               }
             };
             hardRefresh();
@@ -709,7 +748,7 @@ function PreFeeSection({ profile }) {
             mytoast.info("If verification Delays, Do not forget to reach us");
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/confirmation?username=${profile.data.userDetails.userName}&usd=${money.us}`;
+                window.location.href = `/confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
               }
             };
             hardRefresh();
@@ -877,7 +916,7 @@ function PreFeeSection({ profile }) {
             mytoast.info("If verification Delays, Do not forget to reach us");
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/confirmation?username=${profile.data.userDetails.userName}&usd=${money.us}`;
+                window.location.href = `/confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
               }
             };
             hardRefresh();
@@ -1022,7 +1061,7 @@ function PreFeeSection({ profile }) {
             mytoast.info("If verification Delays, Do not forget to reach us");
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/confirmation?username=${profile.data.userDetails.userName}&usd=${money.us}`;
+                window.location.href = `/confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
               }
             };
             hardRefresh();
