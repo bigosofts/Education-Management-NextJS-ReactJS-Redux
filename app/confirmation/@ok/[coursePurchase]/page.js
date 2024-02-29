@@ -20,10 +20,10 @@ function ConfirmationPage({ params }) {
           <TiTick className="text-[200px] md:text-[300px] text-lime-900" />
         </div>
         <div className="mt-[10px] p-5">
-          <div className="bg-slate-600 text-white p-5 rounded-3xl my-10">
-            Amount Paid: {usd ? usd : ""} US Dollar
+          <div className="bg-slate-600 text-white p-5 rounded-3xl my-10 w-11/12 md:w-2/4 mx-auto text-3xl">
+            Amount Paid: {usd ? usd : ""} USD
           </div>
-          <h1 className="text-lime-900">
+          <h1 className="text-lime-900 text-xl">
             Your payment request has been received for course:{" "}
             {course ? course : ""}
           </h1>

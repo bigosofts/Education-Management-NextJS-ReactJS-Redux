@@ -2,7 +2,6 @@
 
 import { useSelector } from "react-redux";
 
-
 import EnrollPlease from "@/components/dashboardPage/enrollPlease";
 import WaitingApproval from "@/components/dashboardPage/WaitingApproval";
 import { useState, useEffect } from "react";
@@ -27,7 +26,7 @@ function AbacusPage(props) {
     "urdu",
     "ramadanquranulkarim",
     "farzeayinampara",
-    "abacus_teacher"
+    "abacus_teacher",
   ];
 
   const allowList = ["abacus_teacher"];
@@ -39,10 +38,14 @@ function AbacusPage(props) {
         null
       );
       if (res.status == "Alhamdulillah") {
-        let course =
+        let course;
+        if(res.data[0].studentCourseCode.length > 0){
+          course =
           res.data[0].studentCourseCode[
             res.data[0].studentCourseCode.length - 1
           ].code;
+        }
+        
         if (allowList.some((item) => item == course)) {
           setShowPage(true);
         } else {
@@ -64,13 +67,17 @@ function AbacusPage(props) {
       return <WaitingApproval />;
     } else if (showPage) {
       return (
-        <AbacusMainPageTeacher/>
+        <>
+          <div className="w-11/12 md:w-9/12 mt-12 md:mt-[80px] rounded-3xl mx-auto p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
+            অ্যাবাকাস শিক্ষক প্রশিক্ষণ ক্ল্যাশটি করতে আপনার একটি কীট এবং বই লাগবে । যেটা নিচের
+            "Abacus Books & kit" অপশনে যেয়ে অর্ডার করতে পারবেন। লাইভ ক্ল্যাস
+            গ্রুপে যুক্ত হতে "Live Class Link & Schedule" এ প্রবেশ করুন।
+          </div>
+          <AbacusMainPageTeacher />
+        </>
       );
-    } else if(!showPage) {
-     
-        return <NotAllow allowList={allowList} />;
-     
-      
+    } else if (!showPage) {
+      return <NotAllow allowList={allowList} />;
     }
   }
 }
