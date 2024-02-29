@@ -21,8 +21,9 @@ function ConfirmationPage({ params }) {
         </div>
         <div className="mt-[10px] p-5">
           <div className="bg-slate-600 text-white p-5 rounded-3xl my-10 w-11/12 md:w-2/4 mx-auto text-3xl">
-            Amount Paid: {usd ? usd : ""} USD
+            Amount Paid: {usd}
           </div>
+
           <h1 className="text-lime-900 text-xl">
             Your payment request has been received for course:{" "}
             {course ? course : ""}
