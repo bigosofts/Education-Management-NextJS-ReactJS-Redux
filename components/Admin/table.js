@@ -4,6 +4,7 @@ import { selectDataTwo as selectPay } from "@/apiservices/paymentapiservices";
 import { updateData } from "@/apiservices/studentapiservices";
 import { updateData as updatePayment } from "@/apiservices/paymentapiservices";
 import mytoast from "../toast/toast";
+import { sendMail } from "@/apiservices/sendMailapiservices";
 
 function Table({ profile, paymentID, students }) {
   async function updateProfile(id, modDate) {
@@ -128,6 +129,13 @@ function Table({ profile, paymentID, students }) {
         modifiedStudentSemester
       );
       if (res.status == "Alhamdulillah") {
+        const subject = "Account has been Approved";
+        const text = `সুপ্রিয় শিক্ষার্থী ${student[0].firstName.en} ${student[0].lastName.en}, আপনার একাউন্টটি ${student[0].userName} এপ্রুভ করা হয়েছে। ইং শা আল্লাহ আপনি এখন ড্যাশবোর্ড একসেস করতে পারবেন। ড্যাশবোর্ডে যেতে আপনার SID ও password দিয়ে লগিন করুন এই লিংক থেকে https://www.internetmadrasa.com/dashboard/login, আর যদি লগিন করাই থাকে https://www.internetmadrasa.com/dashboard/loading এই লিংকে ক্লিক করুন`;
+
+        const html = `<h1>সুপ্রিয় শিক্ষার্থী <span style="color:red">${student[0].firstName.en} ${student[0].lastName.en},</span></h1> <br/><br/> <h1>আপনার একাউন্টটি ${student[0].userName} এপ্রুভ করা হয়েছে। ইং শা আল্লাহ আপনি এখন ড্যাশবোর্ড একসেস করতে পারবেন। ড্যাশবোর্ডে যেতে আপনার SID ও password দিয়ে লগিন করুন এই লিংক থেকে <a href="https://www.internetmadrasa.com/dashboard/login">https://www.internetmadrasa.com/dashboard/login</a>, আর যদি লগিন করাই থাকে তাহলে এই লিংকে ক্লিক করুন <a href="https://www.internetmadrasa.com/dashboard/loading">https://www.internetmadrasa.com/dashboard/loading</a>`;
+
+        sendMail(student[0].emailAddress, subject, text, html);
+
         mytoast.success("Account Approved Successfully");
       }
     }
@@ -155,7 +163,7 @@ function Table({ profile, paymentID, students }) {
     var formattedDate = date.toLocaleDateString("en-US", options);
     return formattedDate;
   }
- console.log(profile)
+
   if (payments) {
     return (
       <div className="mx-auto relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -211,7 +219,6 @@ function Table({ profile, paymentID, students }) {
                   }
                   <br />
                   {
-                    
                     profile.studentDepartment[
                       profile.studentDepartment.length - 1
                     ].code

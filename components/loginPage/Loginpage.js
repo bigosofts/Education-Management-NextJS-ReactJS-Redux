@@ -7,6 +7,7 @@ import { teacherLogin, studentLogin } from "@/apiservices/checklogin";
 import { isAdmin } from "@/apiservices/checklogin";
 import { setToken } from "@/helper/sessionHelper";
 import { useRouter, useSearchParams } from "next/navigation";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 import "./loginDesign.css";
 function LoginPageDesign({ userData }) {
@@ -371,9 +372,21 @@ function LoginPageDesign({ userData }) {
 
             <button
               onClick={addUser}
-              className="bg-blue-500 hover:bg-blue-400 text-white text-lg font-bold mt-6 py-2 px-2 border-b-4 border-blue-700 hover:border-blue-500 rounded-3xl w-full"
+              className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
             >
-              রেজিস্ট্রেশন করুন
+              {code ? (
+                <p className="flex justify-between">
+                  <span className="bg-pink-500 w-1/3 py-2 px-2">(ধাপ ১/৩)</span>{" "}
+                  <span className="w-2/3 py-2 px-2 relative">
+                    পরের ধাপে যান{" "}
+                    <span className="absolute right-1 top-2">
+                      <IoIosArrowDroprightCircle className="text-3xl" />
+                    </span>
+                  </span>
+                </p>
+              ) : (
+                <div className="p-5">একাউন্ট তৈরী করুন</div>
+              )}
             </button>
           </form>
         </div>

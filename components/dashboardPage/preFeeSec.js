@@ -8,6 +8,7 @@ import { selectDataTwo as selectSemester } from "@/apiservices/semesterapiservic
 import ShowPaymentDetails from "./showpaymentDetail";
 import { selectDataTwo as selectPayments } from "@/apiservices/paymentapiservices";
 import { useSearchParams } from "next/navigation";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 import {
   createData,
@@ -15,6 +16,7 @@ import {
 } from "@/apiservices/paymentapiservices";
 import { updateData } from "@/apiservices/studentapiservices";
 import mytoast from "../toast/toast";
+
 
 function PreFeeSection({ profile }) {
   const searchParams = useSearchParams();
@@ -298,7 +300,7 @@ function PreFeeSection({ profile }) {
       const res = await selectDataTwo(null, null);
       const res2 = await selectDepartment(null, null);
       const res3 = await seletcJamat(null, null);
-      const res4 = await selectSemester(null, null);
+      const res4 = await selectSemester({ activeStatus: "active" }, null);
       const res5 = await selectPayments(null, null);
       const response = await fetch(
         "https://v6.exchangerate-api.com/v6/6beb79e3dfb29569d6a2ca2f/pair/USD/BDT"
@@ -1371,11 +1373,24 @@ function PreFeeSection({ profile }) {
             </div>
             <div className="submitSection">
               <button
-                className="mt-10 w-full p-4 bg-lime-900 hover:bg-lime-700 transition duration-500 ease-out text-white fixed bottom-0 left-0 z-50 text-sm md:text-2xl"
                 type="submit"
+                className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
               >
-                {" "}
-                Submit Admission Request
+                {enroll ? (
+                  <p className="flex justify-between">
+                    <span className="bg-pink-500 w-1/3 py-2 px-2">
+                      (ধাপ ৩/৩)
+                    </span>{" "}
+                    <span className="w-2/3 py-2 px-2 relative">
+                    ভর্তি রিকোয়েস্ট দিন{" "}
+                      <span className="absolute right-1 top-2">
+                        <IoIosArrowDroprightCircle className="text-3xl" />
+                      </span>
+                    </span>
+                  </p>
+                ) : (
+                  <div className="p-5">ভর্তি রিকোয়েস্ট দিন</div>
+                )}
               </button>
             </div>
           </form>

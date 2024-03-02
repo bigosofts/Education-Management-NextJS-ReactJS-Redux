@@ -5,6 +5,7 @@ import { updateData } from "@/apiservices/studentapiservices";
 import { useSelector } from "react-redux";
 import mytoast from "../toast/toast";
 import allCountry from "./allCountry";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 import { useSearchParams } from "next/navigation";
 
@@ -24,12 +25,11 @@ function ProfileUpdate() {
   };
   const hardRefresh = (code) => {
     if (typeof window !== "undefined") {
-      if(code){
+      if (code) {
         window.location.href = `/dashboard/${data.data.userDetails.userName}/fees?enroll=${code}`;
-      }else{
+      } else {
         window.location.href = `/dashboard/${data.data.userDetails.userName}/classes`;
       }
-     
     }
   };
   const data = useSelector((state) => state.isAdmin.value);
@@ -38,7 +38,6 @@ function ProfileUpdate() {
     firstNameen: data.data.userDetails.firstName.en,
     lastNameen: data.data.userDetails.lastName.en,
     fatherNameen: data.data.userDetails.fatherName.en,
-
 
     gender: data.data.userDetails.gender,
     dateOfBirth: data.data.userDetails.dateOfBirth,
@@ -149,8 +148,6 @@ function ProfileUpdate() {
           type="text"
           placeholder="Enter your Last Name"
         ></input>
-        
-       
 
         {/* Input Field */}
         <label className="font-bold" htmlFor="fathername">
@@ -165,8 +162,6 @@ function ProfileUpdate() {
           type="text"
           placeholder="Enter your Father Name"
         ></input>
-       
-
 
         {/* Input Field */}
         <label className="font-bold" htmlFor="gender">
@@ -251,14 +246,25 @@ function ProfileUpdate() {
           placeholder="Enter Permanent Address"
         ></textarea>
 
-        
         <button
-          className="mt-10 w-full p-4 bg-lime-900 hover:bg-lime-700 transition duration-500 ease-out text-white fixed bottom-0 left-0"
           type="submit"
+          className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
         >
-          {" "}
-          Update Your Data
+          {code ? (
+            <p className="flex justify-between">
+              <span className="bg-pink-500 w-1/3 py-2 px-2">(ধাপ ২/৩)</span>{" "}
+              <span className="w-2/3 py-2 px-2 relative">
+                পরের ধাপে যান{" "}
+                <span className="absolute right-1 top-2">
+                  <IoIosArrowDroprightCircle className="text-3xl" />
+                </span>
+              </span>
+            </p>
+          ) : (
+            <div className="p-5">প্রোফাইল আপডেট করুন</div>
+          )}
         </button>
+        
       </form>
     </div>
   );
