@@ -23,7 +23,7 @@ function AbacusBooks() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <img src="/images/play_nursery.jpg" />
+          <img src="https://api.internetmadrasa.com/images/play_nursery.jpg" />
           <div
             className="text-[12px] md:text-2xl"
             style={{
@@ -53,7 +53,7 @@ function AbacusBooks() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <img src="/images/Level-1.jpg" />
+          <img src="https://api.internetmadrasa.com/images/Level-1.jpg" />
           <div
             className="text-[12px] md:text-2xl"
             style={{
@@ -91,7 +91,7 @@ function AbacusBooks() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <img src="/images/nurani_kayda.png" />
+          <img src="https://api.internetmadrasa.com/images/nurani_kayda.png" />
           <div
             className="text-[12px] md:text-2xl"
             style={{
@@ -107,7 +107,7 @@ function AbacusBooks() {
           </div>
           <a
             className="p-2 bg-sky-500 block text-white text-center text-xl"
-            href="/book/নূরানী_সহজ_কায়দা.pdf"
+            href="https://api.internetmadrasa.com/book/নূরানী_সহজ_কায়দা.pdf"
             download
           >
             {" "}

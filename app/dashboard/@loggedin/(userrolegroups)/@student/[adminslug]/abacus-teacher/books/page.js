@@ -23,7 +23,7 @@ function AbacusBooks() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <img src="/images/play_nursery.jpg" />
+          <img src="https://api.internetmadrasa.com/images/play_nursery.jpg" />
           <div
             className="text-[12px] md:text-2xl"
             style={{
@@ -53,7 +53,7 @@ function AbacusBooks() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <img src="/images/Level-1.jpg" />
+          <img src="https://api.internetmadrasa.com/images/Level-1.jpg" />
           <div
             className="text-[12px] md:text-2xl"
             style={{
