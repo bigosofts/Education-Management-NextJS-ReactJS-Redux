@@ -53,7 +53,7 @@ function AbacusBooks() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <img src="https://api.internetmadrasa.com/images/quran_sharif.png" />
+          <img src="/images/quran_sharif.png" />
           <div
             className="text-[12px] md:text-2xl"
             style={{
@@ -69,7 +69,7 @@ function AbacusBooks() {
           </div>
           <a
             className="p-2 bg-sky-500 block text-white text-center text-xl"
-            href="https://api.internetmadrasa.com/book/Imdadia-Nurani-Quran.pdf"
+            href="/book/Imdadia-Nurani-Quran.pdf"
             download
           >
             <div className="style-1155">ডাউনলোড করুন</div>
