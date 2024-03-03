@@ -170,10 +170,14 @@ function LoginPageDesign({ userData }) {
               });
               setDatas(res2.data.userName);
               mytoast.success("আপনার স্টুডেন্ট একাউন্টটি সফলভাবে তৈরী হয়েছে");
+              if (typeof fbq === "function") {
+                fbq("track", "CompleteRegistration");
+              }
 
-              fbq("track", "CompleteRegistration");
               if (code) {
-                fbq("track", `CompleteRegistration-${code}`);
+                if (typeof fbq === "function") {
+                  fbq("trackCustom", `CompleteRegistration-${code}`);
+                }
               }
 
               //login logic
