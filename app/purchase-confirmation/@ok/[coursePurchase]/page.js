@@ -16,7 +16,7 @@ function ConfirmationPage({ params }) {
 
   useEffect(() => {
     if (usd) {
-      fbq("track", "Purchase", { value: { usd }, currency: "USD" });
+      fbq("track", "Purchase", { value: parseInt(usd), currency: "USD" });
     }
   }, []);
 
