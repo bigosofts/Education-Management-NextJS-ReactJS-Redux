@@ -8,6 +8,7 @@ import { isAdmin } from "@/apiservices/checklogin";
 import { setToken } from "@/helper/sessionHelper";
 import { useRouter, useSearchParams } from "next/navigation";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
+import { sendMail } from "@/apiservices/sendMailapiservices";
 
 import "./loginDesign.css";
 function LoginPageDesign({ userData }) {
@@ -170,6 +171,14 @@ function LoginPageDesign({ userData }) {
               });
               setDatas(res2.data.userName);
               mytoast.success("আপনার স্টুডেন্ট একাউন্টটি সফলভাবে তৈরী হয়েছে");
+
+              sendMail(
+                email,
+                "Student Account has been Created",
+                `সুপ্রিয় শিক্ষার্থী ${firstName} ${lastname}, আলহামদুলিল্লাহ, আপনার একাউন্টটি খোলা হয়েছে, অনুগ্রহপূর্বক ড্যাশবোর্ডে ঢুকে যেকোনো একটি ক্লাসে পেমেন্ট সম্পন্ন করুন। আপনার একাউন্ট ${res2.data.userName} টি দিয়ে যেকোনো ক্লাসে ভর্তি পেমেন্ট দিলে আরেকটি কনফার্মেশন মেইল দেয়া হবে ইং শা আল্লাহ`,
+                `<h1>সুপ্রিয় শিক্ষার্থী ${firstName} ${lastname},<br/><br/> আলহামদুলিল্লাহ, আপনার একাউন্টটি খোলা হয়েছে, অনুগ্রহপূর্বক ড্যাশবোর্ডে ঢুকে যেকোনো একটি ক্লাসে পেমেন্ট সম্পন্ন করুন। আপনার একাউন্ট ${res2.data.userName} টি দিয়ে যেকোনো ক্লাসে ভর্তি পেমেন্ট দিলে আরেকটি কনফার্মেশন মেইল দেয়া হবে ইং শা আল্লাহ</h1>`
+              );
+
               if (typeof fbq === "function") {
                 fbq("track", "CompleteRegistration");
               }
@@ -197,7 +206,9 @@ function LoginPageDesign({ userData }) {
                   } else if (res5.status == "wrongpass") {
                     mytoast.danger("you entered wrong combination");
                   } else if (res5.status == "nouser") {
-                    router.push("/signup");
+                    mytoast.danger(
+                      "There is no account with this SID. Please check your SID"
+                    );
                   }
                 } else if (Admin.status == "UnauthorizedAccess") {
                   console.log("Unauthorized access");

@@ -1,7 +1,6 @@
 "use client";
 import { TiTick } from "react-icons/ti";
 import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
 
 function ConfirmationPage({ params }) {
   const course = params.coursePurchase;
@@ -14,12 +13,6 @@ function ConfirmationPage({ params }) {
     }
   }
 
-  useEffect(() => {
-    if (typeof fbq === "function" && (usd || usd === 0)) {
-      fbq("track", "Purchase", { value: parseInt(usd), currency: "USD" });
-    }
-  }, [usd]);
-
   return (
     <div className="w-[100vw] pb-[100px]">
       <div className="text-center bg-slate-200 w-[80%] md:w-[50%] mx-auto py-[50px] mt-[50px] rounded-3xl">
@@ -28,7 +21,7 @@ function ConfirmationPage({ params }) {
         </div>
         <div className="mt-[10px] p-5">
           <div className="bg-slate-600 text-white p-5 rounded-3xl my-10 w-11/12 md:w-2/4 mx-auto text-3xl">
-            Amount Paid: {usd}
+            Class price: {usd} USD
           </div>
 
           <h1 className="text-lime-900 text-xl">
