@@ -15,10 +15,10 @@ function ConfirmationPage({ params }) {
   }
 
   useEffect(() => {
-    if (usd || usd == 0) {
+    if (typeof fbq === "function" && (usd || usd === 0)) {
       fbq("track", "Purchase", { value: parseInt(usd), currency: "USD" });
     }
-  }, []);
+  }, [usd]);
 
   return (
     <div className="w-[100vw] pb-[100px]">
