@@ -63,14 +63,8 @@ function EnrollButton({ courseCode, setProfileUpdate }) {
   const [finalData, setFinalData] = useState({
     firstNameen: data.data.userDetails.firstName.en,
     lastNameen: data.data.userDetails.lastName.en,
-    firstnamebn: data.data.userDetails.firstName.bn,
-    lastnamebn: data.data.userDetails.lastName.bn,
-    nidNumber: data.data.userDetails.nidNumber,
-    birthRegNumber: data.data.userDetails.birthRegNumber,
-    fatherNameen: data.data.userDetails.fatherName.en,
-    fatherNamebn: data.data.userDetails.fatherName.bn,
 
-    occupation: data.data.userDetails.occupation,
+    fatherNameen: data.data.userDetails.fatherName.en,
 
     gender: data.data.userDetails.gender,
     dateOfBirth: data.data.userDetails.dateOfBirth,
@@ -78,10 +72,6 @@ function EnrollButton({ courseCode, setProfileUpdate }) {
 
     fullPresentAddress: data.data.userDetails.fullPresentAddress,
     fullPermanentAddress: data.data.userDetails.fullPermanentAddress,
-
-    studentMotive: data.data.userDetails.studentMotive,
-
-    extracurricular: data.data.userDetails.birthRegNumber,
   });
 
   let obj = { ...finalData };

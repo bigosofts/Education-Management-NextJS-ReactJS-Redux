@@ -71,13 +71,13 @@ function ProfileUpdate() {
       const res = await updateData(
         undefined,
         finalData.firstNameen,
-        undefined,
+        "",
         finalData.lastNameen,
-        undefined,
+        "",
         undefined,
         undefined,
         finalData.fatherNameen,
-        undefined,
+        "",
         undefined,
         undefined,
         undefined,
@@ -264,7 +264,6 @@ function ProfileUpdate() {
             <div className="p-5">প্রোফাইল আপডেট করুন</div>
           )}
         </button>
-        
       </form>
     </div>
   );

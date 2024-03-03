@@ -320,8 +320,10 @@ function LoginPageDesign({ userData }) {
               ref={studentRoleref}
             >
               <option value="none">একাউন্ট নির্বাচন করুন</option>
-              <option value="teacher">শিক্ষক/শিক্ষিকা</option>
-              <option value="student">ছাত্র/ছাত্রী</option>
+              <option value="teacher">
+                ইন্টারনেট মাদ্রাসার শিক্ষক/শিক্ষিকা নিয়োগ
+              </option>
+              <option value="student">শিক্ষার্থী</option>
             </select>
 
             <label
