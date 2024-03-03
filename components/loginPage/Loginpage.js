@@ -171,6 +171,11 @@ function LoginPageDesign({ userData }) {
               setDatas(res2.data.userName);
               mytoast.success("আপনার স্টুডেন্ট একাউন্টটি সফলভাবে তৈরী হয়েছে");
 
+              fbq("track", "CompleteRegistration");
+              if (code) {
+                fbq("track", `CompleteRegistration-${code}`);
+              }
+
               //login logic
               if (Admin) {
                 if (Admin.status == "noToken") {
