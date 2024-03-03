@@ -605,7 +605,7 @@ function PreFeeSection({ profile }) {
             mytoast.info("If verification Delays, Do not forget to reach us");
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
+                window.location.href = `/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
               }
             };
             hardRefresh();
@@ -750,7 +750,7 @@ function PreFeeSection({ profile }) {
             mytoast.info("If verification Delays, Do not forget to reach us");
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
+                window.location.href = `/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
               }
             };
             hardRefresh();
@@ -918,7 +918,7 @@ function PreFeeSection({ profile }) {
             mytoast.info("If verification Delays, Do not forget to reach us");
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
+                window.location.href = `/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
               }
             };
             hardRefresh();
@@ -1063,7 +1063,7 @@ function PreFeeSection({ profile }) {
             mytoast.info("If verification Delays, Do not forget to reach us");
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
+                window.location.href = `/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
               }
             };
             hardRefresh();
