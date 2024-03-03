@@ -12,7 +12,7 @@ function WaitingApproval() {
         <h1 className="w-full md:w-[50%] mx-auto text-lg md:text-3xl text-center mb-10">
           আপনার একাউন্টটি পেমেন্ট ভেরিফাই এর জন্য অপেক্ষমাণ আছে। ভেরিফাই হতে ২৪
           ঘন্টার বেশী দেরী হলে আমাদের সাথে যোগাযোগ করুন। (Whatsapp:
-          +8801756668432)
+          +8801756668432)। 
         </h1>
         <div className="flex gap-5 justify-center">
           <div
