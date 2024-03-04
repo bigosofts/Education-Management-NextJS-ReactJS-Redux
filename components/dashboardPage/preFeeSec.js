@@ -605,12 +605,7 @@ function PreFeeSection({ profile }) {
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
 
-            if (typeof fbq === "function" && (money.us || money.us == 0)) {
-              fbq("track", "Purchase", {
-                value: parseInt(money.us),
-                currency: "USD",
-              });
-            }
+           
 
             sendMail(
               profile.data.userDetails.emailAddress,

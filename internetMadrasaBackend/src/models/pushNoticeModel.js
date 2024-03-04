@@ -10,8 +10,8 @@ const DataSchema = mongoose.Schema(
       en: { type: String },
       bn: { type: String },
     },
-    reciever: { type: Date },
-    sender: { type: Date },
+    reciever: { type: String },
+    sender: { type: String },
     link: { type: String },
     readStatus: { type: Boolean },
     createdDate: { type: Date },
@@ -23,6 +23,6 @@ const DataSchema = mongoose.Schema(
   { versionKey: false }
 );
 
-const pushNoticeModel = mongoose.model("pushNotices", DataSchema);
+const pushNoticeModel = mongoose.model("pushnotices", DataSchema);
 
 module.exports = pushNoticeModel;

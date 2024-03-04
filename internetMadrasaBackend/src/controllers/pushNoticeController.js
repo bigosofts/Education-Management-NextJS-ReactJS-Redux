@@ -1,4 +1,4 @@
-const pushNoticeModel = require("../models/QAFormModel");
+const pushNoticeModel = require("../models/pushNoticeModel");
 
 exports.createPushNotice = (req, res) => {
   //Receive Post Request Data from req body

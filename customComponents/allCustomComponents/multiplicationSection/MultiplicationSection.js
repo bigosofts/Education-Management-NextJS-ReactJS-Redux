@@ -31,24 +31,24 @@ function Multiplication() {
             <h2 className="style-4">{data.widgetPayload[0].title.en}</h2>
           </div>
           <div className="style-5">
-            {data.widgetPayload[0].list.map((item)=>(
+            {data.widgetPayload[0].list.map((item) => (
               <div className="style-6">
-              <div className="style-7">
-                <img
-                  src={item.icon}
-                  width="80"
-                  height="80"
-                  className="style-8"
-                />
-                <h3 className="style-9">
-                  <a href="#" className="style-10">
-                  {item.title}
-                  </a>
-                </h3>
+                <div className="style-7">
+                  <img
+                    src={item.icon}
+                    width="80"
+                    height="80"
+                    className="style-8"
+                  />
+                  <h3 className="style-9">
+                    <a href="#" className="style-10">
+                      {item.title}
+                    </a>
+                  </h3>
+                </div>
               </div>
-            </div>
             ))}
-            
+
             {/* <div className="style-11">
               <div className="style-12">
                 <img
@@ -113,7 +113,7 @@ function Multiplication() {
         </div>
       </section>
     );
-  } 
+  }
 }
 
 export default Multiplication;

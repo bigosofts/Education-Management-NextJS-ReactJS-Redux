@@ -35,12 +35,12 @@ function AboutAbacus() {
             <div className="style-6">
               <div className="style-7">
                 <div className="style-8">
-                  <h2 className="style-10">{data.widgetPayload[0].title.en}</h2>
+                  <h2 className="style-10">{data.widgetPayload[0].title.bn}</h2>
                 </div>
                 <p className="style-11">
                   {data.widgetPayload[0].list.map((item) => (
                     <>
-                      <span>{item.en}</span>
+                      <span>{item.bn}</span>
                       <br className="style-12" />
                     </>
                   ))}

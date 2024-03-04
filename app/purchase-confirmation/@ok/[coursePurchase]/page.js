@@ -1,6 +1,7 @@
 "use client";
 import { TiTick } from "react-icons/ti";
 import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 function ConfirmationPage({ params }) {
   const course = params.coursePurchase;
@@ -12,6 +13,15 @@ function ConfirmationPage({ params }) {
       window.location.href = url;
     }
   }
+
+  useEffect(() => {
+    if (typeof fbq === "function" && (usd || usd == 0)) {
+      fbq("track", "Purchase", {
+        value: parseInt(usd),
+        currency: "USD",
+      });
+    }
+  }, []);
 
   return (
     <div className="w-[100vw] pb-[100px]">
