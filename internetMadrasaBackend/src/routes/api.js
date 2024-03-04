@@ -27,6 +27,7 @@ const imageController = require("../controllers/imageController");
 const workController = require("../controllers/workController");
 const RichTextController = require("../controllers/RichTextController");
 const otpController = require("../controllers/otpController");
+const pushNoticeController = require("../controllers/pushNoticeController");
 
 //Middleware Import
 const passEncrypted = require("../middlewares/passwordEncryption");
@@ -138,6 +139,7 @@ router.post("/create-qaform", authverify, qaFormController.createQAForm);
 router.post("/create-work", authverify, workController.createWork);
 router.post("/create-richtext", authverify, RichTextController.createRichText);
 router.post("/create-otp", otpController.createOTP);
+router.post("/create-pushnotice", pushNoticeController.createPushNotice);
 
 //Select or find the data from the database
 router.post("/select-students", profileController.selectStudents);
@@ -168,6 +170,7 @@ router.post("/select-qaforms", qaFormController.selectQAForm);
 router.post("/select-works", workController.selectWorks);
 router.post("/select-richtexts", RichTextController.selectRichTexts);
 router.post("/select-otps", otpController.selectOTPS);
+router.post("/select-pushnotices", pushNoticeController.selectPushNotices);
 
 //Select or update the data from the database
 router.put("/update-student", profileController.updateStudent);
@@ -205,6 +208,11 @@ router.put("/update-work", authverify, workController.updateWorks);
 router.put("/update-richtext", authverify, RichTextController.updateRichText);
 router.put("/update-log", authverify, logController.updateLog);
 router.put("/update-otp", otpController.updateOTP);
+router.put(
+  "/update-pushnotice",
+  authverify,
+  pushNoticeController.updatePushNotice
+);
 
 //Delete the data from the database
 router.delete(
@@ -269,5 +277,10 @@ router.delete(
   RichTextController.deleteRichText
 );
 router.delete("/delete-otp/:id", authverify, otpController.deleteOTP);
+router.delete(
+  "/delete-pushnotice/:id",
+  authverify,
+  pushNoticeController.deletePushNotice
+);
 
 module.exports = router;

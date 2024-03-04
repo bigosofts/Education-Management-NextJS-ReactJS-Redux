@@ -52,25 +52,29 @@ function SideDrawer({ changeDrawerState, show, sidebarItems, user }) {
                   Home
                 </h1>
               </li>
-              {sidebarItems.map((item, i) => (
-                <li
-                  key={i}
-                  onClick={() => pushAndChange(item.href)}
-                  className={`flex align-middle border-[1px] p-2 rounded-md mb-2 md:mb-5 hover:bg-[#013030] cursor-pointer hover:text-white transition-all ease-in-out duration-500 ${
-                    pathName == item.href ? "bg-[#013030] text-white" : ""
-                  } relative`}
-                >
-                  {!item.show ? (
-                    <div className="bg-[rgba(255,255,255,0.7)] absolute top-0 left-0 z-10 h-full w-full rounded-md"></div>
-                  ) : (
-                    ""
-                  )}
-                  <Image width={30} height={30} src={item.icon} />
-                  <h1 className="my-auto px-5 text-[20px] md:text-2xl text-[inherit]">
-                    {item.name}
-                  </h1>
-                </li>
-              ))}
+              {sidebarItems.map((item, i) =>
+                item.show === "none" ? (
+                  ""
+                ) : (
+                  <li
+                    key={i}
+                    onClick={() => pushAndChange(item.href)}
+                    className={`flex align-middle border-[1px] p-2 rounded-md mb-2 md:mb-5 hover:bg-[#013030] cursor-pointer hover:text-white transition-all ease-in-out duration-500 ${
+                      pathName === item.href ? "bg-[#013030] text-white" : ""
+                    } relative`}
+                  >
+                    {!item.show ? (
+                      <div className="bg-[rgba(255,255,255,0.7)] absolute top-0 left-0 z-10 h-full w-full rounded-md"></div>
+                    ) : (
+                      ""
+                    )}
+                    <Image width={30} height={30} src={item.icon} />
+                    <h1 className="my-auto px-5 text-[20px] md:text-2xl text-[inherit]">
+                      {item.name}
+                    </h1>
+                  </li>
+                )
+              )}
             </ul>
           </div>
         </div>

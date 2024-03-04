@@ -303,7 +303,8 @@ function PreFeeSection({ profile }) {
       const res4 = await selectSemester({ activeStatus: "active" }, null);
       const res5 = await selectPayments(null, null);
       const response = await fetch(
-        "https://v6.exchangerate-api.com/v6/6beb79e3dfb29569d6a2ca2f/pair/USD/BDT"
+        "https://v6.exchangerate-api.com/v6/6beb79e3dfb29569d6a2ca2f/pair/USD/BDT",
+        { next: { revalidate: 7 * 86400 } }
       );
       const conversionRate = await response.json();
 
@@ -604,7 +605,7 @@ function PreFeeSection({ profile }) {
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
 
-            if (typeof fbq === "function" && (money.us || money.us === 0)) {
+            if (typeof fbq === "function" && (money.us || money.us == 0)) {
               fbq("track", "Purchase", {
                 value: parseInt(money.us),
                 currency: "USD",
