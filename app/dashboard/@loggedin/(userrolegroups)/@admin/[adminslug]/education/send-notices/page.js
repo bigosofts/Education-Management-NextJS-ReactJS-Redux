@@ -1,13 +1,28 @@
 "use client";
 import { selectDataTwo } from "@/apiservices/studentapiservices";
 import { selectDataTwo as selectCourses } from "@/apiservices/courseapiservices";
-import { useState, useEffect } from "react";
-import { selectDataTwo as selectPushNotices } from "@/apiservices/pushNoticeapiservices";
+import { useState, useEffect, useRef } from "react";
+import {
+  selectDataTwo as selectPushNotices,
+  createData,
+} from "@/apiservices/pushNoticeapiservices";
+import mytoast from "@/components/toast/toast";
+import { useSelector } from "react-redux";
+import { sendMail } from "@/apiservices/sendMailapiservices";
 
 function SendNotices() {
   const [students, setStudents] = useState();
   const [courses, setCourses] = useState();
   const [notices, setNotices] = useState();
+  const studentref = useRef();
+  const subjectenref = useRef();
+  const subjectbnref = useRef();
+  const textenref = useRef();
+  const textbnref = useRef();
+  const linkref = useRef();
+  const statusref = useRef();
+  const data = useSelector((state) => state.isAdmin.value);
+
   useEffect(() => {
     async function getData() {
       const res = await selectDataTwo(null, null);
@@ -27,22 +42,6 @@ function SendNotices() {
     getData();
   }, []);
 
-  function sendNotice() {
-    alert("Send");
-  }
-  function uniqueArray(old) {
-    const modifiedArray = old.map((item) =>
-      item.studentCourseCode
-        ? item.studentCourseCode[item.studentCourseCode.length - 1].code
-          ? item.studentCourseCode[item.studentCourseCode.length - 1].code
-          : ""
-        : ""
-    );
-    const uniqueNamesSet = new Set(modifiedArray);
-    const uniqueNamesArray = Array.from(uniqueNamesSet);
-    return uniqueNamesArray;
-  }
-
   function getUser(username) {
     if (students) {
       let data = students.find((item) => {
@@ -51,6 +50,679 @@ function SendNotices() {
       return data;
     }
   }
+
+  function sendNotice(e) {
+    e.preventDefault();
+    if (studentref.current.value == "all") {
+      students.forEach((element) => {
+        createData({
+          subject: {
+            en: subjectenref.current.value ? subjectenref.current.value : "",
+            bn: subjectbnref.current.value ? subjectbnref.current.value : "",
+          },
+          text: {
+            en: textenref.current.value ? textenref.current.value : "",
+            bn: textbnref.current.value ? textbnref.current.value : "",
+          },
+          reciever: element.userName,
+          sender: data.data.userDetails.userName,
+          link: linkref.current.value ? linkref.current.value : "",
+          readStatus: false,
+          activeStatus: "active",
+        });
+        sendMail(
+          element.emailAddress,
+          subjectenref.current.value
+            ? subjectenref.current.value
+            : subjectbnref.current.value,
+          textbnref.current.value
+            ? textbnref.current.value
+            : textenref.current.value,
+          `<h1>${
+            textbnref.current.value
+              ? textbnref.current.value
+              : textenref.current.value
+          }</h1>`
+        );
+        mytoast.success("Notification and Email send to All Students");
+      });
+    } else if (studentref.current.value == "alemalema") {
+      students.forEach((element) => {
+        if (
+          element.studentCourseCode &&
+          element.studentCourseCode.length !== 0
+        ) {
+          if (
+            element.studentCourseCode[element.studentCourseCode.length - 1]
+              .code == studentref.current.value
+          ) {
+            createData({
+              subject: {
+                en: subjectenref.current.value
+                  ? subjectenref.current.value
+                  : "",
+                bn: subjectbnref.current.value
+                  ? subjectbnref.current.value
+                  : "",
+              },
+              text: {
+                en: textenref.current.value ? textenref.current.value : "",
+                bn: textbnref.current.value ? textbnref.current.value : "",
+              },
+              reciever: element.userName,
+              sender: data.data.userDetails.userName,
+              link: linkref.current.value ? linkref.current.value : "",
+              readStatus: false,
+              activeStatus: "active",
+            });
+            sendMail(
+              element.emailAddress,
+              subjectenref.current.value
+                ? subjectenref.current.value
+                : subjectbnref.current.value,
+              textbnref.current.value
+                ? textbnref.current.value
+                : textenref.current.value,
+              `<h1>${
+                textbnref.current.value
+                  ? textbnref.current.value
+                  : textenref.current.value
+              }</h1>`
+            );
+            mytoast.success(
+              `Notification and Email send to All Students of ${studentref.current.value}`
+            );
+          }
+        }
+      });
+    } else if (studentref.current.value == "farzeayinampara") {
+      students.forEach((element) => {
+        if (
+          element.studentCourseCode &&
+          element.studentCourseCode.length !== 0
+        ) {
+          if (
+            element.studentCourseCode[element.studentCourseCode.length - 1]
+              .code == studentref.current.value
+          ) {
+            createData({
+              subject: {
+                en: subjectenref.current.value
+                  ? subjectenref.current.value
+                  : "",
+                bn: subjectbnref.current.value
+                  ? subjectbnref.current.value
+                  : "",
+              },
+              text: {
+                en: textenref.current.value ? textenref.current.value : "",
+                bn: textbnref.current.value ? textbnref.current.value : "",
+              },
+              reciever: element.userName,
+              sender: data.data.userDetails.userName,
+              link: linkref.current.value ? linkref.current.value : "",
+              readStatus: false,
+              activeStatus: "active",
+            });
+            sendMail(
+              element.emailAddress,
+              subjectenref.current.value
+                ? subjectenref.current.value
+                : subjectbnref.current.value,
+              textbnref.current.value
+                ? textbnref.current.value
+                : textenref.current.value,
+              `<h1>${
+                textbnref.current.value
+                  ? textbnref.current.value
+                  : textenref.current.value
+              }</h1>`
+            );
+            mytoast.success(
+              `Notification and Email send to All Students of ${studentref.current.value}`
+            );
+          }
+        }
+      });
+    } else if (studentref.current.value == "ezranahusorof") {
+      students.forEach((element) => {
+        if (
+          element.studentCourseCode &&
+          element.studentCourseCode.length !== 0
+        ) {
+          if (
+            element.studentCourseCode[element.studentCourseCode.length - 1]
+              .code == studentref.current.value
+          ) {
+            createData({
+              subject: {
+                en: subjectenref.current.value
+                  ? subjectenref.current.value
+                  : "",
+                bn: subjectbnref.current.value
+                  ? subjectbnref.current.value
+                  : "",
+              },
+              text: {
+                en: textenref.current.value ? textenref.current.value : "",
+                bn: textbnref.current.value ? textbnref.current.value : "",
+              },
+              reciever: element.userName,
+              sender: data.data.userDetails.userName,
+              link: linkref.current.value ? linkref.current.value : "",
+              readStatus: false,
+              activeStatus: "active",
+            });
+            sendMail(
+              element.emailAddress,
+              subjectenref.current.value
+                ? subjectenref.current.value
+                : subjectbnref.current.value,
+              textbnref.current.value
+                ? textbnref.current.value
+                : textenref.current.value,
+              `<h1>${
+                textbnref.current.value
+                  ? textbnref.current.value
+                  : textenref.current.value
+              }</h1>`
+            );
+            mytoast.success(
+              `Notification and Email send to All Students of ${studentref.current.value}`
+            );
+          }
+        }
+      });
+    } else if (studentref.current.value == "shishumaktab") {
+      students.forEach((element) => {
+        if (
+          element.studentCourseCode &&
+          element.studentCourseCode.length !== 0
+        ) {
+          if (
+            element.studentCourseCode[element.studentCourseCode.length - 1]
+              .code == studentref.current.value
+          ) {
+            createData({
+              subject: {
+                en: subjectenref.current.value
+                  ? subjectenref.current.value
+                  : "",
+                bn: subjectbnref.current.value
+                  ? subjectbnref.current.value
+                  : "",
+              },
+              text: {
+                en: textenref.current.value ? textenref.current.value : "",
+                bn: textbnref.current.value ? textbnref.current.value : "",
+              },
+              reciever: element.userName,
+              sender: data.data.userDetails.userName,
+              link: linkref.current.value ? linkref.current.value : "",
+              readStatus: false,
+              activeStatus: "active",
+            });
+            sendMail(
+              element.emailAddress,
+              subjectenref.current.value
+                ? subjectenref.current.value
+                : subjectbnref.current.value,
+              textbnref.current.value
+                ? textbnref.current.value
+                : textenref.current.value,
+              `<h1>${
+                textbnref.current.value
+                  ? textbnref.current.value
+                  : textenref.current.value
+              }</h1>`
+            );
+            mytoast.success(
+              `Notification and Email send to All Students of ${studentref.current.value}`
+            );
+          }
+        }
+      });
+    } else if (studentref.current.value == "abacus_teacher") {
+      students.forEach((element) => {
+        if (
+          element.studentCourseCode &&
+          element.studentCourseCode.length !== 0
+        ) {
+          if (
+            element.studentCourseCode[element.studentCourseCode.length - 1]
+              .code == studentref.current.value
+          ) {
+            createData({
+              subject: {
+                en: subjectenref.current.value
+                  ? subjectenref.current.value
+                  : "",
+                bn: subjectbnref.current.value
+                  ? subjectbnref.current.value
+                  : "",
+              },
+              text: {
+                en: textenref.current.value ? textenref.current.value : "",
+                bn: textbnref.current.value ? textbnref.current.value : "",
+              },
+              reciever: element.userName,
+              sender: data.data.userDetails.userName,
+              link: linkref.current.value ? linkref.current.value : "",
+              readStatus: false,
+              activeStatus: "active",
+            });
+            sendMail(
+              element.emailAddress,
+              subjectenref.current.value
+                ? subjectenref.current.value
+                : subjectbnref.current.value,
+              textbnref.current.value
+                ? textbnref.current.value
+                : textenref.current.value,
+              `<h1>${
+                textbnref.current.value
+                  ? textbnref.current.value
+                  : textenref.current.value
+              }</h1>`
+            );
+            mytoast.success(
+              `Notification and Email send to All Students of ${studentref.current.value}`
+            );
+          }
+        }
+      });
+    } else if (studentref.current.value == "hifjulquran") {
+      students.forEach((element) => {
+        if (
+          element.studentCourseCode &&
+          element.studentCourseCode.length !== 0
+        ) {
+          if (
+            element.studentCourseCode[element.studentCourseCode.length - 1]
+              .code == studentref.current.value
+          ) {
+            createData({
+              subject: {
+                en: subjectenref.current.value
+                  ? subjectenref.current.value
+                  : "",
+                bn: subjectbnref.current.value
+                  ? subjectbnref.current.value
+                  : "",
+              },
+              text: {
+                en: textenref.current.value ? textenref.current.value : "",
+                bn: textbnref.current.value ? textbnref.current.value : "",
+              },
+              reciever: element.userName,
+              sender: data.data.userDetails.userName,
+              link: linkref.current.value ? linkref.current.value : "",
+              readStatus: false,
+              activeStatus: "active",
+            });
+            sendMail(
+              element.emailAddress,
+              subjectenref.current.value
+                ? subjectenref.current.value
+                : subjectbnref.current.value,
+              textbnref.current.value
+                ? textbnref.current.value
+                : textenref.current.value,
+              `<h1>${
+                textbnref.current.value
+                  ? textbnref.current.value
+                  : textenref.current.value
+              }</h1>`
+            );
+            mytoast.success(
+              `Notification and Email send to All Students of ${studentref.current.value}`
+            );
+          }
+        }
+      });
+    } else if (studentref.current.value == "farzeayinnajera") {
+      students.forEach((element) => {
+        if (
+          element.studentCourseCode &&
+          element.studentCourseCode.length !== 0
+        ) {
+          if (
+            element.studentCourseCode[element.studentCourseCode.length - 1]
+              .code == studentref.current.value
+          ) {
+            createData({
+              subject: {
+                en: subjectenref.current.value
+                  ? subjectenref.current.value
+                  : "",
+                bn: subjectbnref.current.value
+                  ? subjectbnref.current.value
+                  : "",
+              },
+              text: {
+                en: textenref.current.value ? textenref.current.value : "",
+                bn: textbnref.current.value ? textbnref.current.value : "",
+              },
+              reciever: element.userName,
+              sender: data.data.userDetails.userName,
+              link: linkref.current.value ? linkref.current.value : "",
+              readStatus: false,
+              activeStatus: "active",
+            });
+            sendMail(
+              element.emailAddress,
+              subjectenref.current.value
+                ? subjectenref.current.value
+                : subjectbnref.current.value,
+              textbnref.current.value
+                ? textbnref.current.value
+                : textenref.current.value,
+              `<h1>${
+                textbnref.current.value
+                  ? textbnref.current.value
+                  : textenref.current.value
+              }</h1>`
+            );
+            mytoast.success(
+              `Notification and Email send to All Students of ${studentref.current.value}`
+            );
+          }
+        }
+      });
+    } else if (studentref.current.value == "farzeayinmaktab") {
+      students.forEach((element) => {
+        if (
+          element.studentCourseCode &&
+          element.studentCourseCode.length !== 0
+        ) {
+          if (
+            element.studentCourseCode[element.studentCourseCode.length - 1]
+              .code == studentref.current.value
+          ) {
+            createData({
+              subject: {
+                en: subjectenref.current.value
+                  ? subjectenref.current.value
+                  : "",
+                bn: subjectbnref.current.value
+                  ? subjectbnref.current.value
+                  : "",
+              },
+              text: {
+                en: textenref.current.value ? textenref.current.value : "",
+                bn: textbnref.current.value ? textbnref.current.value : "",
+              },
+              reciever: element.userName,
+              sender: data.data.userDetails.userName,
+              link: linkref.current.value ? linkref.current.value : "",
+              readStatus: false,
+              activeStatus: "active",
+            });
+            sendMail(
+              element.emailAddress,
+              subjectenref.current.value
+                ? subjectenref.current.value
+                : subjectbnref.current.value,
+              textbnref.current.value
+                ? textbnref.current.value
+                : textenref.current.value,
+              `<h1>${
+                textbnref.current.value
+                  ? textbnref.current.value
+                  : textenref.current.value
+              }</h1>`
+            );
+            mytoast.success(
+              `Notification and Email send to All Students of ${studentref.current.value}`
+            );
+          }
+        }
+      });
+    } else if (studentref.current.value == "abacus_student") {
+      students.forEach((element) => {
+        if (
+          element.studentCourseCode &&
+          element.studentCourseCode.length !== 0
+        ) {
+          if (
+            element.studentCourseCode[element.studentCourseCode.length - 1]
+              .code == studentref.current.value
+          ) {
+            createData({
+              subject: {
+                en: subjectenref.current.value
+                  ? subjectenref.current.value
+                  : "",
+                bn: subjectbnref.current.value
+                  ? subjectbnref.current.value
+                  : "",
+              },
+              text: {
+                en: textenref.current.value ? textenref.current.value : "",
+                bn: textbnref.current.value ? textbnref.current.value : "",
+              },
+              reciever: element.userName,
+              sender: data.data.userDetails.userName,
+              link: linkref.current.value ? linkref.current.value : "",
+              readStatus: false,
+              activeStatus: "active",
+            });
+            sendMail(
+              element.emailAddress,
+              subjectenref.current.value
+                ? subjectenref.current.value
+                : subjectbnref.current.value,
+              textbnref.current.value
+                ? textbnref.current.value
+                : textenref.current.value,
+              `<h1>${
+                textbnref.current.value
+                  ? textbnref.current.value
+                  : textenref.current.value
+              }</h1>`
+            );
+            mytoast.success(
+              `Notification and Email send to All Students of ${studentref.current.value}`
+            );
+          }
+        }
+      });
+    } else if (studentref.current.value == "urdu") {
+      students.forEach((element) => {
+        if (
+          element.studentCourseCode &&
+          element.studentCourseCode.length !== 0
+        ) {
+          if (
+            element.studentCourseCode[element.studentCourseCode.length - 1]
+              .code == studentref.current.value
+          ) {
+            createData({
+              subject: {
+                en: subjectenref.current.value
+                  ? subjectenref.current.value
+                  : "",
+                bn: subjectbnref.current.value
+                  ? subjectbnref.current.value
+                  : "",
+              },
+              text: {
+                en: textenref.current.value ? textenref.current.value : "",
+                bn: textbnref.current.value ? textbnref.current.value : "",
+              },
+              reciever: element.userName,
+              sender: data.data.userDetails.userName,
+              link: linkref.current.value ? linkref.current.value : "",
+              readStatus: false,
+              activeStatus: "active",
+            });
+            sendMail(
+              element.emailAddress,
+              subjectenref.current.value
+                ? subjectenref.current.value
+                : subjectbnref.current.value,
+              textbnref.current.value
+                ? textbnref.current.value
+                : textenref.current.value,
+              `<h1>${
+                textbnref.current.value
+                  ? textbnref.current.value
+                  : textenref.current.value
+              }</h1>`
+            );
+            mytoast.success(
+              `Notification and Email send to All Students of ${studentref.current.value}`
+            );
+          }
+        }
+      });
+    } else if (studentref.current.value == "ramadanquranulkarim") {
+      students.forEach((element) => {
+        if (
+          element.studentCourseCode &&
+          element.studentCourseCode.length !== 0
+        ) {
+          if (
+            element.studentCourseCode[element.studentCourseCode.length - 1]
+              .code == studentref.current.value
+          ) {
+            createData({
+              subject: {
+                en: subjectenref.current.value
+                  ? subjectenref.current.value
+                  : "",
+                bn: subjectbnref.current.value
+                  ? subjectbnref.current.value
+                  : "",
+              },
+              text: {
+                en: textenref.current.value ? textenref.current.value : "",
+                bn: textbnref.current.value ? textbnref.current.value : "",
+              },
+              reciever: element.userName,
+              sender: data.data.userDetails.userName,
+              link: linkref.current.value ? linkref.current.value : "",
+              readStatus: false,
+              activeStatus: "active",
+            });
+            sendMail(
+              element.emailAddress,
+              subjectenref.current.value
+                ? subjectenref.current.value
+                : subjectbnref.current.value,
+              textbnref.current.value
+                ? textbnref.current.value
+                : textenref.current.value,
+              `<h1>${
+                textbnref.current.value
+                  ? textbnref.current.value
+                  : textenref.current.value
+              }</h1>`
+            );
+            mytoast.success(
+              `Notification and Email send to All Students of ${studentref.current.value}`
+            );
+          }
+        }
+      });
+    } else if (studentref.current.value == "shishunajera") {
+      students.forEach((element) => {
+        if (
+          element.studentCourseCode &&
+          element.studentCourseCode.length !== 0
+        ) {
+          if (
+            element.studentCourseCode[element.studentCourseCode.length - 1]
+              .code == studentref.current.value
+          ) {
+            createData({
+              subject: {
+                en: subjectenref.current.value
+                  ? subjectenref.current.value
+                  : "",
+                bn: subjectbnref.current.value
+                  ? subjectbnref.current.value
+                  : "",
+              },
+              text: {
+                en: textenref.current.value ? textenref.current.value : "",
+                bn: textbnref.current.value ? textbnref.current.value : "",
+              },
+              reciever: element.userName,
+              sender: data.data.userDetails.userName,
+              link: linkref.current.value ? linkref.current.value : "",
+              readStatus: false,
+              activeStatus: "active",
+            });
+            sendMail(
+              element.emailAddress,
+              subjectenref.current.value
+                ? subjectenref.current.value
+                : subjectbnref.current.value,
+              textbnref.current.value
+                ? textbnref.current.value
+                : textenref.current.value,
+              `<h1>${
+                textbnref.current.value
+                  ? textbnref.current.value
+                  : textenref.current.value
+              }</h1>`
+            );
+            mytoast.success(
+              `Notification and Email send to All Students of ${studentref.current.value}`
+            );
+          }
+        }
+      });
+    } else {
+      students.forEach((element) => {
+        if (element.userName == studentref.current.value) {
+          createData({
+            subject: {
+              en: subjectenref.current.value ? subjectenref.current.value : "",
+              bn: subjectbnref.current.value ? subjectbnref.current.value : "",
+            },
+            text: {
+              en: textenref.current.value ? textenref.current.value : "",
+              bn: textbnref.current.value ? textbnref.current.value : "",
+            },
+            reciever: element.userName,
+            sender: data.data.userDetails.userName,
+            link: linkref.current.value ? linkref.current.value : "",
+            readStatus: false,
+            activeStatus: "active",
+          });
+          sendMail(
+            element.emailAddress,
+            subjectenref.current.value
+              ? subjectenref.current.value
+              : subjectbnref.current.value,
+            textbnref.current.value
+              ? textbnref.current.value
+              : textenref.current.value,
+            `<h1>${
+              textbnref.current.value
+                ? textbnref.current.value
+                : textenref.current.value
+            }</h1>`
+          );
+          mytoast.success(`Notification and Email send to ${element.userName}`);
+        }
+      });
+    }
+  }
+  // function uniqueArray(old) {
+  //   const modifiedArray = old.map((item) =>
+  //     item.studentCourseCode
+  //       ? item.studentCourseCode[item.studentCourseCode.length - 1].code
+  //         ? item.studentCourseCode[item.studentCourseCode.length - 1].code
+  //         : ""
+  //       : ""
+  //   );
+  //   const uniqueNamesSet = new Set(modifiedArray);
+  //   const uniqueNamesArray = Array.from(uniqueNamesSet);
+  //   return uniqueNamesArray;
+  // }
 
   return (
     <div className="text-2xl font-bold">
@@ -66,6 +738,7 @@ function SendNotices() {
             </label>
 
             <select
+              ref={studentref}
               name="selectStudents"
               id="selectStudents"
               className="w-full p-4 rounded-3xl text-lg"
@@ -89,6 +762,7 @@ function SendNotices() {
               Subject in English:
             </label>
             <input
+              ref={subjectenref}
               name="subjecten"
               id="subjecten"
               className="mt-2 w-full rounded-3xl p-4"
@@ -97,6 +771,7 @@ function SendNotices() {
               Subject in Bengali:
             </label>
             <input
+              ref={subjectbnref}
               name="subjectbn"
               id="subjectbn"
               className="mt-2 w-full rounded-3xl p-4"
@@ -105,6 +780,7 @@ function SendNotices() {
               Message in English:
             </label>
             <input
+              ref={textenref}
               name="texten"
               id="texten"
               className="mt-2 w-full rounded-3xl p-4"
@@ -113,6 +789,7 @@ function SendNotices() {
               Message in Bengali:
             </label>
             <input
+              ref={textbnref}
               name="textbn"
               id="textbn"
               className="mt-2 w-full rounded-3xl p-4"
@@ -121,6 +798,7 @@ function SendNotices() {
               Attachment/Link:
             </label>
             <input
+              ref={linkref}
               name="link"
               id="link"
               className="mt-2 w-full rounded-3xl p-4"
@@ -129,6 +807,7 @@ function SendNotices() {
               Status:
             </label>
             <select
+              ref={statusref}
               name="status"
               id="status"
               className="w-full p-4 rounded-3xl text-lg"
@@ -159,12 +838,20 @@ function SendNotices() {
                   <div className="w-1/2 text-right">Sender: {item.sender}</div>
                 </div>
                 <div className="flex justify-between text-lg px-5">
-                  <div className="w-1/2">Subject: {item.subject.en} </div>
-                  <div className="w-1/2">বিষয়: {item.subject.bn} </div>
+                  <div className="w-1/2">
+                    Subject: {item.subject.en ? item.subject.en : ""}{" "}
+                  </div>
+                  <div className="w-1/2">
+                    বিষয়: {item.subject.bn ? item.subject.bn : ""}{" "}
+                  </div>
                 </div>
                 <div className="flex justify-between text-lg px-5">
-                  <div className="w-1/2">Text: {item.text.en}</div>
-                  <div className="w-1/2">টেক্সট: {item.text.bn}</div>
+                  <div className="w-1/2">
+                    Text: {item.text.en ? item.text.en : ""}
+                  </div>
+                  <div className="w-1/2">
+                    টেক্সট: {item.text.bn ? item.text.bn : ""}
+                  </div>
                 </div>
                 <div className="flex justify-between text-lg px-5">
                   <div className="w-1/2">

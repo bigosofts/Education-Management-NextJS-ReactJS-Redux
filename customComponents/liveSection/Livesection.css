@@ -4,17 +4,22 @@
   margin-right: auto;
   margin-left: auto;
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #eaeaea !important;
 }
 
 .Livestream .style-1 {
   width: 33.3333%;
-  float: left;
+
   position: relative;
   min-height: 1px;
   padding-right: 15px;
   padding-left: 60px;
   box-sizing: border-box;
-  height: 324px;
+
   padding-top: 10px;
   background: #eaeaea;
 }
@@ -539,14 +544,14 @@
 
 .Livestream .style-46 {
   width: 33.3333%;
-  float: left;
+
   position: relative;
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
   text-align: center;
   box-sizing: border-box;
-  height: 324px;
+
   padding-top: 10px;
   background: #eaeaea;
 }
@@ -657,14 +662,13 @@
 
 .Livestream .style-60 {
   width: 33.3333%;
-  float: left;
+
   position: relative;
   min-height: 1px;
   padding-right: 60px;
   padding-left: 15px;
   text-align: center;
   box-sizing: border-box;
-  height: 324px;
   padding-top: 10px;
   background: #eaeaea;
 }
@@ -803,6 +807,9 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .Livestream {
+    flex-direction: column;
+  }
   .Livestream .style-1 {
     width: 100%;
     padding-bottom: 20px;

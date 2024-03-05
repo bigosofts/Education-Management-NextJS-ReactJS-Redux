@@ -96,7 +96,6 @@ exports.createData = async ({
   sender,
   link,
   readStatus,
-  createdDate,
   activeStatus,
 }) => {
   const aboutdata = {
@@ -106,7 +105,6 @@ exports.createData = async ({
     sender,
     link,
     readStatus,
-    createdDate,
     activeStatus,
   };
   if (data2) {

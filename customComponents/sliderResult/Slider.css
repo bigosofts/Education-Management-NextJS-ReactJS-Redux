@@ -55,14 +55,12 @@
   line-height: 43.2px;
   text-align: center;
   margin-bottom: 100px;
-  margin-top: 1024px;
 }
 @media only screen and (max-width: 600px) {
   .swiper-pagination-bullet {
     display: none;
   }
   .resultHeader {
-    margin-top: 2350px;
     font-size: 16px;
     margin-bottom: 10px;
   }

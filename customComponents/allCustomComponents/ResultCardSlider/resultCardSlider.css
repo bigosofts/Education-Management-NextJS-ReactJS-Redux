@@ -3,8 +3,6 @@
   height: auto;
 }
 .resultCardSlider {
-  margin-top: 100px;
-
   display: block;
   background: url("/images/pattern.jpg");
   background-attachment: fixed;
@@ -24,5 +22,4 @@
   .resultCardSlider2 {
     padding: 20px 0px 0px 0px !important;
   }
-  
 }

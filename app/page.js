@@ -108,7 +108,7 @@ export default async function Home() {
       <Slider linkObj={ObjArray(data.sliders)} />
       <Counter />
       <LiveSection />
-      <BayanList />
+      {/* <BayanList />  */}
       <ResultCardSlider linkObj={ObjArray2(data.results)} />
       <AlemAlemaGrid number={4} />
       <HifzGrid />
