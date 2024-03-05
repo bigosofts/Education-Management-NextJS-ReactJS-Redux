@@ -11,6 +11,7 @@ import AboutAbacus from "@/customComponents/allCustomComponents/aboutAbacus/Abou
 import { selectDataTwo } from "@/apiservices/sliderapiservices";
 import mytoast from "@/components/toast/toast";
 import QuizApp from "@/customComponents/quizApplicationAbacusPage/quiz";
+import PageClassAbacus from "@/components/abacusPageClass/pageClass";
 
 async function getData() {
   const res = await selectDataTwo({
@@ -55,7 +56,10 @@ async function Abacus() {
       <AbacusSectionOne />
       <AboutAbacus />
       <Multiplication />
-      <CustomVideoGallery />
+     
+     <PageClassAbacus/>
+      {/* <CustomVideoGallery /> */}
+
       <Footer />
     </>
   );
