@@ -761,6 +761,12 @@ function PreFeeSection({ profile }) {
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
+            sendMail(
+              profile.data.userDetails.emailAddress,
+              "Payment request has been Recieved",
+              `সুপ্রিয় শিক্ষার্থী ${profile.data.userDetails.firstName.en} ${profile.data.userDetails.lastName.en}, আপনার পেমেন্ট রিকোয়েস্টটি গ্রহণ করা হয়েছে, অনুগ্রহপূর্বক অপেক্ষা করুন। আপনার একাউন্ট ${profile.data.userDetails.userName} টি এপ্রুভ হলে আরেকটি কনফার্মেশন মেইল দেয়া হবে ইং শা আল্লাহ`,
+              `<h1>সুপ্রিয় শিক্ষার্থী ${profile.data.userDetails.firstName.en} ${profile.data.userDetails.lastName.en},<br/><br/> আপনার পেমেন্ট রিকোয়েস্টটি গ্রহণ করা হয়েছে, অনুগ্রহপূর্বক অপেক্ষা করুন। আপনার একাউন্ট ${profile.data.userDetails.userName} টি এপ্রুভ হলে আরেকটি কনফার্মেশন মেইল দেয়া হবে ইং শা আল্লাহ</h1>`
+            );
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
                 window.location.href = `/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
@@ -1084,6 +1090,12 @@ function PreFeeSection({ profile }) {
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
+            sendMail(
+              profile.data.userDetails.emailAddress,
+              "Payment request has been Recieved",
+              `সুপ্রিয় শিক্ষার্থী ${profile.data.userDetails.firstName.en} ${profile.data.userDetails.lastName.en}, আপনার পেমেন্ট রিকোয়েস্টটি গ্রহণ করা হয়েছে, অনুগ্রহপূর্বক অপেক্ষা করুন। আপনার একাউন্ট ${profile.data.userDetails.userName} টি এপ্রুভ হলে আরেকটি কনফার্মেশন মেইল দেয়া হবে ইং শা আল্লাহ`,
+              `<h1>সুপ্রিয় শিক্ষার্থী ${profile.data.userDetails.firstName.en} ${profile.data.userDetails.lastName.en},<br/><br/> আপনার পেমেন্ট রিকোয়েস্টটি গ্রহণ করা হয়েছে, অনুগ্রহপূর্বক অপেক্ষা করুন। আপনার একাউন্ট ${profile.data.userDetails.userName} টি এপ্রুভ হলে আরেকটি কনফার্মেশন মেইল দেয়া হবে ইং শা আল্লাহ</h1>`
+            );
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
                 window.location.href = `/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
