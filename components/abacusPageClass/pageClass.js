@@ -62,8 +62,8 @@ function PageClassAbacus() {
             }}
           >
             <Image
-              width={200}
-              height={300}
+              width={600}
+              height={800}
               src="https://api.internetmadrasa.com/images/play_nursery.jpg"
             />
             <div
@@ -94,8 +94,8 @@ function PageClassAbacus() {
             }}
           >
             <Image
-              width={200}
-              height={300}
+              width={600}
+              height={800}
               src="https://api.internetmadrasa.com/images/Level-1.jpg"
             />
             <div
