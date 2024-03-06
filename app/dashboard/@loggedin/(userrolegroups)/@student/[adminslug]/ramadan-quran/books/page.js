@@ -1,3 +1,7 @@
+"use client";
+
+
+
 function AbacusBooks() {
   return (
     <div className="w-11/12 md:w-4/12 overflow-hidden mt-5 m-auto pb-[100px]">
