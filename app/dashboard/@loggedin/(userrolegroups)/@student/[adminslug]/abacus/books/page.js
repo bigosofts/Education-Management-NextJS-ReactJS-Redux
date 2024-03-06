@@ -1,5 +1,5 @@
 "use client";
-import Image from 'next/image';
+import Image from "next/image";
 function AbacusBooks() {
   return (
     <div className="w-11/12 md:w-5/12 overflow-hidden mt-5 m-auto pb-[100px]">
@@ -23,9 +23,14 @@ function AbacusBooks() {
             overflow: "hidden",
             boxShadow: "0px 1px 5px rgba(0,0,0,0.3)",
             border: "1px solid rgba(0,0,0,0.1)",
+            width: "50%",
           }}
         >
-          <Image width={600} height={800} src="https://api.internetmadrasa.com/images/play_nursery.jpg" />
+          <Image
+            width={600}
+            height={800}
+            src="https://api.internetmadrasa.com/images/play_nursery.jpg"
+          />
           <div
             className="text-[12px] md:text-2xl"
             style={{
@@ -53,9 +58,14 @@ function AbacusBooks() {
             overflow: "hidden",
             boxShadow: "0px 1px 5px rgba(0,0,0,0.3)",
             border: "1px solid rgba(0,0,0,0.1)",
+            width: "50%"
           }}
         >
-          <Image width={600} height={800} src="https://api.internetmadrasa.com/images/Level-1.jpg" />
+          <Image
+            width={600}
+            height={800}
+            src="https://api.internetmadrasa.com/images/Level-1.jpg"
+          />
           <div
             className="text-[12px] md:text-2xl"
             style={{
@@ -93,7 +103,11 @@ function AbacusBooks() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <Image width={600} height={800} src="https://api.internetmadrasa.com/images/nurani_kayda.png" />
+          <Image
+            width={600}
+            height={800}
+            src="https://api.internetmadrasa.com/images/nurani_kayda.png"
+          />
           <div
             className="text-[12px] md:text-2xl"
             style={{
@@ -124,7 +138,11 @@ function AbacusBooks() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <Image width={600} height={800} src="https://api.internetmadrasa.com/images/quran_sharif.png" />
+          <Image
+            width={600}
+            height={800}
+            src="https://api.internetmadrasa.com/images/quran_sharif.png"
+          />
           <div
             className="text-[12px] md:text-2xl"
             style={{

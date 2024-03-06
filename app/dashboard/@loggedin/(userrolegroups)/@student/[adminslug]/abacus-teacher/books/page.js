@@ -23,6 +23,7 @@ function AbacusBooks() {
             overflow: "hidden",
             boxShadow: "0px 1px 5px rgba(0,0,0,0.3)",
             border: "1px solid rgba(0,0,0,0.1)",
+            width: "50%",
           }}
         >
           <Image
@@ -57,6 +58,7 @@ function AbacusBooks() {
             overflow: "hidden",
             boxShadow: "0px 1px 5px rgba(0,0,0,0.3)",
             border: "1px solid rgba(0,0,0,0.1)",
+            width: "50%",
           }}
         >
           <Image
