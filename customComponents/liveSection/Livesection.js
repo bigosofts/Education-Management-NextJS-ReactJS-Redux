@@ -60,7 +60,7 @@ async function LiveSection() {
       <div className="style-1">
         <h2 className="style-2">
           Live Broadcasting{" "}
-          <span className="style-3">{data.widgetPayload[0].live}</span>
+          <span className={`style-3 ${data.widgetPayload[0].live == "onair" ? "style-3-green" : ""}`}>{data.widgetPayload[0].live}</span>
         </h2>
         <div
           style={{
@@ -105,7 +105,7 @@ async function LiveSection() {
         </div>
       </div>
       <div className="style-46">
-        <h2 className="style-47">Next Majlis</h2>
+        <h2 className="style-47">খতমে বুখারী ও ইজতেমা</h2>
         <div className="style-48">After</div>
         <div className="style-49">
           <div className="style-50">
