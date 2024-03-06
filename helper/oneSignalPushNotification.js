@@ -19,7 +19,7 @@ export const OneSignalPush = () => {
                     autoPrompt: true,
                     text: {
                       /* limited to 90 characters */
-                      actionMessage: "We'd like to show you notifications for the latest news and updates.",
+                      actionMessage: "যেহেতু প্রতিনিয়ত বিভিন্ন ক্লাসের আপডেট আসতে থাকে, তাই এটি Allow করে রাখলে আপনি সবসময় নোটিশের মাধ্যমে আপডেট পাবেন।",
                       /* acceptButton limited to 15 characters */
                       acceptButton: "Allow",
                       /* cancelButton limited to 15 characters */
