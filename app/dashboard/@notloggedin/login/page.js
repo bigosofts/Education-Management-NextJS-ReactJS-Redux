@@ -56,7 +56,9 @@ function page(props) {
         } else if (res.status == "wrongpass") {
           mytoast.danger("you entered wrong combination");
         } else if (res.status == "nouser") {
-          router.push("/signup");
+          mytoast.danger(
+            "There is no user with you SID. Please enter correct SID"
+          );
         }
       } else if (data.status == "UnauthorizedAccess") {
         console.log("Unauthorized access");
@@ -83,7 +85,9 @@ function page(props) {
         } else if (res.status == "wrongpass") {
           mytoast.danger("you entered wrong combination");
         } else if (res.status == "nouser") {
-          router.push("/signup");
+          mytoast.danger(
+            "There is no user with you SID. Please enter correct SID"
+          );
         }
       } else if (data.status == "UnauthorizedAccess") {
         console.log("Unauthorized access");
@@ -157,7 +161,9 @@ function page(props) {
                       Remember Me
                     </label>
                     <label>
-                      <a href="/sendOTP?role=teacher">Forgotten Password and SID?</a>
+                      <a href="/sendOTP?role=teacher">
+                        Forgotten Password and SID?
+                      </a>
                     </label>
                   </div>
                   <button
@@ -219,7 +225,9 @@ function page(props) {
                       Remember Me
                     </label>
                     <label>
-                      <a href="/sendOTP?role=student">Forgotten Password and SID?</a>
+                      <a href="/sendOTP?role=student">
+                        Forgotten Password and SID?
+                      </a>
                     </label>
                   </div>
                   <button

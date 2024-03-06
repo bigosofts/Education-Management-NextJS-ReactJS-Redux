@@ -20,6 +20,7 @@ import GalleryAll from "@/customComponents/GalleryALLLimited/GalleryALL";
 
 import HifzGrid from "@/customComponents/hifzGrid2/hifzGrid";
 import AlemAlemaGrid from "@/customComponents/alemalemagrid/alemalemagrid";
+import MessangerChat from "@/customComponents/messangerChat/messangerChat";
 
 function fisherYatesShuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -120,6 +121,7 @@ export default async function Home() {
       {/* <GalleryCard linkObj={ObjArray3(data3)} /> */}
       <GalleryAll linkObj={ObjArray3(data.works).slice(0, 8)} />
       <Footer />
+      <MessangerChat />
     </div>
   );
 }
