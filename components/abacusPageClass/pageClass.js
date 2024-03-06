@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Image from  "next/image";
+import Image from "next/image";
 
 function PageClassAbacus() {
   return (
@@ -11,7 +11,11 @@ function PageClassAbacus() {
         </h1>
         <div className="flex p-4 items-center">
           <div className="w-1/2">
-            <Image width={200} height={300} src="https://api.internetmadrasa.com/images/abacusstudent.jpg"></img>
+            <Image
+              width={200}
+              height={300}
+              src="https://api.internetmadrasa.com/images/abacusstudent.jpg"
+            />
           </div>
 
           <Link
@@ -23,7 +27,11 @@ function PageClassAbacus() {
         </div>
         <div className="flex p-4 items-center">
           <div className="w-1/2">
-            <Image width={200} height={300} src="https://api.internetmadrasa.com/images/TeacherAbacus.jpg"></img>
+            <Image
+              width={200}
+              height={300}
+              src="https://api.internetmadrasa.com/images/TeacherAbacus.jpg"
+            />
           </div>
           <Link
             href="/classes/abacus_teacher"
@@ -53,7 +61,11 @@ function PageClassAbacus() {
               border: "1px solid rgba(0,0,0,0.1)",
             }}
           >
-            <Image width={200} height={300} src="https://api.internetmadrasa.com/images/play_nursery.jpg" />
+            <Image
+              width={200}
+              height={300}
+              src="https://api.internetmadrasa.com/images/play_nursery.jpg"
+            />
             <div
               style={{
                 padding: "10px 10%",
@@ -81,7 +93,11 @@ function PageClassAbacus() {
               border: "1px solid rgba(0,0,0,0.1)",
             }}
           >
-            <Image width={200} height={300} src="https://api.internetmadrasa.com/images/Level-1.jpg" />
+            <Image
+              width={200}
+              height={300}
+              src="https://api.internetmadrasa.com/images/Level-1.jpg"
+            />
             <div
               style={{
                 padding: "10px 10%",
