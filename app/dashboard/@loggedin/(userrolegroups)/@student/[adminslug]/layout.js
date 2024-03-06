@@ -9,6 +9,7 @@ import SideDrawer from "@/components/Drawer/SideDrawer";
 import { useSelector, useDispatch } from "react-redux";
 import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
 import { selectDataTwo } from "@/apiservices/studentapiservices";
+import MessangerChat from "@/customComponents/messangerChat/messangerChat";
 
 function StudentLayout({ children, params }) {
   const dispatch = useDispatch();
@@ -403,7 +404,7 @@ function StudentLayout({ children, params }) {
           show: true,
         },
       ];
-    }else if (
+    } else if (
       data.data.userDetails.studentCourseCode[
         data.data.userDetails.studentCourseCode.length - 1
       ].code == "abacus_student"
@@ -503,7 +504,7 @@ function StudentLayout({ children, params }) {
           show: true,
         },
       ];
-    }else if (
+    } else if (
       data.data.userDetails.studentCourseCode[
         data.data.userDetails.studentCourseCode.length - 1
       ].code == "abacus_teacher"
@@ -603,7 +604,7 @@ function StudentLayout({ children, params }) {
           show: true,
         },
       ];
-    }else if (
+    } else if (
       data.data.userDetails.studentCourseCode[
         data.data.userDetails.studentCourseCode.length - 1
       ].code == "ramadanquranulkarim"
@@ -703,7 +704,7 @@ function StudentLayout({ children, params }) {
           show: true,
         },
       ];
-    }else if (
+    } else if (
       data.data.userDetails.studentCourseCode[
         data.data.userDetails.studentCourseCode.length - 1
       ].code == "shishunajera"
@@ -1603,24 +1604,27 @@ function StudentLayout({ children, params }) {
 
     if (params.adminslug == data.data.userName) {
       return (
-        <CommonMenu changeDrawerState={changeDrawerState}>
-          {children}
-          {show ? (
-            <SideDrawer
-              user={data.data}
-              sidebarItems={newArray}
-              show={true}
-              changeDrawerState={changeDrawerState}
-            />
-          ) : (
-            <SideDrawer
-              user={data.data}
-              sidebarItems={newArray}
-              show={false}
-              changeDrawerState={changeDrawerState}
-            />
-          )}
-        </CommonMenu>
+        <>
+          <CommonMenu changeDrawerState={changeDrawerState}>
+            {children}
+            {show ? (
+              <SideDrawer
+                user={data.data}
+                sidebarItems={newArray}
+                show={true}
+                changeDrawerState={changeDrawerState}
+              />
+            ) : (
+              <SideDrawer
+                user={data.data}
+                sidebarItems={newArray}
+                show={false}
+                changeDrawerState={changeDrawerState}
+              />
+            )}
+          </CommonMenu>
+          <MessangerChat />
+        </>
       );
     } else {
       router.replace(`/dashboard/${data.data.userName}`);
