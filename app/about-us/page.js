@@ -12,7 +12,7 @@ function AboutPage() {
       <SubMenu pageName="About Us" />
       <AboutSection />
       <Activities />
-      <OstadSection />
+      {/* <OstadSection /> */}
       <ReviewPage />
       <Footer />
     </>
