@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 function AbacusBooks() {
   return (
     <div className="w-11/12 md:w-5/12 overflow-hidden mt-5 m-auto pb-[100px]">
@@ -24,7 +25,7 @@ function AbacusBooks() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <img src="https://api.internetmadrasa.com/images/play_nursery.jpg" />
+          <Image width={200} height={300} src="https://api.internetmadrasa.com/images/play_nursery.jpg" />
           <div
             className="text-[12px] md:text-2xl"
             style={{
@@ -54,7 +55,7 @@ function AbacusBooks() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <img src="https://api.internetmadrasa.com/images/Level-1.jpg" />
+          <Image width={200} height={300} src="https://api.internetmadrasa.com/images/Level-1.jpg" />
           <div
             className="text-[12px] md:text-2xl"
             style={{

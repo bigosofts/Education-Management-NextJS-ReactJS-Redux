@@ -1,6 +1,6 @@
 "use client";
 
-
+import Image from "next/image";
 
 function AbacusBooks() {
   return (
@@ -26,7 +26,7 @@ function AbacusBooks() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <img src="https://api.internetmadrasa.com/images/nurani_kayda.png" />
+          <Image width={200} height={300} src="https://api.internetmadrasa.com/images/nurani_kayda.png" />
           <div
             className="text-[12px] md:text-2xl"
             style={{
@@ -57,7 +57,7 @@ function AbacusBooks() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <img src="https://api.internetmadrasa.com/images/quran_sharif.png" />
+          <Image width={200} height={300} src="https://api.internetmadrasa.com/images/quran_sharif.png" />
           <div
             className="text-[12px] md:text-2xl"
             style={{
