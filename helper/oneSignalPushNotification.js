@@ -19,7 +19,7 @@ export const OneSignalPush = () => {
                     autoPrompt: true,
                     text: {
                       /* limited to 90 characters */
-                      actionMessage: "যেহেতু প্রতিনিয়ত ইন্টারনেট মাদ্রাসার বিভিন্ন ক্লাসের আপডেট আসতে থাকে, তাই এটি Allow করে রাখুন।",
+                      actionMessage: "যেহেতু প্রতিনিয়ত বিভিন্ন ক্লাসের আপডেট আসতে থাকে, তাই এটি Allow করে রাখুন।",
                       /* acceptButton limited to 15 characters */
                       acceptButton: "Allow",
                       /* cancelButton limited to 15 characters */
