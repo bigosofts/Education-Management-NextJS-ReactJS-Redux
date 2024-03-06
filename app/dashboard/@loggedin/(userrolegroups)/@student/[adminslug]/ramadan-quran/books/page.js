@@ -22,7 +22,7 @@ function AbacusBooks() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <img src="/images/nurani_kayda.png" />
+          <img src="https://api.internetmadrasa.com/images/nurani_kayda.png" />
           <div
             className="text-[12px] md:text-2xl"
             style={{
@@ -53,7 +53,7 @@ function AbacusBooks() {
             border: "1px solid rgba(0,0,0,0.1)",
           }}
         >
-          <img src="/images/quran_sharif.png" />
+          <img src="https://api.internetmadrasa.com/images/quran_sharif.png" />
           <div
             className="text-[12px] md:text-2xl"
             style={{

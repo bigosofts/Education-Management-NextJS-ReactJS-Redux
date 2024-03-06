@@ -10,7 +10,7 @@ function PageClassAbacus() {
         </h1>
         <div className="flex p-4 items-center">
           <div className="w-1/2">
-            <img src="/images/abacusstudent.jpg"></img>
+            <img src="https://api.internetmadrasa.com/images/abacusstudent.jpg"></img>
           </div>
 
           <Link
@@ -22,7 +22,7 @@ function PageClassAbacus() {
         </div>
         <div className="flex p-4 items-center">
           <div className="w-1/2">
-            <img src="/images/TeacherAbacus.jpg"></img>
+            <img src="https://api.internetmadrasa.com/images/TeacherAbacus.jpg"></img>
           </div>
           <Link
             href="/classes/abacus_teacher"
@@ -52,7 +52,7 @@ function PageClassAbacus() {
               border: "1px solid rgba(0,0,0,0.1)",
             }}
           >
-            <img src="/images/play_nursery.jpg" />
+            <img src="https://api.internetmadrasa.com/images/play_nursery.jpg" />
             <div
               style={{
                 padding: "10px 10%",
@@ -80,7 +80,7 @@ function PageClassAbacus() {
               border: "1px solid rgba(0,0,0,0.1)",
             }}
           >
-            <img src="/images/Level-1.jpg" />
+            <img src="https://api.internetmadrasa.com/images/Level-1.jpg" />
             <div
               style={{
                 padding: "10px 10%",
