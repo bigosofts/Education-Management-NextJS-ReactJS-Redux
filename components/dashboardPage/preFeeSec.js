@@ -39,9 +39,9 @@ function PreFeeSection({ profile }) {
   const [mainData, setMainData] = useState({
     currency: "",
     course: "",
-    department: "",
-    semester: "",
-    jamat: "",
+    department: "none",
+    semester: "none",
+    jamat: "none",
     amountPaid: "none",
     transactionID: "none",
     accountNo: "none",
@@ -144,9 +144,11 @@ function PreFeeSection({ profile }) {
               if (currencyrate) {
                 let tkC = dObj.price.registration.tk;
                 let usC = Math.round(dObj.price.registration.tk / currencyrate);
+                debugger;
 
                 let mtkC = dObj.price.monthly.tk;
                 let musC = Math.round(dObj.price.monthly.tk / currencyrate);
+                debugger;
                 setMoney({ tk: tkC, us: usC, mtk: mtkC, mus: musC });
               }
             }
@@ -190,7 +192,7 @@ function PreFeeSection({ profile }) {
         transactionID: "none",
         accountNo: "none",
         paymentWay: "none",
-        department:"none"
+        department: "none",
       }));
       setExtraJamat(false);
       setMainData((prev) => ({
@@ -210,7 +212,7 @@ function PreFeeSection({ profile }) {
         transactionID: "none",
         accountNo: "none",
         paymentWay: "none",
-        department:"none"
+        department: "none",
       }));
       setExtraJamat(false);
       setMainData((prev) => ({
@@ -231,7 +233,7 @@ function PreFeeSection({ profile }) {
         transactionID: "none",
         accountNo: "none",
         paymentWay: "none",
-        department:"none"
+        department: "none",
       }));
       setExtraJamat(false);
       setMainData((prev) => ({
@@ -305,22 +307,16 @@ function PreFeeSection({ profile }) {
       const res3 = await seletcJamat(null, null);
       const res4 = await selectSemester({ activeStatus: "active" }, null);
       const res5 = await selectPayments(null, null);
-      const response = await fetch(
-        "https://v6.exchangerate-api.com/v6/6beb79e3dfb29569d6a2ca2f/pair/USD/BDT",
-        { next: { revalidate: 7 * 86400 } }
-      );
-      const conversionRate = await response.json();
 
-      const [course, department, jamat, semester, rate, paymentData] =
-        await Promise.all([res, res2, res3, res4, conversionRate, res5]);
+      const [course, department, jamat, semester, paymentData] =
+        await Promise.all([res, res2, res3, res4, res5]);
 
       if (
-        (course.status == "Alhamdulillah" &&
-          department.status == "Alhamdulillah" &&
-          jamat.status == "Alhamdulillah" &&
-          semester.status == "Alhamdulillah" &&
-          rate.result == "success",
-        paymentData.status == "Alhamdulillah")
+        course.status == "Alhamdulillah" &&
+        department.status == "Alhamdulillah" &&
+        jamat.status == "Alhamdulillah" &&
+        semester.status == "Alhamdulillah" &&
+        paymentData.status == "Alhamdulillah"
       ) {
         setCourse(
           course.data.map((item) => {
@@ -331,7 +327,7 @@ function PreFeeSection({ profile }) {
             };
           })
         );
-        setCurrencyrate(rate.conversion_rate);
+        setCurrencyrate(109);
 
         function changeDepartment(name1) {
           const ID = department.data.filter((item) => {
@@ -371,18 +367,12 @@ function PreFeeSection({ profile }) {
                 });
 
                 if (dObj) {
-                  if (rate) {
-                    let tkC = dObj.coursePrice.registration.tk;
-                    let usC = Math.round(
-                      dObj.coursePrice.registration.tk / rate.conversion_rate
-                    );
-                    let mtkC = dObj.coursePrice.monthly.tk;
-                    let musC = Math.round(
-                      dObj.coursePrice.monthly.tk / rate.conversion_rate
-                    );
+                  let tkC = dObj.coursePrice.registration.tk;
+                  let usC = Math.round(dObj.coursePrice.registration.tk / 109);
+                  let mtkC = dObj.coursePrice.monthly.tk;
+                  let musC = Math.round(dObj.coursePrice.monthly.tk / 109);
 
-                    setMoney({ tk: tkC, us: usC, mtk: mtkC, mus: musC });
-                  }
+                  setMoney({ tk: tkC, us: usC, mtk: mtkC, mus: musC });
                 }
               }
             } else {
