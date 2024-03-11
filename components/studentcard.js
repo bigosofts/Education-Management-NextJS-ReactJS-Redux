@@ -5,6 +5,7 @@ import { selectAllData, deleteData } from "@/apiservices/studentapiservices";
 import { useEffect, useState } from "react";
 import myToast from "@/components/toast/toast";
 import Image from "next/image";
+import ReactHighlightSyntax from "react-highlight-syntax";
 
 function StudentCard(props) {
   const [data, setData] = useState();
@@ -107,8 +108,31 @@ function StudentCard(props) {
                 </p>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
                   {" "}
-                  Jamat Name: {item.studentJamatCode}
+                  Course Name:
                 </p>
+                <ReactHighlightSyntax
+                  language={"JavaScript"}
+                  theme={"Base16Darcula"}
+                  copy={true}
+                  copyBtnTheme={"Dark"}
+                  showLineNumbers={true}
+                >
+                  {JSON.stringify(item.studentCourseCode)}
+                </ReactHighlightSyntax>
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
+                  {" "}
+                  jamat Name:
+                </p>
+                <ReactHighlightSyntax
+                  language={"JavaScript"}
+                  theme={"Base16Darcula"}
+                  copy={true}
+                  copyBtnTheme={"Dark"}
+                  showLineNumbers={true}
+                >
+                  {JSON.stringify(item.studentJamatCode)}
+                </ReactHighlightSyntax>
+
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
                   {" "}
                   Gender: {item.gender}
@@ -135,10 +159,20 @@ function StudentCard(props) {
                   {" "}
                   Student Motive: {item.studentMotive}
                 </p>
+
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
                   {" "}
-                  Payment Status: {item.paymentStatus ? "Paid" : "Unpaid"}
+                  Payment Status:
                 </p>
+                <ReactHighlightSyntax
+                  language={"JavaScript"}
+                  theme={"Base16Darcula"}
+                  copy={true}
+                  copyBtnTheme={"Dark"}
+                  showLineNumbers={true}
+                >
+                  {JSON.stringify(item.paymentStatus)}
+                </ReactHighlightSyntax>
 
                 <h5 className="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">
                   Address
@@ -245,14 +279,33 @@ function StudentCard(props) {
                   {" "}
                   Occupation: {item.occupation}
                 </p>
+
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
                   {" "}
-                  Student Enrolled in: {item.studentCourseCode}
+                  Course Name:
                 </p>
+                <ReactHighlightSyntax
+                  language={"JavaScript"}
+                  theme={"Base16Darcula"}
+                  copy={true}
+                  copyBtnTheme={"Dark"}
+                  showLineNumbers={true}
+                >
+                  {JSON.stringify(item.studentCourseCode)}
+                </ReactHighlightSyntax>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
                   {" "}
-                  Jamat Name: {item.studentJamatCode}
+                  jamat Name:
                 </p>
+                <ReactHighlightSyntax
+                  language={"JavaScript"}
+                  theme={"Base16Darcula"}
+                  copy={true}
+                  copyBtnTheme={"Dark"}
+                  showLineNumbers={true}
+                >
+                  {JSON.stringify(item.studentJamatCode)}
+                </ReactHighlightSyntax>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
                   {" "}
                   Gender: {item.gender}
@@ -281,8 +334,17 @@ function StudentCard(props) {
                 </p>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 bg-slate-50 py-1 rounded-md">
                   {" "}
-                  Payment Status: {item.paymentStatus ? "Paid" : "Unpaid"}
+                  Payment Status:
                 </p>
+                <ReactHighlightSyntax
+                  language={"JavaScript"}
+                  theme={"Base16Darcula"}
+                  copy={true}
+                  copyBtnTheme={"Dark"}
+                  showLineNumbers={true}
+                >
+                  {JSON.stringify(item.paymentStatus)}
+                </ReactHighlightSyntax>
 
                 <h5 className="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">
                   Address

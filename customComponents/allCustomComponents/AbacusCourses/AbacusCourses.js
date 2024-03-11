@@ -125,6 +125,23 @@ function AbacusCourse({ info, comment, richtext, parameter }) {
                       ))}
                     </div>
                   </div>
+                  <div className="style-509">
+                    <h2
+                      style={{
+                        marginTop: "40px",
+                        color: "red",
+                        border: "1px solid #ddd",
+                        borderRadius: "10px",
+                        padding: "20px 10px",
+                        lineHeight: "40px",
+                      }}
+                      className="style-510"
+                    >
+                      {false
+                        ? ""
+                        : "প্রতি শুক্র ও রবিবার রাত ৯টা ৩০ মিনিটে ইসলাহী নফসের ক্লাস সকলের জন্য বাধ্যতামূলক"}
+                    </h2>
+                  </div>
                 </div>
               </div>
             </div>
@@ -653,8 +670,8 @@ function AbacusCourse({ info, comment, richtext, parameter }) {
                               Registration: {info.coursePrice.registration.tk}{" "}
                               Taka <br />
                               <span style={{ color: "red", fontSize: "16px" }}>
-                                (Foreigner: {info.coursePrice.registration.us}{" "}
-                                US Dollar)
+                                (প্রবাসীদের জন্য:{" "}
+                                {info.coursePrice.registration.us} US Dollar)
                               </span>
                               <br />
                             </div>
@@ -662,8 +679,8 @@ function AbacusCourse({ info, comment, richtext, parameter }) {
                             <div className="style-1152">
                               Monthly: {info.coursePrice.monthly.tk} Taka <br />
                               <span style={{ color: "red", fontSize: "16px" }}>
-                                (Foreigner: {info.coursePrice.monthly.us} US
-                                Dollar)
+                                (প্রবাসীদের জন্য: {info.coursePrice.monthly.us}{" "}
+                                US Dollar)
                               </span>
                               <br />
                             </div>

@@ -1,4 +1,5 @@
 "use client";
+import SwitchDesign from "@/components/dashboardPage/swtichDesign";
 
 import { useSelector } from "react-redux";
 import EnrollPlease from "@/components/dashboardPage/enrollPlease";
@@ -16,7 +17,7 @@ function Switch() {
     ) {
       return <WaitingApproval />;
     } else {
-      return <div>Switch Page</div>;
+      return <SwitchDesign />;
     }
   }
 }
