@@ -147,7 +147,7 @@ function Accordion() {
       {students &&
         students.map((item, i) => (
           <div key={i} className="accordion-item">
-            {getStatus2(item) == "due" ? (
+            {/* {getStatus2(item) == "due" ? (
               <>
                 <div className="accordion-item-header">
                   <div style={{ width: "100%", textAlign: "center" }}>
@@ -200,7 +200,7 @@ function Accordion() {
               </>
             ) : (
               ""
-            )}
+            )} */}
 
             <div className="accordion-item-header">
               <div>
