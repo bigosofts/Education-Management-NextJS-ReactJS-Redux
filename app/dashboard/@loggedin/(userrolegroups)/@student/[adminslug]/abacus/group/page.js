@@ -6,7 +6,7 @@ function AbacusGroup() {
   const data = useSelector((state) => state.isAdmin.value);
 
   const girlsLink = "https://t.me/+gwMvLKXA0n8yYWVl";
-  const boysLink = "https://t.me/+kw4auwZ7J_tmYTk1";
+  const boysLink = "https://t.me/+gwMvLKXA0n8yYWVl";
 
   const hardRefresh = (link) => {
     if (typeof window !== "undefined") {
