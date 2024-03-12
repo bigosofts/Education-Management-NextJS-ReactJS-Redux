@@ -1112,7 +1112,7 @@ function PreFeeSection({ profile }) {
       mainData.currency &&
       mainData.course &&
       mainData.jamat == "none" &&
-      mainData.department == "none" &&
+      mainData.semester == "none" &&
       mainData.amountPaid == "none" &&
       mainData.transactionID == "none" &&
       mainData.accountNo == "none" &&

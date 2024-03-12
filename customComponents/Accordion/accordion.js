@@ -47,6 +47,25 @@ function Accordion() {
     };
   }, []);
 
+  function getStatus2(data) {
+    if (
+      data.paymentStatus.addmissionDueStatus == false &&
+      data.paymentStatus.consequentDueStatus == false
+    ) {
+      return "active";
+    } else if (
+      data.paymentStatus.addmissionDueStatus == true &&
+      data.paymentStatus.consequentDueStatus == false
+    ) {
+      return "due";
+    } else if (
+      data.paymentStatus.addmissionDueStatus == true &&
+      data.paymentStatus.consequentDueStatus == true
+    ) {
+      return "pending";
+    }
+  }
+
   function getStatus(data) {
     if (
       data.paymentStatus.addmissionDueStatus == false &&
@@ -128,9 +147,68 @@ function Accordion() {
       {students &&
         students.map((item, i) => (
           <div key={i} className="accordion-item">
+            {getStatus2(item) == "due" ? (
+              <>
+                <div className="accordion-item-header">
+                  <div style={{ width: "100%", textAlign: "center" }}>
+                    {getStatus2(item)}
+                  </div>
+                </div>
+                <div className="accordion-item-body">
+                  <div className="accordion-item-body-content">
+                    <Table
+                      profile={item}
+                      students={students}
+                      paymentID={item.paymentStatus.paymentID}
+                    />
+                  </div>
+                </div>
+              </>
+            ) : getStatus2(item) == "active" ? (
+              <>
+                <div className="accordion-item-header">
+                  <div style={{ width: "100%", textAlign: "center" }}>
+                    {getStatus2(item)}
+                  </div>
+                </div>
+                <div className="accordion-item-body">
+                  <div className="accordion-item-body-content">
+                    <Table
+                      profile={item}
+                      students={students}
+                      paymentID={item.paymentStatus.paymentID}
+                    />
+                  </div>
+                </div>
+              </>
+            ) : getStatus2(item) == "pending" ? (
+              <>
+                <div className="accordion-item-header">
+                  <div style={{ width: "100%", textAlign: "center" }}>
+                    {getStatus2(item)}
+                  </div>
+                </div>
+                <div className="accordion-item-body">
+                  <div className="accordion-item-body-content">
+                    <Table
+                      profile={item}
+                      students={students}
+                      paymentID={item.paymentStatus.paymentID}
+                    />
+                  </div>
+                </div>
+              </>
+            ) : (
+              ""
+            )}
+
             <div className="accordion-item-header">
               <div>
-              {item.firstName.en} {item.lastName.en} | <span style={{color:"green"}}>{item.mobileNumber}</span> <br/>{item.userName} ({item.paymentStatus.paymentID})<br/><span style={{color:"green"}}>{item.emailAddress}</span>
+                {item.firstName.en} {item.lastName.en} |{" "}
+                <span style={{ color: "green" }}>{item.mobileNumber}</span>{" "}
+                <br />
+                {item.userName} ({item.paymentStatus.paymentID})<br />
+                <span style={{ color: "green" }}>{item.emailAddress}</span>
               </div>
               <div style={{ textAlign: "right" }}>{getStatus(item)}</div>
             </div>
