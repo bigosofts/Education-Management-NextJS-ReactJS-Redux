@@ -6,6 +6,7 @@ import { selectDataTwo as selectSemesters } from "@/apiservices/semesterapiservi
 import { selectDataTwo as selectDepartments } from "@/apiservices/departmentapiservices";
 import { useEffect, useState } from "react";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
+import { useSelector } from "react-redux";
 
 function SwitchDesign() {
   const [course, setCourse] = useState();
@@ -13,6 +14,8 @@ function SwitchDesign() {
   const [semester, setSemester] = useState();
   const [department, setDepartment] = useState();
   const [extraJamat, setExtraJamat] = useState(false);
+  
+  const data = useSelector((state) => state.isAdmin.value);
 
   const [extraSemester, setExtraSemester] = useState(false);
 
@@ -29,34 +32,30 @@ function SwitchDesign() {
     department: "",
   });
 
-  //   function classDecision(e) {
-  //     e.preventDefault();
+  function classDecision(e) {
+    e.preventDefault();
 
-  //     function findDepartment(classes) {
-  //       let departmentID = department.find((item) => {
-  //         return item.departmentName == classes;
-  //       });
-  //       return departmentID ? departmentID.departmentID : "";
-  //     }
+    function findDepartment(classes) {
+      let departmentID = department.find((item) => {
+        return item.departmentName == classes;
+      });
+      return departmentID ? departmentID.departmentID : "";
+    }
 
-  //     setMainData((prev) => ({
-  //       ...prev,
-  //       classes: e.target.value,
-  //       department: findDepartment(e.target.value),
-  //     }));
+    setMainData((prev) => ({
+      ...prev,
+      classes: e.target.value,
+      department: findDepartment(e.target.value),
+    }));
 
-  //     if (e.target.value == "alemalema") {
-  //       setExtraJamat(true);
-  //       setExtraSemester(false);
-  //     } else {
-  //       setExtraJamat(false);
-  //       setExtraSemester(false);
-  //     }
-  //   }
-  //   if (enroll && enroll == "alemalema") {
-  //     setExtraJamat(true);
-  //     setExtraSemester(false);
-  //   }
+    if (e.target.value == "alemalema") {
+      setExtraJamat(true);
+      setExtraSemester(false);
+    } else {
+      setExtraJamat(false);
+      setExtraSemester(false);
+    }
+  }
 
   useEffect(() => {
     async function getData() {
@@ -78,6 +77,12 @@ function SwitchDesign() {
       }
     }
     getData();
+    if (enroll == "alemalema") {
+      setExtraJamat(true);
+    } else {
+      setExtraJamat(false);
+      setExtraSemester(false);
+    }
   }, []);
 
   return (
@@ -94,6 +99,7 @@ function SwitchDesign() {
 
               <select
                 value={mainData.classes}
+                onChange={classDecision}
                 id="course"
                 name="course"
                 className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
