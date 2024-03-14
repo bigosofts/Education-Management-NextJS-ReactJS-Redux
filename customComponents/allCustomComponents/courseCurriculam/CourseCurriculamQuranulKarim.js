@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import "./CourseCurriculam.css";
+import { selectDataTwo } from "@/apiservices/videoapiservices";
 
 function CourseCurriculamQuranulKarim() {
   const [video, setVideo] = useState();
