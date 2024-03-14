@@ -191,7 +191,6 @@ function PreFeeSection({ profile }) {
         transactionID: "none",
         accountNo: "none",
         paymentWay: "none",
-        department: "none",
       }));
       setExtraJamat(false);
       setMainData((prev) => ({
@@ -211,7 +210,6 @@ function PreFeeSection({ profile }) {
         transactionID: "none",
         accountNo: "none",
         paymentWay: "none",
-        department: "none",
       }));
       setExtraJamat(false);
       setMainData((prev) => ({
@@ -232,7 +230,6 @@ function PreFeeSection({ profile }) {
         transactionID: "none",
         accountNo: "none",
         paymentWay: "none",
-        department: "none",
       }));
       setExtraJamat(false);
       setMainData((prev) => ({
@@ -435,6 +432,7 @@ function PreFeeSection({ profile }) {
   }, []);
 
   async function submitData(e) {
+    debugger;
     e.preventDefault();
     if (
       mainData.currency &&
@@ -454,6 +452,7 @@ function PreFeeSection({ profile }) {
       mainData.paymentWay != "none" &&
       mainData.paymentWay != ""
     ) {
+      debugger;
       let currentDate = new Date();
       let oneYearLater = new Date(currentDate);
 
@@ -775,15 +774,14 @@ function PreFeeSection({ profile }) {
       }
     } else if (
       mainData.currency &&
-      mainData.course ==
-        ("hifjulquran" ||
-          "shishunajera" ||
-          "shishumaktab" ||
-          "farzeayinmaktab" ||
-          "farzeayinnajera" ||
-          "ezranahusorof" ||
-          "urdu" ||
-          "farzeayinampara") &&
+      (mainData.course == "hifjulquran" ||
+        mainData.course == "shishunajera" ||
+        mainData.course == "shishumaktab" ||
+        mainData.course == "farzeayinmaktab" ||
+        mainData.course == "farzeayinnajera" ||
+        mainData.course == "ezranahusorof" ||
+        mainData.course == "urdu" ||
+        mainData.course == "farzeayinampara") &&
       mainData.jamat == "none" &&
       mainData.semester == "none" &&
       mainData.department != "none" &&
@@ -797,6 +795,7 @@ function PreFeeSection({ profile }) {
       mainData.paymentWay != "none" &&
       mainData.paymentWay != ""
     ) {
+      debugger;
       let currentDate = new Date();
       let oneYearLater = new Date(currentDate);
 
@@ -1118,8 +1117,11 @@ function PreFeeSection({ profile }) {
       }
     } else if (
       mainData.currency &&
-      mainData.course ==
-        ("abacus_student" || "abacus_teacher" || "ramadanquranulkarim") &&
+      (mainData.course == "abacus_student" ||
+        mainData.course == "abacus_teacher" ||
+        mainData.course == "ramadanquranulkarim") &&
+      mainData.department != "none" &&
+      mainData.department != "" &&
       mainData.jamat == "none" &&
       mainData.semester == "none" &&
       mainData.amountPaid == "none" &&
@@ -1127,6 +1129,7 @@ function PreFeeSection({ profile }) {
       mainData.accountNo == "none" &&
       mainData.paymentWay == "none"
     ) {
+      debugger;
       let currentDate = new Date();
       let oneYearLater = new Date(currentDate);
 
@@ -1449,7 +1452,9 @@ function PreFeeSection({ profile }) {
     } else {
       mytoast.warning("Admission Form: One or more field is emplty");
     }
+    debugger;
   }
+
   console.log(mainData);
   return (
     <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">
