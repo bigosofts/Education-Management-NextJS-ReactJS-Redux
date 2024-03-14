@@ -438,7 +438,7 @@ function PreFeeSection({ profile }) {
     e.preventDefault();
     if (
       mainData.currency &&
-      mainData.course &&
+      mainData.course == "alemalema" &&
       mainData.jamat != "none" &&
       mainData.jamat != "" &&
       mainData.semester != "none" &&
@@ -775,7 +775,15 @@ function PreFeeSection({ profile }) {
       }
     } else if (
       mainData.currency &&
-      mainData.course &&
+      mainData.course ==
+        ("hifjulquran" ||
+          "shishunajera" ||
+          "shishumaktab" ||
+          "farzeayinmaktab" ||
+          "farzeayinnajera" ||
+          "ezranahusorof" ||
+          "urdu" ||
+          "farzeayinampara") &&
       mainData.jamat == "none" &&
       mainData.semester == "none" &&
       mainData.department != "none" &&
@@ -1110,7 +1118,8 @@ function PreFeeSection({ profile }) {
       }
     } else if (
       mainData.currency &&
-      mainData.course &&
+      mainData.course ==
+        ("abacus_student" || "abacus_teacher" || "ramadanquranulkarim") &&
       mainData.jamat == "none" &&
       mainData.semester == "none" &&
       mainData.amountPaid == "none" &&

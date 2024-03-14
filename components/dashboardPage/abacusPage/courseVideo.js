@@ -10,9 +10,9 @@ function CourseVideo() {
       }}
     >
       <CourseCurriculam />
-      <div className="blur_system">
+      {/* <div className="blur_system">
         <p style={{ textAlign: "center" }}>Coming soon ...</p>
-      </div>
+      </div> */}
     </div>
   );
 }

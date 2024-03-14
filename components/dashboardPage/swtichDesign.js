@@ -4,6 +4,11 @@ import { selectDataTwo as selectCourses } from "@/apiservices/courseapiservices"
 import { selectDataTwo as selectJamats } from "@/apiservices/jamatapiservices";
 import { selectDataTwo as selectSemesters } from "@/apiservices/semesterapiservices";
 import { selectDataTwo as selectDepartments } from "@/apiservices/departmentapiservices";
+import { selectDataTwo as selectPayments } from "@/apiservices/paymentapiservices";
+import {
+  selectDataTwo as selectStudents,
+  updateData as updateStudents,
+} from "@/apiservices/studentapiservices";
 import { useEffect, useState } from "react";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { useSelector } from "react-redux";
@@ -14,16 +19,15 @@ function SwitchDesign() {
   const [semester, setSemester] = useState();
   const [department, setDepartment] = useState();
   const [extraJamat, setExtraJamat] = useState(false);
-  
+  const [students, setStudents] = useState();
+  const [payments, setPayments] = useState();
+
   const data = useSelector((state) => state.isAdmin.value);
 
   const [extraSemester, setExtraSemester] = useState(false);
 
   const searchParams = useSearchParams();
   const enroll = searchParams.get("enroll");
-  function submitData() {
-    alert("hello");
-  }
 
   const [mainData, setMainData] = useState({
     classes: enroll ? enroll : "",
@@ -31,6 +35,72 @@ function SwitchDesign() {
     semester: "",
     department: "",
   });
+
+  function submitData() {
+    if (
+      mainData.classes == alemalema &&
+      mainData.jamat &&
+      mainData.semester &&
+      mainData.department
+    ) {
+      if (students && payments) {
+        let NewStudentCourseCode = [...students.studentCourseCode];
+        let NewStudentDepartment = [...students.studentDepartment];
+        let NewStudentJamatCode = [...students.studentJamatCode];
+        let NewStudentSemester = [...students.studentSemester];
+
+        if (
+          NewStudentCourseCode[NewStudentCourseCode.length - 1].status ==
+          "active"
+        ) {
+          NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
+            new Date(Date.now()).toISOString();
+
+          NewStudentCourseCode.push({
+            code: mainData.classes,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "active",
+          });
+
+          NewStudentDepartment[NewStudentDepartment.length - 1].endDate =
+            new Date(Date.now()).toISOString();
+
+          NewStudentDepartment.push({
+            code: mainData.department,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "active",
+          });
+
+          NewStudentJamatCode[NewStudentJamatCode.length - 1].endDate =
+            new Date(Date.now()).toISOString();
+
+          NewStudentJamatCode.push({
+            code: mainData.jamat,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "active",
+          });
+
+          NewStudentSemester[NewStudentSemester.length - 1].endDate = new Date(
+            Date.now()
+          ).toISOString();
+
+          NewStudentSemester.push({
+            code: mainData.semester,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "active",
+          });
+        }
+      }
+    } else if (mainData.classes) {
+      alert("Other");
+    } else {
+      alert("vacant");
+    }
+  }
 
   function classDecision(e) {
     e.preventDefault();
@@ -57,23 +127,58 @@ function SwitchDesign() {
     }
   }
 
+  function jamatDecision(e) {
+    e.preventDefault();
+    setMainData((prev) => ({
+      ...prev,
+      jamat: e.target.value,
+    }));
+
+    if (!mainData.jamat) {
+      setExtraSemester(true);
+    } else {
+      setExtraSemester(false);
+    }
+  }
+
+  function semesterDecision(e) {
+    e.preventDefault();
+    setMainData((prev) => ({
+      ...prev,
+      semester: e.target.value,
+    }));
+  }
+
   useEffect(() => {
     async function getData() {
       const res = await selectCourses({ activeStatus: "active" }, null);
       const res2 = await selectJamats({ activeStatus: "active" }, null);
       const res3 = await selectSemesters(null, null);
       const res4 = await selectDepartments(null, null);
+      const res5 = await selectStudents(
+        { userName: data.data.userDetails.userName },
+        null
+      );
+
+      const res6 = await selectPayments(
+        { paymentID: data.data.userDetails.paymentStatus.paymentID },
+        null
+      );
 
       if (
         res.status == "Alhamdulillah" &&
         res2.status == "Alhamdulillah" &&
         res3.status == "Alhamdulillah" &&
-        res4.status == "Alhamdulillah"
+        res4.status == "Alhamdulillah" &&
+        res5.status == "Alhamdulillah" &&
+        res6.status == "Alhamdulillah"
       ) {
         setCourse(res.data);
         setJamat(res2.data);
         setSemester(res3.data);
         setDepartment(res4.data);
+        setStudents(res5.data[0]);
+        setPayments(res6.data[0]);
       }
     }
     getData();
@@ -84,6 +189,8 @@ function SwitchDesign() {
       setExtraSemester(false);
     }
   }, []);
+
+  console.log(mainData);
 
   return (
     <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">
@@ -127,12 +234,13 @@ function SwitchDesign() {
               </label>
 
               <select
-                value=""
+                value={mainData.jamat}
+                onChange={jamatDecision}
                 id="jamat"
                 name="jamat"
                 className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
               >
-                <option value="none">আপনার জামাত নির্বাচন করুন</option>
+                <option value="">আপনার জামাত নির্বাচন করুন</option>
                 {jamat
                   ? jamat.map((item, i) => (
                       <option key={i} value={item.jamatID}>
@@ -155,7 +263,8 @@ function SwitchDesign() {
               </label>
 
               <select
-                value=""
+                value={mainData.semester}
+                onChange={semesterDecision}
                 id="semester"
                 name="semester"
                 className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
