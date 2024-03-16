@@ -73,91 +73,90 @@ function SwitchDesign() {
           desiredCourse(mainData.classes).coursePrice.registration.tk >
             payments.admissionPrice.tk
         ) {
-          alert("Class Admission Price higher than now");
-          // NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
-          //   new Date(Date.now()).toISOString();
+          NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
+            new Date(Date.now()).toISOString();
 
-          // NewStudentCourseCode.push({
-          //   code: mainData.classes,
-          //   startedDate: new Date(Date.now()).toISOString(),
-          //   endDate: null,
-          //   status: "inactive",
-          // });
+          NewStudentCourseCode.push({
+            code: mainData.classes,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "inactive",
+          });
 
-          // NewStudentDepartment[NewStudentDepartment.length - 1].endDate =
-          //   new Date(Date.now()).toISOString();
+          NewStudentDepartment[NewStudentDepartment.length - 1].endDate =
+            new Date(Date.now()).toISOString();
 
-          // NewStudentDepartment.push({
-          //   code: mainData.department,
-          //   startedDate: new Date(Date.now()).toISOString(),
-          //   endDate: null,
-          //   status: "inactive",
-          // });
+          NewStudentDepartment.push({
+            code: mainData.department,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "inactive",
+          });
 
-          // NewStudentJamatCode[NewStudentJamatCode.length - 1].endDate =
-          //   new Date(Date.now()).toISOString();
-          // NewStudentJamatCode.push({
-          //   code: mainData.jamat,
-          //   startedDate: new Date(Date.now()).toISOString(),
-          //   endDate: null,
-          //   status: "inactive",
-          // });
+          NewStudentJamatCode[NewStudentJamatCode.length - 1].endDate =
+            new Date(Date.now()).toISOString();
+          NewStudentJamatCode.push({
+            code: mainData.jamat,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "inactive",
+          });
 
-          // NewStudentSemester[NewStudentSemester.length - 1].endDate = new Date(
-          //   Date.now()
-          // ).toISOString();
-          // NewStudentSemester.push({
-          //   code: mainData.semester,
-          //   startedDate: new Date(Date.now()).toISOString(),
-          //   endDate: null,
-          //   status: "inactive",
-          // });
+          NewStudentSemester[NewStudentSemester.length - 1].endDate = new Date(
+            Date.now()
+          ).toISOString();
+          NewStudentSemester.push({
+            code: mainData.semester,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "inactive",
+          });
 
-          // const res = await updateStudents(
-          //   data.data.userDetails.userName,
-          //   data.data.userDetails.firstName.en,
-          //   data.data.userDetails.firstName.bn,
-          //   data.data.userDetails.lastName.en,
-          //   data.data.userDetails.lastName.bn,
-          //   data.data.userDetails.nidNumber,
-          //   data.data.userDetails.birthRegNumber,
-          //   data.data.userDetails.fatherName.en,
-          //   data.data.userDetails.fatherName.bn,
-          //   data.data.userDetails.emailAddress,
-          //   undefined,
-          //   data.data.userDetails.mobileNumber,
-          //   data.data.userDetails.occupation,
-          //   NewStudentCourseCode,
-          //   NewStudentJamatCode,
-          //   data.data.userDetails.gender,
-          //   data.data.userDetails.dateOfBirth,
-          //   data.data.userDetails.countryName,
-          //   data.data.userDetails.fullPresentAddress,
-          //   data.data.userDetails.fullPermanentAddress,
-          //   data.data.userDetails.admissionSession,
-          //   data.data.userDetails.admissionDate,
-          //   data.data.userDetails.studentMotive,
-          //   data.data.userDetails.details,
-          //   {
-          //     addmissionDueStatus: true,
-          //     consequentDueStatus: false,
-          //     paymentID: "",
-          //   },
-          //   data.data.userDetails.userRole,
-          //   data.data.userDetails.extracurricular,
-          //   data.data.userDetails.activeStatus,
-          //   data.data.userDetails._id,
-          //   NewStudentDepartment,
-          //   NewStudentSemester
-          // );
-          // if (res.status == "Alhamdulillah") {
-          //   const resPay = await deletePayment(payments.paymentID);
-          //   if (resPay.status == "Alhamdulillah") {
-          //     mytoast.success(
-          //       "Settings has been reset. New class requires additional Payment. Pay for new Class"
-          //     );
-          //   }
-          // }
+          const res = await updateStudents(
+            data.data.userDetails.userName,
+            data.data.userDetails.firstName.en,
+            data.data.userDetails.firstName.bn,
+            data.data.userDetails.lastName.en,
+            data.data.userDetails.lastName.bn,
+            data.data.userDetails.nidNumber,
+            data.data.userDetails.birthRegNumber,
+            data.data.userDetails.fatherName.en,
+            data.data.userDetails.fatherName.bn,
+            data.data.userDetails.emailAddress,
+            undefined,
+            data.data.userDetails.mobileNumber,
+            data.data.userDetails.occupation,
+            NewStudentCourseCode,
+            NewStudentJamatCode,
+            data.data.userDetails.gender,
+            data.data.userDetails.dateOfBirth,
+            data.data.userDetails.countryName,
+            data.data.userDetails.fullPresentAddress,
+            data.data.userDetails.fullPermanentAddress,
+            data.data.userDetails.admissionSession,
+            data.data.userDetails.admissionDate,
+            data.data.userDetails.studentMotive,
+            data.data.userDetails.details,
+            {
+              addmissionDueStatus: true,
+              consequentDueStatus: false,
+              paymentID: "",
+            },
+            data.data.userDetails.userRole,
+            data.data.userDetails.extracurricular,
+            data.data.userDetails.activeStatus,
+            data.data.userDetails._id,
+            NewStudentDepartment,
+            NewStudentSemester
+          );
+          if (res.status == "Alhamdulillah") {
+            const resPay = await deletePayment(payments.paymentID);
+            if (resPay.status == "Alhamdulillah") {
+              mytoast.success(
+                "Settings has been reset. New class requires additional Payment. Pay for new Class"
+              );
+            }
+          }
         } else if (
           desiredCourse(mainData.classes) &&
           desiredCourse(mainData.classes).coursePrice.registration.tk <=
