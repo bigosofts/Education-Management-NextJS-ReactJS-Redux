@@ -432,7 +432,6 @@ function PreFeeSection({ profile }) {
   }, []);
 
   async function submitData(e) {
-    debugger;
     e.preventDefault();
     if (
       mainData.currency &&
@@ -452,7 +451,6 @@ function PreFeeSection({ profile }) {
       mainData.paymentWay != "none" &&
       mainData.paymentWay != ""
     ) {
-      debugger;
       let currentDate = new Date();
       let oneYearLater = new Date(currentDate);
 
@@ -795,7 +793,6 @@ function PreFeeSection({ profile }) {
       mainData.paymentWay != "none" &&
       mainData.paymentWay != ""
     ) {
-      debugger;
       let currentDate = new Date();
       let oneYearLater = new Date(currentDate);
 
@@ -1129,7 +1126,6 @@ function PreFeeSection({ profile }) {
       mainData.accountNo == "none" &&
       mainData.paymentWay == "none"
     ) {
-      debugger;
       let currentDate = new Date();
       let oneYearLater = new Date(currentDate);
 
@@ -1452,7 +1448,6 @@ function PreFeeSection({ profile }) {
     } else {
       mytoast.warning("Admission Form: One or more field is emplty");
     }
-    debugger;
   }
 
   console.log(mainData);

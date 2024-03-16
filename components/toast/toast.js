@@ -11,7 +11,7 @@ import {
 const mytoast = {
   success: (msg) => {
     toastConfig({
-      duration: 6000,
+      duration: 10000,
       zIndex: 999999,
       className: "custom-toast",
       clickClosable: true,
@@ -31,7 +31,7 @@ const mytoast = {
   },
   warning: (msg) => {
     toastConfig({
-      duration: 6000,
+      duration: 10000,
       zIndex: 999999,
       className: "custom-toast",
       clickClosable: true,
@@ -51,7 +51,7 @@ const mytoast = {
   },
   danger: (msg) => {
     toastConfig({
-      duration: 6000,
+      duration: 10000,
       zIndex: 999999,
       className: "custom-toast",
       clickClosable: true,
@@ -71,7 +71,7 @@ const mytoast = {
   },
   info: (msg) => {
     toastConfig({
-      duration: 6000,
+      duration: 10000,
       zIndex: 999999,
       className: "custom-toast",
       clickClosable: true,
