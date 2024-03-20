@@ -74,26 +74,20 @@ function Table({ profile, paymentID, students }) {
                   <br /> Dollar: {payments.admissionPrice.us}
                 </td>
                 <td className="px-1 md:px-6 py-4">
-                  {
-                    profile.studentCourseCode[
-                      profile.studentCourseCode.length - 1
-                    ].code
-                  }
+                  {profile.studentCourseCode[i]
+                    ? profile.studentCourseCode[i].code
+                    : "Upcoming"}
                   <br />
-                  {
-                    profile.studentDepartment[
-                      profile.studentDepartment.length - 1
-                    ].code
-                  }
+                  {profile.studentDepartment[i]
+                    ? profile.studentDepartment[i].code
+                    : "Upcoming"}
                   <br />
                   {profile.studentJamatCode[0] &&
-                    profile.studentJamatCode[
-                      profile.studentJamatCode.length - 1
-                    ].code}
+                    profile.studentJamatCode[i] ? profile.studentJamatCode[i].code : "Upcoming"}
                   <br />
                   {profile.studentSemester[0] &&
-                    profile.studentSemester[profile.studentSemester.length - 1]
-                      .code}
+                    profile.studentSemester[i] ? profile.studentSemester[i]
+                      .code : "Upcoming"}
                 </td>
                 <td className="px-1 md:px-6 py-4">{niceDate(item.Date)}</td>
                 <td className="px-1 md:px-6 py-4">
@@ -109,7 +103,9 @@ function Table({ profile, paymentID, students }) {
                 <td className="px-1 md:px-6 py-4">
                   {item.transactionID ? item.transactionID : "Not Submitted"}
                 </td>
-                <td className="px-1 md:px-6 py-4">{item.paymentWay ? item.paymentWay : "Not Applicable"}</td>
+                <td className="px-1 md:px-6 py-4">
+                  {item.paymentWay ? item.paymentWay : "Not Applicable"}
+                </td>
 
                 <td className="px-1 md:px-6 py-4">
                   <div>

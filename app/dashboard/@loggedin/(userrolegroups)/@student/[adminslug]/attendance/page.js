@@ -23,7 +23,7 @@ function AttendancePage() {
     "urdu",
     "ramadanquranulkarim",
     "farzeayinampara",
-    "abacus_teacher"
+    "abacus_teacher",
   ];
   const allowList = [
     "alemalema",
@@ -37,7 +37,7 @@ function AttendancePage() {
     "urdu",
     "ramadanquranulkarim",
     "farzeayinampara",
-    "abacus_teacher"
+    "abacus_teacher",
   ];
 
   useEffect(() => {
@@ -47,18 +47,8 @@ function AttendancePage() {
         null
       );
       if (res.status == "Alhamdulillah") {
-        let course;
-        if(res.data[0].studentCourseCode.length > 0){
-          course =
-          res.data[0].studentCourseCode[
-            res.data[0].studentCourseCode.length - 1
-          ].code;
-        }
-        
-        if (allowList.some((item) => item == course)) {
+        if (res.data[0].studentCourseCode.length > 0) {
           setShowPage(true);
-        } else {
-          setShowPage(false);
         }
       }
     }
@@ -76,10 +66,8 @@ function AttendancePage() {
       return <WaitingApproval />;
     } else if (showPage) {
       return <div>Attendance Page</div>;
-    } else if(!showPage) {
-     
-        return <NotAllow allowList={allowList} />;
-    
+    } else if (!showPage) {
+      return <NotAllow allowList={allowList} />;
     }
   }
 }

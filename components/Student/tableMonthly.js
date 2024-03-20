@@ -109,7 +109,9 @@ function TableMonthly({ profile, paymentID, students }) {
                 <td className="px-1 md:px-6 py-1">
                   {item.transactionID ? item.transactionID : "Not Submitted"}
                 </td>
-                <td className="px-1 md:px-6 py-1">{item.paymentWay ? item.paymentWay : "Not Applicable"}</td>
+                <td className="px-1 md:px-6 py-1">
+                  {item.paymentWay ? item.paymentWay : "Not Applicable"}
+                </td>
 
                 <td className="px-1 md:px-6 py-1">
                   <div>

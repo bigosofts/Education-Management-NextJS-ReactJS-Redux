@@ -328,7 +328,7 @@ function SendNotices() {
               activeStatus: "active",
             });
             abacus_teacherArray.push(element.emailAddress);
-            
+
             mytoast.success(
               `Notification and Email send to All Students of ${studentref.current.value}`
             );
@@ -380,7 +380,7 @@ function SendNotices() {
               activeStatus: "active",
             });
             hifjulquranArray.push(element.emailAddress);
-           
+
             mytoast.success(
               `Notification and Email send to All Students of ${studentref.current.value}`
             );
@@ -432,7 +432,7 @@ function SendNotices() {
               activeStatus: "active",
             });
             farzeayinnajeraArray.push(element.emailAddress);
-           
+
             mytoast.success(
               `Notification and Email send to All Students of ${studentref.current.value}`
             );
@@ -483,8 +483,8 @@ function SendNotices() {
               readStatus: false,
               activeStatus: "active",
             });
-            farzeayinmaktabArray.push(element.emailAddress)
-           
+            farzeayinmaktabArray.push(element.emailAddress);
+
             mytoast.success(
               `Notification and Email send to All Students of ${studentref.current.value}`
             );
@@ -536,7 +536,7 @@ function SendNotices() {
               activeStatus: "active",
             });
             abacus_studentArray.push(element.emailAddress);
-            
+
             mytoast.success(
               `Notification and Email send to All Students of ${studentref.current.value}`
             );
@@ -588,7 +588,7 @@ function SendNotices() {
               activeStatus: "active",
             });
             urduArray.push(element.emailAddress);
-           
+
             mytoast.success(
               `Notification and Email send to All Students of ${studentref.current.value}`
             );
@@ -640,7 +640,7 @@ function SendNotices() {
               activeStatus: "active",
             });
             ramadanquranulkarimArray.push(element.emailAddress);
-            
+
             mytoast.success(
               `Notification and Email send to All Students of ${studentref.current.value}`
             );
@@ -692,7 +692,7 @@ function SendNotices() {
               activeStatus: "active",
             });
             shishunajeraArray.push(element.emailAddress);
-            
+
             mytoast.success(
               `Notification and Email send to All Students of ${studentref.current.value}`
             );
@@ -864,7 +864,7 @@ function SendNotices() {
         </div>
         <div className="w-1/2 h-[1000px] overflow-y-scroll">
           {notices &&
-            notices.map((item, i) => (
+            notices.slice(0, 20).map((item, i) => (
               <div
                 key={i}
                 className="w-full bg-lime-100 border-[1px] border-slate-300 rounded-3xl mb-5 overflow-hidden"

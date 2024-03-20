@@ -22,6 +22,7 @@ exports.isAdmin = async () => {
     const data = await response.json();
     return data;
   } else {
+    
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/isAdmin`,
       {
@@ -33,6 +34,7 @@ exports.isAdmin = async () => {
       }
     );
     if (!response.ok) {
+      console.log(response);
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }

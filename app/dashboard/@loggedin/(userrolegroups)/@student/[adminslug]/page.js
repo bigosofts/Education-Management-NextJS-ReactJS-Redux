@@ -177,6 +177,7 @@ function page(props) {
                   res2.data[0].monthlyPaymentHistory.length - 1
                 ].PaymentStatus == true
               ) {
+               
                 iterate.forEach((item) => {
                   newMonthlyPayment.push({
                     Date: new Date(item),

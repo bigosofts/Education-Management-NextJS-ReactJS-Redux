@@ -37,18 +37,12 @@ function AbacusPage(props) {
         null
       );
       if (res.status == "Alhamdulillah") {
-        let course;
-        if(res.data[0].studentCourseCode.length > 0){
-          course =
-          res.data[0].studentCourseCode[
-            res.data[0].studentCourseCode.length - 1
-          ].code;
-        }
-       
-        if (allowList.some((item) => item == course)) {
-          setShowPage(true);
-        } else {
-          setShowPage(false);
+        if (res.data[0].studentCourseCode.length > 0) {
+          res.data[0].studentCourseCode.forEach((item) => {
+            if (item.code == "ramadanquranulkarim" && item.status == "active") {
+              setShowPage(true);
+            }
+          });
         }
       }
     }

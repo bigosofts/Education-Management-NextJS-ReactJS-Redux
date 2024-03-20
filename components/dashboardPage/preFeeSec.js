@@ -380,19 +380,13 @@ function PreFeeSection({ profile }) {
                 });
 
                 if (dObj) {
-                  if (rate) {
-                    let tkC = Math.round(
-                      dObj.coursePrice.registration.us * rate.conversion_rate
-                    );
+                  let tkC = Math.round(dObj.coursePrice.registration.us * 109);
 
-                    let usC = dObj.coursePrice.registration.us;
-                    let mtkC = Math.round(
-                      dObj.coursePrice.monthly.us * rate.conversion_rate
-                    );
+                  let usC = dObj.coursePrice.registration.us;
+                  let mtkC = Math.round(dObj.coursePrice.monthly.us * 109);
 
-                    let musC = dObj.coursePrice.monthly.us;
-                    setMoney({ tk: tkC, us: usC, mtk: mtkC, mus: musC });
-                  }
+                  let musC = dObj.coursePrice.monthly.us;
+                  setMoney({ tk: tkC, us: usC, mtk: mtkC, mus: musC });
                 }
               }
             }
@@ -1450,7 +1444,6 @@ function PreFeeSection({ profile }) {
     }
   }
 
-  console.log(mainData);
   return (
     <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">
       <div className="flex justify-center p-5 pb-10">

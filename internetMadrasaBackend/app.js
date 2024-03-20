@@ -20,12 +20,12 @@ const cors = require("cors");
 // Database Lib Import
 const mongoose = require("mongoose");
 
-
 // Security Middleware Implement
 app.use(cookieParser());
+
 app.use(
   cors({
-    origin: `${process.env.Frontend}`,
+    origin: `${process.env.FRONTEND}`,
     credentials: true,
   })
 );

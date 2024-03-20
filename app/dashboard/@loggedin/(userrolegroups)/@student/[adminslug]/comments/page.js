@@ -48,19 +48,12 @@ function CommentPage() {
         null
       );
       if (res.status == "Alhamdulillah") {
-        let course;
+       
         if(res.data[0].studentCourseCode.length > 0){
-          course =
-          res.data[0].studentCourseCode[
-            res.data[0].studentCourseCode.length - 1
-          ].code;
+          setShowPage(true);
         }
         
-        if (allowList.some((item) => item == course)) {
-          setShowPage(true);
-        } else {
-          setShowPage(false);
-        }
+       
       }
     }
     getData();
