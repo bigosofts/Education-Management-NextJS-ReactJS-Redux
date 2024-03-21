@@ -7,14 +7,28 @@ function NoteCard() {
         {true ? "ভর্তি চলমান..." : "Admission Ongoing..."}
       </div>
       <h3 className="notehone" style={{ textAlign: "center" }}>
-        <i className="fa fa-check"></i><Link href="/course/hifjulquran">{true ? "হিফজুল কুরআন" : "Hifzul Quran"}</Link> 
+        <i className="fa fa-check"></i>
+        <Link href="/classes/alemalema">
+          {true ? "আলেম আলেমা" : "Alem Alema"}
+        </Link>
       </h3>
       <h3 className="notehone" style={{ textAlign: "center" }}>
-        <i className="fa fa-check"></i><Link href="/course/shishumaktab">{true ? "শিশু মক্তব" : "Child Maktab"}</Link> 
+        <i className="fa fa-check"></i>
+        <Link href="/classes/hifjulquran">
+          {true ? "হিফজুল কুরআন" : "Hifzul Quran"}
+        </Link>
+      </h3>
+      <h3 className="notehone" style={{ textAlign: "center" }}>
+        <i className="fa fa-check"></i>
+        <Link href="/classes/shishumaktab">
+          {true ? "শিশু মক্তব" : "Child Maktab"}
+        </Link>
       </h3>
       <h3 className="notehone" style={{ textAlign: "center" }}>
         <i className="fa fa-check"></i>{" "}
-        <Link href="/course/farzeayinnajera">{true ? "ফরজে আইন নাজেরা" : "Farze Ayin Nazera"}</Link>
+        <Link href="/classes/farzeayinnajera">
+          {true ? "ফরজে আইন নাজেরা" : "Farze Ayin Nazera"}
+        </Link>
       </h3>
       <h3 className="notehone" style={{ textAlign: "center" }}>
         <i className="fa fa-check"></i>{" "}

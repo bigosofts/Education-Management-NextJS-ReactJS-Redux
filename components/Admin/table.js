@@ -48,14 +48,18 @@ function Table({ profile, paymentID, students }) {
       });
 
       let modifiedStudentCourseCode = student[0].studentCourseCode.map(
-        (item) => {
-          return {
-            code: item.code,
-            startedDate: item.startedDate,
-            endDate: item.endDate,
-            status: "active",
-            _id: item._id,
-          };
+        (item, i, oArray) => {
+          if (item.code == oArray[oArray.length - 1].code) {
+            return {
+              code: item.code,
+              startedDate: item.startedDate,
+              endDate: item.endDate,
+              status: "active",
+              _id: item._id,
+            };
+          } else {
+            item;
+          }
         }
       );
 

@@ -372,6 +372,8 @@ function StudentLayout({ children, params }) {
         },
       ];
 
+      let checkArray = [];
+
       data.data.userDetails.studentCourseCode.forEach((item) => {
         newArray = FixedNewArray;
 
@@ -391,9 +393,16 @@ function StudentLayout({ children, params }) {
             },
           ];
 
-          alemalemaArray.forEach((item) => {
-            newArray.push(item);
-          });
+          if (
+            !checkArray.some((item) => {
+              return item == "alemalema";
+            })
+          ) {
+            alemalemaArray.forEach((item) => {
+              newArray.push(item);
+            });
+            checkArray.push("alemalema");
+          }
         }
         if (item.code == "abacus_student" && item.status == "active") {
           let abacusArray = [
@@ -404,9 +413,16 @@ function StudentLayout({ children, params }) {
               show: true,
             },
           ];
-          abacusArray.forEach((item) => {
-            newArray.push(item);
-          });
+          if (
+            !checkArray.some((item) => {
+              return item == "abacus_student";
+            })
+          ) {
+            abacusArray.forEach((item) => {
+              newArray.push(item);
+            });
+            checkArray.push("abacus_student");
+          }
         }
         if (item.code == "abacus_teacher" && item.status == "active") {
           let abacusTeacherArray = [
@@ -417,9 +433,16 @@ function StudentLayout({ children, params }) {
               show: true,
             },
           ];
-          abacusTeacherArray.forEach((item) => {
-            newArray.push(item);
-          });
+          if (
+            !checkArray.some((item) => {
+              return item == "abacus_teacher";
+            })
+          ) {
+            abacusTeacherArray.forEach((item) => {
+              newArray.push(item);
+            });
+            checkArray.push("abacus_teacher");
+          }
         }
         if (item.code == "ramadanquranulkarim" && item.status == "active") {
           let ramadanquranulkarimArray = [
@@ -430,9 +453,16 @@ function StudentLayout({ children, params }) {
               show: true,
             },
           ];
-          ramadanquranulkarimArray.forEach((item) => {
-            newArray.push(item);
-          });
+          if (
+            !checkArray.some((item) => {
+              return item == "ramadanquranulkarim";
+            })
+          ) {
+            ramadanquranulkarimArray.forEach((item) => {
+              newArray.push(item);
+            });
+            checkArray.push("ramadanquranulkarim");
+          }
         }
       });
     } else {

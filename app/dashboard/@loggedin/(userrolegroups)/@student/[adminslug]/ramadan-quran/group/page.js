@@ -6,7 +6,7 @@ function AbacusGroup() {
   const data = useSelector((state) => state.isAdmin.value);
 
   const girlsLink = "https://t.me/+FPaWbxJK5n4xZmY1";
-  const boysLink = "https://t.me/+Xnag5Hroeys5NDU9";
+  const boysLink = "https://t.me/+I86cqXm4qkFmNjA1";
 
   const hardRefresh = (link) => {
     if (typeof window !== "undefined") {
@@ -58,9 +58,9 @@ function AbacusGroup() {
         </ul>
         <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
           আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার ফ্রি রমজান কুরআনুল কারীম ক্ল্যাস
-          রমজানের প্রথম দিন থেকে শুরু হবে ইং শা আল্লাহ। আপনারা উপরোক্ত লিংক থেকে
-          নিজ নিজ ক্ল্যাস গ্রুপে জয়েন থাকুন। ক্ল্যাসের শিডিউল খুব শীঘ্রই
-          ওয়েবসাইটে পাবলিশ করা হবে।
+          রমজানের প্রথম দিন থেকে শুরু হয়ে গেছে আলহামদুলিল্লাহ। আপনারা উপরোক্ত
+          লিংক থেকে নিজ নিজ ক্ল্যাস গ্রুপে জয়েন থাকুন। ক্ল্যাস ছেলেদের দুপুর
+          ৩.০০ টায়, মেয়েদের সকাল ১০.০০ টায়।
         </div>
       </div>
     </div>
