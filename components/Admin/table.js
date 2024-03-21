@@ -63,37 +63,53 @@ function Table({ profile, paymentID, students }) {
         }
       );
 
-      let modifiedStudentJamatCode = student[0].studentJamatCode.map((item) => {
-        return {
-          code: item.code,
-          startedDate: item.startedDate,
-          endDate: item.endDate,
-          status: "active",
-          _id: item._id,
-        };
-      });
-
-      let modifiedStudentDepartment = student[0].studentDepartment.map(
-        (item) => {
-          return {
-            code: item.code,
-            startedDate: item.startedDate,
-            endDate: item.endDate,
-            status: "active",
-            _id: item._id,
-          };
+      let modifiedStudentJamatCode = student[0].studentJamatCode.map(
+        (item, i, oArray) => {
+          if (item.code == oArray[oArray.length - 1].code) {
+            return {
+              code: item.code,
+              startedDate: item.startedDate,
+              endDate: item.endDate,
+              status: "active",
+              _id: item._id,
+            };
+          } else {
+            item;
+          }
         }
       );
 
-      let modifiedStudentSemester = student[0].studentSemester.map((item) => {
-        return {
-          code: item.code,
-          startedDate: item.startedDate,
-          endDate: item.endDate,
-          status: "active",
-          _id: item._id,
-        };
-      });
+      let modifiedStudentDepartment = student[0].studentDepartment.map(
+        (item, i, oArray) => {
+          if (item.code == oArray[oArray.length - 1].code) {
+            return {
+              code: item.code,
+              startedDate: item.startedDate,
+              endDate: item.endDate,
+              status: "active",
+              _id: item._id,
+            };
+          } else {
+            item;
+          }
+        }
+      );
+
+      let modifiedStudentSemester = student[0].studentSemester.map(
+        (item, i, oArray) => {
+          if (item.code == oArray[oArray.length - 1].code) {
+            return {
+              code: item.code,
+              startedDate: item.startedDate,
+              endDate: item.endDate,
+              status: "active",
+              _id: item._id,
+            };
+          } else {
+            item;
+          }
+        }
+      );
 
       const res = await updateData(
         student[0].userName,
