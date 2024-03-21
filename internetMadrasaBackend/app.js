@@ -23,13 +23,13 @@ const mongoose = require("mongoose");
 // Security Middleware Implement
 app.use(cookieParser());
 
-app.use(
-  cors({
-    origin: `${process.env.FRONTEND}`,
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-  })
-);
+// app.use(
+//   cors({
+//     origin: `${process.env.FRONTEND}`,
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//   })
+// );
 app.use(helmet());
 app.use(mongoSanitize());
 app.use(xssClean());
