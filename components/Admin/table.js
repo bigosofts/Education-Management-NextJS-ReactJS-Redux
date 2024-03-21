@@ -49,7 +49,15 @@ function Table({ profile, paymentID, students }) {
 
       let modifiedStudentCourseCode = student[0].studentCourseCode.map(
         (item, i, oArray) => {
-          if (item.code == oArray[oArray.length - 1].code) {
+          if (item.code == oArray[oArray.length - 2].code) {
+            return {
+              code: item.code,
+              startedDate: item.startedDate,
+              endDate: item.endDate,
+              status: "inactive",
+              _id: item._id,
+            };
+          } else {
             return {
               code: item.code,
               startedDate: item.startedDate,
@@ -57,15 +65,21 @@ function Table({ profile, paymentID, students }) {
               status: "active",
               _id: item._id,
             };
-          } else {
-            item;
           }
         }
       );
 
       let modifiedStudentJamatCode = student[0].studentJamatCode.map(
         (item, i, oArray) => {
-          if (item.code == oArray[oArray.length - 1].code) {
+          if (item.code == oArray[oArray.length - 2].code) {
+            return {
+              code: item.code,
+              startedDate: item.startedDate,
+              endDate: item.endDate,
+              status: "inactive",
+              _id: item._id,
+            };
+          } else {
             return {
               code: item.code,
               startedDate: item.startedDate,
@@ -73,15 +87,21 @@ function Table({ profile, paymentID, students }) {
               status: "active",
               _id: item._id,
             };
-          } else {
-            item;
           }
         }
       );
 
       let modifiedStudentDepartment = student[0].studentDepartment.map(
         (item, i, oArray) => {
-          if (item.code == oArray[oArray.length - 1].code) {
+          if (item.code == oArray[oArray.length - 2].code) {
+            return {
+              code: item.code,
+              startedDate: item.startedDate,
+              endDate: item.endDate,
+              status: "inactive",
+              _id: item._id,
+            };
+          } else {
             return {
               code: item.code,
               startedDate: item.startedDate,
@@ -89,27 +109,32 @@ function Table({ profile, paymentID, students }) {
               status: "active",
               _id: item._id,
             };
-          } else {
-            item;
           }
         }
       );
 
       let modifiedStudentSemester = student[0].studentSemester.map(
         (item, i, oArray) => {
-          if (item.code == oArray[oArray.length - 1].code) {
+          if (item.code == oArray[oArray.length - 2].code) {
             return {
               code: item.code,
               startedDate: item.startedDate,
               endDate: item.endDate,
-              status: "active",
+              status: "inactive",
               _id: item._id,
             };
           } else {
-            item;
+            return {
+              code: item.code,
+              startedDate: item.startedDate,
+              endDate: item.endDate,
+              status: "inactive",
+              _id: item._id,
+            };
           }
         }
       );
+     
 
       const res = await updateData(
         student[0].userName,
