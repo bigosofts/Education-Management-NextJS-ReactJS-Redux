@@ -58,14 +58,24 @@ function Table({ profile, paymentID, students }) {
               _id: item._id,
             };
           } else {
-            if (item.code == oArray[oArray.length - 2].code) {
-              return {
-                code: item.code,
-                startedDate: item.startedDate,
-                endDate: item.endDate,
-                status: "inactive",
-                _id: item._id,
-              };
+            if (oArray[oArray.length - 2].status == "inactive") {
+              if (item.code == oArray[oArray.length - 2].code) {
+                return {
+                  code: item.code,
+                  startedDate: item.startedDate,
+                  endDate: item.endDate,
+                  status: "inactive",
+                  _id: item._id,
+                };
+              } else {
+                return {
+                  code: item.code,
+                  startedDate: item.startedDate,
+                  endDate: item.endDate,
+                  status: "active",
+                  _id: item._id,
+                };
+              }
             } else {
               return {
                 code: item.code,
@@ -90,14 +100,24 @@ function Table({ profile, paymentID, students }) {
               _id: item._id,
             };
           } else {
-            if (item.code == oArray[oArray.length - 2].code) {
-              return {
-                code: item.code,
-                startedDate: item.startedDate,
-                endDate: item.endDate,
-                status: "inactive",
-                _id: item._id,
-              };
+            if (oArray[oArray.length - 2].status == "inactive") {
+              if (item.code == oArray[oArray.length - 2].code) {
+                return {
+                  code: item.code,
+                  startedDate: item.startedDate,
+                  endDate: item.endDate,
+                  status: "inactive",
+                  _id: item._id,
+                };
+              } else {
+                return {
+                  code: item.code,
+                  startedDate: item.startedDate,
+                  endDate: item.endDate,
+                  status: "active",
+                  _id: item._id,
+                };
+              }
             } else {
               return {
                 code: item.code,
@@ -122,14 +142,24 @@ function Table({ profile, paymentID, students }) {
               _id: item._id,
             };
           } else {
-            if (item.code == oArray[oArray.length - 2].code) {
-              return {
-                code: item.code,
-                startedDate: item.startedDate,
-                endDate: item.endDate,
-                status: "inactive",
-                _id: item._id,
-              };
+            if (oArray[oArray.length - 2].status == "inactive") {
+              if (item.code == oArray[oArray.length - 2].code) {
+                return {
+                  code: item.code,
+                  startedDate: item.startedDate,
+                  endDate: item.endDate,
+                  status: "inactive",
+                  _id: item._id,
+                };
+              } else {
+                return {
+                  code: item.code,
+                  startedDate: item.startedDate,
+                  endDate: item.endDate,
+                  status: "active",
+                  _id: item._id,
+                };
+              }
             } else {
               return {
                 code: item.code,
@@ -154,20 +184,30 @@ function Table({ profile, paymentID, students }) {
               _id: item._id,
             };
           } else {
-            if (item.code == oArray[oArray.length - 2].code) {
-              return {
-                code: item.code,
-                startedDate: item.startedDate,
-                endDate: item.endDate,
-                status: "inactive",
-                _id: item._id,
-              };
+            if (oArray[oArray.length - 2].status == "inactive") {
+              if (item.code == oArray[oArray.length - 2].code) {
+                return {
+                  code: item.code,
+                  startedDate: item.startedDate,
+                  endDate: item.endDate,
+                  status: "inactive",
+                  _id: item._id,
+                };
+              } else {
+                return {
+                  code: item.code,
+                  startedDate: item.startedDate,
+                  endDate: item.endDate,
+                  status: "inactive",
+                  _id: item._id,
+                };
+              }
             } else {
               return {
                 code: item.code,
                 startedDate: item.startedDate,
                 endDate: item.endDate,
-                status: "inactive",
+                status: "active",
                 _id: item._id,
               };
             }
