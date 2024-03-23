@@ -58,7 +58,15 @@ function Table({ profile, paymentID, students }) {
               _id: item._id,
             };
           } else {
-            if (oArray[oArray.length - 2].status == "inactive") {
+            if (i == oArray.length - 1) {
+              return {
+                code: item.code,
+                startedDate: item.startedDate,
+                endDate: item.endDate,
+                status: "active",
+                _id: item._id,
+              };
+            } else if (oArray[oArray.length - 2].status == "inactive") {
               if (item.code == oArray[oArray.length - 2].code) {
                 return {
                   code: item.code,
@@ -68,22 +76,10 @@ function Table({ profile, paymentID, students }) {
                   _id: item._id,
                 };
               } else {
-                return {
-                  code: item.code,
-                  startedDate: item.startedDate,
-                  endDate: item.endDate,
-                  status: "active",
-                  _id: item._id,
-                };
+                return item;
               }
             } else {
-              return {
-                code: item.code,
-                startedDate: item.startedDate,
-                endDate: item.endDate,
-                status: "active",
-                _id: item._id,
-              };
+              return item;
             }
           }
         }
@@ -100,7 +96,15 @@ function Table({ profile, paymentID, students }) {
               _id: item._id,
             };
           } else {
-            if (oArray[oArray.length - 2].status == "inactive") {
+            if (i == oArray.length - 1) {
+              return {
+                code: item.code,
+                startedDate: item.startedDate,
+                endDate: item.endDate,
+                status: "active",
+                _id: item._id,
+              };
+            } else if (oArray[oArray.length - 2].status == "inactive") {
               if (item.code == oArray[oArray.length - 2].code) {
                 return {
                   code: item.code,
@@ -110,22 +114,10 @@ function Table({ profile, paymentID, students }) {
                   _id: item._id,
                 };
               } else {
-                return {
-                  code: item.code,
-                  startedDate: item.startedDate,
-                  endDate: item.endDate,
-                  status: "active",
-                  _id: item._id,
-                };
+                return item;
               }
             } else {
-              return {
-                code: item.code,
-                startedDate: item.startedDate,
-                endDate: item.endDate,
-                status: "active",
-                _id: item._id,
-              };
+              return item;
             }
           }
         }
@@ -142,7 +134,15 @@ function Table({ profile, paymentID, students }) {
               _id: item._id,
             };
           } else {
-            if (oArray[oArray.length - 2].status == "inactive") {
+            if (i == oArray.length - 1) {
+              return {
+                code: item.code,
+                startedDate: item.startedDate,
+                endDate: item.endDate,
+                status: "active",
+                _id: item._id,
+              };
+            } else if (oArray[oArray.length - 2].status == "inactive") {
               if (item.code == oArray[oArray.length - 2].code) {
                 return {
                   code: item.code,
@@ -152,22 +152,10 @@ function Table({ profile, paymentID, students }) {
                   _id: item._id,
                 };
               } else {
-                return {
-                  code: item.code,
-                  startedDate: item.startedDate,
-                  endDate: item.endDate,
-                  status: "active",
-                  _id: item._id,
-                };
+                return item;
               }
             } else {
-              return {
-                code: item.code,
-                startedDate: item.startedDate,
-                endDate: item.endDate,
-                status: "active",
-                _id: item._id,
-              };
+              return item;
             }
           }
         }
@@ -184,7 +172,15 @@ function Table({ profile, paymentID, students }) {
               _id: item._id,
             };
           } else {
-            if (oArray[oArray.length - 2].status == "inactive") {
+            if (i == oArray.length - 1) {
+              return {
+                code: item.code,
+                startedDate: item.startedDate,
+                endDate: item.endDate,
+                status: "active",
+                _id: item._id,
+              };
+            } else if (oArray[oArray.length - 2].status == "inactive") {
               if (item.code == oArray[oArray.length - 2].code) {
                 return {
                   code: item.code,
@@ -194,22 +190,10 @@ function Table({ profile, paymentID, students }) {
                   _id: item._id,
                 };
               } else {
-                return {
-                  code: item.code,
-                  startedDate: item.startedDate,
-                  endDate: item.endDate,
-                  status: "inactive",
-                  _id: item._id,
-                };
+                return item;
               }
             } else {
-              return {
-                code: item.code,
-                startedDate: item.startedDate,
-                endDate: item.endDate,
-                status: "active",
-                _id: item._id,
-              };
+              return item;
             }
           }
         }

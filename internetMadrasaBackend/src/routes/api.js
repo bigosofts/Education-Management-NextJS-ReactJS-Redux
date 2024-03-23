@@ -44,7 +44,7 @@ router.get("/hello", (req, res) => {
 //api for data management
 
 //authentication
-router.get("/isAdmin", authverify, (req, res) => {
+router.post("/isAdmin", authverify, (req, res) => {
   let userName = req.headers["userName"];
   let userRole = req.headers["userRole"];
   let isAdmin = req.headers["isAdmin"];

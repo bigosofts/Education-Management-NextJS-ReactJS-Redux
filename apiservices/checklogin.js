@@ -6,7 +6,7 @@ exports.isAdmin = async () => {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/isAdmin`,
       {
-        method: "GET",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
           access_token: data2,
@@ -26,7 +26,7 @@ exports.isAdmin = async () => {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/isAdmin`,
       {
-        method: "GET",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },

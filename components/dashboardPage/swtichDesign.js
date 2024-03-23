@@ -668,6 +668,342 @@ function SwitchDesign() {
           } else {
             mytoast.danger("One or more field is empty");
           }
+        } else if (
+          desiredCourse(mainData.classes) &&
+          PriceDecision(mainData.classes).tk ==
+            PriceDecision2(
+              data.data.userDetails.studentCourseCode[
+                data.data.userDetails.studentCourseCode.length - 1
+              ].code
+            ).tk
+        ) {
+          if (
+            mainData.classes == "alemalema" &&
+            mainData.jamat &&
+            mainData.semester &&
+            mainData.department
+          ) {
+            NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
+              new Date(Date.now()).toISOString();
+
+            NewStudentCourseCode.push({
+              code: mainData.classes,
+              startedDate: new Date(Date.now()).toISOString(),
+              endDate: null,
+              status: "inactive",
+            });
+
+            NewStudentDepartment[NewStudentDepartment.length - 1].endDate =
+              new Date(Date.now()).toISOString();
+
+            NewStudentDepartment.push({
+              code: mainData.department,
+              startedDate: new Date(Date.now()).toISOString(),
+              endDate: null,
+              status: "inactive",
+            });
+
+            NewStudentJamatCode[NewStudentJamatCode.length - 1].endDate =
+              new Date(Date.now()).toISOString();
+            NewStudentJamatCode.push({
+              code: mainData.jamat,
+              startedDate: new Date(Date.now()).toISOString(),
+              endDate: null,
+              status: "inactive",
+            });
+
+            NewStudentSemester[NewStudentSemester.length - 1].endDate =
+              new Date(Date.now()).toISOString();
+            NewStudentSemester.push({
+              code: mainData.semester,
+              startedDate: new Date(Date.now()).toISOString(),
+              endDate: null,
+              status: "inactive",
+            });
+
+            const res = await updateStudents(
+              data.data.userDetails.userName,
+              data.data.userDetails.firstName.en,
+              data.data.userDetails.firstName.bn,
+              data.data.userDetails.lastName.en,
+              data.data.userDetails.lastName.bn,
+              data.data.userDetails.nidNumber,
+              data.data.userDetails.birthRegNumber,
+              data.data.userDetails.fatherName.en,
+              data.data.userDetails.fatherName.bn,
+              data.data.userDetails.emailAddress,
+              undefined,
+              data.data.userDetails.mobileNumber,
+              data.data.userDetails.occupation,
+              NewStudentCourseCode,
+              NewStudentJamatCode,
+              data.data.userDetails.gender,
+              data.data.userDetails.dateOfBirth,
+              data.data.userDetails.countryName,
+              data.data.userDetails.fullPresentAddress,
+              data.data.userDetails.fullPermanentAddress,
+              data.data.userDetails.admissionSession,
+              data.data.userDetails.admissionDate,
+              data.data.userDetails.studentMotive,
+              data.data.userDetails.details,
+              {
+                addmissionDueStatus: true,
+                consequentDueStatus: true,
+                paymentID: data.data.userDetails.paymentStatus.paymentID,
+              },
+              data.data.userDetails.userRole,
+              data.data.userDetails.extracurricular,
+              data.data.userDetails.activeStatus,
+              data.data.userDetails._id,
+              NewStudentDepartment,
+              NewStudentSemester
+            );
+            if (res.status == "Alhamdulillah") {
+              let newAdmissionPaymentHistory = [
+                ...payments.admissionPaymentHistory,
+              ];
+              let newMonthlyPaymentHistory = [
+                ...payments.monthlyPaymentHistory,
+              ];
+              newMonthlyPaymentHistory[newMonthlyPaymentHistory.length - 1] = {
+                Date: newMonthlyPaymentHistory[
+                  newMonthlyPaymentHistory.length - 1
+                ].Date,
+                PaymentStatus: false,
+                Price: null,
+                currency: "",
+                transactionID: "",
+                senderNo: "",
+                paymentWay: "",
+              };
+
+              let index = newAdmissionPaymentHistory.length - 1;
+
+              newAdmissionPaymentHistory.splice(index, 0, {
+                Date: new Date(Date.now()).toISOString(),
+                PaymentStatus: false,
+                Price: PriceDecision(mainData.classes).tk,
+                currency: "taka",
+                transactionID:
+                  payments.admissionPaymentHistory[
+                    payments.admissionPaymentHistory.length - 2
+                  ].transactionID,
+                senderNo:
+                  payments.admissionPaymentHistory[
+                    payments.admissionPaymentHistory.length - 2
+                  ].senderNo,
+                paymentWay:
+                  payments.admissionPaymentHistory[
+                    payments.admissionPaymentHistory.length - 2
+                  ].paymentWay,
+                nextAdmissionDate:
+                  payments.admissionPaymentHistory[
+                    payments.admissionPaymentHistory.length - 1
+                  ].Date,
+              });
+
+              const resPay = await updatePayment({
+                paymentID: payments.paymentID,
+                paymentCurrency: payments.paymentCurrency,
+                admissionDate: payments.admissionDate,
+                admissionPrice: {
+                  tk: PriceDecision(mainData.classes).tk,
+                  us: PriceDecision(mainData.classes).us,
+                },
+                monthlyPaymentPrice: {
+                  tk: PriceDecision(mainData.classes).mtk,
+                  us: PriceDecision(mainData.classes).mus,
+                },
+                admissionPaymentHistory: newAdmissionPaymentHistory,
+                monthlyPaymentHistory: newMonthlyPaymentHistory,
+                activeStatus: payments.activeStatus,
+                idValue: payments._id,
+              });
+
+              if (resPay.status == "Alhamdulillah") {
+                mytoast.success(
+                  "Settings has been reset. Now your Account goes for verification"
+                );
+                const hardRefresh = () => {
+                  if (typeof window !== "undefined") {
+                    window.location.href = `/dashboard/${data.data.userDetails.userName}`;
+                  }
+                };
+                hardRefresh();
+              }
+            }
+          } else if (
+            (mainData.classes == "hifjulquran" ||
+              mainData.classes == "shishunajera" ||
+              mainData.classes == "shishumaktab" ||
+              mainData.classes == "farzeayinmaktab" ||
+              mainData.classes == "farzeayinnajera" ||
+              mainData.classes == "ezranahusorof" ||
+              mainData.classes == "urdu" ||
+              mainData.classes == "farzeayinampara") &&
+            mainData.department
+          ) {
+            NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
+              new Date(Date.now()).toISOString();
+
+            NewStudentCourseCode[NewStudentCourseCode.length - 1].status =
+              "inactive";
+
+            NewStudentCourseCode.push({
+              code: mainData.classes,
+              startedDate: new Date(Date.now()).toISOString(),
+              endDate: null,
+              status: "inactive",
+            });
+
+            NewStudentDepartment[NewStudentDepartment.length - 1].status =
+              "inactive";
+            NewStudentDepartment[NewStudentDepartment.length - 1].endDate =
+              new Date(Date.now()).toISOString();
+
+            NewStudentDepartment.push({
+              code: mainData.department,
+              startedDate: new Date(Date.now()).toISOString(),
+              endDate: null,
+              status: "inactive",
+            });
+
+            NewStudentJamatCode[NewStudentJamatCode.length - 1].status =
+              "inactive";
+            NewStudentJamatCode[NewStudentJamatCode.length - 1].endDate =
+              new Date(Date.now()).toISOString();
+            NewStudentJamatCode.push({
+              code: mainData.jamat,
+              startedDate: new Date(Date.now()).toISOString(),
+              endDate: null,
+              status: "inactive",
+            });
+
+            NewStudentSemester[NewStudentSemester.length - 1].status =
+              "inactive";
+            NewStudentSemester[NewStudentSemester.length - 1].endDate =
+              new Date(Date.now()).toISOString();
+            NewStudentSemester.push({
+              code: mainData.semester,
+              startedDate: new Date(Date.now()).toISOString(),
+              endDate: null,
+              status: "inactive",
+            });
+
+            const res = await updateStudents(
+              data.data.userDetails.userName,
+              data.data.userDetails.firstName.en,
+              data.data.userDetails.firstName.bn,
+              data.data.userDetails.lastName.en,
+              data.data.userDetails.lastName.bn,
+              data.data.userDetails.nidNumber,
+              data.data.userDetails.birthRegNumber,
+              data.data.userDetails.fatherName.en,
+              data.data.userDetails.fatherName.bn,
+              data.data.userDetails.emailAddress,
+              undefined,
+              data.data.userDetails.mobileNumber,
+              data.data.userDetails.occupation,
+              NewStudentCourseCode,
+              NewStudentJamatCode,
+              data.data.userDetails.gender,
+              data.data.userDetails.dateOfBirth,
+              data.data.userDetails.countryName,
+              data.data.userDetails.fullPresentAddress,
+              data.data.userDetails.fullPermanentAddress,
+              data.data.userDetails.admissionSession,
+              data.data.userDetails.admissionDate,
+              data.data.userDetails.studentMotive,
+              data.data.userDetails.details,
+              {
+                addmissionDueStatus: true,
+                consequentDueStatus: true,
+                paymentID: data.data.userDetails.paymentStatus.paymentID,
+              },
+              data.data.userDetails.userRole,
+              data.data.userDetails.extracurricular,
+              data.data.userDetails.activeStatus,
+              data.data.userDetails._id,
+              NewStudentDepartment,
+              NewStudentSemester
+            );
+            if (res.status == "Alhamdulillah") {
+              let newAdmissionPaymentHistory = [
+                ...payments.admissionPaymentHistory,
+              ];
+              let newMonthlyPaymentHistory = [
+                ...payments.monthlyPaymentHistory,
+              ];
+              newMonthlyPaymentHistory[newMonthlyPaymentHistory.length - 1] = {
+                Date: newMonthlyPaymentHistory[
+                  newMonthlyPaymentHistory.length - 1
+                ].Date,
+                PaymentStatus: false,
+                Price: null,
+                currency: "",
+                transactionID: "",
+                senderNo: "",
+                paymentWay: "",
+              };
+
+              let index = newAdmissionPaymentHistory.length - 1;
+
+              newAdmissionPaymentHistory.splice(index, 0, {
+                Date: new Date(Date.now()).toISOString(),
+                PaymentStatus: false,
+                Price: PriceDecision(mainData.classes).tk,
+                currency: "taka",
+                transactionID:
+                  payments.admissionPaymentHistory[
+                    payments.admissionPaymentHistory.length - 2
+                  ].transactionID,
+                senderNo:
+                  payments.admissionPaymentHistory[
+                    payments.admissionPaymentHistory.length - 2
+                  ].senderNo,
+                paymentWay:
+                  payments.admissionPaymentHistory[
+                    payments.admissionPaymentHistory.length - 2
+                  ].paymentWay,
+                nextAdmissionDate:
+                  payments.admissionPaymentHistory[
+                    payments.admissionPaymentHistory.length - 1
+                  ].Date,
+              });
+
+              const resPay = await updatePayment({
+                paymentID: payments.paymentID,
+                paymentCurrency: payments.paymentCurrency,
+                admissionDate: payments.admissionDate,
+                admissionPrice: {
+                  tk: PriceDecision(mainData.classes).tk,
+                  us: PriceDecision(mainData.classes).us,
+                },
+                monthlyPaymentPrice: {
+                  tk: PriceDecision(mainData.classes).mtk,
+                  us: PriceDecision(mainData.classes).mus,
+                },
+                admissionPaymentHistory: newAdmissionPaymentHistory,
+                monthlyPaymentHistory: newMonthlyPaymentHistory,
+                activeStatus: payments.activeStatus,
+                idValue: payments._id,
+              });
+
+              if (resPay.status == "Alhamdulillah") {
+                mytoast.success(
+                  "Settings has been reset. Now your Account goes for verification"
+                );
+                const hardRefresh = () => {
+                  if (typeof window !== "undefined") {
+                    window.location.href = `/dashboard/${data.data.userDetails.userName}`;
+                  }
+                };
+                hardRefresh();
+              }
+            }
+          } else {
+            mytoast.danger("One or more field is empty");
+          }
         } else {
           // start
 

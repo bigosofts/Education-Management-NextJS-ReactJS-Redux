@@ -13,7 +13,7 @@ exports.createStudent = (req, res) => {
     const currentMonthIndex = currentDate.getMonth() + 1;
 
     const prefix =
-      "IMS-" +
+      "IMS" +
       currentYear +
       String(currentMonthIndex).padStart(2, "0") +
       String(name).padStart(4, "0");
@@ -270,7 +270,7 @@ exports.createTeacher = (req, res) => {
     const currentMonthIndex = currentDate.getMonth() + 1;
 
     const prefix =
-      "IMT-" +
+      "IMT" +
       currentYear +
       String(currentMonthIndex).padStart(2, "0") +
       String(name).padStart(4, "0");
