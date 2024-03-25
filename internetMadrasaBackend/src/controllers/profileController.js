@@ -118,6 +118,20 @@ exports.selectStudents = (req, res) => {
       });
     });
 };
+
+exports.selectStudentData = (userName) => {
+  let query = userName;
+
+  return studentProfileModel
+    .find({ userName: query }, null)
+    .then((data) => {
+      return data;
+    })
+    .catch((err) => {
+      throw err; // Re-throwing the error to propagate it further
+    });
+};
+
 exports.selectAllStudents = (req, res) => {
   let query = req.body.query;
   let projection = req.body.projection;
@@ -341,6 +355,17 @@ exports.createTeacher = (req, res) => {
         status: "Innalillah",
         data: err,
       });
+    });
+};
+exports.selectTeacherData = (userName) => {
+  let query = userName;
+  return teacherProfileModel
+    .find({ userName: query }, null)
+    .then((data) => {
+      return data;
+    })
+    .catch((err) => {
+      throw err;
     });
 };
 

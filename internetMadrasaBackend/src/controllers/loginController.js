@@ -16,7 +16,11 @@ exports.studentLogin = (req, res) => {
       // Create Auth Token
       let Payload = {
         exp: Math.floor(Date.now() / 1000) + 365 * 24 * 60 * 60,
-        data: data,
+        data: {
+          userName: data.userName,
+          userRole: data.userRole,
+          isAdmin: data.isAdmin,
+        },
       };
       let token = jwt.sign(Payload, process.env.SECRETKEY_JWT_WEBTOKEN);
       res.status(200).json({
@@ -45,7 +49,11 @@ exports.teacherLogin = (req, res) => {
       // Create Auth Token
       let Payload = {
         exp: Math.floor(Date.now() / 1000) + 365 * 24 * 60 * 60,
-        data: data,
+        data: {
+          userName: data.userName,
+          userRole: data.userRole,
+          isAdmin: data.isAdmin,
+        },
       };
       let token = jwt.sign(Payload, process.env.SECRETKEY_JWT_WEBTOKEN);
       res.status(200).json({

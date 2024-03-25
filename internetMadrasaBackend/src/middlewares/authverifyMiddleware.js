@@ -23,7 +23,8 @@ module.exports = (req, res, next) => {
           req.headers["userName"] = authorizedUser;
           req.headers["userRole"] = authorizedRole;
           req.headers["isAdmin"] = authorizedAdmin;
-          req.headers["userDetails"] = userDetails;
+
+          req.body.access_token = userDetails;
 
           next();
         }

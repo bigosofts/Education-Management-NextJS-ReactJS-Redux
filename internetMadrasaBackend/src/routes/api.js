@@ -44,21 +44,34 @@ router.get("/hello", (req, res) => {
 //api for data management
 
 //authentication
-router.post("/isAdmin", authverify, (req, res) => {
+router.post("/isAdmin", authverify, async (req, res) => {
   let userName = req.headers["userName"];
   let userRole = req.headers["userRole"];
   let isAdmin = req.headers["isAdmin"];
-  let userDetails = req.headers["userDetails"];
 
-  res.status(200).json({
-    status: "Alhamdulillah",
-    data: {
-      userName,
-      userRole,
-      isAdmin,
-      userDetails,
-    },
-  });
+  if (userRole == "teacher") {
+    const [userDetails] = await profileController.selectTeacherData(userName);
+    res.status(200).json({
+      status: "Alhamdulillah",
+      data: {
+        userName,
+        userRole,
+        isAdmin,
+        userDetails,
+      },
+    });
+  } else if (userRole == "student") {
+    const [userDetails] = await profileController.selectStudentData(userName);
+    res.status(200).json({
+      status: "Alhamdulillah",
+      data: {
+        userName,
+        userRole,
+        isAdmin,
+        userDetails,
+      },
+    });
+  }
 });
 
 //read image

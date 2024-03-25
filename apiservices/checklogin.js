@@ -22,7 +22,6 @@ exports.isAdmin = async () => {
     const data = await response.json();
     return data;
   } else {
-    
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/isAdmin`,
       {
