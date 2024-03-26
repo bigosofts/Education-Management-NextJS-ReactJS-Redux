@@ -1449,6 +1449,67 @@ function PreFeeSection({ profile }) {
       <div className="flex justify-center p-5 pb-10">
         <div className="">
           <form onSubmit={submitData}>
+            <div className="currencySelector">
+              <h1 className="w-full mx-auto text-sm md:text-3xl text-center mb-2">
+                আপনি কোন মুদ্রায় পেমেন্ট জমা দিতে চান?
+              </h1>
+
+              <div className="flex gap-5 justify-center mb-10 md:mb-[100px]">
+                <div className="relative">
+                  <input
+                    onChange={currencyDecision}
+                    className="absolute z-10 top-4 md:top-10 left-4 md:left-5 w-5 md:w-10 h-5 md:h-10"
+                    type="radio"
+                    id="option1"
+                    name="currency"
+                    value="taka"
+                  />
+                  <label htmlFor="option1">
+                    <div className="w-full md:w-[300px] cursor-pointer shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative">
+                      <Image
+                        className="m-auto h-12"
+                        width={100}
+                        height={100}
+                        src="/images/taka.svg"
+                      />
+                      <h2 className="mt-5 text-[12px] md:text-2xl text-center">
+                        <span id="checkoutPriceTaka">
+                          {money ? money.tk : ""}
+                        </span>{" "}
+                        টাকা
+                      </h2>
+                    </div>
+                  </label>
+                </div>
+
+                <div className="relative">
+                  <input
+                    onChange={currencyDecision}
+                    className="absolute z-10 top-4 md:top-10 left-4 md:left-5 w-5 md:w-10 h-5 md:h-10"
+                    type="radio"
+                    id="option2"
+                    name="currency"
+                    value="dollar"
+                  />
+                  <label htmlFor="option2">
+                    <div className="cursor-pointer w-full md:w-[300px] shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative">
+                      <Image
+                        className="m-auto h-12"
+                        width={100}
+                        height={100}
+                        src="/images/dollar.svg"
+                      />
+                      <h2 className="mt-5 text-[12px] md:text-2xl text-center">
+                        <span id="checkoutPriceDollar">
+                          {money ? money.us : ""}
+                        </span>{" "}
+                        ডলার
+                      </h2>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
             <div className="courseSelector h-[150px] md:h-[200px]">
               <label htmlFor="course">
                 <h1 className="w-full mx-auto text-sm md:text-3xl text-center mb-2 ">
@@ -1677,68 +1738,6 @@ function PreFeeSection({ profile }) {
                   ></input>
                 </>
               )}
-            </div>
-
-            <div className="currencySelector">
-              <h1 className="w-full mx-auto text-sm md:text-3xl text-center mb-2">
-                আপনি কোন মুদ্রায় পেমেন্ট জমা দিতে চান?
-              </h1>
-
-              <div className="flex gap-5 justify-center mb-10 md:mb-[100px]">
-                <div className="relative">
-                  <input
-                    onChange={currencyDecision}
-                    className="absolute z-10 top-4 md:top-10 left-4 md:left-5 w-5 md:w-10 h-5 md:h-10"
-                    type="radio"
-                    id="option1"
-                    name="currency"
-                    value="taka"
-                  />
-                  <label htmlFor="option1">
-                    <div className="w-full md:w-[300px] cursor-pointer shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative">
-                      <Image
-                        className="m-auto h-12"
-                        width={100}
-                        height={100}
-                        src="/images/taka.svg"
-                      />
-                      <h2 className="mt-5 text-[12px] md:text-2xl text-center">
-                        <span id="checkoutPriceTaka">
-                          {money ? money.tk : ""}
-                        </span>{" "}
-                        টাকা
-                      </h2>
-                    </div>
-                  </label>
-                </div>
-
-                <div className="relative">
-                  <input
-                    onChange={currencyDecision}
-                    className="absolute z-10 top-4 md:top-10 left-4 md:left-5 w-5 md:w-10 h-5 md:h-10"
-                    type="radio"
-                    id="option2"
-                    name="currency"
-                    value="dollar"
-                  />
-                  <label htmlFor="option2">
-                    <div className="cursor-pointer w-full md:w-[300px] shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative">
-                      <Image
-                        className="m-auto h-12"
-                        width={100}
-                        height={100}
-                        src="/images/dollar.svg"
-                      />
-                      <h2 className="mt-5 text-[12px] md:text-2xl text-center">
-                        <span id="checkoutPriceDollar">
-                          {money ? money.us : ""}
-                        </span>{" "}
-                        ডলার
-                      </h2>
-                    </div>
-                  </label>
-                </div>
-              </div>
             </div>
 
             <div className="submitSection">
