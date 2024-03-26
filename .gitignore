@@ -27,6 +27,7 @@ yarn-error.log*
 
 # local env files
 .env*.local 
+.env
 
 # vercel
 .vercel
@@ -48,7 +49,8 @@ next-env.d.ts
 /internetMadrasaBackend/npm-debug.log*
 /internetMadrasaBackend/yarn-debug.log*
 /internetMadrasaBackend/yarn-error.log*
-/internetMadrasaBackend/.env*.local 
+/internetMadrasaBackend/.env*.local
+/internetMadrasaBackend/config.env  
 /internetMadrasaBackend/.vercel
 /internetMadrasaBackend/*.tsbuildinfo
 /internetMadrasaBackend/next-env.d.ts
