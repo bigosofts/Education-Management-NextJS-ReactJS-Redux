@@ -773,7 +773,8 @@ function PreFeeSection({ profile }) {
         mainData.course == "farzeayinnajera" ||
         mainData.course == "ezranahusorof" ||
         mainData.course == "urdu" ||
-        mainData.course == "farzeayinampara") &&
+        mainData.course == "farzeayinampara" ||
+        mainData.course == "abacus_student") &&
       mainData.jamat == "none" &&
       mainData.semester == "none" &&
       mainData.department != "none" &&
@@ -1108,8 +1109,7 @@ function PreFeeSection({ profile }) {
       }
     } else if (
       mainData.currency &&
-      (mainData.course == "abacus_student" ||
-        mainData.course == "abacus_teacher" ||
+      (mainData.course == "abacus_teacher" ||
         mainData.course == "ramadanquranulkarim") &&
       mainData.department != "none" &&
       mainData.department != "" &&

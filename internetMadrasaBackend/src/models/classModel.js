@@ -8,21 +8,33 @@ const DataSchema = mongoose.Schema(
     jamatID: { type: String },
     semesterID: { type: String },
     bookID: { type: String },
-    teacherID: { type: String },
+    teacher: {
+      TID: { type: String },
+      tName: { type: String },
+      mobileNumber: { type: String },
+      attendance: [
+        {
+          month: { type: String },
+          dayName: { type: String },
+          dayNumber: { type: String },
+          presentTimeStart: { type: Date },
+          presentTimeEnd: { type: Date },
+          isPresent: { type: Boolean },
+          completionProgress: { type: String },
+        },
+      ],
+    },
     examQuestion: { type: String },
     students: [
       {
         SID: { type: String },
-        sName: { type: String },
-        mobileNumber: { type: String },
-        examSheet: { type: String },
-        result: { type: String },
         attendance: [
           {
             month: { type: String },
             dayName: { type: String },
             dayNumber: { type: String },
-            present: { type: Boolean },
+            presentTime: { type: Date },
+            isPresent: { type: Boolean },
           },
         ],
       },

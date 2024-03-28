@@ -102,6 +102,7 @@
   box-sizing: border-box;
   vertical-align: middle;
   border-style: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .CoursesPage .style-11 {

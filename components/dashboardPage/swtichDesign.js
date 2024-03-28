@@ -353,6 +353,7 @@ function SwitchDesign() {
             mainData.classes == "farzeayinnajera" ||
             mainData.classes == "ezranahusorof" ||
             mainData.classes == "urdu" ||
+            mainData.classes == "abacus_student" ||
             mainData.classes == "farzeayinampara") &&
           mainData.accountNo &&
           mainData.transactionID &&

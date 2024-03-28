@@ -4,7 +4,7 @@ import EnrollCondition from "@/components/dashboardPage/courses/enrollCondition"
 
 import "./CoursesPage.css";
 async function getData() {
-  const res = await selectDataTwo({}, {});
+  const res = await selectDataTwo({ activeStatus: "active" }, {});
   if (res) {
     const dataObject = {
       course: null,
