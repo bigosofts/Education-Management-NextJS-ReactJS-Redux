@@ -48,7 +48,86 @@ function LoginPageDesign({ userData }) {
           "আপনার মোবাইল নাম্বারটি দিয়ে একটি একাউন্ট আগে থেকেই আছে, দয়া করে অন্য মোবাইল নাম্বার ব্যাবহার করুন"
         );
       } else {
-        if (studentRole == "student") {
+        if (studentRole == "teacher") {
+          async function setData() {
+            mytoast.danger("এই মুহুর্তে শিক্ষক একাউন্ট আবেদন নেয়া হচ্ছে না");
+            // const res = await createTeacher(
+            //   firstName,
+            //   "",
+            //   lastname,
+            //   "",
+            //   "",
+            //   "",
+            //   "",
+            //   "",
+            //   email,
+            //   password,
+            //   mobile,
+            //   [],
+            //   [],
+            //   "",
+            //   "",
+            //   "",
+            //   "",
+            //   "",
+            //   "",
+            //   "teacher",
+            //   "active",
+            //   "",
+            //   `${userData.length + 1}`,
+            //   { status: "ok" }
+            // );
+            // if (res.status == "Alhamdulillah") {
+            //   userData.push({
+            //     emailAddress: email,
+            //     mobileNumber: mobile,
+            //   });
+            //   setDatas(res.data.userName);
+            //   mytoast.success(
+            //     "আলহামদুলিল্লাহ, আপনার শিক্ষক/শিক্ষিকা একাউন্ট তৈরী হয়ে গেছে"
+            //   );
+
+            //   //login logic
+            //   if (Admin) {
+            //     if (Admin.status == "noToken") {
+            //       const res3 = await teacherLogin(res.data.userName, password);
+
+            //       if (res3.status == "Alhamdulillah") {
+            //         setToken("access_token", res3.token);
+
+            //         mytoast.success(
+            //           "আলহামদুলিল্লাহ, আপনি সফলভাবে একাউন্টটি তৈরী করেছেন"
+            //         );
+
+            //         const hardRefresh = () => {
+            //           if (typeof window !== "undefined") {
+            //             window.location.href = `/dashboard/${res.data.userName}`;
+            //           }
+            //         };
+            //         hardRefresh();
+            //       } else if (res3.status == "wrongpass") {
+            //         mytoast.danger("আপনার পাসওয়ার্ড অথবা ইউজার আইডি ভুল হয়েছে");
+            //       } else if (res3.status == "nouser") {
+            //         router.push("/signup");
+            //       }
+            //     } else if (Admin.status == "UnauthorizedAccess") {
+            //       console.log("Unauthorized access");
+            //     } else {
+            //       const hardRefresh = () => {
+            //         if (typeof window !== "undefined") {
+            //           window.location.href = `/dashboard/${res.data.userName}`;
+            //         }
+            //       };
+            //       hardRefresh();
+            //     }
+            //   }
+            //   //end login logic
+            // } else {
+            //   console.log(res);
+            // }
+          }
+          setData();
+        } else if (studentRole == "student") {
           async function setData2() {
             const res2 = await createStudent({
               firstNameen: firstName,
@@ -183,6 +262,8 @@ function LoginPageDesign({ userData }) {
       mytoast.info("নামের প্রথম অংশ অবশ্যই ফিলাপ করতে হবে");
     } else if (!lastNameref.current.value) {
       mytoast.info("নামের ্দ্বিতীয় অংশ অবশ্যই ফিলাপ করতে হবে");
+    } else if (studentRoleref.current.value == "none") {
+      mytoast.info("একাউন্টের ধরন অবশ্যই ফিলাপ করতে হবে");
     } else if (!emailIdref.current.value) {
       mytoast.info("ইমেইল আইডি অবশ্যই ফিলাপ করতে হবে");
     } else if (!mobileNoref.current.value) {
@@ -193,7 +274,7 @@ function LoginPageDesign({ userData }) {
       AddReaction(
         firstNameref.current.value,
         lastNameref.current.value,
-        "student",
+        studentRoleref.current.value,
         emailIdref.current.value,
         mobileNoref.current.value,
         passwordref.current.value
@@ -205,21 +286,16 @@ function LoginPageDesign({ userData }) {
   const emailIdref = useRef();
   const passwordref = useRef();
   const mobileNoref = useRef();
-  const nidref = useRef();
-  const genderref = useRef();
-  const fatherNameref = useRef();
-  const countryref = useRef();
-  const fullpresentref = useRef();
-  const fullpermanentref = useRef();
-  const educationBackgroundref = useRef();
+  const studentRoleref = useRef();
 
   return (
     <section className="pt-10 pb-10" style={{ backgroundColor: "#fff" }}>
-      <h1 className="text-2xl text-slate-950 mt-5 mb-5 text-center">
-        ওস্তাদ সাইন আপ ফর্ম
-      </h1>
       <div className="box-border flex flex-col justify-center w-full md:w-1/2 m-auto border-[0px] md:border-[1px] border-slate-400 rounded-3xl md:flex-row shadow-none md:shadow-xl">
-        <div className="w-full rounded-2xl image-div">
+        <div className="bg-[url('/images/signup-image.png')] w-full rounded-2xl image-div"></div>
+        <div className="w-full">
+          <h1 className="text-2xl text-slate-950 mt-5 mb-5 text-center">
+            সাইন আপ ফর্ম
+          </h1>
           <form className="w-full p-5">
             <label
               className="block mb-2 text-lg text-slate-600"
@@ -235,6 +311,7 @@ function LoginPageDesign({ userData }) {
               id="firstName"
               ref={firstNameref}
             ></input>
+
             <label
               className="block mb-2 text-lg text-slate-600"
               htmlFor="lastName"
@@ -249,6 +326,26 @@ function LoginPageDesign({ userData }) {
               id="lastName"
               ref={lastNameref}
             ></input>
+
+            <label
+              className="block mb-2 text-lg text-slate-600"
+              htmlFor="accountType"
+            >
+              আপনি কোন একাউন্ট খুলতে চাচ্ছেন?
+            </label>
+            <select
+              className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+              name="accountType"
+              id="accountType"
+              ref={studentRoleref}
+            >
+              <option value="none">একাউন্ট নির্বাচন করুন</option>
+              <option value="teacher">
+                ইন্টারনেট মাদ্রাসার শিক্ষক/শিক্ষিকা নিয়োগ
+              </option>
+              <option value="student">শিক্ষার্থী</option>
+            </select>
+
             <label
               className="block mb-2 text-lg text-slate-600"
               htmlFor="email"
@@ -263,35 +360,6 @@ function LoginPageDesign({ userData }) {
               id="email"
               ref={emailIdref}
             ></input>
-            <label className="block mb-2 text-lg text-slate-600" htmlFor="nid">
-              ন্যাশনাল আইডি নাম্বার লিখুনঃ
-            </label>
-            <input
-              className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
-              type="text"
-              placeholder="ইমেইল আইডি লিখুন"
-              name="nid"
-              id="nid"
-              ref={nidref}
-            ></input>
-            <label
-              className="block mb-2 text-lg text-slate-600"
-              htmlFor="fatherName"
-            >
-              বাবার নাম লিখুনঃ
-            </label>
-            <input
-              className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
-              type="text"
-              placeholder="ইমেইল আইডি লিখুন"
-              name="fatherName"
-              id="fatherName"
-              ref={fatherNameref}
-            ></input>
-          </form>
-        </div>
-        <div className="w-full mt-12 md:mt-0">
-          <form className="w-full p-5">
             <label
               className="block mb-2 text-lg text-slate-600"
               htmlFor="email"
@@ -323,15 +391,28 @@ function LoginPageDesign({ userData }) {
               name="password"
               ref={passwordref}
             ></input>
+
+            <button
+              onClick={addUser}
+              className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
+            >
+              {code ? (
+                <p className="flex justify-between">
+                  <span className="bg-pink-500 w-1/3 py-2 px-2">(ধাপ ১/৩)</span>{" "}
+                  <span className="w-2/3 py-2 px-2 relative">
+                    পরের ধাপে যান{" "}
+                    <span className="absolute right-1 top-2">
+                      <IoIosArrowDroprightCircle className="text-3xl" />
+                    </span>
+                  </span>
+                </p>
+              ) : (
+                <div className="p-5">একাউন্ট তৈরী করুন</div>
+              )}
+            </button>
           </form>
         </div>
       </div>
-      <button
-        onClick={addUser}
-        className="bg-blue-500 text-white text-lg font-bold mt-6 overflow-hidden box-border flex flex-col justify-center w-[90%] md:w-1/2 m-auto border-[0px] md:border-[1px] border-slate-400 rounded-3xl md:flex-row shadow-none md:shadow-xl"
-      >
-        <div className="p-5">একাউন্ট তৈরী করুন</div>
-      </button>
 
       <h1 className=" w-full md:w-1/2 m-auto text-2xl p-5 mt-10 mb-5 text-center text-rose-600">
         {data ? `আপনার আইডিঃ ${data}` : ""}

@@ -205,16 +205,21 @@ function LoginPageDesignTeacher({ userData }) {
   const emailIdref = useRef();
   const passwordref = useRef();
   const mobileNoref = useRef();
-  const studentRoleref = useRef();
+  const nidref = useRef();
+  const genderref = useRef();
+  const fatherNameref = useRef();
+  const countryref = useRef();
+  const fullpresentref = useRef();
+  const fullpermanentref = useRef();
+  const educationBackgroundref = useRef();
 
   return (
     <section className="pt-10 pb-10" style={{ backgroundColor: "#fff" }}>
+      <h1 className="text-2xl text-slate-950 mt-5 mb-5 text-center">
+        ওস্তাদ সাইন আপ ফর্ম
+      </h1>
       <div className="box-border flex flex-col justify-center w-full md:w-1/2 m-auto border-[0px] md:border-[1px] border-slate-400 rounded-3xl md:flex-row shadow-none md:shadow-xl">
-        <div className="bg-[url('/images/signup-image.png')] w-full rounded-2xl image-div"></div>
-        <div className="w-full">
-          <h1 className="text-2xl text-slate-950 mt-5 mb-5 text-center">
-            সাইন আপ ফর্ম
-          </h1>
+        <div className="w-full rounded-2xl image-div">
           <form className="w-full p-5">
             <label
               className="block mb-2 text-lg text-slate-600"
@@ -230,7 +235,6 @@ function LoginPageDesignTeacher({ userData }) {
               id="firstName"
               ref={firstNameref}
             ></input>
-
             <label
               className="block mb-2 text-lg text-slate-600"
               htmlFor="lastName"
@@ -245,7 +249,6 @@ function LoginPageDesignTeacher({ userData }) {
               id="lastName"
               ref={lastNameref}
             ></input>
-
             <label
               className="block mb-2 text-lg text-slate-600"
               htmlFor="email"
@@ -260,6 +263,35 @@ function LoginPageDesignTeacher({ userData }) {
               id="email"
               ref={emailIdref}
             ></input>
+            <label className="block mb-2 text-lg text-slate-600" htmlFor="nid">
+              ন্যাশনাল আইডি নাম্বার লিখুনঃ
+            </label>
+            <input
+              className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+              type="text"
+              placeholder="ইমেইল আইডি লিখুন"
+              name="nid"
+              id="nid"
+              ref={nidref}
+            ></input>
+            <label
+              className="block mb-2 text-lg text-slate-600"
+              htmlFor="fatherName"
+            >
+              বাবার নাম লিখুনঃ
+            </label>
+            <input
+              className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+              type="text"
+              placeholder="ইমেইল আইডি লিখুন"
+              name="fatherName"
+              id="fatherName"
+              ref={fatherNameref}
+            ></input>
+          </form>
+        </div>
+        <div className="w-full mt-12 md:mt-0">
+          <form className="w-full p-5">
             <label
               className="block mb-2 text-lg text-slate-600"
               htmlFor="email"
@@ -291,28 +323,15 @@ function LoginPageDesignTeacher({ userData }) {
               name="password"
               ref={passwordref}
             ></input>
-
-            <button
-              onClick={addUser}
-              className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
-            >
-              {code ? (
-                <p className="flex justify-between">
-                  <span className="bg-pink-500 w-1/3 py-2 px-2">(ধাপ ১/৩)</span>{" "}
-                  <span className="w-2/3 py-2 px-2 relative">
-                    পরের ধাপে যান{" "}
-                    <span className="absolute right-1 top-2">
-                      <IoIosArrowDroprightCircle className="text-3xl" />
-                    </span>
-                  </span>
-                </p>
-              ) : (
-                <div className="p-5">একাউন্ট তৈরী করুন</div>
-              )}
-            </button>
           </form>
         </div>
       </div>
+      <button
+        onClick={addUser}
+        className="bg-blue-500 text-white text-lg font-bold mt-6 overflow-hidden box-border flex flex-col justify-center w-[90%] md:w-1/2 m-auto border-[0px] md:border-[1px] border-slate-400 rounded-3xl md:flex-row shadow-none md:shadow-xl"
+      >
+        <div className="p-5">একাউন্ট তৈরী করুন</div>
+      </button>
 
       <h1 className=" w-full md:w-1/2 m-auto text-2xl p-5 mt-10 mb-5 text-center text-rose-600">
         {data ? `আপনার আইডিঃ ${data}` : ""}
