@@ -604,6 +604,50 @@ function PreFeeSection({ profile }) {
               `<h1>সুপ্রিয় শিক্ষার্থী ${profile.data.userDetails.firstName.en} ${profile.data.userDetails.lastName.en},<br/><br/> আপনার পেমেন্ট রিকোয়েস্টটি গ্রহণ করা হয়েছে, অনুগ্রহপূর্বক অপেক্ষা করুন। আপনার একাউন্ট ${profile.data.userDetails.userName} টি এপ্রুভ হলে আরেকটি কনফার্মেশন মেইল দেয়া হবে ইং শা আল্লাহ</h1>`
             );
 
+            sendMail(
+              ["internetmadrasa@outlook.com", "abdullah.limonbau@gmail.com"],
+              "Payment request has been Recieved",
+              `${profile.data.userDetails.firstName.en} ${
+                profile.data.userDetails.lastName.en
+              } এর কাছে থেকে একটি পেমেন্ট রিকোয়েস্টটি এসেছে। 
+              একাউন্ট আইডিঃ ${profile.data.userDetails.userName},
+              একাউন্ট ইমেইলঃ ${profile.data.userDetails.emailAddress},
+              মোবাইল নাম্বারঃ ${profile.data.userDetails.mobileNumber},
+              কোর্সের নামঃ ${
+                studentCourseCode[studentCourseCode.length - 1].code
+              },
+              স্ট্যাটাসঃ ${
+                studentCourseCode[studentCourseCode.length - 1].status
+              },
+              পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()},
+              পেমেন্ট স্ট্যাটাসঃ false,
+              প্রাইসঃ ${mainData.amountPaid},
+              কারেন্সিঃ  ${mainData.currency},
+              ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID},
+              সেন্ডার নাম্বারঃ ${mainData.accountNo},
+              পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}
+               `,
+              `${profile.data.userDetails.firstName.en} ${
+                profile.data.userDetails.lastName.en
+              } এর কাছে থেকে একটি পেমেন্ট রিকোয়েস্টটি এসেছে। 
+              একাউন্ট আইডিঃ ${profile.data.userDetails.userName},
+              একাউন্ট ইমেইলঃ ${profile.data.userDetails.emailAddress},
+              মোবাইল নাম্বারঃ ${profile.data.userDetails.mobileNumber},
+              কোর্সের নামঃ ${
+                studentCourseCode[studentCourseCode.length - 1].code
+              },
+              স্ট্যাটাসঃ ${
+                studentCourseCode[studentCourseCode.length - 1].status
+              },
+              পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()},
+              পেমেন্ট স্ট্যাটাসঃ false,
+              প্রাইসঃ ${mainData.amountPaid},
+              কারেন্সিঃ  ${mainData.currency},
+              ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID},
+              সেন্ডার নাম্বারঃ ${mainData.accountNo},
+              পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}`
+            );
+
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
                 window.location.href = `/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;

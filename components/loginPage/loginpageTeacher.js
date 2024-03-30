@@ -288,6 +288,35 @@ function LoginPageDesignTeacher({ userData }) {
               id="fatherName"
               ref={fatherNameref}
             ></input>
+            <label
+              className="block mb-2 text-lg text-slate-600"
+              htmlFor="presentAddress"
+            >
+              আপনার বর্তমান ঠিকানা লিখুনঃ
+            </label>
+            <textarea
+              className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+              type="text"
+              placeholder="বর্তমান ঠিকানা লিখুন"
+              name="presentAddress"
+              id="presentAddress"
+              ref={fullpresentref}
+            ></textarea>
+
+            <label
+              className="block mb-2 text-lg text-slate-600"
+              htmlFor="permanentAddress"
+            >
+              আপনার পার্মানেন্ট ঠিকানা লিখুনঃ
+            </label>
+            <textarea
+              className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+              type="text"
+              placeholder="বর্তমান ঠিকানা লিখুন"
+              name="permanentAddress"
+              id="permanentAddress"
+              ref={fullpermanentref}
+            ></textarea>
           </form>
         </div>
         <div className="w-full mt-12 md:mt-0">
@@ -309,6 +338,21 @@ function LoginPageDesignTeacher({ userData }) {
               id="mobile"
               ref={mobileNoref}
             ></input>
+
+            <label
+              className="block mb-2 text-lg text-slate-600"
+              htmlFor="password"
+            >
+              আপানার জেন্ডার নির্বাচন করুনঃ
+            </label>
+            <select
+              className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+              ref={genderref}
+            >
+              <option value=""> select Gender </option>
+              <option value="male"> Male </option>
+              <option value="female"> Female </option>
+            </select>
 
             <label
               className="block mb-2 text-lg text-slate-600"

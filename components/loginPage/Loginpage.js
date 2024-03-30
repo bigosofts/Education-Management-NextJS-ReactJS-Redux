@@ -262,8 +262,6 @@ function LoginPageDesign({ userData }) {
       mytoast.info("নামের প্রথম অংশ অবশ্যই ফিলাপ করতে হবে");
     } else if (!lastNameref.current.value) {
       mytoast.info("নামের ্দ্বিতীয় অংশ অবশ্যই ফিলাপ করতে হবে");
-    } else if (studentRoleref.current.value == "none") {
-      mytoast.info("একাউন্টের ধরন অবশ্যই ফিলাপ করতে হবে");
     } else if (!emailIdref.current.value) {
       mytoast.info("ইমেইল আইডি অবশ্যই ফিলাপ করতে হবে");
     } else if (!mobileNoref.current.value) {
@@ -274,7 +272,7 @@ function LoginPageDesign({ userData }) {
       AddReaction(
         firstNameref.current.value,
         lastNameref.current.value,
-        studentRoleref.current.value,
+        "student",
         emailIdref.current.value,
         mobileNoref.current.value,
         passwordref.current.value
@@ -286,7 +284,7 @@ function LoginPageDesign({ userData }) {
   const emailIdref = useRef();
   const passwordref = useRef();
   const mobileNoref = useRef();
-  const studentRoleref = useRef();
+  
 
   return (
     <section className="pt-10 pb-10" style={{ backgroundColor: "#fff" }}>
@@ -327,24 +325,7 @@ function LoginPageDesign({ userData }) {
               ref={lastNameref}
             ></input>
 
-            <label
-              className="block mb-2 text-lg text-slate-600"
-              htmlFor="accountType"
-            >
-              আপনি কোন একাউন্ট খুলতে চাচ্ছেন?
-            </label>
-            <select
-              className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
-              name="accountType"
-              id="accountType"
-              ref={studentRoleref}
-            >
-              <option value="none">একাউন্ট নির্বাচন করুন</option>
-              <option value="teacher">
-                ইন্টারনেট মাদ্রাসার শিক্ষক/শিক্ষিকা নিয়োগ
-              </option>
-              <option value="student">শিক্ষার্থী</option>
-            </select>
+           
 
             <label
               className="block mb-2 text-lg text-slate-600"

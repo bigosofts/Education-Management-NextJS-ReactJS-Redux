@@ -43,12 +43,12 @@ async function getData() {
   }
 }
 
-import LoginPageDesign from "@/components/loginPage/Loginpage";
+import LoginPageDesignTeacher from "@/components/loginPage/loginpageTeacher";
 
 async function LoginPage() {
   const data = await getData();
 
-  return <LoginPageDesign userData={data} />;
+  return <LoginPageDesignTeacher userData={data} />;
 }
 
 export default LoginPage;
