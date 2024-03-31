@@ -12,6 +12,7 @@ import { selectDataTwo } from "@/apiservices/studentapiservices";
 import MessangerChat from "@/customComponents/messangerChat/messangerChat";
 
 function StudentLayout({ children, params }) {
+  
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.isAdmin.value);

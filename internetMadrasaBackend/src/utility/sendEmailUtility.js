@@ -22,7 +22,6 @@ oAuth2Client.setCredentials({
 });
 
 const SendEmailUtility = async (EmailTo, EmailText, EmailSubject, html) => {
-  
   try {
     // Get an access token
     const accessToken = await oAuth2Client.getAccessToken();

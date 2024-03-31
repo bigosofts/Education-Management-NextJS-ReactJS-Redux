@@ -33,6 +33,7 @@ function SigninSignupmenuButton() {
   useEffect(() => {
     async function fetchData() {
       const payload = await isAdmin();
+      
 
       if (payload.status == "Alhamdulillah") {
         if (payload.data.userRole == "teacher") {
@@ -59,7 +60,7 @@ function SigninSignupmenuButton() {
             null
           );
           if (res.status == "Alhamdulillah") {
-            console.log(res);
+            
             let desiredObj;
             if (res.data.length < 1) {
               desiredObj = {

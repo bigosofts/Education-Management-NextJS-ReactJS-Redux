@@ -1,14 +1,10 @@
 import DashWrapper from "@/components/dashboardPage/DashWrapper";
-import DashSlider from "@/components/dashboardPage/DashSlider";
-import DashExplore from "@/components/dashboardPage/DashExplore";
-
+import DashExploreTeacher from "@/components/dashboardPage/DashExploreTeacher";
 
 function page(props) {
   return (
     <DashWrapper>
-      <DashSlider />
-      <DashExplore/>
-     
+      <DashExploreTeacher />
     </DashWrapper>
   );
 }

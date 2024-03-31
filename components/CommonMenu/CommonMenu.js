@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 
 function CommonMenu({ children, changeDrawerState }) {
   const data = useSelector((state) => state.isAdmin.value);
+  console.log("hello",data);
+
   return (
     <section className="dashboard-sec" style={{ backgroundColor: "#e8ecf5" }}>
       <div

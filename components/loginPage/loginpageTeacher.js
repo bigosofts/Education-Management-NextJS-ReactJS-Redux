@@ -1,23 +1,18 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import { createData as createStudent } from "@/apiservices/studentapiservices";
 import { createData as createTeacher } from "@/apiservices/teacherapiservices";
 import mytoast from "../toast/toast";
-import { teacherLogin, studentLogin } from "@/apiservices/checklogin";
+import { teacherLogin } from "@/apiservices/checklogin";
 import { isAdmin } from "@/apiservices/checklogin";
 import { setToken } from "@/helper/sessionHelper";
-import { useRouter, useSearchParams } from "next/navigation";
-import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { sendMail } from "@/apiservices/sendMailapiservices";
+import allCountry from "../dashboardPage/allCountry";
 
 import "./loginDesign.css";
 function LoginPageDesignTeacher({ userData }) {
+  const countries = allCountry();
   const [Admin, setIsAdmin] = useState();
   const [data, setDatas] = useState();
-  const searchParams = useSearchParams();
-  const code = searchParams.get("code");
-
-  const router = useRouter();
 
   useEffect(() => {
     async function getData() {
@@ -31,14 +26,22 @@ function LoginPageDesignTeacher({ userData }) {
     e.preventDefault();
     function checkEmail(
       firstName,
-      lastname,
-      studentRole,
-      email,
-      mobile,
-      password
+      lastName,
+      role,
+      emailId,
+      nid,
+      fatherName,
+      fullpresent,
+      fullpermanent,
+      mobileNo,
+      gender,
+      country,
+      educationBackground,
+      password,
+      designation
     ) {
-      const haveEmail = userData.some((item) => item.emailAddress == email);
-      const haveMobile = userData.some((item) => item.mobileNumber == mobile);
+      const haveEmail = userData.some((item) => item.emailAddress == emailId);
+      const haveMobile = userData.some((item) => item.mobileNumber == mobileNo);
       if (haveEmail) {
         mytoast.info(
           "আপনার ইমেইলে একটি একাউন্ট আগে থেকেই আছে, দয়া করে অন্য ইমেইল ব্যাবহার করুন"
@@ -48,79 +51,64 @@ function LoginPageDesignTeacher({ userData }) {
           "আপনার মোবাইল নাম্বারটি দিয়ে একটি একাউন্ট আগে থেকেই আছে, দয়া করে অন্য মোবাইল নাম্বার ব্যাবহার করুন"
         );
       } else {
-        if (studentRole == "student") {
+        if (role == "teacher") {
           async function setData2() {
-            const res2 = await createStudent({
-              firstNameen: firstName,
-              firstNamebn: "",
-              lastNameen: lastname,
-              lastNamebn: "",
-              nidNumber: "",
-              birthRegNumber: "",
-              fatherNameen: "",
-              fatherNamebn: "",
-              emailAddress: email,
+            const res2 = await createTeacher(
+              firstName,
+              "",
+              lastName,
+              "",
+              nid,
+              "",
+              fatherName,
+              "",
+              emailId,
               password,
-              mobileNumber: mobile,
-              occupation: "",
-              studentCourseCode: [],
-              studentJamatCode: [],
-              gender: "",
-              dateOfBirth: "",
-              countryName: "",
-              fullPresentAddress: "",
-              fullPermanentAddress: "",
-              admissionSession: "",
-              studentMotive: "",
-              paymentStatus: {
-                addmissionDueStatus: true,
-                consequentDueStatus: false,
-                paymentID: "",
-              },
-              extracurricular: "",
-              details: { status: "ok" },
-              activeStatus: "active",
-              userRole: "student",
-              userName: `${userData.length + 1}`,
-              studentDepartment: [],
-              studentSemester: [],
-            });
+              mobileNo,
+              [],
+              [],
+              gender,
+              "",
+              country,
+              fullpresent,
+              fullpermanent,
+              educationBackground,
+              role,
+              "active",
+              designation,
+              `${userData.length + 1}`,
+              { status: "ok" }
+            );
             if (res2.status == "Alhamdulillah") {
               userData.push({
-                emailAddress: email,
-                mobileNumber: mobile,
+                emailAddress: emailId,
+                mobileNumber: mobileNo,
               });
               setDatas(res2.data.userName);
-              mytoast.success("আপনার স্টুডেন্ট একাউন্টটি সফলভাবে তৈরী হয়েছে");
+              mytoast.success("ওস্তাদ্দ/ওস্তাজা একাউন্টটি সফলভাবে তৈরী হয়েছে");
 
               sendMail(
-                email,
-                "Student Account has been Created",
-                `সুপ্রিয় শিক্ষার্থী ${firstName} ${lastname}, আলহামদুলিল্লাহ, আপনার একাউন্টটি খোলা হয়েছে, অনুগ্রহপূর্বক ড্যাশবোর্ডে ঢুকে যেকোনো একটি ক্লাসে পেমেন্ট সম্পন্ন করুন। আপনার একাউন্ট ${res2.data.userName} টি দিয়ে যেকোনো ক্লাসে ভর্তি পেমেন্ট দিলে আরেকটি কনফার্মেশন মেইল দেয়া হবে ইং শা আল্লাহ`,
-                `<h1>সুপ্রিয় শিক্ষার্থী ${firstName} ${lastname},<br/><br/> আলহামদুলিল্লাহ, আপনার একাউন্টটি খোলা হয়েছে, অনুগ্রহপূর্বক ড্যাশবোর্ডে ঢুকে যেকোনো একটি ক্লাসে পেমেন্ট সম্পন্ন করুন। আপনার একাউন্ট ${res2.data.userName} টি দিয়ে যেকোনো ক্লাসে ভর্তি পেমেন্ট দিলে আরেকটি কনফার্মেশন মেইল দেয়া হবে ইং শা আল্লাহ</h1>`
+                emailId,
+                "Teacher Account has been Created",
+                `শ্রদ্ধেয় ওস্তাদ/ওস্তাজা, ${firstName} ${lastName}, আলহামদুলিল্লাহ, আপনার একাউন্টটি খোলা হয়েছে। আপনার একাউন্ট আইডি হলঃ ${res2.data.userName}`,
+                `<h1>শ্রদ্ধেয় ওস্তাদ/ওস্তাজা, ${firstName} ${lastName},<br/><br/> আলহামদুলিল্লাহ, আপনার একাউন্টটি খোলা হয়েছে। আপনার একাউন্ট আইডি হলঃ ${res2.data.userName}</h1>`
               );
 
               if (typeof fbq === "function") {
-                fbq("track", "CompleteRegistration");
-              }
-
-              if (code) {
-                if (typeof fbq === "function") {
-                  fbq("trackCustom", `CompleteRegistration-${code}`);
-                }
+                fbq("trackCustom", "CompleteRegistrationTeacher");
               }
 
               //login logic
               if (Admin) {
                 if (Admin.status == "noToken") {
-                  const res5 = await studentLogin(res2.data.userName, password);
+                  const res5 = await teacherLogin(res2.data.userName, password);
                   if (res5.status == "Alhamdulillah") {
                     setToken("access_token", res5.token);
 
                     mytoast.success("আলহামদুলিলাহ, আপনি সফলভাবে লগিন করেছেন");
                     const hardRefresh = () => {
                       if (typeof window !== "undefined") {
-                        window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update?code=${code}`;
+                        window.location.href = `/dashboard/${res2.data.userName}`;
                       }
                     };
                     hardRefresh();
@@ -128,7 +116,7 @@ function LoginPageDesignTeacher({ userData }) {
                     mytoast.danger("you entered wrong combination");
                   } else if (res5.status == "nouser") {
                     mytoast.danger(
-                      "There is no account with this SID. Please check your SID"
+                      "There is no account with this Teacher ID. Please check your TID"
                     );
                   }
                 } else if (Admin.status == "UnauthorizedAccess") {
@@ -136,7 +124,7 @@ function LoginPageDesignTeacher({ userData }) {
                 } else {
                   const hardRefresh = () => {
                     if (typeof window !== "undefined") {
-                      window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update?code=${code}`;
+                      window.location.href = `/dashboard/${res2.data.userName}`;
                     }
                   };
                   hardRefresh();
@@ -153,11 +141,19 @@ function LoginPageDesignTeacher({ userData }) {
     }
     function AddReaction(
       firstName,
-      lastname,
-      studentRole,
-      email,
-      mobile,
-      password
+      lastName,
+      role,
+      emailId,
+      nid,
+      fatherName,
+      fullpresent,
+      fullpermanent,
+      mobileNo,
+      gender,
+      country,
+      educationBackground,
+      password,
+      designation
     ) {
       let patternName = /^[a-zA-Z_ ]*$/;
       let patternEmail = /[^@]+@[^@]+\.[a-zA-Z]{2,6}/;
@@ -166,37 +162,80 @@ function LoginPageDesignTeacher({ userData }) {
         mytoast.info(
           "নামের প্রথম অংশ ভুল হয়েছে, শুধুই ইংরেজী বর্ণমালা ব্যাবহার করুন"
         );
-      } else if (!patternName.test(lastname)) {
+      } else if (!patternName.test(lastName)) {
         mytoast.info(
           "নামের দ্বিতীয় অংশ ভুল হয়েছে, শুধুই ইংরেজী বর্ণমালা ব্যাবহার করুন"
         );
-      } else if (!patternEmail.test(email)) {
+      } else if (!patternName.test(fatherName)) {
+        mytoast.info(
+          "বাবার নাম ভুল হয়েছে, শুধুই ইংরেজী বর্ণমালা ব্যাবহার করুন"
+        );
+      } else if (!patternEmail.test(emailId)) {
         mytoast.info("ইমেইল ফরম্যাটটি সঠিক হয় নি");
-      } else if (!patternMobile.test(mobile)) {
+      } else if (!patternMobile.test(mobileNo)) {
         mytoast.info("মোবাইলের ফরম্যাটটি সঠিক হয় নি");
       } else {
-        checkEmail(firstName, lastname, studentRole, email, mobile, password);
+        checkEmail(
+          firstName,
+          lastName,
+          role,
+          emailId,
+          nid,
+          fatherName,
+          fullpresent,
+          fullpermanent,
+          mobileNo,
+          gender,
+          country,
+          educationBackground,
+          password,
+          designation
+        );
       }
     }
 
     if (!firstNameref.current.value) {
       mytoast.info("নামের প্রথম অংশ অবশ্যই ফিলাপ করতে হবে");
     } else if (!lastNameref.current.value) {
-      mytoast.info("নামের ্দ্বিতীয় অংশ অবশ্যই ফিলাপ করতে হবে");
+      mytoast.info("নামের দ্বিতীয় অংশ অবশ্যই ফিলাপ করতে হবে");
     } else if (!emailIdref.current.value) {
       mytoast.info("ইমেইল আইডি অবশ্যই ফিলাপ করতে হবে");
+    } else if (!nidref.current.value) {
+      mytoast.info("ন্যাশনাল আইডি নাম্বার অবশ্যই ফিলাপ করতে হবে");
+    } else if (!fatherNameref.current.value) {
+      mytoast.info("বাবার নাম অবশ্যই ফিলাপ করতে হবে");
+    } else if (!fullpresentref.current.value) {
+      mytoast.info("বর্তমান ঠিকানা অবশ্যই ফিলাপ করতে হবে");
+    } else if (!fullpermanentref.current.value) {
+      mytoast.info("স্থায়ী ঠিকানা অবশ্যই ফিলাপ করতে হবে");
     } else if (!mobileNoref.current.value) {
       mytoast.info("মোবাইল নাম্বার অবশ্যই ফিলাপ করতে হবে");
+    } else if (!genderref.current.value) {
+      mytoast.info("জেন্ডার অবশ্যই ফিলাপ করতে হবে");
+    } else if (!countryref.current.value) {
+      mytoast.info("দেশের নাম অবশ্যই ফিলাপ করতে হবে");
+    } else if (!educationBackgroundref.current.value) {
+      mytoast.info("শিক্ষাগত যোগ্যতা অবশ্যই ফিলাপ করতে হবে");
+    } else if (!designationref.current.value) {
+      mytoast.info("বর্তমান পেশা অবশ্যই ফিলাপ করতে হবে");
     } else if (!passwordref.current.value) {
       mytoast.info("পাসওয়ার্ড অবশ্যই ফিলাপ করতে হবে");
     } else {
       AddReaction(
         firstNameref.current.value,
         lastNameref.current.value,
-        "student",
+        "teacher",
         emailIdref.current.value,
+        nidref.current.value,
+        fatherNameref.current.value,
+        fullpresentref.current.value,
+        fullpermanentref.current.value,
         mobileNoref.current.value,
-        passwordref.current.value
+        genderref.current.value,
+        countryref.current.value,
+        educationBackgroundref.current.value,
+        passwordref.current.value,
+        designationref.current.value
       );
     }
   }
@@ -212,6 +251,7 @@ function LoginPageDesignTeacher({ userData }) {
   const fullpresentref = useRef();
   const fullpermanentref = useRef();
   const educationBackgroundref = useRef();
+  const designationref = useRef();
 
   return (
     <section className="pt-10 pb-10" style={{ backgroundColor: "#fff" }}>
@@ -268,8 +308,8 @@ function LoginPageDesignTeacher({ userData }) {
             </label>
             <input
               className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
-              type="text"
-              placeholder="ইমেইল আইডি লিখুন"
+              type="number"
+              placeholder="এনআইডি নাম্বার লিখুন"
               name="nid"
               id="nid"
               ref={nidref}
@@ -278,12 +318,12 @@ function LoginPageDesignTeacher({ userData }) {
               className="block mb-2 text-lg text-slate-600"
               htmlFor="fatherName"
             >
-              বাবার নাম লিখুনঃ
+              বাবার নাম ইংরেজিতে লিখুনঃ
             </label>
             <input
               className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
               type="text"
-              placeholder="ইমেইল আইডি লিখুন"
+              placeholder="বাবার নাম ইংরেজিতে লিখুন"
               name="fatherName"
               id="fatherName"
               ref={fatherNameref}
@@ -353,6 +393,57 @@ function LoginPageDesignTeacher({ userData }) {
               <option value="male"> Male </option>
               <option value="female"> Female </option>
             </select>
+
+            <label
+              className="block mb-2 text-lg text-slate-600"
+              htmlFor="country"
+            >
+              আপনি কোন দেশে বসবাসরত?
+            </label>
+            <select
+              ref={countryref}
+              id="country"
+              name="country"
+              type="text"
+              className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+            >
+              <option value="">select country</option>
+              {countries.data.map((item, i) => (
+                <option key={i} value={item.name}>
+                  {item.name}
+                </option>
+              ))}
+            </select>
+
+            <label
+              className="block mb-2 text-lg text-slate-600"
+              htmlFor="educationBackground"
+            >
+              আপনার শিক্ষাগত যোগ্যতা লিখুনঃ
+            </label>
+            <textarea
+              className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+              type="text"
+              placeholder="শিক্ষাগত যোগ্যতা লিখুন"
+              name="educationBackground"
+              id="educationBackground"
+              ref={educationBackgroundref}
+            ></textarea>
+
+            <label
+              className="block mb-2 text-lg text-slate-600"
+              htmlFor="designation"
+            >
+              আপনার বর্তমান পেশা লিখুনঃ
+            </label>
+            <textarea
+              className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+              type="text"
+              placeholder="বর্তমান পেশা লিখুন"
+              name="designation"
+              id="designation"
+              ref={designationref}
+            ></textarea>
 
             <label
               className="block mb-2 text-lg text-slate-600"

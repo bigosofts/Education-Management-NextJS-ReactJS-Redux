@@ -5,11 +5,16 @@ import { isAdmin } from "@/apiservices/checklogin";
 import { useRouter } from "next/navigation";
 import CommonMenu from "@/components/CommonMenu/CommonMenu";
 import SideDrawer from "@/components/Drawer/SideDrawer";
+import { useSelector, useDispatch } from "react-redux";
+import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
+import { selectAllDataTwo } from "@/apiservices/teacherapiservices";
 
-function StudentLayout({ children, params }) {
+function TeacherLayout({ children, params }) {
+  const dispatch = useDispatch();
+
   const router = useRouter();
 
-  const [data, setData] = useState();
+  const data = useSelector((state) => state.isAdmin.value);
   const [show, setShow] = useState(false);
 
   function changeDrawerState() {
@@ -18,7 +23,25 @@ function StudentLayout({ children, params }) {
   useEffect(() => {
     async function fetchData() {
       const payload = await isAdmin();
-      setData(payload);
+      if (payload.status == "Alhamdulillah") {
+        const res = await selectAllDataTwo(
+          { userName: payload.data.userName },
+          null
+        );
+        if (res.status == "Alhamdulillah") {
+          const desiredObj = {
+            status: "Alhamdulillah",
+            data: {
+              userName: res.data[0].userName,
+              userRole: res.data[0].userRole,
+              isAdmin: res.data[0].isAdmin,
+              userDetails: res.data[0],
+            },
+          };
+
+          dispatch(setInitialData(desiredObj));
+        }
+      }
     }
     fetchData();
   }, []);
@@ -28,65 +51,56 @@ function StudentLayout({ children, params }) {
       name: "Dashboard",
       href: `/dashboard/${params.adminslug}`,
       icon: "/images/graph.svg",
+      show: true,
     },
     {
       name: "Library",
       href: `/dashboard/${params.adminslug}/books`,
       icon: "/images/books.svg",
+      show: true,
     },
     {
       name: "Notices",
       href: `/dashboard/${params.adminslug}/notices`,
       icon: "/images/notice.svg",
+      show: true,
     },
     {
-      name: "Fees",
+      name: "Salary",
       href: `/dashboard/${params.adminslug}/fees`,
       icon: "/images/fees.svg",
+      show: true,
     },
     {
-      name: "Results",
+      name: "Evaluate Exam",
+      href: `/dashboard/${params.adminslug}/download-exam`,
+      icon: "/images/upload.svg",
+      show: true,
+    },
+    {
+      name: "Student Results",
       href: `/dashboard/${params.adminslug}/results`,
       icon: "/images/result.svg",
+      show: true,
     },
     {
-      name: "Handwork",
+      name: "View Handwork",
       href: `/dashboard/${params.adminslug}/works`,
       icon: "/images/work.svg",
+      show: true,
     },
-    {
-      name: "Comments",
-      href: `/dashboard/${params.adminslug}/comments`,
-      icon: "/images/comment.svg",
-    },
-
-    {
-      name: "Courses",
-      href: `/dashboard/${params.adminslug}/classes`,
-      icon: "/images/course.svg",
-    },
-    {
-      name: "Switch",
-      href: `/dashboard/${params.adminslug}/switches`,
-      icon: "/images/switch.svg",
-    },
-
-    {
-      name: "Abacus",
-      href: `/dashboard/${params.adminslug}/abacus`,
-      icon: "/images/abacus.svg",
-    },
-
     {
       name: "Attendance",
       href: `/dashboard/${params.adminslug}/attendance`,
       icon: "/images/attendance.svg",
+      show: true,
     },
 
     {
       name: "Settings",
       href: `/dashboard/${params.adminslug}/settings`,
       icon: "/images/setting.svg",
+      show: true,
     },
   ];
 
@@ -118,4 +132,4 @@ function StudentLayout({ children, params }) {
   }
 }
 
-export default StudentLayout;
+export default TeacherLayout;

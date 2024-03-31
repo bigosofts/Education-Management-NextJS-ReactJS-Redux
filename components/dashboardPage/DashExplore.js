@@ -16,12 +16,6 @@ function DashExplore() {
   if (data) {
     const sidebarItems = [
       {
-        name: "Dashboard",
-        href: `/dashboard/${data.data.userName}`,
-        icon: "/images/graph.svg",
-        show: true,
-      },
-      {
         name: "Library",
         href: `/dashboard/${data.data.userName}/books`,
         icon: "/images/books.svg",
@@ -269,12 +263,6 @@ function DashExplore() {
     ) {
       let FixedNewArray = [
         {
-          name: "Dashboard",
-          href: `/dashboard/${data.data.userName}`,
-          icon: "/images/graph.svg",
-          show: true,
-        },
-        {
           name: "Notices",
           href: `/dashboard/${data.data.userName}/notices`,
           icon: "/images/notice.svg",
@@ -426,12 +414,6 @@ function DashExplore() {
       });
     } else {
       newArray = [
-        {
-          name: "Dashboard",
-          href: `/dashboard/${data.data.userName}`,
-          icon: "/images/graph.svg",
-          show: true,
-        },
         {
           name: "Library",
           href: `/dashboard/${data.data.userName}/books`,
