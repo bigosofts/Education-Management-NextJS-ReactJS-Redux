@@ -259,7 +259,7 @@ function LoginPageDesignTeacher({ userData }) {
         ওস্তাদ সাইন আপ ফর্ম
       </h1>
       <div className="box-border flex flex-col justify-center w-full md:w-1/2 m-auto border-[0px] md:border-[1px] border-slate-400 rounded-3xl md:flex-row shadow-none md:shadow-xl">
-        <div className="w-full rounded-2xl image-div">
+        <div className="w-full rounded-2xl">
           <form className="w-full p-5">
             <label
               className="block mb-2 text-lg text-slate-600"
@@ -359,7 +359,7 @@ function LoginPageDesignTeacher({ userData }) {
             ></textarea>
           </form>
         </div>
-        <div className="w-full mt-12 md:mt-0">
+        <div className="w-full md:mt-0">
           <form className="w-full p-5">
             <label
               className="block mb-2 text-lg text-slate-600"
