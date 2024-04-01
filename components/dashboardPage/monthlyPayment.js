@@ -7,6 +7,7 @@ import {
 import { useSelector } from "react-redux";
 import ShowPaymentDetails from "./showpaymentDetail";
 import mytoast from "../toast/toast";
+import { sendMail } from "@/apiservices/sendMailapiservices";
 
 function MonthlyPayment() {
   const data = useSelector((state) => state.isAdmin.value);
