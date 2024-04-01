@@ -175,6 +175,66 @@ function MonthlyPayment() {
 
       if (resPayment.status == "Alhamdulillah") {
         mytoast.info("Payments Submited. Wait for the Approval");
+
+        sendMail(
+          [
+            data.data.userDetails.emailAddress,
+            "internetmadrasa@outlook.com",
+            "abdullah.limonbau@gmail.com",
+          ],
+          "Monthly Payment request has been Recieved",
+          `সুপ্রিয় শিক্ষার্থী ${data.data.userDetails.firstName.en} ${
+            data.data.userDetails.lastName.en
+          }, আপনার মাসিক পেমেন্ট রিকোয়েস্টটি গ্রহণ করা হয়েছে, অনুগ্রহপূর্বক অপেক্ষা করুন। আপনার একাউন্ট ${
+            data.data.userDetails.userName
+          } টি এপ্রুভ হলে আরেকটি কনফার্মেশন মেইল দেয়া হবে ইং শা আল্লাহ \
+          একাউন্ট আইডিঃ ${data.data.userDetails.userName}, \
+          একাউন্ট ইমেইলঃ ${data.data.userDetails.emailAddress}, \
+          মোবাইল নাম্বারঃ ${data.data.userDetails.mobileNumber}, \
+          কোর্সের নামঃ ${
+            data.data.userDetails.studentCourseCode[
+              data.data.userDetails.studentCourseCode.length - 1
+            ].code
+          }, \
+          স্ট্যাটাসঃ ${
+            data.data.userDetails.studentCourseCode[
+              data.data.userDetails.studentCourseCode.length - 1
+            ].status
+          }, \
+          পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()}, \
+          পেমেন্ট স্ট্যাটাসঃ false, \
+          প্রাইসঃ ${mainData.amountPaid}, \
+          কারেন্সিঃ  ${mainData.currency}, \
+          ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID}, \
+          সেন্ডার নাম্বারঃ ${mainData.accountNo}, \
+          পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}`,
+
+          `<p>সুপ্রিয় শিক্ষার্থী ${data.data.userDetails.firstName.en} ${
+            data.data.userDetails.lastName.en
+          }, আপনার মাসিক পেমেন্ট রিকোয়েস্টটি গ্রহণ করা হয়েছে, অনুগ্রহপূর্বক অপেক্ষা করুন। আপনার একাউন্ট ${
+            data.data.userDetails.userName
+          } টি এপ্রুভ হলে আরেকটি কনফার্মেশন মেইল দেয়া হবে ইং শা আল্লাহ </p>
+          <p>একাউন্ট আইডিঃ ${data.data.userDetails.userName}</p>
+          <p>একাউন্ট ইমেইলঃ ${data.data.userDetails.emailAddress}</p>
+          <p>মোবাইল নাম্বারঃ ${data.data.userDetails.mobileNumber}</p>
+          <p>কোর্সের নামঃ ${
+            data.data.userDetails.studentCourseCode[
+              data.data.userDetails.studentCourseCode.length - 1
+            ].code
+          }</p>
+          <p>স্ট্যাটাসঃ ${
+            data.data.userDetails.studentCourseCode[
+              data.data.userDetails.studentCourseCode.length - 1
+            ].status
+          }</p>
+          <p>পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()}</p>
+          <p>পেমেন্ট স্ট্যাটাসঃ false</p>
+          <p>প্রাইসঃ ${mainData.amountPaid}</p>
+          <p>কারেন্সিঃ  ${mainData.currency}</p>
+          <p>ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID}</p>
+          <p>সেন্ডার নাম্বারঃ ${mainData.accountNo}</p>
+          <p>পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}</p>`
+        );
       }
     } else {
       mytoast.warning("Monthly form: One or more field is empty");
