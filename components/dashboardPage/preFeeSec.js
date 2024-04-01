@@ -613,12 +613,8 @@ function PreFeeSection({ profile }) {
               একাউন্ট আইডিঃ ${profile.data.userDetails.userName}, \
               একাউন্ট ইমেইলঃ ${profile.data.userDetails.emailAddress}, \
               মোবাইল নাম্বারঃ ${profile.data.userDetails.mobileNumber}, \
-              কোর্সের নামঃ ${
-                studentCourseCode[studentCourseCode.length - 1].code
-              }, \
-              স্ট্যাটাসঃ ${
-                studentCourseCode[studentCourseCode.length - 1].status
-              }, \
+              কোর্সের নামঃ ${studentCourseCode.code}, \
+              স্ট্যাটাসঃ ${studentCourseCode.status}, \
               পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()}, \
               পেমেন্ট স্ট্যাটাসঃ false, \
               প্রাইসঃ ${mainData.amountPaid}, \
@@ -626,8 +622,22 @@ function PreFeeSection({ profile }) {
               ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID}, \
               সেন্ডার নাম্বারঃ ${mainData.accountNo}, \
               পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}`,
-              `${profile.data.userDetails.firstName.en} ${profile.data.userDetails.lastName.en} এর কাছে থেকে একটি পেমেন্ট রিকোয়েস্টটি এসেছে। \
-            `
+
+              `${profile.data.userDetails.firstName.en} ${
+                profile.data.userDetails.lastName.en
+              } এর কাছে থেকে একটি পেমেন্ট রিকোয়েস্টটি এসেছে। \
+              একাউন্ট আইডিঃ ${profile.data.userDetails.userName}, \
+              একাউন্ট ইমেইলঃ ${profile.data.userDetails.emailAddress}, \
+              মোবাইল নাম্বারঃ ${profile.data.userDetails.mobileNumber}, \
+              কোর্সের নামঃ ${studentCourseCode.code}, \
+              স্ট্যাটাসঃ ${studentCourseCode.status}, \
+              পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()}, \
+              পেমেন্ট স্ট্যাটাসঃ false, \
+              প্রাইসঃ ${mainData.amountPaid}, \
+              কারেন্সিঃ  ${mainData.currency}, \
+              ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID}, \
+              সেন্ডার নাম্বারঃ ${mainData.accountNo}, \
+              পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}`
             );
 
             const hardRefresh = () => {
@@ -792,10 +802,12 @@ function PreFeeSection({ profile }) {
               একাউন্ট ইমেইলঃ ${profile.data.userDetails.emailAddress}, \
               মোবাইল নাম্বারঃ ${profile.data.userDetails.mobileNumber}, \
               কোর্সের নামঃ ${
-                studentCourseCode[studentCourseCode.length - 1].code
+                studentCourseCodeTwoFinal[studentCourseCodeTwoFinal.length - 1]
+                  .code
               }, \
               স্ট্যাটাসঃ ${
-                studentCourseCode[studentCourseCode.length - 1].status
+                studentCourseCodeTwoFinal[studentCourseCodeTwoFinal.length - 1]
+                  .status
               }, \
               পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()}, \
               পেমেন্ট স্ট্যাটাসঃ false, \
@@ -804,8 +816,28 @@ function PreFeeSection({ profile }) {
               ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID}, \
               সেন্ডার নাম্বারঃ ${mainData.accountNo}, \
               পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}`,
-              `${profile.data.userDetails.firstName.en} ${profile.data.userDetails.lastName.en} এর কাছে থেকে একটি পেমেন্ট রিকোয়েস্টটি এসেছে। \
-            `
+
+              `${profile.data.userDetails.firstName.en} ${
+                profile.data.userDetails.lastName.en
+              } এর কাছে থেকে একটি পেমেন্ট রিকোয়েস্টটি এসেছে। \
+              একাউন্ট আইডিঃ ${profile.data.userDetails.userName}, \
+              একাউন্ট ইমেইলঃ ${profile.data.userDetails.emailAddress}, \
+              মোবাইল নাম্বারঃ ${profile.data.userDetails.mobileNumber}, \
+              কোর্সের নামঃ ${
+                studentCourseCodeTwoFinal[studentCourseCodeTwoFinal.length - 1]
+                  .code
+              }, \
+              স্ট্যাটাসঃ ${
+                studentCourseCodeTwoFinal[studentCourseCodeTwoFinal.length - 1]
+                  .status
+              }, \
+              পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()}, \
+              পেমেন্ট স্ট্যাটাসঃ false, \
+              প্রাইসঃ ${mainData.amountPaid}, \
+              কারেন্সিঃ  ${mainData.currency}, \
+              ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID}, \
+              সেন্ডার নাম্বারঃ ${mainData.accountNo}, \
+              পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}`
             );
 
             const hardRefresh = () => {
@@ -1008,12 +1040,8 @@ function PreFeeSection({ profile }) {
               একাউন্ট আইডিঃ ${profile.data.userDetails.userName}, \
               একাউন্ট ইমেইলঃ ${profile.data.userDetails.emailAddress}, \
               মোবাইল নাম্বারঃ ${profile.data.userDetails.mobileNumber}, \
-              কোর্সের নামঃ ${
-                studentCourseCode[studentCourseCode.length - 1].code
-              }, \
-              স্ট্যাটাসঃ ${
-                studentCourseCode[studentCourseCode.length - 1].status
-              }, \
+              কোর্সের নামঃ ${studentCourseCode.code}, \
+              স্ট্যাটাসঃ ${studentCourseCode.status}, \
               পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()}, \
               পেমেন্ট স্ট্যাটাসঃ false, \
               প্রাইসঃ ${mainData.amountPaid}, \
@@ -1021,8 +1049,22 @@ function PreFeeSection({ profile }) {
               ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID}, \
               সেন্ডার নাম্বারঃ ${mainData.accountNo}, \
               পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}`,
-              `${profile.data.userDetails.firstName.en} ${profile.data.userDetails.lastName.en} এর কাছে থেকে একটি পেমেন্ট রিকোয়েস্টটি এসেছে। \
-            `
+
+              `${profile.data.userDetails.firstName.en} ${
+                profile.data.userDetails.lastName.en
+              } এর কাছে থেকে একটি পেমেন্ট রিকোয়েস্টটি এসেছে। \
+              একাউন্ট আইডিঃ ${profile.data.userDetails.userName}, \
+              একাউন্ট ইমেইলঃ ${profile.data.userDetails.emailAddress}, \
+              মোবাইল নাম্বারঃ ${profile.data.userDetails.mobileNumber}, \
+              কোর্সের নামঃ ${studentCourseCode.code}, \
+              স্ট্যাটাসঃ ${studentCourseCode.status}, \
+              পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()}, \
+              পেমেন্ট স্ট্যাটাসঃ false, \
+              প্রাইসঃ ${mainData.amountPaid}, \
+              কারেন্সিঃ  ${mainData.currency}, \
+              ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID}, \
+              সেন্ডার নাম্বারঃ ${mainData.accountNo}, \
+              পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}`
             );
 
             const hardRefresh = () => {
@@ -1187,10 +1229,12 @@ function PreFeeSection({ profile }) {
               একাউন্ট ইমেইলঃ ${profile.data.userDetails.emailAddress}, \
               মোবাইল নাম্বারঃ ${profile.data.userDetails.mobileNumber}, \
               কোর্সের নামঃ ${
-                studentCourseCode[studentCourseCode.length - 1].code
+                studentCourseCodeTwoFinal[studentCourseCodeTwoFinal.length - 1]
+                  .code
               }, \
               স্ট্যাটাসঃ ${
-                studentCourseCode[studentCourseCode.length - 1].status
+                studentCourseCodeTwoFinal[studentCourseCodeTwoFinal.length - 1]
+                  .status
               }, \
               পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()}, \
               পেমেন্ট স্ট্যাটাসঃ false, \
@@ -1199,8 +1243,28 @@ function PreFeeSection({ profile }) {
               ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID}, \
               সেন্ডার নাম্বারঃ ${mainData.accountNo}, \
               পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}`,
-              `${profile.data.userDetails.firstName.en} ${profile.data.userDetails.lastName.en} এর কাছে থেকে একটি পেমেন্ট রিকোয়েস্টটি এসেছে। \
-            `
+
+              `${profile.data.userDetails.firstName.en} ${
+                profile.data.userDetails.lastName.en
+              } এর কাছে থেকে একটি পেমেন্ট রিকোয়েস্টটি এসেছে। \
+              একাউন্ট আইডিঃ ${profile.data.userDetails.userName}, \
+              একাউন্ট ইমেইলঃ ${profile.data.userDetails.emailAddress}, \
+              মোবাইল নাম্বারঃ ${profile.data.userDetails.mobileNumber}, \
+              কোর্সের নামঃ ${
+                studentCourseCodeTwoFinal[studentCourseCodeTwoFinal.length - 1]
+                  .code
+              }, \
+              স্ট্যাটাসঃ ${
+                studentCourseCodeTwoFinal[studentCourseCodeTwoFinal.length - 1]
+                  .status
+              }, \
+              পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()}, \
+              পেমেন্ট স্ট্যাটাসঃ false, \
+              প্রাইসঃ ${mainData.amountPaid}, \
+              কারেন্সিঃ  ${mainData.currency}, \
+              ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID}, \
+              সেন্ডার নাম্বারঃ ${mainData.accountNo}, \
+              পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}`
             );
 
             const hardRefresh = () => {
@@ -1393,12 +1457,8 @@ function PreFeeSection({ profile }) {
               একাউন্ট আইডিঃ ${profile.data.userDetails.userName}, \
               একাউন্ট ইমেইলঃ ${profile.data.userDetails.emailAddress}, \
               মোবাইল নাম্বারঃ ${profile.data.userDetails.mobileNumber}, \
-              কোর্সের নামঃ ${
-                studentCourseCode[studentCourseCode.length - 1].code
-              }, \
-              স্ট্যাটাসঃ ${
-                studentCourseCode[studentCourseCode.length - 1].status
-              }, \
+              কোর্সের নামঃ ${studentCourseCode.code}, \
+              স্ট্যাটাসঃ ${studentCourseCode.status}, \
               পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()}, \
               পেমেন্ট স্ট্যাটাসঃ false, \
               প্রাইসঃ ${mainData.amountPaid}, \
@@ -1406,8 +1466,22 @@ function PreFeeSection({ profile }) {
               ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID}, \
               সেন্ডার নাম্বারঃ ${mainData.accountNo}, \
               পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}`,
-              `${profile.data.userDetails.firstName.en} ${profile.data.userDetails.lastName.en} এর কাছে থেকে একটি পেমেন্ট রিকোয়েস্টটি এসেছে। \
-            `
+
+              `${profile.data.userDetails.firstName.en} ${
+                profile.data.userDetails.lastName.en
+              } এর কাছে থেকে একটি পেমেন্ট রিকোয়েস্টটি এসেছে। \
+              একাউন্ট আইডিঃ ${profile.data.userDetails.userName}, \
+              একাউন্ট ইমেইলঃ ${profile.data.userDetails.emailAddress}, \
+              মোবাইল নাম্বারঃ ${profile.data.userDetails.mobileNumber}, \
+              কোর্সের নামঃ ${studentCourseCode.code}, \
+              স্ট্যাটাসঃ ${studentCourseCode.status}, \
+              পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()}, \
+              পেমেন্ট স্ট্যাটাসঃ false, \
+              প্রাইসঃ ${mainData.amountPaid}, \
+              কারেন্সিঃ  ${mainData.currency}, \
+              ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID}, \
+              সেন্ডার নাম্বারঃ ${mainData.accountNo}, \
+              পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}`
             );
 
             const hardRefresh = () => {
@@ -1572,10 +1646,12 @@ function PreFeeSection({ profile }) {
               একাউন্ট ইমেইলঃ ${profile.data.userDetails.emailAddress}, \
               মোবাইল নাম্বারঃ ${profile.data.userDetails.mobileNumber}, \
               কোর্সের নামঃ ${
-                studentCourseCode[studentCourseCode.length - 1].code
+                studentCourseCodeTwoFinal[studentCourseCodeTwoFinal.length - 1]
+                  .code
               }, \
               স্ট্যাটাসঃ ${
-                studentCourseCode[studentCourseCode.length - 1].status
+                studentCourseCodeTwoFinal[studentCourseCodeTwoFinal.length - 1]
+                  .status
               }, \
               পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()}, \
               পেমেন্ট স্ট্যাটাসঃ false, \
@@ -1584,8 +1660,28 @@ function PreFeeSection({ profile }) {
               ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID}, \
               সেন্ডার নাম্বারঃ ${mainData.accountNo}, \
               পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}`,
-              `${profile.data.userDetails.firstName.en} ${profile.data.userDetails.lastName.en} এর কাছে থেকে একটি পেমেন্ট রিকোয়েস্টটি এসেছে। \
-            `
+
+              `${profile.data.userDetails.firstName.en} ${
+                profile.data.userDetails.lastName.en
+              } এর কাছে থেকে একটি পেমেন্ট রিকোয়েস্টটি এসেছে। \
+              একাউন্ট আইডিঃ ${profile.data.userDetails.userName}, \
+              একাউন্ট ইমেইলঃ ${profile.data.userDetails.emailAddress}, \
+              মোবাইল নাম্বারঃ ${profile.data.userDetails.mobileNumber}, \
+              কোর্সের নামঃ ${
+                studentCourseCodeTwoFinal[studentCourseCodeTwoFinal.length - 1]
+                  .code
+              }, \
+              স্ট্যাটাসঃ ${
+                studentCourseCodeTwoFinal[studentCourseCodeTwoFinal.length - 1]
+                  .status
+              }, \
+              পেমেন্টের তারিখঃ ${new Date(Date.now()).toISOString()}, \
+              পেমেন্ট স্ট্যাটাসঃ false, \
+              প্রাইসঃ ${mainData.amountPaid}, \
+              কারেন্সিঃ  ${mainData.currency}, \
+              ট্র্যান্সাকশন আইডিঃ  ${mainData.transactionID}, \
+              সেন্ডার নাম্বারঃ ${mainData.accountNo}, \
+              পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}`
             );
 
             const hardRefresh = () => {
