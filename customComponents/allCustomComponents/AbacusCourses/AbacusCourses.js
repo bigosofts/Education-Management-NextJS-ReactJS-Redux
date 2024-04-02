@@ -98,6 +98,7 @@ function AbacusCourse({ info, comment, richtext, parameter }) {
                             </div>
                             <h3 className="style-517">{item.text.bn}</h3>
                             <span
+                              className="animated-arrow"
                               style={{
                                 fontSize: "26px",
                                 position: "absolute",

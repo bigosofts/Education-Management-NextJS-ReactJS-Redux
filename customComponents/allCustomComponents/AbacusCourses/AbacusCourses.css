@@ -6961,6 +6961,13 @@
 .abacusCourse .style-513 {
   border-bottom-width: 1px;
   box-sizing: border-box;
+  transition: 0.3s ease-out;
+}
+.abacusCourse .style-513:hover {
+  background-color: rgb(28, 171, 85, 0.2);
+  border-radius: 25px;
+  padding: 0px 10px;
+  margin: 10px 0px;
 }
 
 .abacusCourse .style-514 {
@@ -9637,6 +9644,13 @@
   border-bottom-width: 1px;
   margin-bottom: 0px;
   box-sizing: border-box;
+  transition: 0.3s ease-out;
+}
+.abacusCourse .style-860:hover {
+  background-color: rgb(28, 171, 85, 0.2);
+  border-radius: 25px;
+  padding: 0px 10px;
+  margin: 10px 0px;
 }
 
 .abacusCourse .style-861 {
@@ -11505,6 +11519,13 @@
   border-style: dashed;
   border-bottom-width: 1px;
   box-sizing: border-box;
+  transition: 0.3s ease-out;
+}
+.abacusCourse .style-1095:hover {
+  background-color: rgb(28, 171, 85, 0.2);
+  border-radius: 25px;
+  padding: 0px 10px;
+  margin: 10px 0px;
 }
 
 .abacusCourse .style-1096 {
@@ -12534,5 +12555,33 @@
   }
   .abacusCourse .style-924 {
     text-align: justify;
+  }
+}
+
+.animated-arrow {
+  animation: liftUpDown 1s ease-in-out infinite;
+}
+
+@keyframes liftUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.style-1155 {
+  animation: zoominout 2s ease-in-out infinite;
+}
+
+@keyframes zoominout {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
   }
 }

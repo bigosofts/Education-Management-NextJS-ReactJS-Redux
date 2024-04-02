@@ -11,8 +11,9 @@ import { MetaPixelSetup } from "@/helper/metaPixelBeforeHead";
 import { OneSignalPush } from "@/helper/oneSignalPushNotification";
 
 export const metadata = {
-  title: "Internet Madrasa",
-  description: "A complete koumi madrasa",
+  title: "Internet Madrasa - একটি পূর্নাঙ্গ অনলাইন কওমী মাদরাসা",
+  description:
+    "বিশ্বের মধ্যে একমাত্র ও সর্ববৃহৎ পূর্ণাঙ্গ অনলাইন কওমী মাদরাসা যেখান থেকে শিক্ষার্থীরা বাংলাদেশ কওমী মাদরাসা শিক্ষা বোর্ড (বেফাক) থেকে পরীক্ষা দিয়ে পর্যায়ক্রমে মুতাওয়াসসিতাহ, সানাবিয়াতুল উলইয়া, ফজিলত ও তাকমিল (দাওরায়ে হাদীস) পাশ করে কৃতিত্বের সাথে ফারেগ হয়েছেন আলহামদুলিল্লাহ। অতএব অনলাইন থেকে পড়েও যে আলেম/আলেমা হওয়া যায় তার একটি উত্তম দৃষ্টান্ত স্থাপিত হয়েছে",
 };
 
 export default function RootLayout({ children }) {
