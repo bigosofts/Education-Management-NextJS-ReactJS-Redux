@@ -6963,11 +6963,13 @@
   box-sizing: border-box;
   transition: 0.3s ease-out;
 }
+
 .abacusCourse .style-513:hover {
-  background-color: rgb(28, 171, 85, 0.2);
+  background-color: #d7efe0;
   border-radius: 25px;
   padding: 0px 10px;
-  margin: 10px 0px;
+  margin-bottom: 50px;
+  scale: 1.05;
 }
 
 .abacusCourse .style-514 {
