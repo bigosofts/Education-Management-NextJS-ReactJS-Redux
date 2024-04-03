@@ -26,6 +26,19 @@ function fisherYatesShuffle(array) {
   }
 }
 
+export async function generateStaticParams() {
+  const resC = await selectCourses({
+    activeStatus: "active",
+    courseCode: `${params.courseID}`,
+  });
+
+  if (resC.status == "Alhamdulillah") {
+    return resC.data.map((post) => ({
+      courseID: post.courseCode,
+    }));
+  }
+}
+
 async function getData(params) {
   const res = await selectDataTwo({
     activeStatus: "active",
