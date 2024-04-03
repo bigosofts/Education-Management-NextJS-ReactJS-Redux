@@ -41,6 +41,10 @@ const ObjArray = (data) => {
   });
   return letImageObject;
 };
+export const metadata = {
+  title: "Abacus Page - আব্যাকাস গণিত শিক্ষা এবং প্রশিক্ষণ ক্লাসসমূহ",
+  description: "জাপানিজ অ্যাবাকাস শিক্ষা, প্রশিক্ষণ, বই এবং কীট বিক্রয়",
+};
 
 async function Abacus() {
   const data = await getData();
@@ -56,8 +60,8 @@ async function Abacus() {
       <AbacusSectionOne />
       <AboutAbacus />
       <Multiplication />
-     
-     <PageClassAbacus/>
+
+      <PageClassAbacus />
       {/* <CustomVideoGallery /> */}
 
       <Footer />

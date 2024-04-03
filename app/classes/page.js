@@ -6,22 +6,26 @@ import Footer from "@/customComponents/Footer/Footer";
 import { selectDataTwo } from "@/apiservices/sliderapiservices";
 import AllCoursePage from "@/customComponents/AllCoursePage/CoursesPage";
 
+export const metadata = {
+  title: "Classes - একাডেমিক ক্লাসসমূহ",
+  description: "কওমী মাদরাসার সিলেবাস অনুযায়ী ক্লাসসমূহ",
+};
+
 async function getData() {
   const res = await selectDataTwo({
     activeStatus: "active",
     sliderName: "home",
   });
- 
+
   if (res.status == "Alhamdulillah") {
     const dataObject = {
-      slider: null
+      slider: null,
     };
 
     dataObject.slider = res.data;
 
     return dataObject;
-    
-  } 
+  }
 }
 
 async function AbacusCourses({ params }) {

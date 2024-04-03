@@ -19,6 +19,11 @@ import AlemAlemaGrid from "@/customComponents/alemalemagrid/alemalemagrid";
 import GalleryAll from "@/customComponents/GalleryALLLimited/GalleryALL";
 import HifzGrid from "@/customComponents/hifzGrid2/hifzGrid";
 
+export const metadata = {
+  title: "Student Login - শিক্ষার্থী এবং ওস্তাদ ড্যাশবোর্ড লগিন",
+  description: "শিক্ষার্থী এবং ওস্তাদ ড্যাশবোর্ড লগিন",
+};
+
 function fisherYatesShuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -92,6 +97,28 @@ async function getData2(data) {
   dataObject2.richText = res4.data;
 
   return dataObject2;
+}
+
+export async function generateMetadata({ params }) {
+  // Read route params
+
+  const courseI = params.courseID;
+
+  let modifiedCourse;
+  let modifiedDesc;
+
+  if (courseI == "alemalema") {
+    modifiedCourse = "Alem Alema - সম্পূর্ণ কওমী বেফাক বোর্ডের সিলেবাস অনুযায়ী";
+    modifiedDesc = "দরসে নিজামী ও মাদানী নেসাবের সমন্বয়ে গঠিত";
+  } else if (courseI == "hifjulquran") {
+    modifiedDesc = "Hifjul Quran - পূর্ণাঙ্গ কুরআনুল কারীম হিফজ";
+    modifiedDesc = "নতুন সবক, সাতসবক, আমুখতা এবং সাপ্তাহিক সবিনা";
+  }
+
+  return {
+    title: modifiedCourse,
+    description: modifiedDesc,
+  };
 }
 
 async function AbacusCourses({ params }) {
