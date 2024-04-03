@@ -108,7 +108,7 @@ export async function generateMetadata({ params }) {
   }
 
   if (courseI == "hifjulquran") {
-    modifiedDesc = "Hifjul Quran - পূর্ণাঙ্গ কুরআনুল কারীম হিফজ";
+    modifiedCourse = "Hifjul Quran - পূর্ণাঙ্গ কুরআনুল কারীম হিফজ";
     modifiedDesc = "নতুন সবক, সাতসবক, আমুখতা এবং সাপ্তাহিক সবিনা";
   }
 
