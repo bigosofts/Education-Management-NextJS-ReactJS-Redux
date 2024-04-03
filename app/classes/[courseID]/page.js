@@ -105,11 +105,11 @@ export async function generateMetadata({ params }) {
   if (courseI == "alemalema") {
     modifiedCourse = "Alem Alema - সম্পূর্ণ কওমী বেফাক বোর্ডের সিলেবাস অনুযায়ী";
     modifiedDesc = "দরসে নিজামী ও মাদানী নেসাবের সমন্বয়ে গঠিত";
-  }
-
-  if (courseI == "hifjulquran") {
+  } else if (courseI == "hifjulquran") {
     modifiedCourse = "Hifjul Quran - পূর্ণাঙ্গ কুরআনুল কারীম হিফজ";
     modifiedDesc = "নতুন সবক, সাতসবক, আমুখতা এবং সাপ্তাহিক সবিনা";
+  } else {
+    modifiedCourse = `${courseI} - একটি পূর্নাঙ্গ কওমী মাদরাসা`;
   }
 
   return {
