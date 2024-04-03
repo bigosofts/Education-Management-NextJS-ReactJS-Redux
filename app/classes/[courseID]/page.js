@@ -19,11 +19,6 @@ import AlemAlemaGrid from "@/customComponents/alemalemagrid/alemalemagrid";
 import GalleryAll from "@/customComponents/GalleryALLLimited/GalleryALL";
 import HifzGrid from "@/customComponents/hifzGrid2/hifzGrid";
 
-export const metadata = {
-  title: "Student Login - শিক্ষার্থী এবং ওস্তাদ ড্যাশবোর্ড লগিন",
-  description: "শিক্ষার্থী এবং ওস্তাদ ড্যাশবোর্ড লগিন",
-};
-
 function fisherYatesShuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
