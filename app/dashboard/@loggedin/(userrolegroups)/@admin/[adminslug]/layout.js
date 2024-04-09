@@ -132,6 +132,11 @@ function layout({ children, params }) {
       href: `/dashboard/${params.adminslug}/education`,
       icon: "GoGear",
     },
+    {
+      name: "Class",
+      href: `/dashboard/${params.adminslug}/class`,
+      icon: "MdHotelClass",
+    },
   ];
 
   if (data) {

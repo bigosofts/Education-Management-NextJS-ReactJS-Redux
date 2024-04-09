@@ -269,7 +269,7 @@ function CommentCard(props) {
                   <button
                     onClick={() => {
                       updateHandler(item._id, comment);
-                      console.log(comment);
+                      
                     }}
                     className="w-2 px-5 py-5 allColorFont"
                   >

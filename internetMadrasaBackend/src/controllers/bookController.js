@@ -14,6 +14,7 @@ exports.createBook = (req, res) => {
     bookCreatedDate: new Date(Date.now()).toISOString(),
     bookUpdatedDate: new Date(Date.now()).toISOString(),
     activeStatus: reqBody.activeStatus,
+    bookLink: reqBody.bookLink,
   };
 
   // Create Database record
@@ -64,6 +65,7 @@ exports.updateBook = (req, res) => {
     bookPage: reqBody.bookPage,
     bookUpdatedDate: new Date(Date.now()).toISOString(),
     activeStatus: reqBody.activeStatus,
+    bookLink: reqBody.bookLink,
   };
 
   bookModel

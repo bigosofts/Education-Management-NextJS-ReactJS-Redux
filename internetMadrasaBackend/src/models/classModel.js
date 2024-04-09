@@ -28,6 +28,8 @@ const DataSchema = mongoose.Schema(
     students: [
       {
         SID: { type: String },
+        sName: { type: String },
+        mobileNumber: { type: String },
         attendance: [
           {
             month: { type: String },
@@ -35,6 +37,7 @@ const DataSchema = mongoose.Schema(
             dayNumber: { type: String },
             presentTime: { type: Date },
             isPresent: { type: Boolean },
+            completionProgress: { type: String },
           },
         ],
       },
