@@ -1,7 +1,7 @@
 import CourseCurriculamTeacher from "@/customComponents/allCustomComponents/courseCurriculam/CourseCurriculamTeacher";
 
 function RecordedClasses() {
-  return <CourseCurriculamTeacher />;
+  return <div>Upcoming...</div>;
 }
 
 export default RecordedClasses;
