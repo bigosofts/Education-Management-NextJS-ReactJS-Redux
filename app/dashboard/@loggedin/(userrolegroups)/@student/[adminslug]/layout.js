@@ -12,7 +12,6 @@ import { selectDataTwo } from "@/apiservices/studentapiservices";
 import MessangerChat from "@/customComponents/messangerChat/messangerChat";
 
 function StudentLayout({ children, params }) {
-  
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.isAdmin.value);
@@ -107,7 +106,7 @@ function StudentLayout({ children, params }) {
       show: true,
     },
     {
-      name: "Switch",
+      name: "Change Class",
       href: `/dashboard/${params.adminslug}/switches`,
       icon: "/images/switch.svg",
       show: true,
@@ -145,6 +144,12 @@ function StudentLayout({ children, params }) {
       icon: "/images/setting.svg",
       show: true,
     },
+    {
+      name: "Class Room",
+      href: `/dashboard/${params.adminslug}/class-room`,
+      icon: "/images/population.svg",
+      show: true,
+    },
   ];
 
   if (data) {
@@ -179,9 +184,9 @@ function StudentLayout({ children, params }) {
             icon: "/images/comment.svg",
             show: false,
           };
-        } else if (item.name == "Switch") {
+        } else if (item.name == "Change Class") {
           return {
-            name: "Switch",
+            name: "Change Class",
             href: `/dashboard/${data.data.userName}/switches`,
             icon: "/images/switch.svg",
             show: false,
@@ -219,6 +224,13 @@ function StudentLayout({ children, params }) {
             name: "Upload Exam",
             href: `/dashboard/${data.data.userName}/upload-exam`,
             icon: "/images/upload.svg",
+            show: false,
+          };
+        } else if (item.name == "Class Room") {
+          return {
+            name: "Class Room",
+            href: `/dashboard/${data.data.userName}/class-room`,
+            icon: "/images/population.svg",
             show: false,
           };
         } else {
@@ -259,9 +271,9 @@ function StudentLayout({ children, params }) {
             icon: "/images/comment.svg",
             show: false,
           };
-        } else if (item.name == "Switch") {
+        } else if (item.name == "Change Class") {
           return {
-            name: "Switch",
+            name: "Change Class",
             href: `/dashboard/${data.data.userName}/switches`,
             icon: "/images/switch.svg",
             show: false,
@@ -299,6 +311,13 @@ function StudentLayout({ children, params }) {
             name: "Upload Exam",
             href: `/dashboard/${data.data.userName}/upload-exam`,
             icon: "/images/upload.svg",
+            show: false,
+          };
+        } else if (item.name == "Class Room") {
+          return {
+            name: "Class Room",
+            href: `/dashboard/${data.data.userName}/class-room`,
+            icon: "/images/population.svg",
             show: false,
           };
         } else {
@@ -360,7 +379,7 @@ function StudentLayout({ children, params }) {
           show: true,
         },
         {
-          name: "Switch",
+          name: "Change Class",
           href: `/dashboard/${params.adminslug}/switches`,
           icon: "/images/switch.svg",
           show: true,
@@ -465,6 +484,37 @@ function StudentLayout({ children, params }) {
             checkArray.push("ramadanquranulkarim");
           }
         }
+
+        if (
+          (item.code == "alemalema" && item.status == "active") ||
+          (item.code == "farzeayinampara" && item.status == "active") ||
+          (item.code == "ezranahusorof" && item.status == "active") ||
+          (item.code == "shishumaktab" && item.status == "active") ||
+          (item.code == "hifjulquran" && item.status == "active") ||
+          (item.code == "farzeayinnajera" && item.status == "active") ||
+          (item.code == "farzeayinmaktab" && item.status == "active") ||
+          (item.code == "urdu" && item.status == "active") ||
+          (item.code == "shishunajera" && item.status == "active")
+        ) {
+          let combinedArray = [
+            {
+              name: "Class Room",
+              href: `/dashboard/${params.adminslug}/class-room`,
+              icon: "/images/population.svg",
+              show: true,
+            },
+          ];
+          if (
+            !checkArray.some((item) => {
+              return item == "combinedItem";
+            })
+          ) {
+            combinedArray.forEach((item) => {
+              newArray.push(item);
+            });
+            checkArray.push("combinedItem");
+          }
+        }
       });
     } else {
       newArray = [
@@ -524,7 +574,7 @@ function StudentLayout({ children, params }) {
           show: true,
         },
         {
-          name: "Switch",
+          name: "Change Class",
           href: `/dashboard/${params.adminslug}/switches`,
           icon: "/images/switch.svg",
           show: true,
@@ -559,6 +609,12 @@ function StudentLayout({ children, params }) {
           name: "Settings",
           href: `/dashboard/${params.adminslug}/settings`,
           icon: "/images/setting.svg",
+          show: true,
+        },
+        {
+          name: "Class Room",
+          href: `/dashboard/${params.adminslug}/class-room`,
+          icon: "/images/population.svg",
           show: true,
         },
       ];

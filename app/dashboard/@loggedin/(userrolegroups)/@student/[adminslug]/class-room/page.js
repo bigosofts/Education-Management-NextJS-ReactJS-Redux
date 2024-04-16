@@ -15,6 +15,7 @@ import FarzeayinmaktabMain from "@/components/dashboardPage/farzeayinmaktabpage/
 import FarzeayinnajeraMain from "@/components/dashboardPage/farzeayinnajerapage/farzeayinnajetaMain";
 import ShishumaktabMain from "@/components/dashboardPage/shishumaktabpage/shishumaktabMain";
 import ShishunajeraMain from "@/components/dashboardPage/shishunajerapage/shishunajeraMain";
+import HifjulquranMain from "@/components/dashboardPage/hifjulquranpage/hifjulquranMain";
 
 function AbacusPage(props) {
   const data = useSelector((state) => state.isAdmin.value);
@@ -113,8 +114,6 @@ function AbacusPage(props) {
     getData();
   }, []);
 
- 
-
   if (data) {
     if (data.data.userDetails.studentCourseCode.length < 1) {
       return <EnrollPlease />;
@@ -134,8 +133,14 @@ function AbacusPage(props) {
             প্রবেশ করুন।
           </div> */}
           {isAlemalema && <AlemalemaMain />}
-          {isUrdu && <AlemalemaMain />}
-          
+          {isUrdu && <UrduMain />}
+          {isEzra && <EzraMain />}
+          {isShishunajera && <ShishunajeraMain />}
+          {isShishumaktab && <ShishumaktabMain />}
+          {isFarzeayinmaktab && <FarzeayinmaktabMain />}
+          {isFarzeayinnajera && <FarzeayinnajeraMain />}
+          {isHifjulquran && <HifjulquranMain />}
+          {isFarzeayinampara && <FarzeayinamparaMain />}
         </>
       );
     } else if (!showPage) {

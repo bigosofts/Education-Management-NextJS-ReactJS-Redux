@@ -65,7 +65,7 @@ function DashExplore() {
         show: true,
       },
       {
-        name: "Switch",
+        name: "Change Class",
         href: `/dashboard/${data.data.userName}/switches`,
         icon: "/images/switch.svg",
         show: true,
@@ -94,6 +94,12 @@ function DashExplore() {
         name: "Attendance",
         href: `/dashboard/${data.data.userName}/attendance`,
         icon: "/images/attendance.svg",
+        show: true,
+      },
+      {
+        name: "Class Room",
+        href: `/dashboard/${data.data.userName}/class-room`,
+        icon: "/images/population.svg",
         show: true,
       },
     ];
@@ -130,9 +136,9 @@ function DashExplore() {
             icon: "/images/comment.svg",
             show: false,
           };
-        } else if (item.name == "Switch") {
+        } else if (item.name == "Change Class") {
           return {
-            name: "Switch",
+            name: "Change Class",
             href: `/dashboard/${data.data.userName}/switches`,
             icon: "/images/switch.svg",
             show: false,
@@ -170,6 +176,13 @@ function DashExplore() {
             name: "Upload Exam",
             href: `/dashboard/${data.data.userName}/upload-exam`,
             icon: "/images/upload.svg",
+            show: false,
+          };
+        } else if (item.name == "Class Room") {
+          return {
+            name: "Class Room",
+            href: `/dashboard/${data.data.userName}/class-room`,
+            icon: "/images/population.svg",
             show: false,
           };
         } else {
@@ -210,9 +223,9 @@ function DashExplore() {
             icon: "/images/comment.svg",
             show: false,
           };
-        } else if (item.name == "Switch") {
+        } else if (item.name == "Change Class") {
           return {
-            name: "Switch",
+            name: "Change Class",
             href: `/dashboard/${data.data.userName}/switches`,
             icon: "/images/switch.svg",
             show: false,
@@ -250,6 +263,13 @@ function DashExplore() {
             name: "Upload Exam",
             href: `/dashboard/${data.data.userName}/upload-exam`,
             icon: "/images/upload.svg",
+            show: false,
+          };
+        } else if (item.name == "Class Room") {
+          return {
+            name: "Class Room",
+            href: `/dashboard/${data.data.userName}/class-room`,
+            icon: "/images/population.svg",
             show: false,
           };
         } else {
@@ -305,7 +325,7 @@ function DashExplore() {
           show: true,
         },
         {
-          name: "Switch",
+          name: "Change Class",
           href: `/dashboard/${data.data.userName}/switches`,
           icon: "/images/switch.svg",
           show: true,
@@ -411,6 +431,37 @@ function DashExplore() {
             checkArray.push("ramadanquranulkarim");
           }
         }
+
+        if (
+          (item.code == "alemalema" && item.status == "active") ||
+          (item.code == "farzeayinampara" && item.status == "active") ||
+          (item.code == "ezranahusorof" && item.status == "active") ||
+          (item.code == "shishumaktab" && item.status == "active") ||
+          (item.code == "hifjulquran" && item.status == "active") ||
+          (item.code == "farzeayinnajera" && item.status == "active") ||
+          (item.code == "farzeayinmaktab" && item.status == "active") ||
+          (item.code == "urdu" && item.status == "active") ||
+          (item.code == "shishunajera" && item.status == "active")
+        ) {
+          let combinedArray = [
+            {
+              name: "Class Room",
+              href: `/dashboard/${data.data.userName}/class-room`,
+              icon: "/images/population.svg",
+              show: true,
+            },
+          ];
+          if (
+            !checkArray.some((item) => {
+              return item == "combinedItem";
+            })
+          ) {
+            combinedArray.forEach((item) => {
+              newArray.push(item);
+            });
+            checkArray.push("combinedItem");
+          }
+        }
       });
     } else {
       newArray = [
@@ -464,7 +515,7 @@ function DashExplore() {
           show: true,
         },
         {
-          name: "Switch",
+          name: "Change Class",
           href: `/dashboard/${data.data.userName}/switches`,
           icon: "/images/switch.svg",
           show: true,
@@ -500,6 +551,12 @@ function DashExplore() {
           name: "Settings",
           href: `/dashboard/${data.data.userName}/settings`,
           icon: "/images/setting.svg",
+          show: true,
+        },
+        {
+          name: "Class Room",
+          href: `/dashboard/${data.data.userName}/class-room`,
+          icon: "/images/population.svg",
           show: true,
         },
       ];
