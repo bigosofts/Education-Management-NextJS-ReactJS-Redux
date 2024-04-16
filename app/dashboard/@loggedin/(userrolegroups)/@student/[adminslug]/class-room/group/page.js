@@ -552,10 +552,10 @@ function CombinedGroup() {
                 </li>
               )}
             </ul>
-            <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
+            {/* <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
               আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার {Alemalema.jamat},{" "}
               {Alemalema.semester} ক্লাসের শিডিউল দুপুর ২.০০ টায়।
-            </div>
+            </div> */}
           </div>
         </div>
       )}
@@ -588,10 +588,10 @@ function CombinedGroup() {
                 </span>
               </li>
             </ul>
-            <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
+            {/* <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
               আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার {Alemalema.jamat},{" "}
               {Alemalema.semester} ক্লাসের শিডিউল দুপুর ২.০০ টায়।
-            </div>
+            </div> */}
           </div>
         </div>
       )}
@@ -624,10 +624,10 @@ function CombinedGroup() {
                 </span>
               </li>
             </ul>
-            <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
+            {/* <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
               আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার {Alemalema.jamat},{" "}
               {Alemalema.semester} ক্লাসের শিডিউল দুপুর ২.০০ টায়।
-            </div>
+            </div> */}
           </div>
         </div>
       )}
@@ -660,10 +660,10 @@ function CombinedGroup() {
                 </span>
               </li>
             </ul>
-            <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
+            {/* <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
               আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার {Alemalema.jamat},{" "}
               {Alemalema.semester} ক্লাসের শিডিউল দুপুর ২.০০ টায়।
-            </div>
+            </div> */}
           </div>
         </div>
       )}
@@ -696,10 +696,10 @@ function CombinedGroup() {
                 </span>
               </li>
             </ul>
-            <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
+            {/* <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
               আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার {Alemalema.jamat},{" "}
               {Alemalema.semester} ক্লাসের শিডিউল দুপুর ২.০০ টায়।
-            </div>
+            </div> */}
           </div>
         </div>
       )}
@@ -732,10 +732,10 @@ function CombinedGroup() {
                 </span>
               </li>
             </ul>
-            <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
+            {/* <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
               আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার {Alemalema.jamat},{" "}
               {Alemalema.semester} ক্লাসের শিডিউল দুপুর ২.০০ টায়।
-            </div>
+            </div> */}
           </div>
         </div>
       )}
@@ -768,10 +768,10 @@ function CombinedGroup() {
                 </span>
               </li>
             </ul>
-            <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
+            {/* <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
               আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার {Alemalema.jamat},{" "}
               {Alemalema.semester} ক্লাসের শিডিউল দুপুর ২.০০ টায়।
-            </div>
+            </div> */}
           </div>
         </div>
       )}
@@ -824,10 +824,10 @@ function CombinedGroup() {
                 </span>
               </li>
             </ul>
-            <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
+            {/* <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
               আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার {Alemalema.jamat},{" "}
               {Alemalema.semester} ক্লাসের শিডিউল দুপুর ২.০০ টায়।
-            </div>
+            </div> */}
           </div>
         </div>
       )}
