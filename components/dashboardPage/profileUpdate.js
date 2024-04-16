@@ -184,15 +184,13 @@ function ProfileUpdate() {
           Date of Birth :
         </label>
         <input
-          type={inputType}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          type="text"
           onChange={(e) => onChangeHander("dateOfBirth", e.target.value)}
           value={finalData.dateOfBirth}
           id="dateofbirth"
           name="dateofbirth"
           className="my-4 p-4 box-border w-full rounded-3xl"
-          placeholder="Enter your Birth Date"
+          placeholder="Enter your Birth Date (ex. 27/07/1994)"
         ></input>
         {/* Input Field */}
         <label className="font-bold" htmlFor="country">

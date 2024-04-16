@@ -57,7 +57,7 @@ const DataSchema = mongoose.Schema(
       },
     ],
     gender: { type: String },
-    dateOfBirth: { type: Date },
+    dateOfBirth: { type: String },
     countryName: { type: String },
     fullPresentAddress: { type: String },
     fullPermanentAddress: { type: String },
