@@ -1,4 +1,4 @@
-var target_date = new Date(2024, 3, 17).getTime(); // set the countdown date
+var target_date = new Date(2024, 3, 20).getTime(); // set the countdown date
 var days, hours, minutes, seconds; // variables for time units
 
 var countdown = document.getElementById("tiles"); // get tag element
@@ -39,4 +39,3 @@ function getCountdown() {
 function pad(n) {
   return (n < 10 ? "0" : "") + n;
 }
-
