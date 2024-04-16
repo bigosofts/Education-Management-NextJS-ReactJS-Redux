@@ -125,7 +125,7 @@ function AbacusPage(props) {
       return <WaitingApproval />;
     } else if (showPage) {
       return (
-        <>
+        <div>
           {/* <div className="w-11/12 md:w-9/12 mt-12 md:mt-[80px] rounded-3xl mx-auto p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
             অ্যাবাকাস শিক্ষক প্রশিক্ষণ ক্ল্যাশটি করতে আপনার একটি কীট এবং বই
             লাগবে । যেটা নিচের "Abacus Books & kit" অপশনে যেয়ে অর্ডার করতে
@@ -141,7 +141,7 @@ function AbacusPage(props) {
           {isFarzeayinnajera && <FarzeayinnajeraMain />}
           {isHifjulquran && <HifjulquranMain />}
           {isFarzeayinampara && <FarzeayinamparaMain />}
-        </>
+        </div>
       );
     } else if (!showPage) {
       return <NotAllow allowList={allowList} />;
