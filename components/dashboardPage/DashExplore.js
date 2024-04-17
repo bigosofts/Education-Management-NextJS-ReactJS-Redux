@@ -102,6 +102,12 @@ function DashExplore() {
         icon: "/images/population.svg",
         show: true,
       },
+      {
+        name: "Hifz Information Books",
+        href: `/dashboard/${data.data.userName}/hifz`,
+        icon: "/images/Hifzul.png",
+        show: true,
+      },
     ];
 
     let newArray = [];
@@ -183,6 +189,13 @@ function DashExplore() {
             name: "Class Room",
             href: `/dashboard/${data.data.userName}/class-room`,
             icon: "/images/population.svg",
+            show: false,
+          };
+        } else if (item.name == "Hifz Information Books") {
+          return {
+            name: "Hifz Information Books",
+            href: `/dashboard/${data.data.userName}/hifz`,
+            icon: "/images/Hifzul.png",
             show: false,
           };
         } else {
@@ -270,6 +283,13 @@ function DashExplore() {
             name: "Class Room",
             href: `/dashboard/${data.data.userName}/class-room`,
             icon: "/images/population.svg",
+            show: false,
+          };
+        } else if (item.name == "Hifz Information Books") {
+          return {
+            name: "Hifz Information Books",
+            href: `/dashboard/${data.data.userName}/hifz`,
+            icon: "/images/Hifzul.png",
             show: false,
           };
         } else {
@@ -366,6 +386,28 @@ function DashExplore() {
               newArray.push(item);
             });
             checkArray.push("alemalema");
+          }
+        }
+        if (item.code == "hifjulquran" && item.status == "active") {
+          let hifzArray = [
+            {
+              name: "Hifz Information Books",
+              href: `/dashboard/${data.data.userName}/hifz`,
+              icon: "/images/Hifzul.png",
+              show: true,
+            },
+          ];
+
+          if (
+            !checkArray.some((item) => {
+              return item == "hifjulquran";
+            })
+          ) {
+            hifzArray.forEach((item) => {
+              newArray.push(item);
+            });
+
+            checkArray.push("hifjulquran");
           }
         }
         if (item.code == "abacus_student" && item.status == "active") {
@@ -557,6 +599,12 @@ function DashExplore() {
           name: "Class Room",
           href: `/dashboard/${data.data.userName}/class-room`,
           icon: "/images/population.svg",
+          show: true,
+        },
+        {
+          name: "Hifz Information Books",
+          href: `/dashboard/${data.data.userName}/hifz`,
+          icon: "/images/Hifzul.png",
           show: true,
         },
       ];

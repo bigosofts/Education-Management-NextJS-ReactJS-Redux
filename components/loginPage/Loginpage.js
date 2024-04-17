@@ -199,7 +199,11 @@ function LoginPageDesign({ userData }) {
                     mytoast.success("আলহামদুলিলাহ, আপনি সফলভাবে লগিন করেছেন");
                     const hardRefresh = () => {
                       if (typeof window !== "undefined") {
-                        window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update?code=${code}`;
+                        if (code) {
+                          window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update?code=${code}`;
+                        } else {
+                          window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update`;
+                        }
                       }
                     };
                     hardRefresh();
@@ -284,7 +288,6 @@ function LoginPageDesign({ userData }) {
   const emailIdref = useRef();
   const passwordref = useRef();
   const mobileNoref = useRef();
-  
 
   return (
     <section className="pt-10 pb-10" style={{ backgroundColor: "#fff" }}>
@@ -324,8 +327,6 @@ function LoginPageDesign({ userData }) {
               id="lastName"
               ref={lastNameref}
             ></input>
-
-           
 
             <label
               className="block mb-2 text-lg text-slate-600"
