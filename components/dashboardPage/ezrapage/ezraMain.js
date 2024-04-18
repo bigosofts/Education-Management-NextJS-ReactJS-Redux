@@ -30,7 +30,7 @@ function EzraMain() {
 
   return (
     <div className="w-11/12 md:w-9/12 my-5 m-auto">
-      <h1 className="text-lg md:text-3xl mt-2 text-slate-500">Ezra Jamat</h1>
+      <h1 className="text-lg md:text-3xl mt-2 text-slate-500">Ezra Class</h1>
 
       <div className="overflow-hidden grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-12">
         {newArray.map((item) => (

@@ -196,6 +196,7 @@ function SwitchDesign() {
             ].code
           ).tk
       ) {
+        debugger;
         if (
           mainData.classes == "alemalema" &&
           mainData.jamat &&
@@ -512,6 +513,7 @@ function SwitchDesign() {
             ].code
           ).tk
       ) {
+       
         if (desiredCourse(mainData.classes).coursePrice.registration.tk == 0) {
           if (mainData.classes && mainData.department) {
             NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
@@ -1041,6 +1043,7 @@ function SwitchDesign() {
 
             NewStudentJamatCode[NewStudentJamatCode.length - 1].status =
               "inactive";
+
             NewStudentJamatCode[NewStudentJamatCode.length - 1].endDate =
               new Date(Date.now()).toISOString();
             NewStudentJamatCode.push({

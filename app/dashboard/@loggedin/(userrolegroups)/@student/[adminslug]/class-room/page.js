@@ -124,6 +124,7 @@ function AbacusPage(props) {
     ) {
       return <WaitingApproval />;
     } else if (showPage) {
+      
       return (
         <div>
           {/* <div className="w-11/12 md:w-9/12 mt-12 md:mt-[80px] rounded-3xl mx-auto p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">

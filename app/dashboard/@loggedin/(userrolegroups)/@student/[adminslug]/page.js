@@ -226,7 +226,14 @@ function page(props) {
               });
 
               if (res4.status == "Alhamdulillah") {
-                mytoast.warning("Monthly Payment Overdue");
+                let haveOrNot = newMonthlyPayment.some((item)=>{
+            
+                  return item.PaymentStatus == false;
+                })
+                if(haveOrNot){
+                  mytoast.warning("Monthly Payment Overdue");
+                }
+              
               }
             }
           }
