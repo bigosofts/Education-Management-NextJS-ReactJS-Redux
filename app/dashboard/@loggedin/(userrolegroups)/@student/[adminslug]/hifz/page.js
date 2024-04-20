@@ -7,10 +7,12 @@ import WaitingApproval from "@/components/dashboardPage/WaitingApproval";
 import { useState, useEffect, useRef } from "react";
 import { selectDataTwo, updateData } from "@/apiservices/studentapiservices";
 import NotAllow from "@/components/dashboardPage/notAllow";
+import mytoast from "@/components/toast/toast";
 
 function HifzPage() {
   const data = useSelector((state) => state.isAdmin.value);
   const [showPage, setShowPage] = useState();
+  const [showMainPage, setShowMainPage] = useState();
 
   const AllList = [
     "alemalema",
@@ -40,6 +42,9 @@ function HifzPage() {
           res.data[0].studentCourseCode.forEach((item) => {
             if (item.code == "hifjulquran" && item.status == "active") {
               setShowPage(true);
+              if (res.data[0].details.hifzClass) {
+                setShowMainPage(true);
+              }
             }
           });
         }
@@ -78,6 +83,7 @@ function HifzPage() {
   const amukhtadohoranaref = useRef();
 
   const tilwatref = useRef();
+  const hifzClassref = useRef();
 
   let currentDate = new Date();
   let dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -143,6 +149,56 @@ function HifzPage() {
   async function satsabakSubmit() {
     alert(niceDate(currentDate));
   }
+  async function amukhtaSubmit() {}
+
+  async function tilwatSubmit() {}
+
+  async function submitHifzClass(e) {
+    e.preventDefault();
+
+    let details = { ...data.data.userDetails.details };
+    if (hifzClassref.current.value) {
+      details.hifzClass = JSON.parse(hifzClassref.current.value);
+
+      const res = await updateData(
+        data.data.userDetails.userName,
+        data.data.userDetails.firstNameen,
+        data.data.userDetails.firstNamebn,
+        data.data.userDetails.lastNameen,
+        data.data.userDetails.lastNamebn,
+        data.data.userDetails.nidNumber,
+        data.data.userDetails.birthRegNumber,
+        data.data.userDetails.fatherNameen,
+        data.data.userDetails.fatherNamebn,
+        data.data.userDetails.emailAddress,
+        undefined,
+        data.data.userDetails.mobileNumber,
+        data.data.userDetails.occupation,
+        data.data.userDetails.studentCourseCode,
+        data.data.userDetails.studentJamatCode,
+        data.data.userDetails.gender,
+        data.data.userDetails.dateOfBirth,
+        data.data.userDetails.countryName,
+        data.data.userDetails.fullPresentAddress,
+        data.data.userDetails.fullPermanentAddress,
+        data.data.userDetails.admissionSession,
+        data.data.userDetails.admissionDate,
+        data.data.userDetails.studentMotive,
+        details,
+        data.data.userDetails.paymentStatus,
+        data.data.userDetails.userRole,
+        data.data.userDetails.extracurricular,
+        data.data.userDetails.activeStatus,
+        data.data.userDetails._id,
+        data.data.userDetails.studentDepartment,
+        data.data.userDetails.studentSemester
+      );
+
+      if (res.status == "Alhamdulillah") {
+        mytoast.success("Hifz Class Selection has been recorded");
+      }
+    }
+  }
 
   if (data) {
     if (data.data.userDetails.studentCourseCode.length < 1) {
@@ -154,310 +210,398 @@ function HifzPage() {
     ) {
       return <WaitingApproval />;
     } else if (showPage) {
-      return (
-        <>
-          <div className="w-11/12 text-center md:w-9/12 mt-12 md:mt-[80px] rounded-3xl mx-auto p-4 text-4xl md:text-2x transition duration-500 ease-out mb-4">
-            প্রতিদিন হিফজের তথ্য লিখুন
+      if (showMainPage) {
+        return (
+          <div>
+            <div className="w-11/12 text-center md:w-9/12 mt-12 md:mt-[80px] rounded-3xl mx-auto p-4 text-4xl md:text-2x transition duration-500 ease-out mb-4">
+              প্রতিদিন হিফজের তথ্য লিখুন
+            </div>
+            <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
+              <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
+                সবকের তথ্য দিন
+              </h2>
+              <form>
+                <label className="font-bold text-2xl" htmlFor="todaydate">
+                  Today's Date:
+                </label>
+                <input
+                  id="todaydate"
+                  name="todaydate"
+                  className="my-4 p-4 box-border w-full rounded-3xl"
+                  type="text"
+                  value={niceDate(currentDate)}
+                  disabled
+                ></input>
+
+                <div className="flex justify-between gap-10">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                    <label className="font-bold text-2xl" htmlFor="sabakpara">
+                      পারা:
+                    </label>
+                    <input
+                      id="sabakpara"
+                      ref={sabakpararef}
+                      name="sabakpara"
+                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      type="text"
+                      placeholder="কত পারা সেটা লিখুন"
+                    ></input>
+                  </div>
+
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                    <label className="font-bold text-2xl" htmlFor="sabakpage">
+                      পৃষ্ঠা:
+                    </label>
+                    <input
+                      id="sabakpage"
+                      ref={sabakpageref}
+                      name="sabakpage"
+                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      type="text"
+                      placeholder="কত পৃষ্ঠা লিখুন"
+                    ></input>
+                  </div>
+                </div>
+
+                <button
+                  onClick={sabakSubmit}
+                  className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
+                >
+                  <div className="p-5">আজকের সবকের তথ্য দিন</div>
+                </button>
+              </form>
+            </div>
+            <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
+              <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
+                সাতসবকের তথ্য দিন
+              </h2>
+              <form>
+                <label className="font-bold text-2xl" htmlFor="todaydate">
+                  Today's Date:
+                </label>
+                <input
+                  id="todaydate"
+                  value={niceDate(currentDate)}
+                  name="todaydate"
+                  className="my-4 p-4 box-border w-full rounded-3xl"
+                  type="text"
+                  disabled
+                ></input>
+
+                <div className="flex justify-between gap-10">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                    <label
+                      className="font-bold text-2xl"
+                      htmlFor="satsabakpara"
+                    >
+                      পারা:
+                    </label>
+                    <input
+                      id="satsabakpara"
+                      ref={satsabakpararef}
+                      name="satsabakpara"
+                      className="my-4 p-4 box-border w-full rounded-3xl text"
+                      type="text"
+                      placeholder="কত পারা সেটা লিখুন"
+                    ></input>
+                  </div>
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                    <label
+                      className="font-bold text-2xl"
+                      htmlFor="satsabakpage"
+                    >
+                      পৃষ্ঠা:
+                    </label>
+                    <input
+                      id="satsabakpage"
+                      ref={satsabakpageref}
+                      name="satsabakpage"
+                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      type="text"
+                      placeholder="কত পৃষ্ঠা লিখুন"
+                    ></input>
+                  </div>
+                </div>
+                <div className="flex justify-between gap-10 mt-5">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                    <label
+                      className="font-bold text-2xl"
+                      htmlFor="satsabakamount"
+                    >
+                      পরিমাণ:
+                    </label>
+                    <input
+                      id="satsabakamount"
+                      ref={satsabakamountref}
+                      name="satsabakamount"
+                      className="my-4 p-4 box-border w-full rounded-3xl text"
+                      type="text"
+                      placeholder="পৃষ্ঠার পরিমাণ লিখুন"
+                    ></input>
+                  </div>
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                    <label
+                      className="font-bold text-2xl"
+                      htmlFor="satsabaklokma"
+                    >
+                      লোকমা:
+                    </label>
+                    <input
+                      id="satsabaklokma"
+                      ref={satsabaklokmaref}
+                      name="satsabaklokma"
+                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      type="text"
+                      placeholder="লোকমার পরিমাণ লিখুন"
+                    ></input>
+                  </div>
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                    <label
+                      className="font-bold text-2xl"
+                      htmlFor="satsabakdohorana"
+                    >
+                      দোহরানা:
+                    </label>
+
+                    <input
+                      id="satsabakdohorana"
+                      ref={satsabakdohoranaref}
+                      name="satsabakdohorana"
+                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      type="text"
+                      placeholder="দোহরানার পরিমাণ লিখুন"
+                    ></input>
+                  </div>
+                </div>
+
+                <button
+                  onClick={satsabakSubmit}
+                  className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
+                >
+                  <div className="p-5">আজকের দোহরানার তথ্য দিন</div>
+                </button>
+              </form>
+            </div>
+            <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
+              <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
+                আমুখতার তথ্য দিন
+              </h2>
+              <form>
+                <label className="font-bold text-2xl" htmlFor="todaydate">
+                  Today's Date:
+                </label>
+                <input
+                  id="todaydate"
+                  value={niceDate(currentDate)}
+                  name="todaydate"
+                  className="my-4 p-4 box-border w-full rounded-3xl"
+                  type="text"
+                  disabled
+                ></input>
+
+                <div className="flex justify-between gap-10">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                    <label className="font-bold text-2xl" htmlFor="amukhtapara">
+                      পারা:
+                    </label>
+                    <input
+                      id="amukhtapara"
+                      ref={amukhtapararef}
+                      name="amukhtapara"
+                      className="my-4 p-4 box-border w-full rounded-3xl text"
+                      type="text"
+                      placeholder="কত পারা সেটা লিখুন"
+                    ></input>
+                  </div>
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                    <label className="font-bold text-2xl" htmlFor="amukhtapage">
+                      পৃষ্ঠা:
+                    </label>
+                    <input
+                      id="amukhtapage"
+                      ref={amukhtapageref}
+                      name="amukhtapage"
+                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      type="text"
+                      placeholder="কত পৃষ্ঠা লিখুন"
+                    ></input>
+                  </div>
+                </div>
+                <div className="flex justify-between gap-10 mt-5">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                    <label
+                      className="font-bold text-2xl"
+                      htmlFor="amukhtaamount"
+                    >
+                      পরিমাণ:
+                    </label>
+                    <input
+                      id="amukhtaamount"
+                      ref={amukhtaamountref}
+                      name="amukhtaamount"
+                      className="my-4 p-4 box-border w-full rounded-3xl text"
+                      type="text"
+                      placeholder="পৃষ্ঠার পরিমাণ লিখুন"
+                    ></input>
+                  </div>
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                    <label
+                      className="font-bold text-2xl"
+                      htmlFor="amukhtalokma"
+                    >
+                      লোকমা:
+                    </label>
+                    <input
+                      id="amukhtalokma"
+                      ref={amukhtalokmaref}
+                      name="amukhtalokma"
+                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      type="text"
+                      placeholder="লোকমার পরিমাণ লিখুন"
+                    ></input>
+                  </div>
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                    <label
+                      className="font-bold text-2xl"
+                      htmlFor="amukhtadohorana"
+                    >
+                      দোহরানা:
+                    </label>
+
+                    <input
+                      id="amukhtadohorana"
+                      ref={amukhtadohoranaref}
+                      name="amukhtadohorana"
+                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      type="text"
+                      placeholder="আমুখতার পরিমাণ লিখুন"
+                    ></input>
+                  </div>
+                </div>
+
+                <button
+                  onClick={amukhtaSubmit}
+                  className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
+                >
+                  <div className="p-5">আজকের আমুখতার তথ্য দিন</div>
+                </button>
+              </form>
+            </div>
+            <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
+              <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
+                প্রতিদিনের তিলওয়াতের তথ্য দিন
+              </h2>
+              <form>
+                <label className="font-bold text-2xl" htmlFor="todaydate">
+                  Today's Date:
+                </label>
+                <input
+                  id="todaydate"
+                  name="todaydate"
+                  value={niceDate(currentDate)}
+                  className="my-4 p-4 box-border w-full rounded-3xl"
+                  type="text"
+                  disabled
+                ></input>
+
+                <div className="flex justify-between gap-10">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                    <label className="font-bold text-2xl" htmlFor="tilwat">
+                      তিলওয়াত:
+                    </label>
+                    <input
+                      id="tilwat"
+                      ref={tilwatref}
+                      name="tilwat"
+                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      type="text"
+                      placeholder="কতটুকু তিলওয়াত করেছেন লিখুন"
+                    ></input>
+                  </div>
+                </div>
+
+                <button
+                  onClick={tilwatSubmit}
+                  className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
+                >
+                  <div className="p-5">আজকের তিলওয়াতের তথ্য দিন</div>
+                </button>
+              </form>
+            </div>
           </div>
-          <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
-            <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
-              সবকের তথ্য দিন
-            </h2>
-            <form>
-              <label className="font-bold text-2xl" htmlFor="todaydate">
-                Today's Date:
-              </label>
-              <input
-                id="todaydate"
-                name="todaydate"
-                className="my-4 p-4 box-border w-full rounded-3xl"
-                type="text"
-                value={niceDate(currentDate)}
-                disabled
-              ></input>
-
-              <div className="flex justify-between gap-10">
-                <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
-                  <label className="font-bold text-2xl" htmlFor="sabakpara">
-                    পারা:
-                  </label>
-                  <input
-                    id="sabakpara"
-                    ref={sabakpararef}
-                    name="sabakpara"
-                    className="my-4 p-4 box-border w-full rounded-3xl"
-                    type="text"
-                    placeholder="কত পারা সেটা লিখুন"
-                  ></input>
+        );
+      } else {
+        return (
+          <div>
+            <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
+              <form>
+                <div className="flex justify-between gap-10">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                    <label
+                      className="font-bold text-2xl"
+                      htmlFor="hifzClassSelector"
+                    >
+                      আপনি হিফজ বিভাগের কোন ক্লাসে অধ্যায়নরত ? :
+                    </label>
+                    <select
+                      id="hifzClassSelector"
+                      ref={hifzClassref}
+                      name="hifzClassSelector"
+                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      type="text"
+                    >
+                      <option value=""> Select option</option>
+                      <option
+                        value={JSON.stringify({
+                          groupName: "maleGroup1",
+                          ostad: "",
+                        })}
+                      >
+                        {" "}
+                        পুরুষদের গ্রুপ-১{" "}
+                      </option>
+                      <option
+                        value={JSON.stringify({
+                          groupName: "femaleGroup1",
+                          ostad: "",
+                        })}
+                      >
+                        {" "}
+                        মহিলাদের গ্রুপ-১{" "}
+                      </option>
+                      <option
+                        value={JSON.stringify({
+                          groupName: "femaleGroup2",
+                          ostad: "",
+                        })}
+                      >
+                        {" "}
+                        মহিলাদের গ্রুপ-২{" "}
+                      </option>
+                      <option
+                        value={JSON.stringify({
+                          groupName: "femaleGroup3",
+                          ostad: "",
+                        })}
+                      >
+                        {" "}
+                        মহিলাদের গ্রুপ-৩{" "}
+                      </option>
+                    </select>
+                  </div>
                 </div>
 
-                <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
-                  <label className="font-bold text-2xl" htmlFor="sabakpage">
-                    পৃষ্ঠা:
-                  </label>
-                  <input
-                    id="sabakpage"
-                    ref={sabakpageref}
-                    name="sabakpage"
-                    className="my-4 p-4 box-border w-full rounded-3xl"
-                    type="text"
-                    placeholder="কত পৃষ্ঠা লিখুন"
-                  ></input>
-                </div>
-              </div>
-
-              <button
-                onClick={sabakSubmit}
-                className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
-              >
-                <div className="p-5">আজকের সবকের তথ্য দিন</div>
-              </button>
-            </form>
+                <button
+                  onClick={submitHifzClass}
+                  className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
+                >
+                  <div className="p-5">তথ্য দিন</div>
+                </button>
+              </form>
+            </div>
           </div>
-          <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
-            <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
-              সাতসবকের তথ্য দিন
-            </h2>
-            <form>
-              <label className="font-bold text-2xl" htmlFor="todaydate">
-                Today's Date:
-              </label>
-              <input
-                id="todaydate"
-                value={niceDate(currentDate)}
-                name="todaydate"
-                className="my-4 p-4 box-border w-full rounded-3xl"
-                type="text"
-                disabled
-              ></input>
-
-              <div className="flex justify-between gap-10">
-                <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
-                  <label className="font-bold text-2xl" htmlFor="satsabakpara">
-                    পারা:
-                  </label>
-                  <input
-                    id="satsabakpara"
-                    ref={satsabakpararef}
-                    name="satsabakpara"
-                    className="my-4 p-4 box-border w-full rounded-3xl text"
-                    type="text"
-                    placeholder="কত পারা সেটা লিখুন"
-                  ></input>
-                </div>
-                <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
-                  <label className="font-bold text-2xl" htmlFor="satsabakpage">
-                    পৃষ্ঠা:
-                  </label>
-                  <input
-                    id="satsabakpage"
-                    ref={satsabakpageref}
-                    name="satsabakpage"
-                    className="my-4 p-4 box-border w-full rounded-3xl"
-                    type="text"
-                    placeholder="কত পৃষ্ঠা লিখুন"
-                  ></input>
-                </div>
-              </div>
-              <div className="flex justify-between gap-10 mt-5">
-                <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
-                  <label
-                    className="font-bold text-2xl"
-                    htmlFor="satsabakamount"
-                  >
-                    পরিমাণ:
-                  </label>
-                  <input
-                    id="satsabakamount"
-                    ref={satsabakamountref}
-                    name="satsabakamount"
-                    className="my-4 p-4 box-border w-full rounded-3xl text"
-                    type="text"
-                    placeholder="পৃষ্ঠার পরিমাণ লিখুন"
-                  ></input>
-                </div>
-                <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
-                  <label className="font-bold text-2xl" htmlFor="satsabaklokma">
-                    লোকমা:
-                  </label>
-                  <input
-                    id="satsabaklokma"
-                    ref={satsabaklokmaref}
-                    name="satsabaklokma"
-                    className="my-4 p-4 box-border w-full rounded-3xl"
-                    type="text"
-                    placeholder="লোকমার পরিমাণ লিখুন"
-                  ></input>
-                </div>
-                <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
-                  <label
-                    className="font-bold text-2xl"
-                    htmlFor="satsabakdohorana"
-                  >
-                    দোহরানা:
-                  </label>
-
-                  <input
-                    id="satsabakdohorana"
-                    ref={satsabakdohoranaref}
-                    name="satsabakdohorana"
-                    className="my-4 p-4 box-border w-full rounded-3xl"
-                    type="text"
-                    placeholder="দোহরানার পরিমাণ লিখুন"
-                  ></input>
-                </div>
-              </div>
-
-              <button
-                onClick={satsabakSubmit}
-                className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
-              >
-                <div className="p-5">আজকের দোহরানার তথ্য দিন</div>
-              </button>
-            </form>
-          </div>
-          <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
-            <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
-              আমুখতার তথ্য দিন
-            </h2>
-            <form>
-              <label className="font-bold text-2xl" htmlFor="todaydate">
-                Today's Date:
-              </label>
-              <input
-                id="todaydate"
-                value={niceDate(currentDate)}
-                name="todaydate"
-                className="my-4 p-4 box-border w-full rounded-3xl"
-                type="text"
-                disabled
-              ></input>
-
-              <div className="flex justify-between gap-10">
-                <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
-                  <label className="font-bold text-2xl" htmlFor="amukhtapara">
-                    পারা:
-                  </label>
-                  <input
-                    id="amukhtapara"
-                    ref={amukhtapararef}
-                    name="amukhtapara"
-                    className="my-4 p-4 box-border w-full rounded-3xl text"
-                    type="text"
-                    placeholder="কত পারা সেটা লিখুন"
-                  ></input>
-                </div>
-                <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
-                  <label className="font-bold text-2xl" htmlFor="amukhtapage">
-                    পৃষ্ঠা:
-                  </label>
-                  <input
-                    id="amukhtapage"
-                    ref={amukhtapageref}
-                    name="amukhtapage"
-                    className="my-4 p-4 box-border w-full rounded-3xl"
-                    type="text"
-                    placeholder="কত পৃষ্ঠা লিখুন"
-                  ></input>
-                </div>
-              </div>
-              <div className="flex justify-between gap-10 mt-5">
-                <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
-                  <label className="font-bold text-2xl" htmlFor="amukhtaamount">
-                    পরিমাণ:
-                  </label>
-                  <input
-                    id="amukhtaamount"
-                    ref={amukhtaamountref}
-                    name="amukhtaamount"
-                    className="my-4 p-4 box-border w-full rounded-3xl text"
-                    type="text"
-                    placeholder="পৃষ্ঠার পরিমাণ লিখুন"
-                  ></input>
-                </div>
-                <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
-                  <label className="font-bold text-2xl" htmlFor="amukhtalokma">
-                    লোকমা:
-                  </label>
-                  <input
-                    id="amukhtalokma"
-                    ref={amukhtalokmaref}
-                    name="amukhtalokma"
-                    className="my-4 p-4 box-border w-full rounded-3xl"
-                    type="text"
-                    placeholder="লোকমার পরিমাণ লিখুন"
-                  ></input>
-                </div>
-                <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
-                  <label
-                    className="font-bold text-2xl"
-                    htmlFor="amukhtadohorana"
-                  >
-                    দোহরানা:
-                  </label>
-
-                  <input
-                    id="amukhtadohorana"
-                    ref={amukhtadohoranaref}
-                    name="amukhtadohorana"
-                    className="my-4 p-4 box-border w-full rounded-3xl"
-                    type="text"
-                    placeholder="আমুখতার পরিমাণ লিখুন"
-                  ></input>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
-              >
-                <div className="p-5">আজকের আমুখতার তথ্য দিন</div>
-              </button>
-            </form>
-          </div>
-          <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
-            <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
-              প্রতিদিনের তিলওয়াতের তথ্য দিন
-            </h2>
-            <form>
-              <label className="font-bold text-2xl" htmlFor="todaydate">
-                Today's Date:
-              </label>
-              <input
-                id="todaydate"
-                name="todaydate"
-                value={niceDate(currentDate)}
-                className="my-4 p-4 box-border w-full rounded-3xl"
-                type="text"
-                disabled
-              ></input>
-
-              <div className="flex justify-between gap-10">
-                <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
-                  <label className="font-bold text-2xl" htmlFor="tilwat">
-                    তিলওয়াত:
-                  </label>
-                  <input
-                    id="tilwat"
-                    ref={tilwatref}
-                    name="tilwat"
-                    className="my-4 p-4 box-border w-full rounded-3xl"
-                    type="text"
-                    placeholder="কতটুকু তিলওয়াত করেছেন লিখুন"
-                  ></input>
-                </div>
-              </div>
-
-              <button
-                onClick={tilwatSubmit}
-                className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
-              >
-                <div className="p-5">আজকের তিলওয়াতের তথ্য দিন</div>
-              </button>
-            </form>
-          </div>
-        </>
-      );
+        );
+      }
     } else if (!showPage) {
       return <NotAllow allowList={allowList} />;
     }
