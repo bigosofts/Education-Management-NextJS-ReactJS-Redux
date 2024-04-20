@@ -28,7 +28,7 @@ function ProfileUpdate() {
       if (code) {
         window.location.href = `/dashboard/${data.data.userDetails.userName}/fees?enroll=${code}`;
       } else {
-        window.location.href = `/dashboard/${data.data.userDetails.userName}/classes`;
+        window.location.href = `/dashboard/${data.data.userDetails.userName}`;
       }
     }
   };

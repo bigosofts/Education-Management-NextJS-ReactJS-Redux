@@ -58,12 +58,7 @@ function DashExplore() {
         show: true,
       },
 
-      {
-        name: "Classes",
-        href: `/dashboard/${data.data.userName}/classes`,
-        icon: "/images/course.svg",
-        show: true,
-      },
+      
       {
         name: "Change Class",
         href: `/dashboard/${data.data.userName}/switches`,
@@ -314,12 +309,7 @@ function DashExplore() {
           icon: "/images/fees.svg",
           show: true,
         },
-        {
-          name: "Classes",
-          href: `/dashboard/${data.data.userName}/classes`,
-          icon: "/images/course.svg",
-          show: true,
-        },
+       
         {
           name: "Library",
           href: `/dashboard/${data.data.userName}/books`,
@@ -550,12 +540,7 @@ function DashExplore() {
           show: true,
         },
 
-        {
-          name: "Classes",
-          href: `/dashboard/${data.data.userName}/classes`,
-          icon: "/images/course.svg",
-          show: true,
-        },
+        
         {
           name: "Change Class",
           href: `/dashboard/${data.data.userName}/switches`,

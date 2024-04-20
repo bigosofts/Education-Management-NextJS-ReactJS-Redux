@@ -98,13 +98,6 @@ function StudentLayout({ children, params }) {
       icon: "/images/comment.svg",
       show: true,
     },
-
-    {
-      name: "Classes",
-      href: `/dashboard/${params.adminslug}/classes`,
-      icon: "/images/course.svg",
-      show: true,
-    },
     {
       name: "Change Class",
       href: `/dashboard/${params.adminslug}/switches`,
@@ -368,12 +361,7 @@ function StudentLayout({ children, params }) {
           icon: "/images/fees.svg",
           show: true,
         },
-        {
-          name: "Classes",
-          href: `/dashboard/${params.adminslug}/classes`,
-          icon: "/images/course.svg",
-          show: true,
-        },
+
         {
           name: "Library",
           href: `/dashboard/${params.adminslug}/books`,
@@ -609,12 +597,6 @@ function StudentLayout({ children, params }) {
           show: true,
         },
 
-        {
-          name: "Classes",
-          href: `/dashboard/${params.adminslug}/classes`,
-          icon: "/images/course.svg",
-          show: true,
-        },
         {
           name: "Change Class",
           href: `/dashboard/${params.adminslug}/switches`,
