@@ -342,7 +342,6 @@ function CombinedGroup() {
                   </span>
                 </li>
               )}
-
               {Alemalema.semester == "semester01" && (
                 <li
                   onClick={() => joinGirls("https://t.me/+ovhKd9sjA9UyM2Rl")}
@@ -676,7 +675,7 @@ function CombinedGroup() {
           <div className="w-full md:w-[50%] mx-auto p-4 border-0 md:border-2 border-slate-300 rounded-3xl">
             <ul>
               <li
-                onClick={() => joinBoys()}
+                onClick={() => joinBoys("https://t.me/+0U517_3G9RI2MDZl")}
                 className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
               >
                 <FaTelegram className="text-4xl inline-block mr-2" />
@@ -686,7 +685,7 @@ function CombinedGroup() {
                 </span>
               </li>
               <li
-                onClick={() => joinGirls()}
+                onClick={() => joinGirls("https://t.me/+axbx9ro9mjVjMDM1")}
                 className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
               >
                 <FaTelegram className="text-4xl inline-block mr-2" />
@@ -712,7 +711,7 @@ function CombinedGroup() {
           <div className="w-full md:w-[50%] mx-auto p-4 border-0 md:border-2 border-slate-300 rounded-3xl">
             <ul>
               <li
-                onClick={() => joinBoys()}
+                onClick={() => joinBoys("https://t.me/+pTSBVTBSFL83NTA1")}
                 className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
               >
                 <FaTelegram className="text-4xl inline-block mr-2" />
@@ -722,7 +721,7 @@ function CombinedGroup() {
                 </span>
               </li>
               <li
-                onClick={() => joinGirls()}
+                onClick={() => joinGirls("https://t.me/+U94955FSLuI3OWU1")}
                 className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
               >
                 <FaTelegram className="text-4xl inline-block mr-2" />
@@ -748,7 +747,7 @@ function CombinedGroup() {
           <div className="w-full md:w-[50%] mx-auto p-4 border-0 md:border-2 border-slate-300 rounded-3xl">
             <ul>
               <li
-                onClick={() => joinBoys()}
+                onClick={() => joinBoys("https://t.me/+jMZ5qQmvpHJjZjRl")}
                 className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
               >
                 <FaTelegram className="text-4xl inline-block mr-2" />
@@ -758,7 +757,7 @@ function CombinedGroup() {
                 </span>
               </li>
               <li
-                onClick={() => joinGirls()}
+                onClick={() => joinGirls("https://t.me/+2M0MrBMlTAUwZmRl")}
                 className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
               >
                 <FaTelegram className="text-4xl inline-block mr-2" />
@@ -840,7 +839,7 @@ function CombinedGroup() {
           <div className="w-full md:w-[50%] mx-auto p-4 border-0 md:border-2 border-slate-300 rounded-3xl">
             <ul>
               <li
-                onClick={() => joinBoys()}
+                onClick={() => joinBoys("https://t.me/+sKYtb_CqhlIwNjJl")}
                 className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
               >
                 <FaTelegram className="text-4xl inline-block mr-2" />
@@ -850,7 +849,7 @@ function CombinedGroup() {
                 </span>
               </li>
               <li
-                onClick={() => joinGirls()}
+                onClick={() => joinGirls("https://t.me/+F_O84yfw3EZhZDQ9")}
                 className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
               >
                 <FaTelegram className="text-4xl inline-block mr-2" />

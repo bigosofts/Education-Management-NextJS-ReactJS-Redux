@@ -13,6 +13,10 @@ function HifzPage() {
   const data = useSelector((state) => state.isAdmin.value);
   const [showPage, setShowPage] = useState();
   const [showMainPage, setShowMainPage] = useState();
+  const [todaySabak, setTodaySabak] = useState();
+  const [todaySatSabak, setTodaySatSabak] = useState();
+  const [todayAmukhta, setTodayAmukhta] = useState();
+  const [todayDailyTilwat, setTodayDailyTilwat] = useState();
 
   const AllList = [
     "alemalema",
@@ -111,6 +115,10 @@ function HifzPage() {
             para: sabakpararef.current.value,
             page: sabakpararef.current.value,
           },
+          satsabak: {},
+          amukhta: {},
+          dailytilwat: {},
+          signature: "",
         });
       } else {
         hifzArray.forEach((item) => {
@@ -136,6 +144,7 @@ function HifzPage() {
                 satsabak: newSatSabak,
                 amukhta: newAmukhta,
                 dailytilwat: newTilwat,
+                signature: item.signature,
               };
             }
           }
@@ -143,6 +152,22 @@ function HifzPage() {
       }
     } else {
       hifzArray = [];
+
+      hifzArray.push({
+        submitSabak: true,
+        submitSatSabak: false,
+        submitAmukhta: false,
+        date: niceDate(currentDate),
+        day: dayName,
+        sabak: {
+          para: sabakpararef.current.value,
+          page: sabakpararef.current.value,
+        },
+        satsabak: {},
+        amukhta: {},
+        dailytilwat: {},
+        signature: item.signature,
+      });
     }
   }
 
@@ -162,14 +187,14 @@ function HifzPage() {
 
       const res = await updateData(
         data.data.userDetails.userName,
-        data.data.userDetails.firstNameen,
-        data.data.userDetails.firstNamebn,
-        data.data.userDetails.lastNameen,
-        data.data.userDetails.lastNamebn,
+        data.data.userDetails.firstName.en,
+        data.data.userDetails.firstName.bn,
+        data.data.userDetails.lastName.en,
+        data.data.userDetails.lastName.bn,
         data.data.userDetails.nidNumber,
         data.data.userDetails.birthRegNumber,
-        data.data.userDetails.fatherNameen,
-        data.data.userDetails.fatherNamebn,
+        data.data.userDetails.fatherName.en,
+        data.data.userDetails.fatherName.bn,
         data.data.userDetails.emailAddress,
         undefined,
         data.data.userDetails.mobileNumber,
@@ -196,6 +221,9 @@ function HifzPage() {
 
       if (res.status == "Alhamdulillah") {
         mytoast.success("Hifz Class Selection has been recorded");
+        if (typeof window !== "undefined") {
+          window.location.reload(true);
+        }
       }
     }
   }
@@ -554,7 +582,7 @@ function HifzPage() {
                       <option
                         value={JSON.stringify({
                           groupName: "maleGroup1",
-                          ostad: "",
+                          ostad: "IMT2024040563",
                         })}
                       >
                         {" "}
@@ -563,7 +591,7 @@ function HifzPage() {
                       <option
                         value={JSON.stringify({
                           groupName: "femaleGroup1",
-                          ostad: "",
+                          ostad: "IMT2024041391",
                         })}
                       >
                         {" "}
@@ -572,7 +600,7 @@ function HifzPage() {
                       <option
                         value={JSON.stringify({
                           groupName: "femaleGroup2",
-                          ostad: "",
+                          ostad: "IMT2024040559",
                         })}
                       >
                         {" "}
@@ -581,7 +609,7 @@ function HifzPage() {
                       <option
                         value={JSON.stringify({
                           groupName: "femaleGroup3",
-                          ostad: "",
+                          ostad: "IMT2024040557",
                         })}
                       >
                         {" "}
