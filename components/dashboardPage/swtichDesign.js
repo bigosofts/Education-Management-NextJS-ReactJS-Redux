@@ -181,8 +181,28 @@ function SwitchDesign() {
 
     let NewStudentCourseCode = students && [...students.studentCourseCode];
     let NewStudentDepartment = students && [...students.studentDepartment];
-    let NewStudentJamatCode = students && [...students.studentJamatCode];
-    let NewStudentSemester = students && [...students.studentSemester];
+    let NewStudentJamatCode = (students &&
+      students.studentJamatCode.length != 0 && [
+        ...students.studentJamatCode,
+      ]) || [
+      {
+        code: "none",
+        startedDate: new Date(),
+        endDate: new Date(),
+        status: "active",
+      },
+    ];
+    let NewStudentSemester = (students &&
+      students.studentSemester.length != 0 && [
+        ...students.studentSemester,
+      ]) || [
+      {
+        code: "none",
+        startedDate: new Date(),
+        endDate: new Date(),
+        status: "active",
+      },
+    ];
 
     if (
       NewStudentCourseCode[NewStudentCourseCode.length - 1].status == "active"
@@ -513,7 +533,6 @@ function SwitchDesign() {
             ].code
           ).tk
       ) {
-       
         if (desiredCourse(mainData.classes).coursePrice.registration.tk == 0) {
           if (mainData.classes && mainData.department) {
             NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =

@@ -54,8 +54,69 @@ function DashboardMetrics(props) {
           selectWidgets(null, null),
         ]);
 
+        async function alemalemaQuery(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester01") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester01") {
+                return item;
+              }
+            }
+          });
+        }
+
+        async function allalemalemaQuery(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (/semester/i.test(semester[semester.length - 1].code)) {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (/semester/i.test(semester[semester.length - 1].code)) {
+                return item;
+              }
+            }
+          });
+        }
+
+        async function hifjulquranQuery(datas) {
+          return datas.filter((item) => {
+            let course = item.studentCourseCode.filter((item) => {
+              return /hifjulquran/i.test(item.code) && item.status == "active";
+            });
+
+            if (course.length > 1) {
+              if (/hifjulquran/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            } else if (course.length == 1) {
+              if (/hifjulquran/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            }
+          });
+        }
+
+        const alemalemaCount = await alemalemaQuery(res.data);
+        const allalemalemaCount = await allalemalemaQuery(res.data);
+        const hifjulQuranCount = await hifjulquranQuery(res.data);
+
         setData({
           student: res.data.length,
+          alemalema: alemalemaCount && alemalemaCount.length,
+          allalemalema: allalemalemaCount && allalemalemaCount.length,
+          hifjulquran: hifjulQuranCount && hifjulQuranCount.length,
           about: res1.data.length,
           activity: res2.data.length,
           comment: res3.data.length,
@@ -349,6 +410,57 @@ function DashboardMetrics(props) {
                     <div class="dsh-col-auto">
                       <div class="icon-shape icon-area">
                         <i class="fa fa-money" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Mijan Nahobemir</p>
+                      <h2 class="card-text text-amount">{data.alemalema}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">All Alemalema</p>
+                      <h2 class="card-text text-amount">{data.allalemalema}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">All Hifjul Quran</p>
+                      <h2 class="card-text text-amount">{data.hifjulquran}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
                       </div>
                     </div>
                   </div>
