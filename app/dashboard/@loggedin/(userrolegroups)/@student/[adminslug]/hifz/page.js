@@ -109,19 +109,20 @@ function HifzPage() {
           submitSabak: true,
           submitSatSabak: false,
           submitAmukhta: false,
+          submitDailyTilwat: false,
           date: niceDate(currentDate),
           day: dayName,
           sabak: {
             para: sabakpararef.current.value,
-            page: sabakpararef.current.value,
+            page: sabakpageref.current.value,
           },
-          satsabak: {},
-          amukhta: {},
-          dailytilwat: {},
+          satsabak: null,
+          amukhta: null,
+          dailytilwat: null,
           signature: "",
         });
       } else {
-        hifzArray.forEach((item) => {
+        hifzArray = hifzArray.map((item) => {
           if (item.date == niceDate(currentDate)) {
             if (item.submitSabak == true) {
               return item;
@@ -135,18 +136,21 @@ function HifzPage() {
                 submitSabak: true,
                 submitSatSabak: item.submitSatSabak,
                 submitAmukhta: item.submitAmukhta,
+                submitDailyTilwat: item.submitDailyTilwat,
                 date: niceDate(currentDate),
                 day: dayName,
                 sabak: {
                   para: sabakpararef.current.value,
                   page: sabakpararef.current.value,
                 },
-                satsabak: newSatSabak,
-                amukhta: newAmukhta,
-                dailytilwat: newTilwat,
+                satsabak: newSatSabak || null,
+                amukhta: newAmukhta || null,
+                dailytilwat: newTilwat || null,
                 signature: item.signature,
               };
             }
+          } else {
+            return item;
           }
         });
       }
@@ -157,26 +161,450 @@ function HifzPage() {
         submitSabak: true,
         submitSatSabak: false,
         submitAmukhta: false,
+        submitDailyTilwat: false,
         date: niceDate(currentDate),
         day: dayName,
         sabak: {
           para: sabakpararef.current.value,
-          page: sabakpararef.current.value,
+          page: sabakpageref.current.value,
         },
-        satsabak: {},
-        amukhta: {},
-        dailytilwat: {},
-        signature: item.signature,
+        satsabak: null,
+        amukhta: null,
+        dailytilwat: null,
+        signature: "",
       });
+    }
+
+    details.hifzInfo = hifzArray;
+
+    const res = await updateData(
+      data.data.userDetails.userName,
+      data.data.userDetails.firstName.en,
+      data.data.userDetails.firstName.bn,
+      data.data.userDetails.lastName.en,
+      data.data.userDetails.lastName.bn,
+      data.data.userDetails.nidNumber,
+      data.data.userDetails.birthRegNumber,
+      data.data.userDetails.fatherName.en,
+      data.data.userDetails.fatherName.bn,
+      data.data.userDetails.emailAddress,
+      undefined,
+      data.data.userDetails.mobileNumber,
+      data.data.userDetails.occupation,
+      data.data.userDetails.studentCourseCode,
+      data.data.userDetails.studentJamatCode,
+      data.data.userDetails.gender,
+      data.data.userDetails.dateOfBirth,
+      data.data.userDetails.countryName,
+      data.data.userDetails.fullPresentAddress,
+      data.data.userDetails.fullPermanentAddress,
+      data.data.userDetails.admissionSession,
+      data.data.userDetails.admissionDate,
+      data.data.userDetails.studentMotive,
+      details,
+      data.data.userDetails.paymentStatus,
+      data.data.userDetails.userRole,
+      data.data.userDetails.extracurricular,
+      data.data.userDetails.activeStatus,
+      data.data.userDetails._id,
+      data.data.userDetails.studentDepartment,
+      data.data.userDetails.studentSemester
+    );
+
+    if (res.status == "Alhamdulillah") {
+      mytoast.success("Sabak Data has been recorded");
+      if (typeof window !== "undefined") {
+        window.location.reload(true);
+      }
     }
   }
 
-  async function satsabakSubmit() {
-    alert(niceDate(currentDate));
-  }
-  async function amukhtaSubmit() {}
+  async function satsabakSubmit(e) {
+    e.preventDefault();
 
-  async function tilwatSubmit() {}
+    let details = { ...data.data.userDetails.details };
+
+    let hifzArray;
+
+    if (details.hifzInfo) {
+      hifzArray = [...details.hifzInfo];
+
+      if (details.hifzInfo.length == 0) {
+        hifzArray.push({
+          submitSabak: false,
+          submitSatSabak: true,
+          submitAmukhta: false,
+          submitDailyTilwat: false,
+          date: niceDate(currentDate),
+          day: dayName,
+          sabak: null,
+          satsabak: {
+            para: satsabakpararef.current.value,
+            page: satsabakpageref.current.value,
+            amount: satsabakamountref.current.value,
+            lokma: satsabaklokmaref.current.value,
+            dohorana: satsabakdohoranaref.current.value,
+          },
+          amukhta: null,
+          dailytilwat: null,
+          signature: "",
+        });
+      } else {
+        hifzArray = hifzArray.map((item) => {
+          if (item.date == niceDate(currentDate)) {
+            if (item.submitSatSabak == true) {
+              return item;
+            } else {
+              let newSabak = { ...item.sabak };
+              let newAmukhta = { ...item.amukhta };
+              let newTilwat = { ...item.dailytilwat };
+
+              return {
+                submitSabak: item.submitSabak,
+                submitSatSabak: true,
+                submitAmukhta: item.submitAmukhta,
+                submitDailyTilwat: item.submitDailyTilwat,
+                date: niceDate(currentDate),
+                day: dayName,
+                sabak: newSabak || null,
+                satsabak: {
+                  para: satsabakpararef.current.value,
+                  page: satsabakpageref.current.value,
+                  amount: satsabakamountref.current.value,
+                  lokma: satsabaklokmaref.current.value,
+                  dohorana: satsabakdohoranaref.current.value,
+                },
+                amukhta: newAmukhta || null,
+                dailytilwat: newTilwat || null,
+                signature: item.signature,
+              };
+            }
+          } else {
+            return item;
+          }
+        });
+      }
+    } else {
+      hifzArray = [];
+
+      hifzArray.push({
+        submitSabak: false,
+        submitSatSabak: true,
+        submitAmukhta: false,
+        submitDailyTilwat: false,
+        date: niceDate(currentDate),
+        day: dayName,
+        sabak: null,
+        satsabak: {
+          para: satsabakpararef.current.value,
+          page: satsabakpageref.current.value,
+          amount: satsabakamountref.current.value,
+          lokma: satsabaklokmaref.current.value,
+          dohorana: satsabakdohoranaref.current.value,
+        },
+        amukhta: null,
+        dailytilwat: null,
+        signature: "",
+      });
+    }
+
+    details.hifzInfo = hifzArray;
+
+    const res = await updateData(
+      data.data.userDetails.userName,
+      data.data.userDetails.firstName.en,
+      data.data.userDetails.firstName.bn,
+      data.data.userDetails.lastName.en,
+      data.data.userDetails.lastName.bn,
+      data.data.userDetails.nidNumber,
+      data.data.userDetails.birthRegNumber,
+      data.data.userDetails.fatherName.en,
+      data.data.userDetails.fatherName.bn,
+      data.data.userDetails.emailAddress,
+      undefined,
+      data.data.userDetails.mobileNumber,
+      data.data.userDetails.occupation,
+      data.data.userDetails.studentCourseCode,
+      data.data.userDetails.studentJamatCode,
+      data.data.userDetails.gender,
+      data.data.userDetails.dateOfBirth,
+      data.data.userDetails.countryName,
+      data.data.userDetails.fullPresentAddress,
+      data.data.userDetails.fullPermanentAddress,
+      data.data.userDetails.admissionSession,
+      data.data.userDetails.admissionDate,
+      data.data.userDetails.studentMotive,
+      details,
+      data.data.userDetails.paymentStatus,
+      data.data.userDetails.userRole,
+      data.data.userDetails.extracurricular,
+      data.data.userDetails.activeStatus,
+      data.data.userDetails._id,
+      data.data.userDetails.studentDepartment,
+      data.data.userDetails.studentSemester
+    );
+
+    if (res.status == "Alhamdulillah") {
+      mytoast.success("Sat Sabak Data has been recorded");
+      if (typeof window !== "undefined") {
+        window.location.reload(true);
+      }
+    }
+  }
+
+  async function amukhtaSubmit(e) {
+    e.preventDefault();
+
+    let details = { ...data.data.userDetails.details };
+
+    let hifzArray;
+
+    if (details.hifzInfo) {
+      hifzArray = [...details.hifzInfo];
+
+      if (details.hifzInfo.length == 0) {
+        hifzArray.push({
+          submitSabak: false,
+          submitSatSabak: false,
+          submitAmukhta: true,
+          submitDailyTilwat: false,
+          date: niceDate(currentDate),
+          day: dayName,
+          sabak: null,
+          satsabak: null,
+          amukhta: {
+            para: amukhtapararef.current.value,
+            page: amukhtapageref.current.value,
+            amount: amukhtaamountref.current.value,
+            lokma: amukhtalokmaref.current.value,
+            dohorana: amukhtadohoranaref.current.value,
+          },
+          dailytilwat: null,
+          signature: "",
+        });
+      } else {
+        hifzArray = hifzArray.map((item) => {
+          if (item.date == niceDate(currentDate)) {
+            if (item.submitAmukhta == true) {
+              return item;
+            } else {
+              let newSabak = { ...item.sabak };
+              let newSatSabak = { ...item.satsabak };
+              let newTilwat = { ...item.dailytilwat };
+
+              return {
+                submitSabak: item.submitSabak,
+                submitSatSabak: item.submitSatSabak,
+                submitAmukhta: true,
+                submitDailyTilwat: item.submitDailyTilwat,
+                date: niceDate(currentDate),
+                day: dayName,
+                sabak: newSabak || null,
+                satsabak: newSatSabak || null,
+                amukhta: {
+                  para: amukhtapararef.current.value,
+                  page: amukhtapageref.current.value,
+                  amount: amukhtaamountref.current.value,
+                  lokma: amukhtalokmaref.current.value,
+                  dohorana: amukhtadohoranaref.current.value,
+                },
+                dailytilwat: newTilwat || null,
+                signature: item.signature,
+              };
+            }
+          } else {
+            return item;
+          }
+        });
+      }
+    } else {
+      hifzArray = [];
+
+      hifzArray.push({
+        submitSabak: false,
+        submitSatSabak: false,
+        submitAmukhta: true,
+        submitDailyTilwat: false,
+        date: niceDate(currentDate),
+        day: dayName,
+        sabak: null,
+        satsabak: null,
+        amukhta: {
+          para: amukhtapararef.current.value,
+          page: amukhtapageref.current.value,
+          amount: amukhtaamountref.current.value,
+          lokma: amukhtalokmaref.current.value,
+          dohorana: amukhtadohoranaref.current.value,
+        },
+        dailytilwat: null,
+        signature: "",
+      });
+    }
+
+    details.hifzInfo = hifzArray;
+
+    const res = await updateData(
+      data.data.userDetails.userName,
+      data.data.userDetails.firstName.en,
+      data.data.userDetails.firstName.bn,
+      data.data.userDetails.lastName.en,
+      data.data.userDetails.lastName.bn,
+      data.data.userDetails.nidNumber,
+      data.data.userDetails.birthRegNumber,
+      data.data.userDetails.fatherName.en,
+      data.data.userDetails.fatherName.bn,
+      data.data.userDetails.emailAddress,
+      undefined,
+      data.data.userDetails.mobileNumber,
+      data.data.userDetails.occupation,
+      data.data.userDetails.studentCourseCode,
+      data.data.userDetails.studentJamatCode,
+      data.data.userDetails.gender,
+      data.data.userDetails.dateOfBirth,
+      data.data.userDetails.countryName,
+      data.data.userDetails.fullPresentAddress,
+      data.data.userDetails.fullPermanentAddress,
+      data.data.userDetails.admissionSession,
+      data.data.userDetails.admissionDate,
+      data.data.userDetails.studentMotive,
+      details,
+      data.data.userDetails.paymentStatus,
+      data.data.userDetails.userRole,
+      data.data.userDetails.extracurricular,
+      data.data.userDetails.activeStatus,
+      data.data.userDetails._id,
+      data.data.userDetails.studentDepartment,
+      data.data.userDetails.studentSemester
+    );
+
+    if (res.status == "Alhamdulillah") {
+      mytoast.success("Amukhta Data has been recorded");
+      if (typeof window !== "undefined") {
+        window.location.reload(true);
+      }
+    }
+  }
+
+  async function tilwatSubmit(e) {
+    e.preventDefault();
+
+    let details = { ...data.data.userDetails.details };
+
+    let hifzArray;
+
+    if (details.hifzInfo) {
+      hifzArray = [...details.hifzInfo];
+
+      if (details.hifzInfo.length == 0) {
+        hifzArray.push({
+          submitSabak: false,
+          submitSatSabak: false,
+          submitAmukhta: false,
+          submitDailyTilwat: true,
+          date: niceDate(currentDate),
+          day: dayName,
+          sabak: null,
+          satsabak: null,
+          amukhta: null,
+          dailytilwat: {
+            text: tilwatref.current.value,
+          },
+          signature: "",
+        });
+      } else {
+        hifzArray = hifzArray.map((item) => {
+          if (item.date == niceDate(currentDate)) {
+            if (item.submitDailyTilwat == true) {
+              return item;
+            } else {
+              let newSabak = { ...item.sabak };
+              let newSatSabak = { ...item.satsabak };
+              let newAmukhta = { ...item.amukhta };
+
+              return {
+                submitSabak: item.submitSabak,
+                submitSatSabak: item.submitSatSabak,
+                submitAmukhta: item.submitAmukhta,
+                submitDailyTilwat: true,
+                date: niceDate(currentDate),
+                day: dayName,
+                sabak: newSabak || null,
+                satsabak: newSatSabak || null,
+                amukhta: newAmukhta || null,
+                dailytilwat: {
+                  text: tilwatref.current.value,
+                },
+                signature: item.signature,
+              };
+            }
+          } else {
+            return item;
+          }
+        });
+      }
+    } else {
+      hifzArray = [];
+
+      hifzArray.push({
+        submitSabak: false,
+        submitSatSabak: false,
+        submitAmukhta: false,
+        submitDailyTilwat: true,
+        date: niceDate(currentDate),
+        day: dayName,
+        sabak: null,
+        satsabak: null,
+        amukhta: null,
+        dailytilwat: {
+          text: tilwatref.current.value,
+        },
+        signature: "",
+      });
+    }
+
+    details.hifzInfo = hifzArray;
+
+    const res = await updateData(
+      data.data.userDetails.userName,
+      data.data.userDetails.firstName.en,
+      data.data.userDetails.firstName.bn,
+      data.data.userDetails.lastName.en,
+      data.data.userDetails.lastName.bn,
+      data.data.userDetails.nidNumber,
+      data.data.userDetails.birthRegNumber,
+      data.data.userDetails.fatherName.en,
+      data.data.userDetails.fatherName.bn,
+      data.data.userDetails.emailAddress,
+      undefined,
+      data.data.userDetails.mobileNumber,
+      data.data.userDetails.occupation,
+      data.data.userDetails.studentCourseCode,
+      data.data.userDetails.studentJamatCode,
+      data.data.userDetails.gender,
+      data.data.userDetails.dateOfBirth,
+      data.data.userDetails.countryName,
+      data.data.userDetails.fullPresentAddress,
+      data.data.userDetails.fullPermanentAddress,
+      data.data.userDetails.admissionSession,
+      data.data.userDetails.admissionDate,
+      data.data.userDetails.studentMotive,
+      details,
+      data.data.userDetails.paymentStatus,
+      data.data.userDetails.userRole,
+      data.data.userDetails.extracurricular,
+      data.data.userDetails.activeStatus,
+      data.data.userDetails._id,
+      data.data.userDetails.studentDepartment,
+      data.data.userDetails.studentSemester
+    );
+
+    if (res.status == "Alhamdulillah") {
+      mytoast.success("Daily Tilwat Data has been recorded");
+      if (typeof window !== "undefined") {
+        window.location.reload(true);
+      }
+    }
+  }
 
   async function submitHifzClass(e) {
     e.preventDefault();
@@ -406,7 +834,7 @@ function HifzPage() {
                   onClick={satsabakSubmit}
                   className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
                 >
-                  <div className="p-5">আজকের দোহরানার তথ্য দিন</div>
+                  <div className="p-5">আজকের সাতসবকের তথ্য দিন</div>
                 </button>
               </form>
             </div>
