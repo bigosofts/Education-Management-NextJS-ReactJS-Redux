@@ -13,10 +13,6 @@ function HifzPage() {
   const data = useSelector((state) => state.isAdmin.value);
   const [showPage, setShowPage] = useState();
   const [showMainPage, setShowMainPage] = useState();
-  const [todaySabak, setTodaySabak] = useState();
-  const [todaySatSabak, setTodaySatSabak] = useState();
-  const [todayAmukhta, setTodayAmukhta] = useState();
-  const [todayDailyTilwat, setTodayDailyTilwat] = useState();
 
   const AllList = [
     "alemalema",
@@ -89,6 +85,8 @@ function HifzPage() {
   const tilwatref = useRef();
   const hifzClassref = useRef();
 
+  const weekNumberref = useRef();
+
   let currentDate = new Date();
   let dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let dayIndex = currentDate.getDay();
@@ -110,6 +108,7 @@ function HifzPage() {
           submitSatSabak: false,
           submitAmukhta: false,
           submitDailyTilwat: false,
+          submitWeekNumber: false,
           date: niceDate(currentDate),
           day: dayName,
           sabak: {
@@ -119,6 +118,7 @@ function HifzPage() {
           satsabak: null,
           amukhta: null,
           dailytilwat: null,
+          weeknumber: null,
           signature: "",
         });
       } else {
@@ -128,7 +128,7 @@ function HifzPage() {
               return item;
             } else {
               let newSatSabak = { ...item.satsabak };
-
+              let newWeekNumber = { ...item.weeknumber };
               let newAmukhta = { ...item.amukhta };
               let newTilwat = { ...item.dailytilwat };
 
@@ -137,6 +137,8 @@ function HifzPage() {
                 submitSatSabak: item.submitSatSabak,
                 submitAmukhta: item.submitAmukhta,
                 submitDailyTilwat: item.submitDailyTilwat,
+                submitWeekNumber: item.submitWeekNumber,
+                submitWeekNumber: item.submitWeekNumber,
                 date: niceDate(currentDate),
                 day: dayName,
                 sabak: {
@@ -146,6 +148,7 @@ function HifzPage() {
                 satsabak: newSatSabak || null,
                 amukhta: newAmukhta || null,
                 dailytilwat: newTilwat || null,
+                weeknumber: newWeekNumber || null,
                 signature: item.signature,
               };
             }
@@ -160,6 +163,7 @@ function HifzPage() {
             submitSatSabak: false,
             submitAmukhta: false,
             submitDailyTilwat: false,
+            submitWeekNumber: false,
             date: niceDate(currentDate),
             day: dayName,
             sabak: {
@@ -169,6 +173,7 @@ function HifzPage() {
             satsabak: null,
             amukhta: null,
             dailytilwat: null,
+            weeknumber: null,
             signature: "",
           });
         }
@@ -181,6 +186,7 @@ function HifzPage() {
         submitSatSabak: false,
         submitAmukhta: false,
         submitDailyTilwat: false,
+        submitWeekNumber: false,
         date: niceDate(currentDate),
         day: dayName,
         sabak: {
@@ -190,6 +196,7 @@ function HifzPage() {
         satsabak: null,
         amukhta: null,
         dailytilwat: null,
+        weeknumber: null,
         signature: "",
       });
     }
@@ -254,6 +261,7 @@ function HifzPage() {
           submitSatSabak: true,
           submitAmukhta: false,
           submitDailyTilwat: false,
+          submitWeekNumber: false,
           date: niceDate(currentDate),
           day: dayName,
           sabak: null,
@@ -266,6 +274,7 @@ function HifzPage() {
           },
           amukhta: null,
           dailytilwat: null,
+          weeknumber: null,
           signature: "",
         });
       } else {
@@ -277,12 +286,14 @@ function HifzPage() {
               let newSabak = { ...item.sabak };
               let newAmukhta = { ...item.amukhta };
               let newTilwat = { ...item.dailytilwat };
+              let newWeekNumber = { ...item.weeknumber };
 
               return {
                 submitSabak: item.submitSabak,
                 submitSatSabak: true,
                 submitAmukhta: item.submitAmukhta,
                 submitDailyTilwat: item.submitDailyTilwat,
+                submitWeekNumber: item.submitWeekNumber,
                 date: niceDate(currentDate),
                 day: dayName,
                 sabak: newSabak || null,
@@ -295,6 +306,7 @@ function HifzPage() {
                 },
                 amukhta: newAmukhta || null,
                 dailytilwat: newTilwat || null,
+                weeknumber: newWeekNumber || null,
                 signature: item.signature,
               };
             }
@@ -302,6 +314,30 @@ function HifzPage() {
             return item;
           }
         });
+
+        if (hifzArray[hifzArray.length - 1].date != niceDate(currentDate)) {
+          hifzArray.push({
+            submitSabak: false,
+            submitSatSabak: true,
+            submitAmukhta: false,
+            submitDailyTilwat: false,
+            submitWeekNumber: false,
+            date: niceDate(currentDate),
+            day: dayName,
+            sabak: null,
+            satsabak: {
+              para: satsabakpararef.current.value,
+              page: satsabakpageref.current.value,
+              amount: satsabakamountref.current.value,
+              lokma: satsabaklokmaref.current.value,
+              dohorana: satsabakdohoranaref.current.value,
+            },
+            amukhta: null,
+            dailytilwat: null,
+            weeknumber: null,
+            signature: "",
+          });
+        }
       }
     } else {
       hifzArray = [];
@@ -311,6 +347,7 @@ function HifzPage() {
         submitSatSabak: true,
         submitAmukhta: false,
         submitDailyTilwat: false,
+        submitWeekNumber: false,
         date: niceDate(currentDate),
         day: dayName,
         sabak: null,
@@ -323,6 +360,7 @@ function HifzPage() {
         },
         amukhta: null,
         dailytilwat: null,
+        weeknumber: null,
         signature: "",
       });
     }
@@ -387,6 +425,7 @@ function HifzPage() {
           submitSatSabak: false,
           submitAmukhta: true,
           submitDailyTilwat: false,
+          submitWeekNumber: false,
           date: niceDate(currentDate),
           day: dayName,
           sabak: null,
@@ -399,6 +438,7 @@ function HifzPage() {
             dohorana: amukhtadohoranaref.current.value,
           },
           dailytilwat: null,
+          weeknumber: null,
           signature: "",
         });
       } else {
@@ -410,12 +450,14 @@ function HifzPage() {
               let newSabak = { ...item.sabak };
               let newSatSabak = { ...item.satsabak };
               let newTilwat = { ...item.dailytilwat };
+              let newWeekNumber = { ...item.weeknumber };
 
               return {
                 submitSabak: item.submitSabak,
                 submitSatSabak: item.submitSatSabak,
                 submitAmukhta: true,
                 submitDailyTilwat: item.submitDailyTilwat,
+                submitWeekNumber: item.submitWeekNumber,
                 date: niceDate(currentDate),
                 day: dayName,
                 sabak: newSabak || null,
@@ -428,6 +470,7 @@ function HifzPage() {
                   dohorana: amukhtadohoranaref.current.value,
                 },
                 dailytilwat: newTilwat || null,
+                weeknumber: newWeekNumber || null,
                 signature: item.signature,
               };
             }
@@ -435,6 +478,30 @@ function HifzPage() {
             return item;
           }
         });
+
+        if (hifzArray[hifzArray.length - 1].date != niceDate(currentDate)) {
+          hifzArray.push({
+            submitSabak: false,
+            submitSatSabak: false,
+            submitAmukhta: true,
+            submitDailyTilwat: false,
+            submitWeekNumber: false,
+            date: niceDate(currentDate),
+            day: dayName,
+            sabak: null,
+            satsabak: null,
+            amukhta: {
+              para: amukhtapararef.current.value,
+              page: amukhtapageref.current.value,
+              amount: amukhtaamountref.current.value,
+              lokma: amukhtalokmaref.current.value,
+              dohorana: amukhtadohoranaref.current.value,
+            },
+            dailytilwat: null,
+            weeknumber: null,
+            signature: "",
+          });
+        }
       }
     } else {
       hifzArray = [];
@@ -444,6 +511,7 @@ function HifzPage() {
         submitSatSabak: false,
         submitAmukhta: true,
         submitDailyTilwat: false,
+        submitWeekNumber: false,
         date: niceDate(currentDate),
         day: dayName,
         sabak: null,
@@ -456,6 +524,7 @@ function HifzPage() {
           dohorana: amukhtadohoranaref.current.value,
         },
         dailytilwat: null,
+        weeknumber: null,
         signature: "",
       });
     }
@@ -520,6 +589,7 @@ function HifzPage() {
           submitSatSabak: false,
           submitAmukhta: false,
           submitDailyTilwat: true,
+          submitWeekNumber: false,
           date: niceDate(currentDate),
           day: dayName,
           sabak: null,
@@ -527,6 +597,155 @@ function HifzPage() {
           amukhta: null,
           dailytilwat: {
             text: tilwatref.current.value,
+          },
+          weeknumber: null,
+          signature: "",
+        });
+      } else {
+        hifzArray = hifzArray.map((item) => {
+          if (item.date == niceDate(currentDate)) {
+            if (item.submitDailyTilwat == true) {
+              return item;
+            } else {
+              let newSabak = { ...item.sabak };
+              let newSatSabak = { ...item.satsabak };
+              let newAmukhta = { ...item.amukhta };
+              let newWeekNumber = { ...item.weeknumber };
+
+              return {
+                submitSabak: item.submitSabak,
+                submitSatSabak: item.submitSatSabak,
+                submitAmukhta: item.submitAmukhta,
+                submitDailyTilwat: true,
+                submitWeekNumber: item.submitWeekNumber,
+                date: niceDate(currentDate),
+                day: dayName,
+                sabak: newSabak || null,
+                satsabak: newSatSabak || null,
+                amukhta: newAmukhta || null,
+                dailytilwat: {
+                  text: tilwatref.current.value,
+                },
+                weeknumber: newWeekNumber || null,
+                signature: item.signature,
+              };
+            }
+          } else {
+            return item;
+          }
+        });
+
+        if (hifzArray[hifzArray.length - 1].date != niceDate(currentDate)) {
+          hifzArray.push({
+            submitSabak: false,
+            submitSatSabak: false,
+            submitAmukhta: false,
+            submitDailyTilwat: true,
+            submitWeekNumber: false,
+            date: niceDate(currentDate),
+            day: dayName,
+            sabak: null,
+            satsabak: null,
+            amukhta: null,
+            dailytilwat: {
+              text: tilwatref.current.value,
+            },
+            weeknumber: null,
+            signature: "",
+          });
+        }
+      }
+    } else {
+      hifzArray = [];
+
+      hifzArray.push({
+        submitSabak: false,
+        submitSatSabak: false,
+        submitAmukhta: false,
+        submitDailyTilwat: true,
+        submitWeekNumber: false,
+        date: niceDate(currentDate),
+        day: dayName,
+        sabak: null,
+        satsabak: null,
+        amukhta: null,
+        dailytilwat: {
+          text: tilwatref.current.value,
+        },
+        weeknumber: null,
+        signature: "",
+      });
+    }
+
+    details.hifzInfo = hifzArray;
+
+    const res = await updateData(
+      data.data.userDetails.userName,
+      data.data.userDetails.firstName.en,
+      data.data.userDetails.firstName.bn,
+      data.data.userDetails.lastName.en,
+      data.data.userDetails.lastName.bn,
+      data.data.userDetails.nidNumber,
+      data.data.userDetails.birthRegNumber,
+      data.data.userDetails.fatherName.en,
+      data.data.userDetails.fatherName.bn,
+      data.data.userDetails.emailAddress,
+      undefined,
+      data.data.userDetails.mobileNumber,
+      data.data.userDetails.occupation,
+      data.data.userDetails.studentCourseCode,
+      data.data.userDetails.studentJamatCode,
+      data.data.userDetails.gender,
+      data.data.userDetails.dateOfBirth,
+      data.data.userDetails.countryName,
+      data.data.userDetails.fullPresentAddress,
+      data.data.userDetails.fullPermanentAddress,
+      data.data.userDetails.admissionSession,
+      data.data.userDetails.admissionDate,
+      data.data.userDetails.studentMotive,
+      details,
+      data.data.userDetails.paymentStatus,
+      data.data.userDetails.userRole,
+      data.data.userDetails.extracurricular,
+      data.data.userDetails.activeStatus,
+      data.data.userDetails._id,
+      data.data.userDetails.studentDepartment,
+      data.data.userDetails.studentSemester
+    );
+
+    if (res.status == "Alhamdulillah") {
+      mytoast.success("Daily Tilwat Data has been recorded");
+      if (typeof window !== "undefined") {
+        window.location.reload(true);
+      }
+    }
+  }
+
+  async function weekNumberSubmit(e) {
+    e.preventDefault();
+
+    let details = { ...data.data.userDetails.details };
+
+    let hifzArray;
+
+    if (details.hifzInfo) {
+      hifzArray = [...details.hifzInfo];
+
+      if (details.hifzInfo.length == 0) {
+        hifzArray.push({
+          submitSabak: false,
+          submitSatSabak: false,
+          submitAmukhta: false,
+          submitDailyTilwat: false,
+          submitWeekNumber: true,
+          date: niceDate(currentDate),
+          day: dayName,
+          sabak: null,
+          satsabak: null,
+          amukhta: null,
+          dailytilwat: null,
+          weeknumber: {
+            text: weekNumberref.current.value,
           },
           signature: "",
         });
@@ -540,18 +759,22 @@ function HifzPage() {
               let newSatSabak = { ...item.satsabak };
               let newAmukhta = { ...item.amukhta };
 
+              let newTilwat = { ...item.dailytilwat };
+
               return {
                 submitSabak: item.submitSabak,
                 submitSatSabak: item.submitSatSabak,
                 submitAmukhta: item.submitAmukhta,
-                submitDailyTilwat: true,
+                submitDailyTilwat: item.submitDailyTilwat,
+                submitWeekNumber: true,
                 date: niceDate(currentDate),
                 day: dayName,
                 sabak: newSabak || null,
                 satsabak: newSatSabak || null,
                 amukhta: newAmukhta || null,
-                dailytilwat: {
-                  text: tilwatref.current.value,
+                dailytilwat: newTilwat || null,
+                weeknumber: {
+                  text: weekNumberref.current.value,
                 },
                 signature: item.signature,
               };
@@ -560,6 +783,26 @@ function HifzPage() {
             return item;
           }
         });
+
+        if (hifzArray[hifzArray.length - 1].date != niceDate(currentDate)) {
+          hifzArray.push({
+            submitSabak: false,
+            submitSatSabak: false,
+            submitAmukhta: false,
+            submitDailyTilwat: false,
+            submitWeekNumber: true,
+            date: niceDate(currentDate),
+            day: dayName,
+            sabak: null,
+            satsabak: null,
+            amukhta: null,
+            dailytilwat: null,
+            weeknumber: {
+              text: weekNumberref.current.value,
+            },
+            signature: "",
+          });
+        }
       }
     } else {
       hifzArray = [];
@@ -568,14 +811,16 @@ function HifzPage() {
         submitSabak: false,
         submitSatSabak: false,
         submitAmukhta: false,
-        submitDailyTilwat: true,
+        submitDailyTilwat: false,
+        submitWeekNumber: true,
         date: niceDate(currentDate),
         day: dayName,
         sabak: null,
         satsabak: null,
         amukhta: null,
-        dailytilwat: {
-          text: tilwatref.current.value,
+        dailytilwat: null,
+        weeknumber: {
+          text: weekNumberref.current.value,
         },
         signature: "",
       });
@@ -1000,6 +1245,54 @@ function HifzPage() {
                   className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
                 >
                   <div className="p-5">আজকের তিলওয়াতের তথ্য দিন</div>
+                </button>
+              </form>
+            </div>
+
+            <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
+              <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
+                সপ্তাহের তথ্য দিন
+              </h2>
+              <form>
+                <label className="font-bold text-2xl" htmlFor="todaydate">
+                  Today's Date:
+                </label>
+                <input
+                  id="todaydate"
+                  name="todaydate"
+                  value={niceDate(currentDate)}
+                  className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
+                  type="text"
+                  disabled
+                ></input>
+
+                <div className="flex-row md:flex justify-between gap-2">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
+                    <label className="font-bold text-2xl" htmlFor="weekNumber">
+                      সপ্তাহ:
+                    </label>
+                    <select
+                      id="weekNumber"
+                      ref={weekNumberref}
+                      name="weekNumber"
+                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      required
+                    >
+                      <option value="">সপ্তাহ সিলেক্ট করুন</option>
+                      <option value="1st week">১ম সপ্তাহ</option>
+                      <option value="2nd week">২য় সপ্তাহ</option>
+                      <option value="3rd week">৩য় সপ্তাহ</option>
+                      <option value="4th week">৪র্থ সপ্তাহ</option>
+                      <option value="5th week">৫ম সপ্তাহ</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button
+                  onClick={weekNumberSubmit}
+                  className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
+                >
+                  <div className="p-5">সপ্তাহের তথ্য দিন</div>
                 </button>
               </form>
             </div>
