@@ -153,6 +153,25 @@ function HifzPage() {
             return item;
           }
         });
+
+        if (hifzArray[hifzArray.length - 1].date != niceDate(currentDate)) {
+          hifzArray.push({
+            submitSabak: true,
+            submitSatSabak: false,
+            submitAmukhta: false,
+            submitDailyTilwat: false,
+            date: niceDate(currentDate),
+            day: dayName,
+            sabak: {
+              para: sabakpararef.current.value,
+              page: sabakpageref.current.value,
+            },
+            satsabak: null,
+            amukhta: null,
+            dailytilwat: null,
+            signature: "",
+          });
+        }
       }
     } else {
       hifzArray = [];
@@ -669,7 +688,7 @@ function HifzPage() {
       if (showMainPage) {
         return (
           <div>
-            <div className="w-11/12 text-center md:w-9/12 mt-12 md:mt-[80px] rounded-3xl mx-auto p-4 text-4xl md:text-2x transition duration-500 ease-out mb-4">
+            <div className="w-full text-center md:w-9/12 mt-12 md:mt-[80px] rounded-3xl mx-auto text-4xl md:text-2x transition duration-500 ease-out mb-4">
               প্রতিদিন হিফজের তথ্য লিখুন
             </div>
             <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
@@ -683,14 +702,14 @@ function HifzPage() {
                 <input
                   id="todaydate"
                   name="todaydate"
-                  className="my-4 p-4 box-border w-full rounded-3xl"
+                  className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                   type="text"
                   value={niceDate(currentDate)}
                   disabled
                 ></input>
 
-                <div className="flex justify-between gap-10">
-                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                <div className="flex-row md:flex justify-between gap-2">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
                     <label className="font-bold text-2xl" htmlFor="sabakpara">
                       পারা:
                     </label>
@@ -698,7 +717,7 @@ function HifzPage() {
                       id="sabakpara"
                       ref={sabakpararef}
                       name="sabakpara"
-                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                       type="text"
                       placeholder="কত পারা সেটা লিখুন"
                     ></input>
@@ -712,7 +731,7 @@ function HifzPage() {
                       id="sabakpage"
                       ref={sabakpageref}
                       name="sabakpage"
-                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                       type="text"
                       placeholder="কত পৃষ্ঠা লিখুন"
                     ></input>
@@ -739,13 +758,13 @@ function HifzPage() {
                   id="todaydate"
                   value={niceDate(currentDate)}
                   name="todaydate"
-                  className="my-4 p-4 box-border w-full rounded-3xl"
+                  className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                   type="text"
                   disabled
                 ></input>
 
-                <div className="flex justify-between gap-10">
-                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                <div className="flex-row md:flex justify-between gap-2">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
                     <label
                       className="font-bold text-2xl"
                       htmlFor="satsabakpara"
@@ -756,12 +775,12 @@ function HifzPage() {
                       id="satsabakpara"
                       ref={satsabakpararef}
                       name="satsabakpara"
-                      className="my-4 p-4 box-border w-full rounded-3xl text"
+                      className="my-4 p-0 md:p-4 box-border w-full rounded-3xl text"
                       type="text"
                       placeholder="কত পারা সেটা লিখুন"
                     ></input>
                   </div>
-                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
                     <label
                       className="font-bold text-2xl"
                       htmlFor="satsabakpage"
@@ -772,14 +791,14 @@ function HifzPage() {
                       id="satsabakpage"
                       ref={satsabakpageref}
                       name="satsabakpage"
-                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                       type="text"
                       placeholder="কত পৃষ্ঠা লিখুন"
                     ></input>
                   </div>
                 </div>
-                <div className="flex justify-between gap-10 mt-5">
-                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                <div className="flex-row md:flex justify-between gap-2 mt-5">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
                     <label
                       className="font-bold text-2xl"
                       htmlFor="satsabakamount"
@@ -790,12 +809,12 @@ function HifzPage() {
                       id="satsabakamount"
                       ref={satsabakamountref}
                       name="satsabakamount"
-                      className="my-4 p-4 box-border w-full rounded-3xl text"
+                      className="my-4 p-0 md:p-4 box-border w-full rounded-3xl text"
                       type="text"
                       placeholder="পৃষ্ঠার পরিমাণ লিখুন"
                     ></input>
                   </div>
-                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
                     <label
                       className="font-bold text-2xl"
                       htmlFor="satsabaklokma"
@@ -806,7 +825,7 @@ function HifzPage() {
                       id="satsabaklokma"
                       ref={satsabaklokmaref}
                       name="satsabaklokma"
-                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                       type="text"
                       placeholder="লোকমার পরিমাণ লিখুন"
                     ></input>
@@ -823,7 +842,7 @@ function HifzPage() {
                       id="satsabakdohorana"
                       ref={satsabakdohoranaref}
                       name="satsabakdohorana"
-                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                       type="text"
                       placeholder="দোহরানার পরিমাণ লিখুন"
                     ></input>
@@ -850,13 +869,13 @@ function HifzPage() {
                   id="todaydate"
                   value={niceDate(currentDate)}
                   name="todaydate"
-                  className="my-4 p-4 box-border w-full rounded-3xl"
+                  className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                   type="text"
                   disabled
                 ></input>
 
-                <div className="flex justify-between gap-10">
-                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                <div className="flex-row md:flex justify-between gap-2">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
                     <label className="font-bold text-2xl" htmlFor="amukhtapara">
                       পারা:
                     </label>
@@ -864,12 +883,12 @@ function HifzPage() {
                       id="amukhtapara"
                       ref={amukhtapararef}
                       name="amukhtapara"
-                      className="my-4 p-4 box-border w-full rounded-3xl text"
+                      className="my-4 p-0 md:p-4 box-border w-full rounded-3xl text"
                       type="text"
                       placeholder="কত পারা সেটা লিখুন"
                     ></input>
                   </div>
-                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
                     <label className="font-bold text-2xl" htmlFor="amukhtapage">
                       পৃষ্ঠা:
                     </label>
@@ -877,14 +896,14 @@ function HifzPage() {
                       id="amukhtapage"
                       ref={amukhtapageref}
                       name="amukhtapage"
-                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                       type="text"
                       placeholder="কত পৃষ্ঠা লিখুন"
                     ></input>
                   </div>
                 </div>
-                <div className="flex justify-between gap-10 mt-5">
-                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                <div className="flex-row md:flex justify-between gap-2 mt-5">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
                     <label
                       className="font-bold text-2xl"
                       htmlFor="amukhtaamount"
@@ -895,12 +914,12 @@ function HifzPage() {
                       id="amukhtaamount"
                       ref={amukhtaamountref}
                       name="amukhtaamount"
-                      className="my-4 p-4 box-border w-full rounded-3xl text"
+                      className="my-4 p-0 md:p-4 box-border w-full rounded-3xl text"
                       type="text"
                       placeholder="পৃষ্ঠার পরিমাণ লিখুন"
                     ></input>
                   </div>
-                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
                     <label
                       className="font-bold text-2xl"
                       htmlFor="amukhtalokma"
@@ -911,7 +930,7 @@ function HifzPage() {
                       id="amukhtalokma"
                       ref={amukhtalokmaref}
                       name="amukhtalokma"
-                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                       type="text"
                       placeholder="লোকমার পরিমাণ লিখুন"
                     ></input>
@@ -928,7 +947,7 @@ function HifzPage() {
                       id="amukhtadohorana"
                       ref={amukhtadohoranaref}
                       name="amukhtadohorana"
-                      className="my-4 p-4 box-border w-full rounded-3xl"
+                      className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                       type="text"
                       placeholder="আমুখতার পরিমাণ লিখুন"
                     ></input>
@@ -955,13 +974,13 @@ function HifzPage() {
                   id="todaydate"
                   name="todaydate"
                   value={niceDate(currentDate)}
-                  className="my-4 p-4 box-border w-full rounded-3xl"
+                  className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                   type="text"
                   disabled
                 ></input>
 
-                <div className="flex justify-between gap-10">
-                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
+                <div className="flex-row md:flex justify-between gap-2">
+                  <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
                     <label className="font-bold text-2xl" htmlFor="tilwat">
                       তিলওয়াত:
                     </label>
@@ -991,7 +1010,7 @@ function HifzPage() {
           <div>
             <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
               <form>
-                <div className="flex justify-between gap-10">
+                <div className="flex-row md:flex justify-between gap-10 mb-4">
                   <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
                     <label
                       className="font-bold text-2xl"
