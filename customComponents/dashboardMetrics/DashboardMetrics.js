@@ -108,15 +108,37 @@ function DashboardMetrics(props) {
           });
         }
 
+        async function farzeAyinMaktabQuery(datas) {
+          return datas.filter((item) => {
+            let course = item.studentCourseCode.filter((item) => {
+              return (
+                /farzeayinmaktab/i.test(item.code) && item.status == "active"
+              );
+            });
+
+            if (course.length > 1) {
+              if (/farzeayinmaktab/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            } else if (course.length == 1) {
+              if (/farzeayinmaktab/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            }
+          });
+        }
+
         const alemalemaCount = await alemalemaQuery(res.data);
         const allalemalemaCount = await allalemalemaQuery(res.data);
         const hifjulQuranCount = await hifjulquranQuery(res.data);
+        const farzeAyinMaktabCount = await farzeAyinMaktabQuery(res.data);
 
         setData({
           student: res.data.length,
           alemalema: alemalemaCount && alemalemaCount.length,
           allalemalema: allalemalemaCount && allalemalemaCount.length,
           hifjulquran: hifjulQuranCount && hifjulQuranCount.length,
+          farzeayinmaktab: farzeAyinMaktabCount && farzeAyinMaktabCount.length,
           about: res1.data.length,
           activity: res2.data.length,
           comment: res3.data.length,
@@ -457,6 +479,25 @@ function DashboardMetrics(props) {
                     <div class="dsh-col">
                       <p class="card-title text-title">All Hifjul Quran</p>
                       <h2 class="card-text text-amount">{data.hifjulquran}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">FarzeAyin Maktab</p>
+                      <h2 class="card-text text-amount">
+                        {data.farzeayinmaktab}
+                      </h2>
                     </div>
                     <div class="dsh-col-auto">
                       <div class="icon-shape icon-area">

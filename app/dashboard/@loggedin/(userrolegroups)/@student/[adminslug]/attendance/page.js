@@ -5,6 +5,7 @@ import EnrollPlease from "@/components/dashboardPage/enrollPlease";
 import WaitingApproval from "@/components/dashboardPage/WaitingApproval";
 import { selectDataTwo } from "@/apiservices/studentapiservices";
 import NotAllow from "@/components/dashboardPage/notAllow";
+import AttendancePageCustom from "@/components/attendance/attendance";
 
 function AttendancePage() {
   const data = useSelector((state) => state.isAdmin.value);
@@ -65,7 +66,7 @@ function AttendancePage() {
     ) {
       return <WaitingApproval />;
     } else if (showPage) {
-      return <div>Attendance Page</div>;
+      return <AttendancePageCustom />;
     } else if (!showPage) {
       return <NotAllow allowList={allowList} />;
     }
