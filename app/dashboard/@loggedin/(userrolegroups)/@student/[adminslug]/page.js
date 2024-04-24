@@ -80,7 +80,7 @@ function page(props) {
           );
 
           if (res.status == "Alhamdulillah") {
-            mytoast.danger("Admission Fee for the Next Year is Overdue");
+            mytoast.danger("এই বছরের ভর্তির টাকা বাকি রয়েছে");
           } else {
             console.log(res);
           }
@@ -177,7 +177,6 @@ function page(props) {
                   res2.data[0].monthlyPaymentHistory.length - 1
                 ].PaymentStatus == true
               ) {
-               
                 iterate.forEach((item) => {
                   newMonthlyPayment.push({
                     Date: new Date(item),
@@ -226,14 +225,12 @@ function page(props) {
               });
 
               if (res4.status == "Alhamdulillah") {
-                let haveOrNot = newMonthlyPayment.some((item)=>{
-            
+                let haveOrNot = newMonthlyPayment.some((item) => {
                   return item.PaymentStatus == false;
-                })
-                if(haveOrNot){
-                  mytoast.warning("Monthly Payment Overdue");
+                });
+                if (haveOrNot) {
+                  mytoast.success("আপনার মাসিক টিউশন ফি বকেয়া আছে");
                 }
-              
               }
             }
           }
