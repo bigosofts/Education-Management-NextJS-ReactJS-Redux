@@ -6,24 +6,30 @@ import {
   selectDataTwo as selectClasses,
   updateData as updateClass,
 } from "@/apiservices/classapiservices";
+import { selectDataTwo as selectBooks } from "@/apiservices/bookapiservices";
 
 import mytoast from "@/components/toast/toast";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 
 function AttendancePageCustom() {
   const [classData, setClassData] = useState();
+  const [books, setBooks] = useState();
+  const [datas, setDatas] = useState();
+
   useEffect(() => {
     async function getData() {
       const res = await selectClasses(null, null);
       if (res.status == "Alhamdulillah") {
         setClassData(res.data);
       }
+      const res2 = await selectBooks(null, null);
+      if (res2.status == "Alhamdulillah") {
+        setBooks(res2.data);
+      }
     }
     getData();
   }, []);
-  if (classData) {
-    console.log(classData);
-  }
+
   const data = useSelector((state) => state.isAdmin.value);
 
   let activeClasses = data.data.userDetails.studentCourseCode.map((item, i) => {
@@ -62,7 +68,20 @@ function AttendancePageCustom() {
       }
     });
   }
-  
+
+  function findBooks(bookID) {
+    return books.find((item) => {
+      return item.bookID == bookID;
+    });
+  }
+
+  function handleClick(classItem, userData, bookID) {
+    console.log(classItem, userData, bookID);
+  }
+
+  function handleChange(classID, value) {
+    setDatas((prev) => ({ ...prev, [classID]: value }));
+  }
 
   return (
     <div className="w-full text-center md:w-9/12 mt-12 md:mt-[80px] rounded-3xl mx-auto text-xl md:text-2xl transition duration-500 ease-out mb-4 px-2">
@@ -73,26 +92,38 @@ function AttendancePageCustom() {
           } ${data.data.userDetails.studentSemester[lastClass.index].code}`
         : ""}{" "}
       এর উপস্থিতি রেকর্ড করুন
-
-      {classData && findClass("alemalema", "jamat1", "semester01").map((item, i)=>(
-        <div key={i} className="bg-white mt-10 flex justify-between hover:scale-105 hover:shadow-xl transition duration-200 ease-out rounded-l-2xl rounded-r-2xl">
-        <div className="py-5 text-white bg-red-500 w-1/4 md:w-1/5 text-sm md:text-2xl rounded-l-2xl">
-          {item.bookID}
-        </div>
-        <div className="text-white w-2/4 md:w-3/5 text-sm md:text-2xl">
-          <input
-            type="text"
-            className="py-5 md:py-0 w-full h-full px-2 text-slate-800"
-            placeholder="ক্লাসে কতটুকু পড়ানো হয়েছে লিখুন"
-          ></input>
-        </div>
-        <div className="py-5 text-white bg-blue-500 hover:cursor-pointer w-1/4 md:w-1/5 text-sm md:text-2xl rounded-r-2xl">
-          হাজিরা দিন{" "}
-          <FaArrowAltCircleRight className="text-2xl inline-block mr-2" />
-        </div>
-      </div>
-      ))}
-      
+      {classData &&
+        findClass("alemalema", "jamat1", "semester01").map((item, i) => (
+          <div
+            key={i}
+            className="bg-white mt-10 flex justify-between hover:scale-105 hover:shadow-xl transition duration-200 ease-out rounded-l-2xl rounded-r-2xl"
+          >
+            <div className="py-5 text-white bg-red-500 w-1/4 md:w-1/5 text-sm md:text-2xl rounded-l-2xl">
+              {books && findBooks(item.bookID).bookName.bn}
+            </div>
+            <div className="text-white w-2/4 md:w-3/5 text-sm md:text-2xl">
+              <input
+                onChange={(e) => {
+                  e.preventDefault();
+                  let value = e.target.value;
+                  handleChange(item.classID, value);
+                }}
+                type="text"
+                className="py-5 md:py-0 w-full h-full px-2 text-slate-800"
+                placeholder="ক্লাসে কতটুকু পড়ানো হয়েছে লিখুন"
+              ></input>
+            </div>
+            <div
+              onClick={() =>
+                handleClick(item, data.data.userDetails, item.bookID)
+              }
+              className="py-5 text-white bg-blue-500 hover:cursor-pointer w-1/4 md:w-1/5 text-sm md:text-2xl rounded-r-2xl"
+            >
+              হাজিরা দিন{" "}
+              <FaArrowAltCircleRight className="text-2xl inline-block mr-2" />
+            </div>
+          </div>
+        ))}
     </div>
   );
 }
