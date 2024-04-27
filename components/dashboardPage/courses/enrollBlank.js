@@ -1,9 +1,11 @@
 function EnrollButtonb({ code }) {
-  
- 
   const hardRefresh = () => {
     if (typeof window !== "undefined") {
-      window.location.href = `/signup?code=${code}`;
+      if (code == "hifjulquran") {
+        window.location.href = `/hifz-test?signup=true`;
+      } else {
+        window.location.href = `/signup?code=${code}`;
+      }
     }
   };
 
