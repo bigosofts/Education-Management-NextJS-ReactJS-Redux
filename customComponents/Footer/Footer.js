@@ -113,7 +113,24 @@ async function Footer() {
           </div>
         </div>
       </footer>
-      <MessangerChat />
+      {/* <MessangerChat /> */}
+      <a
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          zIndex: "999",
+          width: "64px",
+          height: "64px",
+          filter: "drop-shadow(1px 10px 20px rgba(0,0,0,0.3))",
+        }}
+        className="whatsapp"
+        s
+        aria-label="Chat on WhatsApp"
+        href="https://wa.me/1674040502"
+      >
+        <img alt="Chat on WhatsApp" src="/images/whatsapp.png" />
+      </a>
     </>
   );
 }
