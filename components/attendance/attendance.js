@@ -75,8 +75,14 @@ function AttendancePageCustom() {
     });
   }
 
-  function handleClick(classItem, userData, bookID) {
-    console.log(classItem, userData, bookID);
+  function handleClick() {
+    if (data.data.userDetails.gender == "female") {
+      if (typeof window !== "undefined") {
+        window.location.href = `https://docs.google.com/spreadsheets/d/1SRLhqKbT-8Ozv00RBQumjxwwUiplqAfuKzcWzXiV8Dw/edit?usp=sharing`;
+      }
+    } else if (data.data.userDetails.gender == "male") {
+      window.location.href = `https://docs.google.com/spreadsheets/d/15_Xc_MCLAvHb6GGyxVU7eGUtycSGvhvKq5TZgyijXIA/edit?usp=sharing`;
+    }
   }
 
   function handleChange(classID, value) {
@@ -84,46 +90,32 @@ function AttendancePageCustom() {
   }
 
   return (
-    <div className="w-full text-center md:w-9/12 mt-12 md:mt-[80px] rounded-3xl mx-auto text-xl md:text-2xl transition duration-500 ease-out mb-4 px-2">
-      প্রতিদিনের{" "}
+    <div className="w-full text-center md:w-9/12 mt-12 md:mt-[80px] rounded-3xl mx-auto text-xl md:text-3xl transition duration-500 ease-out mb-4 px-2">
+      আপনি{" "}
       {lastClass.code == "alemalema"
         ? `${lastClass.code} ক্লাসের, ${
             data.data.userDetails.studentJamatCode[lastClass.index].code
           } ${data.data.userDetails.studentSemester[lastClass.index].code}`
         : ""}{" "}
-      এর উপস্থিতি রেকর্ড করুন
+      এর নিম্নোক্ত কিতাবাদি অধ্যয়ন করছেন। প্রতিদিন যে কিতাবের ক্লাস হয় সেই
+      কিতাবের ক্লাসে আপনার উপস্থিতি রেকর্ড করুন।
+      <br></br>
+      <br></br>
       {classData &&
         findClass("alemalema", "jamat1", "semester01").map((item, i) => (
-          <div
-            key={i}
-            className="bg-white mt-10 flex justify-between hover:scale-105 hover:shadow-xl transition duration-200 ease-out rounded-l-2xl rounded-r-2xl"
-          >
-            <div className="py-5 text-white bg-red-500 w-1/4 md:w-1/5 text-sm md:text-2xl rounded-l-2xl">
+          <div key={i} className="mt-2 rounded-l-2xl rounded-r-2xl">
+            <div className="py-2 text-white bg-red-500 w-2/3 md:w-1/3 mx-auto text-sm md:text-2xl rounded-l-2xl rounded-r-2xl">
               {books && findBooks(item.bookID).bookName.bn}
-            </div>
-            <div className="text-white w-2/4 md:w-3/5 text-sm md:text-2xl">
-              <input
-                onChange={(e) => {
-                  e.preventDefault();
-                  let value = e.target.value;
-                  handleChange(item.classID, value);
-                }}
-                type="text"
-                className="py-5 md:py-0 w-full h-full px-2 text-slate-800"
-                placeholder="ক্লাসে কতটুকু পড়ানো হয়েছে লিখুন"
-              ></input>
-            </div>
-            <div
-              onClick={() =>
-                handleClick(item, data.data.userDetails, item.bookID)
-              }
-              className="py-5 text-white bg-blue-500 hover:cursor-pointer w-1/4 md:w-1/5 text-sm md:text-2xl rounded-r-2xl"
-            >
-              হাজিরা দিন{" "}
-              <FaArrowAltCircleRight className="text-2xl inline-block mr-2" />
             </div>
           </div>
         ))}
+      <div
+        onClick={handleClick}
+        className="mt-10 py-5 text-white bg-blue-500 hover:cursor-pointer text-sm md:text-2xl rounded-r-2xl rounded-l-2xl hover:scale-105 hover:shadow-xl transition duration-200 ease-out "
+      >
+        হাজিরা দিন{" "}
+        <FaArrowAltCircleRight className="text-2xl inline-block mr-2" />
+      </div>
     </div>
   );
 }

@@ -133,6 +133,67 @@ function DashboardMetrics(props) {
         const hifjulQuranCount = await hifjulquranQuery(res.data);
         const farzeAyinMaktabCount = await farzeAyinMaktabQuery(res.data);
 
+        // let male = alemalemaCount.filter((item) => {
+        //   return item.gender == "male";
+        // });
+        // let female = alemalemaCount.filter((item) => {
+        //   return item.gender == "female";
+        // });
+
+        // console.log(
+        //   JSON.stringify(
+        //     male.map((item, i) => {
+        //       return {
+        //         No: i + 1,
+        //         SID: item.userName,
+        //         Name: item.firstName.en + " " + item.lastName.en,
+        //         Mobile: item.mobileNumber,
+        //         Email: item.emailAddress,
+        //         Day_1: {
+        //           Mizan_Munshaib: "",
+        //           Illmus_Saraf: "",
+        //           Aso_Arbi_Sikhi: "",
+        //           Talimul_Islam: "",
+        //           At_Tamrinul_Kitabi: "",
+        //           Eso_Sorof_Sikhi: "",
+        //         },
+        //         Day_2: {
+        //           Mizan_Munshaib: "",
+        //           Illmus_Saraf: "",
+        //           Aso_Arbi_Sikhi: "",
+        //           Talimul_Islam: "",
+        //           At_Tamrinul_Kitabi: "",
+        //           Eso_Sorof_Sikhi: "",
+        //         },
+        //         Day_3: {
+        //           Mizan_Munshaib: "",
+        //           Illmus_Saraf: "",
+        //           Aso_Arbi_Sikhi: "",
+        //           Talimul_Islam: "",
+        //           At_Tamrinul_Kitabi: "",
+        //           Eso_Sorof_Sikhi: "",
+        //         },
+        //         Day_4: {
+        //           Mizan_Munshaib: "",
+        //           Illmus_Saraf: "",
+        //           Aso_Arbi_Sikhi: "",
+        //           Talimul_Islam: "",
+        //           At_Tamrinul_Kitabi: "",
+        //           Eso_Sorof_Sikhi: "",
+        //         },
+        //         Day_5: {
+        //           Mizan_Munshaib: "",
+        //           Illmus_Saraf: "",
+        //           Aso_Arbi_Sikhi: "",
+        //           Talimul_Islam: "",
+        //           At_Tamrinul_Kitabi: "",
+        //           Eso_Sorof_Sikhi: "",
+        //         },
+        //       };
+        //     })
+        //   )
+        // );
+
         setData({
           student: res.data.length,
           alemalema: alemalemaCount && alemalemaCount.length,

@@ -20,7 +20,6 @@ const departmentController = require("../controllers/departmentController");
 const jamatController = require("../controllers/jamatController");
 const paymentController = require("../controllers/paymentController");
 const SemesterController = require("../controllers/semesterController");
-const StudentRoleController = require("../controllers/studentRoleController");
 const videoController = require("../controllers/videoController");
 const qaFormController = require("../controllers/qaFormController");
 const imageController = require("../controllers/imageController");
@@ -143,11 +142,7 @@ router.post(
 router.post("/create-jamat", authverify, jamatController.createJamat);
 router.post("/create-payment", authverify, paymentController.createPayments);
 router.post("/create-semester", authverify, SemesterController.createSemester);
-router.post(
-  "/create-studentrole",
-  authverify,
-  StudentRoleController.createStudentRole
-);
+
 router.post("/create-video", authverify, videoController.createVideo);
 router.post("/create-qaform", authverify, qaFormController.createQAForm);
 router.post("/create-work", authverify, workController.createWork);
@@ -179,7 +174,7 @@ router.post("/select-departments", departmentController.selectDepartments);
 router.post("/select-jamats", jamatController.selectJamats);
 router.post("/select-payments", authverify, paymentController.selectPayments);
 router.post("/select-semesters", SemesterController.selectSemesters);
-router.post("/select-studentroles", StudentRoleController.selectStudentRoles);
+
 router.post("/select-videos", videoController.selectVideos);
 router.post("/select-qaforms", qaFormController.selectQAForm);
 router.post("/select-works", workController.selectWorks);
@@ -213,11 +208,7 @@ router.put(
 router.put("/update-jamat", authverify, jamatController.updateJamat);
 router.put("/update-payment", authverify, paymentController.updatePayment);
 router.put("/update-semester", authverify, SemesterController.updateSemester);
-router.put(
-  "/update-studentrole",
-  authverify,
-  StudentRoleController.updateStudentRole
-);
+
 router.put("/update-video", authverify, videoController.updateVideo);
 router.put("/update-qaform", authverify, qaFormController.updateQAForm);
 router.put("/update-work", authverify, workController.updateWorks);
@@ -280,11 +271,7 @@ router.delete(
   authverify,
   SemesterController.deleteSemester
 );
-router.delete(
-  "/delete-studentrole/:id",
-  authverify,
-  StudentRoleController.deleteStudentRole
-);
+
 router.delete("/delete-video/:id", authverify, videoController.deleteVideo);
 router.delete("/delete-qaform/:id", authverify, qaFormController.deleteQAForm);
 router.delete("/delete-work/:id", authverify, workController.deleteWork);

@@ -7,6 +7,7 @@ const { hashedPasswordCustom } = require("../middlewares/passwordEncryption");
 exports.createStudent = (req, res) => {
   //Receive Post Request Data from req body
   let reqBody = req.body;
+
   function prefix(name) {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
@@ -81,6 +82,7 @@ exports.createStudent = (req, res) => {
     studentDepartment: studentDepartment,
     studentSemester: studentSemester,
   };
+
 
   // Create Database record
   studentProfileModel
