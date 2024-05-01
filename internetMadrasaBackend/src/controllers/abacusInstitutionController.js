@@ -4,6 +4,7 @@ const { hashedPasswordCustom } = require("../middlewares/passwordEncryption");
 exports.createAbacusInstitution = (req, res) => {
   //Receive Post Request Data from req body
   let reqBody = req.body;
+
   function prefix(name) {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
@@ -100,6 +101,7 @@ exports.selectAbacusInstitutions = (req, res) => {
   let projection = req.body.projection;
   abacusInstitutionModel
     .find(query, projection)
+    .sort({ abacusCreatedDate: -1 })
     .then((data) => {
       res.status(200).json({
         status: "Alhamdulillah",
@@ -115,62 +117,51 @@ exports.selectAbacusInstitutions = (req, res) => {
 };
 
 //Update Database Record
-exports.updateAbacusInstitution = (req, res) => {
+exports.updateAbacusInstitution = async (req, res) => {
   let reqBody = req.body;
   let filter = reqBody["_id"];
 
-  let institutionID = reqBody.institutionID;
-  let institutionName = reqBody.institutionName;
+  let hashedPass = await hashedPasswordCustom(reqBody.password);
+  var postBody;
 
-  let principalName = reqBody.principalName;
-
-  let studentsNumber = reqBody.studentsNumber;
-
-  let directorPhone = reqBody.directorPhone;
-
-  let representativeName = reqBody.representativeName;
-
-  let representativePhone = reqBody.representativePhone;
-
-  let institutionalEmail = reqBody.institutionalEmail;
-
-  let registrationFeeAmount = reqBody.registrationFeeAmount;
-
-  let registrationPaymentWay = reqBody.registrationPaymentWay;
-
-  let paymentTransactionID = reqBody.paymentTransactionID;
-
-  let paymentNumber = reqBody.paymentNumber;
-
-  let abacusBookOrderlimit = reqBody.abacusBookOrderlimit;
-
-  let abacusKitOrderlimit = reqBody.abacusKitOrderlimit;
-
-  let password = reqBody.password;
-
-  let abacusUpdatedDate = new Date(Date.now()).toISOString();
-
-  let activeStatus = reqBody.activeStatus;
-
-  let postBody = {
-    institutionID,
-    institutionName,
-    principalName,
-    studentsNumber,
-    directorPhone,
-    representativeName,
-    representativePhone,
-    institutionalEmail,
-    registrationFeeAmount,
-    registrationPaymentWay,
-    paymentTransactionID,
-    paymentNumber,
-    abacusBookOrderlimit,
-    abacusKitOrderlimit,
-    password,
-    abacusUpdatedDate,
-    activeStatus,
-  };
+  if (hashedPass == null) {
+    postBody = {
+      institutionName: reqBody.institutionName,
+      principalName: reqBody.principalName,
+      studentsNumber: reqBody.studentsNumber,
+      directorPhone: reqBody.directorPhone,
+      representativeName: reqBody.representativeName,
+      representativePhone: reqBody.representativePhone,
+      institutionalEmail: reqBody.institutionalEmail,
+      registrationFeeAmount: reqBody.registrationFeeAmount,
+      registrationPaymentWay: reqBody.registrationPaymentWay,
+      paymentTransactionID: reqBody.paymentTransactionID,
+      paymentNumber: reqBody.paymentNumber,
+      abacusBookOrderlimit: reqBody.abacusBookOrderlimit,
+      abacusKitOrderlimit: reqBody.abacusKitOrderlimit,
+      abacusUpdatedDate: new Date(Date.now()).toISOString(),
+      activeStatus: reqBody.activeStatus,
+    };
+  } else {
+    postBody = {
+      institutionName: reqBody.institutionName,
+      principalName: reqBody.principalName,
+      studentsNumber: reqBody.studentsNumber,
+      directorPhone: reqBody.directorPhone,
+      representativeName: reqBody.representativeName,
+      representativePhone: reqBody.representativePhone,
+      institutionalEmail: reqBody.institutionalEmail,
+      registrationFeeAmount: reqBody.registrationFeeAmount,
+      registrationPaymentWay: reqBody.registrationPaymentWay,
+      paymentTransactionID: reqBody.paymentTransactionID,
+      paymentNumber: reqBody.paymentNumber,
+      abacusBookOrderlimit: reqBody.abacusBookOrderlimit,
+      abacusKitOrderlimit: reqBody.abacusKitOrderlimit,
+      password: hashedPass,
+      abacusUpdatedDate: new Date(Date.now()).toISOString(),
+      activeStatus: reqBody.activeStatus,
+    };
+  }
 
   abacusInstitutionModel
     .updateOne({ _id: filter }, { $set: postBody }, { upsert: true })

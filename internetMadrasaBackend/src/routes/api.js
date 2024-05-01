@@ -28,6 +28,7 @@ const RichTextController = require("../controllers/RichTextController");
 const otpController = require("../controllers/otpController");
 const pushNoticeController = require("../controllers/pushNoticeController");
 const classController = require("../controllers/classController");
+const abacusInstitutionController = require("../controllers/abacusInstitutionController");
 
 //Middleware Import
 const passEncrypted = require("../middlewares/passwordEncryption");
@@ -102,6 +103,12 @@ router.post(
 );
 
 router.post(
+  "/create-abacus-institution",
+  passEncrypted.hashedPassword,
+  abacusInstitutionController.createAbacusInstitution
+);
+
+router.post(
   "/create-student",
   passEncrypted.hashedPassword,
   profileController.createStudent
@@ -113,6 +120,7 @@ router.post(
   passEncrypted.checkPasswordStudent,
   loginController.studentLogin
 );
+
 router.post(
   "/teacher-login",
   passEncrypted.checkPasswordTeacher,
@@ -157,6 +165,11 @@ router.post("/select-all-students", profileController.selectAllStudents);
 router.post("/select-teachers", profileController.selectTeachers);
 router.post("/select-all-teachers", profileController.selectAllTeachers);
 
+router.post(
+  "/select-abacus-institutions",
+  abacusInstitutionController.selectAbacusInstitutions
+);
+
 router.post("/select-courses", courseController.selectCourses);
 router.post("/select-menus", menuController.selectMenus);
 router.post("/select-sliders", sliderController.selectSliders);
@@ -186,6 +199,11 @@ router.post("/select-classes", classController.selectClasses);
 //Select or update the data from the database
 router.put("/update-student", profileController.updateStudent);
 router.put("/update-teacher", profileController.updateTeacher);
+router.put(
+  "/update-abacus-institution",
+  abacusInstitutionController.updateAbacusInstitution
+);
+
 router.put("/update-course", authverify, courseController.updateCourse);
 router.put("/update-menu", authverify, menuController.updateMenu);
 router.put("/update-slider", authverify, sliderController.updateSlider);
@@ -228,11 +246,18 @@ router.delete(
   authverify,
   profileController.deleteTeacher
 );
+
 router.delete(
   "/delete-student/:id",
   authverify,
   profileController.deleteStudent
 );
+router.delete(
+  "/delete-abacus-institution/:id",
+  authverify,
+  abacusInstitutionController.deleteAbacusInstitution
+);
+
 router.delete("/delete-course/:id", authverify, courseController.deleteCourse);
 router.delete("/delete-menu/:id", authverify, menuController.deleteMenu);
 router.delete("/delete-slider/:id", authverify, sliderController.deleteSlider);

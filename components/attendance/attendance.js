@@ -102,20 +102,29 @@ function AttendancePageCustom() {
       <br></br>
       <br></br>
       {classData &&
-        findClass("alemalema", "jamat1", "semester01").map((item, i) => (
+        lastClass.code == "alemalema" &&
+        findClass(
+          "alemalema",
+          data.data.userDetails.studentJamatCode[lastClass.index].code,
+          data.data.userDetails.studentSemester[lastClass.index].code
+        ).map((item, i) => (
           <div key={i} className="mt-2 rounded-l-2xl rounded-r-2xl">
             <div className="py-2 text-white bg-red-500 w-2/3 md:w-1/3 mx-auto text-sm md:text-2xl rounded-l-2xl rounded-r-2xl">
               {books && findBooks(item.bookID).bookName.bn}
             </div>
           </div>
         ))}
-      <div
-        onClick={handleClick}
-        className="mt-10 py-5 text-white bg-blue-500 hover:cursor-pointer text-sm md:text-2xl rounded-r-2xl rounded-l-2xl hover:scale-105 hover:shadow-xl transition duration-200 ease-out "
-      >
-        হাজিরা দিন{" "}
-        <FaArrowAltCircleRight className="text-2xl inline-block mr-2" />
-      </div>
+      {lastClass.code == "alemalema" &&
+        data.data.userDetails.studentSemester[lastClass.index].code ==
+          "semester01" && (
+          <div
+            onClick={handleClick}
+            className="mt-10 py-5 text-white bg-blue-500 hover:cursor-pointer text-sm md:text-2xl rounded-r-2xl rounded-l-2xl hover:scale-105 hover:shadow-xl transition duration-200 ease-out "
+          >
+            হাজিরা দিন{" "}
+            <FaArrowAltCircleRight className="text-2xl inline-block mr-2" />
+          </div>
+        )}
     </div>
   );
 }
