@@ -1561,7 +1561,7 @@ react-dom@18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
-react-dom@^16.3.2:
+react-dom@^16.3.2, react-dom@^16.7.0:
   version "16.14.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
   integrity sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==
@@ -1597,6 +1597,14 @@ react-is@^18.2.0:
   version "18.3.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.3.1.tgz#e83557dc12eae63a99e003a46388b1dcbb44db7e"
   integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
+
+react-json-to-table@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/react-json-to-table/-/react-json-to-table-0.1.7.tgz#dc2a9e424678dc32afd22ce5846c12e62ea3b199"
+  integrity sha512-mUo8gFS1VquYKm38hQukcQuFjWRfnnmDaGHWg5quQM4Ib+ogWgQV5kEaouvTyIXBK3LZ7Us9O0uqDa4TJdUOtA==
+  dependencies:
+    react "^16.7.0"
+    react-dom "^16.7.0"
 
 react-messenger-customer-chat@^0.8.0:
   version "0.8.0"
@@ -1639,7 +1647,7 @@ react@18.2.0:
   dependencies:
     loose-envify "^1.1.0"
 
-react@^16.3.2:
+react@^16.3.2, react@^16.7.0:
   version "16.14.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
   integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
