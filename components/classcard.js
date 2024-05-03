@@ -67,6 +67,21 @@ function ClassCard(props) {
                 </a>
                 <a href="#">
                   <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Batch No: {item.batchNo}
+                  </h5>
+                </a>
+                <a href="#">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Male Class Link: {item.maleClassLink}
+                  </h5>
+                </a>
+                <a href="#">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Female Class Link: {item.femaleClassLink}
+                  </h5>
+                </a>
+                <a href="#">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     Course ID: {item.courseID}
                   </h5>
                 </a>
@@ -184,6 +199,21 @@ function ClassCard(props) {
                 <a href="#">
                   <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     Class ID: {item.classID}
+                  </h5>
+                </a>
+                <a href="#">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Batch No: {item.batchNo}
+                  </h5>
+                </a>
+                <a href="#">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Male Class Link: {item.maleClassLink}
+                  </h5>
+                </a>
+                <a href="#">
+                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Female Class Link: {item.femaleClassLink}
                   </h5>
                 </a>
                 <a href="#">

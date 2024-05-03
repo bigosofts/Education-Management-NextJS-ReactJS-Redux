@@ -26,6 +26,9 @@ function UpdateClassForm(props) {
   const [classC, setClassC] = useState({
     classID: props.payload.classID,
     courseID: props.payload.courseID,
+    batchNo: props.payload.batchNo,
+    maleClassLink: props.payload.maleClassLink,
+    femaleClassLink: props.payload.femaleClassLink,
     departmentID: props.payload.departmentID,
     jamatID: props.payload.jamatID,
     semesterID: props.payload.semesterID,
@@ -42,6 +45,9 @@ function UpdateClassForm(props) {
     setClassC({
       classID: props.payload.widgetName,
       courseID: props.payload.courseID,
+      batchNo: props.payload.batchNo,
+      maleClassLink: props.payload.maleClassLink,
+      femaleClassLink: props.payload.femaleClassLink,
       departmentID: props.payload.departmentID,
       jamatID: props.payload.jamatID,
       semesterID: props.payload.semesterID,
@@ -66,6 +72,9 @@ function UpdateClassForm(props) {
     props.payload.classStartTime,
     props.payload.classEndTime,
     props.payload.activeStatus,
+    props.payload.batchNo,
+    props.payload.maleClassLink,
+    props.payload.femaleClassLink,
   ]);
 
   useEffect(() => {
@@ -101,6 +110,10 @@ function UpdateClassForm(props) {
 
   const classIDref = useRef();
   const courseIDref = useRef();
+  const batchNoref = useRef();
+  const maleClassLinkref = useRef();
+  const femaleClassLinkref = useRef();
+
   const departmentIDref = useRef();
   const jamatIDref = useRef();
   const semesterIDref = useRef();
@@ -119,6 +132,12 @@ function UpdateClassForm(props) {
 
     const classID = classIDref.current.value;
     const courseID = courseIDref.current.value;
+    const batchNo = batchNoref.current.value;
+
+    const maleClassLink = maleClassLinkref.current.value;
+
+    const femaleClassLink = femaleClassLinkref.current.value;
+
     const departmentID = departmentIDref.current.value;
     const jamatID = jamatIDref.current.value;
     const semesterID = semesterIDref.current.value;
@@ -147,6 +166,9 @@ function UpdateClassForm(props) {
     const res = await updateData({
       classID,
       courseID,
+      batchNo,
+      maleClassLink,
+      femaleClassLink,
       departmentID,
       jamatID,
       semesterID,
@@ -225,6 +247,21 @@ function UpdateClassForm(props) {
       classEndTime: e.target.value,
     });
   };
+  const onChangeHandler12 = (e) => {
+    setClassC({
+      batchNo: e.target.value,
+    });
+  };
+  const onChangeHandler13 = (e) => {
+    setClassC({
+      maleClassLink: e.target.value,
+    });
+  };
+  const onChangeHandler14 = (e) => {
+    setClassC({
+      femaleClassLink: e.target.value,
+    });
+  };
 
   return (
     <form className="grid lg:grid-cols-3 w-full gap-5">
@@ -237,6 +274,39 @@ function UpdateClassForm(props) {
           type="text"
           name="classIDref"
           placeholder="Enter classID"
+        ></input>
+      </div>
+      <div className="input-type">
+        <input
+          ref={batchNoref}
+          onChange={onChangeHandler12}
+          value={classC.batchNo}
+          className="border w-full px-5 py-3 focus:outline-none"
+          type="text"
+          name="batchNoref"
+          placeholder="Enter Batch No"
+        ></input>
+      </div>
+      <div className="input-type">
+        <input
+          ref={maleClassLinkref}
+          onChange={onChangeHandler13}
+          value={classC.maleClassLink}
+          className="border w-full px-5 py-3 focus:outline-none"
+          type="text"
+          name="maleClassLinkref"
+          placeholder="Enter Male Class Group Link"
+        ></input>
+      </div>
+      <div className="input-type">
+        <input
+          ref={femaleClassLinkref}
+          onChange={onChangeHandler14}
+          value={classC.femaleClassLink}
+          className="border w-full px-5 py-3 focus:outline-none"
+          type="text"
+          name="femaleClassLinkref"
+          placeholder="Enter Female Class Group Link"
         ></input>
       </div>
 

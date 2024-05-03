@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const DataSchema = mongoose.Schema(
   {
     classID: { type: String, unique: true, required: true },
+    batchNo: { type: String },
+    maleClassLink: { type: String },
+    femaleClassLink: { type: String },
     courseID: { type: String },
     departmentID: { type: String },
     jamatID: { type: String },

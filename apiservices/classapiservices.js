@@ -92,6 +92,9 @@ exports.deleteData = async (id) => {
 exports.createData = async ({
   classID,
   courseID,
+  batchNo,
+  maleClassLink,
+  femaleClassLink,
   departmentID,
   jamatID,
   semesterID,
@@ -106,6 +109,9 @@ exports.createData = async ({
   const aboutdata = {
     classID,
     courseID,
+    batchNo,
+    maleClassLink,
+    femaleClassLink,
     departmentID,
     jamatID,
     semesterID,
@@ -161,6 +167,9 @@ exports.createData = async ({
 exports.updateData = async ({
   classID,
   courseID,
+  batchNo,
+  maleClassLink,
+  femaleClassLink,
   departmentID,
   jamatID,
   semesterID,
@@ -177,6 +186,9 @@ exports.updateData = async ({
     _id: idValue,
     classID,
     courseID,
+    batchNo,
+    maleClassLink,
+    femaleClassLink,
     departmentID,
     jamatID,
     semesterID,
@@ -188,7 +200,7 @@ exports.updateData = async ({
     classEndTime,
     activeStatus,
   };
- 
+
   if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-class`,

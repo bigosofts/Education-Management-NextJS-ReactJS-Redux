@@ -6,6 +6,9 @@ exports.createClass = (req, res) => {
 
   let postBody = {
     classID: reqBody.classID,
+    batchNo: reqBody.batchNo,
+    maleClassLink: reqBody.maleClassLink,
+    femaleClassLink: reqBody.femaleClassLink,
     courseID: reqBody.courseID,
     departmentID: reqBody.departmentID,
     jamatID: reqBody.jamatID,
@@ -67,6 +70,9 @@ exports.updateClass = (req, res) => {
   let filter = reqBody["_id"];
   let postBody = {
     classID: reqBody.classID,
+    batchNo: reqBody.batchNo,
+    maleClassLink: reqBody.maleClassLink,
+    femaleClassLink: reqBody.femaleClassLink,
     courseID: reqBody.courseID,
     departmentID: reqBody.departmentID,
     jamatID: reqBody.jamatID,

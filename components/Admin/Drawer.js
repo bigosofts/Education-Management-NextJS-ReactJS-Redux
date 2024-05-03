@@ -63,6 +63,18 @@ function AdminDrawer() {
         <img className="m-auto h-12" src="/images/attendance.svg" />
         <h2 className="mt-2 text-[12px] md:text-2xl text-center">Attendance</h2>
       </div>
+
+      <div
+        onClick={() =>
+          router.push(`/dashboard/${data.data.userName}/education/hifz-report`)
+        }
+        className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
+      >
+        <img className="m-auto h-12" src="/images/Hifzul.png" />
+        <h2 className="mt-2 text-[12px] md:text-2xl text-center">
+          Hifz Report
+        </h2>
+      </div>
     </div>
   );
 }

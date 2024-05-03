@@ -2,7 +2,8 @@
 
 import { useSelector, useDispatch } from "react-redux";
 import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
-import { JsonToTable } from "react-json-to-table";
+import "./hifz.css";
+import { selectDataTwo as selectClasses } from "@/apiservices/classapiservices";
 
 import EnrollPlease from "@/components/dashboardPage/enrollPlease";
 import WaitingApproval from "@/components/dashboardPage/WaitingApproval";
@@ -10,6 +11,7 @@ import { useState, useEffect, useRef } from "react";
 import { selectDataTwo, updateData } from "@/apiservices/studentapiservices";
 import NotAllow from "@/components/dashboardPage/notAllow";
 import mytoast from "@/components/toast/toast";
+import { selectAllData } from "@/apiservices/teacherapiservices";
 
 function HifzPage() {
   let data = useSelector((state) => state.isAdmin.value);
@@ -17,6 +19,16 @@ function HifzPage() {
   const [showPage, setShowPage] = useState();
   const [showMainPage, setShowMainPage] = useState();
   const [detailsC, setDetailsC] = useState();
+  const [teachers, setTeacher] = useState();
+  const [classes, setClasses] = useState();
+
+  function getTeacherName(tid) {
+    if (teachers) {
+      let desiredData = teachers.find((item) => item.userName == tid);
+
+      return desiredData.firstName.en + " " + desiredData.lastName.en;
+    }
+  }
 
   const AllList = [
     "alemalema",
@@ -53,6 +65,18 @@ function HifzPage() {
             }
           });
         }
+      }
+
+      const res2 = await selectAllData(null, null);
+
+      if ((res2.status = "Alhamdulillah")) {
+        setTeacher(res2.data);
+      }
+
+      const res3 = await selectClasses({ courseID: "hifjulquran" }, null);
+
+      if (res3.status == "Alhamdulillah") {
+        setClasses(res3.data);
       }
     }
     getData();
@@ -93,7 +117,15 @@ function HifzPage() {
   const weekNumberref = useRef();
 
   let currentDate = new Date();
-  let dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let dayNames = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   let dayIndex = currentDate.getDay();
   let dayName = dayNames[dayIndex];
 
@@ -987,42 +1019,6 @@ function HifzPage() {
     }
   }
 
-  function niceDate2(startDate) {
-    const startDateObj = new Date(startDate);
-
-    // Check if the start date is valid
-    if (isNaN(startDateObj.getTime())) {
-      // Invalid start date string
-      return null;
-    }
-
-    const endDate = new Date(startDateObj);
-    endDate.setDate(endDate.getDate() + 30); // Set end date to 30 days after the start date
-
-    const dates = [];
-
-    // Loop through each day from start date to end date
-    while (startDateObj <= endDate) {
-      const options = {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-      };
-
-      const formattedDate = startDateObj.toLocaleDateString("en-US", options);
-      dates.push(formattedDate);
-
-      // Move to the next day
-      startDateObj.setDate(startDateObj.getDate() + 1);
-    }
-
-    return dates;
-  }
-
-  // Example usage:
-  const startingDate = "April 22, 2024"; // Your choice of starting date
-  const datesArray = niceDate2(startingDate);
-
   if (data) {
     if (data.data.userDetails.studentCourseCode.length < 1) {
       return <EnrollPlease />;
@@ -1035,14 +1031,130 @@ function HifzPage() {
     } else if (showPage) {
       if (showMainPage) {
         let myJson = [];
+        if (detailsC.hifzInfo) {
+          function niceDate2(startDate) {
+            const startDateObj = new Date(startDate);
 
-        datesArray.map((item) => {
-          if (detailsC.hifzInfo.some((item2) => item2.date == item)) {
-            myJson.push({ Date: item, email: "yes" });
-          } else {
-            myJson.push({ Date: item, email: "no" });
+            // Check if the start date is valid
+            if (isNaN(startDateObj.getTime())) {
+              // Invalid start date string
+              return null;
+            }
+
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 30); // Set end date to 30 days after the start date
+
+            const dates = [];
+
+            // Loop through each day from start date to end date
+            while (startDateObj <= endDate) {
+              const options = {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              };
+
+              const formattedDate = startDateObj.toLocaleDateString(
+                "en-US",
+                options
+              );
+              dates.push(formattedDate);
+
+              // Move to the next day
+              startDateObj.setDate(startDateObj.getDate() + 1);
+            }
+
+            return dates;
           }
-        });
+
+          // Example usage:
+          const startingDate =
+            detailsC && detailsC.hifzInfo[detailsC.hifzInfo.length - 1].date; // Your choice of starting date
+          const datesArray = niceDate2(startingDate);
+
+          datesArray.forEach((item) => {
+            const hifzInfoMatch = detailsC.hifzInfo.find(
+              (item2) => item2.date === item
+            );
+            if (hifzInfoMatch) {
+              myJson.push({
+                date: item,
+                day: hifzInfoMatch.day,
+                week: hifzInfoMatch.weeknumber
+                  ? hifzInfoMatch.weeknumber.text
+                  : "--",
+                sabak: {
+                  para: hifzInfoMatch.sabak ? hifzInfoMatch.sabak.para : "--",
+                  page: hifzInfoMatch.sabak ? hifzInfoMatch.sabak.page : "--",
+                },
+
+                satsabak: {
+                  para: hifzInfoMatch.satsabak
+                    ? hifzInfoMatch.satsabak.para
+                    : "--",
+                  page: hifzInfoMatch.satsabak
+                    ? hifzInfoMatch.satsabak.page
+                    : "--",
+                  amount: hifzInfoMatch.satsabak
+                    ? hifzInfoMatch.satsabak.amount
+                    : "--",
+                  lokma: hifzInfoMatch.satsabak
+                    ? hifzInfoMatch.satsabak.lokma
+                    : "--",
+                  dohorana: hifzInfoMatch.satsabak
+                    ? hifzInfoMatch.satsabak.dohorana
+                    : "--",
+                },
+                amukhta: {
+                  para: hifzInfoMatch.amukhta
+                    ? hifzInfoMatch.amukhta.para
+                    : "--",
+                  page: hifzInfoMatch.amukhta
+                    ? hifzInfoMatch.amukhta.page
+                    : "--",
+                  amount: hifzInfoMatch.amukhta
+                    ? hifzInfoMatch.amukhta.amount
+                    : "--",
+                  lokma: hifzInfoMatch.amukhta
+                    ? hifzInfoMatch.amukhta.lokma
+                    : "--",
+                  dohorana: hifzInfoMatch.amukhta
+                    ? hifzInfoMatch.amukhta.dohorana
+                    : "--",
+                },
+                dailyTilwat: hifzInfoMatch.dailytilwat
+                  ? hifzInfoMatch.dailytilwat.text
+                  : "--",
+                signature: hifzInfoMatch.signature
+                  ? hifzInfoMatch.signature
+                  : "দেখে নাই",
+              });
+            } else {
+              myJson.push({
+                date: item,
+                day: "--",
+                week: "--",
+                sabak: { para: "--", page: "--" },
+                satsabak: {
+                  para: "--",
+                  page: "--",
+                  amount: "--",
+                  lokma: "--",
+                  dohorana: "--",
+                },
+                amukhta: {
+                  para: "--",
+                  page: "--",
+                  amount: "--",
+                  lokma: "--",
+                  dohorana: "--",
+                },
+                dailyTilwat: "--",
+                signature: "--",
+              });
+            }
+          });
+        }
 
         return (
           <>
@@ -1419,9 +1531,80 @@ function HifzPage() {
                   </button>
                 </form>
               </div>
-            </div>
-            <div className="mt-10">
-              <JsonToTable json={myJson} />
+              <div className="mt-10 w-[100vw] p-5">
+                <div className="hifz_table">
+                  <h5 className="text-center">
+                    শিক্ষার্থীর নাম:{" "}
+                    {data.data.userDetails.firstName.en +
+                      " " +
+                      data.data.userDetails.lastName.en}
+                  </h5>
+                  <h5 className="text-center">
+                    ক্লাস গ্রুপ: {detailsC && detailsC.hifzClass.groupName}
+                  </h5>
+
+                  <h5 className="text-center">
+                    ওস্তাদ/ওস্তাজার নাম:{" "}
+                    {detailsC && getTeacherName(detailsC.hifzClass.ostad)}
+                  </h5>
+
+                  <div class="table_container mt-10">
+                    <table>
+                      <thead className="sticky top-0">
+                        <tr>
+                          <th rowSpan={2}>তারিখ</th>
+                          <th rowSpan={2}>বার</th>
+                          <th rowSpan={2}>সপ্তাহ</th>
+                          <th colSpan={2}>সবক</th>
+                          <th colSpan={5}>সাতসবক</th>
+                          <th colSpan={5}>আমুখতা</th>
+                          <th rowSpan={2}>দৈনিক তিলওয়াত</th>
+                          <th rowSpan={2}>শিক্ষকের মন্তব্য</th>
+                        </tr>
+                        <tr>
+                          <th>পারা</th>
+                          <th>পৃষ্ঠা</th>
+                          <th>পারা</th>
+                          <th>পৃষ্ঠা</th>
+                          <th>পরিমাণ</th>
+                          <th>লোকমা</th>
+                          <th>দোহরানা</th>
+
+                          <th>পারা</th>
+                          <th>পৃষ্ঠা</th>
+                          <th>পরিমাণ</th>
+                          <th>লোকমা</th>
+                          <th>দোহরানা</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {myJson &&
+                          myJson.map((item, i) => (
+                            <tr key={i}>
+                              <td>{item.date}</td>
+                              <td>{item.day}</td>
+                              <td>{item.week}</td>
+                              <td>{item.sabak.para}</td>
+                              <td>{item.sabak.page}</td>
+                              <td>{item.satsabak.para}</td>
+                              <td>{item.satsabak.page}</td>
+                              <td>{item.satsabak.amount}</td>
+                              <td>{item.satsabak.lokma}</td>
+                              <td>{item.satsabak.dohorana}</td>
+                              <td>{item.amukhta.para}</td>
+                              <td>{item.amukhta.page}</td>
+                              <td>{item.amukhta.amount}</td>
+                              <td>{item.amukhta.lokma}</td>
+                              <td>{item.amukhta.dohorana}</td>
+                              <td>{item.dailyTilwat}</td>
+                              <td>{item.signature}</td>
+                            </tr>
+                          ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
           </>
         );
@@ -1446,42 +1629,19 @@ function HifzPage() {
                       type="text"
                     >
                       <option value=""> Select option</option>
-                      <option
-                        value={JSON.stringify({
-                          groupName: "maleGroup1",
-                          ostad: "IMT2024040563",
-                        })}
-                      >
-                        {" "}
-                        পুরুষদের গ্রুপ-১{" "}
-                      </option>
-                      <option
-                        value={JSON.stringify({
-                          groupName: "femaleGroup1",
-                          ostad: "IMT2024041391",
-                        })}
-                      >
-                        {" "}
-                        মহিলাদের গ্রুপ-১{" "}
-                      </option>
-                      <option
-                        value={JSON.stringify({
-                          groupName: "femaleGroup2",
-                          ostad: "IMT2024040559",
-                        })}
-                      >
-                        {" "}
-                        মহিলাদের গ্রুপ-২{" "}
-                      </option>
-                      <option
-                        value={JSON.stringify({
-                          groupName: "femaleGroup3",
-                          ostad: "IMT2024040557",
-                        })}
-                      >
-                        {" "}
-                        মহিলাদের গ্রুপ-৩{" "}
-                      </option>
+
+                      {classes &&
+                        classes.map((item, i) => (
+                          <option
+                            key={i}
+                            value={JSON.stringify({
+                              groupName: item.classID,
+                              ostad: item.teacher.TID,
+                            })}
+                          >
+                            {item.classID}
+                          </option>
+                        ))}
                     </select>
                   </div>
                 </div>

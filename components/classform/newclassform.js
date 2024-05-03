@@ -34,6 +34,9 @@ function NewClassForm(props) {
   const studentsref = useRef();
   const classStartTimeref = useRef();
   const classEndTimeref = useRef();
+  const batchNoref = useRef();
+  const maleClassLinkref = useRef();
+  const femaleClassLinkref = useRef();
 
   const classradio1ref = useRef();
   const classradio2ref = useRef();
@@ -48,6 +51,9 @@ function NewClassForm(props) {
 
     const classID = classIDref.current.value;
     const courseID = courseIDref.current.value;
+    const batchNo = batchNoref.current.value;
+    const maleClassLink = maleClassLinkref.current.value;
+    const femaleClassLink = femaleClassLinkref.current.value;
     const departmentID = departmentIDref.current.value;
     const jamatID = jamatIDref.current.value;
     const semesterID = semesterIDref.current.value;
@@ -76,6 +82,9 @@ function NewClassForm(props) {
     const res = await createData({
       classID,
       courseID,
+      batchNo,
+      maleClassLink,
+      femaleClassLink,
       departmentID,
       jamatID,
       semesterID,
@@ -136,6 +145,33 @@ function NewClassForm(props) {
           type="text"
           name="classIDref"
           placeholder="Enter classID"
+        ></input>
+      </div>
+      <div className="input-type">
+        <input
+          ref={batchNoref}
+          className="border w-full px-5 py-3 focus:outline-none"
+          type="text"
+          name="batchNoref"
+          placeholder="Enter Batch No"
+        ></input>
+      </div>
+      <div className="input-type">
+        <input
+          ref={maleClassLinkref}
+          className="border w-full px-5 py-3 focus:outline-none"
+          type="text"
+          name="maleClassLinkref"
+          placeholder="Enter Male Class Group Link"
+        ></input>
+      </div>
+      <div className="input-type">
+        <input
+          ref={femaleClassLinkref}
+          className="border w-full px-5 py-3 focus:outline-none"
+          type="text"
+          name="femaleClassLinkref"
+          placeholder="Enter Female Class Group Link"
         ></input>
       </div>
 
