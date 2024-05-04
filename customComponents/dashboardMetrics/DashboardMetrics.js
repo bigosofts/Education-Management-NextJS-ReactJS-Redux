@@ -72,6 +72,268 @@ function DashboardMetrics(props) {
           });
         }
 
+        async function alemalemaQueryS2(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester02") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester02") {
+                return item;
+              }
+            }
+          });
+        }
+
+        async function alemalemaQueryS3(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester03") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester03") {
+                return item;
+              }
+            }
+          });
+        }
+
+        async function alemalemaQueryS4(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester04") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester04") {
+                return item;
+              }
+            }
+          });
+        }
+
+        async function alemalemaQueryS5(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester05") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester05") {
+                return item;
+              }
+            }
+          });
+        }
+
+        async function alemalemaQueryS6(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester06") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester06") {
+                return item;
+              }
+            }
+          });
+        }
+
+        async function alemalemaQueryS7(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester07") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester07") {
+                return item;
+              }
+            }
+          });
+        }
+
+        async function alemalemaQueryS8(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester08") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester08") {
+                return item;
+              }
+            }
+          });
+        }
+        async function alemalemaQueryS9(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester09") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester09") {
+                return item;
+              }
+            }
+          });
+        }
+        async function alemalemaQueryS10(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester10") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester10") {
+                return item;
+              }
+            }
+          });
+        }
+        async function alemalemaQueryS11(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester11") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester11") {
+                return item;
+              }
+            }
+          });
+        }
+        async function alemalemaQueryS12(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester12") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester12") {
+                return item;
+              }
+            }
+          });
+        }
+        async function alemalemaQueryS13(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester13") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester13") {
+                return item;
+              }
+            }
+          });
+        }
+        async function alemalemaQueryS14(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester14") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester14") {
+                return item;
+              }
+            }
+          });
+        }
+        async function alemalemaQueryS15(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester15") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester15") {
+                return item;
+              }
+            }
+          });
+        }
+        async function alemalemaQueryS16(datas) {
+          return datas.filter((item) => {
+            let semester = item.studentSemester.filter((item) => {
+              return /semester/i.test(item.code) && item.status == "active";
+            });
+
+            if (semester.length > 1) {
+              if (semester[semester.length - 1].code == "semester16") {
+                return item;
+              }
+            } else if (semester.length == 1) {
+              if (semester[semester.length - 1].code == "semester16") {
+                return item;
+              }
+            }
+          });
+        }
+
         async function allalemalemaQuery(datas) {
           return datas.filter((item) => {
             let semester = item.studentSemester.filter((item) => {
@@ -128,10 +390,213 @@ function DashboardMetrics(props) {
           });
         }
 
+        async function farzeayinamparaQuery(datas) {
+          return datas.filter((item) => {
+            let course = item.studentCourseCode.filter((item) => {
+              return (
+                /farzeayinampara/i.test(item.code) && item.status == "active"
+              );
+            });
+
+            if (course.length > 1) {
+              if (/farzeayinampara/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            } else if (course.length == 1) {
+              if (/farzeayinampara/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            }
+          });
+        }
+
+        async function ezranahusorofQuery(datas) {
+          return datas.filter((item) => {
+            let course = item.studentCourseCode.filter((item) => {
+              return (
+                /ezranahusorof/i.test(item.code) && item.status == "active"
+              );
+            });
+
+            if (course.length > 1) {
+              if (/ezranahusorof/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            } else if (course.length == 1) {
+              if (/ezranahusorof/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            }
+          });
+        }
+
+        async function shishumaktabQuery(datas) {
+          return datas.filter((item) => {
+            let course = item.studentCourseCode.filter((item) => {
+              return /shishumaktab/i.test(item.code) && item.status == "active";
+            });
+
+            if (course.length > 1) {
+              if (/shishumaktab/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            } else if (course.length == 1) {
+              if (/shishumaktab/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            }
+          });
+        }
+
+        async function abacus_teacherQuery(datas) {
+          return datas.filter((item) => {
+            let course = item.studentCourseCode.filter((item) => {
+              return (
+                /abacus_teacher/i.test(item.code) && item.status == "active"
+              );
+            });
+
+            if (course.length > 1) {
+              if (/abacus_teacher/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            } else if (course.length == 1) {
+              if (/abacus_teacher/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            }
+          });
+        }
+
+        async function farzeayinnajeraQuery(datas) {
+          return datas.filter((item) => {
+            let course = item.studentCourseCode.filter((item) => {
+              return (
+                /farzeayinnajera/i.test(item.code) && item.status == "active"
+              );
+            });
+
+            if (course.length > 1) {
+              if (/farzeayinnajera/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            } else if (course.length == 1) {
+              if (/farzeayinnajera/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            }
+          });
+        }
+
+        async function abacus_studentQuery(datas) {
+          return datas.filter((item) => {
+            let course = item.studentCourseCode.filter((item) => {
+              return (
+                /abacus_student/i.test(item.code) && item.status == "active"
+              );
+            });
+
+            if (course.length > 1) {
+              if (/abacus_student/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            } else if (course.length == 1) {
+              if (/abacus_student/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            }
+          });
+        }
+        async function urduQuery(datas) {
+          return datas.filter((item) => {
+            let course = item.studentCourseCode.filter((item) => {
+              return /urdu/i.test(item.code) && item.status == "active";
+            });
+
+            if (course.length > 1) {
+              if (/urdu/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            } else if (course.length == 1) {
+              if (/urdu/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            }
+          });
+        }
+        async function ramadanquranulkarimQuery(datas) {
+          return datas.filter((item) => {
+            let course = item.studentCourseCode.filter((item) => {
+              return (
+                /ramadanquranulkarim/i.test(item.code) &&
+                item.status == "active"
+              );
+            });
+
+            if (course.length > 1) {
+              if (/ramadanquranulkarim/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            } else if (course.length == 1) {
+              if (/ramadanquranulkarim/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            }
+          });
+        }
+        async function shishunajeraQuery(datas) {
+          return datas.filter((item) => {
+            let course = item.studentCourseCode.filter((item) => {
+              return /shishunajera/i.test(item.code) && item.status == "active";
+            });
+
+            if (course.length > 1) {
+              if (/shishunajera/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            } else if (course.length == 1) {
+              if (/shishunajera/i.test(course[course.length - 1].code)) {
+                return item;
+              }
+            }
+          });
+        }
+
         const alemalemaCount = await alemalemaQuery(res.data);
+
+        const alemalemaCountS2 = await alemalemaQueryS2(res.data);
+        const alemalemaCountS3 = await alemalemaQueryS3(res.data);
+        const alemalemaCountS4 = await alemalemaQueryS4(res.data);
+        const alemalemaCountS5 = await alemalemaQueryS5(res.data);
+        const alemalemaCountS6 = await alemalemaQueryS6(res.data);
+        const alemalemaCountS7 = await alemalemaQueryS7(res.data);
+        const alemalemaCountS8 = await alemalemaQueryS8(res.data);
+        const alemalemaCountS9 = await alemalemaQueryS9(res.data);
+        const alemalemaCountS10 = await alemalemaQueryS10(res.data);
+
+        const alemalemaCountS11 = await alemalemaQueryS11(res.data);
+        const alemalemaCountS12 = await alemalemaQueryS12(res.data);
+        const alemalemaCountS13 = await alemalemaQueryS13(res.data);
+        const alemalemaCountS14 = await alemalemaQueryS14(res.data);
+        const alemalemaCountS15 = await alemalemaQueryS15(res.data);
+        const alemalemaCountS16 = await alemalemaQueryS16(res.data);
+
         const allalemalemaCount = await allalemalemaQuery(res.data);
+
         const hifjulQuranCount = await hifjulquranQuery(res.data);
+
         const farzeAyinMaktabCount = await farzeAyinMaktabQuery(res.data);
+
+        const farzeayinampara = await farzeayinamparaQuery(res.data);
+        const ezranahusorof = await ezranahusorofQuery(res.data);
+        const shishumaktab = await shishumaktabQuery(res.data);
+        const abacus_teacher = await abacus_teacherQuery(res.data);
+        const farzeayinnajera = await farzeayinnajeraQuery(res.data);
+
+        const abacus_student = await abacus_studentQuery(res.data);
+        const urdu = await urduQuery(res.data);
+        const ramadanquranulkarim = await ramadanquranulkarimQuery(res.data);
+        const shishunajera = await shishunajeraQuery(res.data);
 
         // let male = alemalemaCount.filter((item) => {
         //   return item.gender == "male";
@@ -197,6 +662,33 @@ function DashboardMetrics(props) {
         setData({
           student: res.data.length,
           alemalema: alemalemaCount && alemalemaCount.length,
+          alemalemas2: alemalemaCountS2 && alemalemaCountS2.length,
+          alemalemas3: alemalemaCountS3 && alemalemaCountS3.length,
+          alemalemas4: alemalemaCountS4 && alemalemaCountS4.length,
+          alemalemas5: alemalemaCountS5 && alemalemaCountS5.length,
+          alemalemas6: alemalemaCountS6 && alemalemaCountS6.length,
+          alemalemas7: alemalemaCountS7 && alemalemaCountS7.length,
+          alemalemas8: alemalemaCountS8 && alemalemaCountS8.length,
+          alemalemas9: alemalemaCountS9 && alemalemaCountS9.length,
+          alemalemas10: alemalemaCountS10 && alemalemaCountS10.length,
+          alemalemas11: alemalemaCountS11 && alemalemaCountS11.length,
+          alemalemas12: alemalemaCountS12 && alemalemaCountS12.length,
+          alemalemas13: alemalemaCountS13 && alemalemaCountS13.length,
+          alemalemas14: alemalemaCountS14 && alemalemaCountS14.length,
+          alemalemas15: alemalemaCountS15 && alemalemaCountS15.length,
+          alemalemas16: alemalemaCountS16 && alemalemaCountS16.length,
+
+          farzeayinampara: farzeayinampara && farzeayinampara.length,
+          ezranahusorof: ezranahusorof && ezranahusorof.length,
+          shishumaktab: shishumaktab && shishumaktab.length,
+          abacus_teacher: abacus_teacher && abacus_teacher.length,
+          farzeayinnajera: farzeayinnajera && farzeayinnajera.length,
+          abacus_student: abacus_student && abacus_student.length,
+          urdu: urdu && urdu.length,
+          ramadanquranulkarim:
+            ramadanquranulkarim && ramadanquranulkarim.length,
+          shishunajera: shishunajera && shishunajera.length,
+
           allalemalema: allalemalemaCount && allalemalemaCount.length,
           hifjulquran: hifjulQuranCount && hifjulQuranCount.length,
           farzeayinmaktab: farzeAyinMaktabCount && farzeAyinMaktabCount.length,
@@ -516,6 +1008,7 @@ function DashboardMetrics(props) {
                 </div>
               </div>
             </div>
+
             <div class="dsh-col-lg-3 dsh-col-md-6">
               <div class="card">
                 <div class="card-body border-left-pink">
@@ -533,6 +1026,451 @@ function DashboardMetrics(props) {
                 </div>
               </div>
             </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Mijan-Nahobemir-2</p>
+                      <h2 class="card-text text-amount">{data.alemalemas2}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Mijan-Nahobemir-3</p>
+                      <h2 class="card-text text-amount">{data.alemalemas3}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Nahu</p>
+                      <h2 class="card-text text-amount">{data.alemalemas4}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Fique</p>
+                      <h2 class="card-text text-amount">{data.alemalemas5}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Quranul Karim</p>
+                      <h2 class="card-text text-amount">{data.alemalemas6}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Usule Fique</p>
+                      <h2 class="card-text text-amount">{data.alemalemas7}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Adab</p>
+                      <h2 class="card-text text-amount">{data.alemalemas8}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">usule Hadis & Aqidah</p>
+                      <h2 class="card-text text-amount">{data.alemalemas9}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Balagat & Mantek</p>
+                      <h2 class="card-text text-amount">{data.alemalemas10}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Hadis</p>
+                      <h2 class="card-text text-amount">{data.alemalemas11}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Quranul Karim Tafsir</p>
+                      <h2 class="card-text text-amount">{data.alemalemas12}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Hidayat</p>
+                      <h2 class="card-text text-amount">{data.alemalemas13}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Daorah</p>
+                      <h2 class="card-text text-amount">{data.alemalemas14}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Urdu Alemalema</p>
+                      <h2 class="card-text text-amount">{data.alemalemas15}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">Ezra Alemalema</p>
+                      <h2 class="card-text text-amount">{data.alemalemas16}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">farzeayinampara</p>
+                      <h2 class="card-text text-amount">
+                        {data.farzeayinampara}
+                      </h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">ezranahusorof</p>
+                      <h2 class="card-text text-amount">
+                        {data.ezranahusorof}
+                      </h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">shishumaktab</p>
+                      <h2 class="card-text text-amount">{data.shishumaktab}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">abacus_teacher</p>
+                      <h2 class="card-text text-amount">
+                        {data.abacus_teacher}
+                      </h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">farzeayinnajera</p>
+                      <h2 class="card-text text-amount">
+                        {data.farzeayinnajera}
+                      </h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">abacus_student</p>
+                      <h2 class="card-text text-amount">
+                        {data.abacus_student}
+                      </h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">urdu</p>
+                      <h2 class="card-text text-amount">{data.urdu}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">ramadanquranulkarim</p>
+                      <h2 class="card-text text-amount">
+                        {data.ramadanquranulkarim}
+                      </h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dsh-col-lg-3 dsh-col-md-6">
+              <div class="card">
+                <div class="card-body border-left-pink">
+                  <div class="dsh-card-row-2">
+                    <div class="dsh-col">
+                      <p class="card-title text-title">shishunajera</p>
+                      <h2 class="card-text text-amount">{data.shishunajera}</h2>
+                    </div>
+                    <div class="dsh-col-auto">
+                      <div class="icon-shape icon-area">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="dsh-col-lg-3 dsh-col-md-6">
               <div class="card">
                 <div class="card-body border-left-pink">

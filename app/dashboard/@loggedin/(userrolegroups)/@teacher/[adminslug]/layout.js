@@ -72,7 +72,7 @@ function TeacherLayout({ children, params }) {
       show: true,
     },
     {
-      name: "Evaluate Exam",
+      name: "Exam & Report",
       href: `/dashboard/${params.adminslug}/download-exam`,
       icon: "/images/upload.svg",
       show: true,

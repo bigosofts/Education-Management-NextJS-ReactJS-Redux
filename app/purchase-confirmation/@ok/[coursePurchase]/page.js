@@ -20,6 +20,11 @@ function ConfirmationPage({ params }) {
         value: parseInt(usd),
         currency: "USD",
       });
+
+      fbq("trackCustom", `Purchase-${course}`, {
+        value: parseInt(usd),
+        currency: "USD",
+      });
     }
   }, []);
 

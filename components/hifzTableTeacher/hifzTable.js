@@ -4,7 +4,7 @@ import { selectDataTwo, updateData } from "@/apiservices/studentapiservices";
 import { useState, useEffect } from "react";
 import { selectAllData } from "@/apiservices/teacherapiservices";
 
-export default function HifzTable({ id }) {
+export default function HifzTableTeacher({ id }) {
   const [students, setStudents] = useState();
   const [teachers, setTeacher] = useState();
   const [detailsC, setDetailsC] = useState();

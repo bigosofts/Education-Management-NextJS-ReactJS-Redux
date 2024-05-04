@@ -1068,8 +1068,7 @@ function HifzPage() {
           }
 
           // Example usage:
-          const startingDate =
-            detailsC && detailsC.hifzInfo[detailsC.hifzInfo.length - 1].date; // Your choice of starting date
+          const startingDate = detailsC && detailsC.hifzInfo[0].date; // Your choice of starting date
           const datesArray = niceDate2(startingDate);
 
           datesArray.forEach((item) => {

@@ -41,12 +41,12 @@ function BookPage() {
             key={i}
             className="w-full bg-lime-100 border-[1px] border-slate-300 rounded-3xl mb-5 overflow-hidden"
           >
-            <div className="flex justify-between text-lg bg-lime-900 text-white p-2">
+            <div className="flex justify-between text-lg bg-cyan-400 text-white p-2">
               <div className="w-full md:w-2/3 mx-auto text-center">
                 <span className="text-sm md:text-3xl block">
                   {item.sender} sent you a Notice <br />
                 </span>
-                <span className="w-full text-xl md:text-2xl bg-red-600 text-center block rounded-3xl mt-2">
+                <span className="w-full text-slate-900 font-extrabold text-xl md:text-2xl text-center block rounded-3xl mt-2">
                   {item.subject.en ? item.subject.en : item.subject.bn}{" "}
                 </span>
               </div>

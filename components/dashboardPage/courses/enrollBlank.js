@@ -3,6 +3,10 @@ function EnrollButtonb({ code }) {
     if (typeof window !== "undefined") {
       if (code == "hifjulquran") {
         window.location.href = `/hifz-test?signup=true`;
+      } else if (code == "ezranahusorof") {
+        window.location.href = `/signup?code=alemalema`;
+      } else if (code == "urdu") {
+        window.location.href = `/signup?code=alemalema`;
       } else {
         window.location.href = `/signup?code=${code}`;
       }

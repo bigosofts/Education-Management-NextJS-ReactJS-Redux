@@ -91,9 +91,15 @@ function EnrollButton({ courseCode, setProfileUpdate }) {
 
     if (data.data) {
       if (blankArrayList.length == 0) {
-        router.push(
-          `/dashboard/${data.data.userName}/fees?enroll=${courseCode}`
-        );
+        if (courseCode == "ezranahusorof") {
+          router.push(`/dashboard/${data.data.userName}/fees?enroll=alemalema`);
+        } else if (courseCode == "urdu") {
+          router.push(`/dashboard/${data.data.userName}/fees?enroll=alemalema`);
+        } else {
+          router.push(
+            `/dashboard/${data.data.userName}/fees?enroll=${courseCode}`
+          );
+        }
       } else {
         mytoast.danger(
           "You need to update your profile from settings. Go to Dashboard/Settings"
