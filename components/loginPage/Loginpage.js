@@ -9,6 +9,11 @@ import { setToken } from "@/helper/sessionHelper";
 import { useRouter, useSearchParams } from "next/navigation";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { sendMail } from "@/apiservices/sendMailapiservices";
+import {
+  createData as createInstitution,
+  selectDataTwo as selectAbacusInstitution,
+} from "@/apiservices/abacusinstitutionapiservices";
+import ShowPaymentDetails from "../dashboardPage/showpaymentDetail";
 
 import "./loginDesign.css";
 function LoginPageDesign({ userData }) {
@@ -21,6 +26,9 @@ function LoginPageDesign({ userData }) {
 
   const [buttonState, setButtonState] = useState(false);
   const [switchState, setSwitchState] = useState(true);
+  const [isAbacus, setIsAbacus] = useState();
+  const [paymentWay, setPaymentWay] = useState();
+  const [showPayment, setShowPayment] = useState(false);
 
   const router = useRouter();
 
@@ -295,6 +303,236 @@ function LoginPageDesign({ userData }) {
     }
   }
 
+  function addUser2(e) {
+    e.preventDefault();
+    function checkEmail(
+      institutionName,
+      institutionHeadName,
+      institutionHeadNumber,
+      institutionRepresentationName,
+      institutionRepresentationNum,
+      institutionStudentsNumber,
+      paymentAmount,
+      paymentWay,
+      paymentTransaction,
+      paymentMobileNo,
+      institutionEmail,
+      password2ref
+    ) {
+      async function setData2() {
+        // let str = institutionName;
+        // let firstSpaceIndex = str.indexOf(" "); //
+        // let firstPortion;
+
+        // if (firstSpaceIndex !== -1) {
+        //   firstPortion = str.substring(0, firstSpaceIndex);
+        // } else {
+        //   firstPortion = str;
+        // }
+        const res4 = await selectAbacusInstitution(null, null);
+        if (res4.status == "Alhamdulillah") {
+          const res2 = await createInstitution({
+            institutionID: res4.data.length + 1,
+            institutionName,
+            principalName: institutionHeadName,
+            studentsNumber: institutionStudentsNumber,
+            directorPhone: institutionHeadNumber,
+            representativeName: institutionRepresentationName,
+            representativePhone: institutionRepresentationNum,
+            institutionalEmail: institutionEmail,
+            registrationFeeAmount: paymentAmount,
+            registrationPaymentWay: paymentWay,
+            paymentTransactionID: paymentTransaction,
+            paymentNumber: paymentMobileNo,
+            abacusBookOrderlimit: "",
+            abacusKitOrderlimit: "",
+            password: password2ref,
+            activeStatus: "inactive",
+          });
+          if (res2.status == "Alhamdulillah") {
+            userData.push({
+              emailAddress: institutionEmail,
+              mobileNumber: institutionHeadNumber,
+            });
+            setDatas(res2.data.institutionID);
+            mytoast.success(
+              "আলহামদুলিল্লাহ! আপনার অ্যাবাকাস ইন্সটিটিউশন একাউন্ট সফলভাবে তৈরী হয়েছে"
+            );
+            setIsAbacus(true);
+
+            sendMail(
+              institutionEmail,
+              "Abacus Institution Registration has been Completed",
+              `আলহামদুলিল্লাহ, আপনার প্রতিষ্ঠান ${institutionName}, এর নামে একটি একাউন্টটি খোলা হয়েছে, আপনার পেমেন্টটি যাচাইয়ের পর আপনি আপনার ড্যাশবোর্ডে লগিন করতে পারবেন`,
+              `<h1>আলহামদুলিল্লাহ, আপনার প্রতিষ্ঠান ${institutionName}, এর নামে একটি একাউন্টটি খোলা হয়েছে, আপনার পেমেন্টটি যাচাইয়ের পর আপনি আপনার ড্যাশবোর্ডে লগিন করতে পারবেন</h1>`
+            );
+
+            if (typeof fbq === "function") {
+              fbq("track", "CompleteRegistration");
+            }
+
+            if (code) {
+              if (typeof fbq === "function") {
+                fbq("trackCustom", `CompleteRegistration-abacusInstitution`);
+              }
+            }
+
+            // //login logic
+            // if (Admin) {
+            //   if (Admin.status == "noToken") {
+            //     const res5 = await studentLogin(res2.data.userName, password);
+            //     if (res5.status == "Alhamdulillah") {
+            //       setToken("access_token", res5.token);
+
+            //       mytoast.success("আলহামদুলিলাহ, আপনি সফলভাবে লগিন করেছেন");
+            //       const hardRefresh = () => {
+            //         if (typeof window !== "undefined") {
+            //           if (code) {
+            //             window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update?code=${code}`;
+            //           } else {
+            //             window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update`;
+            //           }
+            //         }
+            //       };
+            //       hardRefresh();
+            //     } else if (res5.status == "wrongpass") {
+            //       mytoast.danger("you entered wrong combination");
+            //     } else if (res5.status == "nouser") {
+            //       mytoast.danger(
+            //         "There is no account with this SID. Please check your SID"
+            //       );
+            //     }
+            //   } else if (Admin.status == "UnauthorizedAccess") {
+            //     console.log("Unauthorized access");
+            //   } else {
+            //     const hardRefresh = () => {
+            //       if (typeof window !== "undefined") {
+            //         window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update?code=${code}`;
+            //       }
+            //     };
+            //     hardRefresh();
+            //   }
+            // }
+            // //end login logic
+          } else {
+            console.log(res2);
+          }
+        }
+      }
+      setData2();
+    }
+    function AddReaction(
+      institutionName,
+      institutionHeadName,
+      institutionHeadNumber,
+      institutionRepresentationName,
+      institutionRepresentationNum,
+      institutionStudentsNumber,
+      paymentAmount,
+      paymentWay,
+      paymentTransaction,
+      paymentMobileNo,
+      institutionEmail,
+      password2ref
+    ) {
+      let patternName = /^[a-zA-Z_ ]*$/;
+      let patternEmail = /[^@]+@[^@]+\.[a-zA-Z]{2,6}/;
+      let patternMobile = /^\+\d+$/;
+
+      if (!patternName.test(institutionName)) {
+        mytoast.info(
+          "নামের যেকোনো অংশ ভুল হয়েছে, শুধুই ইংরেজী বর্ণমালা ব্যাবহার করুন"
+        );
+      } else if (!patternName.test(institutionHeadName)) {
+        mytoast.info(
+          "নামের যেকোনো অংশ ভুল হয়েছে, শুধুই ইংরেজী বর্ণমালা ব্যাবহার করুন"
+        );
+      } else if (!patternName.test(institutionRepresentationName)) {
+        mytoast.info(
+          "নামের যেকোনো অংশ ভুল হয়েছে, শুধুই ইংরেজী বর্ণমালা ব্যাবহার করুন"
+        );
+      } else if (!patternName.test(institutionRepresentationName)) {
+        mytoast.info(
+          "নামের যেকোনো অংশ ভুল হয়েছে, শুধুই ইংরেজী বর্ণমালা ব্যাবহার করুন"
+        );
+      } else if (!patternEmail.test(institutionEmail)) {
+        mytoast.info("ইমেইল ফরম্যাটটি সঠিক হয় নি");
+      } else if (!patternMobile.test(institutionHeadNumber)) {
+        mytoast.info("ইন্সটিটিউশনের প্রধানের নাম্বারের ফরম্যাটটি সঠিক হয় নি");
+      } else if (!patternMobile.test(institutionRepresentationNum)) {
+        mytoast.info("প্রতিনিধির মোবাইলের ফরম্যাটটি সঠিক হয় নি");
+      } else {
+        checkEmail(
+          institutionName,
+          institutionHeadName,
+          institutionHeadNumber,
+          institutionRepresentationName,
+          institutionRepresentationNum,
+          institutionStudentsNumber,
+          paymentAmount,
+          paymentWay,
+          paymentTransaction,
+          paymentMobileNo,
+          institutionEmail,
+          password2ref
+        );
+      }
+    }
+
+    if (!institutionNameref.current.value) {
+      mytoast.info("ইন্সটিটিউশনের নাম অবশ্যই ফিলাপ করতে হবে");
+    } else if (!institutionHeadNameref.current.value) {
+      mytoast.info("ইন্সটিটিউশনের প্রধানের নাম অবশ্যই ফিলাপ করতে হবে");
+    } else if (!institutionHeadNumberref.current.value) {
+      mytoast.info("ইন্সটিটিউশনের প্রধানের নাম্বার অবশ্যই ফিলাপ করতে হবে");
+    } else if (!institutionRepresentationNameref.current.value) {
+      mytoast.info("ইন্সটিটিউশনের প্রতিনিধির নাম  অবশ্যই ফিলাপ করতে হবে");
+    } else if (!institutionRepresentationNumref.current.value) {
+      mytoast.info("ইন্সটিটিউশনের প্রতিনিধির নাম্বার অবশ্যই ফিলাপ করতে হবে");
+    } else if (!institutionStudentsNumberref.current.value) {
+      mytoast.info("ইন্সটিটিউশনের শিক্ষার্থী সংখ্যা অবশ্যই ফিলাপ করতে হবে");
+    } else if (!paymentAmountref.current.value) {
+      mytoast.info("পেমেন্টের পরিমাণ অবশ্যই ফিলাপ করতে হবে");
+    } else if (paymentWay == "") {
+      mytoast.info("পেমেন্টের মাধ্যম অবশ্যই ফিলাপ করতে হবে");
+    } else if (!paymentTransactionref.current.value) {
+      mytoast.info("পেমেন্টের ট্র্যানসাকশন অবশ্যই ফিলাপ করতে হবে");
+    } else if (!paymentMobileNoref.current.value) {
+      mytoast.info("পেমেন্টের প্রেরকের নাম্বার অবশ্যই ফিলাপ করতে হবে");
+    } else if (!institutionEmailref.current.value) {
+      mytoast.info("ইমেইল অবশ্যই ফিলাপ করতে হবে");
+    } else if (!password2ref.current.value) {
+      mytoast.info("পাসওয়ার্ড অবশ্যই ফিলাপ করতে হবে");
+    } else {
+      AddReaction(
+        institutionNameref.current.value,
+        institutionHeadNameref.current.value,
+
+        institutionHeadNumberref.current.value,
+        institutionRepresentationNameref.current.value,
+        institutionRepresentationNumref.current.value,
+        institutionStudentsNumberref.current.value,
+        paymentAmountref.current.value,
+        paymentWay,
+        paymentTransactionref.current.value,
+        paymentMobileNoref.current.value,
+        institutionEmailref.current.value,
+        password2ref.current.value
+      );
+    }
+  }
+
+  function paymentWayDecision(e) {
+    e.preventDefault();
+    const paymentWay = e.target.value;
+    setPaymentWay(paymentWay);
+    if (paymentWay == "none") {
+      setShowPayment(false);
+    } else {
+      setShowPayment(true);
+    }
+  }
+
   function decision1() {
     setSignupState(true);
     setSignupAbacusState(false);
@@ -314,6 +552,19 @@ function LoginPageDesign({ userData }) {
   const emailIdref = useRef();
   const passwordref = useRef();
   const mobileNoref = useRef();
+
+  const institutionNameref = useRef();
+  const institutionHeadNameref = useRef();
+  const institutionHeadNumberref = useRef();
+  const institutionRepresentationNameref = useRef();
+  const institutionRepresentationNumref = useRef();
+  const institutionStudentsNumberref = useRef();
+  const paymentAmountref = useRef();
+  const paymentWayref = useRef();
+  const paymentTransactionref = useRef();
+  const paymentMobileNoref = useRef();
+  const institutionEmailref = useRef();
+  const password2ref = useRef();
 
   return (
     <>
@@ -468,104 +719,249 @@ function LoginPageDesign({ userData }) {
               <h1 className="text-2xl text-slate-950 mt-5 mb-5 text-center">
                 আব্যাকাস ইন্সটিটিউশন সাইন আপ ফর্ম
               </h1>
-              <form className="w-full p-5">
-                <label
-                  className="block mb-2 text-lg text-slate-600"
-                  htmlFor="firstName"
-                >
-                  ইন্সটিটিউশনের নাম
-                </label>
-                <input
-                  className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
-                  type="text"
-                  placeholder="নামের প্রথম অংশ লিখুন"
-                  name="firstName"
-                  id="firstName"
-                  ref={firstNameref}
-                ></input>
+              <form className="w-full p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    className="block mb-2 text-lg text-slate-600"
+                    htmlFor="institutionName"
+                  >
+                    ইন্সটিটিউশনের নাম
+                  </label>
+                  <input
+                    className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+                    type="text"
+                    placeholder="ইন্সটিটিউশনের নাম লিখুন"
+                    name="institutionName"
+                    id="institutionName"
+                    ref={institutionNameref}
+                  ></input>
+                </div>
 
-                <label
-                  className="block mb-2 text-lg text-slate-600"
-                  htmlFor="lastName"
-                >
-                  নামের দ্বিতীয় অংশ ইংরেজীতে লিখুনঃ
-                </label>
-                <input
-                  className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
-                  type="text"
-                  placeholder="নামের দ্বিতীয় অংশ লিখুন"
-                  name="lastName"
-                  id="lastName"
-                  ref={lastNameref}
-                ></input>
+                <div>
+                  <label
+                    className="block mb-2 text-lg text-slate-600"
+                    htmlFor="institutionHeadName"
+                  >
+                    ইন্সটিটিউশন প্রধানের নাম
+                  </label>
+                  <input
+                    className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+                    type="text"
+                    placeholder="ইন্সটিটিউশনের প্রধানের নাম লিখুন"
+                    name="institutionHeadName"
+                    id="institutionHeadName"
+                    ref={institutionHeadNameref}
+                  ></input>
+                </div>
 
-                <label
-                  className="block mb-2 text-lg text-slate-600"
-                  htmlFor="email"
-                >
-                  ইমেইল আইডি লিখুনঃ
-                </label>
-                <input
-                  className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
-                  type="email"
-                  placeholder="ইমেইল আইডি লিখুন"
-                  name="email"
-                  id="email"
-                  ref={emailIdref}
-                ></input>
-                <label
-                  className="block mb-2 text-lg text-slate-600"
-                  htmlFor="email"
-                >
-                  আপনার টেলিগ্রাম মোবাইল নাম্বারটি এভাবে লিখুন (+8801756668432)।
-                  প্লাস সাইন + আপনি যে দেশে আছেন সেই দেশের কান্ট্রিকোড +
-                  নাম্বারের বাকি ডিজিট লিখুন। (ক্ল্যাসের জন্য টেলিগ্রাম নাম্বার
-                  থাকা বাধ্যতামূলক)
-                </label>
-                <input
-                  className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
-                  type="tel"
-                  placeholder="+8801710000000"
-                  name="mobile"
-                  id="mobile"
-                  ref={mobileNoref}
-                ></input>
+                <div>
+                  <label
+                    className="block mb-2 text-lg text-slate-600"
+                    htmlFor="institutionHeadNumber"
+                  >
+                    ইন্সটিটিউশন প্রধানের নাম্বার
+                  </label>
+                  <input
+                    className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+                    type="tel"
+                    placeholder="ইন্সটিটিউশনের নাম্বার লিখুন"
+                    name="institutionHeadNumber"
+                    id="institutionHeadNumber"
+                    ref={institutionHeadNumberref}
+                  ></input>
+                </div>
 
-                <label
-                  className="block mb-2 text-lg text-slate-600"
-                  htmlFor="password"
-                >
-                  পছন্দমত একটি পাসওয়ার্ড দিনঃ
-                </label>
-                <input
-                  className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
-                  type="password"
-                  placeholder="পাসওয়ার্ড দিন"
-                  name="password"
-                  ref={passwordref}
-                ></input>
+                <div>
+                  <label
+                    className="block mb-2 text-lg text-slate-600"
+                    htmlFor="institutionRepresentationName"
+                  >
+                    ইন্সটিটিউশন প্রতিনিধির নাম
+                  </label>
+                  <input
+                    className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+                    type="text"
+                    placeholder="ইন্সটিটিউশনের প্রতিনিধিদের নাম"
+                    name="institutionRepresentationName"
+                    id="institutionRepresentationName"
+                    ref={institutionRepresentationNameref}
+                  ></input>
+                </div>
 
-                <button
-                  onClick={addUser}
-                  className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
-                >
-                  {code ? (
-                    <p className="flex justify-between">
-                      <span className="bg-pink-500 w-1/3 py-2 px-2">
-                        (ধাপ ১/৩)
-                      </span>{" "}
-                      <span className="w-2/3 py-2 px-2 relative">
-                        পরের ধাপে যান{" "}
-                        <span className="absolute right-1 top-2">
-                          <IoIosArrowDroprightCircle className="text-3xl" />
-                        </span>
-                      </span>
-                    </p>
+                <div>
+                  <label
+                    className="block mb-2 text-lg text-slate-600"
+                    htmlFor="institutionRepresentationNum"
+                  >
+                    ইন্সটিটিউশন প্রতিনিধির নাম্বার
+                  </label>
+                  <input
+                    className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+                    type="tel"
+                    placeholder="ইন্সটিটিউশনের প্রতিনিধির নাম্বার"
+                    name="institutionRepresentationNum"
+                    id="institutionRepresentationNum"
+                    ref={institutionRepresentationNumref}
+                  ></input>
+                </div>
+
+                <div>
+                  <label
+                    className="block mb-2 text-lg text-slate-600"
+                    htmlFor="institutionStudentsNumber"
+                  >
+                    ইন্সটিটিউশনের ছাত্র/ছাত্রী সংখ্যাঃ
+                  </label>
+                  <input
+                    className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+                    type="number"
+                    placeholder="ইন্সটিটিউশনের ছাত্রছাত্রীদের মোট সংখ্যা"
+                    name="institutionStudentsNumber"
+                    id="institutionStudentsNumber"
+                    ref={institutionStudentsNumberref}
+                  ></input>
+                </div>
+
+                <div>
+                  <label
+                    className="block mb-2 text-lg text-slate-600"
+                    htmlFor="paymentAmount"
+                  >
+                    কত টাকা পেমেন্ট করেছেন?
+                  </label>
+                  <input
+                    className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+                    type="text"
+                    placeholder="কত টাকা পেমেন্ট করেছেন"
+                    name="paymentAmount"
+                    id="paymentAmount"
+                    ref={paymentAmountref}
+                  ></input>
+                </div>
+
+                <div>
+                  <label
+                    className="block mb-2 text-lg text-slate-600"
+                    htmlFor="paymentWay"
+                  >
+                    আপনি নিচের যেকোনো একটি অপশনে টাকা জমা দিতে পারবেন
+                  </label>
+                  <select
+                    value={paymentWay}
+                    onChange={paymentWayDecision}
+                    id="paymentWay"
+                    name="paymentWay"
+                    className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+                  >
+                    <option value="none">
+                      আপনার পেমেন্ট মেথড নির্বাচন করুন
+                    </option>
+
+                    <option value="bkash-merchant">
+                      bkash: 01791 845 122 (Merchant)
+                    </option>
+
+                    <option value="bKash-personal">
+                      bKash: 01674 04 05 02 (Personal)
+                    </option>
+
+                    <option value="nagad-personal">
+                      Nagad: 01674 04 05 02 (Personal)
+                    </option>
+                    <option value="rocket-personal">
+                      Rocket:01674 04 05 023 (Personal)
+                    </option>
+                    <option value="paypal">
+                      PayPal: internetmadrasa@outlook.com
+                    </option>
+
+                    <option value="dbbl-bank">
+                      DBBL Bank Account No. 126 101 56434
+                    </option>
+                    <option value="ebl-bank">
+                      EBL Bank Account No. 170 145 000 1520
+                    </option>
+                  </select>
+                  {showPayment ? (
+                    <ShowPaymentDetails account={paymentWay} />
                   ) : (
-                    <div className="p-5">একাউন্ট তৈরী করুন</div>
+                    ""
                   )}
-                </button>
+                </div>
+
+                <div>
+                  <label
+                    className="block mb-2 text-lg text-slate-600"
+                    htmlFor="paymentTransaction"
+                  >
+                    পেমেন্টের ট্র্যান্সাকশন আইডি দিন
+                  </label>
+                  <input
+                    className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+                    type="text"
+                    placeholder="পেমেন্টের ট্র্যান্সাকশন আইডি দিন"
+                    name="paymentTransaction"
+                    id="paymentTransaction"
+                    ref={paymentTransactionref}
+                  ></input>
+                </div>
+
+                <div>
+                  <label
+                    className="block mb-2 text-lg text-slate-600"
+                    htmlFor="paymentMobileNo"
+                  >
+                    কোন নাম্বার বা একাউন্ট থেকে পেমেন্ট করেছেন , তার নাম্বার
+                    দেন।
+                  </label>
+                  <input
+                    className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+                    type="text"
+                    placeholder="কোন নাম্বার বা একাউন্ট থেকে পেমেন্ট করেছেন"
+                    name="paymentMobileNo"
+                    id="paymentMobileNo"
+                    ref={paymentMobileNoref}
+                  ></input>
+                </div>
+                <div>
+                  <label
+                    className="block mb-2 text-lg text-slate-600"
+                    htmlFor="institutionEmail"
+                  >
+                    আপনার ইমেইল এড্রেস দিন
+                  </label>
+                  <input
+                    className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+                    type="email"
+                    placeholder="আপনার ইমেইল এড্রেস দিন "
+                    name="institutionEmail"
+                    id="institutionEmail"
+                    ref={institutionEmailref}
+                  ></input>
+                </div>
+
+                <div>
+                  <label
+                    className="block mb-2 text-lg text-slate-600"
+                    htmlFor="password2"
+                  >
+                    পছন্দমত একটি পাসওয়ার্ড দিনঃ
+                  </label>
+                  <input
+                    className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
+                    type="password2"
+                    placeholder="পাসওয়ার্ড দিন"
+                    name="password2"
+                    ref={password2ref}
+                  ></input>
+                </div>
               </form>
+              <button
+                onClick={addUser2}
+                className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
+              >
+                <div className="p-5">রেজিস্ট্রেশন করুন</div>
+              </button>
             </div>
           </div>
 
@@ -573,9 +969,13 @@ function LoginPageDesign({ userData }) {
             {data ? `আপনার আইডিঃ ${data}` : ""}
           </h1>
           <h2 className="px-5 w-full md:w-1/2 m-auto text-2xl text-slate-950 mb-5 text-center">
-            {data
-              ? `আসসালামু আলাইকুম। আইডিটি সংরক্ষণ করুন। পরবর্তীতে সাইন ইন করতে আপনার আইডিটি প্রয়োজন হবে।`
-              : ""}
+            {data &&
+              !setIsAbacus &&
+              `আসসালামু আলাইকুম। আইডিটি সংরক্ষণ করুন। পরবর্তীতে সাইন ইন করতে আপনার আইডিটি প্রয়োজন হবে।`}
+
+            {setIsAbacus &&
+              data &&
+              `আসসালামু আলাইকুম। আইডিটি সংরক্ষণ করুন। আপনার একাউন্ট এপ্রুভ করা হলে আপনি একটি ইমেইল পাবেন। ১৫মে, ২০২৪ তারিখের পর আপনি এই আইডি ও পাসওয়ার্ড দিয়ে নিজ নিজ ড্যাশবোর্ডে লগিন করতে পারবেন ইং শা আল্লাহ। কোন কিছু জানার জন্য আপনার আইডি দিয়ে হোয়াটস এপে মেসেজ দেবেন (+88 01674 040502)।`}
           </h2>
         </section>
       )}
