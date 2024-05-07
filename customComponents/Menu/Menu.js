@@ -49,8 +49,8 @@ const MainMenu = () => {
           <div className="style-16">
             <div className="style-17">
               <div className="style-18">
-                <a href="/signup">
-                  <button>Registration</button>
+                <a target="__blank" href="https://forms.gle/MHTcpbNxk24TF8hd9">
+                  <button>শিক্ষক নিয়োগ আবেদন ফর্ম</button>
                 </a>
               </div>
             </div>

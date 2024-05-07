@@ -15,7 +15,7 @@ const DataSchema = mongoose.Schema(
     paymentTransactionID: { type: String },
     paymentNumber: { type: String },
     abacusBookOrderlimit: { type: Number },
-    abacusKitOrderlimit: { type: String },
+    abacusKitOrderlimit: { type: Number },
     password: { type: String },
 
     abacusCreatedDate: { type: Date },

@@ -9,6 +9,8 @@ import { setToken } from "@/helper/sessionHelper";
 import { useRouter, useSearchParams } from "next/navigation";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { sendMail } from "@/apiservices/sendMailapiservices";
+import ConfirmationPage2 from "../confirmation/confirmation";
+
 import {
   createData as createInstitution,
   selectDataTwo as selectAbacusInstitution,
@@ -27,8 +29,10 @@ function LoginPageDesign({ userData }) {
   const [buttonState, setButtonState] = useState(false);
   const [switchState, setSwitchState] = useState(true);
   const [isAbacus, setIsAbacus] = useState();
-  const [paymentWay, setPaymentWay] = useState();
+  const [paymentWay, setPaymentWay] = useState("");
   const [showPayment, setShowPayment] = useState(false);
+  const [popup, setPopup] = useState();
+  const [visible, setVisible] = useState(true);
 
   const router = useRouter();
 
@@ -319,6 +323,7 @@ function LoginPageDesign({ userData }) {
       institutionEmail,
       password2ref
     ) {
+      setVisible(false);
       async function setData2() {
         // let str = institutionName;
         // let firstSpaceIndex = str.indexOf(" "); //
@@ -344,8 +349,8 @@ function LoginPageDesign({ userData }) {
             registrationPaymentWay: paymentWay,
             paymentTransactionID: paymentTransaction,
             paymentNumber: paymentMobileNo,
-            abacusBookOrderlimit: "",
-            abacusKitOrderlimit: "",
+            abacusBookOrderlimit: null,
+            abacusKitOrderlimit: null,
             password: password2ref,
             activeStatus: "inactive",
           });
@@ -363,8 +368,9 @@ function LoginPageDesign({ userData }) {
             sendMail(
               institutionEmail,
               "Abacus Institution Registration has been Completed",
-              `আলহামদুলিল্লাহ, আপনার প্রতিষ্ঠান ${institutionName}, এর নামে একটি একাউন্টটি খোলা হয়েছে, আপনার পেমেন্টটি যাচাইয়ের পর আপনি আপনার ড্যাশবোর্ডে লগিন করতে পারবেন`,
-              `<h1>আলহামদুলিল্লাহ, আপনার প্রতিষ্ঠান ${institutionName}, এর নামে একটি একাউন্টটি খোলা হয়েছে, আপনার পেমেন্টটি যাচাইয়ের পর আপনি আপনার ড্যাশবোর্ডে লগিন করতে পারবেন</h1>`
+              `আলহামদুলিল্লাহ, আপনার প্রতিষ্ঠান ${institutionName}, এর নামে একটি একাউন্টটি খোলা হয়েছে, আপনার পেমেন্টটি যাচাইয়ের পর আপনি আপনার ড্যাশবোর্ডে লগিন করতে পারবেন। আপনার একাউন্ট এপ্রুভ করা হলে আপনি একটি ইমেইল পাবেন। ১৫মে, ২০২৪ তারিখের পর আপনি এই আইডি ${res2.data.institutionID} ও নিজ পাসওয়ার্ড দিয়ে নিজ নিজ ড্যাশবোর্ডে লগিন করতে পারবেন ইং শা আল্লাহ। কোন কিছু জানার জন্য আপনার আইডি দিয়ে হোয়াটস এপে মেসেজ দেবেন (+88 01674 040502)।
+              `,
+              `<h1>আলহামদুলিল্লাহ, আপনার প্রতিষ্ঠান ${institutionName}, এর নামে একটি একাউন্টটি খোলা হয়েছে, আপনার পেমেন্টটি যাচাইয়ের পর আপনি আপনার ড্যাশবোর্ডে লগিন করতে পারবেন। আপনার একাউন্ট এপ্রুভ করা হলে আপনি একটি ইমেইল পাবেন। ১৫মে, ২০২৪ তারিখের পর আপনি এই আইডি ${res2.data.institutionID} ও নিজ পাসওয়ার্ড দিয়ে নিজ নিজ ড্যাশবোর্ডে লগিন করতে পারবেন ইং শা আল্লাহ। কোন কিছু জানার জন্য আপনার আইডি দিয়ে হোয়াটস এপে মেসেজ দেবেন (+88 01674 040502)।</h1>`
             );
 
             if (typeof fbq === "function") {
@@ -376,6 +382,20 @@ function LoginPageDesign({ userData }) {
                 fbq("trackCustom", `CompleteRegistration-abacusInstitution`);
               }
             }
+
+            fbq("track", "Purchase", {
+              value: parseInt(paymentAmount),
+              currency: "BDT",
+            });
+
+            fbq("trackCustom", `Purchase-abacusInstitution`, {
+              value: parseInt(paymentAmount),
+              currency: "BDT",
+            });
+
+            setPopup(true);
+            setSignupState(false);
+            setSignupAbacusState(false);
 
             // //login logic
             // if (Admin) {
@@ -560,7 +580,7 @@ function LoginPageDesign({ userData }) {
   const institutionRepresentationNumref = useRef();
   const institutionStudentsNumberref = useRef();
   const paymentAmountref = useRef();
-  const paymentWayref = useRef();
+
   const paymentTransactionref = useRef();
   const paymentMobileNoref = useRef();
   const institutionEmailref = useRef();
@@ -764,7 +784,7 @@ function LoginPageDesign({ userData }) {
                   <input
                     className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
                     type="tel"
-                    placeholder="ইন্সটিটিউশনের নাম্বার লিখুন"
+                    placeholder="নাম্বার লিখুন এই ফরম্যাটে (+8801756668432)"
                     name="institutionHeadNumber"
                     id="institutionHeadNumber"
                     ref={institutionHeadNumberref}
@@ -798,7 +818,7 @@ function LoginPageDesign({ userData }) {
                   <input
                     className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
                     type="tel"
-                    placeholder="ইন্সটিটিউশনের প্রতিনিধির নাম্বার"
+                    placeholder="নাম্বার লিখুন এই ফরম্যাটে (+8801756668432)"
                     name="institutionRepresentationNum"
                     id="institutionRepresentationNum"
                     ref={institutionRepresentationNumref}
@@ -853,7 +873,7 @@ function LoginPageDesign({ userData }) {
                     name="paymentWay"
                     className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
                   >
-                    <option value="none">
+                    <option value="">
                       আপনার পেমেন্ট মেথড নির্বাচন করুন
                     </option>
 
@@ -956,12 +976,14 @@ function LoginPageDesign({ userData }) {
                   ></input>
                 </div>
               </form>
-              <button
-                onClick={addUser2}
-                className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
-              >
-                <div className="p-5">রেজিস্ট্রেশন করুন</div>
-              </button>
+              {visible && (
+                <button
+                  onClick={addUser2}
+                  className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
+                >
+                  <div className="p-5">রেজিস্ট্রেশন করুন</div>
+                </button>
+              )}
             </div>
           </div>
 
@@ -978,6 +1000,14 @@ function LoginPageDesign({ userData }) {
               `আসসালামু আলাইকুম। আইডিটি সংরক্ষণ করুন। আপনার একাউন্ট এপ্রুভ করা হলে আপনি একটি ইমেইল পাবেন। ১৫মে, ২০২৪ তারিখের পর আপনি এই আইডি ও পাসওয়ার্ড দিয়ে নিজ নিজ ড্যাশবোর্ডে লগিন করতে পারবেন ইং শা আল্লাহ। কোন কিছু জানার জন্য আপনার আইডি দিয়ে হোয়াটস এপে মেসেজ দেবেন (+88 01674 040502)।`}
           </h2>
         </section>
+      )}
+
+      {popup && (
+        <ConfirmationPage2
+          taka="1530"
+          institutionName={institutionNameref.current.value}
+          institutionID={data}
+        />
       )}
     </>
   );
