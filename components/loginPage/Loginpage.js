@@ -628,7 +628,7 @@ function LoginPageDesign({ userData }) {
                 >
                   আপনি কোন ব্যাচে ভর্তি হতে চাচ্ছেন?
                 </label>
-               
+
 
                 <label
                   className="block mb-2 text-lg text-slate-600"

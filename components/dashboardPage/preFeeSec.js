@@ -29,7 +29,18 @@ function PreFeeSection({ profile }) {
   const [department, setDepartment] = useState();
   const [jamat, setJamat] = useState();
   const [semester, setSemester] = useState();
-
+  const [extrabatch, setExtraBatch] = useState();
+  const [batch, setBatch] = useState([
+    {
+      name: "Batch-05-06-2024 (ক্লাস শুরু আগামী ৫ জুন, ২০২৪)",
+      value: "batch-20240605",
+    },
+    {
+      name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
+      value: "batch-20240420",
+    },
+  ]);
+  const defaultBatch = "batch-20240605";
   const [extraJamat, setExtraJamat] = useState(false);
   const [extraSemester, setExtraSemester] = useState(false);
   const [extraTransaction, setExtraTransaction] = useState(false);
@@ -46,6 +57,7 @@ function PreFeeSection({ profile }) {
     transactionID: "none",
     accountNo: "none",
     paymentWay: "none",
+    batch: "",
   });
   function niceDate(date) {
     var isoTime = date;
@@ -198,6 +210,7 @@ function PreFeeSection({ profile }) {
         jamat: "none",
       }));
       setExtraSemester(false);
+      setExtraBatch(false);
       setMainData((prev) => ({
         ...prev,
         semester: "none",
@@ -217,6 +230,7 @@ function PreFeeSection({ profile }) {
         jamat: "none",
       }));
       setExtraSemester(false);
+      setExtraBatch(false);
       setMainData((prev) => ({
         ...prev,
         semester: "none",
@@ -237,6 +251,7 @@ function PreFeeSection({ profile }) {
         jamat: "none",
       }));
       setExtraSemester(false);
+      setExtraBatch(false);
       setMainData((prev) => ({
         ...prev,
         semester: "none",
@@ -249,6 +264,7 @@ function PreFeeSection({ profile }) {
         jamat: "none",
       }));
       setExtraSemester(false);
+      setExtraBatch(false);
       setMainData((prev) => ({
         ...prev,
         semester: "none",
@@ -258,6 +274,7 @@ function PreFeeSection({ profile }) {
       setExtraTransaction(true);
       setExtraJamat(false);
       setExtraSemester(false);
+      setExtraBatch(false);
     }
   }
 
@@ -271,8 +288,10 @@ function PreFeeSection({ profile }) {
     }));
     if (jamat !== "none") {
       setExtraSemester(true);
+      setExtraBatch(true);
     } else {
       setExtraSemester(false);
+      setExtraBatch(false);
       setMainData((prev) => ({
         ...prev,
         semester: "none",
@@ -294,6 +313,16 @@ function PreFeeSection({ profile }) {
     } else {
       setExtraTransaction(false);
     }
+  }
+
+  function batchChangeDecision(e) {
+    e.preventDefault();
+    const batch = e.target.value;
+
+    setMainData((prev) => ({
+      ...prev,
+      batch: batch,
+    }));
   }
 
   useEffect(() => {
@@ -443,7 +472,8 @@ function PreFeeSection({ profile }) {
       mainData.accountNo != "none" &&
       mainData.accountNo != "" &&
       mainData.paymentWay != "none" &&
-      mainData.paymentWay != ""
+      mainData.paymentWay != "" &&
+      mainData.batch != ""
     ) {
       let currentDate = new Date();
       let oneYearLater = new Date(currentDate);
@@ -592,7 +622,8 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails.activeStatus,
             profile.data.userDetails._id,
             mainData.department ? studentDepartment : undefined,
-            mainData.semester ? studentSemester : undefined
+            mainData.semester ? studentSemester : undefined,
+            mainData.batch ? mainData.batch : undefined
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -789,7 +820,8 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails.activeStatus,
             profile.data.userDetails._id,
             mainData.department ? studentDepartmentTwoFinal : undefined,
-            mainData.semester ? studentSemesterTwoFinal : undefined
+            mainData.semester ? studentSemesterTwoFinal : undefined,
+            mainData.batch ? mainData.batch : undefined
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -1037,7 +1069,8 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails.activeStatus,
             profile.data.userDetails._id,
             mainData.department ? studentDepartment : undefined,
-            mainData.semester ? studentSemester : undefined
+            mainData.semester ? studentSemester : undefined,
+            defaultBatch
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -1234,7 +1267,8 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails.activeStatus,
             profile.data.userDetails._id,
             mainData.department ? studentDepartmentTwoFinal : undefined,
-            mainData.semester ? studentSemesterTwoFinal : undefined
+            mainData.semester ? studentSemesterTwoFinal : undefined,
+            defaultBatch
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -1470,7 +1504,8 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails.activeStatus,
             profile.data.userDetails._id,
             mainData.department ? studentDepartment : undefined,
-            mainData.semester ? studentSemester : undefined
+            mainData.semester ? studentSemester : undefined,
+            defaultBatch
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -1667,7 +1702,8 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails.activeStatus,
             profile.data.userDetails._id,
             mainData.department ? studentDepartmentTwoFinal : undefined,
-            mainData.semester ? studentSemesterTwoFinal : undefined
+            mainData.semester ? studentSemesterTwoFinal : undefined,
+            defaultBatch
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -1894,6 +1930,33 @@ function PreFeeSection({ profile }) {
                       </option>
                     ))
                   : ""}
+              </select>
+            </div>
+
+            <div
+              className={`SemesterSelector ${
+                extrabatch ? "h-[150px] md:h-[200px]" : "h-[0px]"
+              } overflow-hidden transition-all duration-1000 ease-out`}
+            >
+              <label htmlFor="batch">
+                <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
+                  আপনি কোন ব্যাচে ভর্তি হতে ইচ্ছুক?
+                </h1>
+              </label>
+              <select
+                value={mainData.batch}
+                onChange={batchChangeDecision}
+                id="batch"
+                name="batch"
+                className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
+              >
+                <option value="">আপনার ব্যাচ নির্বাচন করুন</option>
+                {batch &&
+                  batch.map((item, i) => (
+                    <option key={i} value={item.value}>
+                      {item.name}
+                    </option>
+                  ))}
               </select>
             </div>
 
