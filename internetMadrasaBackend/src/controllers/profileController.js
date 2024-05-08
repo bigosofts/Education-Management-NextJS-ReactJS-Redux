@@ -50,6 +50,7 @@ exports.createStudent = (req, res) => {
   let userRole = reqBody.userRole;
   let studentDepartment = reqBody.studentDepartment;
   let studentSemester = reqBody.studentSemester;
+  let batchCount = reqBody.batchCount;
 
   //Make res body for posting to the Database
 
@@ -81,8 +82,8 @@ exports.createStudent = (req, res) => {
     userRole: userRole,
     studentDepartment: studentDepartment,
     studentSemester: studentSemester,
+    batchCount: batchCount,
   };
-
 
   // Create Database record
   studentProfileModel
@@ -197,6 +198,7 @@ exports.updateStudent = async (req, res) => {
       admissionDate: reqBody.admissionDate,
       studentDepartment: reqBody.studentDepartment,
       studentSemester: reqBody.studentSemester,
+      batchCount: reqBody.batchCount,
     };
   } else {
     postBody = {
@@ -236,6 +238,7 @@ exports.updateStudent = async (req, res) => {
       admissionDate: reqBody.admissionDate,
       studentDepartment: reqBody.studentDepartment,
       studentSemester: reqBody.studentSemester,
+      batchCount: reqBody.batchCount,
     };
   }
 

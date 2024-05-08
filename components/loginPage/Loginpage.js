@@ -624,6 +624,14 @@ function LoginPageDesign({ userData }) {
               <form className="w-full p-5">
                 <label
                   className="block mb-2 text-lg text-slate-600"
+                  htmlFor="batchNo"
+                >
+                  আপনি কোন ব্যাচে ভর্তি হতে চাচ্ছেন?
+                </label>
+               
+
+                <label
+                  className="block mb-2 text-lg text-slate-600"
                   htmlFor="firstName"
                 >
                   নামের প্রথম অংশ ইংরেজীতে লিখুনঃ
@@ -873,9 +881,7 @@ function LoginPageDesign({ userData }) {
                     name="paymentWay"
                     className="block w-full p-2 border-[1px] border-slate-300 rounded-3xl text-lg mb-4"
                   >
-                    <option value="">
-                      আপনার পেমেন্ট মেথড নির্বাচন করুন
-                    </option>
+                    <option value="">আপনার পেমেন্ট মেথড নির্বাচন করুন</option>
 
                     <option value="bkash-merchant">
                       bkash: 01791 845 122 (Merchant)

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const DataSchema = mongoose.Schema(
   {
     userName: { type: String, required: true, unique: true },
-    batchCount: { type: Number },
+    batchCount: { type: String },
     details: { type: Object, required: true },
     userRole: { type: String, required: true },
     firstName: {

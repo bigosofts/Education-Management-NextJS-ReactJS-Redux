@@ -4,7 +4,10 @@ import BarChart from "./Barchart.js";
 import PieChart from "./Piechart";
 
 import { useEffect, useState } from "react";
-import { selectAllData as selectStudents } from "@/apiservices/studentapiservices";
+import {
+  selectAllData as selectStudents,
+  updateData as updateStudents,
+} from "@/apiservices/studentapiservices";
 import { selectData as selectAbouts } from "@/apiservices/aboutapiservices";
 import { selectData as selectActivities } from "@/apiservices/activityapiservices";
 import { selectData as selectComments } from "@/apiservices/commentapiservice";
@@ -20,6 +23,20 @@ import { selectData as selectWidgets } from "@/apiservices/widgetapiservices";
 
 function DashboardMetrics(props) {
   const [data, setData] = useState();
+  const [students, setStudents] = useState();
+  const [allalemalema, setAllAlemalema] = useState();
+  const [allurdu, setAllUrdu] = useState();
+
+  const [allFarzeayinampara, setAllFarzeayinampara] = useState();
+  const [allEzranahusorof, setAllEzranahusorof] = useState();
+  const [allShishumaktab, setAllShishumaktab] = useState();
+  const [allAbacusteacher, setAllAbacusteacher] = useState();
+  const [allFarzeayinnajera, setAllFarzeayinnajera] = useState();
+  const [allAbacusstudent, setAllAbacusstudent] = useState();
+  const [allRamadanquranulkarim, setAllRamadanquranulkarim] = useState();
+  const [allShishunajera, setAllShishunajera] = useState();
+  const [allHifjulQuran, setAllHifjulQuran] = useState();
+  const [allFarzeAyinMaktab, setAllFarzeAyinMaktab] = useState();
 
   useEffect(() => {
     async function getData() {
@@ -54,6 +71,7 @@ function DashboardMetrics(props) {
           selectWidgets(null, null),
         ]);
 
+        setStudents(res.data);
         async function alemalemaQuery(datas) {
           return datas.filter((item) => {
             let semester = item.studentSemester.filter((item) => {
@@ -582,21 +600,33 @@ function DashboardMetrics(props) {
         const alemalemaCountS16 = await alemalemaQueryS16(res.data);
 
         const allalemalemaCount = await allalemalemaQuery(res.data);
+        setAllAlemalema(allalemalemaCount);
 
         const hifjulQuranCount = await hifjulquranQuery(res.data);
+        setAllHifjulQuran(hifjulQuranCount);
 
         const farzeAyinMaktabCount = await farzeAyinMaktabQuery(res.data);
+        setAllFarzeAyinMaktab(farzeAyinMaktabCount);
 
         const farzeayinampara = await farzeayinamparaQuery(res.data);
+        setAllFarzeayinampara(farzeayinampara);
         const ezranahusorof = await ezranahusorofQuery(res.data);
+        setAllEzranahusorof(ezranahusorof);
         const shishumaktab = await shishumaktabQuery(res.data);
+        setAllShishumaktab(shishumaktab);
         const abacus_teacher = await abacus_teacherQuery(res.data);
+        setAllAbacusteacher(abacus_teacher);
         const farzeayinnajera = await farzeayinnajeraQuery(res.data);
+        setAllFarzeayinnajera(farzeayinnajera);
 
         const abacus_student = await abacus_studentQuery(res.data);
+        setAllAbacusstudent(abacus_student);
         const urdu = await urduQuery(res.data);
+        setAllUrdu(urdu);
         const ramadanquranulkarim = await ramadanquranulkarimQuery(res.data);
+        setAllRamadanquranulkarim(ramadanquranulkarim);
         const shishunajera = await shishunajeraQuery(res.data);
+        setAllShishunajera(shishunajera);
 
         // let male = alemalemaCount.filter((item) => {
         //   return item.gender == "male";
@@ -713,6 +743,703 @@ function DashboardMetrics(props) {
 
     getData();
   }, []);
+
+  async function changeBatch1() {
+    if (students) {
+      if (allalemalema) {
+        try {
+          for (const item of allalemalema) {
+            let specific = students.find((item2) => {
+              return item2.userName === item.userName;
+            });
+            if (specific) {
+              const res5 = await updateStudents(
+                specific.userName,
+                specific.firstName.en,
+                specific.firstName.bn,
+                specific.lastName.en,
+                specific.lastName.bn,
+                specific.nidNumber,
+                specific.birthRegNumber,
+                specific.fatherName.en,
+                specific.fatherName.bn,
+                specific.emailAddress,
+                undefined,
+                specific.mobileNumber,
+                specific.occupation,
+                specific.studentCourseCode,
+                specific.studentJamatCode,
+                specific.gender,
+                specific.dateOfBirth,
+                specific.countryName,
+                specific.fullPresentAddress,
+                specific.fullPermanentAddress,
+                specific.admissionSession,
+                specific.admissionDate,
+                specific.studentMotive,
+                specific.details,
+                specific.paymentStatus,
+                specific.userRole,
+                specific.extracurricular,
+                specific.activeStatus,
+                specific._id,
+                specific.studentDepartment,
+                specific.studentSemester,
+                "batch-20240420"
+              );
+              if (res5 && res5.status === "Alhamdulillah") {
+                console.log(specific.userName + " updated successfully.");
+              } else {
+                console.log("Failed to update " + specific.userName);
+              }
+            } else {
+              console.log("Student not found:", item.userName);
+            }
+          }
+        } catch (error) {
+          console.error("Error updating students:", error);
+        }
+      }
+    }
+  }
+  async function changeBatch2() {
+    if (students) {
+      if (allurdu) {
+        try {
+          for (const item of allurdu) {
+            let specific = students.find((item2) => {
+              return item2.userName === item.userName;
+            });
+            if (specific) {
+              const res5 = await updateStudents(
+                specific.userName,
+                specific.firstName.en,
+                specific.firstName.bn,
+                specific.lastName.en,
+                specific.lastName.bn,
+                specific.nidNumber,
+                specific.birthRegNumber,
+                specific.fatherName.en,
+                specific.fatherName.bn,
+                specific.emailAddress,
+                undefined,
+                specific.mobileNumber,
+                specific.occupation,
+                specific.studentCourseCode,
+                specific.studentJamatCode,
+                specific.gender,
+                specific.dateOfBirth,
+                specific.countryName,
+                specific.fullPresentAddress,
+                specific.fullPermanentAddress,
+                specific.admissionSession,
+                specific.admissionDate,
+                specific.studentMotive,
+                specific.details,
+                specific.paymentStatus,
+                specific.userRole,
+                specific.extracurricular,
+                specific.activeStatus,
+                specific._id,
+                specific.studentDepartment,
+                specific.studentSemester,
+                "batch-20240420"
+              );
+              if (res5 && res5.status === "Alhamdulillah") {
+                console.log(specific.userName + " updated successfully.");
+              } else {
+                console.log("Failed to update " + specific.userName);
+              }
+            } else {
+              console.log("Student not found:", item.userName);
+            }
+          }
+        } catch (error) {
+          console.error("Error updating students:", error);
+        }
+      }
+    }
+  }
+  async function changeBatch3() {
+    if (students) {
+      if (allAbacusteacher) {
+        try {
+          for (const item of allAbacusteacher) {
+            let specific = students.find((item2) => {
+              return item2.userName === item.userName;
+            });
+            if (specific) {
+              const res5 = await updateStudents(
+                specific.userName,
+                specific.firstName.en,
+                specific.firstName.bn,
+                specific.lastName.en,
+                specific.lastName.bn,
+                specific.nidNumber,
+                specific.birthRegNumber,
+                specific.fatherName.en,
+                specific.fatherName.bn,
+                specific.emailAddress,
+                undefined,
+                specific.mobileNumber,
+                specific.occupation,
+                specific.studentCourseCode,
+                specific.studentJamatCode,
+                specific.gender,
+                specific.dateOfBirth,
+                specific.countryName,
+                specific.fullPresentAddress,
+                specific.fullPermanentAddress,
+                specific.admissionSession,
+                specific.admissionDate,
+                specific.studentMotive,
+                specific.details,
+                specific.paymentStatus,
+                specific.userRole,
+                specific.extracurricular,
+                specific.activeStatus,
+                specific._id,
+                specific.studentDepartment,
+                specific.studentSemester,
+                "batch-20240420"
+              );
+              if (res5 && res5.status === "Alhamdulillah") {
+                console.log(specific.userName + " updated successfully.");
+              } else {
+                console.log("Failed to update " + specific.userName);
+              }
+            } else {
+              console.log("Student not found:", item.userName);
+            }
+          }
+        } catch (error) {
+          console.error("Error updating students:", error);
+        }
+      }
+    }
+  }
+  async function changeBatch4() {
+    if (students) {
+      if (allEzranahusorof) {
+        try {
+          for (const item of allEzranahusorof) {
+            let specific = students.find((item2) => {
+              return item2.userName === item.userName;
+            });
+            if (specific) {
+              const res5 = await updateStudents(
+                specific.userName,
+                specific.firstName.en,
+                specific.firstName.bn,
+                specific.lastName.en,
+                specific.lastName.bn,
+                specific.nidNumber,
+                specific.birthRegNumber,
+                specific.fatherName.en,
+                specific.fatherName.bn,
+                specific.emailAddress,
+                undefined,
+                specific.mobileNumber,
+                specific.occupation,
+                specific.studentCourseCode,
+                specific.studentJamatCode,
+                specific.gender,
+                specific.dateOfBirth,
+                specific.countryName,
+                specific.fullPresentAddress,
+                specific.fullPermanentAddress,
+                specific.admissionSession,
+                specific.admissionDate,
+                specific.studentMotive,
+                specific.details,
+                specific.paymentStatus,
+                specific.userRole,
+                specific.extracurricular,
+                specific.activeStatus,
+                specific._id,
+                specific.studentDepartment,
+                specific.studentSemester,
+                "batch-20240420"
+              );
+              if (res5 && res5.status === "Alhamdulillah") {
+                console.log(specific.userName + " updated successfully.");
+              } else {
+                console.log("Failed to update " + specific.userName);
+              }
+            } else {
+              console.log("Student not found:", item.userName);
+            }
+          }
+        } catch (error) {
+          console.error("Error updating students:", error);
+        }
+      }
+    }
+  }
+  async function changeBatch5() {
+    if (students) {
+      if (allFarzeAyinMaktab) {
+        try {
+          for (const item of allFarzeAyinMaktab) {
+            let specific = students.find((item2) => {
+              return item2.userName === item.userName;
+            });
+            if (specific) {
+              const res5 = await updateStudents(
+                specific.userName,
+                specific.firstName.en,
+                specific.firstName.bn,
+                specific.lastName.en,
+                specific.lastName.bn,
+                specific.nidNumber,
+                specific.birthRegNumber,
+                specific.fatherName.en,
+                specific.fatherName.bn,
+                specific.emailAddress,
+                undefined,
+                specific.mobileNumber,
+                specific.occupation,
+                specific.studentCourseCode,
+                specific.studentJamatCode,
+                specific.gender,
+                specific.dateOfBirth,
+                specific.countryName,
+                specific.fullPresentAddress,
+                specific.fullPermanentAddress,
+                specific.admissionSession,
+                specific.admissionDate,
+                specific.studentMotive,
+                specific.details,
+                specific.paymentStatus,
+                specific.userRole,
+                specific.extracurricular,
+                specific.activeStatus,
+                specific._id,
+                specific.studentDepartment,
+                specific.studentSemester,
+                "batch-20240420"
+              );
+              if (res5 && res5.status === "Alhamdulillah") {
+                console.log(specific.userName + " updated successfully.");
+              } else {
+                console.log("Failed to update " + specific.userName);
+              }
+            } else {
+              console.log("Student not found:", item.userName);
+            }
+          }
+        } catch (error) {
+          console.error("Error updating students:", error);
+        }
+      }
+    }
+  }
+  async function changeBatch6() {
+    if (students) {
+      if (allFarzeayinampara) {
+        try {
+          for (const item of allFarzeayinampara) {
+            let specific = students.find((item2) => {
+              return item2.userName === item.userName;
+            });
+            if (specific) {
+              const res5 = await updateStudents(
+                specific.userName,
+                specific.firstName.en,
+                specific.firstName.bn,
+                specific.lastName.en,
+                specific.lastName.bn,
+                specific.nidNumber,
+                specific.birthRegNumber,
+                specific.fatherName.en,
+                specific.fatherName.bn,
+                specific.emailAddress,
+                undefined,
+                specific.mobileNumber,
+                specific.occupation,
+                specific.studentCourseCode,
+                specific.studentJamatCode,
+                specific.gender,
+                specific.dateOfBirth,
+                specific.countryName,
+                specific.fullPresentAddress,
+                specific.fullPermanentAddress,
+                specific.admissionSession,
+                specific.admissionDate,
+                specific.studentMotive,
+                specific.details,
+                specific.paymentStatus,
+                specific.userRole,
+                specific.extracurricular,
+                specific.activeStatus,
+                specific._id,
+                specific.studentDepartment,
+                specific.studentSemester,
+                "batch-20240420"
+              );
+              if (res5 && res5.status === "Alhamdulillah") {
+                console.log(specific.userName + " updated successfully.");
+              } else {
+                console.log("Failed to update " + specific.userName);
+              }
+            } else {
+              console.log("Student not found:", item.userName);
+            }
+          }
+        } catch (error) {
+          console.error("Error updating students:", error);
+        }
+      }
+    }
+  }
+  async function changeBatch7() {
+    if (students) {
+      if (allFarzeayinnajera) {
+        try {
+          for (const item of allFarzeayinnajera) {
+            let specific = students.find((item2) => {
+              return item2.userName === item.userName;
+            });
+            if (specific) {
+              const res5 = await updateStudents(
+                specific.userName,
+                specific.firstName.en,
+                specific.firstName.bn,
+                specific.lastName.en,
+                specific.lastName.bn,
+                specific.nidNumber,
+                specific.birthRegNumber,
+                specific.fatherName.en,
+                specific.fatherName.bn,
+                specific.emailAddress,
+                undefined,
+                specific.mobileNumber,
+                specific.occupation,
+                specific.studentCourseCode,
+                specific.studentJamatCode,
+                specific.gender,
+                specific.dateOfBirth,
+                specific.countryName,
+                specific.fullPresentAddress,
+                specific.fullPermanentAddress,
+                specific.admissionSession,
+                specific.admissionDate,
+                specific.studentMotive,
+                specific.details,
+                specific.paymentStatus,
+                specific.userRole,
+                specific.extracurricular,
+                specific.activeStatus,
+                specific._id,
+                specific.studentDepartment,
+                specific.studentSemester,
+                "batch-20240420"
+              );
+              if (res5 && res5.status === "Alhamdulillah") {
+                console.log(specific.userName + " updated successfully.");
+              } else {
+                console.log("Failed to update " + specific.userName);
+              }
+            } else {
+              console.log("Student not found:", item.userName);
+            }
+          }
+        } catch (error) {
+          console.error("Error updating students:", error);
+        }
+      }
+    }
+  }
+  async function changeBatch8() {
+    if (students) {
+      if (allHifjulQuran) {
+        try {
+          for (const item of allHifjulQuran) {
+            let specific = students.find((item2) => {
+              return item2.userName === item.userName;
+            });
+            if (specific) {
+              const res5 = await updateStudents(
+                specific.userName,
+                specific.firstName.en,
+                specific.firstName.bn,
+                specific.lastName.en,
+                specific.lastName.bn,
+                specific.nidNumber,
+                specific.birthRegNumber,
+                specific.fatherName.en,
+                specific.fatherName.bn,
+                specific.emailAddress,
+                undefined,
+                specific.mobileNumber,
+                specific.occupation,
+                specific.studentCourseCode,
+                specific.studentJamatCode,
+                specific.gender,
+                specific.dateOfBirth,
+                specific.countryName,
+                specific.fullPresentAddress,
+                specific.fullPermanentAddress,
+                specific.admissionSession,
+                specific.admissionDate,
+                specific.studentMotive,
+                specific.details,
+                specific.paymentStatus,
+                specific.userRole,
+                specific.extracurricular,
+                specific.activeStatus,
+                specific._id,
+                specific.studentDepartment,
+                specific.studentSemester,
+                "batch-20240420"
+              );
+              if (res5 && res5.status === "Alhamdulillah") {
+                console.log(specific.userName + " updated successfully.");
+              } else {
+                console.log("Failed to update " + specific.userName);
+              }
+            } else {
+              console.log("Student not found:", item.userName);
+            }
+          }
+        } catch (error) {
+          console.error("Error updating students:", error);
+        }
+      }
+    }
+  }
+  async function changeBatch9() {
+    if (students) {
+      if (allRamadanquranulkarim) {
+        try {
+          for (const item of allRamadanquranulkarim) {
+            let specific = students.find((item2) => {
+              return item2.userName === item.userName;
+            });
+            if (specific) {
+              const res5 = await updateStudents(
+                specific.userName,
+                specific.firstName.en,
+                specific.firstName.bn,
+                specific.lastName.en,
+                specific.lastName.bn,
+                specific.nidNumber,
+                specific.birthRegNumber,
+                specific.fatherName.en,
+                specific.fatherName.bn,
+                specific.emailAddress,
+                undefined,
+                specific.mobileNumber,
+                specific.occupation,
+                specific.studentCourseCode,
+                specific.studentJamatCode,
+                specific.gender,
+                specific.dateOfBirth,
+                specific.countryName,
+                specific.fullPresentAddress,
+                specific.fullPermanentAddress,
+                specific.admissionSession,
+                specific.admissionDate,
+                specific.studentMotive,
+                specific.details,
+                specific.paymentStatus,
+                specific.userRole,
+                specific.extracurricular,
+                specific.activeStatus,
+                specific._id,
+                specific.studentDepartment,
+                specific.studentSemester,
+                "batch-20240420"
+              );
+              if (res5 && res5.status === "Alhamdulillah") {
+                console.log(specific.userName + " updated successfully.");
+              } else {
+                console.log("Failed to update " + specific.userName);
+              }
+            } else {
+              console.log("Student not found:", item.userName);
+            }
+          }
+        } catch (error) {
+          console.error("Error updating students:", error);
+        }
+      }
+    }
+  }
+  async function changeBatch10() {
+    if (students) {
+      if (allShishumaktab) {
+        try {
+          for (const item of allShishumaktab) {
+            let specific = students.find((item2) => {
+              return item2.userName === item.userName;
+            });
+            if (specific) {
+              const res5 = await updateStudents(
+                specific.userName,
+                specific.firstName.en,
+                specific.firstName.bn,
+                specific.lastName.en,
+                specific.lastName.bn,
+                specific.nidNumber,
+                specific.birthRegNumber,
+                specific.fatherName.en,
+                specific.fatherName.bn,
+                specific.emailAddress,
+                undefined,
+                specific.mobileNumber,
+                specific.occupation,
+                specific.studentCourseCode,
+                specific.studentJamatCode,
+                specific.gender,
+                specific.dateOfBirth,
+                specific.countryName,
+                specific.fullPresentAddress,
+                specific.fullPermanentAddress,
+                specific.admissionSession,
+                specific.admissionDate,
+                specific.studentMotive,
+                specific.details,
+                specific.paymentStatus,
+                specific.userRole,
+                specific.extracurricular,
+                specific.activeStatus,
+                specific._id,
+                specific.studentDepartment,
+                specific.studentSemester,
+                "batch-20240420"
+              );
+              if (res5 && res5.status === "Alhamdulillah") {
+                console.log(specific.userName + " updated successfully.");
+              } else {
+                console.log("Failed to update " + specific.userName);
+              }
+            } else {
+              console.log("Student not found:", item.userName);
+            }
+          }
+        } catch (error) {
+          console.error("Error updating students:", error);
+        }
+      }
+    }
+  }
+  async function changeBatch11() {
+    if (students) {
+      if (allShishunajera) {
+        try {
+          for (const item of allShishunajera) {
+            let specific = students.find((item2) => {
+              return item2.userName === item.userName;
+            });
+            if (specific) {
+              const res5 = await updateStudents(
+                specific.userName,
+                specific.firstName.en,
+                specific.firstName.bn,
+                specific.lastName.en,
+                specific.lastName.bn,
+                specific.nidNumber,
+                specific.birthRegNumber,
+                specific.fatherName.en,
+                specific.fatherName.bn,
+                specific.emailAddress,
+                undefined,
+                specific.mobileNumber,
+                specific.occupation,
+                specific.studentCourseCode,
+                specific.studentJamatCode,
+                specific.gender,
+                specific.dateOfBirth,
+                specific.countryName,
+                specific.fullPresentAddress,
+                specific.fullPermanentAddress,
+                specific.admissionSession,
+                specific.admissionDate,
+                specific.studentMotive,
+                specific.details,
+                specific.paymentStatus,
+                specific.userRole,
+                specific.extracurricular,
+                specific.activeStatus,
+                specific._id,
+                specific.studentDepartment,
+                specific.studentSemester,
+                "batch-20240420"
+              );
+              if (res5 && res5.status === "Alhamdulillah") {
+                console.log(specific.userName + " updated successfully.");
+              } else {
+                console.log("Failed to update " + specific.userName);
+              }
+            } else {
+              console.log("Student not found:", item.userName);
+            }
+          }
+        } catch (error) {
+          console.error("Error updating students:", error);
+        }
+      }
+    }
+  }
+  async function changeBatch12() {
+    if (students) {
+      if (allAbacusstudent) {
+        try {
+          for (const item of allAbacusstudent) {
+            let specific = students.find((item2) => {
+              return item2.userName === item.userName;
+            });
+            if (specific) {
+              const res5 = await updateStudents(
+                specific.userName,
+                specific.firstName.en,
+                specific.firstName.bn,
+                specific.lastName.en,
+                specific.lastName.bn,
+                specific.nidNumber,
+                specific.birthRegNumber,
+                specific.fatherName.en,
+                specific.fatherName.bn,
+                specific.emailAddress,
+                undefined,
+                specific.mobileNumber,
+                specific.occupation,
+                specific.studentCourseCode,
+                specific.studentJamatCode,
+                specific.gender,
+                specific.dateOfBirth,
+                specific.countryName,
+                specific.fullPresentAddress,
+                specific.fullPermanentAddress,
+                specific.admissionSession,
+                specific.admissionDate,
+                specific.studentMotive,
+                specific.details,
+                specific.paymentStatus,
+                specific.userRole,
+                specific.extracurricular,
+                specific.activeStatus,
+                specific._id,
+                specific.studentDepartment,
+                specific.studentSemester,
+                "batch-20240420"
+              );
+              if (res5 && res5.status === "Alhamdulillah") {
+                console.log(specific.userName + " updated successfully.");
+              } else {
+                console.log("Failed to update " + specific.userName);
+              }
+            } else {
+              console.log("Student not found:", item.userName);
+            }
+          }
+        } catch (error) {
+          console.error("Error updating students:", error);
+        }
+      }
+    }
+  }
 
   if (data) {
     return (
@@ -1521,6 +2248,54 @@ function DashboardMetrics(props) {
             </div>
           </div>
         </div>
+        <button onClick={changeBatch1}>
+          Change Batch for alemalema students
+        </button>
+        <br />
+        <br />
+        <button onClick={changeBatch2}>Change Batch for urdu students</button>
+        <br />
+        <br />
+        <button onClick={changeBatch3}>Change Batch for Abacus Teacher</button>
+        <br />
+        <br />
+
+        <button onClick={changeBatch4}>Change Batch for Ezra solo</button>
+        <br />
+        <br />
+        <button onClick={changeBatch5}>
+          Change Batch for Farze ayin Maktab
+        </button>
+        <br />
+        <br />
+        <button onClick={changeBatch6}>
+          Change Batch for Farze ayin Ampara
+        </button>
+        <br />
+        <br />
+
+        <button onClick={changeBatch7}>
+          Change Batch for Farze ayin Najera
+        </button>
+        <br />
+        <br />
+        <button onClick={changeBatch8}>Change Batch for Hifjul Quran</button>
+        <br />
+        <br />
+        <button onClick={changeBatch9}>
+          Change Batch for Ramadan Quranul Karim
+        </button>
+        <br />
+        <br />
+        <button onClick={changeBatch10}>Change Batch for Shishu Maktab</button>
+        <br />
+        <br />
+        <button onClick={changeBatch11}>Change Batch for Shishu Najera</button>
+        <br />
+        <br />
+        <button onClick={changeBatch12}>Change Batch for Abacus Student</button>
+        <br />
+        <br />
       </div>
     );
   }

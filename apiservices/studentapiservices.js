@@ -14,7 +14,7 @@ exports.selectData = async (query, projection) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payloaddata),
-      cache: "no-store"
+      cache: "no-store",
     }
   );
 
@@ -143,6 +143,7 @@ exports.createData = async ({
   userName,
   studentDepartment,
   studentSemester,
+  batchCount,
 }) => {
   const aboutdata = {
     firstName: {
@@ -180,8 +181,9 @@ exports.createData = async ({
     userName: userName,
     studentDepartment: studentDepartment,
     studentSemester: studentSemester,
+    batchCount: batchCount,
   };
- 
+
   if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-student`,
@@ -254,7 +256,8 @@ exports.updateData = async (
   activeStatus,
   idValue,
   studentDepartment,
-  studentSemester
+  studentSemester,
+  batchCount
 ) => {
   const aboutdata = {
     _id: idValue,
@@ -294,6 +297,7 @@ exports.updateData = async (
     admissionDate: admissionDate,
     studentDepartment: studentDepartment,
     studentSemester: studentSemester,
+    batchCount: batchCount,
   };
 
   if (data2) {

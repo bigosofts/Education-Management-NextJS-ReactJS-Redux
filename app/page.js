@@ -87,6 +87,7 @@ const ObjArray2 = (data) => {
 
   return letImageObject;
 };
+
 const ObjArray3 = (data) => {
   const letImageObject = [];
   data.map((item) => {
