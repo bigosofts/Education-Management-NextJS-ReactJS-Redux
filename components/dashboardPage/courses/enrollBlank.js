@@ -1,4 +1,5 @@
 function EnrollButtonb({ code }) {
+  
   const hardRefresh = () => {
     if (typeof window !== "undefined") {
       if (code == "hifjulquran") {
@@ -7,6 +8,8 @@ function EnrollButtonb({ code }) {
         window.location.href = `/signup?code=alemalema`;
       } else if (code == "urdu") {
         window.location.href = `/signup?code=alemalema`;
+      }else if (code == "abacus_teacher") {
+        window.location.href = `/signup?abacus=true`;
       } else {
         window.location.href = `/signup?code=${code}`;
       }

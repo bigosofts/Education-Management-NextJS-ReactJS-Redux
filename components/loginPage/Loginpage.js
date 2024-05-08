@@ -23,6 +23,7 @@ function LoginPageDesign({ userData }) {
   const [data, setDatas] = useState();
   const searchParams = useSearchParams();
   const code = searchParams.get("code");
+  const abacus = searchParams.get("abacus");
   const [signupState, setSignupState] = useState();
   const [signupAbacusState, setSignupAbacusState] = useState();
 
@@ -46,6 +47,10 @@ function LoginPageDesign({ userData }) {
     if (code) {
       setSignupState(true);
       setButtonState(true);
+      setSwitchState(false);
+    }
+    if (abacus) {
+      setSignupAbacusState(true);
       setSwitchState(false);
     }
   }, []);
@@ -628,7 +633,6 @@ function LoginPageDesign({ userData }) {
                 >
                   আপনি কোন ব্যাচে ভর্তি হতে চাচ্ছেন?
                 </label>
-
 
                 <label
                   className="block mb-2 text-lg text-slate-600"
