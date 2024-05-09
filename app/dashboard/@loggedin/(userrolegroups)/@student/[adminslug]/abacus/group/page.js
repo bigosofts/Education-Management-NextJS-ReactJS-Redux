@@ -1,12 +1,16 @@
 "use client";
 
 import { FaTelegram } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 function AbacusGroup() {
- 
+  const data = useSelector((state) => state.isAdmin.value);
 
   const playNursery = "https://t.me/+sTJkdMnjXUI3OTVl";
+  const playNursery_20240605 = "https://t.me/+qsMN1_UNq08yMTk9";
+
   const levelOne = "https://t.me/+oNrr-8H3-sE1ZWY1";
+  const levelOne_20240605 = "https://t.me/+M_QKZQA2kts3Mzhl";
 
   const hardRefresh = (link) => {
     if (typeof window !== "undefined") {
@@ -15,10 +19,20 @@ function AbacusGroup() {
   };
 
   function joinBoys() {
-    hardRefresh(levelOne);
+    if (data.data.userDetails.batchCount == "batch-20240420") {
+      hardRefresh(levelOne);
+    }
+    if (data.data.userDetails.batchCount == "batch-20240605") {
+      hardRefresh(levelOne_20240605);
+    }
   }
   function joinGirls() {
-    hardRefresh(playNursery);
+    if (data.data.userDetails.batchCount == "batch-20240420") {
+      hardRefresh(playNursery);
+    }
+    if (data.data.userDetails.batchCount == "batch-20240605") {
+      hardRefresh(playNursery_20240605);
+    }
   }
   return (
     <div className="w-full">
@@ -50,10 +64,9 @@ function AbacusGroup() {
           </li>
         </ul>
         <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
-          আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার ফ্রি অ্যাবাকাস এবং কুরআনুল কারীম
-          ক্ল্যাস রমজানের প্রথম দিন থেকে শুরু হয়েছে আলহামদুলিল্লাহ । আপনারা উপরোক্ত
-          লিংক থেকে নিজ নিজ ক্ল্যাস গ্রুপে জয়েন থাকুন। ক্ল্যাসের সময়
-          প্লে-নার্সারী দুপুর ২.৩০ মিনিটে এবং লেভেল-১ ৩.০০ টায়
+          আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার অ্যাবাকাস ক্ল্যাস ০৫-০৬-২০২৪ ইং
+          থেকে শুরু হবে ইং শা আল্লাহ। আপনারা উপরোক্ত লিংক থেকে নিজ নিজ ক্ল্যাস
+          গ্রুপে জয়েন থাকুন।
         </div>
       </div>
     </div>

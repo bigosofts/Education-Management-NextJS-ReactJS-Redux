@@ -47,6 +47,7 @@ function CombinedGroup() {
         { userName: data.data.userDetails.userName },
         null
       );
+
       if (res.status == "Alhamdulillah") {
         if (res.data[0].studentCourseCode.length > 0) {
           res.data[0].studentCourseCode.forEach((item, i, array) => {
@@ -132,21 +133,42 @@ function CombinedGroup() {
             {Alemalema.semester} এ অধ্যয়নরত আছেন।
           </h1>
 
+          <h1 className="w-full md:w-[50%] mx-auto px-5 text-lg md:text-3xl mt-10 text-slate-500 mb-4 text-center">
+            আপনার ব্যাচ নাম্বারঃ {data.data.userDetails.batchCount}
+          </h1>
+
           <div className="w-full md:w-[50%] mx-auto p-4 border-0 md:border-2 border-slate-300 rounded-3xl">
             <ul>
-              {Alemalema.semester == "semester01" && (
-                <li
-                  onClick={() => joinBoys("https://t.me/+l24zcz27ZdUxN2I1")}
-                  className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
-                >
-                  <FaTelegram className="text-4xl inline-block mr-2" />
-                  {Alemalema.jamat}, {Alemalema.semester} ক্লাসের পুরুষদের
-                  টেলিগ্রাম গ্রুপ
-                  <span className="float-right">
-                    <i className="text-lg fa fa-arrow-right"></i>
-                  </span>
-                </li>
-              )}
+              {Alemalema.semester === "semester01" &&
+                data.data.userDetails.batchCount === "batch-20240420" && (
+                  <li
+                    onClick={() => joinBoys("https://t.me/+l24zcz27ZdUxN2I1")}
+                    className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
+                  >
+                    <FaTelegram className="text-4xl inline-block mr-2" />
+                    {Alemalema.jamat}, {Alemalema.semester} ক্লাসের পুরুষদের
+                    টেলিগ্রাম গ্রুপ
+                    <span className="float-right">
+                      <i className="text-lg fa fa-arrow-right"></i>
+                    </span>
+                  </li>
+                )}
+
+              {Alemalema.semester === "semester01" &&
+                data.data.userDetails.batchCount === "batch-20240605" && (
+                  <li
+                    onClick={() => joinBoys("https://t.me/+3h-FKB9xvS9jZDE1")}
+                    className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
+                  >
+                    <FaTelegram className="text-4xl inline-block mr-2" />
+                    {Alemalema.jamat}, {Alemalema.semester} ক্লাসের পুরুষদের
+                    টেলিগ্রাম গ্রুপ
+                    <span className="float-right">
+                      <i className="text-lg fa fa-arrow-right"></i>
+                    </span>
+                  </li>
+                )}
+
               {Alemalema.semester == "semester02" && (
                 <li
                   onClick={() => joinBoys("https://t.me/+9JjDaPEifnAzZjVl")}
@@ -342,19 +364,37 @@ function CombinedGroup() {
                   </span>
                 </li>
               )}
-              {Alemalema.semester == "semester01" && (
-                <li
-                  onClick={() => joinGirls("https://t.me/+ovhKd9sjA9UyM2Rl")}
-                  className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
-                >
-                  <FaTelegram className="text-4xl inline-block mr-2" />
-                  {Alemalema.jamat}, {Alemalema.semester} ক্লাসের মহিলাদের
-                  টেলিগ্রাম গ্রুপ
-                  <span className="float-right">
-                    <i className="text-lg fa fa-arrow-right"></i>
-                  </span>
-                </li>
-              )}
+
+              {Alemalema.semester == "semester01" &&
+                data.data.userDetails.batchCount === "batch-20240420" && (
+                  <li
+                    onClick={() => joinGirls("https://t.me/+ovhKd9sjA9UyM2Rl")}
+                    className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
+                  >
+                    <FaTelegram className="text-4xl inline-block mr-2" />
+                    {Alemalema.jamat}, {Alemalema.semester} ক্লাসের মহিলাদের
+                    টেলিগ্রাম গ্রুপ
+                    <span className="float-right">
+                      <i className="text-lg fa fa-arrow-right"></i>
+                    </span>
+                  </li>
+                )}
+
+              {Alemalema.semester == "semester01" &&
+                data.data.userDetails.batchCount === "batch-20240605" && (
+                  <li
+                    onClick={() => joinGirls("https://t.me/+odZv3asGAIAwNmE1")}
+                    className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
+                  >
+                    <FaTelegram className="text-4xl inline-block mr-2" />
+                    {Alemalema.jamat}, {Alemalema.semester} ক্লাসের মহিলাদের
+                    টেলিগ্রাম গ্রুপ
+                    <span className="float-right">
+                      <i className="text-lg fa fa-arrow-right"></i>
+                    </span>
+                  </li>
+                )}
+
               {Alemalema.semester == "semester02" && (
                 <li
                   onClick={() => joinGirls("https://t.me/+KPH4PT51V7UzYTY1")}
