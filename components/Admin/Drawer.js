@@ -11,16 +11,45 @@ function AdminDrawer() {
       <div
         onClick={() =>
           router.push(
-            `/dashboard/${data.data.userName}/education/annual-history`
+            `/dashboard/${data.data.userName}/education/annual-history-pending`
           )
         }
         className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
       >
         <img className="m-auto h-12" src="/images/taka.svg" />
         <h2 className="mt-2 text-[12px] md:text-2xl text-center">
-          Annual Payment
+          Annual- pending
         </h2>
       </div>
+
+      <div
+        onClick={() =>
+          router.push(
+            `/dashboard/${data.data.userName}/education/annual-history-active`
+          )
+        }
+        className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
+      >
+        <img className="m-auto h-12" src="/images/taka.svg" />
+        <h2 className="mt-2 text-[12px] md:text-2xl text-center">
+          Annual- Active
+        </h2>
+      </div>
+
+      <div
+        onClick={() =>
+          router.push(
+            `/dashboard/${data.data.userName}/education/annual-history-due`
+          )
+        }
+        className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
+      >
+        <img className="m-auto h-12" src="/images/taka.svg" />
+        <h2 className="mt-2 text-[12px] md:text-2xl text-center">
+          Annual- Due
+        </h2>
+      </div>
+
       <div
         onClick={() =>
           router.push(

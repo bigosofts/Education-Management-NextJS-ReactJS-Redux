@@ -4,7 +4,7 @@ import "./accordion.css";
 import Table from "@/components/Admin/table";
 import { selectDataTwo } from "@/apiservices/studentapiservices";
 
-function Accordion() {
+function AccordionDue() {
   const [students, setStudents] = useState();
 
   useEffect(() => {
@@ -145,9 +145,15 @@ function Accordion() {
   return (
     <div className="accordion">
       {students &&
-        students.map((item, i) => (
-          <div key={i} className="accordion-item">
-            {/* {getStatus2(item) == "due" ? (
+        students
+          .filter(
+            (item) =>
+              item.paymentStatus.addmissionDueStatus &&
+              !item.paymentStatus.consequentDueStatus
+          )
+          .map((item, i) => (
+            <div key={i} className="accordion-item">
+              {/* {getStatus2(item) == "due" ? (
               <>
                 <div className="accordion-item-header">
                   <div style={{ width: "100%", textAlign: "center" }}>
@@ -202,29 +208,30 @@ function Accordion() {
               ""
             )} */}
 
-            <div className="accordion-item-header">
-              <div>
-                {item.firstName.en} {item.lastName.en} |{" "}
-                <span style={{ color: "green" }}>{item.mobileNumber}</span>{" "}
-                <br />
-                {item.userName} ({item.paymentStatus.paymentID})<br />
-                <span style={{ color: "green" }}>{item.emailAddress}</span>
+              <div className="accordion-item-header">
+                <div>
+                  {item.firstName.en} {item.lastName.en} |{" "}
+                  <span style={{ color: "green" }}>{item.mobileNumber}</span>{" "}
+                  <br />
+                  {item.userName} ({item.paymentStatus.paymentID})<br />
+                  <span style={{ color: "green" }}>{item.emailAddress}</span>
+                </div>
+                <div style={{ textAlign: "right" }}>{getStatus(item)}</div>
               </div>
-              <div style={{ textAlign: "right" }}>{getStatus(item)}</div>
-            </div>
-            <div className="accordion-item-body">
-              <div className="accordion-item-body-content">
-                <Table
-                  profile={item}
-                  students={students}
-                  paymentID={item.paymentStatus.paymentID}
-                />
+
+              <div className="accordion-item-body">
+                <div className="accordion-item-body-content">
+                  <Table
+                    profile={item}
+                    students={students}
+                    paymentID={item.paymentStatus.paymentID}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
     </div>
   );
 }
 
-export default Accordion;
+export default AccordionDue;
