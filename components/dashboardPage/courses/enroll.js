@@ -8,6 +8,7 @@ import { isAdmin } from "@/apiservices/checklogin";
 import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
 import { selectDataTwo } from "@/apiservices/studentapiservices";
 import { selectAllDataTwo as selectTeachers } from "@/apiservices/teacherapiservices";
+import { selectDataTwo as selectInstitution } from "@/apiservices/abacusinstitutionapiservices";
 
 function EnrollButton({ courseCode, setProfileUpdate }) {
   const dispatch = useDispatch();
@@ -54,6 +55,24 @@ function EnrollButton({ courseCode, setProfileUpdate }) {
 
             dispatch(setInitialData(desiredObj));
           }
+        } else if (payload.data.userRole == "abacus_teacher") {
+          const res = await selectInstitution(
+            { institutionID: payload.data.userName },
+            null
+          );
+          if (res.status == "Alhamdulillah") {
+            const desiredObj = {
+              status: "Alhamdulillah",
+              data: {
+                userName: res.data[0].institutionID,
+                userRole: "abacus_teacher",
+                isAdmin: false,
+                userDetails: res.data[0],
+              },
+            };
+
+            dispatch(setInitialData(desiredObj));
+          }
         }
       }
     }
@@ -61,17 +80,31 @@ function EnrollButton({ courseCode, setProfileUpdate }) {
   }, []);
 
   const [finalData, setFinalData] = useState({
-    firstNameen: data.data.userDetails.firstName.en,
-    lastNameen: data.data.userDetails.lastName.en,
+    firstNameen: data.data.userDetails.firstName
+      ? data.data.userDetails.firstName.en
+      : "",
+    lastNameen: data.data.userDetails.lastName
+      ? data.data.userDetails.lastName.en
+      : "",
 
-    fatherNameen: data.data.userDetails.fatherName.en,
+    fatherNameen: data.data.userDetails.fatherName
+      ? data.data.userDetails.fatherName.en
+      : "",
 
-    gender: data.data.userDetails.gender,
-    dateOfBirth: data.data.userDetails.dateOfBirth,
-    countryName: data.data.userDetails.countryName,
+    gender: data.data.userDetails.gender ? data.data.userDetails.gender : "",
+    dateOfBirth: data.data.userDetails.dateOfBirth
+      ? data.data.userDetails.dateOfBirth
+      : "",
+    countryName: data.data.userDetails.countryName
+      ? data.data.userDetails.countryName
+      : "",
 
-    fullPresentAddress: data.data.userDetails.fullPresentAddress,
-    fullPermanentAddress: data.data.userDetails.fullPermanentAddress,
+    fullPresentAddress: data.data.userDetails.fullPresentAddress
+      ? data.data.userDetails.fullPresentAddress
+      : "",
+    fullPermanentAddress: data.data.userDetails.fullPermanentAddress
+      ? data.data.userDetails.fullPermanentAddress
+      : "",
   });
 
   let obj = { ...finalData };
@@ -103,9 +136,16 @@ function EnrollButton({ courseCode, setProfileUpdate }) {
           );
         }
       } else {
-        mytoast.danger(
-          "You need to update your profile from settings. Go to Dashboard/Settings"
-        );
+        if (data.data.userDetails.institutionID) {
+          mytoast.danger(
+            "You need to logout from Institution Account then hit Registration"
+          );
+        } else {
+          mytoast.danger(
+            "You need to update your profile from settings. Go to Dashboard/Settings"
+          );
+        }
+
         if (setProfileUpdate) {
           setProfileUpdate(true);
         }

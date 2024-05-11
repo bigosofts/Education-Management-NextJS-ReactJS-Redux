@@ -358,6 +358,7 @@ function LoginPageDesign({ userData }) {
             abacusKitOrderlimit: null,
             password: password2ref,
             activeStatus: "inactive",
+            batchCount: "batch-20240605",
           });
           if (res2.status == "Alhamdulillah") {
             userData.push({

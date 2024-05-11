@@ -25,7 +25,7 @@ function CommonMenu({ children, changeDrawerState }) {
             <h1 className="text-[12px] text-center md:text-lg lg:text-3xl">
               আপনার এস আইডি (SID):{" "}
               <span className="text-red-500 font-extrabold">
-                {data.data.userDetails.userName}
+                {data.data.userName}
               </span>
             </h1>
           </div>

@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useRef, useEffect, useState } from "react";
 import "./loginpage.css";
-import { teacherLogin, studentLogin } from "@/apiservices/checklogin";
+import { teacherLogin, studentLogin, abacusLogin } from "@/apiservices/checklogin";
 import { isAdmin } from "@/apiservices/checklogin";
 import { setToken } from "@/helper/sessionHelper";
 import mytoast from "@/components/toast/toast";
@@ -37,6 +37,9 @@ function page(props) {
   const studentUserNameRef = useRef();
   const passwordRef = useRef();
   const StudentPasswordRef = useRef();
+
+  const abacusUserNameRef = useRef();
+  const abacusPasswordRef = useRef();
 
   async function clickHandlerData(e) {
     e.preventDefault();
@@ -96,6 +99,35 @@ function page(props) {
       }
     }
   }
+  async function clickHandlerData3(e) {
+    e.preventDefault();
+
+    let abacusUserName = abacusUserNameRef.current.value;
+
+    let abacusPassword = abacusPasswordRef.current.value;
+
+    if (data) {
+      if (data.status == "noToken") {
+        const res = await abacusLogin(abacusUserName, abacusPassword);
+        if (res.status == "Alhamdulillah") {
+          setToken("access_token", res.token);
+
+          mytoast.success("You are successfully logged in");
+          setShouldRefresh(true);
+        } else if (res.status == "wrongpass") {
+          mytoast.danger("you entered wrong combination");
+        } else if (res.status == "nouser") {
+          mytoast.danger(
+            "There is no user with you SID. Please enter correct SID"
+          );
+        }
+      } else if (data.status == "UnauthorizedAccess") {
+        console.log("Unauthorized access");
+      } else {
+        setShouldRefresh(true);
+      }
+    }
+  }
 
   const clickHandlerSingup = (e) => {
     e.preventDefault();
@@ -103,6 +135,9 @@ function page(props) {
   };
   const changer1 = () => {
     setVisibility("teacher");
+  };
+  const changer2 = () => {
+    setVisibility("abacus");
   };
   const changer = () => {
     setVisibility("student");
@@ -113,7 +148,9 @@ function page(props) {
       <div className="page-wrapper">
         <div className="container-loginpage">
           <h1 style={{ textAlign: "center", marginTop: "50px" }}>
-            {visibility == "student" ? "Student Login" : "Teacher Login"}
+            {visibility == "student" && "Student Login"}
+            {visibility == "teacher" && "Teacher Login"}
+            {visibility == "abacus" && "Abacus Institution Login"}
           </h1>
 
           <div className="login-wrap">
@@ -121,6 +158,7 @@ function page(props) {
               <div className="switchButton">
                 <div onClick={changer}>Student</div>
                 <div onClick={changer1}>Teacher</div>
+                <div onClick={changer2}>Institution</div>
               </div>
               <div className="login-logo">
                 <a className="" href="#">
@@ -129,7 +167,71 @@ function page(props) {
               </div>
               <div
                 className={`login-form ${
-                  visibility == "student" ? "divDisplay" : ""
+                  visibility == "student" ? "" : "divDisplay"
+                }`}
+              >
+                <form action="" method="post">
+                  <div className="form-group">
+                    <label>Student</label>
+                    <input
+                      ref={studentUserNameRef}
+                      className="au-input au-input--full"
+                      type="email"
+                      name="email"
+                      placeholder="Student ID"
+                      autoComplete="off"
+                    ></input>
+                  </div>
+                  <div className="form-group">
+                    <label>Password</label>
+                    <input
+                      ref={StudentPasswordRef}
+                      className="au-input au-input--full"
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      autoComplete="off"
+                    ></input>
+                  </div>
+                  <div className="login-checkbox">
+                    <label>
+                      <input type="checkbox" name="remember"></input>
+                      Remember Me
+                    </label>
+                    <label>
+                      <a href="/sendOTP?role=student">
+                        Forgotten Password and SID?
+                      </a>
+                    </label>
+                  </div>
+                  <button
+                    onClick={clickHandlerData2}
+                    className="au-btn au-btn--block au-btn--green m-b-20"
+                    type="submit"
+                  >
+                    sign in
+                  </button>
+                  {/* <div className="social-login-content">
+                                        <div className="social-button">
+                                            <button className="au-btn au-btn--block au-btn--red m-b-20">sign in with Google</button>
+                                        </div>
+                                    </div> */}
+                </form>
+                <div className="register-link">
+                  <p>
+                    Don't you have account?
+                    <a
+                      style={{ cursor: "pointer" }}
+                      onClick={clickHandlerSingup}
+                    >
+                      Sign Up Here
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div
+                className={`login-form ${
+                  visibility == "teacher" ? "" : "divDisplay"
                 }`}
               >
                 <form action="" method="post">
@@ -191,27 +293,28 @@ function page(props) {
                   </p>
                 </div>
               </div>
+
               <div
                 className={`login-form ${
-                  visibility == "teacher" ? "divDisplay" : ""
+                  visibility == "abacus" ? "" : "divDisplay"
                 }`}
               >
                 <form action="" method="post">
                   <div className="form-group">
-                    <label>Student</label>
+                    <label>Abacus Institution</label>
                     <input
-                      ref={studentUserNameRef}
+                      ref={abacusUserNameRef}
                       className="au-input au-input--full"
                       type="email"
                       name="email"
-                      placeholder="Student ID"
+                      placeholder="Institution User ID"
                       autoComplete="off"
                     ></input>
                   </div>
                   <div className="form-group">
                     <label>Password</label>
                     <input
-                      ref={StudentPasswordRef}
+                      ref={abacusPasswordRef}
                       className="au-input au-input--full"
                       type="password"
                       name="password"
@@ -231,7 +334,7 @@ function page(props) {
                     </label>
                   </div>
                   <button
-                    onClick={clickHandlerData2}
+                    onClick={clickHandlerData3}
                     className="au-btn au-btn--block au-btn--green m-b-20"
                     type="submit"
                   >

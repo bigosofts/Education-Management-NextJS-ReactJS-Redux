@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
 import { selectDataTwo as selectStudents } from "@/apiservices/studentapiservices";
 import { selectAllDataTwo as selectTeachers } from "@/apiservices/teacherapiservices";
+import { selectDataTwo as selectInstitution } from "@/apiservices/abacusinstitutionapiservices";
 import "./tooltip.css";
 
 function SigninSignupmenuButton() {
@@ -33,7 +34,6 @@ function SigninSignupmenuButton() {
   useEffect(() => {
     async function fetchData() {
       const payload = await isAdmin();
-      
 
       if (payload.status == "Alhamdulillah") {
         if (payload.data.userRole == "teacher") {
@@ -60,7 +60,6 @@ function SigninSignupmenuButton() {
             null
           );
           if (res.status == "Alhamdulillah") {
-            
             let desiredObj;
             if (res.data.length < 1) {
               desiredObj = {
@@ -73,6 +72,31 @@ function SigninSignupmenuButton() {
                   userName: res.data[0].userName,
                   userRole: res.data[0].userRole,
                   isAdmin: res.data[0].isAdmin,
+                  userDetails: res.data[0],
+                },
+              };
+            }
+
+            dispatch(setInitialData(desiredObj));
+          }
+        } else if (payload.data.userRole == "abacus_teacher") {
+          const res = await selectInstitution(
+            { institutionID: payload.data.userName },
+            null
+          );
+          if (res.status == "Alhamdulillah") {
+            let desiredObj;
+            if (res.data.length < 1) {
+              desiredObj = {
+                status: "noToken",
+              };
+            } else {
+              desiredObj = {
+                status: "Alhamdulillah",
+                data: {
+                  userName: res.data[0].institutionID,
+                  userRole: "abacus_teacher",
+                  isAdmin: false,
                   userDetails: res.data[0],
                 },
               };

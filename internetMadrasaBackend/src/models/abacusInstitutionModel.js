@@ -17,6 +17,7 @@ const DataSchema = mongoose.Schema(
     abacusBookOrderlimit: { type: Number },
     abacusKitOrderlimit: { type: Number },
     password: { type: String },
+    batchCount: { type: String },
 
     abacusCreatedDate: { type: Date },
     abacusUpdatedDate: { type: Date },

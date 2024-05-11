@@ -108,6 +108,7 @@ exports.createData = async ({
   abacusKitOrderlimit,
   password,
   activeStatus,
+  batchCount,
 }) => {
   const aboutdata = {
     institutionID,
@@ -126,6 +127,7 @@ exports.createData = async ({
     abacusKitOrderlimit,
     password,
     activeStatus,
+    batchCount,
   };
 
   if (data2) {
@@ -185,7 +187,8 @@ exports.updateData = async (
   abacusKitOrderlimit,
   password,
   activeStatus,
-  idValue
+  idValue,
+  batchCount
 ) => {
   const aboutdata = {
     _id: idValue,
@@ -204,6 +207,7 @@ exports.updateData = async (
     abacusKitOrderlimit,
     password,
     activeStatus,
+    batchCount,
   };
 
   if (data2) {

@@ -55,6 +55,8 @@ exports.createAbacusInstitution = (req, res) => {
 
   let activeStatus = reqBody.activeStatus;
 
+  let batchCount = reqBody.batchCount;
+
   //Make res body for posting to the Database
 
   let postBody = {
@@ -76,6 +78,7 @@ exports.createAbacusInstitution = (req, res) => {
     abacusCreatedDate,
     abacusUpdatedDate,
     activeStatus,
+    batchCount,
   };
 
   // Create Database record
@@ -141,6 +144,7 @@ exports.updateAbacusInstitution = async (req, res) => {
       abacusKitOrderlimit: reqBody.abacusKitOrderlimit,
       abacusUpdatedDate: new Date(Date.now()).toISOString(),
       activeStatus: reqBody.activeStatus,
+      batchCount: reqBody.batchCount,
     };
   } else {
     postBody = {
@@ -160,6 +164,7 @@ exports.updateAbacusInstitution = async (req, res) => {
       password: hashedPass,
       abacusUpdatedDate: new Date(Date.now()).toISOString(),
       activeStatus: reqBody.activeStatus,
+      batchCount: reqBody.batchCount,
     };
   }
 
@@ -196,5 +201,18 @@ exports.deleteAbacusInstitution = (req, res) => {
         status: "Innalillah",
         data: err,
       });
+    });
+};
+
+exports.selectAbacusData = (userName) => {
+  let query = userName;
+
+  return abacusInstitutionModel
+    .find({ institutionID: query }, null)
+    .then((data) => {
+      return data;
+    })
+    .catch((err) => {
+      throw err; // Re-throwing the error to propagate it further
     });
 };

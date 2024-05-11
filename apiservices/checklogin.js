@@ -132,3 +132,30 @@ exports.logout = async () => {
     return res.json();
   }
 };
+
+exports.abacusLogin = async (userName, password) => {
+  const payloaddata = {
+    userName,
+    password,
+  };
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/institution-login`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+      mode: "cors",
+      body: JSON.stringify(payloaddata),
+      cache: "no-store",
+    }
+  );
+  
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+};

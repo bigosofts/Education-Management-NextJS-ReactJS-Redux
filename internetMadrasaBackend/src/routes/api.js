@@ -30,6 +30,7 @@ const pushNoticeController = require("../controllers/pushNoticeController");
 const classController = require("../controllers/classController");
 const abacusInstitutionController = require("../controllers/abacusInstitutionController");
 
+
 //Middleware Import
 const passEncrypted = require("../middlewares/passwordEncryption");
 const authverify = require("../middlewares/authverifyMiddleware");
@@ -63,6 +64,17 @@ router.post("/isAdmin", authverify, async (req, res) => {
     });
   } else if (userRole == "student") {
     const [userDetails] = await profileController.selectStudentData(userName);
+    res.status(200).json({
+      status: "Alhamdulillah",
+      data: {
+        userName,
+        userRole,
+        isAdmin,
+        userDetails,
+      },
+    });
+  }else if (userRole == "abacus_teacher") {
+    const [userDetails] = await abacusInstitutionController.selectAbacusData(userName);
     res.status(200).json({
       status: "Alhamdulillah",
       data: {
@@ -125,6 +137,12 @@ router.post(
   "/teacher-login",
   passEncrypted.checkPasswordTeacher,
   loginController.teacherLogin
+);
+
+router.post(
+  "/institution-login",
+  passEncrypted.checkPasswordAbacus,
+  loginController.institutionLogin
 );
 
 //create data to database
