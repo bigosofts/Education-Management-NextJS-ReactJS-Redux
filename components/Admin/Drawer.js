@@ -104,6 +104,34 @@ function AdminDrawer() {
           Hifz Report
         </h2>
       </div>
+
+      <div
+        onClick={() =>
+          router.push(
+            `/dashboard/${data.data.userName}/education/institution-pending`
+          )
+        }
+        className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
+      >
+        <img className="m-auto h-12" src="/images/tech-support.gif" />
+        <h2 className="mt-2 text-[12px] md:text-2xl text-center">
+          Institution Pending
+        </h2>
+      </div>
+
+      <div
+        onClick={() =>
+          router.push(
+            `/dashboard/${data.data.userName}/education/institution-active`
+          )
+        }
+        className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
+      >
+        <img className="m-auto h-12" src="/images/tech-support.gif" />
+        <h2 className="mt-2 text-[12px] md:text-2xl text-center">
+          Institution Active
+        </h2>
+      </div>
     </div>
   );
 }

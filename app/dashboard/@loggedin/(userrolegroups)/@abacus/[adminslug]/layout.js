@@ -52,7 +52,7 @@ function TeacherLayout({ children, params }) {
   let sidebarItems = [];
   if (data) {
     if (data.data.userDetails.activeStatus == "active") {
-      newArray = [
+      sidebarItems = [
         {
           name: "Abacus Books & kit",
           href: `/dashboard/${data.data.userName}/books`,
