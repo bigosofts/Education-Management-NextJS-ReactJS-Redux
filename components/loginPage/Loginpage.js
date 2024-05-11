@@ -3,7 +3,11 @@ import { useState, useRef, useEffect } from "react";
 import { createData as createStudent } from "@/apiservices/studentapiservices";
 import { createData as createTeacher } from "@/apiservices/teacherapiservices";
 import mytoast from "../toast/toast";
-import { teacherLogin, studentLogin } from "@/apiservices/checklogin";
+import {
+  teacherLogin,
+  studentLogin,
+  abacusLogin,
+} from "@/apiservices/checklogin";
 import { isAdmin } from "@/apiservices/checklogin";
 import { setToken } from "@/helper/sessionHelper";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -19,6 +23,7 @@ import ShowPaymentDetails from "../dashboardPage/showpaymentDetail";
 
 import "./loginDesign.css";
 function LoginPageDesign({ userData }) {
+  const currentBatch = "batch-20240605";
   const [Admin, setIsAdmin] = useState();
   const [data, setDatas] = useState();
   const searchParams = useSearchParams();
@@ -358,7 +363,7 @@ function LoginPageDesign({ userData }) {
             abacusKitOrderlimit: null,
             password: password2ref,
             activeStatus: "inactive",
-            batchCount: "batch-20240605",
+            batchCount: currentBatch,
           });
           if (res2.status == "Alhamdulillah") {
             userData.push({
@@ -374,9 +379,9 @@ function LoginPageDesign({ userData }) {
             sendMail(
               institutionEmail,
               "Abacus Institution Registration has been Completed",
-              `আলহামদুলিল্লাহ, আপনার প্রতিষ্ঠান ${institutionName}, এর নামে একটি একাউন্টটি খোলা হয়েছে, আপনার পেমেন্টটি যাচাইয়ের পর আপনি আপনার ড্যাশবোর্ডে লগিন করতে পারবেন। আপনার একাউন্ট এপ্রুভ করা হলে আপনি একটি ইমেইল পাবেন। ১৫মে, ২০২৪ তারিখের পর আপনি এই আইডি ${res2.data.institutionID} ও নিজ পাসওয়ার্ড দিয়ে নিজ নিজ ড্যাশবোর্ডে লগিন করতে পারবেন ইং শা আল্লাহ। কোন কিছু জানার জন্য আপনার আইডি দিয়ে হোয়াটস এপে মেসেজ দেবেন (+88 01674 040502)।
+              `আলহামদুলিল্লাহ, আপনার প্রতিষ্ঠান ${institutionName}, এর নামে একটি একাউন্টটি খোলা হয়েছে। আপনার একাউন্ট এপ্রুভ করা হলে আপনি একটি ইমেইল পাবেন। আপনি এই আইডি ${res2.data.institutionID} ও নিজ পাসওয়ার্ড দিয়ে নিজ নিজ ড্যাশবোর্ডে লগিন করতে পারবেন ইং শা আল্লাহ। কোন কিছু জানার জন্য আপনার আইডি দিয়ে হোয়াটস এপে মেসেজ দেবেন (+88 01674 040502)।
               `,
-              `<h1>আলহামদুলিল্লাহ, আপনার প্রতিষ্ঠান ${institutionName}, এর নামে একটি একাউন্টটি খোলা হয়েছে, আপনার পেমেন্টটি যাচাইয়ের পর আপনি আপনার ড্যাশবোর্ডে লগিন করতে পারবেন। আপনার একাউন্ট এপ্রুভ করা হলে আপনি একটি ইমেইল পাবেন। ১৫মে, ২০২৪ তারিখের পর আপনি এই আইডি ${res2.data.institutionID} ও নিজ পাসওয়ার্ড দিয়ে নিজ নিজ ড্যাশবোর্ডে লগিন করতে পারবেন ইং শা আল্লাহ। কোন কিছু জানার জন্য আপনার আইডি দিয়ে হোয়াটস এপে মেসেজ দেবেন (+88 01674 040502)।</h1>`
+              `<h1>আলহামদুলিল্লাহ, আপনার প্রতিষ্ঠান ${institutionName}, এর নামে একটি একাউন্টটি খোলা হয়েছে। আপনার একাউন্ট এপ্রুভ করা হলে আপনি একটি ইমেইল পাবেন। আপনি এই আইডি ${res2.data.institutionID} ও নিজ পাসওয়ার্ড দিয়ে নিজ নিজ ড্যাশবোর্ডে লগিন করতে পারবেন ইং শা আল্লাহ। কোন কিছু জানার জন্য আপনার আইডি দিয়ে হোয়াটস এপে মেসেজ দেবেন (+88 01674 040502)।</h1>`
             );
 
             if (typeof fbq === "function") {
@@ -403,43 +408,42 @@ function LoginPageDesign({ userData }) {
             setSignupState(false);
             setSignupAbacusState(false);
 
-            // //login logic
-            // if (Admin) {
-            //   if (Admin.status == "noToken") {
-            //     const res5 = await studentLogin(res2.data.userName, password);
-            //     if (res5.status == "Alhamdulillah") {
-            //       setToken("access_token", res5.token);
+            //login logic
+            if (Admin) {
+              if (Admin.status == "noToken") {
+                const res5 = await abacusLogin(
+                  res2.data.institutionID,
+                  password2ref
+                );
+                if (res5.status == "Alhamdulillah") {
+                  setToken("access_token", res5.token);
 
-            //       mytoast.success("আলহামদুলিলাহ, আপনি সফলভাবে লগিন করেছেন");
-            //       const hardRefresh = () => {
-            //         if (typeof window !== "undefined") {
-            //           if (code) {
-            //             window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update?code=${code}`;
-            //           } else {
-            //             window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update`;
-            //           }
-            //         }
-            //       };
-            //       hardRefresh();
-            //     } else if (res5.status == "wrongpass") {
-            //       mytoast.danger("you entered wrong combination");
-            //     } else if (res5.status == "nouser") {
-            //       mytoast.danger(
-            //         "There is no account with this SID. Please check your SID"
-            //       );
-            //     }
-            //   } else if (Admin.status == "UnauthorizedAccess") {
-            //     console.log("Unauthorized access");
-            //   } else {
-            //     const hardRefresh = () => {
-            //       if (typeof window !== "undefined") {
-            //         window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update?code=${code}`;
-            //       }
-            //     };
-            //     hardRefresh();
-            //   }
-            // }
-            // //end login logic
+                  mytoast.success("আলহামদুলিলাহ, আপনি সফলভাবে লগিন করেছেন");
+                  const hardRefresh = () => {
+                    if (typeof window !== "undefined") {
+                      window.location.href = `/dashboard/${res2.data.institutionID}`;
+                    }
+                  };
+                  hardRefresh();
+                } else if (res5.status == "wrongpass") {
+                  mytoast.danger("you entered wrong combination");
+                } else if (res5.status == "nouser") {
+                  mytoast.danger(
+                    "There is no account with this SID. Please check your SID"
+                  );
+                }
+              } else if (Admin.status == "UnauthorizedAccess") {
+                console.log("Unauthorized access");
+              } else {
+                const hardRefresh = () => {
+                  if (typeof window !== "undefined") {
+                    window.location.href = `/dashboard/${res2.data.institutionID}`;
+                  }
+                };
+                hardRefresh();
+              }
+            }
+            //end login logic
           } else {
             console.log(res2);
           }

@@ -68,6 +68,7 @@ function AbacusPage(props) {
             পারবেন। লাইভ ক্ল্যাস গ্রুপে যুক্ত হতে "Live Class Link & Schedule" এ
             প্রবেশ করুন।
           </div>
+
           <AbacusMainPageTeacher />
         </>
       );

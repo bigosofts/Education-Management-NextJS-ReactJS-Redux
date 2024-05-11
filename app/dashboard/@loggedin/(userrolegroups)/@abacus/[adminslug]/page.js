@@ -1,10 +1,10 @@
 import DashWrapper from "@/components/dashboardPage/DashWrapper";
-import DashExploreAbacus from "@/components/dashboardPage/DashExploreAbacus";
+import DashExploreAbacusInstitution from "@/components/dashboardPage/DashExploreAbacusInstitution";
 
 function page(props) {
   return (
     <DashWrapper>
-      <DashExploreAbacus />
+      <DashExploreAbacusInstitution />
     </DashWrapper>
   );
 }

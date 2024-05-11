@@ -1,56 +1,20 @@
 "use client";
-import { useState, useEffect } from "react";
 
-import { isAdmin } from "@/apiservices/checklogin";
+import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
-import CommonMenu from "@/components/CommonMenu/CommonMenu";
-import SideDrawer from "@/components/Drawer/SideDrawer";
-import { useSelector, useDispatch } from "react-redux";
-import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
-import { selectDataTwo } from "@/apiservices/abacusinstitutionapiservices";
+import DashboardExploreSingle from "./DashboardExploreSingle";
 
-function TeacherLayout({ children, params }) {
-  const dispatch = useDispatch();
+function DashExploreAbacusInstitution() {
+  const data = useSelector((state) => state.isAdmin.value);
 
   const router = useRouter();
 
-  const data = useSelector((state) => state.isAdmin.value);
-  const [show, setShow] = useState(false);
-
-  function changeDrawerState() {
-    setShow((prev) => !prev);
+  function push(url) {
+    router.push(url);
   }
 
-  useEffect(() => {
-    async function fetchData() {
-      const payload = await isAdmin();
-
-      if (payload.status == "Alhamdulillah") {
-        const res = await selectDataTwo(
-          { institutionID: payload.data.userName },
-          null
-        );
-
-        if (res.status == "Alhamdulillah") {
-          const desiredObj = {
-            status: "Alhamdulillah",
-            data: {
-              userName: res.data[0].institutionID,
-              userRole: "abacus_teacher",
-              isAdmin: false,
-              userDetails: res.data[0],
-            },
-          };
-
-          dispatch(setInitialData(desiredObj));
-        }
-      }
-    }
-    fetchData();
-  }, []);
-
-  let sidebarItems = [];
   if (data) {
+    let newArray = [];
     if (data.data.userDetails.activeStatus == "active") {
       newArray = [
         {
@@ -85,7 +49,7 @@ function TeacherLayout({ children, params }) {
         },
       ];
     } else {
-      sidebarItems = [
+      newArray = [
         {
           name: "Abacus Books & kit",
           href: `/dashboard/${data.data.userName}/books`,
@@ -118,34 +82,26 @@ function TeacherLayout({ children, params }) {
         },
       ];
     }
-  }
 
-  if (data) {
-    if (params.adminslug == data.data.userName) {
-      return (
-        <CommonMenu changeDrawerState={changeDrawerState}>
-          {children}
-          {show ? (
-            <SideDrawer
-              user={data.data}
-              sidebarItems={sidebarItems}
-              show={true}
-              changeDrawerState={changeDrawerState}
+    return (
+      <div className="py-2 md:py-12">
+        <h1 className="text-lg md:text-3xl mt-2 text-slate-500">Explore</h1>
+        <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-12">
+          {newArray.map((item) => (
+            <DashboardExploreSingle
+              image={item.icon}
+              link={item.href}
+              text={item.name}
+              push={push}
+              show={item.show}
             />
-          ) : (
-            <SideDrawer
-              user={data.data}
-              sidebarItems={sidebarItems}
-              show={false}
-              changeDrawerState={changeDrawerState}
-            />
-          )}
-        </CommonMenu>
-      );
-    } else {
-      router.replace(`/dashboard/${data.data.userName}`);
-    }
+          ))}
+        </div>
+      </div>
+    );
+  } else {
+    return <div>Loading...</div>;
   }
 }
 
-export default TeacherLayout;
+export default DashExploreAbacusInstitution;
