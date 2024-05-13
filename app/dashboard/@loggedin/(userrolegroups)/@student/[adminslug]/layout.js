@@ -34,6 +34,7 @@ function StudentLayout({ children, params }) {
           { userName: payload.data.userName },
           null
         );
+
         if (res.status == "Alhamdulillah") {
           const desiredObj = {
             status: "Alhamdulillah",
@@ -45,7 +46,10 @@ function StudentLayout({ children, params }) {
             },
           };
 
-          let desiredObj2;
+          let desiredObj2 = {
+           
+
+          };
 
           let semester = res.data[0].studentSemester.filter((item) => {
             return /semester/i.test(item.code) && item.status == "active";
@@ -79,6 +83,33 @@ function StudentLayout({ children, params }) {
             return /abacus_teacher/i.test(item.code) && item.status == "active";
           });
 
+          let farzeayinnajera = res.data[0].studentCourseCode.filter((item) => {
+            return (
+              /farzeayinnajera/i.test(item.code) && item.status == "active"
+            );
+          });
+
+          let abacusStudent = res.data[0].studentCourseCode.filter((item) => {
+            return /abacus_student/i.test(item.code) && item.status == "active";
+          });
+
+          let urdu = res.data[0].studentCourseCode.filter((item) => {
+            return /urdu/i.test(item.code) && item.status == "active";
+          });
+
+          let ramadanquranulkarim = res.data[0].studentCourseCode.filter(
+            (item) => {
+              return (
+                /ramadanquranulkarim/i.test(item.code) &&
+                item.status == "active"
+              );
+            }
+          );
+
+          let shishunajera = res.data[0].studentCourseCode.filter((item) => {
+            return /shishunajera/i.test(item.code) && item.status == "active";
+          });
+
           if (semester.length >= 1) {
             if (semester[semester.length - 1].code == "semester01") {
               desiredObj2 = {
@@ -86,7 +117,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester01",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester02") {
               desiredObj2 = {
@@ -94,7 +125,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester02",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester03") {
               desiredObj2 = {
@@ -102,7 +133,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester03",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester04") {
               desiredObj2 = {
@@ -110,7 +141,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester04",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester05") {
               desiredObj2 = {
@@ -118,7 +149,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester05",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester06") {
               desiredObj2 = {
@@ -126,7 +157,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester06",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester07") {
               desiredObj2 = {
@@ -134,7 +165,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester07",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester08") {
               desiredObj2 = {
@@ -142,7 +173,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester08",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester09") {
               desiredObj2 = {
@@ -150,7 +181,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester09",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester10") {
               desiredObj2 = {
@@ -158,7 +189,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester10",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester11") {
               desiredObj2 = {
@@ -166,7 +197,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester11",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester12") {
               desiredObj2 = {
@@ -174,7 +205,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester12",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester13") {
               desiredObj2 = {
@@ -182,7 +213,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester13",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester14") {
               desiredObj2 = {
@@ -190,7 +221,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester14",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester15") {
               desiredObj2 = {
@@ -198,7 +229,7 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester15",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             } else if (semester[semester.length - 1].code == "semester16") {
               desiredObj2 = {
@@ -206,12 +237,102 @@ function StudentLayout({ children, params }) {
                 department: "department01",
                 jamat: "jamat2",
                 semester: "semester16",
-                batch: res.data[0].batchCount,
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
               };
             }
           } else {
+            if (hifzulQuran.length >= 1) {
+              desiredObj2 = {
+                course: "hifjulquran",
+                department: "department06",
+                jamat: "",
+                semester: "",
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
+              };
+            } else if (farzeAyinMaktab.length >= 1) {
+              desiredObj2 = {
+                course: "farzeayinmaktab",
+                department: "department02",
+                jamat: "",
+                semester: "",
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
+              };
+            } else if (farzeayinampara.length >= 1) {
+              desiredObj2 = {
+                course: "farzeayinampara",
+                department: "department10",
+                jamat: "",
+                semester: "",
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
+              };
+            } else if (ezranahusorof.length >= 1) {
+              desiredObj2 = {
+                course: "ezranahusorof",
+                department: "department07",
+                jamat: "",
+                semester: "",
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
+              };
+            } else if (shishumaktab.length >= 1) {
+              desiredObj2 = {
+                course: "shishumaktab",
+                department: "department04",
+                jamat: "",
+                semester: "",
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
+              };
+            } else if (abacusTeacher.length >= 1) {
+              desiredObj2 = {
+                course: "abacus_teacher",
+                department: "department12",
+                jamat: "",
+                semester: "",
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
+              };
+            } else if (farzeayinnajera.length >= 1) {
+              desiredObj2 = {
+                course: "farzeayinnajera",
+                department: "department03",
+                jamat: "",
+                semester: "",
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
+              };
+            } else if (abacusStudent.length >= 1) {
+              desiredObj2 = {
+                course: "abacus_student",
+                department: "department11",
+                jamat: "",
+                semester: "",
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
+              };
+            } else if (urdu.length >= 1) {
+              desiredObj2 = {
+                course: "urdu",
+                department: "department08",
+                jamat: "",
+                semester: "",
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
+              };
+            } else if (ramadanquranulkarim.length >= 1) {
+              desiredObj2 = {
+                course: "ramadanquranulkarim",
+                department: "department09",
+                jamat: "",
+                semester: "",
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
+              };
+            } else if (shishunajera.length >= 1) {
+              desiredObj2 = {
+                course: "shishunajera",
+                department: "department05",
+                jamat: "",
+                semester: "",
+                batch: res.data[0].batchCount ? res.data[0].batchCount : "",
+              };
+            }
           }
 
+          console.log(desiredObj2);
           dispatch(setInitialData(desiredObj));
         }
       }

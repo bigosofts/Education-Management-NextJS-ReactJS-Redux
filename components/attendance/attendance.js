@@ -56,13 +56,22 @@ function AttendancePageCustom() {
 
   let lastClass = activeClassArray[activeClassArray.length - 1];
 
+  function batchDecision() {
+    if (data.data.userDetails.batchCount == "batch-20240420") {
+      return "batch1";
+    } else if (data.data.userDetails.batchCount == "batch-20240605") {
+      return "batch2";
+    }
+  }
+
   function findClass(courseID, jamatID, semesterID) {
     return classData.filter((item) => {
       if (
         courseID == "alemalema" &&
         item.courseID == courseID &&
         item.jamatID == jamatID &&
-        item.semesterID == semesterID
+        item.semesterID == semesterID &&
+        item.batchNo == batchDecision()
       ) {
         return true;
       }

@@ -4,13 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Define the initial state as null
 const initialState = {
-  value: {
-    course: null,
-    department: null,
-    jamat: null,
-    semester: null,
-    batch: null,
-  },
+  value: [],
 };
 
 export const isCourseStateSlice = createSlice({
