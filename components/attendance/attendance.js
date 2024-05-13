@@ -56,14 +56,6 @@ function AttendancePageCustom() {
 
   let lastClass = activeClassArray[activeClassArray.length - 1];
 
-  function batchDecision() {
-    if (data.data.userDetails.batchCount == "batch-20240420") {
-      return "batch1";
-    } else if (data.data.userDetails.batchCount == "batch-20240605") {
-      return "batch2";
-    }
-  }
-
   function findClass(courseID, jamatID, semesterID) {
     return classData.filter((item) => {
       if (
@@ -71,7 +63,7 @@ function AttendancePageCustom() {
         item.courseID == courseID &&
         item.jamatID == jamatID &&
         item.semesterID == semesterID &&
-        item.batchNo == batchDecision()
+        item.batchNo == data.data.userDetails.batchCount
       ) {
         return true;
       }
