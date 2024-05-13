@@ -20,6 +20,9 @@ import { useSelector } from "react-redux";
 import mytoast from "../toast/toast";
 
 function SwitchDesign() {
+  let pass2 = "talimulquranwassunnahinternetmadrasa";
+  const [showbtn, setshowbtn] = useState();
+
   const [primaryMoney, setPrimaryMoney] = useState({
     tk: "",
     us: "",
@@ -1618,6 +1621,14 @@ function SwitchDesign() {
     }
   }, []);
 
+  function showButtonLogic(e) {
+    e.preventDefault();
+    let password2 = e.target.value;
+    if (password2 == pass2) {
+      setshowbtn(true);
+    }
+  }
+
   return (
     <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">
       <div className="flex justify-center p-5 pb-10">
@@ -1825,26 +1836,38 @@ function SwitchDesign() {
             )}
 
             <div className="submitSection">
-              <button
-                type="submit"
-                className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
-              >
-                {enroll ? (
-                  <p className="flex justify-between">
-                    <span className="bg-pink-500 w-1/3 py-2 px-2">
-                      (ক্লাস পরিবর্তন)
-                    </span>{" "}
-                    <span className="w-2/3 py-2 px-2 relative">
-                      ক্লাস পরিবর্তন রিকোয়েস্ট দিন
-                      <span className="absolute right-1 top-2">
-                        <IoIosArrowDroprightCircle className="text-3xl" />
+              {showbtn && (
+                <button
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-900 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
+                >
+                  {enroll ? (
+                    <p className="flex justify-between">
+                      <span className="bg-pink-500 w-1/3 py-2 px-2">
+                        (ক্লাস পরিবর্তন)
+                      </span>{" "}
+                      <span className="w-2/3 py-2 px-2 relative">
+                        ক্লাস পরিবর্তন রিকোয়েস্ট দিন
+                        <span className="absolute right-1 top-2">
+                          <IoIosArrowDroprightCircle className="text-3xl" />
+                        </span>
                       </span>
-                    </span>
-                  </p>
-                ) : (
-                  <div className="p-5">ক্লাস পরিবর্তন রিকোয়েস্ট দিন</div>
-                )}
-              </button>
+                    </p>
+                  ) : (
+                    <div className="p-5">ক্লাস পরিবর্তন রিকোয়েস্ট দিন</div>
+                  )}
+                </button>
+              )}
+              {!showbtn && (
+                <div className="bg-blue-500 text-white text-xl font-bold mt-6 rounded-3xl w-full overflow-hidden p-3">
+                  <input
+                    onChange={showButtonLogic}
+                    className="w-full rounded-2xl p-2 text-center text-slate-900"
+                    type="password"
+                    placeholder="পরিবর্তন করতে পাসওয়ার্ড দিন"
+                  ></input>
+                </div>
+              )}
             </div>
           </form>
         </div>

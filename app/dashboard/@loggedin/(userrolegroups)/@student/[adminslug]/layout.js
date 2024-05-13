@@ -46,9 +46,28 @@ function StudentLayout({ children, params }) {
             },
           };
 
-          let desiredObj2 = {
-           
+          function uniqueArray(old) {
+            const uniqueNamesSet = new Set(old);
+            const uniqueNamesArray = Array.from(uniqueNamesSet);
+            return uniqueNamesArray;
+          }
 
+          let desiredObj2 = {
+            alemalema: null,
+            hifjulquran: null,
+            abacus_student: null,
+            abacus_teacher: null,
+            shishunajera: null,
+            shishumaktab: null,
+            farzeayinmaktab: null,
+            farzeayinnajera: null,
+            ezranahusorof: null,
+            urdu: null,
+            ramadanquranulkarim: null,
+            farzeayinampara: null,
+            department: null,
+            jamat: null,
+            semester: null,
           };
 
           let semester = res.data[0].studentSemester.filter((item) => {

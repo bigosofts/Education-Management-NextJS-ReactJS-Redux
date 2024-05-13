@@ -52,6 +52,7 @@ function AttendancePageCustom() {
     return uniqueNamesArray;
   }
 
+
   let activeClassArray = uniqueArray(activeClassesFilter);
 
   let lastClass = activeClassArray[activeClassArray.length - 1];
