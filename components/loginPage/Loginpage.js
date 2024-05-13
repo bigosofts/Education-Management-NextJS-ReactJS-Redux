@@ -634,13 +634,6 @@ function LoginPageDesign({ userData }) {
               <form className="w-full p-5">
                 <label
                   className="block mb-2 text-lg text-slate-600"
-                  htmlFor="batchNo"
-                >
-                  আপনি কোন ব্যাচে ভর্তি হতে চাচ্ছেন?
-                </label>
-
-                <label
-                  className="block mb-2 text-lg text-slate-600"
                   htmlFor="firstName"
                 >
                   নামের প্রথম অংশ ইংরেজীতে লিখুনঃ

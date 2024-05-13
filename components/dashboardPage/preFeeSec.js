@@ -1864,10 +1864,12 @@ function PreFeeSection({ profile }) {
                 name="course"
                 className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
               >
-                <option value="none">আপনার ক্ল্যাস নির্বাচন করুন</option>
+                <option className="p-4" value="none">
+                  আপনার ক্ল্যাস নির্বাচন করুন
+                </option>
                 {course
                   ? course.map((item, i) => (
-                      <option key={i} value={item.code}>
+                      <option className="p-4" key={i} value={item.code}>
                         {item.title}
                       </option>
                     ))
@@ -1893,10 +1895,12 @@ function PreFeeSection({ profile }) {
                 name="jamat"
                 className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
               >
-                <option value="none">আপনার জামাত নির্বাচন করুন</option>
+                <option className="p-4" value="none">
+                  আপনার জামাত নির্বাচন করুন
+                </option>
                 {jamat
                   ? jamat.map((item, i) => (
-                      <option key={i} value={item.ID}>
+                      <option className="p-4" key={i} value={item.ID}>
                         {item.name.toUpperCase()}
                       </option>
                     ))
@@ -1922,10 +1926,12 @@ function PreFeeSection({ profile }) {
                 name="semester"
                 className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
               >
-                <option value="none">আপনার সেমিস্টার নির্বাচন করুন</option>
+                <option className="p-4" value="none">
+                  আপনার সেমিস্টার নির্বাচন করুন
+                </option>
                 {semester
                   ? semester.map((item, i) => (
-                      <option key={i} value={item.ID}>
+                      <option className="p-4" key={i} value={item.ID}>
                         {item.name}
                       </option>
                     ))
@@ -1950,10 +1956,12 @@ function PreFeeSection({ profile }) {
                 name="batch"
                 className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
               >
-                <option value="">আপনার ব্যাচ নির্বাচন করুন</option>
+                <option className="p-4" value="">
+                  আপনার ব্যাচ নির্বাচন করুন
+                </option>
                 {batch &&
                   batch.map((item, i) => (
-                    <option key={i} value={item.value}>
+                    <option className="p-4" key={i} value={item.value}>
                       {item.name}
                     </option>
                   ))}
@@ -1979,13 +1987,13 @@ function PreFeeSection({ profile }) {
                     name="yearAdmission"
                     className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
                   >
-                    <option value="none">
+                    <option className="p-4" value="none">
                       এডমিশন ফী কোন বছরের তা নির্বাচন করুন?
                     </option>
                     {Unpaid
                       ? Unpaid[0].admissionPaymentHistory.map((item, i) =>
                           item.PaymentStatus == false ? (
-                            <option key={i} value={item._id}>
+                            <option className="p-4" key={i} value={item._id}>
                               {niceDate(item.Date)}
                             </option>
                           ) : (
@@ -2012,32 +2020,32 @@ function PreFeeSection({ profile }) {
                     name="paymentWay"
                     className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
                   >
-                    <option value="none">
+                    <option className="p-4" value="none">
                       আপনার পেমেন্ট মেথড নির্বাচন করুন
                     </option>
 
-                    <option value="bkash-merchant">
+                    <option className="p-4" value="bkash-merchant">
                       bkash: 01791 845 122 (Merchant)
                     </option>
 
-                    <option value="bKash-personal">
+                    <option className="p-4" value="bKash-personal">
                       bKash: 01674 04 05 02 (Personal)
                     </option>
 
-                    <option value="nagad-personal">
+                    <option className="p-4" value="nagad-personal">
                       Nagad: 01674 04 05 02 (Personal)
                     </option>
-                    <option value="rocket-personal">
+                    <option className="p-4" value="rocket-personal">
                       Rocket:01674 04 05 023 (Personal)
                     </option>
-                    <option value="paypal">
+                    <option className="p-4" value="paypal">
                       PayPal: internetmadrasa@outlook.com
                     </option>
 
-                    <option value="dbbl-bank">
+                    <option className="p-4" value="dbbl-bank">
                       DBBL Bank Account No. 126 101 56434
                     </option>
-                    <option value="ebl-bank">
+                    <option className="p-4" value="ebl-bank">
                       EBL Bank Account No. 170 145 000 1520
                     </option>
                   </select>

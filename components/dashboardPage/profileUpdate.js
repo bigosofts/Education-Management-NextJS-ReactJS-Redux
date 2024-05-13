@@ -174,9 +174,9 @@ function ProfileUpdate() {
           name="gender"
           className="bg-white my-4 p-4 box-border w-full rounded-3xl"
         >
-          <option value="">Select your Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
+          <option className="p-4" value="">Select your Gender</option>
+          <option className="p-4" value="male">Male</option>
+          <option className="p-4" value="female">Female</option>
         </select>
 
         {/* Input Field */}
@@ -205,9 +205,9 @@ function ProfileUpdate() {
           type="text"
           className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10"
         >
-          <option value="">বর্তমানে আপনি কোন দেশে বাস করছেন</option>
+          <option className="p-4" value="">বর্তমানে আপনি কোন দেশে বাস করছেন</option>
           {countries.data.map((item, i) => (
-            <option key={i} value={item.name}>
+            <option className="p-4" key={i} value={item.name}>
               {item.name}
             </option>
           ))}

@@ -8,9 +8,11 @@ import SideDrawer from "@/components/Drawer/SideDrawer";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
+
+import { setInitialData as setInitialCourse } from "@/app/redux/features/courseState/courseStateSlice";
+
 import { selectDataTwo } from "@/apiservices/studentapiservices";
 import MessangerChat from "@/customComponents/messangerChat/messangerChat";
-
 
 function StudentLayout({ children, params }) {
   const dispatch = useDispatch();
@@ -42,6 +44,173 @@ function StudentLayout({ children, params }) {
               userDetails: res.data[0],
             },
           };
+
+          let desiredObj2;
+
+          let semester = res.data[0].studentSemester.filter((item) => {
+            return /semester/i.test(item.code) && item.status == "active";
+          });
+
+          let hifzulQuran = res.data[0].studentCourseCode.filter((item) => {
+            return /hifjulquran/i.test(item.code) && item.status == "active";
+          });
+
+          let farzeAyinMaktab = res.data[0].studentCourseCode.filter((item) => {
+            return (
+              /farzeayinmaktab/i.test(item.code) && item.status == "active"
+            );
+          });
+
+          let farzeayinampara = res.data[0].studentCourseCode.filter((item) => {
+            return (
+              /farzeayinampara/i.test(item.code) && item.status == "active"
+            );
+          });
+
+          let ezranahusorof = res.data[0].studentCourseCode.filter((item) => {
+            return /ezranahusorof/i.test(item.code) && item.status == "active";
+          });
+
+          let shishumaktab = res.data[0].studentCourseCode.filter((item) => {
+            return /shishumaktab/i.test(item.code) && item.status == "active";
+          });
+
+          let abacusTeacher = res.data[0].studentCourseCode.filter((item) => {
+            return /abacus_teacher/i.test(item.code) && item.status == "active";
+          });
+
+          if (semester.length >= 1) {
+            if (semester[semester.length - 1].code == "semester01") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester01",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester02") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester02",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester03") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester03",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester04") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester04",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester05") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester05",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester06") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester06",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester07") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester07",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester08") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester08",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester09") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester09",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester10") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester10",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester11") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester11",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester12") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester12",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester13") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester13",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester14") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester14",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester15") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester15",
+                batch: res.data[0].batchCount,
+              };
+            } else if (semester[semester.length - 1].code == "semester16") {
+              desiredObj2 = {
+                course: "alemalema",
+                department: "department01",
+                jamat: "jamat2",
+                semester: "semester16",
+                batch: res.data[0].batchCount,
+              };
+            }
+          } else {
+          }
 
           dispatch(setInitialData(desiredObj));
         }
