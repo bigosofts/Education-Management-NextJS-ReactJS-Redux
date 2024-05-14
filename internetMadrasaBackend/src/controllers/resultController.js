@@ -78,7 +78,7 @@ exports.selectResultslimit = (req, res) => {
   resultModel
     .find(query, projection)
     .sort({ passingYear: -1 })
-    .limit(5)
+    .limit(6)
     .then((data) => {
       res.status(200).json({
         status: "Alhamdulillah",
