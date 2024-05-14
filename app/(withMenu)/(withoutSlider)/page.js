@@ -6,7 +6,7 @@ import CoursePage from "@/customComponents/CoursesPage/CoursesPage";
 import InfoPage from "@/customComponents/InfoPage/InfoPage";
 import ReviewPage from "@/customComponents/ReviewPage/ReveiwPage";
 import Footer from "@/customComponents/Footer/Footer";
-import { selectDataTwo } from "@/apiservices/sliderapiservices";
+// import { selectDataTwo } from "@/apiservices/sliderapiservices";
 import { selectDataLimit as selectResults } from "@/apiservices/resultapiservices";
 import { selectDataTwo as selectWorks } from "@/apiservices/workapiservices";
 import Counter from "@/customComponents/counterDay/counter";
@@ -18,31 +18,31 @@ import GalleryAll from "@/customComponents/GalleryALLLimited/GalleryALL";
 import HifzGrid from "@/customComponents/hifzGrid2/hifzGrid";
 import AlemAlemaGrid from "@/customComponents/alemalemagrid/alemalemagrid";
 
-function fisherYatesShuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
+// function fisherYatesShuffle(array) {
+//   for (let i = array.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [array[i], array[j]] = [array[j], array[i]];
+//   }
+// }
 
 async function getData() {
-  const res2 = await selectResults({
-    activeStatus: "active",
-  });
+  // const res2 = await selectResults({
+  //   activeStatus: "active",
+  // });
   const res3 = await selectWorks({
     activeStatus: "active",
   });
-  if (res2.status == "Alhamdulillah" && res3.status == "Alhamdulillah") {
+  if (res3.status == "Alhamdulillah") {
     const dataObject = {
       results: [],
       works: [],
     };
 
-    dataObject.results = res2.data;
+    // dataObject.results = res2.data;
     dataObject.works = res3.data;
 
     fisherYatesShuffle(dataObject.works);
-    fisherYatesShuffle(dataObject.results);
+    // fisherYatesShuffle(dataObject.results);
 
     return dataObject;
   } else {
@@ -78,14 +78,18 @@ export default async function Home() {
 
   return (
     <>
-      <Counter />
-      <LiveSection />
-      {/* <BayanList />  */}
       <ResultCardSlider linkObj={ObjArray2(data.results)} />
       <AlemAlemaGrid number={4} />
+      <Counter />
       <HifzGrid />
-      <ReviewPage />
+
+      <LiveSection />
+      {/* <BayanList />  */}
+
       <CoursePage />
+
+      <ReviewPage />
+
       <InfoPage />
       <NoticeEvent />
 
