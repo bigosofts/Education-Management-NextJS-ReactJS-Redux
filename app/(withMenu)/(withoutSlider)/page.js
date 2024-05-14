@@ -26,9 +26,9 @@ function fisherYatesShuffle(array) {
 }
 
 async function getData() {
-  // const res2 = await selectResults({
-  //   activeStatus: "active",
-  // });
+  const res2 = await selectResults({
+    activeStatus: "active",
+  });
   const res3 = await selectWorks({
     activeStatus: "active",
   });
@@ -38,9 +38,9 @@ async function getData() {
       works: [],
     };
 
-    // dataObject.results = res2.data;
+    dataObject.results = res2.data;
     dataObject.works = res3.data;
-
+    fisherYatesShuffle(dataObject.results);
     fisherYatesShuffle(dataObject.works);
     // fisherYatesShuffle(dataObject.results);
 
