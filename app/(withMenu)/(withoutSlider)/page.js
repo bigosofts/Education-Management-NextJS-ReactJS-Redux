@@ -18,12 +18,12 @@ import GalleryAll from "@/customComponents/GalleryALLLimited/GalleryALL";
 import HifzGrid from "@/customComponents/hifzGrid2/hifzGrid";
 import AlemAlemaGrid from "@/customComponents/alemalemagrid/alemalemagrid";
 
-// function fisherYatesShuffle(array) {
-//   for (let i = array.length - 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * (i + 1));
-//     [array[i], array[j]] = [array[j], array[i]];
-//   }
-// }
+function fisherYatesShuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
 async function getData() {
   // const res2 = await selectResults({
