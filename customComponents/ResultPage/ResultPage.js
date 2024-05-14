@@ -50,7 +50,7 @@ function ResultPageComponent({children}) {
       <>
         
         <div className="travelpage-container">
-          <div style={{ margin: "auto" }}>
+          <div style={{ margin: "auto", paddingTop:"50px" }}>
             <SearchComponent />
             <PopularChoiceGrid detailData={data} />
           </div>
