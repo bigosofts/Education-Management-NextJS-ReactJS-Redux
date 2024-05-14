@@ -2,13 +2,11 @@ import CustomVideoGallery from "@/customComponents/allCustomComponents/customVid
 
 import AbacusCourse from "@/customComponents/allCustomComponents/AbacusCourses/AbacusCourses";
 
-
-
 import { selectDataTwo as selectCourses } from "@/apiservices/courseapiservices";
 
 import { selectDataTwo as selectComment } from "@/apiservices/commentapiservice";
 import { selectDataTwo as selectRichText } from "@/apiservices/richtextapiservices";
-import { selectDataTwo as selectResults } from "@/apiservices/resultapiservices";
+import { selectDataLimit as selectResults } from "@/apiservices/resultapiservices";
 import { selectDataTwo as selectWorks } from "@/apiservices/workapiservices";
 import ResultCardSlider from "@/customComponents/allCustomComponents/ResultCardSlider/ResultCardSlider";
 import AlemAlemaGrid from "@/customComponents/alemalemagrid/alemalemagrid";
