@@ -30,7 +30,6 @@ const pushNoticeController = require("../controllers/pushNoticeController");
 const classController = require("../controllers/classController");
 const abacusInstitutionController = require("../controllers/abacusInstitutionController");
 
-
 //Middleware Import
 const passEncrypted = require("../middlewares/passwordEncryption");
 const authverify = require("../middlewares/authverifyMiddleware");
@@ -73,8 +72,10 @@ router.post("/isAdmin", authverify, async (req, res) => {
         userDetails,
       },
     });
-  }else if (userRole == "abacus_teacher") {
-    const [userDetails] = await abacusInstitutionController.selectAbacusData(userName);
+  } else if (userRole == "abacus_teacher") {
+    const [userDetails] = await abacusInstitutionController.selectAbacusData(
+      userName
+    );
     res.status(200).json({
       status: "Alhamdulillah",
       data: {
@@ -199,6 +200,8 @@ router.post("/select-comments", commentController.selectComments);
 router.post("/select-abouts", aboutController.selectAbouts);
 router.post("/select-widgets", widgetController.selectWidgets);
 router.post("/select-results", resultController.selectResults);
+router.post("/select-results-limit", resultController.selectResultslimit);
+
 router.post("/select-logs", logController.selectLogs);
 router.post("/select-books", bookController.selectBooks);
 router.post("/select-departments", departmentController.selectDepartments);

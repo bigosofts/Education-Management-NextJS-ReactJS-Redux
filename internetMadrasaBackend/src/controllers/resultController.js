@@ -71,6 +71,28 @@ exports.selectResults = (req, res) => {
     });
 };
 
+// find from the database record
+exports.selectResultslimit = (req, res) => {
+  let query = req.body.query;
+  let projection = req.body.projection;
+  resultModel
+    .find(query, projection)
+    .sort({ passingYear: -1 })
+    .limit(5)
+    .then((data) => {
+      res.status(200).json({
+        status: "Alhamdulillah",
+        data: data,
+      });
+    })
+    .catch((err) => {
+      res.status(400).json({
+        status: "Innalillah",
+        data: err,
+      });
+    });
+};
+
 //Update Database Record
 exports.updateResult = (req, res) => {
   let reqBody = req.body;

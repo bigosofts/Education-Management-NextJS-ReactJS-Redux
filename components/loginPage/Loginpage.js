@@ -599,7 +599,7 @@ function LoginPageDesign({ userData }) {
   return (
     <>
       {switchState && (
-        <div className="bg-slate-100 signup-switch">
+        <div className="bg-slate-100 signup-switch h-screen">
           <div
             className={
               buttonState
