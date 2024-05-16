@@ -1597,7 +1597,9 @@ function SwitchDesign() {
         res5.status == "Alhamdulillah" &&
         res6.status == "Alhamdulillah"
       ) {
-        setCourse(res.data);
+        setCourse(
+          res.data.filter((item) => item.courseCode != "abacus_teacher" && item.courseCode != "ezranahusorof" && item.courseCode != "urdu")
+        );
         setCourse2(
           res.data.map((item) => {
             return {

@@ -344,13 +344,20 @@ function PreFeeSection({ profile }) {
         paymentData.status == "Alhamdulillah"
       ) {
         setCourse(
-          course.data.map((item) => {
-            return {
-              title: item.title.bn,
-              code: item.courseCode,
-              price: item.coursePrice,
-            };
-          })
+          course.data
+            .filter(
+              (item) =>
+                item.courseCode != "abacus_teacher" &&
+                item.courseCode != "ezranahusorof" &&
+                item.courseCode != "urdu"
+            )
+            .map((item) => {
+              return {
+                title: item.title.bn,
+                code: item.courseCode,
+                price: item.coursePrice,
+              };
+            })
         );
         setCurrencyrate(109);
 

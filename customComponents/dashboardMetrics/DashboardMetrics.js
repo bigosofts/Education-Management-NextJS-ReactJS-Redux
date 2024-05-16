@@ -74,17 +74,19 @@ function DashboardMetrics(props) {
         setStudents(res.data);
         async function alemalemaQuery(datas) {
           return datas.filter((item) => {
-            let semester = item.studentSemester.filter((item) => {
-              return /semester/i.test(item.code) && item.status == "active";
-            });
+            if (item.batchCount == "batch-20240605") {
+              let semester = item.studentSemester.filter((item) => {
+                return /semester/i.test(item.code) && item.status == "active";
+              });
 
-            if (semester.length > 1) {
-              if (semester[semester.length - 1].code == "semester01") {
-                return item;
-              }
-            } else if (semester.length == 1) {
-              if (semester[semester.length - 1].code == "semester01") {
-                return item;
+              if (semester.length > 1) {
+                if (semester[semester.length - 1].code == "semester01") {
+                  return item;
+                }
+              } else if (semester.length == 1) {
+                if (semester[semester.length - 1].code == "semester01") {
+                  return item;
+                }
               }
             }
           });

@@ -20,15 +20,22 @@ const DataSchema = mongoose.Schema(
           month: { type: String },
           dayName: { type: String },
           dayNumber: { type: String },
-          presentTimeStart: { type: Date },
-          presentTimeEnd: { type: Date },
+          presentTime: { type: String },
+
           isPresent: { type: Boolean },
-          completionProgress: {
-            mark: { type: Number },
-            answer1: { type: Boolean },
-            answer2: { type: Boolean },
-            answer3: { type: Boolean },
-          },
+          completionProgress: [
+            {
+              questionNo: { type: String },
+              question: { type: String },
+              multipleChoice: {
+                choice1: { type: String },
+                choice2: { type: String },
+                choice3: { type: String },
+
+                answer: { type: String },
+              },
+            },
+          ],
         },
       ],
     },
@@ -43,34 +50,15 @@ const DataSchema = mongoose.Schema(
             month: { type: String },
             dayName: { type: String },
             dayNumber: { type: String },
-            presentTime: { type: Date },
+            presentTime: { type: String },
             isPresent: { type: Boolean },
-            completionProgress: {
-              question1: { type: String },
-              multipleChoice1: {
-                choice1: { type: String },
-                choice2: { type: String },
-                choice3: { type: String },
-                choice4: { type: String },
+            completionProgress: [
+              {
+                mark: { type: Number },
                 answer: { type: String },
+                question: { type: String },
               },
-              question2: { type: String },
-              multipleChoice2: {
-                choice1: { type: String },
-                choice2: { type: String },
-                choice3: { type: String },
-                choice4: { type: String },
-                answer: { type: String },
-              },
-              question3: { type: String },
-              multipleChoice3: {
-                choice1: { type: String },
-                choice2: { type: String },
-                choice3: { type: String },
-                choice4: { type: String },
-                answer: { type: String },
-              },
-            },
+            ],
           },
         ],
       },
