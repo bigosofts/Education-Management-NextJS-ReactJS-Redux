@@ -1598,7 +1598,12 @@ function SwitchDesign() {
         res6.status == "Alhamdulillah"
       ) {
         setCourse(
-          res.data.filter((item) => item.courseCode != "abacus_teacher" && item.courseCode != "ezranahusorof" && item.courseCode != "urdu")
+          res.data.filter(
+            (item) =>
+              item.courseCode != "abacus_teacher" &&
+              item.courseCode != "ezranahusorof" &&
+              item.courseCode != "urdu"
+          )
         );
         setCourse2(
           res.data.map((item) => {
@@ -1635,7 +1640,7 @@ function SwitchDesign() {
     <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">
       <div className="flex justify-center p-5 pb-10">
         <div className="">
-          <form onSubmit={submitData}>
+          <form>
             <div className="courseSelector h-[150px] md:h-[200px]">
               <label htmlFor="course">
                 <h1 className="w-full mx-auto text-sm md:text-3xl text-center mb-2 ">
@@ -1840,7 +1845,7 @@ function SwitchDesign() {
             <div className="submitSection">
               {showbtn && (
                 <button
-                  type="submit"
+                  onClick={submitData}
                   className="bg-blue-500 hover:bg-blue-900 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
                 >
                   {enroll ? (

@@ -1795,7 +1795,7 @@ function PreFeeSection({ profile }) {
     <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">
       <div className="flex justify-center p-5 pb-10">
         <div className="">
-          <form onSubmit={submitData}>
+          <form>
             <div className="currencySelector">
               <h1 className="w-full mx-auto text-sm md:text-3xl text-center mb-2">
                 আপনি কোন মুদ্রায় পেমেন্ট জমা দিতে চান?
@@ -2124,7 +2124,7 @@ function PreFeeSection({ profile }) {
 
             <div className="submitSection">
               <button
-                type="submit"
+                onClick={submitData}
                 className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
               >
                 {enroll ? (

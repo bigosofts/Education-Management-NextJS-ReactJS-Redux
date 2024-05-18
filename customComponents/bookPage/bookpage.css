@@ -1,0 +1,110 @@
+.bookpageContainer {
+  background-color: #e5e7eb;
+  margin: 0;
+
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+.imgct {
+  overflow: hidden;
+  margin-right: 0px;
+  margin-left: 23px;
+  margin-top: 0px;
+  float: left;
+  position: absolute;
+}
+
+.bookshelf {
+  margin: 50px auto;
+  width: 70%;
+}
+
+.book-grid {
+  z-index: 2;
+  position: relative;
+  -webkit-transform: translateY(-15px);
+  transform: translateY(-15px);
+  margin-bottom: 70px;
+}
+@media only screen and (max-width: 600px) {
+  .bookshelf {
+    width: 100%;
+  }
+}
+.book-grid h2 {
+  margin-bottom: 50px;
+  text-align: center;
+}
+.book-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.book-grid ul li {
+  justify-self: center;
+  margin-bottom: 40px;
+  cursor: pointer;
+  transition: 0.5s ease-out;
+}
+.book-grid ul li:hover {
+  scale: 110%;
+}
+.book-grid ul img {
+  display: block;
+  filter: drop-shadow(10px 10px 4px #676769);
+  width: 50%;
+  margin: 0 auto;
+
+  -o-object-fit: cover;
+  object-fit: contain;
+}
+
+.book-grid ul p {
+  font-size: 20px;
+  margin: 0 auto;
+  width: 150px;
+  font-weight: 900;
+}
+@media only screen and (max-width: 600px) {
+  .bookshelf {
+    width: 90%;
+  }
+  .book-grid ul p {
+    font-size: 14px;
+    margin: 0 auto;
+    width: 100px;
+    font-weight: 900;
+  }
+  .book-grid h2 {
+    font-size: 24px;
+  }
+  .book-grid ul img {
+    width: 90%;
+  }
+}
+
+.shelf-shadows {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  border-radius: 2px;
+  z-index: 1;
+  box-shadow: 0px -5px 3px 0px rgba(170, 170, 170, 0.2),
+    0px 15px 20px 0px rgba(39, 3, 3, 0.83),
+    0px 5px 5px 0px rgba(119, 119, 119, 0.3);
+}
+
+.shelf {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 2px;
+  z-index: 3;
+}

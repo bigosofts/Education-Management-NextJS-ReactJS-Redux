@@ -6,6 +6,7 @@ import WaitingApproval from "@/components/dashboardPage/WaitingApproval";
 import { useState, useEffect } from "react";
 import { selectDataTwo } from "@/apiservices/studentapiservices";
 import NotAllow from "@/components/dashboardPage/notAllow";
+import BookPageDesign from "@/customComponents/bookPage/bookPage";
 
 function BookPage() {
   const data = useSelector((state) => state.isAdmin.value);
@@ -64,7 +65,7 @@ function BookPage() {
     ) {
       return <WaitingApproval />;
     } else if (showPage) {
-      return <div>Book Page</div>;
+      return <BookPageDesign />;
     } else if (!showPage) {
       return <NotAllow allowList={allowList} />;
     }

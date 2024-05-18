@@ -1,3 +1,4 @@
+"use client";
 /*Object Constructor function for Question Object*/
 function Question(text, choices, answer) {
   this.text = text;
@@ -38,36 +39,11 @@ Quiz.prototype.guess = function (answer) {
 
 /*questions is an array where each element of this array is an object*/
 var questions = [
-  new Question(
-    "What does HTML stand for?",
-    [
-      "Hyper Text Markup Language",
-      " Hyperlinks and Text Markup Language",
-      "Home Tool Markup Language",
-      "Hyper TCP Markup Language",
-    ],
-    "Hyper Text Markup Language"
-  ),
-  new Question(
-    "Who is making the Web standards?",
-    ["Mozila ", "Google", "Microsoft", "The World Wide Web Consortium"],
-    "The World Wide Web Consortium"
-  ),
-  new Question(
-    " Which character is used to indicate an end tag?",
-    ["/", "#", "&", "%"],
-    "/"
-  ),
-  new Question(
-    "How can you make a numbered list?",
-    ["ol", "li", "ul", "dl"],
-    "ol"
-  ),
-  new Question(
-    " An iframe is used to display a web page within a web page.",
-    ["true", "flase", "There is no such thing as an iframe", "none"],
-    "true"
-  ),
+  new Question("আরবি ভাষার মূলভিত্তি কয়টি ?", ["১টি", "২টি", "৪টি"], "৪টি"),
+  new Question("আরবি ভাষার মূলভিত্তি কয়টি ?", ["১টি", "২টি", "৪টি"], "৪টি"),
+  new Question("আরবি ভাষার মূলভিত্তি কয়টি ?", ["১টি", "২টি", "৪টি"], "৪টি"),
+  new Question("আরবি ভাষার মূলভিত্তি কয়টি ?", ["১টি", "২টি", "৪টি"], "৪টি"),
+  new Question("আরবি ভাষার মূলভিত্তি কয়টি ?", ["১টি", "২টি", "৪টি"], "৪টি"),
 ];
 
 var quiz = new Quiz(questions); // Initialization of Quiz Constructor object by passing questions array
@@ -120,7 +96,8 @@ function showProgress() {
 
 // This function will show result at the end of the quiz
 function showScores() {
-  var gameOver = "<h1>Result</h1>";
+  var gameOver =
+    "<h1>আলহামদুলিল্লাহ</h1><br/><h1>আপনার উত্তরগুলো গ্রহণ করা হয়েছে </h1>";
   gameOver +=
     "<h2 id='score' style='text-align:center;'>Your Score: " +
     quiz.score +
