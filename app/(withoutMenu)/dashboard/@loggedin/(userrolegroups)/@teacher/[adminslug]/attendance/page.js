@@ -138,18 +138,16 @@ function BookPage() {
   }
 
   async function submitQuiz(specificClass) {
-    debugger;
     setShow(false);
 
     setTimeout(() => {
       setShow(true);
     }, 5000);
-    let attendance = specificClass.teacher.attendance;
-    debugger;
 
-    let haveData = attendance.find((item) => {
-      return item.presentTime == niceDate(Date.now());
-    });
+    let attendance = specificClass.teacher.attendance;
+    let currentDate = niceDate(Date.now());
+
+    let haveData = attendance.find((item) => item.presentTime == currentDate);
 
     if (
       questionNoref.current.value &&
@@ -159,196 +157,74 @@ function BookPage() {
       option3ref.current.value &&
       answerref.current.value
     ) {
-      debugger;
-      if (haveData) {
-        debugger;
-        let completionProgress = haveData.completionProgress;
+      let questionData = {
+        questionNo: questionNoref.current.value,
+        question: questionref.current.value,
+        multipleChoice: {
+          choice1: option1ref.current.value,
+          choice2: option2ref.current.value,
+          choice3: option3ref.current.value,
+          answer:
+            answerref.current.value == "option1"
+              ? option1ref.current.value
+              : answerref.current.value == "option2"
+              ? option2ref.current.value
+              : option3ref.current.value,
+        },
+      };
 
+      if (haveData) {
+        let completionProgress = haveData.completionProgress;
         let havesame = completionProgress.find(
           (item) => item.questionNo == questionNoref.current.value
         );
-        debugger;
 
         if (havesame) {
-          debugger;
-          let completionProgress = havesame;
-          completionProgress.map((item) => {
-            if (item.questionNo == questionNoref.current.value) {
-              debugger;
-              return {
-                questionNo: questionNoref.current.value,
-                question: questionref.current.value,
-                multipleChoice: {
-                  choice1: option1ref.current.value,
-                  choice2: option2ref.current.value,
-                  choice3: option3ref.current.value,
-
-                  answer:
-                    answerref.current.value == "option1"
-                      ? option1ref.current.value
-                      : answerref.current.value == "option2"
-                      ? option2ref.current.value
-                      : answerref.current.value == "option3"
-                      ? option3ref.current.value
-                      : "",
-                },
-              };
-            } else {
-              debugger;
-              return item;
-            }
-          });
-          debugger;
-          let attendance = specificClass.teacher.attendance.find(
-            (item) => item.presentTime == niceDate(Date.now())
+          completionProgress = completionProgress.map((item) =>
+            item.questionNo == questionNoref.current.value ? questionData : item
           );
-          debugger;
-
-          attendance.completionProgress = completionProgress;
-
-          specificClass.teacher.attendance = attendance;
-          debugger;
-
-          const res = await updateClass({
-            classID: specificClass.classID,
-            courseID: specificClass.courseID,
-            batchNo: specificClass.batchNo,
-            maleClassLink: specificClass.maleClassLink,
-            femaleClassLink: specificClass.femaleClassLink,
-            departmentID: specificClass.departmentID,
-            jamatID: specificClass.jamatID,
-            semesterID: specificClass.semesterID,
-            bookID: specificClass.bookID,
-            teacher: specificClass.teacher,
-            examQuestion: specificClass.examQuestion,
-            students: specificClass.students,
-            classStartTime: specificClass.classStartTime,
-            classEndTime: specificClass.classEndTime,
-            activeStatus: specificClass.activeStatus,
-            idValue: specificClass._id,
-          });
-          debugger;
-          if (res.status == "Alhamdulillah") {
-            debugger;
-            mytoast.success("Question has been added");
-            setSpecificClass(specificClass);
-          }
         } else {
-          completionProgress.push({
-            questionNo: questionNoref.current.value,
-            question: questionref.current.value,
-            multipleChoice: {
-              choice1: option1ref.current.value,
-              choice2: option2ref.current.value,
-              choice3: option3ref.current.value,
-
-              answer:
-                answerref.current.value == "option1"
-                  ? option1ref.current.value
-                  : answerref.current.value == "option2"
-                  ? option2ref.current.value
-                  : answerref.current.value == "option3"
-                  ? option3ref.current.value
-                  : "",
-            },
-          });
-          debugger;
-
-          let attendance = specificClass.teacher.attendance.find(
-            (item) => item.presentTime == niceDate(Date.now())
-          );
-
-          debugger;
-          attendance.completionProgress = completionProgress;
-
-          specificClass.teacher.attendance = attendance;
-          debugger;
-          const res = await updateClass({
-            classID: specificClass.classID,
-            courseID: specificClass.courseID,
-            batchNo: specificClass.batchNo,
-            maleClassLink: specificClass.maleClassLink,
-            femaleClassLink: specificClass.femaleClassLink,
-            departmentID: specificClass.departmentID,
-            jamatID: specificClass.jamatID,
-            semesterID: specificClass.semesterID,
-            bookID: specificClass.bookID,
-            teacher: specificClass.teacher,
-            examQuestion: specificClass.examQuestion,
-            students: specificClass.students,
-            classStartTime: specificClass.classStartTime,
-            classEndTime: specificClass.classEndTime,
-            activeStatus: specificClass.activeStatus,
-            idValue: specificClass._id,
-          });
-          debugger;
-          if (res.status == "Alhamdulillah") {
-            debugger;
-            mytoast.success("Question has been added");
-            setSpecificClass(specificClass);
-          }
+          completionProgress.push(questionData);
         }
+
+        haveData.completionProgress = completionProgress;
       } else {
-        debugger;
         attendance.push({
           month: niceDateMonth(Date.now()),
           dayName: niceDateDayName(),
           dayNumber: niceDateDay(Date.now()),
-          presentTime: niceDate(Date.now()),
-
+          presentTime: currentDate,
           isPresent: true,
-          completionProgress: [
-            {
-              questionNo: questionNoref.current.value,
-              question: questionref.current.value,
-              multipleChoice: {
-                choice1: option1ref.current.value,
-                choice2: option2ref.current.value,
-                choice3: option3ref.current.value,
-
-                answer:
-                  answerref.current.value == "option1"
-                    ? option1ref.current.value
-                    : answerref.current.value == "option2"
-                    ? option2ref.current.value
-                    : answerref.current.value == "option3"
-                    ? option3ref.current.value
-                    : "",
-              },
-            },
-          ],
+          completionProgress: [questionData],
         });
-        debugger;
-        specificClass.teacher.attendance = attendance;
-        debugger;
+      }
 
-        const res = await updateClass({
-          classID: specificClass.classID,
-          courseID: specificClass.courseID,
-          batchNo: specificClass.batchNo,
-          maleClassLink: specificClass.maleClassLink,
-          femaleClassLink: specificClass.femaleClassLink,
-          departmentID: specificClass.departmentID,
-          jamatID: specificClass.jamatID,
-          semesterID: specificClass.semesterID,
-          bookID: specificClass.bookID,
-          teacher: specificClass.teacher,
-          examQuestion: specificClass.examQuestion,
-          students: specificClass.students,
-          classStartTime: specificClass.classStartTime,
-          classEndTime: specificClass.classEndTime,
-          activeStatus: specificClass.activeStatus,
-          idValue: specificClass._id,
-        });
-        debugger;
-        if (res.status == "Alhamdulillah") {
-          debugger;
-          mytoast.success("Question has been added");
-          setSpecificClass(specificClass);
-        }
+      specificClass.teacher.attendance = attendance;
+
+      const res = await updateClass({
+        classID: specificClass.classID,
+        courseID: specificClass.courseID,
+        batchNo: specificClass.batchNo,
+        maleClassLink: specificClass.maleClassLink,
+        femaleClassLink: specificClass.femaleClassLink,
+        departmentID: specificClass.departmentID,
+        jamatID: specificClass.jamatID,
+        semesterID: specificClass.semesterID,
+        bookID: specificClass.bookID,
+        teacher: specificClass.teacher,
+        examQuestion: specificClass.examQuestion,
+        students: specificClass.students,
+        classStartTime: specificClass.classStartTime,
+        classEndTime: specificClass.classEndTime,
+        activeStatus: specificClass.activeStatus,
+        idValue: specificClass._id,
+      });
+
+      if (res.status == "Alhamdulillah") {
+        mytoast.success("Question has been added");
+        setSpecificClass(specificClass);
       }
     } else {
-      debugger;
       mytoast.danger("One or more field is empty");
     }
   }
