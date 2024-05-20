@@ -19,13 +19,6 @@ function AttendancePageCustom() {
   const [specificClass, setSpecificClass] = useState();
   const [show, setShow] = useState(true);
 
-  const questionNoref = useRef();
-  const questionref = useRef();
-  const option1ref = useRef();
-  const option2ref = useRef();
-  const option3ref = useRef();
-  const answerref = useRef();
-
   useEffect(() => {
     async function getData() {
       const res = await selectClasses({ activeStatus: "active" }, null);
@@ -419,45 +412,28 @@ function AttendancePageCustom() {
                     </div>
                   </div>
                 </div>
-
+                {/* workishere */}
                 <div className="mb-20 md:mb-0 p-1 md:p-5">
                   <QuizAttendance classSelection={specificClass} />
                 </div>
 
                 <div className="text-white p-1 md:p-5">
                   <div className="p-5 border-[2px] border-slate-300 rounded-xl h-[330px] overflow-y-scroll">
-                    {specificClass.teacher.attendance &&
-                      specificClass.teacher.attendance.find(
-                        (item) => item.presentTime == niceDate(Date.now())
-                      ) &&
-                      specificClass.teacher.attendance
-                        .find(
-                          (item) => item.presentTime == niceDate(Date.now())
-                        )
-                        .completionProgress.map((item, i) => (
-                          <div key={i}>
-                            <p className="mt-5"> {item.question}</p>
-                            <p className="text-sm">
-                              {" "}
-                              অপশন ১ঃ {item.multipleChoice.choice1}{" "}
-                            </p>
-                            <p className="text-sm">
-                              {" "}
-                              অপশন ২ঃ {item.multipleChoice.choice2}
-                            </p>
-                            <p className="text-sm">
-                              {" "}
-                              অপশন ৩ঃ {item.multipleChoice.choice3}
-                            </p>
+                    <div>
+                      <p className="mt-5"> ডেমো ? </p>
+                      <p className="text-sm"> অপশন ১ঃ উত্তর ১ </p>
+                      <p className="text-sm"> অপশন ২ঃ উত্তর ২</p>
+                      <p className="text-sm"> অপশন ৩ঃ উত্তর ৩</p>
 
-                            <p className="text-lg text-orange-200 mt-2">
-                              {" "}
-                              সঠিক উত্তরঃ {item.multipleChoice.answer}
-                            </p>
-                          </div>
-                        ))}
+                      <p className="text-lg text-orange-200 mt-2">
+                        {" "}
+                        সঠিক উত্তরঃ সঠিক উত্তর
+                      </p>
+                    </div>
                   </div>
                 </div>
+
+                {/* workishereend */}
               </div>
             </div>
           </div>

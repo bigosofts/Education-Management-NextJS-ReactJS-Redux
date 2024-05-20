@@ -5,6 +5,7 @@
   padding: 10px;
   border-radius: 10px;
 }
+
 .wrapperQuiz h1 {
   text-align: center;
   font-family: sans-serif;
@@ -91,6 +92,14 @@
   color: white;
   margin-top: 20px;
 }
+.yes:hover {
+  background-color: aquamarine;
+}
+
+.no:hover {
+  background-color: aquamarine;
+}
+
 @media only screen and (max-width: 768px) {
   .wrapperQuiz .buttons {
     flex-direction: column;
