@@ -421,8 +421,7 @@ function AttendancePageCustom() {
                 </div>
 
                 <div className="mb-20 md:mb-0 p-1 md:p-5">
-                <QuizAttendance classSelection={specificClass}/>
-                  
+                  <QuizAttendance classSelection={specificClass} />
                 </div>
 
                 <div className="text-white p-1 md:p-5">
@@ -463,7 +462,6 @@ function AttendancePageCustom() {
             </div>
           </div>
         )}
-        
       </div>
     );
   }

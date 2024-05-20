@@ -66,7 +66,7 @@ function AttendancePage() {
     ) {
       return <WaitingApproval />;
     } else if (showPage) {
-      return <AttendancePageCustom />;
+      return <div>New Attendance Page Coming Soon</div>;
     } else if (!showPage) {
       return <NotAllow allowList={allowList} />;
     }

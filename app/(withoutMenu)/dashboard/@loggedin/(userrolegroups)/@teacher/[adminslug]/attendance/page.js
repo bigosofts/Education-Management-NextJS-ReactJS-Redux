@@ -194,6 +194,8 @@ function BookPage() {
           dayName: niceDateDayName(),
           dayNumber: niceDateDay(Date.now()),
           presentTime: currentDate,
+          enterTime: "",
+          exitTime: "",
           isPresent: true,
           completionProgress: [questionData],
         });

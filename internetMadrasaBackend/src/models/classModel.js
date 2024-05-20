@@ -21,7 +21,8 @@ const DataSchema = mongoose.Schema(
           dayName: { type: String },
           dayNumber: { type: String },
           presentTime: { type: String },
-
+          enterTime: { type: String },
+          exitTime: { type: String },
           isPresent: { type: Boolean },
           completionProgress: [
             {
@@ -31,7 +32,6 @@ const DataSchema = mongoose.Schema(
                 choice1: { type: String },
                 choice2: { type: String },
                 choice3: { type: String },
-
                 answer: { type: String },
               },
             },

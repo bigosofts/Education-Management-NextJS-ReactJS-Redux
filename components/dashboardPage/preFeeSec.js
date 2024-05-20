@@ -30,17 +30,113 @@ function PreFeeSection({ profile }) {
   const [jamat, setJamat] = useState();
   const [semester, setSemester] = useState();
   const [extrabatch, setExtraBatch] = useState();
-  const [batch, setBatch] = useState([
-    {
-      name: "Batch-05-06-2024 (ক্লাস শুরু আগামী ৫ জুন, ২০২৪)",
-      value: "batch-20240605",
-    },
-    {
-      name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
-      value: "batch-20240420",
-    },
-  ]);
-  const defaultBatch = "batch-20240605";
+
+  const [batch, setBatch] = useState([]);
+
+  //change when every new class published
+  function batchChoice(course) {
+    if (course == "alemalema") {
+      setBatch([
+        {
+          name: "Batch-05-06-2024 (ক্লাস শুরু আগামী ৫ জুন, ২০২৪)",
+          value: "batch-20240605",
+          startDate: "2024-06-05",
+        },
+        {
+          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
+          value: "batch-20240420",
+          startDate: new Date().toISOString(),
+        },
+      ]);
+    } else if (course == "abacus_student") {
+      setBatch([
+        {
+          name: "Batch-05-06-2024 (ক্লাস শুরু আগামী ৫ জুন, ২০২৪)",
+          value: "batch-20240605",
+          startDate: "2024-06-05",
+        },
+      ]);
+    } else if (course == "hifjulquran") {
+      setBatch([
+        {
+          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
+          value: "batch-20240420",
+          startDate: new Date().toISOString(),
+        },
+      ]);
+    } else if (course == "abacus_teacher") {
+      setBatch([]);
+    } else if (course == "shishunajera") {
+      setBatch([
+        {
+          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
+          value: "batch-20240420",
+          startDate: new Date().toISOString(),
+        },
+      ]);
+    } else if (course == "shishumaktab") {
+      setBatch([
+        {
+          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
+          value: "batch-20240420",
+          startDate: new Date().toISOString(),
+        },
+      ]);
+    } else if (course == "farzeayinmaktab") {
+      setBatch([
+        {
+          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
+          value: "batch-20240420",
+          startDate: new Date().toISOString(),
+        },
+      ]);
+    } else if (course == "farzeayinnajera") {
+      setBatch([
+        {
+          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
+          value: "batch-20240420",
+          startDate: new Date().toISOString(),
+        },
+      ]);
+    } else if (course == "ezranahusorof") {
+      setBatch([
+        {
+          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
+          value: "batch-20240420",
+          startDate: new Date().toISOString(),
+        },
+      ]);
+    } else if (course == "urdu") {
+      setBatch([
+        {
+          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
+          value: "batch-20240420",
+          startDate: new Date().toISOString(),
+        },
+      ]);
+    } else if (course == "ramadanquranulkarim") {
+      setBatch([]);
+    } else if (course == "farzeayinampara") {
+      setBatch([
+        {
+          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
+          value: "batch-20240420",
+          startDate: new Date().toISOString(),
+        },
+      ]);
+    } else if (course == "schoolalemalema") {
+      setBatch([
+        {
+          name: "Batch-05-06-2024 (ক্লাস শুরু আগামী ৫ জুন, ২০২৪)",
+          value: "batch-20240605",
+          startDate: "2024-06-05",
+        },
+      ]);
+    }
+  }
+
+  //change area done
+
   const [extraJamat, setExtraJamat] = useState(false);
   const [extraSemester, setExtraSemester] = useState(false);
   const [extraTransaction, setExtraTransaction] = useState(false);
@@ -58,6 +154,7 @@ function PreFeeSection({ profile }) {
     accountNo: "none",
     paymentWay: "none",
     batch: "",
+    startDate: "",
   });
   function niceDate(date) {
     var isoTime = date;
@@ -188,6 +285,8 @@ function PreFeeSection({ profile }) {
     }
     PriceDecision(classes);
 
+    batchChoice(classes);
+
     setMainData((prev) => ({
       ...prev,
       course: classes,
@@ -196,6 +295,7 @@ function PreFeeSection({ profile }) {
     if (classes == "alemalema") {
       setExtraJamat(true);
       setExtraTransaction(false);
+      setExtraBatch(true);
     } else if (classes == "abacus_student") {
       setMainData((prev) => ({
         ...prev,
@@ -205,12 +305,13 @@ function PreFeeSection({ profile }) {
         paymentWay: "none",
       }));
       setExtraJamat(false);
+      setExtraBatch(true);
       setMainData((prev) => ({
         ...prev,
         jamat: "none",
       }));
       setExtraSemester(false);
-      setExtraBatch(false);
+
       setMainData((prev) => ({
         ...prev,
         semester: "none",
@@ -224,19 +325,19 @@ function PreFeeSection({ profile }) {
         accountNo: "none",
         paymentWay: "none",
       }));
+      setExtraBatch(true);
       setExtraJamat(false);
       setMainData((prev) => ({
         ...prev,
         jamat: "none",
       }));
       setExtraSemester(false);
-      setExtraBatch(false);
+
       setMainData((prev) => ({
         ...prev,
         semester: "none",
       }));
       setExtraTransaction(false);
-    } else if (classes == "none") {
     } else if (classes == "ramadanquranulkarim") {
       setMainData((prev) => ({
         ...prev,
@@ -245,13 +346,14 @@ function PreFeeSection({ profile }) {
         accountNo: "none",
         paymentWay: "none",
       }));
+      setExtraBatch(true);
       setExtraJamat(false);
       setMainData((prev) => ({
         ...prev,
         jamat: "none",
       }));
       setExtraSemester(false);
-      setExtraBatch(false);
+
       setMainData((prev) => ({
         ...prev,
         semester: "none",
@@ -264,7 +366,7 @@ function PreFeeSection({ profile }) {
         jamat: "none",
       }));
       setExtraSemester(false);
-      setExtraBatch(false);
+
       setMainData((prev) => ({
         ...prev,
         semester: "none",
@@ -274,7 +376,7 @@ function PreFeeSection({ profile }) {
       setExtraTransaction(true);
       setExtraJamat(false);
       setExtraSemester(false);
-      setExtraBatch(false);
+      setExtraBatch(true);
     }
   }
 
@@ -288,10 +390,9 @@ function PreFeeSection({ profile }) {
     }));
     if (jamat !== "none") {
       setExtraSemester(true);
-      setExtraBatch(true);
     } else {
       setExtraSemester(false);
-      setExtraBatch(false);
+
       setMainData((prev) => ({
         ...prev,
         semester: "none",
@@ -317,12 +418,16 @@ function PreFeeSection({ profile }) {
 
   function batchChangeDecision(e) {
     e.preventDefault();
-    const batch = e.target.value;
-
+    const batch = JSON.parse(e.target.value).batch;
+    debugger;
+    const startDate = JSON.parse(e.target.value).startDate;
+    debugger;
     setMainData((prev) => ({
       ...prev,
       batch: batch,
+      startDate: startDate,
     }));
+    debugger;
   }
 
   useEffect(() => {
@@ -461,11 +566,53 @@ function PreFeeSection({ profile }) {
     getData();
   }, []);
 
+  function oneMonthLaterToDesiredDate(dateString) {
+    let desiredDate = new Date(dateString);
+    var desiredMonth = desiredDate.getMonth();
+    var desiredYear = desiredDate.getFullYear();
+
+    var nextMonth = desiredMonth + 1;
+    var nextYear = desiredYear;
+
+    if (nextMonth > 11) {
+      nextMonth = 0; // January (0-indexed)
+      nextYear++;
+    }
+
+    // Calculate one month later date
+    var oneMonthLater = new Date(
+      nextYear,
+      nextMonth,
+      desiredDate.getDate(),
+      desiredDate.getHours(),
+      desiredDate.getMinutes(),
+      desiredDate.getSeconds(),
+      desiredDate.getMilliseconds()
+    );
+
+    // Check if month overflow occurred
+    if (oneMonthLater.getMonth() !== nextMonth) {
+      // Overflow, set to the last day of the previous month
+      oneMonthLater = new Date(
+        nextYear,
+        nextMonth + 1,
+        0,
+        desiredDate.getHours(),
+        desiredDate.getMinutes(),
+        desiredDate.getSeconds(),
+        desiredDate.getMilliseconds()
+      );
+    }
+
+    return oneMonthLater;
+  }
+
   async function submitData(e) {
     e.preventDefault();
     if (
       mainData.currency &&
-      mainData.course == "alemalema" &&
+      (mainData.course == "alemalema" ||
+        mainData.course == "schoolalemalema") &&
       mainData.jamat != "none" &&
       mainData.jamat != "" &&
       mainData.semester != "none" &&
@@ -484,26 +631,6 @@ function PreFeeSection({ profile }) {
     ) {
       let currentDate = new Date();
       let oneYearLater = new Date(currentDate);
-
-      var currentMonth = currentDate.getMonth();
-      var currentYear = currentDate.getFullYear();
-
-      var nextMonth = currentMonth + 1;
-      var nextYear = currentYear;
-      if (nextMonth > 11) {
-        nextMonth = 0; // January (0-indexed)
-        nextYear++;
-      }
-
-      var oneMonthLater = new Date(
-        nextYear,
-        nextMonth,
-        currentDate.getDate(),
-        currentDate.getHours(),
-        currentDate.getMinutes(),
-        currentDate.getSeconds(),
-        currentDate.getMilliseconds()
-      );
 
       oneYearLater.setFullYear(currentDate.getFullYear() + 1);
 
@@ -550,7 +677,21 @@ function PreFeeSection({ profile }) {
           ],
           monthlyPaymentHistory: [
             {
-              Date: new Date(oneMonthLater),
+              Date: mainData.startDate && new Date(mainData.startDate),
+              PaymentStatus: false,
+              Price: "",
+              currency: "",
+              transactionID: "",
+              senderNo: "",
+              paymentWay: "",
+              nextMonthlyDate:
+                mainData.startDate &&
+                oneMonthLaterToDesiredDate(mainData.startDate).toISOString(),
+            },
+            {
+              Date:
+                mainData.startDate &&
+                oneMonthLaterToDesiredDate(mainData.startDate).toISOString(),
               PaymentStatus: false,
               Price: "",
               currency: "",
@@ -927,7 +1068,8 @@ function PreFeeSection({ profile }) {
       mainData.accountNo != "none" &&
       mainData.accountNo != "" &&
       mainData.paymentWay != "none" &&
-      mainData.paymentWay != ""
+      mainData.paymentWay != "" &&
+      mainData.batch != ""
     ) {
       let currentDate = new Date();
       let oneYearLater = new Date(currentDate);
@@ -997,7 +1139,21 @@ function PreFeeSection({ profile }) {
           ],
           monthlyPaymentHistory: [
             {
-              Date: new Date(oneMonthLater),
+              Date: mainData.startDate && new Date(mainData.startDate),
+              PaymentStatus: false,
+              Price: "",
+              currency: "",
+              transactionID: "",
+              senderNo: "",
+              paymentWay: "",
+              nextMonthlyDate:
+                mainData.startDate &&
+                oneMonthLaterToDesiredDate(mainData.startDate).toISOString(),
+            },
+            {
+              Date:
+                mainData.startDate &&
+                oneMonthLaterToDesiredDate(mainData.startDate).toISOString(),
               PaymentStatus: false,
               Price: "",
               currency: "",
@@ -1077,7 +1233,7 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails._id,
             mainData.department ? studentDepartment : undefined,
             mainData.semester ? studentSemester : undefined,
-            defaultBatch
+            mainData.batch ? mainData.batch : undefined
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -1275,7 +1431,7 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails._id,
             mainData.department ? studentDepartmentTwoFinal : undefined,
             mainData.semester ? studentSemesterTwoFinal : undefined,
-            defaultBatch
+            mainData.batch ? mainData.batch : undefined
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -1362,7 +1518,8 @@ function PreFeeSection({ profile }) {
       mainData.amountPaid == "none" &&
       mainData.transactionID == "none" &&
       mainData.accountNo == "none" &&
-      mainData.paymentWay == "none"
+      mainData.paymentWay == "none" &&
+      mainData.batch != ""
     ) {
       let currentDate = new Date();
       let oneYearLater = new Date(currentDate);
@@ -1376,16 +1533,6 @@ function PreFeeSection({ profile }) {
         nextMonth = 0; // January (0-indexed)
         nextYear++;
       }
-
-      var oneMonthLater = new Date(
-        nextYear,
-        nextMonth,
-        currentDate.getDate(),
-        currentDate.getHours(),
-        currentDate.getMinutes(),
-        currentDate.getSeconds(),
-        currentDate.getMilliseconds()
-      );
 
       oneYearLater.setFullYear(currentDate.getFullYear() + 1);
 
@@ -1432,9 +1579,23 @@ function PreFeeSection({ profile }) {
           ],
           monthlyPaymentHistory: [
             {
-              Date: new Date(oneMonthLater),
+              Date: mainData.startDate && new Date(mainData.startDate),
               PaymentStatus: true,
               Price: 0,
+              currency: "",
+              transactionID: "",
+              senderNo: "",
+              paymentWay: "",
+              nextMonthlyDate:
+                mainData.startDate &&
+                oneMonthLaterToDesiredDate(mainData.startDate).toISOString(),
+            },
+            {
+              Date:
+                mainData.startDate &&
+                oneMonthLaterToDesiredDate(mainData.startDate).toISOString(),
+              PaymentStatus: false,
+              Price: "",
               currency: "",
               transactionID: "",
               senderNo: "",
@@ -1512,7 +1673,7 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails._id,
             mainData.department ? studentDepartment : undefined,
             mainData.semester ? studentSemester : undefined,
-            defaultBatch
+            mainData.batch ? mainData.batch : undefined
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -1710,7 +1871,7 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails._id,
             mainData.department ? studentDepartmentTwoFinal : undefined,
             mainData.semester ? studentSemesterTwoFinal : undefined,
-            defaultBatch
+            mainData.batch ? mainData.batch : undefined
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -1790,6 +1951,7 @@ function PreFeeSection({ profile }) {
       mytoast.warning("Admission Form: One or more field is emplty");
     }
   }
+  console.log(mainData);
 
   return (
     <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">
@@ -1957,18 +2119,30 @@ function PreFeeSection({ profile }) {
                 </h1>
               </label>
               <select
-                value={mainData.batch}
                 onChange={batchChangeDecision}
                 id="batch"
                 name="batch"
                 className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
               >
-                <option className="p-4" value="">
+                <option
+                  className="p-4"
+                  value={JSON.stringify({
+                    batch: "",
+                    startDate: "",
+                  })}
+                >
                   আপনার ব্যাচ নির্বাচন করুন
                 </option>
                 {batch &&
                   batch.map((item, i) => (
-                    <option className="p-4" key={i} value={item.value}>
+                    <option
+                      className="p-4"
+                      key={i}
+                      value={JSON.stringify({
+                        batch: item.value,
+                        startDate: item.startDate,
+                      })}
+                    >
                       {item.name}
                     </option>
                   ))}

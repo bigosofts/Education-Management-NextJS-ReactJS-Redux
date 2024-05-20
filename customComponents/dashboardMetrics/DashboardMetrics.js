@@ -20,12 +20,17 @@ import { selectData as selectResults } from "@/apiservices/resultapiservices";
 import { selectData as selectSliders } from "@/apiservices/sliderapiservices";
 import { selectAllData as selectTeachers } from "@/apiservices/teacherapiservices";
 import { selectData as selectWidgets } from "@/apiservices/widgetapiservices";
+import {
+  selectDataTwo as selectPayments,
+  updateData as updatePayments,
+} from "@/apiservices/paymentapiservices";
 
 function DashboardMetrics(props) {
   const [data, setData] = useState();
   const [students, setStudents] = useState();
   const [allalemalema, setAllAlemalema] = useState();
   const [allurdu, setAllUrdu] = useState();
+  const [payments, setPayments] = useState();
 
   const [allFarzeayinampara, setAllFarzeayinampara] = useState();
   const [allEzranahusorof, setAllEzranahusorof] = useState();
@@ -55,6 +60,7 @@ function DashboardMetrics(props) {
           res10,
           res11,
           res12,
+          res13,
         ] = await Promise.all([
           selectStudents(null, null),
           selectAbouts(null, null),
@@ -69,9 +75,12 @@ function DashboardMetrics(props) {
           selectSliders(null, null),
           selectTeachers(null, null),
           selectWidgets(null, null),
+          selectPayments(null, null),
         ]);
 
         setStudents(res.data);
+        setPayments(res13.data);
+
         async function alemalemaQuery(datas) {
           return datas.filter((item) => {
             if (item.batchCount == "batch-20240605") {
@@ -1443,6 +1452,64 @@ function DashboardMetrics(props) {
     }
   }
 
+  // async function insertOneRecord() {
+  //   let idArray = [];
+  //   for (let i = 547; i <= 1622; i++) {
+  //     let id = "payment-IMS202404" + i.toString().padStart(4, "0");
+  //     idArray.push(id);
+  //   }
+  
+  //   if (Array.isArray(payments) && payments.length > 0) {
+  //     for (const item of idArray) {
+  //       let specificPayment = payments.find((item2) => item2.paymentID === item);
+  //       if (specificPayment) {
+  //         let object = {
+  //           Date: new Date("2024-04-20").toISOString(),
+  //           PaymentStatus: false,
+  //           Price: null,
+  //           currency: "",
+  //           transactionID: "",
+  //           senderNo: "",
+  //           paymentWay: "",
+  //         };
+  
+  //         let newMonthlyPaymentHistory = [
+  //           ...specificPayment.monthlyPaymentHistory,
+  //         ];
+  
+  //         // Add the object to the beginning of the array
+  //         newMonthlyPaymentHistory.unshift(object);
+  
+  //         specificPayment.monthlyPaymentHistory = newMonthlyPaymentHistory;
+  
+  //         try {
+  //           const res = await updatePayments({
+  //             paymentID: specificPayment.paymentID,
+  //             paymentCurrency: specificPayment.paymentCurrency,
+  //             admissionDate: specificPayment.admissionDate,
+  //             admissionPrice: specificPayment.admissionPrice,
+  //             monthlyPaymentPrice: specificPayment.monthlyPaymentPrice,
+  //             admissionPaymentHistory: specificPayment.admissionPaymentHistory,
+  //             monthlyPaymentHistory: specificPayment.monthlyPaymentHistory,
+  //             activeStatus: specificPayment.activeStatus,
+  //             idValue: specificPayment._id,
+  //           });
+  
+  //           if (res.status === "Alhamdulillah") {
+  //             console.log(`Data updated: ${specificPayment.paymentID}`, specificPayment);
+  //           }
+  //         } catch (error) {
+  //           console.error(`Error updating payment ${specificPayment.paymentID}:`, error);
+  //         }
+  //       }
+  //     }
+  //   } else {
+  //     console.log('No payments data available.');
+  //   }
+  // }
+  
+  
+
   if (data) {
     return (
       <div className="main-box w-full min-w-[250px] overflow-y-scroll mx-5 pb-10">
@@ -2296,6 +2363,11 @@ function DashboardMetrics(props) {
         <br />
         <br />
         <button onClick={changeBatch12}>Change Batch for Abacus Student</button>
+        <br />
+        <br />
+        <button onClick={insertOneRecord}>
+          Change Batch for Abacus Student
+        </button>
         <br />
         <br />
       </div>

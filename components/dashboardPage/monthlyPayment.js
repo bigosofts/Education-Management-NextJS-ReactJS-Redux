@@ -236,6 +236,13 @@ function MonthlyPayment() {
           <p>সেন্ডার নাম্বারঃ ${mainData.accountNo}</p>
           <p>পেমেন্টের মাধ্যমঃ ${mainData.paymentWay}</p>`
         );
+
+        const hardRefresh = () => {
+          if (typeof window !== "undefined") {
+            window.location.href = `/dashboard/${data.data.userDetails.userName}/fees`;
+          }
+        };
+        hardRefresh();
       }
     } else {
       mytoast.warning("Monthly form: One or more field is empty");

@@ -225,11 +225,21 @@ function page(props) {
               });
 
               if (res4.status == "Alhamdulillah") {
-                let haveOrNot = newMonthlyPayment.some((item) => {
-                  return item.PaymentStatus == false;
-                });
-                if (haveOrNot) {
-                  mytoast.success("আপনার মাসিক টিউশন ফি বকেয়া আছে");
+                let testMonthlyPayment = [...newMonthlyPayment];
+
+                let currentDate = new Date();
+                let lastDate = new Date(
+                  testMonthlyPayment[testMonthlyPayment.length - 1].Date
+                );
+
+                if (currentDate > lastDate) {
+                  let hasUnpaid = testMonthlyPayment
+                    .slice(0, -1)
+                    .some((item) => item.PaymentStatus === false);
+
+                  if (hasUnpaid) {
+                    mytoast.success("আপনার মাসিক টিউশন ফি বকেয়া আছে");
+                  }
                 }
               }
             }
