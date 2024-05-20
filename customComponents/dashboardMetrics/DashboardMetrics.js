@@ -2317,7 +2317,7 @@ function DashboardMetrics(props) {
             </div>
           </div>
         </div>
-        <button onClick={changeBatch1}>
+        {/* <button onClick={changeBatch1}>
           Change Batch for alemalema students
         </button>
         <br />
@@ -2369,7 +2369,7 @@ function DashboardMetrics(props) {
           Change Batch for Abacus Student
         </button>
         <br />
-        <br />
+        <br /> */}
       </div>
     );
   }
