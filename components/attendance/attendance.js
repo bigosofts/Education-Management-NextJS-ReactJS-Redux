@@ -286,7 +286,7 @@ function AttendancePageCustom() {
                       }}
                       className="text-white w-2/3 mx-auto text-xl mt-5 mb-5 px-4 py-3 hover:bg-[#532d80] rounded-lg bg-green-800 cursor-pointer font-extrabold text-center"
                     >
-                      কুইজের প্রশ্ন লিখুন
+                      কুইজের উত্তর দিন
                     </div>
                   </div>
                 )}
