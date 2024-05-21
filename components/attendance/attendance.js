@@ -230,6 +230,7 @@ function AttendancePageCustom() {
   }
   function changeState1(id) {
     setSpecificClass(classes.find((item) => item._id == id));
+
     setChange((prev) => !prev);
   }
 

@@ -8,6 +8,7 @@ import mytoast from "@/components/toast/toast";
 
 function QuizAttendance({ classSelection, allsubmited }) {
   let specificClass = classSelection;
+
   const data = useSelector((state) => state.isAdmin.value);
   const [question, setQuestion] = useState([]);
 
@@ -34,7 +35,7 @@ function QuizAttendance({ classSelection, allsubmited }) {
   async function present() {
     let classWant = specificClass;
     let specificStudent = classWant.students.find(
-      (item) => (item.SID = data.data.userDetails.userName)
+      (item) => item.SID == data.data.userDetails.userName
     );
 
     let specificStdAttendance = specificStudent.attendance.find(
@@ -82,7 +83,7 @@ function QuizAttendance({ classSelection, allsubmited }) {
   async function absent() {
     let classWant = specificClass;
     let specificStudent = classWant.students.find(
-      (item) => (item.SID = data.data.userDetails.userName)
+      (item) => item.SID == data.data.userDetails.userName
     );
 
     let specificStdAttendance = specificStudent.attendance.find(
@@ -138,11 +139,13 @@ function QuizAttendance({ classSelection, allsubmited }) {
             ].presentTime
           )
         ) {
-          let completionProgress = [
-            ...specificClass.teacher.attendance[
-              specificClass.teacher.attendance.length - 1
-            ].completionProgress,
-          ];
+          let completionProgress = JSON.parse(
+            JSON.stringify(
+              specificClass.teacher.attendance[
+                specificClass.teacher.attendance.length - 1
+              ].completionProgress
+            )
+          );
 
           setQuestion(completionProgress);
 
@@ -153,7 +156,7 @@ function QuizAttendance({ classSelection, allsubmited }) {
           );
 
           let specificStudent = specificClass.students.find(
-            (item) => (item.SID = data.data.userDetails.userName)
+            (item) => item.SID == data.data.userDetails.userName
           );
 
           let specificStdAttendance = specificStudent.attendance.find(
@@ -242,7 +245,7 @@ function QuizAttendance({ classSelection, allsubmited }) {
     let classWant = specificClass;
 
     let specificStudent = classWant.students.find(
-      (item) => (item.SID = data.data.userDetails.userName)
+      (item) => item.SID == data.data.userDetails.userName
     );
 
     let specificStdAttendance = specificStudent.attendance.find(
