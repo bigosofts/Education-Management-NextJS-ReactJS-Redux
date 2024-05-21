@@ -16,8 +16,15 @@ function AttendancePageCustom() {
   const data = useSelector((state) => state.isAdmin.value);
   const courseState = useSelector((state) => state.courseState.value);
   const [change, setChange] = useState(false);
+
   const [specificClass, setSpecificClass] = useState();
-  const [show, setShow] = useState(true);
+  const [isSubmited, setIsSubmited] = useState();
+  const [completion, setCompletion] = useState();
+
+  function allsubmited(completion) {
+    setIsSubmited(true);
+    setCompletion(completion);
+  }
 
   useEffect(() => {
     async function getData() {
@@ -177,13 +184,26 @@ function AttendancePageCustom() {
     return dayName;
   }
 
+  function isWithinOneDay(currentDate, specificDate) {
+    const oneDayInMillis = 24 * 60 * 60 * 1000; // Milliseconds in one day
+
+    // Calculate the difference in time
+    const timeDifference = new Date(currentDate) - new Date(specificDate);
+
+    // Convert the time difference to days
+    const dayDifference = timeDifference / oneDayInMillis;
+
+    // Check if the difference is not more than 1 day
+    return dayDifference <= 1;
+  }
+
   function getTodayQuestion(classID, isoStringDate) {
     let specificClass = classes.find((item) => item.classID == classID);
     let specificQuestion;
 
     if (specificClass.teacher.attendance.length > 0) {
-      specificQuestion = specificClass.teacher.attendance.find(
-        (item) => item.presentTime == isoStringDate
+      specificQuestion = specificClass.teacher.attendance.find((item) =>
+        isWithinOneDay(isoStringDate, item.presentTime)
       );
     } else {
       specificQuestion = undefined;
@@ -213,98 +233,6 @@ function AttendancePageCustom() {
     setChange((prev) => !prev);
   }
 
-  async function submitQuiz(specificClass) {
-    setShow(false);
-
-    setTimeout(() => {
-      setShow(true);
-    }, 5000);
-
-    let attendance = specificClass.teacher.attendance;
-    let currentDate = niceDate(Date.now());
-
-    let haveData = attendance.find((item) => item.presentTime == currentDate);
-
-    if (
-      questionNoref.current.value &&
-      questionref.current.value &&
-      option1ref.current.value &&
-      option2ref.current.value &&
-      option3ref.current.value &&
-      answerref.current.value
-    ) {
-      let questionData = {
-        questionNo: questionNoref.current.value,
-        question: questionref.current.value,
-        multipleChoice: {
-          choice1: option1ref.current.value,
-          choice2: option2ref.current.value,
-          choice3: option3ref.current.value,
-          answer:
-            answerref.current.value == "option1"
-              ? option1ref.current.value
-              : answerref.current.value == "option2"
-              ? option2ref.current.value
-              : option3ref.current.value,
-        },
-      };
-
-      if (haveData) {
-        let completionProgress = haveData.completionProgress;
-        let havesame = completionProgress.find(
-          (item) => item.questionNo == questionNoref.current.value
-        );
-
-        if (havesame) {
-          completionProgress = completionProgress.map((item) =>
-            item.questionNo == questionNoref.current.value ? questionData : item
-          );
-        } else {
-          completionProgress.push(questionData);
-        }
-
-        haveData.completionProgress = completionProgress;
-      } else {
-        attendance.push({
-          month: niceDateMonth(Date.now()),
-          dayName: niceDateDayName(),
-          dayNumber: niceDateDay(Date.now()),
-          presentTime: currentDate,
-          isPresent: true,
-          completionProgress: [questionData],
-        });
-      }
-
-      specificClass.teacher.attendance = attendance;
-
-      const res = await updateClass({
-        classID: specificClass.classID,
-        courseID: specificClass.courseID,
-        batchNo: specificClass.batchNo,
-        maleClassLink: specificClass.maleClassLink,
-        femaleClassLink: specificClass.femaleClassLink,
-        departmentID: specificClass.departmentID,
-        jamatID: specificClass.jamatID,
-        semesterID: specificClass.semesterID,
-        bookID: specificClass.bookID,
-        teacher: specificClass.teacher,
-        examQuestion: specificClass.examQuestion,
-        students: specificClass.students,
-        classStartTime: specificClass.classStartTime,
-        classEndTime: specificClass.classEndTime,
-        activeStatus: specificClass.activeStatus,
-        idValue: specificClass._id,
-      });
-
-      if (res.status == "Alhamdulillah") {
-        mytoast.success("Question has been added");
-        setSpecificClass(specificClass);
-      }
-    } else {
-      mytoast.danger("One or more field is empty");
-    }
-  }
-
   if (classes) {
     return (
       <div className="w-full">
@@ -313,6 +241,9 @@ function AttendancePageCustom() {
             Student Attendance (Total Active Classes:{" "}
             {classes && classes.length})
           </h1>
+          <div className="text-white text-2xl bg-[#532d80] p-2 m-2 rounded-lg text-center md:w-2/3 w-full mx-auto">
+            {data.data.userDetails.batchCount}
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
             {classes.map((item, i) => (
@@ -323,7 +254,10 @@ function AttendancePageCustom() {
                 {!change && (
                   <div className="">
                     <div className="text-white text-2xl bg-[#532d80] p-2 m-2 rounded-lg text-center">
-                      {item.batchNo}
+                      {books &&
+                        item.bookID &&
+                        findBooks(item.bookID).bookName.bn}
+                      {books && !item.bookID && "বই উল্ল্যেখিত নেই"}
                     </div>
                     <div className="text-slate-900 mt-5 px-5 text-lg">
                       Class: {item.classID}
@@ -340,7 +274,7 @@ function AttendancePageCustom() {
                     </div>
 
                     <div className="text-slate-900 px-5 text-lg">
-                      Question Submited:{" "}
+                      Question Found:{" "}
                       {getTodayQuestion(item.classID, niceDate(Date.now())) ||
                         "Not Found"}
                     </div>
@@ -353,13 +287,6 @@ function AttendancePageCustom() {
                       className="text-white w-2/3 mx-auto text-xl mt-5 mb-5 px-4 py-3 hover:bg-[#532d80] rounded-lg bg-green-800 cursor-pointer font-extrabold text-center"
                     >
                       কুইজের প্রশ্ন লিখুন
-                    </div>
-
-                    <div className="px-5 text-2xl py-5 bg-white text-slate-900 text-center rounded-b-lg">
-                      {books &&
-                        item.bookID &&
-                        findBooks(item.bookID).bookName.bn}
-                      {books && !item.bookID && "বই উল্ল্যেখিত নেই"}
                     </div>
                   </div>
                 )}
@@ -414,22 +341,30 @@ function AttendancePageCustom() {
                 </div>
                 {/* workishere */}
                 <div className="mb-20 md:mb-0 p-1 md:p-5">
-                  <QuizAttendance classSelection={specificClass} />
+                  <QuizAttendance
+                    classSelection={specificClass}
+                    allsubmited={allsubmited}
+                  />
                 </div>
 
                 <div className="text-white p-1 md:p-5">
                   <div className="p-5 border-[2px] border-slate-300 rounded-xl h-[330px] overflow-y-scroll">
-                    <div>
-                      <p className="mt-5"> ডেমো ? </p>
-                      <p className="text-sm"> অপশন ১ঃ উত্তর ১ </p>
-                      <p className="text-sm"> অপশন ২ঃ উত্তর ২</p>
-                      <p className="text-sm"> অপশন ৩ঃ উত্তর ৩</p>
+                    {isSubmited &&
+                      completion &&
+                      completion.map((item, i, array) => (
+                        <div key={i}>
+                          <p className="mt-5"> {item.question}</p>
 
-                      <p className="text-lg text-orange-200 mt-2">
-                        {" "}
-                        সঠিক উত্তরঃ সঠিক উত্তর
-                      </p>
-                    </div>
+                          <p className="text-lg text-orange-200 mt-2">
+                            {" "}
+                            সঠিক উত্তরঃ {item.answer}
+                          </p>
+                          <p className="text-lg text-orange-200 mt-2">
+                            {" "}
+                            প্রাপ্ত মার্কঃ {item.mark}
+                          </p>
+                        </div>
+                      ))}
                   </div>
                 </div>
 

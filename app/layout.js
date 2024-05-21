@@ -1,6 +1,7 @@
 import "./globals.css";
 import "../assets/css/font-awesome.min.css";
 import "animate.css";
+import Head from "next/head";
 
 import { Providers } from "./redux/provider";
 import { GoogleTagManagerBeforeBody } from "@/helper/googleTagBeforeBody";
@@ -19,6 +20,13 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <meta
+          property="og:image"
+          content="https://www.internetmadrasa.com/logo.png"
+        />
+        {/* You can add other meta tags, title, etc., here */}
+      </Head>
       <body>
         {/* <GoogleTagManagerBeforeHeader /> */}
         <GoogleTagManagerBeforeHeaderTwo />

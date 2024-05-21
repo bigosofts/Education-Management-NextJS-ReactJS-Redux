@@ -6,19 +6,16 @@ import { updateData } from "@/apiservices/classapiservices";
 import "./quiz.css";
 import mytoast from "@/components/toast/toast";
 
-function QuizAttendance({ classSelection }) {
+function QuizAttendance({ classSelection, allsubmited }) {
+  let specificClass = classSelection;
   const data = useSelector((state) => state.isAdmin.value);
   const [question, setQuestion] = useState([]);
+
+  const [counter, setCounter] = useState(1);
   const [isPresent, setIsPresent] = useState();
   const [lastAttendanceDate, setLastAttendanceDate] = useState();
-  const [attendanceID, setAttendanceID] = useState();
-  const [complessionProgressID, setComplessionProgressID] = useState();
   const [render, setRender] = useState(true);
 
-  const [anser, setAnswer] = useState({
-    isPresent: false,
-    answer: [],
-  });
   let currentDate = new Date();
 
   function isWithinOneDay(currentDate, specificDate) {
@@ -149,12 +146,6 @@ function QuizAttendance({ classSelection }) {
 
           setQuestion(completionProgress);
 
-          setAttendanceID(
-            specificClass.teacher.attendance[
-              specificClass.teacher.attendance.length - 1
-            ]._id
-          );
-
           setLastAttendanceDate(
             specificClass.teacher.attendance[
               specificClass.teacher.attendance.length - 1
@@ -230,6 +221,7 @@ function QuizAttendance({ classSelection }) {
     var formattedDate = date.toLocaleDateString("en-US", options);
     return formattedDate;
   }
+
   function niceDateDayName(date) {
     let cDate = new Date(date);
     let dayNames = [
@@ -246,36 +238,199 @@ function QuizAttendance({ classSelection }) {
     return dayName;
   }
 
-  let specificClass = classSelection;
+  async function writeAnswer(answer, question, correct, counter, question2) {
+    let classWant = specificClass;
 
+    let specificStudent = classWant.students.find(
+      (item) => (item.SID = data.data.userDetails.userName)
+    );
+
+    let specificStdAttendance = specificStudent.attendance.find(
+      (item) => item.presentTime == lastAttendanceDate
+    );
+
+    let completionProgress = specificStdAttendance.completionProgress;
+
+    if (specificStdAttendance) {
+      if (completionProgress.length >= 1) {
+        if (counter == completionProgress.length) {
+          setIsPresent("done");
+          mytoast.danger("Data Already Recorded");
+        } else if (completionProgress.length > counter) {
+          setIsPresent("done");
+          mytoast.danger("Data Already Recorded");
+        } else {
+          completionProgress.push({
+            mark: answer == correct ? 1 : 0,
+            answer: correct,
+            question: question,
+          });
+
+          const res = await updateData({
+            classID: specificClass.classID,
+            courseID: specificClass.courseID,
+            batchNo: specificClass.batchNo,
+            maleClassLink: specificClass.maleClassLink,
+            femaleClassLink: specificClass.femaleClassLink,
+            departmentID: specificClass.departmentID,
+            jamatID: specificClass.jamatID,
+            semesterID: specificClass.semesterID,
+            bookID: specificClass.bookID,
+            teacher: specificClass.teacher,
+            examQuestion: specificClass.examQuestion,
+            students: specificClass.students,
+            classStartTime: specificClass.classStartTime,
+            classEndTime: specificClass.classEndTime,
+            activeStatus: specificClass.activeStatus,
+            idValue: specificClass._id,
+          });
+
+          if (res.status == "Alhamdulillah") {
+            mytoast.success("Answer has been Recorded");
+
+            if (counter == question2.length) {
+              mytoast.success("All Answer has been submitted");
+              setIsPresent("done");
+              allsubmited(completionProgress);
+            } else {
+              setCounter((prev) => prev + 1);
+            }
+          }
+        }
+      } else {
+        completionProgress.push({
+          mark: answer == correct ? 1 : 0,
+          answer: correct,
+          question: question,
+        });
+
+        const res = await updateData({
+          classID: specificClass.classID,
+          courseID: specificClass.courseID,
+          batchNo: specificClass.batchNo,
+          maleClassLink: specificClass.maleClassLink,
+          femaleClassLink: specificClass.femaleClassLink,
+          departmentID: specificClass.departmentID,
+          jamatID: specificClass.jamatID,
+          semesterID: specificClass.semesterID,
+          bookID: specificClass.bookID,
+          teacher: specificClass.teacher,
+          examQuestion: specificClass.examQuestion,
+          students: specificClass.students,
+          classStartTime: specificClass.classStartTime,
+          classEndTime: specificClass.classEndTime,
+          activeStatus: specificClass.activeStatus,
+          idValue: specificClass._id,
+        });
+
+        if (res.status == "Alhamdulillah") {
+          mytoast.success("Answer has been Recorded");
+          setCounter((prev) => prev + 1);
+        }
+      }
+    }
+  }
   return (
-    <div class="wrapperQuiz">
+    <div className="wrapperQuiz">
       {isPresent == "ok" && (
         <>
           <div id="quiz">
             <div className="insideQuiz">
-              <p id="question"></p>
+              <p id="question">
+                {counter && question && question[counter - 1].question}
+              </p>
 
               <div class="buttons">
-                <button id="btn0">
-                  <span id="choice0"></span>
+                <button
+                  onClick={() =>
+                    writeAnswer(
+                      counter &&
+                        question &&
+                        question[counter - 1].multipleChoice.choice1,
+                      counter && question && question[counter - 1].question,
+                      counter &&
+                        question &&
+                        question[counter - 1].multipleChoice.answer,
+                      counter,
+                      question
+                    )
+                  }
+                  id="btn0"
+                >
+                  <span id="choice0">
+                    {counter &&
+                      question &&
+                      question[counter - 1].multipleChoice.choice1}
+                  </span>
                 </button>
-                <button id="btn1">
-                  <span id="choice1"></span>
+                <button
+                  onClick={() =>
+                    writeAnswer(
+                      counter &&
+                        question &&
+                        question[counter - 1].multipleChoice.choice2,
+                      counter && question && question[counter - 1].question,
+                      counter &&
+                        question &&
+                        question[counter - 1].multipleChoice.answer,
+                      counter,
+                      question
+                    )
+                  }
+                  id="btn1"
+                >
+                  <span id="choice1">
+                    {counter &&
+                      question &&
+                      question[counter - 1].multipleChoice.choice2}
+                  </span>
                 </button>
-                <button id="btn2">
-                  <span id="choice2"></span>
+                <button
+                  onClick={() =>
+                    writeAnswer(
+                      counter &&
+                        question &&
+                        question[counter - 1].multipleChoice.choice3,
+                      counter && question && question[counter - 1].question,
+                      counter &&
+                        question &&
+                        question[counter - 1].multipleChoice.answer,
+                      counter,
+                      question
+                    )
+                  }
+                  id="btn2"
+                >
+                  <span id="choice3">
+                    {counter &&
+                      question &&
+                      question[counter - 1].multipleChoice.choice3}
+                  </span>
                 </button>
               </div>
             </div>
           </div>
           <footer>
             <p id="progress">
-              <div className="progress-number">1</div> of{" "}
-              <div className="progress-number">5</div>
+              <div className="progress-number">
+                {counter && question && counter}
+              </div>{" "}
+              of{" "}
+              <div className="progress-number">
+                {counter && question && question.length}
+              </div>
             </p>
           </footer>
         </>
+      )}
+
+      {isPresent == "done" && (
+        <div style={{ color: "#fff", textAlign: "center", fontSize: "24px" }}>
+          আলহামদুলিল্লাহ, আপনি সকল প্রশ্নের উত্তর দিয়েছেন, আপনার প্রতিদিনের
+          প্রাপ্ত মার্ক প্রতি সেমিস্টার শেষে মূল্যায়ন করা হবে। প্রতিদিনের প্রশ্ন
+          উত্তর দেয়ার মাধ্যমে আপনি অনেক কিছু জানতে পারবেন ইং শা আল্লাহ। তাই
+          উত্তর ভুল হলেও শিখে নিন যাতে পরবর্তীতে একই ভুল না হয়।
+        </div>
       )}
 
       {isPresent == "vaccant" && (
