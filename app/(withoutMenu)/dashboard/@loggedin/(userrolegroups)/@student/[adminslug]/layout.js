@@ -375,6 +375,7 @@ function StudentLayout({ children, params }) {
       let a = classes.filter((item) => {
         return item.courseID == "alemalema" && item.semesterID == "semester01";
       });
+      
       if (a.length > 0) {
         a.forEach(async (item) => {
           // a is class object array

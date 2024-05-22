@@ -92,7 +92,7 @@ function DashboardMetrics(props) {
 
         async function alemalemaQuery(datas) {
           return datas.filter((item) => {
-            if (item.batchCount == "batch-20240605") {
+            if (item.batchCount == "batch-20240420") {
               let semester = item.studentSemester.filter((item) => {
                 return /semester/i.test(item.code) && item.status == "active";
               });
@@ -1542,35 +1542,138 @@ function DashboardMetrics(props) {
   //   }
   // }
 
-  // async function changeClass(classes) {
-  //   for (const item of classes) {
-  //     try {
-  //       const res = await updateClasses({
-  //         classID: item.classID,
-  //         courseID: item.courseID,
-  //         batchNo: item.batchNo,
-  //         maleClassLink: item.maleClassLink,
-  //         femaleClassLink: item.femaleClassLink,
-  //         departmentID: item.departmentID,
-  //         jamatID: item.jamatID,
-  //         semesterID: item.semesterID,
-  //         bookID: item.bookID,
-  //         teacher: item.teacher,
-  //         examQuestion: item.examQuestion,
-  //         students: [],
-  //         classStartTime: item.classStartTime,
-  //         classEndTime: item.classEndTime,
-  //         activeStatus: item.activeStatus,
-  //         idValue: item._id,
-  //       });
-  //       console.log('Class updated successfully:', res);
-  //     } catch (error) {
-  //       console.error('Error updating class:', error);
-  //     }
-  //   }
-  // }
-  
- 
+  async function changeClass(classes) {
+    for (const item of classes) {
+      try {
+        const res = await updateClasses({
+          classID: item.classID,
+          courseID: item.courseID,
+          batchNo: item.batchNo,
+          maleClassLink: item.maleClassLink,
+          femaleClassLink: item.femaleClassLink,
+          departmentID: item.departmentID,
+          jamatID: item.jamatID,
+          semesterID: item.semesterID,
+          bookID: item.bookID,
+          teacher: item.teacher,
+          examQuestion: item.examQuestion,
+          students: [],
+          classStartTime: item.classStartTime,
+          classEndTime: item.classEndTime,
+          activeStatus: item.activeStatus,
+          idValue: item._id,
+        });
+        console.log("Class updated successfully:", res);
+      } catch (error) {
+        console.error("Error updating class:", error);
+      }
+    }
+  }
+
+  async function setStudentToClass(datas, classes) {
+    // Filter specific students based on batch and active semester
+    let specificStudent = datas.filter((item) => {
+      if (item.batchCount == "batch-20240420") {
+        let semester = item.studentSemester.filter((sem) => {
+          return /semester/i.test(sem.code) && sem.status == "active";
+        });
+
+        if (semester.length > 1) {
+          if (semester[semester.length - 1].code == "semester01") {
+            return true;
+          }
+        } else if (semester.length == 1) {
+          if (semester[semester.length - 1].code == "semester01") {
+            return true;
+          }
+        }
+      }
+      return false;
+    });
+
+    // Filter classes based on course ID and semester ID
+    let relevantClasses = classes.filter((cls) => {
+      return (
+        cls.courseID == "alemalema" &&
+        cls.semesterID == "semester01" &&
+        cls.batchNo == "batch-20240420"
+      );
+    });
+
+    if (relevantClasses.length > 0) {
+      for (const cls of relevantClasses) {
+        for (const student of specificStudent) {
+          // If the class has no students, add the student
+          if (cls.students.length == 0) {
+            cls.students.push({
+              SID: student.userName,
+              sName: student.firstName.en + " " + student.lastName.en,
+              mobileNumber: student.mobileNumber,
+              attendance: [],
+            });
+
+            const res = await updateClasses({
+              classID: cls.classID,
+              courseID: cls.courseID,
+              batchNo: cls.batchNo,
+              maleClassLink: cls.maleClassLink,
+              femaleClassLink: cls.femaleClassLink,
+              departmentID: cls.departmentID,
+              jamatID: cls.jamatID,
+              semesterID: cls.semesterID,
+              bookID: cls.bookID,
+              teacher: cls.teacher,
+              examQuestion: cls.examQuestion,
+              students: cls.students,
+              classStartTime: cls.classStartTime,
+              classEndTime: cls.classEndTime,
+              activeStatus: cls.activeStatus,
+              idValue: cls._id,
+            });
+
+            if (res.status == "Alhamdulillah") {
+              console.log(
+                "A student record has been created inside " + cls.classID
+              );
+            }
+          } else if (!cls.students.some((s) => s.SID == student.userName)) {
+            // If the student is not already in the class, add the student
+            cls.students.push({
+              SID: student.userName,
+              sName: student.firstName.en + " " + student.lastName.en,
+              mobileNumber: student.mobileNumber,
+              attendance: [],
+            });
+
+            const res = await updateClasses({
+              classID: cls.classID,
+              courseID: cls.courseID,
+              batchNo: cls.batchNo,
+              maleClassLink: cls.maleClassLink,
+              femaleClassLink: cls.femaleClassLink,
+              departmentID: cls.departmentID,
+              jamatID: cls.jamatID,
+              semesterID: cls.semesterID,
+              bookID: cls.bookID,
+              teacher: cls.teacher,
+              examQuestion: cls.examQuestion,
+              students: cls.students,
+              classStartTime: cls.classStartTime,
+              classEndTime: cls.classEndTime,
+              activeStatus: cls.activeStatus,
+              idValue: cls._id,
+            });
+
+            if (res.status == "Alhamdulillah") {
+              console.log(
+                "A student record has been created inside " + cls.classID
+              );
+            }
+          }
+        }
+      }
+    }
+  }
 
   if (data) {
     return (
@@ -2432,6 +2535,15 @@ function DashboardMetrics(props) {
         </button>
         <br />
         <br /> */}
+        <button
+          onClick={() =>
+            students && classes && setStudentToClass(students, classes)
+          }
+        >
+          Set Students of l1s1 to class
+        </button>
+
+        <button onClick={() => classes && changeClass(classes)}>format</button>
       </div>
     );
   }
