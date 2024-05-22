@@ -25,12 +25,18 @@ import {
   updateData as updatePayments,
 } from "@/apiservices/paymentapiservices";
 
+import {
+  selectDataTwo as selectClasses,
+  updateData as updateClasses,
+} from "@/apiservices/classapiservices";
+
 function DashboardMetrics(props) {
   const [data, setData] = useState();
   const [students, setStudents] = useState();
   const [allalemalema, setAllAlemalema] = useState();
   const [allurdu, setAllUrdu] = useState();
   const [payments, setPayments] = useState();
+  const [classes, setClasses] = useState();
 
   const [allFarzeayinampara, setAllFarzeayinampara] = useState();
   const [allEzranahusorof, setAllEzranahusorof] = useState();
@@ -61,6 +67,7 @@ function DashboardMetrics(props) {
           res11,
           res12,
           res13,
+          res14,
         ] = await Promise.all([
           selectStudents(null, null),
           selectAbouts(null, null),
@@ -76,10 +83,12 @@ function DashboardMetrics(props) {
           selectTeachers(null, null),
           selectWidgets(null, null),
           selectPayments(null, null),
+          selectClasses(null, null),
         ]);
 
         setStudents(res.data);
         setPayments(res13.data);
+        setClasses(res14.data);
 
         async function alemalemaQuery(datas) {
           return datas.filter((item) => {
@@ -536,6 +545,7 @@ function DashboardMetrics(props) {
             }
           });
         }
+
         async function urduQuery(datas) {
           return datas.filter((item) => {
             let course = item.studentCourseCode.filter((item) => {
@@ -553,6 +563,7 @@ function DashboardMetrics(props) {
             }
           });
         }
+
         async function ramadanquranulkarimQuery(datas) {
           return datas.filter((item) => {
             let course = item.studentCourseCode.filter((item) => {
@@ -573,6 +584,7 @@ function DashboardMetrics(props) {
             }
           });
         }
+
         async function shishunajeraQuery(datas) {
           return datas.filter((item) => {
             let course = item.studentCourseCode.filter((item) => {
@@ -1529,6 +1541,36 @@ function DashboardMetrics(props) {
   //     console.error("An error occurred while modifying records:", error);
   //   }
   // }
+
+  // async function changeClass(classes) {
+  //   for (const item of classes) {
+  //     try {
+  //       const res = await updateClasses({
+  //         classID: item.classID,
+  //         courseID: item.courseID,
+  //         batchNo: item.batchNo,
+  //         maleClassLink: item.maleClassLink,
+  //         femaleClassLink: item.femaleClassLink,
+  //         departmentID: item.departmentID,
+  //         jamatID: item.jamatID,
+  //         semesterID: item.semesterID,
+  //         bookID: item.bookID,
+  //         teacher: item.teacher,
+  //         examQuestion: item.examQuestion,
+  //         students: [],
+  //         classStartTime: item.classStartTime,
+  //         classEndTime: item.classEndTime,
+  //         activeStatus: item.activeStatus,
+  //         idValue: item._id,
+  //       });
+  //       console.log('Class updated successfully:', res);
+  //     } catch (error) {
+  //       console.error('Error updating class:', error);
+  //     }
+  //   }
+  // }
+  
+ 
 
   if (data) {
     return (
