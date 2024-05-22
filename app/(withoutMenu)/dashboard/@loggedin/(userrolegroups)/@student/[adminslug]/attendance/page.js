@@ -66,7 +66,13 @@ function AttendancePage() {
     ) {
       return <WaitingApproval />;
     } else if (showPage) {
-      return <AttendancePageCustom />;
+      // return <AttendancePageCustom />;
+      return (
+        <div style={{ textAlign: "center", fontSize: "24px" }}>
+          Attendance page is coming soon after fixing some problem. Don't be
+          panic. Everything will be fixed soon
+        </div>
+      );
     } else if (!showPage) {
       return <NotAllow allowList={allowList} />;
     }

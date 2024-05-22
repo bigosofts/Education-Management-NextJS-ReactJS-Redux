@@ -1452,63 +1452,83 @@ function DashboardMetrics(props) {
     }
   }
 
-  // async function insertOneRecord() {
+  // async function modifyRecord(payments) {
+  //   if (!Array.isArray(payments) || payments.length === 0) {
+  //     console.log("No payments data available.");
+  //     return;
+  //   }
+
   //   let idArray = [];
   //   for (let i = 547; i <= 1622; i++) {
   //     let id = "payment-IMS202404" + i.toString().padStart(4, "0");
   //     idArray.push(id);
   //   }
-  
-  //   if (Array.isArray(payments) && payments.length > 0) {
+
+  //   const updatePaymentHistory = (paymentHistory) => {
+  //     const firstElement = paymentHistory[0];
+  //     const secondElement = paymentHistory[1];
+
+  //     const firstElementHasDetails =
+  //       firstElement.Price &&
+  //       firstElement.currency &&
+  //       firstElement.transactionID &&
+  //       firstElement.senderNo &&
+  //       firstElement.paymentWay;
+  //     const secondElementHasDetails =
+  //       secondElement.Price &&
+  //       secondElement.currency &&
+  //       secondElement.transactionID &&
+  //       secondElement.senderNo &&
+  //       secondElement.paymentWay;
+
+  //     if (!firstElementHasDetails && secondElementHasDetails) {
+  //       // Replace details of the first element with the second element's details
+  //       firstElement.Price = secondElement.Price;
+  //       firstElement.currency = secondElement.currency;
+  //       firstElement.transactionID = secondElement.transactionID;
+  //       firstElement.senderNo = secondElement.senderNo;
+  //       firstElement.paymentWay = secondElement.paymentWay;
+
+  //       // Clear the details of the second element
+  //       secondElement.Price = null;
+  //       secondElement.currency = "";
+  //       secondElement.transactionID = "";
+  //       secondElement.senderNo = "";
+  //       secondElement.paymentWay = "";
+  //     }
+
+  //     // Other conditions are implicitly handled by doing nothing
+  //   };
+
+  //   try {
   //     for (const item of idArray) {
-  //       let specificPayment = payments.find((item2) => item2.paymentID === item);
+  //       let specificPayment = payments.find(
+  //         (item2) => item2.paymentID === item
+  //       );
   //       if (specificPayment) {
-  //         let object = {
-  //           Date: new Date("2024-04-20").toISOString(),
-  //           PaymentStatus: false,
-  //           Price: null,
-  //           currency: "",
-  //           transactionID: "",
-  //           senderNo: "",
-  //           paymentWay: "",
-  //         };
-  
-  //         let newMonthlyPaymentHistory = [
-  //           ...specificPayment.monthlyPaymentHistory,
-  //         ];
-  
-  //         // Add the object to the beginning of the array
-  //         newMonthlyPaymentHistory.unshift(object);
-  
-  //         specificPayment.monthlyPaymentHistory = newMonthlyPaymentHistory;
-  
-  //         try {
-  //           const res = await updatePayments({
-  //             paymentID: specificPayment.paymentID,
-  //             paymentCurrency: specificPayment.paymentCurrency,
-  //             admissionDate: specificPayment.admissionDate,
-  //             admissionPrice: specificPayment.admissionPrice,
-  //             monthlyPaymentPrice: specificPayment.monthlyPaymentPrice,
-  //             admissionPaymentHistory: specificPayment.admissionPaymentHistory,
-  //             monthlyPaymentHistory: specificPayment.monthlyPaymentHistory,
-  //             activeStatus: specificPayment.activeStatus,
-  //             idValue: specificPayment._id,
-  //           });
-  
-  //           if (res.status === "Alhamdulillah") {
-  //             console.log(`Data updated: ${specificPayment.paymentID}`, specificPayment);
-  //           }
-  //         } catch (error) {
-  //           console.error(`Error updating payment ${specificPayment.paymentID}:`, error);
+  //         updatePaymentHistory(specificPayment.monthlyPaymentHistory);
+
+  //         const res = await updatePayments({
+  //           paymentID: specificPayment.paymentID,
+  //           paymentCurrency: specificPayment.paymentCurrency,
+  //           admissionDate: specificPayment.admissionDate,
+  //           admissionPrice: specificPayment.admissionPrice,
+  //           monthlyPaymentPrice: specificPayment.monthlyPaymentPrice,
+  //           admissionPaymentHistory: specificPayment.admissionPaymentHistory,
+  //           monthlyPaymentHistory: specificPayment.monthlyPaymentHistory,
+  //           activeStatus: specificPayment.activeStatus,
+  //           idValue: specificPayment._id,
+  //         });
+
+  //         if (res.status === "Alhamdulillah") {
+  //           console.log(`Data updated: ${specificPayment.paymentID}`, specificPayment);
   //         }
   //       }
   //     }
-  //   } else {
-  //     console.log('No payments data available.');
+  //   } catch (error) {
+  //     console.error("An error occurred while modifying records:", error);
   //   }
   // }
-  
-  
 
   if (data) {
     return (
