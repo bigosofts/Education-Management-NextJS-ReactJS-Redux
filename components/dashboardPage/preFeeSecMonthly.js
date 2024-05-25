@@ -20,6 +20,7 @@ import mytoast from "../toast/toast";
 function PreFeeSectionMonthly({ profile }) {
   const searchParams = useSearchParams();
   const UnpaidRef = useRef();
+  let dollarPerTaka = 117;
 
   const enroll = searchParams.get("enroll");
   const [Unpaid, setUnpaid] = useState();
@@ -255,7 +256,7 @@ function PreFeeSectionMonthly({ profile }) {
             };
           })
         );
-        setCurrencyrate(109);
+        setCurrencyrate(dollarPerTaka);
 
         function changeDepartment(name1) {
           const ID = department.data.filter((item) => {
@@ -296,9 +297,9 @@ function PreFeeSectionMonthly({ profile }) {
 
                 if (dObj) {
                   let tkC = dObj.coursePrice.registration.tk;
-                  let usC = Math.round(dObj.coursePrice.registration.tk / 109);
+                  let usC = Math.round(dObj.coursePrice.registration.tk / dollarPerTaka);
                   let mtkC = dObj.coursePrice.monthly.tk;
-                  let musC = Math.round(dObj.coursePrice.monthly.tk / 109);
+                  let musC = Math.round(dObj.coursePrice.monthly.tk / dollarPerTaka);
 
                   setMoney({ tk: tkC, us: usC, mtk: mtkC, mus: musC });
                 }
@@ -312,10 +313,10 @@ function PreFeeSectionMonthly({ profile }) {
                 });
 
                 if (dObj) {
-                  let tkC = Math.round(dObj.coursePrice.registration.us * 109);
+                  let tkC = Math.round(dObj.coursePrice.registration.us * dollarPerTaka);
 
                   let usC = dObj.coursePrice.registration.us;
-                  let mtkC = Math.round(dObj.coursePrice.monthly.us * 109);
+                  let mtkC = Math.round(dObj.coursePrice.monthly.us * dollarPerTaka);
 
                   let musC = dObj.coursePrice.monthly.us;
                   setMoney({ tk: tkC, us: usC, mtk: mtkC, mus: musC });

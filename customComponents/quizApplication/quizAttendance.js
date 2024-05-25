@@ -430,15 +430,14 @@ function QuizAttendance({ classSelection, allsubmited }) {
       {isPresent == "done" && (
         <div style={{ color: "#fff", textAlign: "center", fontSize: "24px" }}>
           আলহামদুলিল্লাহ, আপনি সকল প্রশ্নের উত্তর দিয়েছেন, আপনার প্রতিদিনের
-          প্রাপ্ত মার্ক প্রতি সেমিস্টার শেষে মূল্যায়ন করা হবে। প্রতিদিনের প্রশ্ন
-          উত্তর দেয়ার মাধ্যমে আপনি অনেক কিছু জানতে পারবেন ইং শা আল্লাহ। তাই
-          উত্তর ভুল হলেও শিখে নিন যাতে পরবর্তীতে একই ভুল না হয়।
+          প্রাপ্ত মার্ক প্রতি সেমিস্টার শেষে মূল্যায়ন করা হবে।
         </div>
       )}
 
       {isPresent == "vaccant" && (
         <div style={{ color: "#fff", textAlign: "center" }}>
-          আপনি কি {lastAttendanceDate} তারিখে সম্পূর্ণ ক্লাসে উপস্থিত ছিলেন?
+          আপনি কি {lastAttendanceDate} তারিখের ক্লাসে, এই কিতাবের দারসে উপস্থিত
+          ছিলেন?
           <div
             style={{
               display: "flex",

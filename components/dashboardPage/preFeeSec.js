@@ -136,7 +136,7 @@ function PreFeeSection({ profile }) {
   }
 
   //change area done
-
+  let dollarPerTaka = 117;
   const [extraJamat, setExtraJamat] = useState(false);
   const [extraSemester, setExtraSemester] = useState(false);
   const [extraTransaction, setExtraTransaction] = useState(false);
@@ -464,7 +464,7 @@ function PreFeeSection({ profile }) {
               };
             })
         );
-        setCurrencyrate(109);
+        setCurrencyrate(dollarPerTaka);
 
         function changeDepartment(name1) {
           const ID = department.data.filter((item) => {
@@ -485,7 +485,9 @@ function PreFeeSection({ profile }) {
           PriceDecision(enroll);
           if (enroll == "alemalema") {
             setExtraJamat(true);
+            setExtraBatch(true);
           } else {
+            setExtraBatch(true);
             setExtraTransaction(true);
           }
         }
@@ -505,9 +507,13 @@ function PreFeeSection({ profile }) {
 
                 if (dObj) {
                   let tkC = dObj.coursePrice.registration.tk;
-                  let usC = Math.round(dObj.coursePrice.registration.tk / 109);
+                  let usC = Math.round(
+                    dObj.coursePrice.registration.tk / dollarPerTaka
+                  );
                   let mtkC = dObj.coursePrice.monthly.tk;
-                  let musC = Math.round(dObj.coursePrice.monthly.tk / 109);
+                  let musC = Math.round(
+                    dObj.coursePrice.monthly.tk / dollarPerTaka
+                  );
 
                   setMoney({ tk: tkC, us: usC, mtk: mtkC, mus: musC });
                 }
@@ -521,10 +527,14 @@ function PreFeeSection({ profile }) {
                 });
 
                 if (dObj) {
-                  let tkC = Math.round(dObj.coursePrice.registration.us * 109);
+                  let tkC = Math.round(
+                    dObj.coursePrice.registration.us * dollarPerTaka
+                  );
 
                   let usC = dObj.coursePrice.registration.us;
-                  let mtkC = Math.round(dObj.coursePrice.monthly.us * 109);
+                  let mtkC = Math.round(
+                    dObj.coursePrice.monthly.us * dollarPerTaka
+                  );
 
                   let musC = dObj.coursePrice.monthly.us;
                   setMoney({ tk: tkC, us: usC, mtk: mtkC, mus: musC });
@@ -1951,7 +1961,6 @@ function PreFeeSection({ profile }) {
       mytoast.warning("Admission Form: One or more field is emplty");
     }
   }
-  console.log(mainData);
 
   return (
     <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">

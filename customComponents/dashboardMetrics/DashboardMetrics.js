@@ -1470,77 +1470,48 @@ function DashboardMetrics(props) {
   //     return;
   //   }
 
-  //   let idArray = [];
-  //   for (let i = 547; i <= 1622; i++) {
-  //     let id = "payment-IMS202404" + i.toString().padStart(4, "0");
-  //     idArray.push(id);
-  //   }
+  //   let idArray = ["payment-IMS2024030537"];
+  //   // for (let i = 547; i <= 1622; i++) {
+  //   //   let id = "payment-IMS202404" + i.toString().padStart(4, "0");
+  //   //   idArray.push(id);
+  //   // }
 
-  //   const updatePaymentHistory = (paymentHistory) => {
-  //     const firstElement = paymentHistory[0];
-  //     const secondElement = paymentHistory[1];
+  //   idArray.forEach(async (item) => {
+  //     const specificPayment = payments.find((item2) => item2.paymentID == item);
+  //     let monthlyPaymentHistory = specificPayment.monthlyPaymentHistory;
 
-  //     const firstElementHasDetails =
-  //       firstElement.Price &&
-  //       firstElement.currency &&
-  //       firstElement.transactionID &&
-  //       firstElement.senderNo &&
-  //       firstElement.paymentWay;
-  //     const secondElementHasDetails =
-  //       secondElement.Price &&
-  //       secondElement.currency &&
-  //       secondElement.transactionID &&
-  //       secondElement.senderNo &&
-  //       secondElement.paymentWay;
+  //     monthlyPaymentHistory.unshift({
+  //       Date: new Date("2024-04-20"),
+  //       PaymentStatus: false,
+  //       Price: null,
+  //       currency: "",
+  //       transactionID: "",
+  //       senderNo: "",
+  //       paymentWay: "",
+  //       nextMonthlyDate: "",
+  //     });
 
-  //     if (!firstElementHasDetails && secondElementHasDetails) {
-  //       // Replace details of the first element with the second element's details
-  //       firstElement.Price = secondElement.Price;
-  //       firstElement.currency = secondElement.currency;
-  //       firstElement.transactionID = secondElement.transactionID;
-  //       firstElement.senderNo = secondElement.senderNo;
-  //       firstElement.paymentWay = secondElement.paymentWay;
+  //     const res = await updatePayments({
+  //       paymentID: specificPayment.paymentID,
+  //       paymentCurrency: specificPayment.paymentCurrency,
+  //       admissionDate: specificPayment.admissionDate,
+  //       admissionPrice: specificPayment.admissionPrice,
+  //       monthlyPaymentPrice: specificPayment.monthlyPaymentPrice,
+  //       admissionPaymentHistory: specificPayment.admissionPaymentHistory,
+  //       monthlyPaymentHistory: monthlyPaymentHistory,
+  //       activeStatus: specificPayment.activeStatus,
+  //       idValue: specificPayment._id,
+  //     });
 
-  //       // Clear the details of the second element
-  //       secondElement.Price = null;
-  //       secondElement.currency = "";
-  //       secondElement.transactionID = "";
-  //       secondElement.senderNo = "";
-  //       secondElement.paymentWay = "";
-  //     }
-
-  //     // Other conditions are implicitly handled by doing nothing
-  //   };
-
-  //   try {
-  //     for (const item of idArray) {
-  //       let specificPayment = payments.find(
-  //         (item2) => item2.paymentID === item
+  //     if (res.status === "Alhamdulillah") {
+  //       console.log(
+  //         `Data updated: ${specificPayment.paymentID}`,
+  //         specificPayment
   //       );
-  //       if (specificPayment) {
-  //         updatePaymentHistory(specificPayment.monthlyPaymentHistory);
-
-  //         const res = await updatePayments({
-  //           paymentID: specificPayment.paymentID,
-  //           paymentCurrency: specificPayment.paymentCurrency,
-  //           admissionDate: specificPayment.admissionDate,
-  //           admissionPrice: specificPayment.admissionPrice,
-  //           monthlyPaymentPrice: specificPayment.monthlyPaymentPrice,
-  //           admissionPaymentHistory: specificPayment.admissionPaymentHistory,
-  //           monthlyPaymentHistory: specificPayment.monthlyPaymentHistory,
-  //           activeStatus: specificPayment.activeStatus,
-  //           idValue: specificPayment._id,
-  //         });
-
-  //         if (res.status === "Alhamdulillah") {
-  //           console.log(`Data updated: ${specificPayment.paymentID}`, specificPayment);
-  //         }
-  //       }
   //     }
-  //   } catch (error) {
-  //     console.error("An error occurred while modifying records:", error);
-  //   }
+  //   });
   // }
+  // modifyRecord(payments && payments);
 
   async function changeClass(classes) {
     for (const item of classes) {
@@ -1570,110 +1541,151 @@ function DashboardMetrics(props) {
     }
   }
 
-  async function setStudentToClass(datas, classes) {
-    // Filter specific students based on batch and active semester
-    let specificStudent = datas.filter((item) => {
-      if (item.batchCount == "batch-20240420") {
-        let semester = item.studentSemester.filter((sem) => {
-          return /semester/i.test(sem.code) && sem.status == "active";
-        });
+  // async function setStudentToClass(datas, classes) {
+  //   // Filter specific students based on batch and active semester
+  //   let specificStudent = datas.filter((item) => {
+  //     if (item.batchCount == "batch-20240420") {
+  //       // let semester = item.studentSemester.filter((sem) => {
+  //       //   return /semester/i.test(sem.code) && sem.status == "active";
+  //       // });
 
-        if (semester.length > 1) {
-          if (semester[semester.length - 1].code == "semester01") {
-            return true;
-          }
-        } else if (semester.length == 1) {
-          if (semester[semester.length - 1].code == "semester01") {
-            return true;
-          }
-        }
-      }
-      return false;
-    });
+  //       // if (semester.length > 1) {
+  //       //   if (semester[semester.length - 1].code == "semester01") {
+  //       //     return true;
+  //       //   }
+  //       // } else if (semester.length == 1) {
+  //       //   if (semester[semester.length - 1].code == "semester01") {
+  //       //     return true;
+  //       //   }
+  //       // }
 
-    // Filter classes based on course ID and semester ID
-    let relevantClasses = classes.filter((cls) => {
-      return (
-        cls.courseID == "alemalema" &&
-        cls.semesterID == "semester01" &&
-        cls.batchNo == "batch-20240420"
-      );
-    });
+  //       let semester = item.studentCourseCode.filter((sem) => {
+  //         return /hifjulquran/i.test(sem.code) && sem.status == "active";
+  //       });
 
-    if (relevantClasses.length > 0) {
-      for (const cls of relevantClasses) {
-        for (const student of specificStudent) {
-          // If the class has no students, add the student
-          if (cls.students.length == 0) {
-            cls.students.push({
-              SID: student.userName,
-              sName: student.firstName.en + " " + student.lastName.en,
-              mobileNumber: student.mobileNumber,
-              attendance: [],
-            });
+  //       if (semester.length > 1) {
+  //         if (/hifjulquran/i.test(semester[semester.length - 1].code)) {
+  //           return true;
+  //         }
+  //       } else if (semester.length == 1) {
+  //         if (/hifjulquran/i.test(semester[semester.length - 1].code)) {
+  //           return item;
+  //         }
+  //       }
+  //     }
+  //     return false;
+  //   });
 
-            const res = await updateClasses({
-              classID: cls.classID,
-              courseID: cls.courseID,
-              batchNo: cls.batchNo,
-              maleClassLink: cls.maleClassLink,
-              femaleClassLink: cls.femaleClassLink,
-              departmentID: cls.departmentID,
-              jamatID: cls.jamatID,
-              semesterID: cls.semesterID,
-              bookID: cls.bookID,
-              teacher: cls.teacher,
-              examQuestion: cls.examQuestion,
-              students: cls.students,
-              classStartTime: cls.classStartTime,
-              classEndTime: cls.classEndTime,
-              activeStatus: cls.activeStatus,
-              idValue: cls._id,
-            });
+  //   // Filter classes based on course ID and semester ID
+  //   let relevantClasses = classes.filter((cls) => {
+  //     return cls.courseID == "hifjulquran" && cls.batchNo == "batch-20240420";
+  //   });
 
-            if (res.status == "Alhamdulillah") {
-              console.log(
-                "A student record has been created inside " + cls.classID
-              );
-            }
-          } else if (!cls.students.some((s) => s.SID == student.userName)) {
-            // If the student is not already in the class, add the student
-            cls.students.push({
-              SID: student.userName,
-              sName: student.firstName.en + " " + student.lastName.en,
-              mobileNumber: student.mobileNumber,
-              attendance: [],
-            });
+  //   if (relevantClasses.length > 0) {
+  //     for (const cls of relevantClasses) {
+  //       for (const student of specificStudent) {
+  //         // If the class has no students, add the student
+  //         if (cls.students.length == 0) {
+  //           cls.students.push({
+  //             SID: student.userName,
+  //             sName: student.firstName.en + " " + student.lastName.en,
+  //             mobileNumber: student.mobileNumber,
+  //             attendance: [],
+  //           });
 
-            const res = await updateClasses({
-              classID: cls.classID,
-              courseID: cls.courseID,
-              batchNo: cls.batchNo,
-              maleClassLink: cls.maleClassLink,
-              femaleClassLink: cls.femaleClassLink,
-              departmentID: cls.departmentID,
-              jamatID: cls.jamatID,
-              semesterID: cls.semesterID,
-              bookID: cls.bookID,
-              teacher: cls.teacher,
-              examQuestion: cls.examQuestion,
-              students: cls.students,
-              classStartTime: cls.classStartTime,
-              classEndTime: cls.classEndTime,
-              activeStatus: cls.activeStatus,
-              idValue: cls._id,
-            });
+  //           const res = await updateClasses({
+  //             classID: cls.classID,
+  //             courseID: cls.courseID,
+  //             batchNo: cls.batchNo,
+  //             maleClassLink: cls.maleClassLink,
+  //             femaleClassLink: cls.femaleClassLink,
+  //             departmentID: cls.departmentID,
+  //             jamatID: cls.jamatID,
+  //             semesterID: cls.semesterID,
+  //             bookID: cls.bookID,
+  //             teacher: cls.teacher,
+  //             examQuestion: cls.examQuestion,
+  //             students: cls.students,
+  //             classStartTime: cls.classStartTime,
+  //             classEndTime: cls.classEndTime,
+  //             activeStatus: cls.activeStatus,
+  //             idValue: cls._id,
+  //           });
 
-            if (res.status == "Alhamdulillah") {
-              console.log(
-                "A student record has been created inside " + cls.classID
-              );
-            }
-          }
-        }
-      }
-    }
-  }
+  //           if (res.status == "Alhamdulillah") {
+  //             console.log(
+  //               "A student record has been created inside " + cls.classID
+  //             );
+  //           }
+  //         } else if (!cls.students.some((s) => s.SID == student.userName)) {
+  //           // If the student is not already in the class, add the student
+  //           cls.students.push({
+  //             SID: student.userName,
+  //             sName: student.firstName.en + " " + student.lastName.en,
+  //             mobileNumber: student.mobileNumber,
+  //             attendance: [],
+  //           });
+
+  //           const res = await updateClasses({
+  //             classID: cls.classID,
+  //             courseID: cls.courseID,
+  //             batchNo: cls.batchNo,
+  //             maleClassLink: cls.maleClassLink,
+  //             femaleClassLink: cls.femaleClassLink,
+  //             departmentID: cls.departmentID,
+  //             jamatID: cls.jamatID,
+  //             semesterID: cls.semesterID,
+  //             bookID: cls.bookID,
+  //             teacher: cls.teacher,
+  //             examQuestion: cls.examQuestion,
+  //             students: cls.students,
+  //             classStartTime: cls.classStartTime,
+  //             classEndTime: cls.classEndTime,
+  //             activeStatus: cls.activeStatus,
+  //             idValue: cls._id,
+  //           });
+
+  //           if (res.status == "Alhamdulillah") {
+  //             console.log(
+  //               "A student record has been created inside " + cls.classID
+  //             );
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  // function foreignCountry(students) {
+  //   let a = students.filter((item) => {
+  //     if (
+  //       item.countryName != "Bangladesh" &&
+  //       item.paymentStatus.addmissionDueStatus == false &&
+  //       item.paymentStatus.consequentDueStatus == false
+  //     ) {
+  //       return true;
+  //     }
+  //   });
+
+  //   console.log(
+  //     JSON.stringify(
+  //       a.map((item) => {
+  //         return {
+  //           SID: item.userName,
+  //           Name: item.firstName.en + " " + item.lastName.en,
+  //           Mobile: item.mobileNumber,
+  //           Email: item.emailAddress,
+  //           Country: item.countryName,
+  //           Gender: item.gender,
+  //         };
+  //       })
+  //     )
+  //   );
+  // }
+
+  // if (students) {
+  //   foreignCountry(students);
+  // }
 
   if (data) {
     return (
@@ -2535,15 +2547,6 @@ function DashboardMetrics(props) {
         </button>
         <br />
         <br /> */}
-        <button
-          onClick={() =>
-            students && classes && setStudentToClass(students, classes)
-          }
-        >
-          Set Students of l1s1 to class
-        </button>
-
-        <button onClick={() => classes && changeClass(classes)}>format</button>
       </div>
     );
   }

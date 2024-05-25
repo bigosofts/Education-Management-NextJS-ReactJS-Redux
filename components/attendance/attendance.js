@@ -9,6 +9,7 @@ import {
 import { selectDataTwo as selectBooks } from "@/apiservices/bookapiservices";
 import mytoast from "@/components/toast/toast";
 import QuizAttendance from "@/customComponents/quizApplication/quizAttendance";
+import "./attendance.css";
 
 function AttendancePageCustom() {
   const [books, setBooks] = useState();
@@ -295,6 +296,91 @@ function AttendancePageCustom() {
             ))}
           </div>
         </div>
+
+        <div className="hifz_table">
+          <div class="table_container mt-10">
+            <table>
+              <thead className="sticky top-0">
+                <tr>
+                  <th rowSpan={2}>সিরিয়াল</th>
+                  <th rowSpan={2}>তারিখ</th>
+                  <th rowSpan={2}>স্টুডেন্ট আইডি</th>
+                  <th rowSpan={2}>নাম</th>
+                  <th colspan={4}>উপস্থিতির তথ্য (কিতাব অনুযায়ী)</th>
+                  <th colSpan={4}>পরীক্ষায় প্রাপ্ত নাম্বার (কিতাব অনুযায়ী)</th>
+                  <th rowSpan={2}>প্রাপ্ত নাম্বার</th>
+                  <th rowSpan={2}>মোট নাম্বার</th>
+                  <th rowSpan={2}>শিক্ষকের উপস্থিতি</th>
+                </tr>
+                <tr>
+                  <th>এসো আরবী শিখি</th>
+                  <th>মিজান ওয়া মুনশায়িব</th>
+                  <th>তালিমুল ইসলাম</th>
+                  <th>আত তামরিনুল কিতাবী</th>
+
+                  <th>এসো আরবী শিখি</th>
+                  <th>মিজান ওয়া মুনশায়িব</th>
+                  <th>তালিমুল ইসলাম</th>
+                  <th>আত তামরিনুল কিতাবী</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>May 22, 2024</td>
+                  <td>IMS20240200012</td>
+                  <td>Abdullah- Al- Amin</td>
+                  <td>present</td>
+                  <td>present</td>
+                  <td>--</td>
+                  <td>present</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>0</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>present</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>May 22, 2024</td>
+                  <td>IMS20240200012</td>
+                  <td>Abdullah- Al- Amin</td>
+                  <td>present</td>
+                  <td>present</td>
+                  <td>--</td>
+                  <td>present</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>0</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>present</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>May 22, 2024</td>
+                  <td>IMS20240200012</td>
+                  <td>Abdullah- Al- Amin</td>
+                  <td>present</td>
+                  <td>present</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>0</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>present</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         {change && (
           <div className="w-full pt-[48px] text-lg md:text-2xl text-slate-800 p-5 fixed top-0 left-0 bg-[rgba(0,0,0,0.6)] z-5 h-screen overflow-y-scroll">
             <div

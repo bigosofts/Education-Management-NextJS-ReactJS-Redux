@@ -375,7 +375,7 @@ function StudentLayout({ children, params }) {
       let a = classes.filter((item) => {
         return item.courseID == "alemalema" && item.semesterID == "semester01";
       });
-      
+
       if (a.length > 0) {
         a.forEach(async (item) => {
           // a is class object array
@@ -1909,98 +1909,423 @@ function StudentLayout({ children, params }) {
       }
     }
 
-
     if (courseState.hifjulquran == true) {
-      let a = classes.filter((item) => {
-        return item.courseID == "hifjulquran";
+      let aMale = classes.filter((item) => {
+        return (
+          item.courseID == "hifjulquran" &&
+          /hifjulquran-male-group1/i.test(item.classID)
+        );
       });
-      if (a.length > 0) {
-        a.forEach(async (item) => {
-          allClasses.push(item);
-          if (item.students.length == 0) {
-            let StudentsArray = item.students;
 
-            //StudentsArray is students array inside single class item
+      let aFemale1 = classes.filter((item) => {
+        return (
+          item.courseID == "hifjulquran" &&
+          /hifjulquran-female-group1/i.test(item.classID)
+        );
+      });
 
-            StudentsArray.push({
-              SID: data.data.userName,
-              sName:
-                data.data.userDetails.firstName.en +
-                " " +
-                data.data.userDetails.lastName.en,
-              mobileNumber: data.data.userDetails.mobileNumber,
-              attendance: [],
-            });
+      let aFemale2 = classes.filter((item) => {
+        return (
+          item.courseID == "hifjulquran" &&
+          /hifjulquran-female-group2/i.test(item.classID)
+        );
+      });
 
-            const res5 = await updateClasses({
-              classID: item.classID,
-              courseID: item.courseID,
-              batchNo: item.batchNo,
-              maleClassLink: item.maleClassLink,
-              femaleClassLink: item.femaleClassLink,
-              departmentID: item.departmentID,
-              jamatID: item.jamatID,
-              semesterID: item.semesterID,
-              bookID: item.bookID,
-              teacher: item.teacher,
-              examQuestion: item.examQuestion,
-              students: StudentsArray,
-              classStartTime: item.classStartTime,
-              classEndTime: item.classEndTime,
-              activeStatus: item.activeStatus,
-              idValue: item._id,
-            });
+      let aFemale3 = classes.filter((item) => {
+        return (
+          item.courseID == "hifjulquran" &&
+          /hifjulquran-female-group3/i.test(item.classID)
+        );
+      });
 
-            if (res5.status == "Alhamdulillah") {
-              console.log(
-                "Blank - A student record has been created inside " +
-                  item.classID
-              );
+      ///start here
+
+      if (
+        data.data.userDetails.details &&
+        data.data.userDetails.details.hifzClass &&
+        /hifjulquran-male-group1/i.test(
+          data.data.userDetails.details.hifzClass.groupName
+        )
+      ) {
+        if (aMale.length > 0) {
+          aMale.forEach(async (item) => {
+            allClasses.push(item);
+            if (item.students.length == 0) {
+              let StudentsArray = item.students;
+
+              //StudentsArray is students array inside single class item
+
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
+
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
+
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
+            } else if (
+              !item.students.some((item2) => item2.SID == data.data.userName)
+            ) {
+              let StudentsArray = item.students;
+
+              //StudentsArray is students array inside single class item
+
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
+
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
+
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
             }
-          } else if (
-            !item.students.some((item2) => item2.SID == data.data.userName)
-          ) {
-            let StudentsArray = item.students;
+          });
+        }
+      }
 
-            //StudentsArray is students array inside single class item
+      if (
+        data.data.userDetails.details &&
+        data.data.userDetails.details.hifzClass &&
+        /hifjulquran-female-group1/i.test(
+          data.data.userDetails.details.hifzClass.groupName
+        )
+      ) {
+        if (aFemale1.length > 0) {
+          aFemale1.forEach(async (item) => {
+            allClasses.push(item);
+            if (item.students.length == 0) {
+              let StudentsArray = item.students;
 
-            StudentsArray.push({
-              SID: data.data.userName,
-              sName:
-                data.data.userDetails.firstName.en +
-                " " +
-                data.data.userDetails.lastName.en,
-              mobileNumber: data.data.userDetails.mobileNumber,
-              attendance: [],
-            });
+              //StudentsArray is students array inside single class item
 
-            const res5 = await updateClasses({
-              classID: item.classID,
-              courseID: item.courseID,
-              batchNo: item.batchNo,
-              maleClassLink: item.maleClassLink,
-              femaleClassLink: item.femaleClassLink,
-              departmentID: item.departmentID,
-              jamatID: item.jamatID,
-              semesterID: item.semesterID,
-              bookID: item.bookID,
-              teacher: item.teacher,
-              examQuestion: item.examQuestion,
-              students: StudentsArray,
-              classStartTime: item.classStartTime,
-              classEndTime: item.classEndTime,
-              activeStatus: item.activeStatus,
-              idValue: item._id,
-            });
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
 
-            if (res5.status == "Alhamdulillah") {
-              console.log(
-                "Blank - A student record has been created inside " +
-                  item.classID
-              );
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
+
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
+            } else if (
+              !item.students.some((item2) => item2.SID == data.data.userName)
+            ) {
+              let StudentsArray = item.students;
+
+              //StudentsArray is students array inside single class item
+
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
+
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
+
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
             }
-          }
-        });
+          });
+        }
+      }
+
+      if (
+        data.data.userDetails.details &&
+        data.data.userDetails.details.hifzClass &&
+        /hifjulquran-female-group2/i.test(
+          data.data.userDetails.details.hifzClass.groupName
+        )
+      ) {
+        if (aFemale2.length > 0) {
+          aFemale2.forEach(async (item) => {
+            allClasses.push(item);
+            if (item.students.length == 0) {
+              let StudentsArray = item.students;
+
+              //StudentsArray is students array inside single class item
+
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
+
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
+
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
+            } else if (
+              !item.students.some((item2) => item2.SID == data.data.userName)
+            ) {
+              let StudentsArray = item.students;
+
+              //StudentsArray is students array inside single class item
+
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
+
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
+
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
+            }
+          });
+        }
+      }
+
+      if (
+        data.data.userDetails.details &&
+        data.data.userDetails.details.hifzClass &&
+        /hifjulquran-female-group3/i.test(
+          data.data.userDetails.details.hifzClass.groupName
+        )
+      ) {
+        if (aFemale3.length > 0) {
+          aFemale3.forEach(async (item) => {
+            allClasses.push(item);
+            if (item.students.length == 0) {
+              let StudentsArray = item.students;
+
+              //StudentsArray is students array inside single class item
+
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
+
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
+
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
+            } else if (
+              !item.students.some((item2) => item2.SID == data.data.userName)
+            ) {
+              let StudentsArray = item.students;
+
+              //StudentsArray is students array inside single class item
+
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
+
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
+
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
+            }
+          });
+        }
       }
     }
 
