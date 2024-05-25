@@ -295,89 +295,93 @@ function AttendancePageCustom() {
               </div>
             ))}
           </div>
-        </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
+            <div className="hifz_table">
+              <div class="table_container mt-10">
+                <table>
+                  <thead className="sticky top-0">
+                    <tr>
+                      <th rowSpan={2}>সিরিয়াল</th>
+                      <th rowSpan={2}>তারিখ</th>
+                      <th rowSpan={2}>স্টুডেন্ট আইডি</th>
+                      <th rowSpan={2}>নাম</th>
+                      <th colspan={4}>উপস্থিতির তথ্য (কিতাব অনুযায়ী)</th>
+                      <th colSpan={4}>
+                        পরীক্ষায় প্রাপ্ত নাম্বার (কিতাব অনুযায়ী)
+                      </th>
+                      <th rowSpan={2}>প্রাপ্ত নাম্বার</th>
+                      <th rowSpan={2}>মোট নাম্বার</th>
+                      <th rowSpan={2}>শিক্ষকের উপস্থিতি</th>
+                    </tr>
+                    <tr>
+                      <th>এসো আরবী শিখি</th>
+                      <th>মিজান ওয়া মুনশায়িব</th>
+                      <th>তালিমুল ইসলাম</th>
+                      <th>আত তামরিনুল কিতাবী</th>
 
-        <div className="hifz_table">
-          <div class="table_container mt-10">
-            <table>
-              <thead className="sticky top-0">
-                <tr>
-                  <th rowSpan={2}>সিরিয়াল</th>
-                  <th rowSpan={2}>তারিখ</th>
-                  <th rowSpan={2}>স্টুডেন্ট আইডি</th>
-                  <th rowSpan={2}>নাম</th>
-                  <th colspan={4}>উপস্থিতির তথ্য (কিতাব অনুযায়ী)</th>
-                  <th colSpan={4}>পরীক্ষায় প্রাপ্ত নাম্বার (কিতাব অনুযায়ী)</th>
-                  <th rowSpan={2}>প্রাপ্ত নাম্বার</th>
-                  <th rowSpan={2}>মোট নাম্বার</th>
-                  <th rowSpan={2}>শিক্ষকের উপস্থিতি</th>
-                </tr>
-                <tr>
-                  <th>এসো আরবী শিখি</th>
-                  <th>মিজান ওয়া মুনশায়িব</th>
-                  <th>তালিমুল ইসলাম</th>
-                  <th>আত তামরিনুল কিতাবী</th>
-
-                  <th>এসো আরবী শিখি</th>
-                  <th>মিজান ওয়া মুনশায়িব</th>
-                  <th>তালিমুল ইসলাম</th>
-                  <th>আত তামরিনুল কিতাবী</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>May 22, 2024</td>
-                  <td>IMS20240200012</td>
-                  <td>Abdullah- Al- Amin</td>
-                  <td>present</td>
-                  <td>present</td>
-                  <td>--</td>
-                  <td>present</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>0</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>present</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>May 22, 2024</td>
-                  <td>IMS20240200012</td>
-                  <td>Abdullah- Al- Amin</td>
-                  <td>present</td>
-                  <td>present</td>
-                  <td>--</td>
-                  <td>present</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>0</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>present</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>May 22, 2024</td>
-                  <td>IMS20240200012</td>
-                  <td>Abdullah- Al- Amin</td>
-                  <td>present</td>
-                  <td>present</td>
-                  <td>--</td>
-                  <td>--</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>0</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>present</td>
-                </tr>
-              </tbody>
-            </table>
+                      <th>এসো আরবী শিখি</th>
+                      <th>মিজান ওয়া মুনশায়িব</th>
+                      <th>তালিমুল ইসলাম</th>
+                      <th>আত তামরিনুল কিতাবী</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>May 22, 2024</td>
+                      <td>IMS20240200012</td>
+                      <td>Abdullah- Al- Amin</td>
+                      <td>present</td>
+                      <td>present</td>
+                      <td>--</td>
+                      <td>present</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>0</td>
+                      <td>3</td>
+                      <td>4</td>
+                      <td>present</td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>May 22, 2024</td>
+                      <td>IMS20240200012</td>
+                      <td>Abdullah- Al- Amin</td>
+                      <td>present</td>
+                      <td>present</td>
+                      <td>--</td>
+                      <td>present</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>0</td>
+                      <td>3</td>
+                      <td>4</td>
+                      <td>present</td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>May 22, 2024</td>
+                      <td>IMS20240200012</td>
+                      <td>Abdullah- Al- Amin</td>
+                      <td>present</td>
+                      <td>present</td>
+                      <td>--</td>
+                      <td>--</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>0</td>
+                      <td>3</td>
+                      <td>4</td>
+                      <td>present</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -1,4 +1,5 @@
 "use client";
+import { updateData as updateClasses } from "@/apiservices/classapiservices";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
@@ -74,7 +75,10 @@ function HifzPage() {
         setTeacher(res2.data);
       }
 
-      const res3 = await selectClasses({ courseID: "hifjulquran" }, null);
+      const res3 = await selectClasses(
+        { batchNo: data.data.userDetails.batchCount },
+        null
+      );
 
       if (res3.status == "Alhamdulillah") {
         setClasses(res3.data);
@@ -1020,422 +1024,420 @@ function HifzPage() {
     }
   }
 
-  if (courseState.hifjulquran == true) {
-    let aMale = classes.filter((item) => {
-      return (
-        item.courseID == "hifjulquran" &&
-        /hifjulquran-male-group1/i.test(item.classID)
-      );
-    });
+  if (classes && courseState) {
+    if (courseState.hifjulquran == true) {
+      let aMale = classes.filter((item) => {
+        return (
+          item.courseID == "hifjulquran" &&
+          /hifjulquran-male-group1/i.test(item.classID)
+        );
+      });
 
-    let aFemale1 = classes.filter((item) => {
-      return (
-        item.courseID == "hifjulquran" &&
-        /hifjulquran-female-group1/i.test(item.classID)
-      );
-    });
+      let aFemale1 = classes.filter((item) => {
+        return (
+          item.courseID == "hifjulquran" &&
+          /hifjulquran-female-group1/i.test(item.classID)
+        );
+      });
 
-    let aFemale2 = classes.filter((item) => {
-      return (
-        item.courseID == "hifjulquran" &&
-        /hifjulquran-female-group2/i.test(item.classID)
-      );
-    });
+      let aFemale2 = classes.filter((item) => {
+        return (
+          item.courseID == "hifjulquran" &&
+          /hifjulquran-female-group2/i.test(item.classID)
+        );
+      });
 
-    let aFemale3 = classes.filter((item) => {
-      return (
-        item.courseID == "hifjulquran" &&
-        /hifjulquran-female-group3/i.test(item.classID)
-      );
-    });
+      let aFemale3 = classes.filter((item) => {
+        return (
+          item.courseID == "hifjulquran" &&
+          /hifjulquran-female-group3/i.test(item.classID)
+        );
+      });
 
-    ///start here
+      ///start here
 
-    if (
-      data.data.userDetails.details &&
-      data.data.userDetails.details.hifzClass &&
-      /hifjulquran-male-group1/i.test(
-        data.data.userDetails.details.hifzClass.groupName
-      )
-    ) {
-      if (aMale.length > 0) {
-        aMale.forEach(async (item) => {
-          allClasses.push(item);
-          if (item.students.length == 0) {
-            let StudentsArray = item.students;
+      if (
+        data.data.userDetails.details &&
+        data.data.userDetails.details.hifzClass &&
+        /hifjulquran-male-group1/i.test(
+          data.data.userDetails.details.hifzClass.groupName
+        )
+      ) {
+        if (aMale.length > 0) {
+          aMale.forEach(async (item) => {
+            if (item.students.length == 0) {
+              let StudentsArray = item.students;
 
-            //StudentsArray is students array inside single class item
+              //StudentsArray is students array inside single class item
 
-            StudentsArray.push({
-              SID: data.data.userName,
-              sName:
-                data.data.userDetails.firstName.en +
-                " " +
-                data.data.userDetails.lastName.en,
-              mobileNumber: data.data.userDetails.mobileNumber,
-              attendance: [],
-            });
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
 
-            const res5 = await updateClasses({
-              classID: item.classID,
-              courseID: item.courseID,
-              batchNo: item.batchNo,
-              maleClassLink: item.maleClassLink,
-              femaleClassLink: item.femaleClassLink,
-              departmentID: item.departmentID,
-              jamatID: item.jamatID,
-              semesterID: item.semesterID,
-              bookID: item.bookID,
-              teacher: item.teacher,
-              examQuestion: item.examQuestion,
-              students: StudentsArray,
-              classStartTime: item.classStartTime,
-              classEndTime: item.classEndTime,
-              activeStatus: item.activeStatus,
-              idValue: item._id,
-            });
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
 
-            if (res5.status == "Alhamdulillah") {
-              console.log(
-                "Blank - A student record has been created inside " +
-                  item.classID
-              );
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
+            } else if (
+              !item.students.some((item2) => item2.SID == data.data.userName)
+            ) {
+              let StudentsArray = item.students;
+
+              //StudentsArray is students array inside single class item
+
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
+
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
+
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
             }
-          } else if (
-            !item.students.some((item2) => item2.SID == data.data.userName)
-          ) {
-            let StudentsArray = item.students;
-
-            //StudentsArray is students array inside single class item
-
-            StudentsArray.push({
-              SID: data.data.userName,
-              sName:
-                data.data.userDetails.firstName.en +
-                " " +
-                data.data.userDetails.lastName.en,
-              mobileNumber: data.data.userDetails.mobileNumber,
-              attendance: [],
-            });
-
-            const res5 = await updateClasses({
-              classID: item.classID,
-              courseID: item.courseID,
-              batchNo: item.batchNo,
-              maleClassLink: item.maleClassLink,
-              femaleClassLink: item.femaleClassLink,
-              departmentID: item.departmentID,
-              jamatID: item.jamatID,
-              semesterID: item.semesterID,
-              bookID: item.bookID,
-              teacher: item.teacher,
-              examQuestion: item.examQuestion,
-              students: StudentsArray,
-              classStartTime: item.classStartTime,
-              classEndTime: item.classEndTime,
-              activeStatus: item.activeStatus,
-              idValue: item._id,
-            });
-
-            if (res5.status == "Alhamdulillah") {
-              console.log(
-                "Blank - A student record has been created inside " +
-                  item.classID
-              );
-            }
-          }
-        });
+          });
+        }
       }
-    }
 
-    if (
-      data.data.userDetails.details &&
-      data.data.userDetails.details.hifzClass &&
-      /hifjulquran-female-group1/i.test(
-        data.data.userDetails.details.hifzClass.groupName
-      )
-    ) {
-      if (aFemale1.length > 0) {
-        aFemale1.forEach(async (item) => {
-          allClasses.push(item);
-          if (item.students.length == 0) {
-            let StudentsArray = item.students;
+      if (
+        data.data.userDetails.details &&
+        data.data.userDetails.details.hifzClass &&
+        /hifjulquran-female-group1/i.test(
+          data.data.userDetails.details.hifzClass.groupName
+        )
+      ) {
+        if (aFemale1.length > 0) {
+          aFemale1.forEach(async (item) => {
+            if (item.students.length == 0) {
+              let StudentsArray = item.students;
 
-            //StudentsArray is students array inside single class item
+              //StudentsArray is students array inside single class item
 
-            StudentsArray.push({
-              SID: data.data.userName,
-              sName:
-                data.data.userDetails.firstName.en +
-                " " +
-                data.data.userDetails.lastName.en,
-              mobileNumber: data.data.userDetails.mobileNumber,
-              attendance: [],
-            });
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
 
-            const res5 = await updateClasses({
-              classID: item.classID,
-              courseID: item.courseID,
-              batchNo: item.batchNo,
-              maleClassLink: item.maleClassLink,
-              femaleClassLink: item.femaleClassLink,
-              departmentID: item.departmentID,
-              jamatID: item.jamatID,
-              semesterID: item.semesterID,
-              bookID: item.bookID,
-              teacher: item.teacher,
-              examQuestion: item.examQuestion,
-              students: StudentsArray,
-              classStartTime: item.classStartTime,
-              classEndTime: item.classEndTime,
-              activeStatus: item.activeStatus,
-              idValue: item._id,
-            });
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
 
-            if (res5.status == "Alhamdulillah") {
-              console.log(
-                "Blank - A student record has been created inside " +
-                  item.classID
-              );
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
+            } else if (
+              !item.students.some((item2) => item2.SID == data.data.userName)
+            ) {
+              let StudentsArray = item.students;
+
+              //StudentsArray is students array inside single class item
+
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
+
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
+
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
             }
-          } else if (
-            !item.students.some((item2) => item2.SID == data.data.userName)
-          ) {
-            let StudentsArray = item.students;
-
-            //StudentsArray is students array inside single class item
-
-            StudentsArray.push({
-              SID: data.data.userName,
-              sName:
-                data.data.userDetails.firstName.en +
-                " " +
-                data.data.userDetails.lastName.en,
-              mobileNumber: data.data.userDetails.mobileNumber,
-              attendance: [],
-            });
-
-            const res5 = await updateClasses({
-              classID: item.classID,
-              courseID: item.courseID,
-              batchNo: item.batchNo,
-              maleClassLink: item.maleClassLink,
-              femaleClassLink: item.femaleClassLink,
-              departmentID: item.departmentID,
-              jamatID: item.jamatID,
-              semesterID: item.semesterID,
-              bookID: item.bookID,
-              teacher: item.teacher,
-              examQuestion: item.examQuestion,
-              students: StudentsArray,
-              classStartTime: item.classStartTime,
-              classEndTime: item.classEndTime,
-              activeStatus: item.activeStatus,
-              idValue: item._id,
-            });
-
-            if (res5.status == "Alhamdulillah") {
-              console.log(
-                "Blank - A student record has been created inside " +
-                  item.classID
-              );
-            }
-          }
-        });
+          });
+        }
       }
-    }
 
-    if (
-      data.data.userDetails.details &&
-      data.data.userDetails.details.hifzClass &&
-      /hifjulquran-female-group2/i.test(
-        data.data.userDetails.details.hifzClass.groupName
-      )
-    ) {
-      if (aFemale2.length > 0) {
-        aFemale2.forEach(async (item) => {
-          allClasses.push(item);
-          if (item.students.length == 0) {
-            let StudentsArray = item.students;
+      if (
+        data.data.userDetails.details &&
+        data.data.userDetails.details.hifzClass &&
+        /hifjulquran-female-group2/i.test(
+          data.data.userDetails.details.hifzClass.groupName
+        )
+      ) {
+        if (aFemale2.length > 0) {
+          aFemale2.forEach(async (item) => {
+            if (item.students.length == 0) {
+              let StudentsArray = item.students;
 
-            //StudentsArray is students array inside single class item
+              //StudentsArray is students array inside single class item
 
-            StudentsArray.push({
-              SID: data.data.userName,
-              sName:
-                data.data.userDetails.firstName.en +
-                " " +
-                data.data.userDetails.lastName.en,
-              mobileNumber: data.data.userDetails.mobileNumber,
-              attendance: [],
-            });
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
 
-            const res5 = await updateClasses({
-              classID: item.classID,
-              courseID: item.courseID,
-              batchNo: item.batchNo,
-              maleClassLink: item.maleClassLink,
-              femaleClassLink: item.femaleClassLink,
-              departmentID: item.departmentID,
-              jamatID: item.jamatID,
-              semesterID: item.semesterID,
-              bookID: item.bookID,
-              teacher: item.teacher,
-              examQuestion: item.examQuestion,
-              students: StudentsArray,
-              classStartTime: item.classStartTime,
-              classEndTime: item.classEndTime,
-              activeStatus: item.activeStatus,
-              idValue: item._id,
-            });
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
 
-            if (res5.status == "Alhamdulillah") {
-              console.log(
-                "Blank - A student record has been created inside " +
-                  item.classID
-              );
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
+            } else if (
+              !item.students.some((item2) => item2.SID == data.data.userName)
+            ) {
+              let StudentsArray = item.students;
+
+              //StudentsArray is students array inside single class item
+
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
+
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
+
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
             }
-          } else if (
-            !item.students.some((item2) => item2.SID == data.data.userName)
-          ) {
-            let StudentsArray = item.students;
-
-            //StudentsArray is students array inside single class item
-
-            StudentsArray.push({
-              SID: data.data.userName,
-              sName:
-                data.data.userDetails.firstName.en +
-                " " +
-                data.data.userDetails.lastName.en,
-              mobileNumber: data.data.userDetails.mobileNumber,
-              attendance: [],
-            });
-
-            const res5 = await updateClasses({
-              classID: item.classID,
-              courseID: item.courseID,
-              batchNo: item.batchNo,
-              maleClassLink: item.maleClassLink,
-              femaleClassLink: item.femaleClassLink,
-              departmentID: item.departmentID,
-              jamatID: item.jamatID,
-              semesterID: item.semesterID,
-              bookID: item.bookID,
-              teacher: item.teacher,
-              examQuestion: item.examQuestion,
-              students: StudentsArray,
-              classStartTime: item.classStartTime,
-              classEndTime: item.classEndTime,
-              activeStatus: item.activeStatus,
-              idValue: item._id,
-            });
-
-            if (res5.status == "Alhamdulillah") {
-              console.log(
-                "Blank - A student record has been created inside " +
-                  item.classID
-              );
-            }
-          }
-        });
+          });
+        }
       }
-    }
 
-    if (
-      data.data.userDetails.details &&
-      data.data.userDetails.details.hifzClass &&
-      /hifjulquran-female-group3/i.test(
-        data.data.userDetails.details.hifzClass.groupName
-      )
-    ) {
-      if (aFemale3.length > 0) {
-        aFemale3.forEach(async (item) => {
-          allClasses.push(item);
-          if (item.students.length == 0) {
-            let StudentsArray = item.students;
+      if (
+        data.data.userDetails.details &&
+        data.data.userDetails.details.hifzClass &&
+        /hifjulquran-female-group3/i.test(
+          data.data.userDetails.details.hifzClass.groupName
+        )
+      ) {
+        if (aFemale3.length > 0) {
+          aFemale3.forEach(async (item) => {
+            if (item.students.length == 0) {
+              let StudentsArray = item.students;
 
-            //StudentsArray is students array inside single class item
+              //StudentsArray is students array inside single class item
 
-            StudentsArray.push({
-              SID: data.data.userName,
-              sName:
-                data.data.userDetails.firstName.en +
-                " " +
-                data.data.userDetails.lastName.en,
-              mobileNumber: data.data.userDetails.mobileNumber,
-              attendance: [],
-            });
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
 
-            const res5 = await updateClasses({
-              classID: item.classID,
-              courseID: item.courseID,
-              batchNo: item.batchNo,
-              maleClassLink: item.maleClassLink,
-              femaleClassLink: item.femaleClassLink,
-              departmentID: item.departmentID,
-              jamatID: item.jamatID,
-              semesterID: item.semesterID,
-              bookID: item.bookID,
-              teacher: item.teacher,
-              examQuestion: item.examQuestion,
-              students: StudentsArray,
-              classStartTime: item.classStartTime,
-              classEndTime: item.classEndTime,
-              activeStatus: item.activeStatus,
-              idValue: item._id,
-            });
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
 
-            if (res5.status == "Alhamdulillah") {
-              console.log(
-                "Blank - A student record has been created inside " +
-                  item.classID
-              );
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
+            } else if (
+              !item.students.some((item2) => item2.SID == data.data.userName)
+            ) {
+              let StudentsArray = item.students;
+
+              //StudentsArray is students array inside single class item
+
+              StudentsArray.push({
+                SID: data.data.userName,
+                sName:
+                  data.data.userDetails.firstName.en +
+                  " " +
+                  data.data.userDetails.lastName.en,
+                mobileNumber: data.data.userDetails.mobileNumber,
+                attendance: [],
+              });
+
+              const res5 = await updateClasses({
+                classID: item.classID,
+                courseID: item.courseID,
+                batchNo: item.batchNo,
+                maleClassLink: item.maleClassLink,
+                femaleClassLink: item.femaleClassLink,
+                departmentID: item.departmentID,
+                jamatID: item.jamatID,
+                semesterID: item.semesterID,
+                bookID: item.bookID,
+                teacher: item.teacher,
+                examQuestion: item.examQuestion,
+                students: StudentsArray,
+                classStartTime: item.classStartTime,
+                classEndTime: item.classEndTime,
+                activeStatus: item.activeStatus,
+                idValue: item._id,
+              });
+
+              if (res5.status == "Alhamdulillah") {
+                console.log(
+                  "Blank - A student record has been created inside " +
+                    item.classID
+                );
+              }
             }
-          } else if (
-            !item.students.some((item2) => item2.SID == data.data.userName)
-          ) {
-            let StudentsArray = item.students;
-
-            //StudentsArray is students array inside single class item
-
-            StudentsArray.push({
-              SID: data.data.userName,
-              sName:
-                data.data.userDetails.firstName.en +
-                " " +
-                data.data.userDetails.lastName.en,
-              mobileNumber: data.data.userDetails.mobileNumber,
-              attendance: [],
-            });
-
-            const res5 = await updateClasses({
-              classID: item.classID,
-              courseID: item.courseID,
-              batchNo: item.batchNo,
-              maleClassLink: item.maleClassLink,
-              femaleClassLink: item.femaleClassLink,
-              departmentID: item.departmentID,
-              jamatID: item.jamatID,
-              semesterID: item.semesterID,
-              bookID: item.bookID,
-              teacher: item.teacher,
-              examQuestion: item.examQuestion,
-              students: StudentsArray,
-              classStartTime: item.classStartTime,
-              classEndTime: item.classEndTime,
-              activeStatus: item.activeStatus,
-              idValue: item._id,
-            });
-
-            if (res5.status == "Alhamdulillah") {
-              console.log(
-                "Blank - A student record has been created inside " +
-                  item.classID
-              );
-            }
-          }
-        });
+          });
+        }
       }
     }
   }
@@ -2051,17 +2053,19 @@ function HifzPage() {
                       <option value=""> Select option</option>
 
                       {classes &&
-                        classes.map((item, i) => (
-                          <option
-                            key={i}
-                            value={JSON.stringify({
-                              groupName: item.classID,
-                              ostad: item.teacher.TID,
-                            })}
-                          >
-                            {item.classID}
-                          </option>
-                        ))}
+                        classes
+                          .filter((item) => item.courseID == "hifjulquran")
+                          .map((item, i) => (
+                            <option
+                              key={i}
+                              value={JSON.stringify({
+                                groupName: item.classID,
+                                ostad: item.teacher.TID,
+                              })}
+                            >
+                              {item.classID}
+                            </option>
+                          ))}
                     </select>
                   </div>
                 </div>

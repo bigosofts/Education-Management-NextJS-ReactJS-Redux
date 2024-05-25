@@ -419,15 +419,14 @@ function PreFeeSection({ profile }) {
   function batchChangeDecision(e) {
     e.preventDefault();
     const batch = JSON.parse(e.target.value).batch;
-    debugger;
+
     const startDate = JSON.parse(e.target.value).startDate;
-    debugger;
+
     setMainData((prev) => ({
       ...prev,
       batch: batch,
       startDate: startDate,
     }));
-    debugger;
   }
 
   useEffect(() => {
