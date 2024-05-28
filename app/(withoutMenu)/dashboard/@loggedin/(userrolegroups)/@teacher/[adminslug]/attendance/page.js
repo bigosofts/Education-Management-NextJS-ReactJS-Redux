@@ -1,4 +1,5 @@
 "use client";
+import "./hifz.css";
 import { useSelector } from "react-redux";
 import { useEffect, useState, useRef } from "react";
 import {
@@ -15,11 +16,14 @@ import {
 
 function BookPage() {
   const [books, setBooks] = useState();
+  const [currentID, setCurrentID] = useState();
   const [classes, setClasses] = useState();
   const data = useSelector((state) => state.isAdmin.value);
   const [change, setChange] = useState(false);
   const [specificClass, setSpecificClass] = useState();
   const [show, setShow] = useState(true);
+  const [hifzClassStudent, setHifzClassStudent] = useState();
+  const [render, setRender] = useState(true);
 
   const questionNoref = useRef();
   const questionref = useRef();
@@ -35,6 +39,24 @@ function BookPage() {
         setClasses(
           res.data.filter((item) => item.teacher.TID == data.data.userName)
         );
+
+        let hifz = res.data
+          .filter((item) => item.teacher.TID == data.data.userName)
+          .filter((item) => item.courseID == "hifjulquran");
+
+        let hifzStd = [];
+
+        hifz.forEach((item) => {
+          item.students.forEach((s) => {
+            hifzStd.push(s.SID);
+          });
+        });
+
+        const res2 = await selectStudetns({ userName: { $in: hifzStd } }, null);
+
+        if (res2.status == "Alhamdulillah") {
+          setHifzClassStudent(res2.data);
+        }
       }
 
       const res2 = await selectBooks(null, null);
@@ -43,7 +65,7 @@ function BookPage() {
       }
     }
     getData();
-  }, []);
+  }, [render]);
 
   function findBooks(bookID) {
     return books.find((item) => {
@@ -235,6 +257,207 @@ function BookPage() {
     }
   }
 
+  function myJson(i) {
+    let myJson = [];
+    if (hifzClassStudent) {
+      if (i.details.hifzInfo) {
+        function niceDate2(startDate) {
+          const startDateObj = new Date(startDate);
+
+          // Check if the start date is valid
+          if (isNaN(startDateObj.getTime())) {
+            // Invalid start date string
+            return null;
+          }
+
+          const endDate = new Date();
+          endDate.setDate(endDate.getDate() + 30); // Set end date to 30 days after the start date
+
+          const dates = [];
+
+          // Loop through each day from start date to end date
+          while (startDateObj <= endDate) {
+            const options = {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            };
+
+            const formattedDate = startDateObj.toLocaleDateString(
+              "en-US",
+              options
+            );
+            dates.push(formattedDate);
+
+            // Move to the next day
+            startDateObj.setDate(startDateObj.getDate() + 1);
+          }
+
+          return dates;
+        }
+
+        // Example usage:
+        const startingDate = i.details.hifzInfo[0].date; // Your choice of starting date
+        const datesArray = niceDate2(startingDate);
+
+        datesArray.forEach((item) => {
+          const hifzInfoMatch = i.details.hifzInfo.find(
+            (item2) => item2.date === item
+          );
+          if (hifzInfoMatch) {
+            myJson.push({
+              date: item,
+              day: hifzInfoMatch.day,
+              week: hifzInfoMatch.weeknumber
+                ? hifzInfoMatch.weeknumber.text
+                : "--",
+              sabak: {
+                para: hifzInfoMatch.sabak ? hifzInfoMatch.sabak.para : "--",
+                page: hifzInfoMatch.sabak ? hifzInfoMatch.sabak.page : "--",
+              },
+
+              satsabak: {
+                para: hifzInfoMatch.satsabak
+                  ? hifzInfoMatch.satsabak.para
+                  : "--",
+                page: hifzInfoMatch.satsabak
+                  ? hifzInfoMatch.satsabak.page
+                  : "--",
+                amount: hifzInfoMatch.satsabak
+                  ? hifzInfoMatch.satsabak.amount
+                  : "--",
+                lokma: hifzInfoMatch.satsabak
+                  ? hifzInfoMatch.satsabak.lokma
+                  : "--",
+                dohorana: hifzInfoMatch.satsabak
+                  ? hifzInfoMatch.satsabak.dohorana
+                  : "--",
+              },
+              amukhta: {
+                para: hifzInfoMatch.amukhta ? hifzInfoMatch.amukhta.para : "--",
+                page: hifzInfoMatch.amukhta ? hifzInfoMatch.amukhta.page : "--",
+                amount: hifzInfoMatch.amukhta
+                  ? hifzInfoMatch.amukhta.amount
+                  : "--",
+                lokma: hifzInfoMatch.amukhta
+                  ? hifzInfoMatch.amukhta.lokma
+                  : "--",
+                dohorana: hifzInfoMatch.amukhta
+                  ? hifzInfoMatch.amukhta.dohorana
+                  : "--",
+              },
+              dailyTilwat: hifzInfoMatch.dailytilwat
+                ? hifzInfoMatch.dailytilwat.text
+                : "--",
+              signature: hifzInfoMatch.signature
+                ? hifzInfoMatch.signature
+                : "দেখে নাই",
+            });
+          } else {
+            myJson.push({
+              date: item,
+              day: "--",
+              week: "--",
+              sabak: { para: "--", page: "--" },
+              satsabak: {
+                para: "--",
+                page: "--",
+                amount: "--",
+                lokma: "--",
+                dohorana: "--",
+              },
+              amukhta: {
+                para: "--",
+                page: "--",
+                amount: "--",
+                lokma: "--",
+                dohorana: "--",
+              },
+              dailyTilwat: "--",
+              signature: "--",
+            });
+          }
+        });
+      }
+    }
+    return myJson;
+  }
+
+  function hifzStudentChanger(e) {
+    e.preventDefault();
+
+    const value = e.target.value;
+    setCurrentID(value);
+  }
+
+  async function commentChanger(id, date, value) {
+    let specificStudent = hifzClassStudent.find((item) => item.userName == id);
+
+    let hifzInfo = specificStudent.details.hifzInfo;
+
+    specificStudent.details.hifzInfo = hifzInfo.map((item) => {
+      if (item.date == date) {
+        return {
+          submitSabak: item.submitSabak,
+          submitSatSabak: item.submitSatSabak,
+          submitAmukhta: item.submitAmukhta,
+          submitDailyTilwat: item.submitDailyTilwat,
+          submitWeekNumber: item.submitWeekNumber,
+          date: item.date,
+          day: item.day,
+          sabak: item.sabak,
+          satsabak: item.satsabak,
+          amukhta: item.amukhta,
+          dailytilwat: item.dailytilwat,
+          weeknumber: item.weeknumber,
+          signature: value,
+        };
+      } else {
+        return item;
+      }
+    });
+
+    const res = await updateStudents(
+      specificStudent.userName,
+      specificStudent.firstName.en,
+      specificStudent.firstName.bn,
+      specificStudent.lastName.en,
+      specificStudent.lastName.bn,
+      specificStudent.nidNumber,
+      specificStudent.birthRegNumber,
+      specificStudent.fatherName.en,
+      specificStudent.fatherName.bn,
+      specificStudent.emailAddress,
+      undefined,
+      specificStudent.mobileNumber,
+      specificStudent.occupation,
+      specificStudent.studentCourseCode,
+      specificStudent.studentJamatCode,
+      specificStudent.gender,
+      specificStudent.dateOfBirth,
+      specificStudent.countryName,
+      specificStudent.fullPresentAddress,
+      specificStudent.fullPermanentAddress,
+      specificStudent.admissionSession,
+      specificStudent.admissionDate,
+      specificStudent.studentMotive,
+      specificStudent.details,
+      specificStudent.paymentStatus,
+      specificStudent.userRole,
+      specificStudent.extracurricular,
+      specificStudent.activeStatus,
+      specificStudent._id,
+      specificStudent.studentDepartment,
+      specificStudent.studentSemester,
+      specificStudent.batchCount
+    );
+
+    if (res.status == "Alhamdulillah") {
+      mytoast.success(`Comment Added for SID ${specificStudent.userName}`);
+      setRender((prev) => !prev);
+    }
+  }
+
   if (classes) {
     return (
       <div className="w-full">
@@ -297,6 +520,130 @@ function BookPage() {
                   )}
                 </div>
               ))}
+          </div>
+
+          <div className="grid grid-cols-1 mt-10">
+            {hifzClassStudent && hifzClassStudent.length > 0 && (
+              <select
+                onChange={hifzStudentChanger}
+                className="p-4 bg-[#532d80] rounded-xl text-white mb-20"
+              >
+                <option value="">Select Hifz Student</option>
+                {hifzClassStudent &&
+                  hifzClassStudent.map((item, i) => (
+                    <option key={i} value={item.userName}>
+                      {item.firstName.en +
+                        " " +
+                        item.lastName.en +
+                        " - " +
+                        item.userName}
+                    </option>
+                  ))}
+              </select>
+            )}
+
+            {hifzClassStudent &&
+              hifzClassStudent.length > 0 &&
+              hifzClassStudent
+                .filter((item) => item.userName == currentID)
+                .map((item, i) => (
+                  <div key={i} className="">
+                    <div className="hifz_table">
+                      <h5 className="text-center">
+                        শিক্ষার্থীর নাম:{" "}
+                        {item.firstName.en + " " + item.lastName.en}
+                      </h5>
+                      <h5 className="text-center">
+                        ক্লাস গ্রুপ: {item.details.hifzClass.groupName}
+                      </h5>
+
+                      <h5 className="text-center">
+                        ওস্তাদ/ওস্তাজার নাম:{" "}
+                        {data.data.userDetails.firstName.en +
+                          " " +
+                          data.data.userDetails.lastName.en}
+                      </h5>
+
+                      <div class="table_container mt-10">
+                        <table>
+                          <thead className="sticky top-0">
+                            <tr>
+                              <th rowSpan={2}>তারিখ</th>
+                              <th rowSpan={2}>বার</th>
+                              <th rowSpan={2}>সপ্তাহ</th>
+                              <th colSpan={2}>সবক</th>
+                              <th colSpan={5}>সাতসবক</th>
+                              <th colSpan={5}>আমুখতা</th>
+                              <th rowSpan={2}>দৈনিক তিলওয়াত</th>
+                              <th rowSpan={2}>শিক্ষকের মন্তব্য</th>
+                            </tr>
+                            <tr>
+                              <th>পারা</th>
+                              <th>পৃষ্ঠা</th>
+                              <th>পারা</th>
+                              <th>পৃষ্ঠা</th>
+                              <th>পরিমাণ</th>
+                              <th>লোকমা</th>
+                              <th>দোহরানা</th>
+
+                              <th>পারা</th>
+                              <th>পৃষ্ঠা</th>
+                              <th>পরিমাণ</th>
+                              <th>লোকমা</th>
+                              <th>দোহরানা</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {myJson(item).map((item, i) => (
+                              <tr key={i}>
+                                <td>{item.date}</td>
+                                <td>{item.day}</td>
+                                <td>{item.week}</td>
+                                <td>{item.sabak.para}</td>
+                                <td>{item.sabak.page}</td>
+                                <td>{item.satsabak.para}</td>
+                                <td>{item.satsabak.page}</td>
+                                <td>{item.satsabak.amount}</td>
+                                <td>{item.satsabak.lokma}</td>
+                                <td>{item.satsabak.dohorana}</td>
+                                <td>{item.amukhta.para}</td>
+                                <td>{item.amukhta.page}</td>
+                                <td>{item.amukhta.amount}</td>
+                                <td>{item.amukhta.lokma}</td>
+                                <td>{item.amukhta.dohorana}</td>
+                                <td>{item.dailyTilwat}</td>
+                                <td>
+                                  <select
+                                    onChange={(e) => {
+                                      e.preventDefault();
+                                      commentChanger(
+                                        currentID,
+                                        item.date,
+                                        e.target.value
+                                      );
+                                    }}
+                                    value={item.signature}
+                                    className="p-4 bg-[#eaeaea] text-slate-900 rounded-lg"
+                                  >
+                                    {" "}
+                                    <option value="">
+                                      মন্তব্য সিলেক্ট করুন
+                                    </option>
+                                    <option value="চলবে">চলবে</option>
+                                    <option value="হয় নাই">হয় নাই</option>
+                                    <option value="ঠিক আছে">
+                                      ঠিক আছে
+                                    </option>{" "}
+                                  </select>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                ))}
           </div>
         </div>
         {change && (

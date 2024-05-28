@@ -1,0 +1,31 @@
+.hifz_table {
+    width: 100%;
+    margin: 50px auto;
+  }
+  
+  .hifz_table .table_container {
+    width: 100%;
+    overflow-x: auto;
+    max-height: 500px; /* Adjust the height as needed */
+  }
+  .hifz_table table {
+    border: 1px solid #b3adad;
+    border-collapse: collapse;
+    padding: 5px;
+    width: 100%;
+  }
+  
+  .hifz_table table th {
+    border: 1px solid #b3adad;
+    padding: 5px;
+    background: #f0f0f0;
+    color: #313030;
+  }
+  .hifz_table table td {
+    border: 1px solid #b3adad;
+    text-align: center;
+    padding: 5px;
+    background: #ffffff;
+    color: #313030;
+  }
+  

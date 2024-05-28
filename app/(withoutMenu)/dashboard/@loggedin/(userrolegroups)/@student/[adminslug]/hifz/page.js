@@ -1454,7 +1454,6 @@ function HifzPage() {
       return <WaitingApproval />;
     } else if (showPage) {
       if (showMainPage) {
-
         let myJson = [];
         if (detailsC.hifzInfo) {
           function niceDate2(startDate) {
