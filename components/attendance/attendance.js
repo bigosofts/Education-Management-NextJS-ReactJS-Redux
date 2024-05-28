@@ -5,11 +5,11 @@ import {
   selectDataTwo as selectClasses,
   updateData as updateClass,
 } from "@/apiservices/classapiservices";
+import AttendanceSTable from "./attendanceSTable";
 
 import { selectDataTwo as selectBooks } from "@/apiservices/bookapiservices";
 import mytoast from "@/components/toast/toast";
 import QuizAttendance from "@/customComponents/quizApplication/quizAttendance";
-import "./attendance.css";
 
 function AttendancePageCustom() {
   const [books, setBooks] = useState();
@@ -17,7 +17,6 @@ function AttendancePageCustom() {
   const data = useSelector((state) => state.isAdmin.value);
   const courseState = useSelector((state) => state.courseState.value);
   const [change, setChange] = useState(false);
-
   const [specificClass, setSpecificClass] = useState();
   const [isSubmited, setIsSubmited] = useState();
   const [completion, setCompletion] = useState();
@@ -86,19 +85,7 @@ function AttendancePageCustom() {
             ) {
               return true;
             }
-            if (
-              item.batchNo == data.data.userDetails.batchCount &&
-              item.courseID ==
-                (courseState.ezranahusorof ? "ezranahusorof" : "")
-            ) {
-              return true;
-            }
-            if (
-              item.batchNo == data.data.userDetails.batchCount &&
-              item.courseID == (courseState.urdu ? "urdu" : "")
-            ) {
-              return true;
-            }
+
             if (
               item.batchNo == data.data.userDetails.batchCount &&
               item.courseID ==
@@ -243,6 +230,7 @@ function AttendancePageCustom() {
             Student Attendance (Total Active Classes:{" "}
             {classes && classes.length})
           </h1>
+
           <div className="text-white text-2xl bg-[#532d80] p-2 m-2 rounded-lg text-center md:w-2/3 w-full mx-auto">
             {data.data.userDetails.batchCount}
           </div>
@@ -295,94 +283,12 @@ function AttendancePageCustom() {
               </div>
             ))}
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
-            <div className="hifz_table">
-              <div class="table_container mt-10">
-                <table>
-                  <thead className="sticky top-0">
-                    <tr>
-                      <th rowSpan={2}>সিরিয়াল</th>
-                      <th rowSpan={2}>তারিখ</th>
-                      <th rowSpan={2}>স্টুডেন্ট আইডি</th>
-                      <th rowSpan={2}>নাম</th>
-                      <th colspan={4}>উপস্থিতির তথ্য (কিতাব অনুযায়ী)</th>
-                      <th colSpan={4}>
-                        পরীক্ষায় প্রাপ্ত নাম্বার (কিতাব অনুযায়ী)
-                      </th>
-                      <th rowSpan={2}>প্রাপ্ত নাম্বার</th>
-                      <th rowSpan={2}>মোট নাম্বার</th>
-                      <th rowSpan={2}>শিক্ষকের উপস্থিতি</th>
-                    </tr>
-                    <tr>
-                      <th>এসো আরবী শিখি</th>
-                      <th>মিজান ওয়া মুনশায়িব</th>
-                      <th>তালিমুল ইসলাম</th>
-                      <th>আত তামরিনুল কিতাবী</th>
 
-                      <th>এসো আরবী শিখি</th>
-                      <th>মিজান ওয়া মুনশায়িব</th>
-                      <th>তালিমুল ইসলাম</th>
-                      <th>আত তামরিনুল কিতাবী</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>May 22, 2024</td>
-                      <td>IMS20240200012</td>
-                      <td>Abdullah- Al- Amin</td>
-                      <td>present</td>
-                      <td>present</td>
-                      <td>--</td>
-                      <td>present</td>
-                      <td>1</td>
-                      <td>1</td>
-                      <td>1</td>
-                      <td>0</td>
-                      <td>3</td>
-                      <td>4</td>
-                      <td>present</td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>May 22, 2024</td>
-                      <td>IMS20240200012</td>
-                      <td>Abdullah- Al- Amin</td>
-                      <td>present</td>
-                      <td>present</td>
-                      <td>--</td>
-                      <td>present</td>
-                      <td>1</td>
-                      <td>1</td>
-                      <td>1</td>
-                      <td>0</td>
-                      <td>3</td>
-                      <td>4</td>
-                      <td>present</td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>May 22, 2024</td>
-                      <td>IMS20240200012</td>
-                      <td>Abdullah- Al- Amin</td>
-                      <td>present</td>
-                      <td>present</td>
-                      <td>--</td>
-                      <td>--</td>
-                      <td>1</td>
-                      <td>1</td>
-                      <td>1</td>
-                      <td>0</td>
-                      <td>3</td>
-                      <td>4</td>
-                      <td>present</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+          <AttendanceSTable
+            classes={classes}
+            books={books}
+            strDate="May 22, 2024"
+          />
         </div>
 
         {change && (

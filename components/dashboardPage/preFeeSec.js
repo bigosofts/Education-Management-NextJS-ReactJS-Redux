@@ -156,6 +156,7 @@ function PreFeeSection({ profile }) {
     batch: "",
     startDate: "",
   });
+
   function niceDate(date) {
     var isoTime = date;
     var date = new Date(isoTime);
@@ -482,6 +483,7 @@ function PreFeeSection({ profile }) {
             department: changeDepartment(enroll),
           }));
           PriceDecision(enroll);
+          batchChoice(enroll);
           if (enroll == "alemalema") {
             setExtraJamat(true);
             setExtraBatch(true);

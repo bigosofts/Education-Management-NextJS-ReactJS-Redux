@@ -1513,33 +1513,33 @@ function DashboardMetrics(props) {
   // }
   // modifyRecord(payments && payments);
 
-  async function changeClass(classes) {
-    for (const item of classes) {
-      try {
-        const res = await updateClasses({
-          classID: item.classID,
-          courseID: item.courseID,
-          batchNo: item.batchNo,
-          maleClassLink: item.maleClassLink,
-          femaleClassLink: item.femaleClassLink,
-          departmentID: item.departmentID,
-          jamatID: item.jamatID,
-          semesterID: item.semesterID,
-          bookID: item.bookID,
-          teacher: item.teacher,
-          examQuestion: item.examQuestion,
-          students: [],
-          classStartTime: item.classStartTime,
-          classEndTime: item.classEndTime,
-          activeStatus: item.activeStatus,
-          idValue: item._id,
-        });
-        console.log("Class updated successfully:", res);
-      } catch (error) {
-        console.error("Error updating class:", error);
-      }
-    }
-  }
+  // async function changeClass(classes) {
+  //   for (const item of classes) {
+  //     try {
+  //       const res = await updateClasses({
+  //         classID: item.classID,
+  //         courseID: item.courseID,
+  //         batchNo: item.batchNo,
+  //         maleClassLink: item.maleClassLink,
+  //         femaleClassLink: item.femaleClassLink,
+  //         departmentID: item.departmentID,
+  //         jamatID: item.jamatID,
+  //         semesterID: item.semesterID,
+  //         bookID: item.bookID,
+  //         teacher: item.teacher,
+  //         examQuestion: item.examQuestion,
+  //         students: [],
+  //         classStartTime: item.classStartTime,
+  //         classEndTime: item.classEndTime,
+  //         activeStatus: item.activeStatus,
+  //         idValue: item._id,
+  //       });
+  //       console.log("Class updated successfully:", res);
+  //     } catch (error) {
+  //       console.error("Error updating class:", error);
+  //     }
+  //   }
+  // }
 
   // async function setStudentToClass(datas, classes) {
   //   // Filter specific students based on batch and active semester

@@ -2,6 +2,15 @@
   width: 100%;
   margin: 50px auto;
 }
+
+.hifz_table table tr:nth-child(odd) {
+  background-color: rgb(254, 255, 234);
+}
+
+.hifz_table table tr:nth-child(even) {
+  background-color: rgb(255, 227, 251);
+}
+
 @media only screen and (max-width: 600px) {
   .hifz_table {
     font-size: 10px;
@@ -26,10 +35,11 @@
   background: #f0f0f0;
   color: #313030;
 }
+
 .hifz_table table td {
   border: 1px solid #b3adad;
   text-align: center;
   padding: 5px;
-  background: #ffffff;
+
   color: #313030;
 }
