@@ -5,8 +5,8 @@ import "./attendance.css";
 function AttendanceSTable({ classes, strDate, books }) {
   const [tableData, setTableData] = useState();
   const [dateArray, setDateArray] = useState(true);
-  const [dateIndex, setDateIndex] = useState("0");
-  const [subjectCode, setSubjectCode] = useState("AR103");
+  const [dateIndex, setDateIndex] = useState();
+  const [subjectCode, setSubjectCode] = useState();
 
   useEffect(() => {
     if (classes) {
@@ -122,16 +122,40 @@ function AttendanceSTable({ classes, strDate, books }) {
     });
   }
 
+  function datechanger(e) {
+    e.preventDefault();
+    let value = e.target.value;
+    setDateIndex(value);
+  }
+
+  function classChanger(e) {
+    e.preventDefault();
+    let value = e.target.value;
+    setSubjectCode(value);
+  }
   return (
     <>
       <div className="grid grid-cols-2 gap-10 mt-10">
-        <select className="p-4 bg-[#532d80] text-white rounded-xl">
+        <select
+          onChange={datechanger}
+          className="p-4 bg-[#532d80] text-white rounded-xl"
+        >
           <option value="">Select Date</option>
+          {dateArray.length > 0 &&
+            dateArray.map((item, i) => (
+              <option key={i} value={i}>
+                {item}
+              </option>
+            ))}
         </select>
-        <select className="p-4 bg-[#532d80] text-white rounded-xl">
+
+        <select
+          onChange={classChanger}
+          className="p-4 bg-[#532d80] text-white rounded-xl"
+        >
           <option value="">Select Class</option>
           {classes.map((item, i) => (
-            <option value={item.bookID}>
+            <option key={i} value={item.bookID}>
               {books && findBooks(item.bookID).bookName.bn} - {item.batchNo}
             </option>
           ))}
@@ -149,10 +173,11 @@ function AttendanceSTable({ classes, strDate, books }) {
                   <th rowSpan={1}>স্টুডেন্ট আইডি</th>
                   <th rowSpan={1}>নাম</th>
                   <th colSpan={1}>উপস্থিতির তথ্য</th>
-                  <th colSpan={1}>নাম্বার</th>
-                  <th colSpan={1}>মোট প্রশ্ন</th>
-                  <th rowSpan={1}>সম্মিলিত নাম্বার</th>
-                  <th rowSpan={1}>সম্মিলিত মোট নাম্বার</th>
+                  <th colSpan={1}>দৈনিক প্রশ্ন</th>
+                  <th colSpan={1}>প্রাপ্ত নাম্বার</th>
+                  <th rowSpan={1}>মোট প্রশ্ন</th>
+                  <th rowSpan={1}>প্রাপ্ত নাম্বার</th>
+
                   <th rowSpan={1}>শিক্ষকের উপস্থিতি</th>
                 </tr>
               </thead>
@@ -173,12 +198,11 @@ function AttendanceSTable({ classes, strDate, books }) {
                               .students.find((item) => item.SID == id).sName}
                         </td>
                         <td>{details.present}</td>
-
-                        <td>{details.mark}</td>
-
                         <td>{details.total}</td>
-                        <td>{details.cMark}</td>
+                        <td>{details.mark}</td>
                         <td>{details.cTotal}</td>
+                        <td>{details.cMark}</td>
+
                         <td>{details.tPresent}</td>
                       </tr>
                     )
