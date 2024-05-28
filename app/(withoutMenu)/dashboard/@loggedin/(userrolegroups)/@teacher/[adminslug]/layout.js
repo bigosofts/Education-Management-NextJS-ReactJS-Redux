@@ -9,6 +9,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
 import { selectAllDataTwo } from "@/apiservices/teacherapiservices";
 
+
+
 function TeacherLayout({ children, params }) {
   const dispatch = useDispatch();
 

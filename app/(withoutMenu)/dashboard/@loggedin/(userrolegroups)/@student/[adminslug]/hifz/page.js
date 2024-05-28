@@ -10,6 +10,7 @@ import EnrollPlease from "@/components/dashboardPage/enrollPlease";
 import WaitingApproval from "@/components/dashboardPage/WaitingApproval";
 import { useState, useEffect, useRef } from "react";
 import { selectDataTwo, updateData } from "@/apiservices/studentapiservices";
+
 import NotAllow from "@/components/dashboardPage/notAllow";
 import mytoast from "@/components/toast/toast";
 import { selectAllData } from "@/apiservices/teacherapiservices";
@@ -1453,6 +1454,7 @@ function HifzPage() {
       return <WaitingApproval />;
     } else if (showPage) {
       if (showMainPage) {
+
         let myJson = [];
         if (detailsC.hifzInfo) {
           function niceDate2(startDate) {
@@ -1861,6 +1863,7 @@ function HifzPage() {
                   </button>
                 </form>
               </div>
+
               <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
                 <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
                   প্রতিদিনের তিলওয়াতের তথ্য দিন

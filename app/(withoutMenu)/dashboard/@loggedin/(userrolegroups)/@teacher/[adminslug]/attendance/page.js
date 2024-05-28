@@ -8,6 +8,10 @@ import {
 
 import { selectDataTwo as selectBooks } from "@/apiservices/bookapiservices";
 import mytoast from "@/components/toast/toast";
+import {
+  selectAllData as selectStudetns,
+  updateData as updateStudents,
+} from "@/apiservices/studentapiservices";
 
 function BookPage() {
   const [books, setBooks] = useState();
@@ -241,56 +245,58 @@ function BookPage() {
           </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
-            {classes.map((item, i) => (
-              <div
-                key={i}
-                className="bg-[#e6e4e4] rounded-lg relative mb-5 md:mb-20 shadow-xl border-[1px] border-slate-300"
-              >
-                {!change && (
-                  <div className="">
-                    <div className="text-white text-2xl bg-[#532d80] p-2 m-2 rounded-lg text-center">
-                      {item.batchNo}
-                    </div>
-                    <div className="text-slate-900 mt-5 px-5 text-lg">
-                      Class: {item.classID}
-                    </div>
-                    <div className="text-slate-900 px-5 text-lg">
-                      Ostad: {item.teacher.tName}
-                    </div>
-                    <div className="text-slate-900 px-5 text-lg">
-                      Total Students: {item.students.length}
-                    </div>
+            {classes
+              .filter((item) => item.courseID != "hifjulquran")
+              .map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-[#e6e4e4] rounded-lg relative mb-5 md:mb-20 shadow-xl border-[1px] border-slate-300"
+                >
+                  {!change && (
+                    <div className="">
+                      <div className="text-white text-2xl bg-[#532d80] p-2 m-2 rounded-lg text-center">
+                        {item.batchNo}
+                      </div>
+                      <div className="text-slate-900 mt-5 px-5 text-lg">
+                        Class: {item.classID}
+                      </div>
+                      <div className="text-slate-900 px-5 text-lg">
+                        Ostad: {item.teacher.tName}
+                      </div>
+                      <div className="text-slate-900 px-5 text-lg">
+                        Total Students: {item.students.length}
+                      </div>
 
-                    <div className="text-slate-900 px-5 text-lg">
-                      Today: {niceDate(Date.now())}
-                    </div>
+                      <div className="text-slate-900 px-5 text-lg">
+                        Today: {niceDate(Date.now())}
+                      </div>
 
-                    <div className="text-slate-900 px-5 text-lg">
-                      Question Submited:{" "}
-                      {getTodayQuestion(item.classID, niceDate(Date.now())) ||
-                        "Not Found"}
-                    </div>
+                      <div className="text-slate-900 px-5 text-lg">
+                        Question Submited:{" "}
+                        {getTodayQuestion(item.classID, niceDate(Date.now())) ||
+                          "Not Found"}
+                      </div>
 
-                    <div
-                      onClick={(e) => {
-                        e.preventDefault();
-                        changeState1(item._id);
-                      }}
-                      className="text-white w-2/3 mx-auto text-xl mt-5 mb-5 px-4 py-3 hover:bg-[#532d80] rounded-lg bg-green-800 cursor-pointer font-extrabold text-center"
-                    >
-                      কুইজের প্রশ্ন লিখুন
-                    </div>
+                      <div
+                        onClick={(e) => {
+                          e.preventDefault();
+                          changeState1(item._id);
+                        }}
+                        className="text-white w-2/3 mx-auto text-xl mt-5 mb-5 px-4 py-3 hover:bg-[#532d80] rounded-lg bg-green-800 cursor-pointer font-extrabold text-center"
+                      >
+                        কুইজের প্রশ্ন লিখুন
+                      </div>
 
-                    <div className="px-5 text-2xl py-5 bg-white text-slate-900 text-center rounded-b-lg">
-                      {books &&
-                        item.bookID &&
-                        findBooks(item.bookID).bookName.bn}
-                      {books && !item.bookID && "বই উল্ল্যেখিত নেই"}
+                      <div className="px-5 text-2xl py-5 bg-white text-slate-900 text-center rounded-b-lg">
+                        {books &&
+                          item.bookID &&
+                          findBooks(item.bookID).bookName.bn}
+                        {books && !item.bookID && "বই উল্ল্যেখিত নেই"}
+                      </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            ))}
+                  )}
+                </div>
+              ))}
           </div>
         </div>
         {change && (
