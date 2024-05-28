@@ -287,7 +287,7 @@ function AttendancePageCustom() {
           <AttendanceSTable
             classes={classes}
             books={books}
-            strDate="May 22, 2024"
+            strDate="May 28, 2024"
           />
         </div>
 
