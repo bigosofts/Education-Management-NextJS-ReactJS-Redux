@@ -14,6 +14,8 @@ import {
   updateData as updateStudents,
 } from "@/apiservices/studentapiservices";
 
+import AttendanceSTableTA from "@/components/attendance/attendanceSTableTA";
+
 function BookPage() {
   const [books, setBooks] = useState();
   const [currentID, setCurrentID] = useState();
@@ -644,6 +646,12 @@ function BookPage() {
                     </div>
                   </div>
                 ))}
+
+            <AttendanceSTableTA
+              classes={classes.filter((item) => item.courseID != "hifjulquran")}
+              books={books}
+              strDate="May 22, 2024"
+            />
           </div>
         </div>
         {change && (
