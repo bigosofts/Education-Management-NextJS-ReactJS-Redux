@@ -7,7 +7,7 @@
   "license": "ISC",
   "scripts": {
     "dev": "next dev",
-    "build": "NODE_OPTIONS='--max-old-space-size=4096' next build",
+    "build": "cross-env NODE_OPTIONS='--max-old-space-size=4096' next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -19,6 +19,7 @@
     "animate.css": "4.1.1",
     "autoprefixer": "10.4.14",
     "chart.js": "4.4.0",
+    "cross-env": "^7.0.3",
     "dompurify": "3.0.8",
     "dotenv": "16.3.1",
     "html2canvas": "1.4.1",

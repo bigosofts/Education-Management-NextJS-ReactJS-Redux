@@ -104,7 +104,7 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               };
             });
 
-            bookObject[item2.bookID] = studentsOBJ;
+            bookObject[item2.bookID + "_" + item2.batchNo] = studentsOBJ;
           });
 
           JSONObject[i2] = bookObject;
@@ -137,12 +137,98 @@ function AttendanceSTableTA({ classes, strDate, books }) {
 
   if (tableData) {
     console.log(tableData);
-    
+  }
+
+  let fragment = {
+    alemalema: {
+      jamat1: {
+        semester01: {},
+        semester02: {},
+        semester03: {},
+      },
+      jamat2: {
+        semester04: {},
+        semester05: {},
+        semester06: {},
+        semester07: {},
+        semester08: {},
+        semester15: {},
+        semester16: {},
+      },
+      jamat3: {
+        semester09: {},
+        semester10: {},
+        semester11: {},
+        semester12: {},
+        semester13: {},
+      },
+      jamat4: {
+        semester14: {},
+      },
+    },
+    farzeayinampara: {},
+    ezranahusorof: {},
+    shishumaktab: {},
+    abacus_teacher: {},
+    hifjulquran: {},
+    farzeayinnajera: {},
+    farzeayinmaktab: {},
+    abacus_student: {},
+    urdu: {},
+    ramadanquranulkarim: {},
+    shishunajera: {},
+    schoolalemalema: {},
+    prealemalema: {},
+  };
+
+  if (classes && tableData) {
+    classes.forEach((item) => {
+      if (item.courseID == "alemalema") {
+        if (item.jamatID == "jamat1") {
+          if (item.semesterID == "semester01") {
+          } else if (item.semesterID == "semester02") {
+          } else if (item.semesterID == "semester03") {
+          }
+        } else if (item.jamatID == "jamat2") {
+          if (item.semesterID == "semester04") {
+          } else if (item.semesterID == "semester05") {
+          } else if (item.semesterID == "semester06") {
+          } else if (item.semesterID == "semester07") {
+          } else if (item.semesterID == "semester08") {
+          } else if (item.semesterID == "semester15") {
+          } else if (item.semesterID == "semester16") {
+          }
+        } else if (item.jamatID == "jamat3") {
+          if (item.semesterID == "semester09") {
+          } else if (item.semesterID == "semester10") {
+          } else if (item.semesterID == "semester11") {
+          } else if (item.semesterID == "semester12") {
+          } else if (item.semesterID == "semester13") {
+          }
+        } else if (item.jamatID == "jamat4") {
+          if (item.semesterID == "semester14") {
+          }
+        }
+      } else if (item.courseID == "farzeayinampara") {
+      } else if (item.courseID == "ezranahusorof") {
+      } else if (item.courseID == "shishumaktab") {
+      } else if (item.courseID == "abacus_teacher") {
+      } else if (item.courseID == "hifjulquran") {
+      } else if (item.courseID == "farzeayinnajera") {
+      } else if (item.courseID == "farzeayinmaktab") {
+      } else if (item.courseID == "abacus_student") {
+      } else if (item.courseID == "urdu") {
+      } else if (item.courseID == "ramadanquranulkarim") {
+      } else if (item.courseID == "shishunajera") {
+      } else if (item.courseID == "schoolalemalema") {
+      } else if (item.courseID == "prealemalema") {
+      }
+    });
   }
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-10 mt-10">
+      <div className="grid grid-cols-3 gap-10 mt-10">
         <select
           onChange={datechanger}
           className="p-4 bg-[#532d80] text-white rounded-xl"
@@ -167,6 +253,18 @@ function AttendanceSTableTA({ classes, strDate, books }) {
             </option>
           ))}
         </select>
+
+        <select
+          onChange={classChanger}
+          className="p-4 bg-[#532d80] text-white rounded-xl"
+        >
+          <option value="">Select Batch</option>
+          {classes.map((item, i) => (
+            <option key={i} value={item.bookID}>
+              {books && findBooks(item.bookID).bookName.bn} - {item.batchNo}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="grid grid-cols-1 gap-10 mt-10">
@@ -175,40 +273,50 @@ function AttendanceSTableTA({ classes, strDate, books }) {
             <table>
               <thead className="sticky top-0">
                 <tr>
-                  <th rowSpan={1}>সিরিয়াল</th>
+                  <th rowSpan={2}>সিরিয়াল</th>
+                  <th rowSpan={2}>স্টুডেন্ট আইডি</th>
+                  <th rowSpan={2}>নাম</th>
+                  <th colSpan={5}>উপস্থিতির তথ্য</th>
+                  <th colSpan={5}>দৈনিক নাম্বার</th>
+                  <th rowSpan={2}>মোট প্রশ্ন</th>
+                  <th rowSpan={2}>প্রাপ্ত নাম্বার</th>
+                  <th rowSpan={2}>শিক্ষকের উপস্থিতি</th>
+                  <th rowSpan={2}>শিক্ষার্থীর নাম্বার</th>
+                </tr>
 
-                  <th rowSpan={1}>স্টুডেন্ট আইডি</th>
-                  <th rowSpan={1}>নাম</th>
-                  <th colSpan={1}>উপস্থিতির তথ্য</th>
-                  <th colSpan={1}>দৈনিক প্রশ্ন</th>
-                  <th colSpan={1}>প্রাপ্ত নাম্বার</th>
-                  <th rowSpan={1}>মোট প্রশ্ন</th>
-                  <th rowSpan={1}>প্রাপ্ত নাম্বার</th>
-
-                  <th rowSpan={1}>শিক্ষকের উপস্থিতি</th>
+                <tr>
+                  <th rowSpan={1}>এসো আরবী শিখি</th>
+                  <th rowSpan={1}>তালিমুল ইসলাম</th>
+                  <th rowSpan={1}>তালিমুল ইসলাম</th>
+                  <th rowSpan={1}>তালিমুল ইসলাম</th>
+                  <th rowSpan={1}>তালিমুল ইসলাম</th>
+                  <th rowSpan={1}>এসো আরবী শিখি</th>
+                  <th rowSpan={1}>তালিমুল ইসলাম</th>
+                  <th rowSpan={1}>তালিমুল ইসলাম</th>
+                  <th rowSpan={1}>তালিমুল ইসলাম</th>
+                  <th rowSpan={1}>তালিমুল ইসলাম</th>
                 </tr>
               </thead>
               <tbody>
-                {tableData &&
-                  dateIndex &&
-                  subjectCode &&
-                  Object.entries(tableData[dateIndex][subjectCode]).map(
-                    ([id, details], index) => (
-                      <tr key={index}>
-                        <td>{index + 1}</td>
-
-                        <td>{id}</td>
-                        <td></td>
-                        <td>{details.present}</td>
-                        <td>{details.total}</td>
-                        <td>{details.mark}</td>
-                        <td>{details.cTotal}</td>
-                        <td>{details.cMark}</td>
-
-                        <td>{details.tPresent}</td>
-                      </tr>
-                    )
-                  )}
+                <tr>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                  <td>Demo</td>
+                </tr>
               </tbody>
             </table>
           </div>
