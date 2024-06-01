@@ -7,7 +7,16 @@ function AttendanceSTableTA({ classes, strDate, books }) {
   const [dateArray, setDateArray] = useState(true);
   const [dateIndex, setDateIndex] = useState();
   const [subjectCode, setSubjectCode] = useState();
+  const [jamatCode, setJamatCode] = useState();
+  const [semesterCode, setSemesterCode] = useState();
   const [fragmentData, setFragmentData] = useState();
+  const [isAlemalema, setIsAlemalema] = useState(false);
+  const [jamat, setJamat] = useState();
+  const [semester, setSemester] = useState();
+  const [dateFinal, setDateFinal] = useState();
+  const [classFinal, setClassFinal] = useState();
+  const [classCode, setClassCode] = useState();
+  const [bookFinal, setBookFinal] = useState();
 
   useEffect(() => {
     if (classes) {
@@ -102,6 +111,7 @@ function AttendanceSTableTA({ classes, strDate, books }) {
                   const attendanceTotal = attendance.completionProgress.length;
                   return acc + attendanceTotal;
                 }, 0),
+                mobile: item3.mobileNumber,
               };
             });
 
@@ -124,20 +134,74 @@ function AttendanceSTableTA({ classes, strDate, books }) {
     });
   }
 
-  function datechanger(e) {
-    e.preventDefault();
-    let value = e.target.value;
-    setDateIndex(value);
+  function classChanger(fragment, value) {
+    if (value == "alemalema") {
+      setIsAlemalema(true);
+      setJamat(fragment[value]);
+      setSubjectCode(value);
+    } else {
+      setSubjectCode(value);
+      setIsAlemalema(false);
+      setJamat("");
+    }
+  }
+  function jamatChanger(fragmentData, value) {
+    if (subjectCode && value) {
+      setJamatCode(value);
+      setSemester(fragmentData[subjectCode][value]);
+    } else {
+      setJamatCode("");
+      setSemesterCode("");
+    }
   }
 
-  function classChanger(e) {
-    e.preventDefault();
-    let value = e.target.value;
-    setSubjectCode(value);
+  function semesterChanger(fragmentData, value) {
+    if (value && subjectCode && jamatCode) {
+      setSemesterCode(value);
+      setDateFinal(fragmentData[subjectCode][jamatCode][value]);
+    } else {
+      setSemesterCode("");
+      setJamatCode("");
+    }
   }
 
-  if (tableData) {
-    console.log(tableData);
+  function datechanger(fragmentData, value) {
+    if (value && subjectCode && jamatCode && semesterCode) {
+      setDateIndex(value);
+      setClassFinal(fragmentData[subjectCode][jamatCode][semesterCode][value]);
+    } else {
+      setDateIndex(value);
+      setJamatCode("");
+      setSemesterCode("");
+      setClassFinal(fragmentData[subjectCode][value]);
+    }
+  }
+
+  function batchChanger(fragmentData, value) {
+    if (value && subjectCode && jamatCode && dateIndex && semesterCode) {
+      setClassCode(value);
+      setBookFinal(
+        fragmentData[subjectCode][jamatCode][semesterCode][dateIndex][value]
+      );
+    } else {
+      setClassCode(value);
+      setJamatCode("");
+      setSemesterCode("");
+
+      setBookFinal(fragmentData[subjectCode][dateIndex][value]);
+    }
+  }
+
+  if (bookFinal) {
+    console.log(bookFinal);
+  }
+
+  function reset() {
+    setSubjectCode("");
+    setJamatCode("");
+    setSemesterCode("");
+    setDateIndex("");
+    setClassCode("");
   }
 
   useEffect(() => {
@@ -583,14 +647,74 @@ function AttendanceSTableTA({ classes, strDate, books }) {
     }
   }, [classes, tableData]);
 
-  if (fragmentData) {
-    console.log(fragmentData);
-  }
   return (
     <>
       <div className="grid grid-cols-3 gap-10 mt-10">
+        <div className="p-4 bg-[#000000] text-white rounded-xl" onClick={reset}>
+          Reset Filter
+        </div>
         <select
-          onChange={datechanger}
+          value={subjectCode}
+          onChange={(e) => {
+            e.preventDefault();
+            classChanger(fragmentData, e.target.value);
+          }}
+          className="p-4 bg-[#532d80] text-white rounded-xl"
+        >
+          <option value="">Select Class</option>
+          {fragmentData &&
+            Object.entries(fragmentData).map((item, i) => (
+              <option key={i} value={item[0]}>
+                {item[0]}
+              </option>
+            ))}
+        </select>
+        {isAlemalema && (
+          <>
+            <select
+              value={jamatCode}
+              onChange={(e) => {
+                e.preventDefault();
+                jamatChanger(fragmentData, e.target.value);
+              }}
+              className="p-4 bg-[#532d80] text-white rounded-xl"
+            >
+              <option value="">Select Jamat</option>
+
+              {jamat &&
+                Object.entries(jamat).map((item, i) => (
+                  <option key={i} value={item[0]}>
+                    {item[0]}
+                  </option>
+                ))}
+            </select>
+
+            <select
+              value={semesterCode}
+              onChange={(e) => {
+                e.preventDefault();
+                semesterChanger(fragmentData, e.target.value);
+              }}
+              className="p-4 bg-[#532d80] text-white rounded-xl"
+            >
+              <option value="">Select Semester</option>
+
+              {semester &&
+                Object.entries(semester).map((item, i) => (
+                  <option key={i} value={item[0]}>
+                    {item[0]}
+                  </option>
+                ))}
+            </select>
+          </>
+        )}
+
+        <select
+          value={dateIndex}
+          onChange={(e) => {
+            e.preventDefault();
+            datechanger(fragmentData, e.target.value);
+          }}
           className="p-4 bg-[#532d80] text-white rounded-xl"
         >
           <option value="">Select Date</option>
@@ -601,29 +725,22 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               </option>
             ))}
         </select>
-
         <select
-          onChange={classChanger}
-          className="p-4 bg-[#532d80] text-white rounded-xl"
-        >
-          <option value="">Select Class</option>
-          {classes.map((item, i) => (
-            <option key={i} value={item.bookID}>
-              {books && findBooks(item.bookID).bookName.bn} - {item.batchNo}
-            </option>
-          ))}
-        </select>
-
-        <select
-          onChange={classChanger}
+          value={classCode}
+          onChange={(e) => {
+            e.preventDefault();
+            batchChanger(fragmentData, e.target.value);
+          }}
           className="p-4 bg-[#532d80] text-white rounded-xl"
         >
           <option value="">Select Batch</option>
-          {classes.map((item, i) => (
-            <option key={i} value={item.bookID}>
-              {books && findBooks(item.bookID).bookName.bn} - {item.batchNo}
-            </option>
-          ))}
+          {classFinal &&
+            Object.entries(classFinal).map((item, i) => (
+              <option key={i} value={item[0]}>
+                {books && findBooks(item[0].split("_")[0]).bookName.bn} -{" "}
+                {item[0].split("_")[1]}
+              </option>
+            ))}
         </select>
       </div>
 
