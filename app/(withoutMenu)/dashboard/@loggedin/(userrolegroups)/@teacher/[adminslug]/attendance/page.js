@@ -647,13 +647,19 @@ function BookPage() {
                   </div>
                 ))}
 
-            <AttendanceSTableTA
-              classes={classes.filter((item) => item.courseID != "hifjulquran")}
-              books={books}
-              strDate="May 22, 2024"
-            />
+            {classes.filter((item) => item.courseID != "hifjulquran").length !=
+              0 && (
+              <AttendanceSTableTA
+                classes={classes.filter(
+                  (item) => item.courseID != "hifjulquran"
+                )}
+                books={books}
+                strDate="May 22, 2024"
+              />
+            )}
           </div>
         </div>
+
         {change && (
           <div className="w-full pt-[48px] text-lg md:text-2xl text-slate-800 p-5 fixed top-0 left-0 bg-[rgba(0,0,0,0.6)] z-5 h-screen overflow-y-scroll">
             <div

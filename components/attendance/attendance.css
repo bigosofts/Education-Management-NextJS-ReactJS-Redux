@@ -5,7 +5,6 @@
 
 .hifz_table table tr:nth-child(odd) {
   background-color: rgb(191, 222, 255);
- 
 }
 
 .hifz_table table tr:nth-child(even) {
@@ -21,7 +20,7 @@
 .hifz_table .table_container {
   width: 100%;
   overflow-x: auto;
-  max-height: 500px; /* Adjust the height as needed */
+  max-height: 600px; /* Adjust the height as needed */
 }
 .hifz_table table {
   border: 1px solid #b3adad;
@@ -33,7 +32,7 @@
 .hifz_table table th {
   border: 1px solid #ffffff;
   padding: 5px;
-  background: #3b3b3b;
+  background: #3a3a3a;
   color: #fff;
 }
 

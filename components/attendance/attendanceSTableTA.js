@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import "./attendance.css";
+import mytoast from "../toast/toast";
 
 function AttendanceSTableTA({ classes, strDate, books }) {
   const [tableData, setTableData] = useState();
@@ -112,6 +113,7 @@ function AttendanceSTableTA({ classes, strDate, books }) {
                   return acc + attendanceTotal;
                 }, 0),
                 mobile: item3.mobileNumber,
+                name: item3.sName,
               };
             });
 
@@ -180,20 +182,29 @@ function AttendanceSTableTA({ classes, strDate, books }) {
   function batchChanger(fragmentData, value) {
     if (value && subjectCode && jamatCode && dateIndex && semesterCode) {
       setClassCode(value);
+
       setBookFinal(
-        fragmentData[subjectCode][jamatCode][semesterCode][dateIndex][value]
+        Object.entries(
+          fragmentData[subjectCode][jamatCode][semesterCode][dateIndex]
+        ).filter((item) => item[0].split("_")[1] == value)
       );
     } else {
       setClassCode(value);
       setJamatCode("");
       setSemesterCode("");
 
-      setBookFinal(fragmentData[subjectCode][dateIndex][value]);
+      Object.entries(fragmentData[subjectCode][dateIndex]).filter(
+        (item) => item[0].split("_")[1] == value
+      );
     }
   }
 
   if (bookFinal) {
-    console.log(bookFinal);
+    //bookFinal 0 = bookid, 1 = bookData, 0 = studentID ,1 student data object
+    console.log(
+      Object.entries(bookFinal[3][1]).find((em) => em[0] == "IMS-2024020012")[1]
+        .present
+    );
   }
 
   function reset() {
@@ -202,6 +213,7 @@ function AttendanceSTableTA({ classes, strDate, books }) {
     setSemesterCode("");
     setDateIndex("");
     setClassCode("");
+    setIsAlemalema(false);
   }
 
   useEffect(() => {
@@ -647,10 +659,68 @@ function AttendanceSTableTA({ classes, strDate, books }) {
     }
   }, [classes, tableData]);
 
+  function totalQuestion(bookFinal, id) {
+    let totalQuestion = 0;
+
+    bookFinal.forEach((item2, i2) => {
+      let markEntry = Object.entries(bookFinal[i2][1]).find(
+        (em) => em[0] == id
+      );
+      if (markEntry) {
+        totalQuestion += markEntry[1].cTotal;
+      }
+    });
+    return totalQuestion;
+  }
+
+  function totalMark(bookFinal, id) {
+    let totalMark = 0;
+
+    bookFinal.forEach((item2, i2) => {
+      let markEntry = Object.entries(bookFinal[i2][1]).find(
+        (em) => em[0] == id
+      );
+      if (markEntry) {
+        totalMark += markEntry[1].cMark;
+      }
+    });
+    return totalMark;
+  }
+
+  function teacherAttendance(bookFinal, id) {
+    let present = [];
+
+    bookFinal.forEach((item2, i2) => {
+      let markEntry = Object.entries(bookFinal[i2][1]).find(
+        (em) => em[0] == id
+      )[1].tPresent;
+
+      if (markEntry == "P") {
+        present.push("P");
+      }
+    });
+
+    if (present.length > 0) {
+      return "P";
+    } else {
+      return "--";
+    }
+  }
+
+  const handleCopy = (text) => {
+    const tempInput = document.createElement("input");
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    mytoast.info("Copied: " + text);
+  };
+
   return (
     <>
-      <div className="grid grid-cols-3 gap-10 mt-10">
-        <div className="p-4 bg-[#000000] text-white rounded-xl" onClick={reset}>
+      <div className="grid grid-cols-4 gap-10 mt-10">
+        <div className="p-4 text-white rounded-xl bg-slate-700" onClick={reset}>
           Reset Filter
         </div>
         <select
@@ -659,7 +729,7 @@ function AttendanceSTableTA({ classes, strDate, books }) {
             e.preventDefault();
             classChanger(fragmentData, e.target.value);
           }}
-          className="p-4 bg-[#532d80] text-white rounded-xl"
+          className="p-4 bg-[rgb(22,101,52)] text-white rounded-xl"
         >
           <option value="">Select Class</option>
           {fragmentData &&
@@ -677,7 +747,7 @@ function AttendanceSTableTA({ classes, strDate, books }) {
                 e.preventDefault();
                 jamatChanger(fragmentData, e.target.value);
               }}
-              className="p-4 bg-[#532d80] text-white rounded-xl"
+              className="p-4 bg-[rgb(22,101,52)] text-white rounded-xl"
             >
               <option value="">Select Jamat</option>
 
@@ -695,7 +765,7 @@ function AttendanceSTableTA({ classes, strDate, books }) {
                 e.preventDefault();
                 semesterChanger(fragmentData, e.target.value);
               }}
-              className="p-4 bg-[#532d80] text-white rounded-xl"
+              className="p-4 bg-[rgb(22,101,52)] text-white rounded-xl"
             >
               <option value="">Select Semester</option>
 
@@ -715,7 +785,7 @@ function AttendanceSTableTA({ classes, strDate, books }) {
             e.preventDefault();
             datechanger(fragmentData, e.target.value);
           }}
-          className="p-4 bg-[#532d80] text-white rounded-xl"
+          className="p-4 bg-[rgb(22,101,52)] text-white rounded-xl"
         >
           <option value="">Select Date</option>
           {dateArray.length > 0 &&
@@ -731,14 +801,18 @@ function AttendanceSTableTA({ classes, strDate, books }) {
             e.preventDefault();
             batchChanger(fragmentData, e.target.value);
           }}
-          className="p-4 bg-[#532d80] text-white rounded-xl"
+          className="p-4 bg-[rgb(22,101,52)] text-white rounded-xl"
         >
           <option value="">Select Batch</option>
+
           {classFinal &&
-            Object.entries(classFinal).map((item, i) => (
-              <option key={i} value={item[0]}>
-                {books && findBooks(item[0].split("_")[0]).bookName.bn} -{" "}
-                {item[0].split("_")[1]}
+            [
+              ...new Set(
+                Object.entries(classFinal).map((item) => item[0].split("_")[1])
+              ),
+            ].map((each, i) => (
+              <option key={i} value={each}>
+                {each}
               </option>
             ))}
         </select>
@@ -753,8 +827,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
                   <th rowSpan={2}>সিরিয়াল</th>
                   <th rowSpan={2}>স্টুডেন্ট আইডি</th>
                   <th rowSpan={2}>নাম</th>
-                  <th colSpan={5}>উপস্থিতির তথ্য</th>
-                  <th colSpan={5}>দৈনিক নাম্বার</th>
+                  <th colSpan={bookFinal && bookFinal.length}>
+                    উপস্থিতির তথ্য
+                  </th>
+                  <th colSpan={bookFinal && bookFinal.length}>দৈনিক নাম্বার</th>
                   <th rowSpan={2}>মোট প্রশ্ন</th>
                   <th rowSpan={2}>প্রাপ্ত নাম্বার</th>
                   <th rowSpan={2}>শিক্ষকের উপস্থিতি</th>
@@ -762,38 +838,80 @@ function AttendanceSTableTA({ classes, strDate, books }) {
                 </tr>
 
                 <tr>
-                  <th rowSpan={1}>এসো আরবী শিখি</th>
-                  <th rowSpan={1}>তালিমুল ইসলাম</th>
-                  <th rowSpan={1}>তালিমুল ইসলাম</th>
-                  <th rowSpan={1}>তালিমুল ইসলাম</th>
-                  <th rowSpan={1}>তালিমুল ইসলাম</th>
-                  <th rowSpan={1}>এসো আরবী শিখি</th>
-                  <th rowSpan={1}>তালিমুল ইসলাম</th>
-                  <th rowSpan={1}>তালিমুল ইসলাম</th>
-                  <th rowSpan={1}>তালিমুল ইসলাম</th>
-                  <th rowSpan={1}>তালিমুল ইসলাম</th>
+                  {bookFinal &&
+                    bookFinal.map((item, i) => (
+                      <th key={i}>
+                        {books && findBooks(item[0].split("_")[0]).bookName.bn}
+                      </th>
+                    ))}
+                  {bookFinal &&
+                    bookFinal.map((item, i) => (
+                      <th key={i}>
+                        {books && findBooks(item[0].split("_")[0]).bookName.bn}
+                      </th>
+                    ))}
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                  <td>Demo</td>
-                </tr>
+                {bookFinal &&
+                  Object.entries(bookFinal[0][1]).map((item, i) => (
+                    <tr key={i}>
+                      <td>{i + 1}</td>
+                      <td>{item[0]}</td>
+                      <td>{item[1].name}</td>
+
+                      {bookFinal &&
+                        bookFinal.map((item2, i2) => (
+                          <td>
+                            {
+                              Object.entries(bookFinal[i2][1]).find(
+                                (em) => em[0] == item[0]
+                              )[1].present
+                            }
+                          </td>
+                        ))}
+
+                      {bookFinal &&
+                        bookFinal.map((item3, i2) => (
+                          <td>
+                            {Object.entries(bookFinal[i2][1]).find(
+                              (em) => em[0] == item[0]
+                            )[1].mark == 0 &&
+                            Object.entries(bookFinal[i2][1]).find(
+                              (em) => em[0] == item[0]
+                            )[1].total == "--"
+                              ? "--"
+                              : Object.entries(bookFinal[i2][1]).find(
+                                  (em) => em[0] == item[0]
+                                )[1].mark +
+                                "/" +
+                                Object.entries(bookFinal[i2][1]).find(
+                                  (em) => em[0] == item[0]
+                                )[1].total}
+                          </td>
+                        ))}
+
+                      <td>{totalQuestion(bookFinal, item[0])}</td>
+                      <td>{totalMark(bookFinal, item[0])}</td>
+                      <td>{teacherAttendance(bookFinal, item[0])}</td>
+                      <td
+                        className="hover:cursor-pointer hover:text-red-500"
+                        onClick={() =>
+                          handleCopy(
+                            Object.entries(bookFinal[0][1]).find(
+                              (em) => em[0] == item[0]
+                            )[1].mobile
+                          )
+                        }
+                      >
+                        {
+                          Object.entries(bookFinal[0][1]).find(
+                            (em) => em[0] == item[0]
+                          )[1].mobile
+                        }
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
