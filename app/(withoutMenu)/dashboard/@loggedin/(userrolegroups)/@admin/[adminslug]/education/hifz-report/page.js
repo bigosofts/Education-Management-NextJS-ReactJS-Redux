@@ -58,7 +58,7 @@ function HifzReport() {
           item.details.hifzClass && item.details.hifzClass.groupName === value
       );
       setData(filteredData);
-    
+
       setCount(filteredData.length);
     }
   }
@@ -93,15 +93,13 @@ function HifzReport() {
         </div>
       </div>
       <div>
-        {data && data.length > 0 ? (
-          data.map((item, i) => (
-            <div key={i}>
-              <HifzTable id={item.userName} />
-            </div>
-          ))
-        ) : (
-          <div>No data available</div>
-        )}
+        {data && data.length > 0
+          ? data.map((item, i) => (
+              <div key={i}>
+                <HifzTable id={item.userName} />
+              </div>
+            ))
+          : ""}
       </div>
     </div>
   );
