@@ -199,14 +199,6 @@ function AttendanceSTableTA({ classes, strDate, books }) {
     }
   }
 
-  if (bookFinal) {
-    //bookFinal 0 = bookid, 1 = bookData, 0 = studentID ,1 student data object
-    console.log(
-      Object.entries(bookFinal[3][1]).find((em) => em[0] == "IMS-2024020012")[1]
-        .present
-    );
-  }
-
   function reset() {
     setSubjectCode("");
     setJamatCode("");
