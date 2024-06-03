@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { selectAllData } from "@/apiservices/teacherapiservices";
 
 export default function HifzTable({ id }) {
+  console.log(id);
   const [students, setStudents] = useState();
   const [teachers, setTeacher] = useState();
   const [detailsC, setDetailsC] = useState();
@@ -12,7 +13,6 @@ export default function HifzTable({ id }) {
   function getTeacherName(tid) {
     if (teachers) {
       let desiredData = teachers.find((item) => item.userName == tid);
-
       return desiredData.firstName.en + " " + desiredData.lastName.en;
     }
   }
@@ -20,20 +20,18 @@ export default function HifzTable({ id }) {
   useEffect(() => {
     async function getData() {
       const res = await selectDataTwo({ userName: id }, null);
-
       if (res.status == "Alhamdulillah") {
         setStudents(res.data[0]);
         setDetailsC(res.data[0].details);
       }
 
       const res2 = await selectAllData(null, null);
-
-      if ((res2.status = "Alhamdulillah")) {
+      if (res2.status === "Alhamdulillah") {
         setTeacher(res2.data);
       }
     }
     getData();
-  }, []);
+  }, [id]); // Add id as a dependency to re-run useEffect when id changes
 
   let myJson = [];
 
@@ -41,18 +39,15 @@ export default function HifzTable({ id }) {
     function niceDate2(startDate) {
       const startDateObj = new Date(startDate);
 
-      // Check if the start date is valid
       if (isNaN(startDateObj.getTime())) {
-        // Invalid start date string
         return null;
       }
 
       const endDate = new Date();
-      endDate.setDate(endDate.getDate() + 30); // Set end date to 30 days after the start date
+      endDate.setDate(endDate.getDate() + 30);
 
       const dates = [];
 
-      // Loop through each day from start date to end date
       while (startDateObj <= endDate) {
         const options = {
           month: "long",
@@ -62,16 +57,13 @@ export default function HifzTable({ id }) {
 
         const formattedDate = startDateObj.toLocaleDateString("en-US", options);
         dates.push(formattedDate);
-
-        // Move to the next day
         startDateObj.setDate(startDateObj.getDate() + 1);
       }
 
       return dates;
     }
 
-    // Example usage:
-    const startingDate = detailsC && detailsC.hifzInfo[0].date; // Your choice of starting date
+    const startingDate = detailsC.hifzInfo[0].date;
     const datesArray = niceDate2(startingDate);
 
     datesArray.forEach((item) => {
@@ -87,7 +79,6 @@ export default function HifzTable({ id }) {
             para: hifzInfoMatch.sabak ? hifzInfoMatch.sabak.para : "--",
             page: hifzInfoMatch.sabak ? hifzInfoMatch.sabak.page : "--",
           },
-
           satsabak: {
             para: hifzInfoMatch.satsabak ? hifzInfoMatch.satsabak.para : "--",
             page: hifzInfoMatch.satsabak ? hifzInfoMatch.satsabak.page : "--",
@@ -153,14 +144,13 @@ export default function HifzTable({ id }) {
           ক্লাস গ্রুপ:{" "}
           {detailsC && detailsC.hifzClass && detailsC.hifzClass.groupName}
         </h5>
-
         <h5 className="text-center">
           ওস্তাদ/ওস্তাজার নাম:{" "}
           {detailsC &&
             detailsC.hifzClass &&
             getTeacherName(detailsC.hifzClass.ostad)}
         </h5>
-        <div class="table_container mt-10">
+        <div className="table_container mt-10">
           <table>
             <thead className="sticky top-0">
               <tr>
