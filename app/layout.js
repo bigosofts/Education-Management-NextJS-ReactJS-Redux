@@ -9,6 +9,7 @@ import { GoogleTagManagerBeforeHeader } from "@/helper/googleTagBeforeHeader";
 import { GoogleTagManagerBeforeHeaderTwo } from "@/helper/googleTagBeforeHeaderTwo";
 import { MetaPixelSetup } from "@/helper/metaPixelBeforeHead";
 import { OneSignalPush } from "@/helper/oneSignalPushNotification";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "Internet Madrasa - একটি পূর্নাঙ্গ অনলাইন কওমী মাদরাসা",
