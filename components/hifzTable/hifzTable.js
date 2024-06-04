@@ -141,6 +141,12 @@ export default function HifzTable({ id }) {
           {students && students.firstName.en + " " + students.lastName.en}
         </h5>
         <h5 className="text-center">
+          শিক্ষার্থীর আইডি: {students && students.userName}
+        </h5>
+        <h5 className="text-center">
+          শিক্ষার্থীর নাম্বার: {students && students.mobileNumber}
+        </h5>
+        <h5 className="text-center">
           ক্লাস গ্রুপ:{" "}
           {detailsC && detailsC.hifzClass && detailsC.hifzClass.groupName}
         </h5>

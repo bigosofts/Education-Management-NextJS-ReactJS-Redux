@@ -11,7 +11,7 @@ exports.isAdmin = async () => {
           "Content-Type": "application/json",
           access_token: data2,
         },
-        cache: "no-store",
+        next: { revalidate: 30 },
       }
     );
     if (!response.ok) {
@@ -58,7 +58,7 @@ exports.studentLogin = async (userName, password) => {
       withCredentials: true,
       mode: "cors",
       body: JSON.stringify(payloaddata),
-      cache: "no-store",
+      next: { revalidate: 30 },
     }
   );
 
@@ -86,7 +86,7 @@ exports.teacherLogin = async (userName, password) => {
       withCredentials: true,
       mode: "cors",
       body: JSON.stringify(payloaddata),
-      cache: "no-store",
+      next: { revalidate: 30 },
     }
   );
 
@@ -148,10 +148,10 @@ exports.abacusLogin = async (userName, password) => {
       withCredentials: true,
       mode: "cors",
       body: JSON.stringify(payloaddata),
-      cache: "no-store",
+      next: { revalidate: 30 },
     }
   );
-  
+
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");

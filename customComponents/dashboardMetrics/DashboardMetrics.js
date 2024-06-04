@@ -528,19 +528,21 @@ function DashboardMetrics(props) {
 
         async function abacus_studentQuery(datas) {
           return datas.filter((item) => {
-            let course = item.studentCourseCode.filter((item) => {
-              return (
-                /abacus_student/i.test(item.code) && item.status == "active"
-              );
-            });
+            if (item.batchCount == "batch-20240420") {
+              let course = item.studentCourseCode.filter((item) => {
+                return (
+                  /abacus_student/i.test(item.code) && item.status == "active"
+                );
+              });
 
-            if (course.length > 1) {
-              if (/abacus_student/i.test(course[course.length - 1].code)) {
-                return item;
-              }
-            } else if (course.length == 1) {
-              if (/abacus_student/i.test(course[course.length - 1].code)) {
-                return item;
+              if (course.length > 1) {
+                if (/abacus_student/i.test(course[course.length - 1].code)) {
+                  return item;
+                }
+              } else if (course.length == 1) {
+                if (/abacus_student/i.test(course[course.length - 1].code)) {
+                  return item;
+                }
               }
             }
           });

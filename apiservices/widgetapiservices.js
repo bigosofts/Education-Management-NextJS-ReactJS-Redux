@@ -14,7 +14,7 @@ exports.selectData = async (query, projection) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payloaddata),
-      cache: "no-store"
+      next: { revalidate: 600 },
     }
   );
 
@@ -38,7 +38,7 @@ exports.selectDataTwo = async (query, projection) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payloaddata),
-      next: { revalidate: 3600 },
+      next: { revalidate: 600 },
     }
   );
 
@@ -51,7 +51,7 @@ exports.selectDataTwo = async (query, projection) => {
 };
 
 exports.deleteData = async (id) => {
-  if(data2){
+  if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-widget/${id}`,
       {
@@ -62,14 +62,14 @@ exports.deleteData = async (id) => {
         },
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
-  }else{
+  } else {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-widget/${id}`,
       {
@@ -79,15 +79,14 @@ exports.deleteData = async (id) => {
         },
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
   }
-  
 };
 
 exports.createData = async (widgetName, widgetPayload, activeStatus) => {
@@ -96,7 +95,7 @@ exports.createData = async (widgetName, widgetPayload, activeStatus) => {
     widgetPayload: widgetPayload,
     activeStatus: activeStatus,
   };
-  if(data2){
+  if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-widget`,
       {
@@ -108,14 +107,14 @@ exports.createData = async (widgetName, widgetPayload, activeStatus) => {
         body: JSON.stringify(aboutdata),
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
-  }else{
+  } else {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-widget`,
       {
@@ -126,15 +125,14 @@ exports.createData = async (widgetName, widgetPayload, activeStatus) => {
         body: JSON.stringify(aboutdata),
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
   }
-  
 };
 
 exports.updateData = async (
@@ -149,7 +147,7 @@ exports.updateData = async (
     widgetPayload: widgetPayload,
     activeStatus: activeStatus,
   };
-  if(data2){
+  if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-widget`,
       {
@@ -161,13 +159,13 @@ exports.updateData = async (
         body: JSON.stringify(aboutdata),
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
     return res.json();
-  }else{
+  } else {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-widget`,
       {
@@ -178,12 +176,11 @@ exports.updateData = async (
         body: JSON.stringify(aboutdata),
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
     return res.json();
   }
-  
 };

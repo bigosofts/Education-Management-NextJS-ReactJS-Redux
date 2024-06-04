@@ -17,7 +17,7 @@ exports.selectData = async (query, projection) => {
           access_token: data2,
         },
         body: JSON.stringify(payloaddata),
-        cache: "no-store",
+        next: { revalidate: 600 },
       }
     );
     if (!res.ok) {
@@ -35,7 +35,7 @@ exports.selectData = async (query, projection) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(payloaddata),
-        cache: "no-store",
+        next: { revalidate: 600 },
       }
     );
     if (!res.ok) {
