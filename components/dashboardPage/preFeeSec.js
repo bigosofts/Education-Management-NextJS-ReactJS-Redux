@@ -48,6 +48,22 @@ function PreFeeSection({ profile }) {
           startDate: new Date().toISOString(),
         },
       ]);
+    } else if (course == "schoolalemalema") {
+      setBatch([
+        {
+          name: "Batch-13-07-2024 (ক্লাস শুরু আগামী ১৩ জুলাই, ২০২৪)",
+          value: "batch-20240713",
+          startDate: "2024-07-13",
+        },
+      ]);
+    } else if (course == "prealemalema") {
+      setBatch([
+        {
+          name: "Batch-13-07-2024 (ক্লাস শুরু আগামী ১৩ জুলাই, ২০২৪)",
+          value: "batch-20240713",
+          startDate: "2024-07-13",
+        },
+      ]);
     } else if (course == "abacus_student") {
       setBatch([
         {
@@ -66,14 +82,6 @@ function PreFeeSection({ profile }) {
       ]);
     } else if (course == "abacus_teacher") {
       setBatch([]);
-    } else if (course == "shishunajera") {
-      setBatch([
-        {
-          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
-          value: "batch-20240420",
-          startDate: new Date().toISOString(),
-        },
-      ]);
     } else if (course == "shishumaktab") {
       setBatch([
         {
@@ -82,12 +90,12 @@ function PreFeeSection({ profile }) {
           startDate: new Date().toISOString(),
         },
       ]);
-    } else if (course == "farzeayinmaktab") {
+    } else if (course == "farzeayinclass") {
       setBatch([
         {
-          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
-          value: "batch-20240420",
-          startDate: new Date().toISOString(),
+          name: "Batch-13-07-2024 (ক্লাস শুরু আগামী ১৩ জুলাই, ২০২৪ থেকে চলমান)",
+          value: "batch-20240713",
+          startDate: "2024-07-13",
         },
       ]);
     } else if (course == "farzeayinnajera") {
@@ -99,39 +107,11 @@ function PreFeeSection({ profile }) {
         },
       ]);
     } else if (course == "ezranahusorof") {
-      setBatch([
-        {
-          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
-          value: "batch-20240420",
-          startDate: new Date().toISOString(),
-        },
-      ]);
+      setBatch([]);
     } else if (course == "urdu") {
-      setBatch([
-        {
-          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
-          value: "batch-20240420",
-          startDate: new Date().toISOString(),
-        },
-      ]);
+      setBatch([]);
     } else if (course == "ramadanquranulkarim") {
       setBatch([]);
-    } else if (course == "farzeayinampara") {
-      setBatch([
-        {
-          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
-          value: "batch-20240420",
-          startDate: new Date().toISOString(),
-        },
-      ]);
-    } else if (course == "schoolalemalema") {
-      setBatch([
-        {
-          name: "Batch-05-06-2024 (ক্লাস শুরু আগামী ৫ জুন, ২০২৪)",
-          value: "batch-20240605",
-          startDate: "2024-06-05",
-        },
-      ]);
     }
   }
 
@@ -297,6 +277,22 @@ function PreFeeSection({ profile }) {
       setExtraJamat(true);
       setExtraTransaction(false);
       setExtraBatch(true);
+    } else if (classes == "schoolalemalema") {
+      setExtraJamat(true);
+      setExtraTransaction(false);
+      setExtraBatch(true);
+
+      setSemester(
+        (prev) => prev && prev.filter((item) => item.ID.includes("school"))
+      );
+    } else if (classes == "prealemalema") {
+      setExtraJamat(true);
+      setExtraTransaction(false);
+      setExtraBatch(true);
+
+      setSemester(
+        (prev) => prev && prev.filter((item) => item.ID.includes("pre"))
+      );
     } else if (classes == "abacus_student") {
       setMainData((prev) => ({
         ...prev,
@@ -476,6 +472,12 @@ function PreFeeSection({ profile }) {
           return ID[0].departmentID;
         }
 
+        setSemester(
+          semester.data.map((item) => {
+            return { ID: item.semesterID, name: item.semesterName };
+          })
+        );
+
         if (enroll) {
           setMainData((prev) => ({
             ...prev,
@@ -487,6 +489,21 @@ function PreFeeSection({ profile }) {
           if (enroll == "alemalema") {
             setExtraJamat(true);
             setExtraBatch(true);
+          } else if (enroll == "schoolalemalema") {
+            setExtraJamat(true);
+            setExtraBatch(true);
+
+            setSemester(
+              (prev) =>
+                prev && prev.filter((item) => item.ID.includes("school"))
+            );
+          } else if (enroll == "prealemalema") {
+            setExtraJamat(true);
+            setExtraBatch(true);
+
+            setSemester(
+              (prev) => prev && prev.filter((item) => item.ID.includes("pre"))
+            );
           } else {
             setExtraBatch(true);
             setExtraTransaction(true);
@@ -554,12 +571,6 @@ function PreFeeSection({ profile }) {
         setJamat(
           jamat.data.map((item) => {
             return { ID: item.jamatID, name: item.jamatName };
-          })
-        );
-
-        setSemester(
-          semester.data.map((item) => {
-            return { ID: item.semesterID, name: item.semesterName };
           })
         );
 
