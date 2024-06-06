@@ -73,9 +73,11 @@ function AbacusCourse({ info, comment, richtext, parameter }) {
             <div className="style-506">
               <div className="style-507">
                 <div className="style-508">
+                 
+
                   <div className="style-509">
                     <h2 className="style-510">
-                      {true ? "Syllabus" : "সিলেবাস"}
+                      {false ? "Syllabus" : "সিলেবাস"}
                     </h2>
                   </div>
                   <div className="style-511">
@@ -126,6 +128,26 @@ function AbacusCourse({ info, comment, richtext, parameter }) {
                       ))}
                     </div>
                   </div>
+                  {pageName == "schoolalemalema" && (
+                    <div className="style-509">
+                      <h2
+                        style={{
+                          marginTop: "40px",
+                          color: "green",
+                          border: "1px solid #ddd",
+                          borderRadius: "10px",
+                          padding: "20px 10px",
+                          lineHeight: "40px",
+                        }}
+                        className="style-510"
+                      >
+                        {false
+                          ? ""
+                          : "প্রতি শনিবার অ্যাবাকাস ম্যাথ ও প্রাকটিক্যাল ইংরেজীর ক্লাস হবে"}
+                      </h2>
+                    </div>
+                  )}
+
                   <div className="style-509">
                     <h2
                       style={{

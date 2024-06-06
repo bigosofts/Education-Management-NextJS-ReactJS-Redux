@@ -92,7 +92,7 @@ function DashboardMetrics(props) {
 
         async function alemalemaQuery(datas) {
           return datas.filter((item) => {
-            if (item.batchCount == "batch-20240420") {
+            if (item.batchCount == "batch-20240605") {
               let semester = item.studentSemester.filter((item) => {
                 return /semester/i.test(item.code) && item.status == "active";
               });
@@ -652,6 +652,19 @@ function DashboardMetrics(props) {
         setAllRamadanquranulkarim(ramadanquranulkarim);
         const shishunajera = await shishunajeraQuery(res.data);
         setAllShishunajera(shishunajera);
+
+        // console.log(
+        //   alemalemaCount &&
+        //     JSON.stringify(
+        //       alemalemaCount.map((item) => {
+        //         return {
+        //           SID: item.userName,
+        //           Name: item.firstName.en + " " + item.lastName.en,
+        //           Mobile: item.mobileNumber,
+        //         };
+        //       })
+        //     )
+        // );
 
         // let male = alemalemaCount.filter((item) => {
         //   return item.gender == "male";

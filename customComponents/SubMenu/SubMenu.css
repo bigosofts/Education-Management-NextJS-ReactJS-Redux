@@ -148,8 +148,8 @@
 }
 
 .submenu .dropdown-link:hover > a {
-  background-color: #013030;
-  color: #fff;
+  background-color: #fff;
+  color: #013030;
 }
 
 .submenu .dropdown-link:not(:nth-last-child(1)) {
