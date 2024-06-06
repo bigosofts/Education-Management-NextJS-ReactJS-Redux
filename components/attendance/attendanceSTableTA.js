@@ -71,6 +71,8 @@ function AttendanceSTableTA({ classes, strDate, books }) {
                 return item4.presentTime == item;
               });
 
+              console.log(item3);
+
               let haveTeacherAttendance = teacher.attendance.find((item7) => {
                 return item7.presentTime == item;
               });

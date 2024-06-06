@@ -35,9 +35,6 @@ function BookPageDesign() {
     getData();
   }, []);
 
-  if (classData) {
-    console.log(classData);
-  }
   return (
     <div className="bookpageContainer">
       <div className="imgct"></div>
@@ -74,13 +71,57 @@ function BookPageDesign() {
           </div>
         )}
 
-        {courseState && courseState.shishunajera == true && (
+        {courseState && courseState.schoolalemalema == true && (
           <div className="book-grid">
-            <h2> All Books of Shishu Najera Running Class </h2>
+            <h2>
+              {" "}
+              All Books of School Alemalema, {courseState.jamat},{" "}
+              {courseState.semester} <br />
+              Your Running Batch:{" "}
+              <span style={{ color: "red" }}>
+                {data.data.userDetails.batchCount}
+              </span>
+            </h2>
+
             <ul>
               {classData &&
                 classData
-                  .filter((item) => item.courseID == "shishunajera")
+                  .filter(
+                    (item) =>
+                      item.courseID == "schoolalemalema" &&
+                      item.semesterID == courseState.semester
+                  )
+                  .map((item, i) => (
+                    <li key={i}>
+                      {" "}
+                      <img src="/images/officebook.png" />
+                      <p>{books && findBooks(item.bookID).bookName.bn}</p>
+                    </li>
+                  ))}
+            </ul>
+          </div>
+        )}
+
+        {courseState && courseState.prealemalema == true && (
+          <div className="book-grid">
+            <h2>
+              {" "}
+              All Books of Pre Alemalema, {courseState.jamat},{" "}
+              {courseState.semester} <br />
+              Your Running Batch:{" "}
+              <span style={{ color: "red" }}>
+                {data.data.userDetails.batchCount}
+              </span>
+            </h2>
+
+            <ul>
+              {classData &&
+                classData
+                  .filter(
+                    (item) =>
+                      item.courseID == "prealemalema" &&
+                      item.semesterID == courseState.semester
+                  )
                   .map((item, i) => (
                     <li key={i}>
                       {" "}
@@ -110,7 +151,7 @@ function BookPageDesign() {
           </div>
         )}
 
-        {courseState && courseState.farzeayinmaktab == true && (
+        {courseState && courseState.farzeayinclass == true && (
           <div className="book-grid">
             <h2> All Books of Farze Ayin Maktab Running Class </h2>
             <ul>
@@ -171,24 +212,6 @@ function BookPageDesign() {
               {classData &&
                 classData
                   .filter((item) => item.courseID == "urdu")
-                  .map((item, i) => (
-                    <li key={i}>
-                      {" "}
-                      <img src="/images/officebook.png" />
-                      <p>{books && findBooks(item.bookID).bookName.bn}</p>
-                    </li>
-                  ))}
-            </ul>
-          </div>
-        )}
-
-        {courseState && courseState.farzeayinampara == true && (
-          <div className="book-grid">
-            <h2> All Books of Farze Ayin Ampara Running Class </h2>
-            <ul>
-              {classData &&
-                classData
-                  .filter((item) => item.courseID == "farzeayinampara")
                   .map((item, i) => (
                     <li key={i}>
                       {" "}
