@@ -16,6 +16,7 @@ function QuizAttendance({ classSelection, allsubmited }) {
   const [isPresent, setIsPresent] = useState();
   const [lastAttendanceDate, setLastAttendanceDate] = useState();
   const [render, setRender] = useState(true);
+  const [showBtn, setShowBtn] = useState(true);
 
   let currentDate = new Date();
 
@@ -33,6 +34,7 @@ function QuizAttendance({ classSelection, allsubmited }) {
   }
 
   async function present() {
+    setShowBtn(false);
     let classWant = specificClass;
     let specificStudent = classWant.students.find(
       (item) => item.SID == data.data.userDetails.userName
@@ -76,11 +78,14 @@ function QuizAttendance({ classSelection, allsubmited }) {
 
     if (res.status == "Alhamdulillah") {
       mytoast.success("Present has been counted for specific date");
+
       setRender((prev) => !prev);
+      setShowBtn(true);
     }
   }
 
   async function absent() {
+    setShowBtn(false);
     let classWant = specificClass;
     let specificStudent = classWant.students.find(
       (item) => item.SID == data.data.userDetails.userName
@@ -125,6 +130,7 @@ function QuizAttendance({ classSelection, allsubmited }) {
     if (res.status == "Alhamdulillah") {
       mytoast.success("Submitted. Next time try to be present");
       setRender((prev) => !prev);
+      setShowBtn(true);
     }
   }
 
@@ -242,6 +248,7 @@ function QuizAttendance({ classSelection, allsubmited }) {
   }
 
   async function writeAnswer(answer, question, correct, counter, question2) {
+    setShowBtn(false);
     let classWant = specificClass;
 
     let specificStudent = classWant.students.find(
@@ -290,6 +297,7 @@ function QuizAttendance({ classSelection, allsubmited }) {
 
           if (res.status == "Alhamdulillah") {
             mytoast.success("Answer has been Recorded");
+            setShowBtn(true);
 
             if (counter == question2.length) {
               mytoast.success("All Answer has been submitted");
@@ -328,91 +336,109 @@ function QuizAttendance({ classSelection, allsubmited }) {
 
         if (res.status == "Alhamdulillah") {
           mytoast.success("Answer has been Recorded");
-          setCounter((prev) => prev + 1);
+          setShowBtn(true);
+          if (question2.length == completionProgress.length) {
+            setIsPresent("done");
+            allsubmited(completionProgress);
+
+            mytoast.success("All Answer has been submitted");
+          } else {
+            setCounter((prev) => prev + 1);
+          }
         }
       }
     }
   }
+
   return (
     <div className="wrapperQuiz">
       {isPresent == "ok" && (
         <>
-          <div id="quiz">
-            <div className="insideQuiz">
-              <p id="question">
-                {counter && question && question[counter - 1].question}
-              </p>
+          {showBtn ? (
+            <div id="quiz">
+              <div className="insideQuiz">
+                <p id="question">
+                  {counter &&
+                    question.length > 0 &&
+                    question[counter - 1].question}
+                </p>
 
-              <div class="buttons">
-                <button
-                  onClick={() =>
-                    writeAnswer(
-                      counter &&
+                <div class="buttons">
+                  <button
+                    onClick={() =>
+                      writeAnswer(
+                        counter &&
+                          question &&
+                          question[counter - 1].multipleChoice.choice1,
+                        counter && question && question[counter - 1].question,
+                        counter &&
+                          question &&
+                          question[counter - 1].multipleChoice.answer,
+                        counter,
+                        question
+                      )
+                    }
+                    id="btn0"
+                  >
+                    <span id="choice0">
+                      {counter &&
                         question &&
-                        question[counter - 1].multipleChoice.choice1,
-                      counter && question && question[counter - 1].question,
-                      counter &&
+                        question[counter - 1].multipleChoice.choice1}
+                    </span>
+                  </button>
+                  <button
+                    onClick={() =>
+                      writeAnswer(
+                        counter &&
+                          question &&
+                          question[counter - 1].multipleChoice.choice2,
+                        counter && question && question[counter - 1].question,
+                        counter &&
+                          question &&
+                          question[counter - 1].multipleChoice.answer,
+                        counter,
+                        question
+                      )
+                    }
+                    id="btn1"
+                  >
+                    <span id="choice1">
+                      {counter &&
                         question &&
-                        question[counter - 1].multipleChoice.answer,
-                      counter,
-                      question
-                    )
-                  }
-                  id="btn0"
-                >
-                  <span id="choice0">
-                    {counter &&
-                      question &&
-                      question[counter - 1].multipleChoice.choice1}
-                  </span>
-                </button>
-                <button
-                  onClick={() =>
-                    writeAnswer(
-                      counter &&
+                        question[counter - 1].multipleChoice.choice2}
+                    </span>
+                  </button>
+                  <button
+                    onClick={() =>
+                      writeAnswer(
+                        counter &&
+                          question &&
+                          question[counter - 1].multipleChoice.choice3,
+                        counter && question && question[counter - 1].question,
+                        counter &&
+                          question &&
+                          question[counter - 1].multipleChoice.answer,
+                        counter,
+                        question
+                      )
+                    }
+                    id="btn2"
+                  >
+                    <span id="choice3">
+                      {counter &&
                         question &&
-                        question[counter - 1].multipleChoice.choice2,
-                      counter && question && question[counter - 1].question,
-                      counter &&
-                        question &&
-                        question[counter - 1].multipleChoice.answer,
-                      counter,
-                      question
-                    )
-                  }
-                  id="btn1"
-                >
-                  <span id="choice1">
-                    {counter &&
-                      question &&
-                      question[counter - 1].multipleChoice.choice2}
-                  </span>
-                </button>
-                <button
-                  onClick={() =>
-                    writeAnswer(
-                      counter &&
-                        question &&
-                        question[counter - 1].multipleChoice.choice3,
-                      counter && question && question[counter - 1].question,
-                      counter &&
-                        question &&
-                        question[counter - 1].multipleChoice.answer,
-                      counter,
-                      question
-                    )
-                  }
-                  id="btn2"
-                >
-                  <span id="choice3">
-                    {counter &&
-                      question &&
-                      question[counter - 1].multipleChoice.choice3}
-                  </span>
-                </button>
+                        question[counter - 1].multipleChoice.choice3}
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <h2 className="mt-5 text-center text-white">
+              Updating... <br /> Please wait
+            </h2>
+          )}
+
           <footer>
             <p id="progress">
               <div className="progress-number">
