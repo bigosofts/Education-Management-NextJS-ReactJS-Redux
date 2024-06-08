@@ -16,12 +16,16 @@ import FarzeayinnajeraMain from "@/components/dashboardPage/farzeayinnajerapage/
 import ShishumaktabMain from "@/components/dashboardPage/shishumaktabpage/shishumaktabMain";
 import ShishunajeraMain from "@/components/dashboardPage/shishunajerapage/shishunajeraMain";
 import HifjulquranMain from "@/components/dashboardPage/hifjulquranpage/hifjulquranMain";
+import SchoolAlemalemaMain from "@/components/dashboardPage/schoolalemalemapage/alemalemaMain";
+import PreAlemalemaMain from "@/components/dashboardPage/prealemalemapage/alemalemaMain";
 
 function AbacusPage(props) {
   const data = useSelector((state) => state.isAdmin.value);
 
   const [showPage, setShowPage] = useState();
   const [isAlemalema, setIsAlemalema] = useState();
+  const [isSchoolAlemalema, setIsSchoolAlemalema] = useState();
+  const [isPreAlemalema, setIsPreAlemalema] = useState();
   const [isUrdu, setIsUrdu] = useState(false);
   const [isEzra, setIsEzra] = useState(false);
   const [isShishunajera, setIsShishunajera] = useState(false);
@@ -48,14 +52,16 @@ function AbacusPage(props) {
 
   const allowList = [
     "alemalema",
-    "shishunajera",
+    "schoolalemalema",
+    "prealemalema",
+    "abacus_student",
+
     "shishumaktab",
-    "farzeayinmaktab",
+
     "farzeayinnajera",
     "hifjulquran",
-    "ezranahusorof",
-    "urdu",
-    "farzeayinampara",
+
+    "ramadanquranulkarim",
   ];
 
   useEffect(() => {
@@ -70,6 +76,15 @@ function AbacusPage(props) {
             if (item.code == "alemalema" && item.status == "active") {
               setShowPage(true);
               setIsAlemalema(true);
+            } else if (
+              item.code == "schoolalemalema" &&
+              item.status == "active"
+            ) {
+              setShowPage(true);
+              setIsSchoolAlemalema(true);
+            } else if (item.code == "prealemalema" && item.status == "active") {
+              setShowPage(true);
+              setIsPreAlemalema(true);
             } else if (item.code == "hifjulquran" && item.status == "active") {
               setShowPage(true);
               setIsHifjulquran(true);
@@ -133,6 +148,8 @@ function AbacusPage(props) {
             প্রবেশ করুন।
           </div> */}
           {isAlemalema && <AlemalemaMain />}
+          {isSchoolAlemalema && <SchoolAlemalemaMain />}
+          {isPreAlemalema && <PreAlemalemaMain />}
           {isUrdu && <UrduMain />}
           {isEzra && <EzraMain />}
           {isShishunajera && <ShishunajeraMain />}

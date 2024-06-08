@@ -26,7 +26,7 @@ function ResultPage() {
     "farzeayinampara",
     "abacus_teacher",
   ];
-  const allowList = ["alemalema"];
+  const allowList = ["alemalema", "schoolalemalema", "prealemalema"];
 
   useEffect(() => {
     async function getData() {

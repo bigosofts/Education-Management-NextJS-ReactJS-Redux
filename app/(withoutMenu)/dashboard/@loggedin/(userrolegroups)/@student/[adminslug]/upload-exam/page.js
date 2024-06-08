@@ -24,9 +24,9 @@ function UploadExam() {
     "urdu",
     "ramadanquranulkarim",
     "farzeayinampara",
-    "abacus_teacher"
+    "abacus_teacher",
   ];
-  const allowList = ["alemalema"];
+  const allowList = ["alemalema", "schoolalemalema", "prealemalema"];
 
   useEffect(() => {
     async function getData() {
@@ -36,13 +36,13 @@ function UploadExam() {
       );
       if (res.status == "Alhamdulillah") {
         let course;
-        if(res.data[0].studentCourseCode.length > 0){
+        if (res.data[0].studentCourseCode.length > 0) {
           course =
-          res.data[0].studentCourseCode[
-            res.data[0].studentCourseCode.length - 1
-          ].code;
+            res.data[0].studentCourseCode[
+              res.data[0].studentCourseCode.length - 1
+            ].code;
         }
-        
+
         if (allowList.some((item) => item == course)) {
           setShowPage(true);
         } else {
@@ -64,10 +64,8 @@ function UploadExam() {
       return <WaitingApproval />;
     } else if (showPage) {
       return <div>Upload Exam Page</div>;
-    } else if(!showPage) {
-     
-        return <NotAllow allowList={allowList} />;
-   
+    } else if (!showPage) {
+      return <NotAllow allowList={allowList} />;
     }
   }
 }

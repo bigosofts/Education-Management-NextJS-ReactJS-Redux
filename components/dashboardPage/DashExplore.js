@@ -58,7 +58,6 @@ function DashExplore() {
         show: true,
       },
 
-      
       {
         name: "Change Class",
         href: `/dashboard/${data.data.userName}/switches`,
@@ -309,7 +308,7 @@ function DashExplore() {
           icon: "/images/fees.svg",
           show: true,
         },
-       
+
         {
           name: "Library",
           href: `/dashboard/${data.data.userName}/books`,
@@ -352,7 +351,12 @@ function DashExplore() {
       data.data.userDetails.studentCourseCode.forEach((item) => {
         newArray = FixedNewArray;
 
-        if (item.code == "alemalema" && item.status == "active") {
+        if (
+          (item.code == "alemalema" ||
+            item.code == "schoolalemalema" ||
+            item.code == "prealemalema") &&
+          item.status == "active"
+        ) {
           let alemalemaArray = [
             {
               name: "Results",
@@ -466,6 +470,8 @@ function DashExplore() {
 
         if (
           (item.code == "alemalema" && item.status == "active") ||
+          (item.code == "schoolalemalema" && item.status == "active") ||
+          (item.code == "prealemalema" && item.status == "active") ||
           (item.code == "farzeayinampara" && item.status == "active") ||
           (item.code == "ezranahusorof" && item.status == "active") ||
           (item.code == "shishumaktab" && item.status == "active") ||
@@ -540,7 +546,6 @@ function DashExplore() {
           show: true,
         },
 
-        
         {
           name: "Change Class",
           href: `/dashboard/${data.data.userName}/switches`,

@@ -34,7 +34,14 @@ function AttendancePageCustom() {
           res.data.filter((item) => {
             if (
               item.batchNo == data.data.userDetails.batchCount &&
-              item.courseID == (courseState.alemalema ? "alemalema" : "") &&
+              item.courseID ==
+                (courseState.alemalema
+                  ? "alemalema"
+                  : courseState.schoolalemalema
+                  ? "schoolalemalema"
+                  : courseState.prealemalema
+                  ? "prealemalema"
+                  : "") &&
               item.semesterID == courseState.semester
             ) {
               return true;
@@ -52,32 +59,14 @@ function AttendancePageCustom() {
             ) {
               return true;
             }
-            if (
-              item.batchNo == data.data.userDetails.batchCount &&
-              item.courseID ==
-                (courseState.abacus_teacher ? "abacus_teacher" : "")
-            ) {
-              return true;
-            }
-            if (
-              item.batchNo == data.data.userDetails.batchCount &&
-              item.courseID == (courseState.shishunajera ? "shishunajera" : "")
-            ) {
-              return true;
-            }
+
             if (
               item.batchNo == data.data.userDetails.batchCount &&
               item.courseID == (courseState.shishumaktab ? "shishumaktab" : "")
             ) {
               return true;
             }
-            if (
-              item.batchNo == data.data.userDetails.batchCount &&
-              item.courseID ==
-                (courseState.farzeayinmaktab ? "farzeayinmaktab" : "")
-            ) {
-              return true;
-            }
+
             if (
               item.batchNo == data.data.userDetails.batchCount &&
               item.courseID ==
@@ -90,13 +79,6 @@ function AttendancePageCustom() {
               item.batchNo == data.data.userDetails.batchCount &&
               item.courseID ==
                 (courseState.ramadanquranulkarim ? "ramadanquranulkarim" : "")
-            ) {
-              return true;
-            }
-            if (
-              item.batchNo == data.data.userDetails.batchCount &&
-              item.courseID ==
-                (courseState.farzeayinampara ? "farzeayinampara" : "")
             ) {
               return true;
             }

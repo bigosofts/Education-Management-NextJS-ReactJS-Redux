@@ -29,15 +29,16 @@ function BookPage() {
   ];
   const allowList = [
     "alemalema",
-    "shishunajera",
+    "schoolalemalema",
+    "prealemalema",
+    "abacus_student",
+
     "shishumaktab",
-    "farzeayinmaktab",
+
     "farzeayinnajera",
     "hifjulquran",
-    "ezranahusorof",
-    "urdu",
+
     "ramadanquranulkarim",
-    "farzeayinampara",
   ];
 
   useEffect(() => {

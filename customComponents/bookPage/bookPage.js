@@ -40,6 +40,7 @@ function BookPageDesign() {
       <div className="imgct"></div>
 
       <div className="bookshelf">
+
         {courseState && courseState.alemalema == true && (
           <div className="book-grid">
             <h2>
@@ -151,24 +152,6 @@ function BookPageDesign() {
           </div>
         )}
 
-        {courseState && courseState.farzeayinclass == true && (
-          <div className="book-grid">
-            <h2> All Books of Farze Ayin Maktab Running Class </h2>
-            <ul>
-              {classData &&
-                classData
-                  .filter((item) => item.courseID == "farzeayinmaktab")
-                  .map((item, i) => (
-                    <li key={i}>
-                      {" "}
-                      <img src="/images/officebook.png" />
-                      <p>{books && findBooks(item.bookID).bookName.bn}</p>
-                    </li>
-                  ))}
-            </ul>
-          </div>
-        )}
-
         {courseState && courseState.farzeayinnajera == true && (
           <div className="book-grid">
             <h2> All Books of Farze Ayin Najera Running Class </h2>
@@ -186,42 +169,7 @@ function BookPageDesign() {
             </ul>
           </div>
         )}
-
-        {courseState && courseState.ezranahusorof == true && (
-          <div className="book-grid">
-            <h2> All Books of Ezra Bahu Sorof Running Class </h2>
-            <ul>
-              {classData &&
-                classData
-                  .filter((item) => item.courseID == "ezranahusorof")
-                  .map((item, i) => (
-                    <li key={i}>
-                      {" "}
-                      <img src="/images/officebook.png" />
-                      <p>{books && findBooks(item.bookID).bookName.bn}</p>
-                    </li>
-                  ))}
-            </ul>
-          </div>
-        )}
-
-        {courseState && courseState.urdu == true && (
-          <div className="book-grid">
-            <h2> All Books of Urdu Running Class </h2>
-            <ul>
-              {classData &&
-                classData
-                  .filter((item) => item.courseID == "urdu")
-                  .map((item, i) => (
-                    <li key={i}>
-                      {" "}
-                      <img src="/images/officebook.png" />
-                      <p>{books && findBooks(item.bookID).bookName.bn}</p>
-                    </li>
-                  ))}
-            </ul>
-          </div>
-        )}
+        
       </div>
     </div>
   );

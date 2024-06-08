@@ -28,17 +28,16 @@ function AttendancePage() {
   ];
   const allowList = [
     "alemalema",
+    "schoolalemalema",
+    "prealemalema",
     "abacus_student",
-    "shishunajera",
+
     "shishumaktab",
-    "farzeayinmaktab",
+
     "farzeayinnajera",
     "hifjulquran",
-    "ezranahusorof",
-    "urdu",
+
     "ramadanquranulkarim",
-    "farzeayinampara",
-    "abacus_teacher",
   ];
 
   useEffect(() => {
