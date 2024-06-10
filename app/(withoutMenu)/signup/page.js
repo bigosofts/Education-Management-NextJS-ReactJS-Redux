@@ -8,10 +8,7 @@ async function getData() {
       activeStatus: "active",
     },
     {
-      emailAddress: true,
-      mobileNumber: true,
-      userRole: true,
-      userName: true,
+      password: false,
     }
   );
 
@@ -20,10 +17,7 @@ async function getData() {
       activeStatus: "active",
     },
     {
-      emailAddress: true,
-      mobileNumber: true,
-      userRole: true,
-      userName: true,
+      password: false,
     }
   );
 
@@ -37,7 +31,11 @@ async function getData() {
     dataObject.students = res2.data;
 
     const finalArray = [...dataObject.teachers];
-    return finalArray.concat(dataObject.students);
+    return {
+      final: finalArray.concat(dataObject.students),
+      students: dataObject.students,
+      teachers: dataObject.teachers,
+    };
   } else {
     mytoast.danger("Data fetching error. Try Refreshing the page");
   }
@@ -47,8 +45,8 @@ import LoginPageDesign from "@/components/loginPage/Loginpage";
 
 async function LoginPage() {
   const data = await getData();
-
-  return <LoginPageDesign userData={data} />;
+  
+  return <LoginPageDesign userData={data.final} />;
 }
 
 export default LoginPage;

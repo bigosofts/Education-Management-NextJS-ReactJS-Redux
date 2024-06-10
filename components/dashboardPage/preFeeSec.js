@@ -457,7 +457,9 @@ function PreFeeSection({ profile }) {
               (item) =>
                 item.courseCode != "abacus_teacher" &&
                 item.courseCode != "ezranahusorof" &&
-                item.courseCode != "urdu"
+                item.courseCode != "urdu" &&
+                item.courseCode != "ramadanquranulkarim" &&
+                item.courseCode != "farzeayinclass"
             )
             .map((item) => {
               return {
@@ -1983,7 +1985,9 @@ function PreFeeSection({ profile }) {
       mytoast.warning("Admission Form: One or more field is emplty");
     }
   }
-
+  if (mainData) {
+    console.log(mainData);
+  }
   return (
     <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">
       <div className="flex justify-center p-5 pb-10">
