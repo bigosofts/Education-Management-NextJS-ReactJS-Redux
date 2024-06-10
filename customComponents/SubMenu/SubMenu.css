@@ -152,9 +152,9 @@
   color: #013030;
 }
 
-.submenu .dropdown-link:not(:nth-last-child(1)) {
+/* .submenu .dropdown-link:not(:nth-last-child(1)) {
   border-bottom: 1px solid #efefef;
-}
+} */
 
 .submenu .dropdown-link i {
   transform: rotate(-90deg);
@@ -318,7 +318,7 @@
   }
 
   #check:checked ~ .nav-btn {
-    transform: translateX(25%);
+    transform: translateX(0%);
   }
 
   
