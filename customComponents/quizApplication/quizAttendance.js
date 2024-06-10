@@ -340,7 +340,6 @@ function QuizAttendance({ classSelection, allsubmited }) {
           if (question2.length == completionProgress.length) {
             setIsPresent("done");
             allsubmited(completionProgress);
-
             mytoast.success("All Answer has been submitted");
           } else {
             setCounter((prev) => prev + 1);

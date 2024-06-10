@@ -9,7 +9,7 @@ exports.selectData = async (query, projection) => {
 
   if (data2) {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/apis/v1/select-payments`,
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/select-donations`,
       {
         method: "POST",
         headers: {
@@ -28,7 +28,7 @@ exports.selectData = async (query, projection) => {
     return res.json();
   } else {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/apis/v1/select-payments`,
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/select-donations`,
       {
         method: "POST",
         headers: {
@@ -46,6 +46,7 @@ exports.selectData = async (query, projection) => {
     return res.json();
   }
 };
+
 exports.selectDataTwo = async (query, projection) => {
   const payloaddata = {
     query: query,
@@ -53,7 +54,7 @@ exports.selectDataTwo = async (query, projection) => {
   };
   if (data2) {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/apis/v1/select-payments`,
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/select-donations`,
       {
         method: "POST",
         headers: {
@@ -73,7 +74,7 @@ exports.selectDataTwo = async (query, projection) => {
     return res.json();
   } else {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/apis/v1/select-payments`,
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/select-donations`,
       {
         method: "POST",
         headers: {
@@ -96,7 +97,7 @@ exports.selectDataTwo = async (query, projection) => {
 exports.deleteData = async (id) => {
   if (data2) {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-payment/${id}`,
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-donation/${id}`,
       {
         method: "DELETE",
         headers: {
@@ -114,7 +115,7 @@ exports.deleteData = async (id) => {
     return res.json();
   } else {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-payment/${id}`,
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-donation/${id}`,
       {
         method: "DELETE",
         headers: {
@@ -133,29 +134,33 @@ exports.deleteData = async (id) => {
 };
 
 exports.createData = async ({
-  paymentID,
-  paymentCurrency,
-  admissionDate,
-  admissionPrice,
-  monthlyPaymentPrice,
-  admissionPaymentHistory,
-  monthlyPaymentHistory,
+  donationID,
+  donationTargetAmount,
+  donationArea,
+  donationAmount,
+  donationPaymentWay,
+  donationTransactionID,
+  donationSenderAccount,
+  donationRepeatTime,
+  nextDonationTime,
   activeStatus,
 }) => {
   const aboutdata = {
-    paymentID,
-    paymentCurrency,
-    admissionDate,
-    admissionPrice,
-    monthlyPaymentPrice,
-    admissionPaymentHistory,
-    monthlyPaymentHistory,
+    donationID,
+    donationTargetAmount,
+    donationArea,
+    donationAmount,
+    donationPaymentWay,
+    donationTransactionID,
+    donationSenderAccount,
+    donationRepeatTime,
+    nextDonationTime,
     activeStatus,
   };
 
   if (data2) {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-payment`,
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-donation`,
       {
         method: "POST",
         headers: {
@@ -175,7 +180,7 @@ exports.createData = async ({
     return res.json();
   } else {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-studentrole`,
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-donation`,
       {
         method: "POST",
         headers: {
@@ -196,32 +201,32 @@ exports.createData = async ({
 };
 
 exports.updateData = async ({
-  paymentID,
-  paymentCurrency,
-  admissionDate,
-
-  admissionPrice,
-  monthlyPaymentPrice,
-  admissionPaymentHistory,
-  monthlyPaymentHistory,
+  donationTargetAmount,
+  donationArea,
+  donationAmount,
+  donationPaymentWay,
+  donationTransactionID,
+  donationSenderAccount,
+  donationRepeatTime,
+  nextDonationTime,
   activeStatus,
   idValue,
 }) => {
   const aboutdata = {
     _id: idValue,
-    paymentID,
-    paymentCurrency,
-    admissionDate,
-
-    admissionPrice,
-    monthlyPaymentPrice,
-    admissionPaymentHistory,
-    monthlyPaymentHistory,
+    donationTargetAmount,
+    donationArea,
+    donationAmount,
+    donationPaymentWay,
+    donationTransactionID,
+    donationSenderAccount,
+    donationRepeatTime,
+    nextDonationTime,
     activeStatus,
   };
   if (data2) {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-payment`,
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-donation`,
       {
         method: "PUT",
         headers: {
@@ -239,7 +244,7 @@ exports.updateData = async ({
     return res.json();
   } else {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-payment`,
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-donation`,
       {
         method: "PUT",
         headers: {

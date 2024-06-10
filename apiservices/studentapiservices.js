@@ -183,7 +183,7 @@ exports.createData = async ({
     studentSemester: studentSemester,
     batchCount: batchCount,
   };
-
+  console.log(aboutdata);
   if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-student`,

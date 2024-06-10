@@ -5,7 +5,6 @@ import { selectDataTwo } from "@/apiservices/studentapiservices";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import TableMonthly from "../Student/tableMonthly";
-import PreFeeSectionMonthly from "./preFeeSecMonthly";
 import { selectDataTwo as selectPayments } from "@/apiservices/paymentapiservices";
 import MonthlyPayment from "./monthlyPayment";
 
@@ -117,15 +116,6 @@ function FeeSection({ profile }) {
             </h1>
             <MonthlyPayment profile={data} />
           </div>
-
-          {getDayDifference() > 1 && (
-            <div className="text-slate-800 mt-[200px] mb-12">
-              <h1 className="text-[16px] md:text-2xl mt-12 mb-10 text-slate-600 text-center">
-                Give Yearly Payment for due date
-              </h1>
-              <PreFeeSectionMonthly profile={data} />
-            </div>
-          )}
         </div>
       </div>
     );

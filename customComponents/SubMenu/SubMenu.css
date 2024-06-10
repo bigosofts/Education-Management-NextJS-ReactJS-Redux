@@ -318,8 +318,10 @@
   }
 
   #check:checked ~ .nav-btn {
-    transform: translateX(0);
+    transform: translateX(25%);
   }
+
+  
 
   #check:checked ~ .nav-btn .nav-link,
   #check:checked ~ .nav-btn .log-sign {
@@ -412,6 +414,8 @@
 
   .submenu .dropdown-link:hover > a {
     background-color: #013030;
+    color: #fff;
+    scale: 105%;
   }
 
   .submenu .dropdown-link:first-child:hover ~ .arrow {

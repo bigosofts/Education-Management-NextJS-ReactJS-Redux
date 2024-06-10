@@ -277,6 +277,13 @@ function PreFeeSection({ profile }) {
       setExtraJamat(true);
       setExtraTransaction(false);
       setExtraBatch(true);
+      setSemester(
+        (prev) =>
+          prev &&
+          prev.filter(
+            (item) => !item.ID.includes("school") && !item.ID.includes("pre")
+          )
+      );
     } else if (classes == "schoolalemalema") {
       setExtraJamat(true);
       setExtraTransaction(false);
@@ -489,6 +496,14 @@ function PreFeeSection({ profile }) {
           if (enroll == "alemalema") {
             setExtraJamat(true);
             setExtraBatch(true);
+            setSemester(
+              (prev) =>
+                prev &&
+                prev.filter(
+                  (item) =>
+                    !item.ID.includes("school") && !item.ID.includes("pre")
+                )
+            );
           } else if (enroll == "schoolalemalema") {
             setExtraJamat(true);
             setExtraBatch(true);
@@ -634,7 +649,8 @@ function PreFeeSection({ profile }) {
     if (
       mainData.currency &&
       (mainData.course == "alemalema" ||
-        mainData.course == "schoolalemalema") &&
+        mainData.course == "schoolalemalema" ||
+        mainData.course == "prealemalema") &&
       mainData.jamat != "none" &&
       mainData.jamat != "" &&
       mainData.semester != "none" &&
@@ -1071,13 +1087,8 @@ function PreFeeSection({ profile }) {
     } else if (
       mainData.currency &&
       (mainData.course == "hifjulquran" ||
-        mainData.course == "shishunajera" ||
         mainData.course == "shishumaktab" ||
-        mainData.course == "farzeayinmaktab" ||
         mainData.course == "farzeayinnajera" ||
-        mainData.course == "ezranahusorof" ||
-        mainData.course == "urdu" ||
-        mainData.course == "farzeayinampara" ||
         mainData.course == "abacus_student") &&
       mainData.jamat == "none" &&
       mainData.semester == "none" &&
@@ -1531,8 +1542,7 @@ function PreFeeSection({ profile }) {
       }
     } else if (
       mainData.currency &&
-      (mainData.course == "abacus_teacher" ||
-        mainData.course == "ramadanquranulkarim") &&
+      mainData.course == "ramadanquranulkarim" &&
       mainData.department != "none" &&
       mainData.department != "" &&
       mainData.jamat == "none" &&

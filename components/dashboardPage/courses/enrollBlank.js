@@ -8,6 +8,8 @@ function EnrollButtonb({ code }) {
         window.location.href = `/signup?code=alemalema`;
       } else if (code == "urdu") {
         window.location.href = `/signup?code=alemalema`;
+      }else if (code == "farzeayinclass") {
+        window.location.href = `/signup?code=prealemalema`;
       }else if (code == "abacus_teacher") {
         window.location.href = `/signup?abacus=true`;
       } else {

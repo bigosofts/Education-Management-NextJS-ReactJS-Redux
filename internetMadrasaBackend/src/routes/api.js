@@ -29,6 +29,7 @@ const otpController = require("../controllers/otpController");
 const pushNoticeController = require("../controllers/pushNoticeController");
 const classController = require("../controllers/classController");
 const abacusInstitutionController = require("../controllers/abacusInstitutionController");
+const donationController = require("../controllers/donationController");
 
 //Middleware Import
 const passEncrypted = require("../middlewares/passwordEncryption");
@@ -177,6 +178,7 @@ router.post("/create-richtext", authverify, RichTextController.createRichText);
 router.post("/create-otp", otpController.createOTP);
 router.post("/create-pushnotice", pushNoticeController.createPushNotice);
 router.post("/create-class", classController.createClass);
+router.post("/create-donation", donationController.createDonation);
 
 //Select or find the data from the database
 router.post("/select-students", profileController.selectStudents);
@@ -216,6 +218,7 @@ router.post("/select-richtexts", RichTextController.selectRichTexts);
 router.post("/select-otps", otpController.selectOTPS);
 router.post("/select-pushnotices", pushNoticeController.selectPushNotices);
 router.post("/select-classes", classController.selectClasses);
+router.post("/select-donations", donationController.selectDonations);
 
 //Select or update the data from the database
 router.put("/update-student", profileController.updateStudent);
@@ -260,6 +263,7 @@ router.put(
   pushNoticeController.updatePushNotice
 );
 router.put("/update-class", classController.updateClass);
+router.put("/update-donation", donationController.updateDonation);
 
 //Delete the data from the database
 router.delete(
@@ -334,5 +338,10 @@ router.delete(
 );
 
 router.delete("/delete-class/:id", authverify, classController.deleteClass);
+router.delete(
+  "/delete-donation/:id",
+  authverify,
+  donationController.deleteDonation
+);
 
 module.exports = router;

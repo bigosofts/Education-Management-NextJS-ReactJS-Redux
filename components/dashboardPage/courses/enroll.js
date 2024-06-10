@@ -128,6 +128,10 @@ function EnrollButton({ courseCode, setProfileUpdate }) {
           router.push(`/dashboard/${data.data.userName}/fees?enroll=alemalema`);
         } else if (courseCode == "urdu") {
           router.push(`/dashboard/${data.data.userName}/fees?enroll=alemalema`);
+        } else if (courseCode == "farzeayinclass") {
+          router.push(
+            `/dashboard/${data.data.userName}/fees?enroll=prealemalema`
+          );
         } else if (courseCode == "abacus_teacher") {
           router.push(`/signup?abacus=true`);
         } else {

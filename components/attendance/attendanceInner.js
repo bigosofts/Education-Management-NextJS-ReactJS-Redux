@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from "react";
 import { updateData as updateClass } from "@/apiservices/classapiservices";
 import AttendanceSTable from "./attendanceSTable";
 
-import { selectDataTwo as selectBooks } from "@/apiservices/bookapiservices";
 
 import QuizAttendance from "@/customComponents/quizApplication/quizAttendance";
 
