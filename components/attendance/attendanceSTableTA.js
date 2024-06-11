@@ -938,123 +938,125 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               }
             }
           } else if (item.courseID == "prealemalema") {
-            if (item.semesterID == "pre-year1semester1") {
-              let filteredEntries = Object.entries(date[i][1]).filter(
-                (filterItem) => {
-                  return filterItem[0].includes(item.bookID);
-                }
-              );
+            if (item.jamatID == "jamat1") {
+              if (item.semesterID == "pre-year1semester1") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
 
-              let filteredObject = Object.fromEntries(filteredEntries);
+                let filteredObject = Object.fromEntries(filteredEntries);
 
-              workingData.alemalema.jamat1["pre-year1semester1"][i] = {
-                ...workingData.alemalema.jamat1["pre-year1semester1"][i],
-                ...filteredObject,
-              };
-            } else if (item.semesterID == "pre-year1semester2") {
-              let filteredEntries = Object.entries(date[i][1]).filter(
-                (filterItem) => {
-                  return filterItem[0].includes(item.bookID);
-                }
-              );
+                workingData.alemalema.jamat1["pre-year1semester1"][i] = {
+                  ...workingData.alemalema.jamat1["pre-year1semester1"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "pre-year1semester2") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
 
-              let filteredObject = Object.fromEntries(filteredEntries);
+                let filteredObject = Object.fromEntries(filteredEntries);
 
-              workingData.alemalema.jamat1["pre-year1semester2"][i] = {
-                ...workingData.alemalema.jamat1["pre-year1semester2"][i],
-                ...filteredObject,
-              };
-            } else if (item.semesterID == "pre-year1semester3") {
-              let filteredEntries = Object.entries(date[i][1]).filter(
-                (filterItem) => {
-                  return filterItem[0].includes(item.bookID);
-                }
-              );
+                workingData.alemalema.jamat1["pre-year1semester2"][i] = {
+                  ...workingData.alemalema.jamat1["pre-year1semester2"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "pre-year1semester3") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
 
-              let filteredObject = Object.fromEntries(filteredEntries);
+                let filteredObject = Object.fromEntries(filteredEntries);
 
-              workingData.alemalema.jamat1["pre-year1semester3"][i] = {
-                ...workingData.alemalema.jamat1["pre-year1semester3"][i],
-                ...filteredObject,
-              };
-            } else if (item.semesterID == "pre-year2semester1") {
-              let filteredEntries = Object.entries(date[i][1]).filter(
-                (filterItem) => {
-                  return filterItem[0].includes(item.bookID);
-                }
-              );
+                workingData.alemalema.jamat1["pre-year1semester3"][i] = {
+                  ...workingData.alemalema.jamat1["pre-year1semester3"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "pre-year2semester1") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
 
-              let filteredObject = Object.fromEntries(filteredEntries);
+                let filteredObject = Object.fromEntries(filteredEntries);
 
-              workingData.alemalema.jamat1["pre-year2semester1"][i] = {
-                ...workingData.alemalema.jamat1["pre-year2semester1"][i],
-                ...filteredObject,
-              };
-            } else if (item.semesterID == "pre-year2semester2") {
-              let filteredEntries = Object.entries(date[i][1]).filter(
-                (filterItem) => {
-                  return filterItem[0].includes(item.bookID);
-                }
-              );
+                workingData.alemalema.jamat1["pre-year2semester1"][i] = {
+                  ...workingData.alemalema.jamat1["pre-year2semester1"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "pre-year2semester2") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
 
-              let filteredObject = Object.fromEntries(filteredEntries);
+                let filteredObject = Object.fromEntries(filteredEntries);
 
-              workingData.alemalema.jamat1["pre-year2semester2"][i] = {
-                ...workingData.alemalema.jamat1["pre-year2semester2"][i],
-                ...filteredObject,
-              };
-            } else if (item.semesterID == "pre-year2semester3") {
-              let filteredEntries = Object.entries(date[i][1]).filter(
-                (filterItem) => {
-                  return filterItem[0].includes(item.bookID);
-                }
-              );
+                workingData.alemalema.jamat1["pre-year2semester2"][i] = {
+                  ...workingData.alemalema.jamat1["pre-year2semester2"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "pre-year2semester3") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
 
-              let filteredObject = Object.fromEntries(filteredEntries);
+                let filteredObject = Object.fromEntries(filteredEntries);
 
-              workingData.alemalema.jamat1["pre-year2semester3"][i] = {
-                ...workingData.alemalema.jamat1["pre-year2semester3"][i],
-                ...filteredObject,
-              };
-            } else if (item.semesterID == "pre-year3semester1") {
-              let filteredEntries = Object.entries(date[i][1]).filter(
-                (filterItem) => {
-                  return filterItem[0].includes(item.bookID);
-                }
-              );
+                workingData.alemalema.jamat1["pre-year2semester3"][i] = {
+                  ...workingData.alemalema.jamat1["pre-year2semester3"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "pre-year3semester1") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
 
-              let filteredObject = Object.fromEntries(filteredEntries);
+                let filteredObject = Object.fromEntries(filteredEntries);
 
-              workingData.alemalema.jamat1["pre-year3semester1"][i] = {
-                ...workingData.alemalema.jamat1["pre-year3semester1"][i],
-                ...filteredObject,
-              };
-            } else if (item.semesterID == "pre-year3semester2") {
-              let filteredEntries = Object.entries(date[i][1]).filter(
-                (filterItem) => {
-                  return filterItem[0].includes(item.bookID);
-                }
-              );
+                workingData.alemalema.jamat1["pre-year3semester1"][i] = {
+                  ...workingData.alemalema.jamat1["pre-year3semester1"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "pre-year3semester2") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
 
-              let filteredObject = Object.fromEntries(filteredEntries);
+                let filteredObject = Object.fromEntries(filteredEntries);
 
-              workingData.alemalema.jamat1["pre-year3semester2"][i] = {
-                ...workingData.alemalema.jamat1["pre-year3semester2"][i],
-                ...filteredObject,
-              };
-            } else if (item.semesterID == "pre-year3semester3") {
-              let filteredEntries = Object.entries(date[i][1]).filter(
-                (filterItem) => {
-                  return filterItem[0].includes(item.bookID);
-                }
-              );
+                workingData.alemalema.jamat1["pre-year3semester2"][i] = {
+                  ...workingData.alemalema.jamat1["pre-year3semester2"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "pre-year3semester3") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
 
-              let filteredObject = Object.fromEntries(filteredEntries);
+                let filteredObject = Object.fromEntries(filteredEntries);
 
-              workingData.alemalema.jamat1["pre-year3semester3"][i] = {
-                ...workingData.alemalema.jamat1["pre-year3semester3"][i],
-                ...filteredObject,
-              };
+                workingData.alemalema.jamat1["pre-year3semester3"][i] = {
+                  ...workingData.alemalema.jamat1["pre-year3semester3"][i],
+                  ...filteredObject,
+                };
+              }
             }
           }
         });
