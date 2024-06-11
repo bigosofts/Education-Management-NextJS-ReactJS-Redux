@@ -28,6 +28,7 @@ function PreFeeSection({ profile }) {
   const [course, setCourse] = useState();
   const [department, setDepartment] = useState();
   const [jamat, setJamat] = useState();
+  const [realJamat, setRealJamat] = useState();
   const [semester, setSemester] = useState();
   const [extrabatch, setExtraBatch] = useState();
 
@@ -277,6 +278,7 @@ function PreFeeSection({ profile }) {
       setExtraJamat(true);
       setExtraTransaction(false);
       setExtraBatch(true);
+      setJamat(realJamat && realJamat);
       setSemester(
         (prev) =>
           prev &&
@@ -288,6 +290,7 @@ function PreFeeSection({ profile }) {
       setExtraJamat(true);
       setExtraTransaction(false);
       setExtraBatch(true);
+      setJamat(realJamat && realJamat);
 
       setSemester(
         (prev) => prev && prev.filter((item) => item.ID.includes("school"))
@@ -300,6 +303,8 @@ function PreFeeSection({ profile }) {
       setSemester(
         (prev) => prev && prev.filter((item) => item.ID.includes("pre"))
       );
+
+      setJamat(realJamat && realJamat.filter((item) => item.ID == "jamat1"));
     } else if (classes == "abacus_student") {
       setMainData((prev) => ({
         ...prev,
@@ -487,6 +492,18 @@ function PreFeeSection({ profile }) {
           })
         );
 
+        setJamat(
+          jamat.data.map((item) => {
+            return { ID: item.jamatID, name: item.jamatName };
+          })
+        );
+
+        setRealJamat(
+          jamat.data.map((item) => {
+            return { ID: item.jamatID, name: item.jamatName };
+          })
+        );
+
         if (enroll) {
           setMainData((prev) => ({
             ...prev,
@@ -520,6 +537,13 @@ function PreFeeSection({ profile }) {
 
             setSemester(
               (prev) => prev && prev.filter((item) => item.ID.includes("pre"))
+            );
+            setJamat(
+              jamat.data
+                .filter((item) => item.jamatID == "jamat1")
+                .map((item) => {
+                  return { ID: item.jamatID, name: item.jamatName };
+                })
             );
           } else {
             setExtraBatch(true);
@@ -582,12 +606,6 @@ function PreFeeSection({ profile }) {
         setDepartment(
           department.data.map((item) => {
             return { ID: item.departmentID, name: item.departmentName };
-          })
-        );
-
-        setJamat(
-          jamat.data.map((item) => {
-            return { ID: item.jamatID, name: item.jamatName };
           })
         );
 

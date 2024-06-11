@@ -223,6 +223,7 @@ function AttendanceSTableTA({ classes, strDate, books }) {
             semester03: {},
             semester15: {},
             semester16: {},
+            semester17: {},
           },
           jamat2: {
             semester04: {},
@@ -252,8 +253,53 @@ function AttendanceSTableTA({ classes, strDate, books }) {
 
         ramadanquranulkarim: {},
 
-        schoolalemalema: {},
-        prealemalema: {},
+        schoolalemalema: {
+          jamat1: {
+            "school-year1semester1": {},
+            "school-year1semester2": {},
+            "school-year1semester3": {},
+            "school-year2semester1": {},
+            "school-year2semester2": {},
+            "school-year2semester3": {},
+            "school-year3semester1": {},
+            "school-year3semester2": {},
+            "school-year3semester3": {},
+            "school-year4semester1": {},
+            "school-year4semester2": {},
+            "school-year4semester3": {},
+            "school-year4semester4": {},
+          },
+          jamat2: {
+            semester04: {},
+            semester05: {},
+            semester06: {},
+            semester07: {},
+            semester08: {},
+            semester10: {},
+          },
+          jamat3: {
+            semester09: {},
+            semester11: {},
+            semester12: {},
+            semester13: {},
+          },
+          jamat4: {
+            semester14: {},
+          },
+        },
+        prealemalema: {
+          jamat1: {
+            "pre-year1semester1": {},
+            "pre-year1semester2": {},
+            "pre-year1semester3": {},
+            "pre-year2semester1": {},
+            "pre-year2semester2": {},
+            "pre-year2semester3": {},
+            "pre-year3semester1": {},
+            "pre-year3semester2": {},
+            "pre-year3semester3": {},
+          },
+        },
       };
 
       let date = Object.entries(tableData);
@@ -314,7 +360,7 @@ function AttendanceSTableTA({ classes, strDate, books }) {
                   ...workingData.alemalema.jamat1.semester15[i],
                   ...filteredObject,
                 };
-              } else if (item.semesterID == "semester16") {
+              } else if (item.semesterID == "semester17") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
                     return filterItem[0].includes(item.bookID);
@@ -325,6 +371,19 @@ function AttendanceSTableTA({ classes, strDate, books }) {
 
                 workingData.alemalema.jamat1.semester16[i] = {
                   ...workingData.alemalema.jamat1.semester16[i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "semester17") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat1.semester17[i] = {
+                  ...workingData.alemalema.jamat1.semester17[i],
                   ...filteredObject,
                 };
               }
@@ -491,19 +550,6 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               ...workingData.farzeayinampara[i],
               ...filteredObject,
             };
-          } else if (item.courseID == "ezranahusorof") {
-            let filteredEntries = Object.entries(date[i][1]).filter(
-              (filterItem) => {
-                return filterItem[0].includes(item.bookID);
-              }
-            );
-
-            let filteredObject = Object.fromEntries(filteredEntries);
-
-            workingData.ezranahusorof[i] = {
-              ...workingData.ezranahusorof[i],
-              ...filteredObject,
-            };
           } else if (item.courseID == "shishumaktab") {
             let filteredEntries = Object.entries(date[i][1]).filter(
               (filterItem) => {
@@ -515,19 +561,6 @@ function AttendanceSTableTA({ classes, strDate, books }) {
 
             workingData.shishumaktab[i] = {
               ...workingData.shishumaktab[i],
-              ...filteredObject,
-            };
-          } else if (item.courseID == "abacus_teacher") {
-            let filteredEntries = Object.entries(date[i][1]).filter(
-              (filterItem) => {
-                return filterItem[0].includes(item.bookID);
-              }
-            );
-
-            let filteredObject = Object.fromEntries(filteredEntries);
-
-            workingData.abacus_teacher[i] = {
-              ...workingData.abacus_teacher[i],
               ...filteredObject,
             };
           } else if (item.courseID == "hifjulquran") {
@@ -556,19 +589,6 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               ...workingData.farzeayinnajera[i],
               ...filteredObject,
             };
-          } else if (item.courseID == "farzeayinmaktab") {
-            let filteredEntries = Object.entries(date[i][1]).filter(
-              (filterItem) => {
-                return filterItem[0].includes(item.bookID);
-              }
-            );
-
-            let filteredObject = Object.fromEntries(filteredEntries);
-
-            workingData.farzeayinmaktab[i] = {
-              ...workingData.farzeayinmaktab[i],
-              ...filteredObject,
-            };
           } else if (item.courseID == "abacus_student") {
             let filteredEntries = Object.entries(date[i][1]).filter(
               (filterItem) => {
@@ -580,19 +600,6 @@ function AttendanceSTableTA({ classes, strDate, books }) {
 
             workingData.abacus_student[i] = {
               ...workingData.abacus_student[i],
-              ...filteredObject,
-            };
-          } else if (item.courseID == "urdu") {
-            let filteredEntries = Object.entries(date[i][1]).filter(
-              (filterItem) => {
-                return filterItem[0].includes(item.bookID);
-              }
-            );
-
-            let filteredObject = Object.fromEntries(filteredEntries);
-
-            workingData.urdu[i] = {
-              ...workingData.urdu[i],
               ...filteredObject,
             };
           } else if (item.courseID == "ramadanquranulkarim") {
@@ -608,45 +615,447 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               ...workingData.ramadanquranulkarim[i],
               ...filteredObject,
             };
-          } else if (item.courseID == "shishunajera") {
-            let filteredEntries = Object.entries(date[i][1]).filter(
-              (filterItem) => {
-                return filterItem[0].includes(item.bookID);
-              }
-            );
-
-            let filteredObject = Object.fromEntries(filteredEntries);
-
-            workingData.shishunajera[i] = {
-              ...workingData.shishunajera[i],
-              ...filteredObject,
-            };
           } else if (item.courseID == "schoolalemalema") {
-            let filteredEntries = Object.entries(date[i][1]).filter(
-              (filterItem) => {
-                return filterItem[0].includes(item.bookID);
+            if (item.jamatID == "jamat1") {
+              if (item.semesterID == "school-year1semester1") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat1["school-year1semester1"][i] = {
+                  ...workingData.alemalema.jamat1["school-year1semester1"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "school-year1semester2") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat1["school-year1semester2"][i] = {
+                  ...workingData.alemalema.jamat1["school-year1semester2"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "school-year1semester3") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat1["school-year1semester3"][i] = {
+                  ...workingData.alemalema.jamat1["school-year1semester3"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "school-year2semester1") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat1["school-year2semester1"][i] = {
+                  ...workingData.alemalema.jamat1["school-year2semester1"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "school-year2semester2") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat1["school-year2semester2"][i] = {
+                  ...workingData.alemalema.jamat1["school-year2semester2"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "school-year2semester3") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat1["school-year2semester3"][i] = {
+                  ...workingData.alemalema.jamat1["school-year2semester3"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "school-year3semester1") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat1["school-year3semester1"][i] = {
+                  ...workingData.alemalema.jamat1["school-year3semester1"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "school-year3semester2") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat1["school-year3semester2"][i] = {
+                  ...workingData.alemalema.jamat1["school-year3semester2"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "school-year3semester3") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat1["school-year3semester3"][i] = {
+                  ...workingData.alemalema.jamat1["school-year3semester3"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "school-year4semester1") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat1["school-year4semester1"][i] = {
+                  ...workingData.alemalema.jamat1["school-year4semester1"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "school-year4semester2") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat1["school-year4semester2"][i] = {
+                  ...workingData.alemalema.jamat1["school-year4semester2"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "school-year4semester3") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat1["school-year4semester3"][i] = {
+                  ...workingData.alemalema.jamat1["school-year4semester3"][i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "school-year4semester4") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat1["school-year4semester4"][i] = {
+                  ...workingData.alemalema.jamat1["school-year4semester4"][i],
+                  ...filteredObject,
+                };
               }
-            );
+            } else if (item.jamatID == "jamat2") {
+              if (item.semesterID == "semester04") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
 
-            let filteredObject = Object.fromEntries(filteredEntries);
+                let filteredObject = Object.fromEntries(filteredEntries);
 
-            workingData.schoolalemalema[i] = {
-              ...workingData.schoolalemalema[i],
-              ...filteredObject,
-            };
+                workingData.alemalema.jamat2.semester04[i] = {
+                  ...workingData.alemalema.jamat2.semester04[i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "semester05") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat2.semester05[i] = {
+                  ...workingData.alemalema.jamat2.semester05[i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "semester06") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat2.semester06[i] = {
+                  ...workingData.alemalema.jamat2.semester06[i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "semester07") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat2.semester07[i] = {
+                  ...workingData.alemalema.jamat2.semester07[i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "semester08") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat2.semester08[i] = {
+                  ...workingData.alemalema.jamat2.semester08[i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "semester10") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat2.semester10[i] = {
+                  ...workingData.alemalema.jamat2.semester10[i],
+                  ...filteredObject,
+                };
+              }
+            } else if (item.jamatID == "jamat3") {
+              if (item.semesterID == "semester09") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat3.semester09[i] = {
+                  ...workingData.alemalema.jamat3.semester09[i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "semester11") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat3.semester11[i] = {
+                  ...workingData.alemalema.jamat3.semester11[i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "semester12") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat3.semester12[i] = {
+                  ...workingData.alemalema.jamat3.semester12[i],
+                  ...filteredObject,
+                };
+              } else if (item.semesterID == "semester13") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat3.semester13[i] = {
+                  ...workingData.alemalema.jamat3.semester13[i],
+                  ...filteredObject,
+                };
+              }
+            } else if (item.jamatID == "jamat4") {
+              if (item.semesterID == "semester14") {
+                let filteredEntries = Object.entries(date[i][1]).filter(
+                  (filterItem) => {
+                    return filterItem[0].includes(item.bookID);
+                  }
+                );
+
+                let filteredObject = Object.fromEntries(filteredEntries);
+
+                workingData.alemalema.jamat4.semester14[i] = {
+                  ...workingData.alemalema.jamat4.semester14[i],
+                  ...filteredObject,
+                };
+              }
+            }
           } else if (item.courseID == "prealemalema") {
-            let filteredEntries = Object.entries(date[i][1]).filter(
-              (filterItem) => {
-                return filterItem[0].includes(item.bookID);
-              }
-            );
+            if (item.semesterID == "pre-year1semester1") {
+              let filteredEntries = Object.entries(date[i][1]).filter(
+                (filterItem) => {
+                  return filterItem[0].includes(item.bookID);
+                }
+              );
 
-            let filteredObject = Object.fromEntries(filteredEntries);
+              let filteredObject = Object.fromEntries(filteredEntries);
 
-            workingData.prealemalema[i] = {
-              ...workingData.prealemalema[i],
-              ...filteredObject,
-            };
+              workingData.alemalema.jamat1["pre-year1semester1"][i] = {
+                ...workingData.alemalema.jamat1["pre-year1semester1"][i],
+                ...filteredObject,
+              };
+            } else if (item.semesterID == "pre-year1semester2") {
+              let filteredEntries = Object.entries(date[i][1]).filter(
+                (filterItem) => {
+                  return filterItem[0].includes(item.bookID);
+                }
+              );
+
+              let filteredObject = Object.fromEntries(filteredEntries);
+
+              workingData.alemalema.jamat1["pre-year1semester2"][i] = {
+                ...workingData.alemalema.jamat1["pre-year1semester2"][i],
+                ...filteredObject,
+              };
+            } else if (item.semesterID == "pre-year1semester3") {
+              let filteredEntries = Object.entries(date[i][1]).filter(
+                (filterItem) => {
+                  return filterItem[0].includes(item.bookID);
+                }
+              );
+
+              let filteredObject = Object.fromEntries(filteredEntries);
+
+              workingData.alemalema.jamat1["pre-year1semester3"][i] = {
+                ...workingData.alemalema.jamat1["pre-year1semester3"][i],
+                ...filteredObject,
+              };
+            } else if (item.semesterID == "pre-year2semester1") {
+              let filteredEntries = Object.entries(date[i][1]).filter(
+                (filterItem) => {
+                  return filterItem[0].includes(item.bookID);
+                }
+              );
+
+              let filteredObject = Object.fromEntries(filteredEntries);
+
+              workingData.alemalema.jamat1["pre-year2semester1"][i] = {
+                ...workingData.alemalema.jamat1["pre-year2semester1"][i],
+                ...filteredObject,
+              };
+            } else if (item.semesterID == "pre-year2semester2") {
+              let filteredEntries = Object.entries(date[i][1]).filter(
+                (filterItem) => {
+                  return filterItem[0].includes(item.bookID);
+                }
+              );
+
+              let filteredObject = Object.fromEntries(filteredEntries);
+
+              workingData.alemalema.jamat1["pre-year2semester2"][i] = {
+                ...workingData.alemalema.jamat1["pre-year2semester2"][i],
+                ...filteredObject,
+              };
+            } else if (item.semesterID == "pre-year2semester3") {
+              let filteredEntries = Object.entries(date[i][1]).filter(
+                (filterItem) => {
+                  return filterItem[0].includes(item.bookID);
+                }
+              );
+
+              let filteredObject = Object.fromEntries(filteredEntries);
+
+              workingData.alemalema.jamat1["pre-year2semester3"][i] = {
+                ...workingData.alemalema.jamat1["pre-year2semester3"][i],
+                ...filteredObject,
+              };
+            } else if (item.semesterID == "pre-year3semester1") {
+              let filteredEntries = Object.entries(date[i][1]).filter(
+                (filterItem) => {
+                  return filterItem[0].includes(item.bookID);
+                }
+              );
+
+              let filteredObject = Object.fromEntries(filteredEntries);
+
+              workingData.alemalema.jamat1["pre-year3semester1"][i] = {
+                ...workingData.alemalema.jamat1["pre-year3semester1"][i],
+                ...filteredObject,
+              };
+            } else if (item.semesterID == "pre-year3semester2") {
+              let filteredEntries = Object.entries(date[i][1]).filter(
+                (filterItem) => {
+                  return filterItem[0].includes(item.bookID);
+                }
+              );
+
+              let filteredObject = Object.fromEntries(filteredEntries);
+
+              workingData.alemalema.jamat1["pre-year3semester2"][i] = {
+                ...workingData.alemalema.jamat1["pre-year3semester2"][i],
+                ...filteredObject,
+              };
+            } else if (item.semesterID == "pre-year3semester3") {
+              let filteredEntries = Object.entries(date[i][1]).filter(
+                (filterItem) => {
+                  return filterItem[0].includes(item.bookID);
+                }
+              );
+
+              let filteredObject = Object.fromEntries(filteredEntries);
+
+              workingData.alemalema.jamat1["pre-year3semester3"][i] = {
+                ...workingData.alemalema.jamat1["pre-year3semester3"][i],
+                ...filteredObject,
+              };
+            }
           }
         });
       });
@@ -712,6 +1121,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
     document.body.removeChild(tempInput);
     mytoast.info("Copied: " + text);
   };
+
+  if (tableData) {
+    console.log(tableData);
+  }
 
   return (
     <>
