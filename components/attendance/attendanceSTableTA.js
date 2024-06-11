@@ -71,7 +71,7 @@ function AttendanceSTableTA({ classes, strDate, books }) {
                 return item4.presentTime == item;
               });
 
-              console.log(item3);
+              // console.log(item3);
 
               let haveTeacherAttendance = teacher.attendance.find((item7) => {
                 return item7.presentTime == item;
@@ -119,7 +119,9 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               };
             });
 
-            bookObject[item2.bookID + "_" + item2.batchNo] = studentsOBJ;
+            bookObject[
+              item2.bookID + "_" + item2.batchNo + "_" + item2.courseID
+            ] = studentsOBJ;
           });
 
           JSONObject[i2] = bookObject;
@@ -149,6 +151,7 @@ function AttendanceSTableTA({ classes, strDate, books }) {
       setJamat("");
     }
   }
+
   function jamatChanger(fragmentData, value) {
     if (subjectCode && value) {
       setJamatCode(value);
@@ -239,17 +242,16 @@ function AttendanceSTableTA({ classes, strDate, books }) {
             semester14: {},
           },
         },
-        farzeayinampara: {},
-        ezranahusorof: {},
+
         shishumaktab: {},
-        abacus_teacher: {},
+
         hifjulquran: {},
         farzeayinnajera: {},
-        farzeayinmaktab: {},
+
         abacus_student: {},
-        urdu: {},
+
         ramadanquranulkarim: {},
-        shishunajera: {},
+
         schoolalemalema: {},
         prealemalema: {},
       };
@@ -685,9 +687,9 @@ function AttendanceSTableTA({ classes, strDate, books }) {
     let present = [];
 
     bookFinal.forEach((item2, i2) => {
-      let markEntry = Object.entries(bookFinal[i2][1]).find(
-        (em) => em[0] == id
-      )[1].tPresent;
+      let markEntry = Object.entries(bookFinal[i2][1]).find((em) => em[0] == id)
+        ? Object.entries(bookFinal[i2][1]).find((em) => em[0] == id)[1].tPresent
+        : "--";
 
       if (markEntry == "P") {
         present.push("P");
@@ -857,11 +859,13 @@ function AttendanceSTableTA({ classes, strDate, books }) {
                       {bookFinal &&
                         bookFinal.map((item2, i2) => (
                           <td>
-                            {
-                              Object.entries(bookFinal[i2][1]).find(
-                                (em) => em[0] == item[0]
-                              )[1].present
-                            }
+                            {Object.entries(bookFinal[i2][1]).find((em) => {
+                              return em[0] == item[0];
+                            })
+                              ? Object.entries(bookFinal[i2][1]).find((em) => {
+                                  return em[0] == item[0];
+                                })[1].present
+                              : "--"}
                           </td>
                         ))}
 
@@ -870,18 +874,22 @@ function AttendanceSTableTA({ classes, strDate, books }) {
                           <td>
                             {Object.entries(bookFinal[i2][1]).find(
                               (em) => em[0] == item[0]
-                            )[1].mark == 0 &&
-                            Object.entries(bookFinal[i2][1]).find(
-                              (em) => em[0] == item[0]
-                            )[1].total == "--"
-                              ? "--"
-                              : Object.entries(bookFinal[i2][1]).find(
+                            )
+                              ? Object.entries(bookFinal[i2][1]).find(
                                   (em) => em[0] == item[0]
-                                )[1].mark +
-                                "/" +
+                                )[1].mark == 0 &&
                                 Object.entries(bookFinal[i2][1]).find(
                                   (em) => em[0] == item[0]
-                                )[1].total}
+                                )[1].total == "--"
+                                ? "--"
+                                : Object.entries(bookFinal[i2][1]).find(
+                                    (em) => em[0] == item[0]
+                                  )[1].mark +
+                                  "/" +
+                                  Object.entries(bookFinal[i2][1]).find(
+                                    (em) => em[0] == item[0]
+                                  )[1].total
+                              : "--"}
                           </td>
                         ))}
 
