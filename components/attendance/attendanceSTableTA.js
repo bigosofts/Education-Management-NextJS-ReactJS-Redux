@@ -12,6 +12,8 @@ function AttendanceSTableTA({ classes, strDate, books }) {
   const [semesterCode, setSemesterCode] = useState();
   const [fragmentData, setFragmentData] = useState();
   const [isAlemalema, setIsAlemalema] = useState(false);
+  const [isSchoolAlemalema, setIsSchoolAlemalema] = useState(false);
+  const [isPreAlemalema, setIsPreAlemalema] = useState(false);
   const [jamat, setJamat] = useState();
   const [semester, setSemester] = useState();
   const [dateFinal, setDateFinal] = useState();
@@ -143,11 +145,31 @@ function AttendanceSTableTA({ classes, strDate, books }) {
   function classChanger(fragment, value) {
     if (value == "alemalema") {
       setIsAlemalema(true);
+      setIsSchoolAlemalema(false);
+      setIsPreAlemalema(false);
+
+      setJamat(fragment[value]);
+      setSubjectCode(value);
+    } else if (value == "schoolalemalema") {
+      setIsSchoolAlemalema(true);
+      setIsAlemalema(false);
+      setIsPreAlemalema(false);
+
+      setJamat(fragment[value]);
+      setSubjectCode(value);
+    } else if (value == "prealemalema") {
+      setIsPreAlemalema(true);
+      setIsAlemalema(false);
+      setIsSchoolAlemalema(false);
+
       setJamat(fragment[value]);
       setSubjectCode(value);
     } else {
       setSubjectCode(value);
       setIsAlemalema(false);
+      setIsSchoolAlemalema(false);
+      setIsPreAlemalema(false);
+
       setJamat("");
     }
   }
@@ -287,6 +309,7 @@ function AttendanceSTableTA({ classes, strDate, books }) {
             semester14: {},
           },
         },
+
         prealemalema: {
           jamat1: {
             "pre-year1semester1": {},
@@ -311,7 +334,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               if (item.semesterID == "semester01") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -324,7 +351,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester02") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -337,7 +368,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester03") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -350,7 +385,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester15") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -363,7 +402,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester17") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -376,7 +419,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester17") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -391,7 +438,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               if (item.semesterID == "semester04") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -404,7 +455,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester05") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -417,7 +472,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester06") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -430,7 +489,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester07") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -443,7 +506,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester08") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -456,7 +523,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester10") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -471,7 +542,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               if (item.semesterID == "semester09") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -484,7 +559,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester11") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -497,7 +576,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester12") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -510,7 +593,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester13") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -525,7 +612,11 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               if (item.semesterID == "semester14") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      !filterItem[0].includes("school") &&
+                      !filterItem[0].includes("pre")
+                    );
                   }
                 );
 
@@ -620,7 +711,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               if (item.semesterID == "school-year1semester1") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -636,7 +730,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "school-year1semester2") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -652,7 +749,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "school-year1semester3") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -668,7 +768,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "school-year2semester1") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -684,7 +787,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "school-year2semester2") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -700,7 +806,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "school-year2semester3") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -716,7 +825,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "school-year3semester1") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -732,7 +844,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "school-year3semester2") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -748,7 +863,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "school-year3semester3") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -764,7 +882,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "school-year4semester1") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -780,7 +901,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "school-year4semester2") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -796,7 +920,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "school-year4semester3") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -812,7 +939,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "school-year4semester4") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -830,7 +960,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               if (item.semesterID == "semester04") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -843,7 +976,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester05") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -856,7 +992,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester06") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -869,7 +1008,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester07") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -882,7 +1024,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester08") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -895,7 +1040,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester10") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -910,7 +1058,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               if (item.semesterID == "semester09") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -923,7 +1074,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester11") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -936,7 +1090,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester12") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -949,7 +1106,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "semester13") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -964,7 +1124,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               if (item.semesterID == "semester14") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("schoolalemalema")
+                    );
                   }
                 );
 
@@ -981,7 +1144,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               if (item.semesterID == "pre-year1semester1") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("prealemalema")
+                    );
                   }
                 );
 
@@ -994,7 +1160,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "pre-year1semester2") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("prealemalema")
+                    );
                   }
                 );
 
@@ -1007,7 +1176,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "pre-year1semester3") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("prealemalema")
+                    );
                   }
                 );
 
@@ -1020,7 +1192,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "pre-year2semester1") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("prealemalema")
+                    );
                   }
                 );
 
@@ -1033,7 +1208,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "pre-year2semester2") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("prealemalema")
+                    );
                   }
                 );
 
@@ -1046,7 +1224,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "pre-year2semester3") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("prealemalema")
+                    );
                   }
                 );
 
@@ -1059,7 +1240,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "pre-year3semester1") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("prealemalema")
+                    );
                   }
                 );
 
@@ -1072,7 +1256,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "pre-year3semester2") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("prealemalema")
+                    );
                   }
                 );
 
@@ -1085,7 +1272,10 @@ function AttendanceSTableTA({ classes, strDate, books }) {
               } else if (item.semesterID == "pre-year3semester3") {
                 let filteredEntries = Object.entries(date[i][1]).filter(
                   (filterItem) => {
-                    return filterItem[0].includes(item.bookID);
+                    return (
+                      filterItem[0].includes(item.bookID) &&
+                      filterItem[0].includes("prealemalema")
+                    );
                   }
                 );
 
@@ -1163,8 +1353,8 @@ function AttendanceSTableTA({ classes, strDate, books }) {
     mytoast.info("Copied: " + text);
   };
 
-  if (tableData) {
-    console.log(tableData);
+  if (fragmentData && tableData) {
+    console.log(fragmentData, tableData);
   }
 
   return (
@@ -1190,6 +1380,84 @@ function AttendanceSTableTA({ classes, strDate, books }) {
             ))}
         </select>
         {isAlemalema && (
+          <>
+            <select
+              value={jamatCode}
+              onChange={(e) => {
+                e.preventDefault();
+                jamatChanger(fragmentData, e.target.value);
+              }}
+              className="p-4 bg-[rgb(22,101,52)] text-white rounded-xl"
+            >
+              <option value="">Select Jamat</option>
+
+              {jamat &&
+                Object.entries(jamat).map((item, i) => (
+                  <option key={i} value={item[0]}>
+                    {item[0]}
+                  </option>
+                ))}
+            </select>
+
+            <select
+              value={semesterCode}
+              onChange={(e) => {
+                e.preventDefault();
+                semesterChanger(fragmentData, e.target.value);
+              }}
+              className="p-4 bg-[rgb(22,101,52)] text-white rounded-xl"
+            >
+              <option value="">Select Semester</option>
+
+              {semester &&
+                Object.entries(semester).map((item, i) => (
+                  <option key={i} value={item[0]}>
+                    {item[0]}
+                  </option>
+                ))}
+            </select>
+          </>
+        )}
+        {isSchoolAlemalema && (
+          <>
+            <select
+              value={jamatCode}
+              onChange={(e) => {
+                e.preventDefault();
+                jamatChanger(fragmentData, e.target.value);
+              }}
+              className="p-4 bg-[rgb(22,101,52)] text-white rounded-xl"
+            >
+              <option value="">Select Jamat</option>
+
+              {jamat &&
+                Object.entries(jamat).map((item, i) => (
+                  <option key={i} value={item[0]}>
+                    {item[0]}
+                  </option>
+                ))}
+            </select>
+
+            <select
+              value={semesterCode}
+              onChange={(e) => {
+                e.preventDefault();
+                semesterChanger(fragmentData, e.target.value);
+              }}
+              className="p-4 bg-[rgb(22,101,52)] text-white rounded-xl"
+            >
+              <option value="">Select Semester</option>
+
+              {semester &&
+                Object.entries(semester).map((item, i) => (
+                  <option key={i} value={item[0]}>
+                    {item[0]}
+                  </option>
+                ))}
+            </select>
+          </>
+        )}
+        {isPreAlemalema && (
           <>
             <select
               value={jamatCode}

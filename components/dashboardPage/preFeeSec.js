@@ -151,6 +151,7 @@ function PreFeeSection({ profile }) {
     var formattedDate = date.toLocaleDateString("en-US", options);
     return formattedDate;
   }
+
   function transactionDecision(e) {
     e.preventDefault();
     const transactionID = e.target.value;
@@ -440,7 +441,11 @@ function PreFeeSection({ profile }) {
 
   useEffect(() => {
     async function getData() {
-      const res = await selectDataTwo(null, null);
+      const res = await selectDataTwo(null, {
+        title: true,
+        courseCode: true,
+        coursePrice: true,
+      });
       const res2 = await selectDepartment(null, null);
       const res3 = await seletcJamat(null, null);
       const res4 = await selectSemester({ activeStatus: "active" }, null);
@@ -474,6 +479,7 @@ function PreFeeSection({ profile }) {
               };
             })
         );
+
         setCurrencyrate(dollarPerTaka);
 
         function changeDepartment(name1) {
@@ -2003,9 +2009,7 @@ function PreFeeSection({ profile }) {
       mytoast.warning("Admission Form: One or more field is emplty");
     }
   }
-  if (mainData) {
-    console.log(mainData);
-  }
+
   return (
     <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">
       <div className="flex justify-center p-5 pb-10">
