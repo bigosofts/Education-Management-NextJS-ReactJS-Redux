@@ -8,7 +8,10 @@ async function getData() {
       activeStatus: "active",
     },
     {
-      password: false,
+      emailAddress: true,
+      mobileNumber: true,
+      userRole: true,
+      userName: true,
     }
   );
 
@@ -17,7 +20,10 @@ async function getData() {
       activeStatus: "active",
     },
     {
-      password: false,
+      emailAddress: true,
+      mobileNumber: true,
+      userRole: true,
+      userName: true,
     }
   );
 
@@ -30,9 +36,7 @@ async function getData() {
     dataObject.teachers = res.data;
     dataObject.students = res2.data;
 
-    const finalArray = [...dataObject.teachers];
     return {
-      final: finalArray.concat(dataObject.students),
       students: dataObject.students,
       teachers: dataObject.teachers,
     };
@@ -45,8 +49,8 @@ import LoginPageDesign from "@/components/loginPage/Loginpage";
 
 async function LoginPage() {
   const data = await getData();
-  
-  return <LoginPageDesign userData={data.final} />;
+
+  return <LoginPageDesign finalData={data} />;
 }
 
 export default LoginPage;

@@ -5,14 +5,15 @@ import "@/customComponents/dashboardNav/vendor/mdi-font/css/material-design-icon
 
 import { useState, useEffect } from "react";
 import { isAdmin } from "@/apiservices/checklogin";
+import { useSelector, useDispatch } from "react-redux";
 
 function DashboardLayout({ loggedin, notloggedin }) {
   const [data, setData] = useState();
+  
 
   useEffect(() => {
     async function fetchData() {
       const payload = await isAdmin();
-
       setData(payload);
     }
     fetchData();

@@ -22,7 +22,12 @@ import {
 import ShowPaymentDetails from "../dashboardPage/showpaymentDetail";
 
 import "./loginDesign.css";
-function LoginPageDesign({ userData }) {
+function LoginPageDesign({ finalData }) {
+  let finalArray = finalData.teachers;
+
+  let userData = finalArray.concat(finalData.students);
+
+ 
   const currentBatch = "batch-20240605";
   const [Admin, setIsAdmin] = useState();
   const [data, setDatas] = useState();
