@@ -2,14 +2,21 @@ import CryptoJS from "crypto-js";
 import { Dexie } from "dexie";
 
 //encrypt the data
-exports.encryptData = (data) => {
-  return CryptoJS.AES.encrypt(data, NEXT_SECRET_KEY).toString();
+const encryptAuto = async (data) => {
+  let JSONData = JSON.stringify(data);
+  return CryptoJS.AES.encrypt(JSONData, NEXT_SECRET_KEY).toString();
+};
+
+exports.encryptData = async (data) => {
+  let JSONData = JSON.stringify(data);
+  return CryptoJS.AES.encrypt(JSONData, NEXT_SECRET_KEY).toString();
 };
 
 //decrypt the data
-exports.decryptData = (encryptedData) => {
+exports.decryptData = async (encryptedData) => {
   const bytes = CryptoJS.AES.decrypt(encryptedData, NEXT_SECRET_KEY);
-  return bytes.toString(CryptoJS.enc.Utf8);
+  let finalBytes = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+  return finalBytes;
 };
 
 //initiate indexed DB Database
@@ -27,32 +34,40 @@ const { students, teachers, isadmin, classes } = db;
 
 //create
 exports.createStudent = async (data) => {
+  const encryptedData = await encryptAuto(data);
+
   const res = await students.add({
-    value: data,
+    value: encryptedData,
     date: new Date(Date.now()).toISOString(),
   });
   return res;
 };
 
 exports.createTeacher = async (data) => {
+  const encryptedData = await encryptAuto(data);
+
   const res = await teachers.add({
-    value: data,
+    value: encryptedData,
     date: new Date(Date.now()).toISOString(),
   });
   return res;
 };
 
 exports.createIsAdmin = async (data) => {
+  const encryptedData = await encryptAuto(data);
+
   const res = await isadmin.add({
-    value: data,
+    value: encryptedData,
     date: new Date(Date.now()).toISOString(),
   });
   return res;
 };
 
 exports.createClass = async (data) => {
+  const encryptedData = await encryptAuto(data);
+
   const res = await classes.add({
-    value: data,
+    value: encryptedData,
     date: new Date(Date.now()).toISOString(),
   });
   return res;
@@ -132,6 +147,3 @@ exports.dateComparison = (previousDate, currentDate) => {
     return false;
   }
 };
-
-
-
