@@ -1,35 +1,26 @@
-import { selectDataTwo as selectClasses } from "@/apiservices/classapiservices";
-
-import { selectDataTwo as selectBooks } from "@/apiservices/bookapiservices";
+"use client";
+import { useSelector } from "react-redux";
 
 import AttendancePageCustomInner from "./attendanceInner";
-
-async function getData() {
-  const res = await selectClasses(null, null);
-  const res2 = await selectBooks(null, null);
-
-  let desiredObject = {
-    classes: null,
-    books: null,
-  };
-
-  if (res.status == "Alhamdulillah" && res2.status == "Alhamdulillah") {
-    desiredObject.classes = res.data;
-    desiredObject.books = res2.data;
-  }
-
-  return desiredObject;
-}
+import Loader from "@/customComponents/loader/Loader";
 
 async function AttendancePageCustom() {
-  const data = await getData();
-  if (data) {
+  const classes = useSelector((state) => state.classes.classes);
+  const books = useSelector((state) => state.books.books);
+  const courseState = useSelector((state) => state.courseState.value);
+  const data = useSelector((state) => state.isAdmin.value);
+
+  if (courseState && classes.length > 0 && books.length > 0) {
     return (
       <AttendancePageCustomInner
-        classesUp={data.classes}
-        booksUp={data.books}
+        classesUp={classes}
+        booksUp={books}
+        courseState={courseState}
+        data={data}
       />
     );
+  } else {
+    return <Loader />;
   }
 }
 

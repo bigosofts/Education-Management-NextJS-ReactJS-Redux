@@ -1,389 +1,375 @@
 "use client";
 import { useState, useEffect } from "react";
 
-import { isAdmin } from "@/apiservices/checklogin";
 import { useRouter } from "next/navigation";
 import CommonMenu from "@/components/CommonMenu/CommonMenu";
 import SideDrawer from "@/components/Drawer/SideDrawer";
 
 import { useSelector, useDispatch } from "react-redux";
-import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
 
 import { setInitialData as setInitialCourse } from "@/app/redux/features/courseState/courseStateSlice";
 
-import { selectDataTwo } from "@/apiservices/studentapiservices";
-import {
-  selectDataTwo as selectClasses,
-  updateData as updateClasses,
-} from "@/apiservices/classapiservices";
+import { updateData as updateClasses } from "@/apiservices/classapiservices";
 import MessangerChat from "@/customComponents/messangerChat/messangerChat";
 
 function StudentLayout({ children, params }) {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => state.isAdmin.value);
+
+  const classesFinded = useSelector((state) => state.classes);
+
   const courseState = useSelector((state) => state.courseState.value);
-  const [classes, setClasses] = useState();
 
   const router = useRouter();
 
   const [show, setShow] = useState(false);
 
-  function changeDrawerState() {
-    setShow((prev) => !prev);
-  }
+  const [classes, setClasses] = useState();
 
   useEffect(() => {
-    async function fetchData() {
-      const payload = await isAdmin();
-      if (payload.status == "Alhamdulillah") {
-        const res = await selectDataTwo(
-          { userName: payload.data.userName },
-          null
+    function chanageCourseState() {
+      if (
+        data.status == "Alhamdulillah" &&
+        classesFinded.isLoading == false &&
+        classesFinded.classes.length > 0
+      ) {
+        const res2 = classesFinded.classes.filter(
+          (item) => item.batchNo == data.data.batchCount
         );
 
-        if (res.status == "Alhamdulillah") {
-          const desiredObj = {
-            status: "Alhamdulillah",
-            data: {
-              userName: res.data[0].userName,
-              userRole: res.data[0].userRole,
-              isAdmin: res.data[0].isAdmin,
-              userDetails: res.data[0],
-            },
-          };
+        setClasses(res2);
 
-          const res2 = await selectClasses(
-            { batchNo: res.data[0].batchCount },
-            null
-          );
+        let desiredObj2 = {
+          alemalema: null,
+          schoolalemalema: null,
+          prealemalema: null,
+          farzeayinclass: null,
 
-          if (res2.status == "Alhamdulillah") {
-            setClasses(res2.data);
-          }
+          hifjulquran: null,
+          abacus_student: null,
 
-          let desiredObj2 = {
-            alemalema: null,
-            schoolalemalema: null,
-            prealemalema: null,
-            farzeayinclass: null,
+          shishumaktab: null,
 
-            hifjulquran: null,
-            abacus_student: null,
+          farzeayinnajera: null,
 
-            shishumaktab: null,
+          ramadanquranulkarim: null,
 
-            farzeayinnajera: null,
+          department: null,
+          jamat: null,
+          semester: null,
+        };
 
-            ramadanquranulkarim: null,
+        let semester = data.data.userDetails.studentSemester.filter((item) => {
+          return /semester/i.test(item.code) && item.status == "active";
+        });
 
-            department: null,
-            jamat: null,
-            semester: null,
-          };
-
-          let semester = res.data[0].studentSemester.filter((item) => {
-            return /semester/i.test(item.code) && item.status == "active";
-          });
-
-          let hifzulQuran = res.data[0].studentCourseCode.filter((item) => {
+        let hifzulQuran = data.data.userDetails.studentCourseCode.filter(
+          (item) => {
             return /hifjulquran/i.test(item.code) && item.status == "active";
-          });
+          }
+        );
 
-          let shishumaktab = res.data[0].studentCourseCode.filter((item) => {
+        let shishumaktab = data.data.userDetails.studentCourseCode.filter(
+          (item) => {
             return /shishumaktab/i.test(item.code) && item.status == "active";
-          });
+          }
+        );
 
-          let farzeayinnajera = res.data[0].studentCourseCode.filter((item) => {
+        let farzeayinnajera = data.data.userDetails.studentCourseCode.filter(
+          (item) => {
             return (
               /farzeayinnajera/i.test(item.code) && item.status == "active"
             );
-          });
+          }
+        );
 
-          let abacusStudent = res.data[0].studentCourseCode.filter((item) => {
+        let abacusStudent = data.data.userDetails.studentCourseCode.filter(
+          (item) => {
             return /abacus_student/i.test(item.code) && item.status == "active";
+          }
+        );
+
+        let ramadanquranulkarim =
+          data.data.userDetails.studentCourseCode.filter((item) => {
+            return (
+              /ramadanquranulkarim/i.test(item.code) && item.status == "active"
+            );
           });
 
-          let ramadanquranulkarim = res.data[0].studentCourseCode.filter(
-            (item) => {
-              return (
-                /ramadanquranulkarim/i.test(item.code) &&
-                item.status == "active"
-              );
-            }
-          );
-
-          if (semester.length >= 1) {
-            if (semester[semester.length - 1].code == "semester01") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "semester01";
-            } else if (semester[semester.length - 1].code == "semester02") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "semester02";
-            } else if (semester[semester.length - 1].code == "semester03") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "semester03";
-            } else if (semester[semester.length - 1].code == "semester04") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat2";
-              desiredObj2.semester = "semester04";
-            } else if (semester[semester.length - 1].code == "semester05") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat2";
-              desiredObj2.semester = "semester05";
-            } else if (semester[semester.length - 1].code == "semester06") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat2";
-              desiredObj2.semester = "semester06";
-            } else if (semester[semester.length - 1].code == "semester07") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat2";
-              desiredObj2.semester = "semester07";
-            } else if (semester[semester.length - 1].code == "semester08") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat2";
-              desiredObj2.semester = "semester08";
-            } else if (semester[semester.length - 1].code == "semester09") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat3";
-              desiredObj2.semester = "semester09";
-            } else if (semester[semester.length - 1].code == "semester10") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat3";
-              desiredObj2.semester = "semester10";
-            } else if (semester[semester.length - 1].code == "semester11") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat3";
-              desiredObj2.semester = "semester11";
-            } else if (semester[semester.length - 1].code == "semester12") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat3";
-              desiredObj2.semester = "semester12";
-            } else if (semester[semester.length - 1].code == "semester13") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat3";
-              desiredObj2.semester = "semester13";
-            } else if (semester[semester.length - 1].code == "semester14") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat4";
-              desiredObj2.semester = "semester14";
-            } else if (semester[semester.length - 1].code == "semester15") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "semester15";
-            } else if (semester[semester.length - 1].code == "semester16") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "semester16";
-            } else if (semester[semester.length - 1].code == "semester17") {
-              desiredObj2.alemalema = true;
-              desiredObj2.department = "department01";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "semester17";
-            } else if (
-              semester[semester.length - 1].code == "school-year1semester1"
-            ) {
-              desiredObj2.schoolalemalema = true;
-              desiredObj2.department = "department10";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "school-year1semester1";
-            } else if (
-              semester[semester.length - 1].code == "school-year1semester2"
-            ) {
-              desiredObj2.schoolalemalema = true;
-              desiredObj2.department = "department10";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "school-year1semester2";
-            } else if (
-              semester[semester.length - 1].code == "school-year1semester3"
-            ) {
-              desiredObj2.schoolalemalema = true;
-              desiredObj2.department = "department10";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "school-year1semester3";
-            } else if (
-              semester[semester.length - 1].code == "school-year2semester1"
-            ) {
-              desiredObj2.schoolalemalema = true;
-              desiredObj2.department = "department10";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "school-year2semester1";
-            } else if (
-              semester[semester.length - 1].code == "school-year2semester2"
-            ) {
-              desiredObj2.schoolalemalema = true;
-              desiredObj2.department = "department10";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "school-year2semester2";
-            } else if (
-              semester[semester.length - 1].code == "school-year2semester3"
-            ) {
-              desiredObj2.schoolalemalema = true;
-              desiredObj2.department = "department10";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "school-year2semester3";
-            } else if (
-              semester[semester.length - 1].code == "school-year3semester1"
-            ) {
-              desiredObj2.schoolalemalema = true;
-              desiredObj2.department = "department10";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "school-year3semester1";
-            } else if (
-              semester[semester.length - 1].code == "school-year3semester2"
-            ) {
-              desiredObj2.schoolalemalema = true;
-              desiredObj2.department = "department10";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "school-year3semester2";
-            } else if (
-              semester[semester.length - 1].code == "school-year3semester3"
-            ) {
-              desiredObj2.schoolalemalema = true;
-              desiredObj2.department = "department10";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "school-year3semester3";
-            } else if (
-              semester[semester.length - 1].code == "school-year4semester1"
-            ) {
-              desiredObj2.schoolalemalema = true;
-              desiredObj2.department = "department10";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "school-year4semester1";
-            } else if (
-              semester[semester.length - 1].code == "school-year4semester2"
-            ) {
-              desiredObj2.schoolalemalema = true;
-              desiredObj2.department = "department10";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "school-year4semester2";
-            } else if (
-              semester[semester.length - 1].code == "school-year4semester3"
-            ) {
-              desiredObj2.schoolalemalema = true;
-              desiredObj2.department = "department10";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "school-year4semester3";
-            } else if (
-              semester[semester.length - 1].code == "school-year4semester4"
-            ) {
-              desiredObj2.schoolalemalema = true;
-              desiredObj2.department = "department10";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "school-year4semester4";
-            } else if (
-              semester[semester.length - 1].code == "pre-year1semester1"
-            ) {
-              desiredObj2.prealemalema = true;
-              desiredObj2.department = "department05";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "pre-year1semester1";
-            } else if (
-              semester[semester.length - 1].code == "pre-year1semester2"
-            ) {
-              desiredObj2.prealemalema = true;
-              desiredObj2.department = "department05";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "pre-year1semester2";
-            } else if (
-              semester[semester.length - 1].code == "pre-year1semester3"
-            ) {
-              desiredObj2.prealemalema = true;
-              desiredObj2.department = "department05";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "pre-year1semester3";
-            } else if (
-              semester[semester.length - 1].code == "pre-year2semester1"
-            ) {
-              desiredObj2.prealemalema = true;
-              desiredObj2.department = "department05";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "pre-year2semester1";
-            } else if (
-              semester[semester.length - 1].code == "pre-year2semester2"
-            ) {
-              desiredObj2.prealemalema = true;
-              desiredObj2.department = "department05";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "pre-year2semester2";
-            } else if (
-              semester[semester.length - 1].code == "pre-year2semester3"
-            ) {
-              desiredObj2.prealemalema = true;
-              desiredObj2.department = "department05";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "pre-year2semester3";
-            } else if (
-              semester[semester.length - 1].code == "pre-year3semester1"
-            ) {
-              desiredObj2.prealemalema = true;
-              desiredObj2.department = "department05";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "pre-year3semester1";
-            } else if (
-              semester[semester.length - 1].code == "pre-year3semester2"
-            ) {
-              desiredObj2.prealemalema = true;
-              desiredObj2.department = "department05";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "pre-year3semester2";
-            } else if (
-              semester[semester.length - 1].code == "pre-year3semester3"
-            ) {
-              desiredObj2.prealemalema = true;
-              desiredObj2.department = "department05";
-              desiredObj2.jamat = "jamat1";
-              desiredObj2.semester = "pre-year3semester3";
-            }
+        if (semester.length >= 1) {
+          if (semester[semester.length - 1].code == "semester01") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "semester01";
+          } else if (semester[semester.length - 1].code == "semester02") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "semester02";
+          } else if (semester[semester.length - 1].code == "semester03") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "semester03";
+          } else if (semester[semester.length - 1].code == "semester04") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat2";
+            desiredObj2.semester = "semester04";
+          } else if (semester[semester.length - 1].code == "semester05") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat2";
+            desiredObj2.semester = "semester05";
+          } else if (semester[semester.length - 1].code == "semester06") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat2";
+            desiredObj2.semester = "semester06";
+          } else if (semester[semester.length - 1].code == "semester07") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat2";
+            desiredObj2.semester = "semester07";
+          } else if (semester[semester.length - 1].code == "semester08") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat2";
+            desiredObj2.semester = "semester08";
+          } else if (semester[semester.length - 1].code == "semester09") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat3";
+            desiredObj2.semester = "semester09";
+          } else if (semester[semester.length - 1].code == "semester10") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat3";
+            desiredObj2.semester = "semester10";
+          } else if (semester[semester.length - 1].code == "semester11") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat3";
+            desiredObj2.semester = "semester11";
+          } else if (semester[semester.length - 1].code == "semester12") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat3";
+            desiredObj2.semester = "semester12";
+          } else if (semester[semester.length - 1].code == "semester13") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat3";
+            desiredObj2.semester = "semester13";
+          } else if (semester[semester.length - 1].code == "semester14") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat4";
+            desiredObj2.semester = "semester14";
+          } else if (semester[semester.length - 1].code == "semester15") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "semester15";
+          } else if (semester[semester.length - 1].code == "semester16") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "semester16";
+          } else if (semester[semester.length - 1].code == "semester17") {
+            desiredObj2.alemalema = true;
+            desiredObj2.department = "department01";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "semester17";
+          } else if (
+            semester[semester.length - 1].code == "school-year1semester1"
+          ) {
+            desiredObj2.schoolalemalema = true;
+            desiredObj2.department = "department10";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "school-year1semester1";
+          } else if (
+            semester[semester.length - 1].code == "school-year1semester2"
+          ) {
+            desiredObj2.schoolalemalema = true;
+            desiredObj2.department = "department10";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "school-year1semester2";
+          } else if (
+            semester[semester.length - 1].code == "school-year1semester3"
+          ) {
+            desiredObj2.schoolalemalema = true;
+            desiredObj2.department = "department10";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "school-year1semester3";
+          } else if (
+            semester[semester.length - 1].code == "school-year2semester1"
+          ) {
+            desiredObj2.schoolalemalema = true;
+            desiredObj2.department = "department10";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "school-year2semester1";
+          } else if (
+            semester[semester.length - 1].code == "school-year2semester2"
+          ) {
+            desiredObj2.schoolalemalema = true;
+            desiredObj2.department = "department10";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "school-year2semester2";
+          } else if (
+            semester[semester.length - 1].code == "school-year2semester3"
+          ) {
+            desiredObj2.schoolalemalema = true;
+            desiredObj2.department = "department10";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "school-year2semester3";
+          } else if (
+            semester[semester.length - 1].code == "school-year3semester1"
+          ) {
+            desiredObj2.schoolalemalema = true;
+            desiredObj2.department = "department10";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "school-year3semester1";
+          } else if (
+            semester[semester.length - 1].code == "school-year3semester2"
+          ) {
+            desiredObj2.schoolalemalema = true;
+            desiredObj2.department = "department10";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "school-year3semester2";
+          } else if (
+            semester[semester.length - 1].code == "school-year3semester3"
+          ) {
+            desiredObj2.schoolalemalema = true;
+            desiredObj2.department = "department10";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "school-year3semester3";
+          } else if (
+            semester[semester.length - 1].code == "school-year4semester1"
+          ) {
+            desiredObj2.schoolalemalema = true;
+            desiredObj2.department = "department10";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "school-year4semester1";
+          } else if (
+            semester[semester.length - 1].code == "school-year4semester2"
+          ) {
+            desiredObj2.schoolalemalema = true;
+            desiredObj2.department = "department10";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "school-year4semester2";
+          } else if (
+            semester[semester.length - 1].code == "school-year4semester3"
+          ) {
+            desiredObj2.schoolalemalema = true;
+            desiredObj2.department = "department10";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "school-year4semester3";
+          } else if (
+            semester[semester.length - 1].code == "school-year4semester4"
+          ) {
+            desiredObj2.schoolalemalema = true;
+            desiredObj2.department = "department10";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "school-year4semester4";
+          } else if (
+            semester[semester.length - 1].code == "pre-year1semester1"
+          ) {
+            desiredObj2.prealemalema = true;
+            desiredObj2.department = "department05";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "pre-year1semester1";
+          } else if (
+            semester[semester.length - 1].code == "pre-year1semester2"
+          ) {
+            desiredObj2.prealemalema = true;
+            desiredObj2.department = "department05";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "pre-year1semester2";
+          } else if (
+            semester[semester.length - 1].code == "pre-year1semester3"
+          ) {
+            desiredObj2.prealemalema = true;
+            desiredObj2.department = "department05";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "pre-year1semester3";
+          } else if (
+            semester[semester.length - 1].code == "pre-year2semester1"
+          ) {
+            desiredObj2.prealemalema = true;
+            desiredObj2.department = "department05";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "pre-year2semester1";
+          } else if (
+            semester[semester.length - 1].code == "pre-year2semester2"
+          ) {
+            desiredObj2.prealemalema = true;
+            desiredObj2.department = "department05";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "pre-year2semester2";
+          } else if (
+            semester[semester.length - 1].code == "pre-year2semester3"
+          ) {
+            desiredObj2.prealemalema = true;
+            desiredObj2.department = "department05";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "pre-year2semester3";
+          } else if (
+            semester[semester.length - 1].code == "pre-year3semester1"
+          ) {
+            desiredObj2.prealemalema = true;
+            desiredObj2.department = "department05";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "pre-year3semester1";
+          } else if (
+            semester[semester.length - 1].code == "pre-year3semester2"
+          ) {
+            desiredObj2.prealemalema = true;
+            desiredObj2.department = "department05";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "pre-year3semester2";
+          } else if (
+            semester[semester.length - 1].code == "pre-year3semester3"
+          ) {
+            desiredObj2.prealemalema = true;
+            desiredObj2.department = "department05";
+            desiredObj2.jamat = "jamat1";
+            desiredObj2.semester = "pre-year3semester3";
           }
-
-          if (hifzulQuran.length >= 1) {
-            desiredObj2.hifjulquran = true;
-          }
-
-          if (shishumaktab.length >= 1) {
-            desiredObj2.shishumaktab = true;
-          }
-
-          if (farzeayinnajera.length >= 1) {
-            desiredObj2.abacus_teacher = true;
-          }
-
-          if (abacusStudent.length >= 1) {
-            desiredObj2.abacus_student = true;
-          }
-
-          if (ramadanquranulkarim.length >= 1) {
-            desiredObj2.ramadanquranulkarim = true;
-          }
-
-          dispatch(setInitialCourse(desiredObj2));
-
-          dispatch(setInitialData(desiredObj));
         }
+
+        if (hifzulQuran.length >= 1) {
+          desiredObj2.hifjulquran = true;
+        }
+
+        if (shishumaktab.length >= 1) {
+          desiredObj2.shishumaktab = true;
+        }
+
+        if (farzeayinnajera.length >= 1) {
+          desiredObj2.abacus_teacher = true;
+        }
+
+        if (abacusStudent.length >= 1) {
+          desiredObj2.abacus_student = true;
+        }
+
+        if (ramadanquranulkarim.length >= 1) {
+          desiredObj2.ramadanquranulkarim = true;
+        }
+
+        dispatch(setInitialCourse(desiredObj2));
       }
     }
-    fetchData();
-  }, []);
+
+    chanageCourseState();
+  }, [classesFinded]);
+
+  function changeDrawerState() {
+    setShow((prev) => !prev);
+  }
 
   const sidebarItems = [
     {

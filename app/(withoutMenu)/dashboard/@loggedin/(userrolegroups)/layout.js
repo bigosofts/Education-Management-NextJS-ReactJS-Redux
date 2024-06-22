@@ -1,17 +1,9 @@
 "use client";
-import { useState, useEffect } from "react";
-import { isAdmin } from "@/apiservices/checklogin";
+
+import { useSelector } from "react-redux";
 
 function layout({ admin, student, teacher, abacus }) {
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    async function fetchData() {
-      const payload = await isAdmin();
-      setData(payload);
-    }
-    fetchData();
-  }, []);
+  const data = useSelector((state) => state.isAdmin.value);
 
   if (data) {
     if (data.data.isAdmin == true) {
@@ -20,7 +12,7 @@ function layout({ admin, student, teacher, abacus }) {
       return <>{teacher}</>;
     } else if (data.data.userRole == "student") {
       return <>{student}</>;
-    }else if (data.data.userRole == "abacus_teacher") {
+    } else if (data.data.userRole == "abacus_teacher") {
       return <>{abacus}</>;
     }
   }

@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import EnrollPlease from "@/components/dashboardPage/enrollPlease";
 import WaitingApproval from "@/components/dashboardPage/WaitingApproval";
-import { selectDataTwo } from "@/apiservices/studentapiservices";
 import NotAllow from "@/components/dashboardPage/notAllow";
 import AttendancePageCustom from "@/components/attendance/attendance";
 
@@ -42,12 +41,8 @@ function AttendancePage() {
 
   useEffect(() => {
     async function getData() {
-      const res = await selectDataTwo(
-        { userName: data.data.userDetails.userName },
-        null
-      );
-      if (res.status == "Alhamdulillah") {
-        if (res.data[0].studentCourseCode.length > 0) {
+      if (data.status == "Alhamdulillah") {
+        if (data.data.userDetails.studentCourseCode.length > 0) {
           setShowPage(true);
         }
       }

@@ -6,13 +6,19 @@ import counterReducer from "./features/counter/counterSlice";
 
 import isCourseStateSlice from "./features/courseState/courseStateSlice";
 
-import postsReducer from "./features/posts/postSlice";
+import classesReducer from "./features/classes/classesSlice";
+import studentsReducers from "./features/students/studentsSlice";
+import teachersReducers from "./features/teachers/teachersSlice";
+import booksReducers from "./features/books/booksSlice";
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
     isAdmin: isAdminSlice,
     courseState: isCourseStateSlice,
-    posts: postsReducer,
+    classes: classesReducer,
+    students: studentsReducers,
+    teachers: teachersReducers,
+    books: booksReducers,
   },
 });

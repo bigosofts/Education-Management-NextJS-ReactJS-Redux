@@ -1,18 +1,14 @@
 "use client";
-import { useSelector } from "react-redux";
-import { useEffect, useState, useRef } from "react";
-import { updateData as updateClass } from "@/apiservices/classapiservices";
-import AttendanceSTable from "./attendanceSTable";
 
+import { useEffect, useState } from "react";
+import AttendanceSTable from "./attendanceSTable";
 
 import QuizAttendance from "@/customComponents/quizApplication/quizAttendance";
 
-function AttendancePageCustomInner({ classesUp, booksUp }) {
+function AttendancePageCustomInner({ classesUp, booksUp, courseState, data }) {
   const [books, setBooks] = useState();
   const [classes, setClasses] = useState();
 
-  const data = useSelector((state) => state.isAdmin.value);
-  const courseState = useSelector((state) => state.courseState.value);
   const [change, setChange] = useState(false);
   const [specificClass, setSpecificClass] = useState();
   const [isSubmited, setIsSubmited] = useState();
@@ -79,7 +75,7 @@ function AttendancePageCustomInner({ classesUp, booksUp }) {
     );
 
     setBooks(booksUp);
-  }, [classesUp, booksUp]);
+  }, [classesUp, booksUp, courseState]);
 
   function findBooks(bookID) {
     return books.find((item) => {

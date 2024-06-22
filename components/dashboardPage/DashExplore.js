@@ -3,6 +3,7 @@
 import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import DashboardExploreSingle from "./DashboardExploreSingle";
+import ProgressBar from "./progressBar";
 
 function DashExplore() {
   const data = useSelector((state) => state.isAdmin.value);
@@ -602,6 +603,8 @@ function DashExplore() {
 
     return (
       <div className="py-2 md:py-12">
+        <ProgressBar percentage={25}/>
+
         <h1 className="text-lg md:text-3xl mt-2 text-slate-500">Explore</h1>
         <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-12">
           {newArray.map((item) => (

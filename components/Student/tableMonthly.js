@@ -129,7 +129,7 @@ function TableMonthly({ profile, paymentID, students }) {
                             fontWeight: "900",
                           }}
                         >
-                          Approved
+                          Paid
                         </span>
                       ) : (
                         <span
@@ -160,13 +160,13 @@ function TableMonthly({ profile, paymentID, students }) {
                           fontWeight: "900",
                         }}
                       >
-                        Approved
+                        Paid
                       </span>
                     ) : (
                       <span
                         style={{
                           display: "inline-block",
-                          backgroundColor: "blue",
+                          backgroundColor: "red",
                           padding: "10px 20px",
                           borderRadius: "15px",
                           color: "white",
@@ -175,7 +175,7 @@ function TableMonthly({ profile, paymentID, students }) {
                           fontWeight: "900",
                         }}
                       >
-                        Upcoming
+                        Due
                       </span>
                     )}
                   </div>
