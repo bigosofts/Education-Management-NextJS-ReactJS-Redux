@@ -1,5 +1,5 @@
 "use client";
-
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import DashboardExploreSingle from "./DashboardExploreSingle";
@@ -7,6 +7,30 @@ import ProgressBar from "./progressBar";
 
 function DashExplore() {
   const data = useSelector((state) => state.isAdmin.value);
+  const [percentage, setPercentage] = useState(0);
+
+  const classes = useSelector((state) => state.classes.isLoading);
+  const books = useSelector((state) => state.books.isLoading);
+
+  const courseState = useSelector((state) => state.courseState.value);
+
+  useEffect(() => {
+    let completedCount = 0;
+
+    if (data) {
+      completedCount++;
+    }
+    if (!classes) {
+      completedCount++;
+    }
+    if (!books) {
+      completedCount++;
+    }
+    if (courseState) {
+      completedCount++;
+    }
+    setPercentage(completedCount * 25);
+  }, [data, classes, books, courseState]);
 
   const router = useRouter();
 
@@ -603,7 +627,7 @@ function DashExplore() {
 
     return (
       <div className="py-2 md:py-12">
-        <ProgressBar percentage={25}/>
+        <ProgressBar percentage={percentage} />
 
         <h1 className="text-lg md:text-3xl mt-2 text-slate-500">Explore</h1>
         <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-12">
