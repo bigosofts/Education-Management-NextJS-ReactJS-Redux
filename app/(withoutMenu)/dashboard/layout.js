@@ -10,6 +10,7 @@ import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
 
 import { selectDataTwo } from "@/apiservices/studentapiservices";
 import { selectAllDataTwo } from "@/apiservices/teacherapiservices";
+import { fetchPosts } from "@/app/redux/features/posts/postSlice";
 
 function DashboardLayout({ loggedin, notloggedin }) {
   const [data, setData] = useState();
@@ -59,6 +60,7 @@ function DashboardLayout({ loggedin, notloggedin }) {
         }
       }
       setData(payload);
+      dispatch(fetchPosts());
     }
     fetchData();
   }, []);
