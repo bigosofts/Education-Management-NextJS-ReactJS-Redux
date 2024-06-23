@@ -28,7 +28,7 @@ function SigninSignupmenuButton() {
     }
   }
 
-  if (adminData) {
+  if (adminData?.data) {
     return (
       <div className="log-sign" style={{ "--i": "1.8s" }}>
         <Link
