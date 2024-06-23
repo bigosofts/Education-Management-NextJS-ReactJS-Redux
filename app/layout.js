@@ -10,6 +10,7 @@ import { GoogleTagManagerBeforeHeaderTwo } from "@/helper/googleTagBeforeHeaderT
 import { MetaPixelSetup } from "@/helper/metaPixelBeforeHead";
 import { OneSignalPush } from "@/helper/oneSignalPushNotification";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import LoaderElement from "@/components/LoaderElement/LoaderElement";
 
 export const metadata = {
   title: "Internet Madrasa - একটি পূর্নাঙ্গ অনলাইন কওমী মাদরাসা",
@@ -32,7 +33,10 @@ export default async function RootLayout({ children }) {
         <OneSignalPush />
 
         {/* <MetaPixelSetup /> */}
-        <Providers>{children}</Providers>
+        <Providers>
+          <LoaderElement />
+          {children}
+        </Providers>
       </body>
     </html>
   );

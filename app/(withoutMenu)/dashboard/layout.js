@@ -5,16 +5,13 @@ import "@/customComponents/dashboardNav/vendor/mdi-font/css/material-design-icon
 
 import { useState, useEffect } from "react";
 import { isAdmin } from "@/apiservices/checklogin";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
 
 import { selectDataTwo } from "@/apiservices/studentapiservices";
 import { selectAllDataTwo } from "@/apiservices/teacherapiservices";
-import { fetchClasses } from "@/app/redux/features/classes/classesSlice";
-import { fetchStudents } from "@/app/redux/features/students/studentsSlice";
-import { fetchTeachers } from "@/app/redux/features/teachers/teachersSlice";
+
 import Loader from "@/customComponents/loader/Loader";
-import { fetchBooks } from "@/app/redux/features/books/booksSlice";
 
 function DashboardLayout({ loggedin, notloggedin }) {
   const [data, setData] = useState();
@@ -64,10 +61,8 @@ function DashboardLayout({ loggedin, notloggedin }) {
         }
       }
       setData(payload);
-      dispatch(fetchClasses());
-      dispatch(fetchStudents());
-      dispatch(fetchTeachers());
-      dispatch(fetchBooks());
+
+      
     }
     fetchData();
   }, []);
