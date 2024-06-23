@@ -28,6 +28,7 @@ db.version(1).stores({
   teachers: "++id, value, date",
   isadmin: "++id, value, date",
   classes: "++id, value, date",
+  books: "++id, value, date",
 });
 
 const { students, teachers, isadmin, classes } = db;

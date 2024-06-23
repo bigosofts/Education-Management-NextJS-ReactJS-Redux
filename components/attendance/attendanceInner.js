@@ -191,7 +191,7 @@ function AttendancePageCustomInner({ classesUp, booksUp, courseState, data }) {
     return (
       <div className="w-full">
         <div className="w-[95%] md:w-9/12 mx-auto h-screen mt-[-48px] pt-[48px]">
-          <h1 className="mt-10 text-center">
+          <h1 className="mt-10 text-center  text-lg md:text-4xl">
             Student Attendance (Total Active Classes:{" "}
             {classes && classes.length})
           </h1>
