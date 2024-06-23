@@ -18,7 +18,6 @@ function TableMonthly({ profile, paymentID, students }) {
     var date = new Date(isoTime);
 
     var options = {
-      day: "numeric",
       month: "long",
       year: "numeric",
     };
