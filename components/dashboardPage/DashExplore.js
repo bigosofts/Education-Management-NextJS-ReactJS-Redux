@@ -7,6 +7,7 @@ import ProgressBar from "./progressBar";
 
 function DashExplore() {
   const data = useSelector((state) => state.isAdmin.value);
+  
   const [percentage, setPercentage] = useState(0);
   const [targetPercentage, setTargetPercentage] = useState(0);
 

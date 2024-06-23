@@ -22,19 +22,19 @@ function ProgressBar({ percentage }) {
   }
 
   return (
-    <>
-      <p className="text-xm text-slate-800 text-center">
-        Loading your data ...
-      </p>
-      <div className="w-full bg-white rounded-full dark:bg-gray-700 mb-10">
+    <div className="p-1">
+      <div className="w-full bg-white rounded-full dark:bg-gray-700 mb-1">
         <div
-          className="bg-blue-600 text-xl font-xl text-blue-100 text-center p-2 leading-none rounded-full"
+          className="bg-blue-600 text-sm font-sm text-blue-100 text-center p-0.5 leading-none rounded-full"
           style={{ width: percentage + "%", transition: "2s ease-out" }}
         >
           {percentage}%
         </div>
       </div>
-    </>
+      <p className="text-xm text-slate-800 text-center">
+        Loading your data ...
+      </p>
+    </div>
   );
 }
 
