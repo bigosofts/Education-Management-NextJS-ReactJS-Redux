@@ -204,7 +204,7 @@ function AttendancePageCustomInner({ classesUp, booksUp, courseState, data }) {
             {classes.map((item, i) => (
               <div
                 key={i}
-                className="bg-[#e6e4e4] rounded-lg relative mb-5 md:mb-20 shadow-xl border-[1px] border-slate-300"
+                className="bg-white rounded-lg relative mb-5 md:mb-20 shadow-xl border-[1px] border-slate-300"
               >
                 {!change && (
                   <div className="">
