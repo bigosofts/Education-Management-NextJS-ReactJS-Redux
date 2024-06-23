@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { selectDataTwo } from "@/apiservices/courseapiservices";
+
 import { selectDataTwo as selectDepartment } from "@/apiservices/departmentapiservices";
 import { selectDataTwo as seletcJamat } from "@/apiservices/jamatapiservices";
 import { selectDataTwo as selectSemester } from "@/apiservices/semesterapiservices";
@@ -21,6 +21,10 @@ import { useSelector } from "react-redux";
 
 function PreFeeSection({ profile }) {
   const coursesData = useSelector((state) => state.courses.courses);
+  const semesterData = useSelector((state) => state.djs.semesters);
+  const departmentData = useSelector((state) => state.djs.departments);
+  const jamatData = useSelector((state) => state.djs.jamats);
+  const paymentData2 = useSelector((state) => state.djs.payments);
 
   const searchParams = useSearchParams();
   const UnpaidRef = useRef();
@@ -444,7 +448,7 @@ function PreFeeSection({ profile }) {
 
   useEffect(() => {
     async function getData() {
-      const res =
+      let course =
         coursesData.length > 0 &&
         coursesData.map((item) => {
           return {
@@ -454,27 +458,20 @@ function PreFeeSection({ profile }) {
           };
         });
 
-      const res2 = await selectDepartment(null, null);
-      const res3 = await seletcJamat(null, null);
-      const res4 = await selectSemester({ activeStatus: "active" }, null);
-      const res5 = await selectPayments(null, null);
+      let department = departmentData;
 
-      const course = res;
-      
+      let jamat = jamatData;
 
-      const [department, jamat, semester, paymentData] = await Promise.all([
-        res2,
-        res3,
-        res4,
-        res5,
-      ]);
+      let semester = semesterData;
+
+      let paymentData = paymentData2;
 
       if (
         course.length > 0 &&
-        department.status == "Alhamdulillah" &&
-        jamat.status == "Alhamdulillah" &&
-        semester.status == "Alhamdulillah" &&
-        paymentData.status == "Alhamdulillah"
+        department.length > 0 &&
+        jamat.length > 0 &&
+        semester.length > 0 &&
+        paymentData.length > 0
       ) {
         setCourse(
           course
@@ -498,7 +495,7 @@ function PreFeeSection({ profile }) {
         setCurrencyrate(dollarPerTaka);
 
         function changeDepartment(name1) {
-          const ID = department.data.filter((item) => {
+          const ID = department.filter((item) => {
             if (item.departmentName == name1) {
               return item.departmentID;
             }
@@ -508,19 +505,19 @@ function PreFeeSection({ profile }) {
         }
 
         setSemester(
-          semester.data.map((item) => {
+          semester.map((item) => {
             return { ID: item.semesterID, name: item.semesterName };
           })
         );
 
         setJamat(
-          jamat.data.map((item) => {
+          jamat.map((item) => {
             return { ID: item.jamatID, name: item.jamatName };
           })
         );
 
         setRealJamat(
-          jamat.data.map((item) => {
+          jamat.map((item) => {
             return { ID: item.jamatID, name: item.jamatName };
           })
         );
@@ -560,7 +557,7 @@ function PreFeeSection({ profile }) {
               (prev) => prev && prev.filter((item) => item.ID.includes("pre"))
             );
             setJamat(
-              jamat.data
+              jamat
                 .filter((item) => item.jamatID == "jamat1")
                 .map((item) => {
                   return { ID: item.jamatID, name: item.jamatName };
@@ -579,7 +576,7 @@ function PreFeeSection({ profile }) {
               profile.data.userDetails.countryName == "India"
             ) {
               if (coursePriceData) {
-                let [dObj] = course.data.filter((item) => {
+                let [dObj] = course.filter((item) => {
                   if (item.courseCode == coursePriceData) {
                     return item;
                   }
@@ -600,7 +597,7 @@ function PreFeeSection({ profile }) {
               }
             } else {
               if (coursePriceData) {
-                let [dObj] = course.data.filter((item) => {
+                let [dObj] = course.filter((item) => {
                   if (item.courseCode == coursePriceData) {
                     return item;
                   }
@@ -625,13 +622,13 @@ function PreFeeSection({ profile }) {
         }
 
         setDepartment(
-          department.data.map((item) => {
+          department.map((item) => {
             return { ID: item.departmentID, name: item.departmentName };
           })
         );
 
         setUnpaid(
-          paymentData.data.filter((item) => {
+          paymentData.filter((item) => {
             if (
               item.paymentID ==
               `${profile.data.userDetails.paymentStatus.paymentID}`
@@ -642,7 +639,7 @@ function PreFeeSection({ profile }) {
       }
     }
     getData();
-  }, []);
+  }, [coursesData, semesterData, departmentData, jamatData, paymentData2]);
 
   function oneMonthLaterToDesiredDate(dateString) {
     let desiredDate = new Date(dateString);

@@ -11,9 +11,6 @@ import Loader from "@/customComponents/loader/Loader";
 function DashboardLayout({ loggedin, notloggedin }) {
   const data = useSelector((state) => state.isAdmin.value);
 
-  
-
-  
 
   if (data) {
     if (data.status == "noToken") {
