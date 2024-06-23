@@ -3,69 +3,17 @@ import "./dashsidebar.css";
 import "@/customComponents/dashboardNav/css/dashheader.css";
 import "@/customComponents/dashboardNav/vendor/mdi-font/css/material-design-iconic-font.min.css";
 
-import { useState, useEffect } from "react";
-import { isAdmin } from "@/apiservices/checklogin";
-import { useDispatch } from "react-redux";
-import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
 
-import { selectDataTwo } from "@/apiservices/studentapiservices";
-import { selectAllDataTwo } from "@/apiservices/teacherapiservices";
+import { useSelector } from "react-redux";
 
 import Loader from "@/customComponents/loader/Loader";
 
 function DashboardLayout({ loggedin, notloggedin }) {
-  const [data, setData] = useState();
-  const dispatch = useDispatch();
+  const data = useSelector((state) => state.isAdmin.value);
 
-  useEffect(() => {
-    async function fetchData() {
-      const payload = await isAdmin();
+  
 
-      if (payload.status == "Alhamdulillah") {
-        if (payload.data.userRole == "student") {
-          const res = await selectDataTwo(
-            { userName: payload.data.userName },
-            null
-          );
-          if (res.status == "Alhamdulillah") {
-            const desiredObj = {
-              status: "Alhamdulillah",
-              data: {
-                userName: res.data[0].userName,
-                userRole: res.data[0].userRole,
-                isAdmin: res.data[0].isAdmin,
-                userDetails: res.data[0],
-              },
-            };
-
-            dispatch(setInitialData(desiredObj));
-          }
-        } else if (payload.data.userRole == "teacher") {
-          const res = await selectAllDataTwo(
-            { userName: payload.data.userName },
-            null
-          );
-          if (res.status == "Alhamdulillah") {
-            const desiredObj = {
-              status: "Alhamdulillah",
-              data: {
-                userName: res.data[0].userName,
-                userRole: res.data[0].userRole,
-                isAdmin: res.data[0].isAdmin,
-                userDetails: res.data[0],
-              },
-            };
-
-            dispatch(setInitialData(desiredObj));
-          }
-        }
-      }
-      setData(payload);
-
-      
-    }
-    fetchData();
-  }, []);
+  
 
   if (data) {
     if (data.status == "noToken") {

@@ -31,7 +31,7 @@ db.version(1).stores({
   books: "++id, value, date",
 });
 
-const { students, teachers, isadmin, classes } = db;
+const { students, teachers, isadmin, classes, books } = db;
 
 //create
 exports.createStudent = async (data) => {
@@ -58,6 +58,16 @@ exports.createIsAdmin = async (data) => {
   const encryptedData = await encryptAuto(data);
 
   const res = await isadmin.add({
+    value: encryptedData,
+    date: new Date(Date.now()).toISOString(),
+  });
+  return res;
+};
+
+exports.createClass = async (data) => {
+  const encryptedData = await encryptAuto(data);
+
+  const res = await classes.add({
     value: encryptedData,
     date: new Date(Date.now()).toISOString(),
   });

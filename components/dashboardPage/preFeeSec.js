@@ -17,8 +17,11 @@ import {
 import { updateData } from "@/apiservices/studentapiservices";
 import mytoast from "../toast/toast";
 import { sendMail } from "@/apiservices/sendMailapiservices";
+import { useSelector } from "react-redux";
 
 function PreFeeSection({ profile }) {
+  const coursesData = useSelector((state) => state.courses.courses);
+
   const searchParams = useSearchParams();
   const UnpaidRef = useRef();
 
@@ -441,28 +444,40 @@ function PreFeeSection({ profile }) {
 
   useEffect(() => {
     async function getData() {
-      const res = await selectDataTwo(null, {
-        title: true,
-        courseCode: true,
-        coursePrice: true,
-      });
+      const res =
+        coursesData.length > 0 &&
+        coursesData.map((item) => {
+          return {
+            title: item.title,
+            courseCode: item.courseCode,
+            coursePrice: item.coursePrice,
+          };
+        });
+
       const res2 = await selectDepartment(null, null);
       const res3 = await seletcJamat(null, null);
       const res4 = await selectSemester({ activeStatus: "active" }, null);
       const res5 = await selectPayments(null, null);
 
-      const [course, department, jamat, semester, paymentData] =
-        await Promise.all([res, res2, res3, res4, res5]);
+      const course = res;
+      
+
+      const [department, jamat, semester, paymentData] = await Promise.all([
+        res2,
+        res3,
+        res4,
+        res5,
+      ]);
 
       if (
-        course.status == "Alhamdulillah" &&
+        course.length > 0 &&
         department.status == "Alhamdulillah" &&
         jamat.status == "Alhamdulillah" &&
         semester.status == "Alhamdulillah" &&
         paymentData.status == "Alhamdulillah"
       ) {
         setCourse(
-          course.data
+          course
             .filter(
               (item) =>
                 item.courseCode != "abacus_teacher" &&

@@ -6,51 +6,109 @@ import { fetchBooks } from "@/app/redux/features/books/booksSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchStudents } from "@/app/redux/features/students/studentsSlice";
 import { fetchTeachers } from "@/app/redux/features/teachers/teachersSlice";
+import { fetchCourses } from "@/app/redux/features/courses/coursesSlice";
+import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
+import { isAdmin } from "@/apiservices/checklogin";
+import { selectDataTwo } from "@/apiservices/studentapiservices";
+import { selectAllDataTwo } from "@/apiservices/teacherapiservices";
+
+import { selectDataTwo as selectInstitution } from "@/apiservices/abacusinstitutionapiservices";
 
 function LoaderElement() {
   const dispatch = useDispatch();
 
-  const classesIsLoading = useSelector((state) => state.classes.isLoading);
-  const classes = useSelector((state) => state.classes.classes);
-
-  const studentsIsLoading = useSelector((state) => state.students.isLoading);
-  const students = useSelector((state) => state.students.students);
-
-  const teachersIsLoading = useSelector((state) => state.teachers.isLoading);
-  const teachers = useSelector((state) => state.teachers.teachers);
-
-  const booksIsLoading = useSelector((state) => state.books.isLoading);
-  const books = useSelector((state) => state.books.books);
+  
 
   useEffect(() => {
-    if (!booksIsLoading && books.length == 0) {
-      dispatch(fetchBooks());
+    async function fetchData() {
+      const payload = await isAdmin();
+
+      if (payload.status == "Alhamdulillah") {
+        if (payload.data.userRole == "student") {
+          const res = await selectDataTwo(
+            { userName: payload.data.userName },
+            null
+          );
+          if (res.status == "Alhamdulillah") {
+            const desiredObj = {
+              status: "Alhamdulillah",
+              data: {
+                userName: res.data[0].userName,
+                userRole: res.data[0].userRole,
+                isAdmin: res.data[0].isAdmin,
+                userDetails: res.data[0],
+              },
+            };
+
+            dispatch(setInitialData(desiredObj));
+          }
+        } else if (payload.data.userRole == "teacher") {
+          const res = await selectAllDataTwo(
+            { userName: payload.data.userName },
+            null
+          );
+          if (res.status == "Alhamdulillah") {
+            const desiredObj = {
+              status: "Alhamdulillah",
+              data: {
+                userName: res.data[0].userName,
+                userRole: res.data[0].userRole,
+                isAdmin: res.data[0].isAdmin,
+                userDetails: res.data[0],
+              },
+            };
+
+            dispatch(setInitialData(desiredObj));
+          }
+        } else if (payload.data.userRole == "abacus_teacher") {
+          const res = await selectInstitution(
+            { institutionID: payload.data.userName },
+            null
+          );
+          if (res.status == "Alhamdulillah") {
+            let desiredObj;
+            if (res.data.length < 1) {
+              desiredObj = {
+                status: "noToken",
+              };
+            } else {
+              desiredObj = {
+                status: "Alhamdulillah",
+                data: {
+                  userName: res.data[0].institutionID,
+                  userRole: "abacus_teacher",
+                  isAdmin: false,
+                  userDetails: res.data[0],
+                },
+              };
+            }
+
+            dispatch(setInitialData(desiredObj));
+          }
+        }
+      } else if (payload.status == "noToken") {
+        const desiredObj = {
+          status: "noToken",
+          data: null,
+        };
+
+        dispatch(setInitialData(desiredObj));
+      }
     }
-    if (
-      !booksIsLoading &&
-      books.length > 0 &&
-      !classesIsLoading &&
-      classes.length == 0
-    ) {
-      dispatch(fetchClasses());
-    }
-    if (
-      !classesIsLoading &&
-      classes.length > 0 &&
-      !teachersIsLoading &&
-      teachers.length == 0
-    ) {
-      dispatch(fetchTeachers());
-    }
-    if (
-      !teachersIsLoading &&
-      teachers.length > 0 &&
-      !studentsIsLoading &&
-      students.length == 0
-    ) {
-      dispatch(fetchStudents());
-    }
-  }, [books, classes, teachers]);
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    dispatch(fetchBooks());
+
+    dispatch(fetchCourses());
+
+    dispatch(fetchClasses());
+
+    dispatch(fetchTeachers());
+
+    dispatch(fetchStudents());
+  }, []);
 }
 
 export default LoaderElement;
