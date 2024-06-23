@@ -13,7 +13,7 @@ import {
 import { useSelector } from "react-redux";
 import mytoast from "@/components/toast/toast";
 
-function page(props) {
+function Page(props) {
   const data = useSelector((state) => state.isAdmin.value);
 
   useEffect(() => {
@@ -257,4 +257,4 @@ function page(props) {
   );
 }
 
-export default page;
+export default Page;

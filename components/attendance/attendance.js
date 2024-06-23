@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import AttendancePageCustomInner from "./attendanceInner";
 import ProgressBar from "../dashboardPage/progressBar";
 
-async function AttendancePageCustom() {
+function AttendancePageCustom() {
   const classes = useSelector((state) => state.classes.classes);
   const books = useSelector((state) => state.books.books);
 
@@ -15,10 +15,11 @@ async function AttendancePageCustom() {
   useEffect(() => {
     let completedCount = 0;
 
-    if (!classes) {
+    if (classes.length > 0) {
       completedCount++;
     }
-    if (!books) {
+
+    if (books.length > 0) {
       completedCount++;
     }
 
