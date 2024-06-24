@@ -14,6 +14,7 @@ import { selectAllDataTwo } from "@/apiservices/teacherapiservices";
 
 import { selectDataTwo as selectInstitution } from "@/apiservices/abacusinstitutionapiservices";
 import { fetchDjs } from "@/app/redux/features/djs/djsSlice";
+import { fetchNotices } from "@/app/redux/features/notices/noticesSlice";
 
 function LoaderElement() {
   const dispatch = useDispatch();
@@ -109,6 +110,8 @@ function LoaderElement() {
     dispatch(fetchStudents());
 
     dispatch(fetchDjs());
+
+    dispatch(fetchNotices())
   }, []);
 }
 

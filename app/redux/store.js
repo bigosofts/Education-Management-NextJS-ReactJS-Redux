@@ -12,6 +12,7 @@ import teachersReducers from "./features/teachers/teachersSlice";
 import booksReducers from "./features/books/booksSlice";
 import coursesReducers from "./features/courses/coursesSlice";
 import djsReducers from "./features/djs/djsSlice";
+import noticesReducers from "./features/notices/noticesSlice";
 
 export const store = configureStore({
   reducer: {
@@ -24,5 +25,6 @@ export const store = configureStore({
     books: booksReducers,
     courses: coursesReducers,
     djs: djsReducers,
+    notices: noticesReducers,
   },
 });

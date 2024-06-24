@@ -7,9 +7,10 @@ import mytoast from "../toast/toast";
 import allCountry from "./allCountry";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 function ProfileUpdate() {
+  const router = useRouter();
   const countries = allCountry();
   const [inputType, setInputType] = useState("text");
   const searchParams = useSearchParams();
@@ -23,12 +24,15 @@ function ProfileUpdate() {
   const handleBlur = () => {
     setInputType("text");
   };
+
   const hardRefresh = (code) => {
     if (typeof window !== "undefined") {
       if (code) {
-        window.location.href = `/dashboard/${data.data.userDetails.userName}/fees?enroll=${code}`;
+        router.push(
+          `/dashboard/${data.data.userDetails.userName}/fees?enroll=${code}`
+        );
       } else {
-        window.location.href = `/dashboard/${data.data.userDetails.userName}`;
+        window.location.href = `/dashboard/${data.data.userDetails.userName}/settings/profile-update`;
       }
     }
   };
@@ -174,9 +178,15 @@ function ProfileUpdate() {
           name="gender"
           className="bg-white my-4 p-4 box-border w-full rounded-3xl"
         >
-          <option className="p-4" value="">Select your Gender</option>
-          <option className="p-4" value="male">Male</option>
-          <option className="p-4" value="female">Female</option>
+          <option className="p-4" value="">
+            Select your Gender
+          </option>
+          <option className="p-4" value="male">
+            Male
+          </option>
+          <option className="p-4" value="female">
+            Female
+          </option>
         </select>
 
         {/* Input Field */}
@@ -205,7 +215,9 @@ function ProfileUpdate() {
           type="text"
           className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10"
         >
-          <option className="p-4" value="">বর্তমানে আপনি কোন দেশে বাস করছেন</option>
+          <option className="p-4" value="">
+            বর্তমানে আপনি কোন দেশে বাস করছেন
+          </option>
           {countries.data.map((item, i) => (
             <option className="p-4" key={i} value={item.name}>
               {item.name}

@@ -7,26 +7,46 @@ import ProgressBar from "./progressBar";
 
 function DashExplore() {
   const data = useSelector((state) => state.isAdmin.value);
-  
+
   const [percentage, setPercentage] = useState(0);
+  const [status, setStatus] = useState();
   const [targetPercentage, setTargetPercentage] = useState(0);
 
   const classes = useSelector((state) => state.classes.isLoading);
+
   const books = useSelector((state) => state.books.isLoading);
+
+  const notices = useSelector((state) => state.notices.isLoading);
+
+  const payments = useSelector((state) => state.djs.isLoading);
 
   useEffect(() => {
     let completedCount = 0;
+    let array = [];
 
     if (!classes) {
       completedCount++;
+      array.push("attendance");
     }
     if (!books) {
       completedCount++;
+      array.push("library");
+    }
+    if (!notices) {
+      completedCount++;
+      array.push("notice");
+    }
+    if (!payments) {
+      completedCount++;
+      array.push("payment");
     }
 
-    const newTargetPercentage = completedCount * 50;
+    const newTargetPercentage = completedCount * 25;
+    
+    setStatus(array);
+
     setTargetPercentage(newTargetPercentage);
-  }, [classes, books]);
+  }, [classes, books, notices, payments]);
 
   useEffect(() => {
     if (percentage < targetPercentage) {
@@ -40,7 +60,7 @@ function DashExplore() {
         });
       };
 
-      const intervalId = setInterval(increment, 20); // Adjust the interval duration for smoother or faster increments
+      const intervalId = setInterval(increment, 10); // Adjust the interval duration for smoother or faster increments
 
       return () => clearInterval(intervalId);
     } else if (percentage > targetPercentage) {
@@ -54,7 +74,7 @@ function DashExplore() {
         });
       };
 
-      const intervalId = setInterval(decrement, 20); // Adjust the interval duration for smoother or faster increments
+      const intervalId = setInterval(decrement, 10); // Adjust the interval duration for smoother or faster increments
 
       return () => clearInterval(intervalId);
     }
@@ -655,7 +675,7 @@ function DashExplore() {
 
     return (
       <div className="py-2 md:py-12">
-        <ProgressBar percentage={percentage} />
+        <ProgressBar percentage={percentage} status={status} />
 
         <h1 className="text-lg md:text-3xl mt-2 text-slate-500">Explore</h1>
         <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-12">

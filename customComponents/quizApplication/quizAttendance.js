@@ -7,7 +7,13 @@ import "./quiz.css";
 import mytoast from "@/components/toast/toast";
 
 function QuizAttendance({ classSelection, allsubmited }) {
-  let specificClass = classSelection;
+  const [specificClass, setSpecificClass] = useState(() =>
+    JSON.parse(JSON.stringify(classSelection))
+  );
+
+  useEffect(() => {
+    setSpecificClass(JSON.parse(JSON.stringify(classSelection)));
+  }, [classSelection]);
 
   const data = useSelector((state) => state.isAdmin.value);
   const [question, setQuestion] = useState([]);
@@ -35,7 +41,9 @@ function QuizAttendance({ classSelection, allsubmited }) {
 
   async function present() {
     setShowBtn(false);
+
     let classWant = specificClass;
+
     let specificStudent = classWant.students.find(
       (item) => item.SID == data.data.userDetails.userName
     );
@@ -78,6 +86,8 @@ function QuizAttendance({ classSelection, allsubmited }) {
 
     if (res.status == "Alhamdulillah") {
       mytoast.success("Present has been counted for specific date");
+
+      setSpecificClass({ ...classWant });
 
       setRender((prev) => !prev);
       setShowBtn(true);
@@ -184,10 +194,12 @@ function QuizAttendance({ classSelection, allsubmited }) {
           }
         } else {
           setIsPresent("no");
+
           mytoast.warning("There are no Questions for you to Answer");
         }
       } else {
         setIsPresent("no");
+
         mytoast.warning("There are no Questions for you to Answer");
       }
     }

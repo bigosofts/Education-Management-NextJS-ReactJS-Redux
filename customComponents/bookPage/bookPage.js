@@ -9,6 +9,9 @@ function BookPageDesign() {
   const courseState = useSelector((state) => state.courseState.value);
   const data = useSelector((state) => state.isAdmin.value);
 
+  const classes = useSelector((state) => state.classes.classes);
+  const booksData = useSelector((state) => state.books.books);
+
   const [classData, setClassData] = useState();
   const [books, setBooks] = useState();
 
@@ -20,27 +23,33 @@ function BookPageDesign() {
 
   useEffect(() => {
     async function getData() {
-      const res = await selectClasses(
-        { batchNo: data.data.userDetails.batchCount },
-        null
-      );
-      if (res.status == "Alhamdulillah") {
+      let res = { data: null };
+
+      res.data =
+        classes.length > 0 &&
+        classes.filter(
+          (item) => item.batchNo == data.data.userDetails.batchCount
+        );
+
+      if (res.data.length > 0) {
         setClassData(res.data);
       }
-      const res2 = await selectBooks(null, null);
-      if (res2.status == "Alhamdulillah") {
+
+      let res2 = { data: null };
+      res2.data = booksData.length > 0 && booksData;
+
+      if (res2.data.length > 0) {
         setBooks(res2.data);
       }
     }
     getData();
-  }, []);
+  }, [classes, booksData]);
 
   return (
     <div className="bookpageContainer">
       <div className="imgct"></div>
 
       <div className="bookshelf">
-
         {courseState && courseState.alemalema == true && (
           <div className="book-grid">
             <h2>
@@ -169,7 +178,6 @@ function BookPageDesign() {
             </ul>
           </div>
         )}
-        
       </div>
     </div>
   );

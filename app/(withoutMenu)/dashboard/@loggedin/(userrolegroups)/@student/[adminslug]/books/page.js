@@ -10,6 +10,7 @@ import BookPageDesign from "@/customComponents/bookPage/bookPage";
 
 function BookPage() {
   const data = useSelector((state) => state.isAdmin.value);
+  const studentsData = useSelector((state) => state.students.students);
 
   const [showPage, setShowPage] = useState();
 
@@ -43,18 +44,22 @@ function BookPage() {
 
   useEffect(() => {
     async function getData() {
-      const res = await selectDataTwo(
-        { userName: data.data.userDetails.userName },
-        null
-      );
-      if (res.status == "Alhamdulillah") {
+      let res = { data: null };
+
+      res.data =
+        studentsData.length > 0 &&
+        studentsData.filter(
+          (item) => item.userName == data.data.userDetails.userName
+        );
+
+      if (res.data.length > 0) {
         if (res.data[0].studentCourseCode.length > 0) {
           setShowPage(true);
         }
       }
     }
     getData();
-  }, []);
+  }, [studentsData]);
 
   if (data) {
     if (data.data.userDetails.studentCourseCode.length < 1) {

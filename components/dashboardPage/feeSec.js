@@ -12,7 +12,13 @@ function FeeSection({ profile }) {
   const [students, setStudents] = useState();
   const [payments, setPayments] = useState();
   const [store, setStore] = useState("0 taka");
+
   const data = useSelector((state) => state.isAdmin.value);
+
+  const paymentData2 = useSelector((state) => state.djs.payments);
+
+  const studentsData = useSelector((state) => state.students.students);
+
   function getDayDifference() {
     let date = data.data.userDetails.admissionSession;
     let currentDate = new Date();
@@ -27,14 +33,23 @@ function FeeSection({ profile }) {
   useEffect(() => {
     async function getData() {
       try {
-        const res = await selectDataTwo(null, null);
-        const res2 = await selectPayments(
-          { paymentID: data.data.userDetails.paymentStatus.paymentID },
-          null
-        );
-        if (res.status === "Alhamdulillah" && res2.status === "Alhamdulillah") {
+        let res = { data: null };
+        res.data = studentsData.length > 0 && studentsData;
+
+        let res2 = { data: null };
+
+        res2.data =
+          paymentData2.length > 0 &&
+          paymentData2.filter(
+            (item) =>
+              item.paymentID == data.data.userDetails.paymentStatus.paymentID
+          );
+
+        if (res.data.length > 0 && res2.data.length > 0) {
+          console.log(res.data, res2.data);
           setStudents(res.data);
           setPayments(res2.data[0]);
+
           function calculate() {
             function isDatePassed(date) {
               let currentDate = new Date();
@@ -70,7 +85,7 @@ function FeeSection({ profile }) {
       }
     }
     getData();
-  }, []);
+  }, [paymentData2, studentsData]);
 
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -85,7 +100,7 @@ function FeeSection({ profile }) {
       <div className="p-3 h-[300px] bg-[#013030] text-white text-[32px] md:text-3xl w-[100vw] box-border">
         <div className="w-[95%] mx-auto flex justify-between px-2">
           <div className="text-lg md:text-2xl">Current Balance</div>
-          <div className="text-lg md:text-2xl">{store} </div>
+          <div className="text-lg md:text-2xl">{store}</div>
         </div>
         <div className="pb-[100px]">
           <h1 className="text-[16px] md:text-2xl mt-12 mb-10 text-white text-center">

@@ -1,11 +1,18 @@
 "use client";
-import { useState, useEffect } from "react";
-import { selectDataTwo } from "@/apiservices/pushNoticeapiservices";
+
 import { useSelector } from "react-redux";
 
+import Loader from "@/customComponents/loader/Loader";
+
 function BookPage() {
-  const [notices, setNotices] = useState();
   const data = useSelector((state) => state.isAdmin.value);
+
+  const notice = useSelector((state) => state.notices.notices);
+
+  let notices =
+    notice.length > 0 &&
+    notice.filter((item) => item.reciever == data.data.userDetails.userName);
+
   function niceDate(date) {
     var isoTime = date;
     var date = new Date(isoTime);
@@ -20,23 +27,10 @@ function BookPage() {
     return formattedDate;
   }
 
-  useEffect(() => {
-    async function getData() {
-      const res = await selectDataTwo(
-        { reciever: data.data.userDetails.userName },
-        null
-      );
-      if (res.status == "Alhamdulillah") {
-        setNotices(res.data);
-      }
-    }
-    getData();
-  }, []);
-
-  return (
-    <div className="w-full md:w-1/2 mx-auto p-5">
-      {notices &&
-        notices.map((item, i) => (
+  if (notices) {
+    return (
+      <div className="w-full md:w-1/2 mx-auto p-5">
+        {notices.map((item, i) => (
           <div
             key={i}
             className="w-full bg-lime-100 border-[1px] border-slate-300 rounded-3xl mb-5 overflow-hidden"
@@ -61,8 +55,11 @@ function BookPage() {
             </div>
           </div>
         ))}
-    </div>
-  );
+      </div>
+    );
+  } else {
+    return <Loader />;
+  }
 }
 
 export default BookPage;
