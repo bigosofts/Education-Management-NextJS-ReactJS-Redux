@@ -1,19 +1,10 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import { selectDataTwo as selectCourses } from "@/apiservices/courseapiservices";
-import { selectDataTwo as selectJamats } from "@/apiservices/jamatapiservices";
-import { selectDataTwo as selectSemesters } from "@/apiservices/semesterapiservices";
-import { selectDataTwo as selectDepartments } from "@/apiservices/departmentapiservices";
+
 import ShowPaymentDetails from "./showpaymentDetail";
 
-import {
-  selectDataTwo as selectPayments,
-  updateData as updatePayment,
-} from "@/apiservices/paymentapiservices";
-import {
-  selectDataTwo as selectStudents,
-  updateData as updateStudents,
-} from "@/apiservices/studentapiservices";
+import { updateData as updatePayment } from "@/apiservices/paymentapiservices";
+import { updateData as updateStudents } from "@/apiservices/studentapiservices";
 import { useEffect, useState } from "react";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { useSelector } from "react-redux";
@@ -22,6 +13,15 @@ import mytoast from "../toast/toast";
 function SwitchDesign() {
   let pass2 = "talimulquranwassunnahinternetmadrasa";
   const [showbtn, setshowbtn] = useState();
+
+  const courseData = useSelector((state) => state.courses.courses);
+  const jamatData = useSelector((state) => state.djs.jamats);
+  const semesterData = useSelector((state) => state.djs.semesters);
+  const departmentData = useSelector((state) => state.djs.departments);
+  const studentsData = useSelector((state) => state.students.students);
+  const paymentData = useSelector((state) => state.djs.payments);
+
+  const classData = useSelector((state) => state.classes.classes);
 
   const [primaryMoney, setPrimaryMoney] = useState({
     tk: "",
@@ -47,10 +47,13 @@ function SwitchDesign() {
   const [students, setStudents] = useState();
   const [payments, setPayments] = useState();
   const [trigger, setTrigger] = useState();
+  const [extraBatch, setExtraBatch] = useState(false);
 
   const data = useSelector((state) => state.isAdmin.value);
 
   const [extraSemester, setExtraSemester] = useState(false);
+
+  const [batchArray, setBatchArray] = useState();
 
   const searchParams = useSearchParams();
   const enroll = searchParams.get("enroll");
@@ -66,6 +69,7 @@ function SwitchDesign() {
     paymentWay: "",
     extraTaka: "",
     credit: false,
+    batch: "",
   });
 
   function PriceDecision(coursePriceData) {
@@ -219,16 +223,18 @@ function SwitchDesign() {
             ].code
           ).tk
       ) {
-        debugger;
         if (
-          mainData.classes == "alemalema" &&
+          (mainData.classes == "alemalema" ||
+            mainData.classes == "prealemalema" ||
+            mainData.classes == "schoolalemalema") &&
           mainData.jamat &&
           mainData.semester &&
           mainData.department &&
           mainData.amountPaid &&
           mainData.transactionID &&
           mainData.accountNo &&
-          mainData.paymentWay
+          mainData.paymentWay &&
+          mainData.batch
         ) {
           NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
             new Date(Date.now()).toISOString();
@@ -1402,9 +1408,16 @@ function SwitchDesign() {
     if (e.target.value == "alemalema") {
       setExtraJamat(true);
       setExtraSemester(false);
+    } else if (e.target.value == "prealemalema") {
+      setExtraJamat(true);
+      setExtraSemester(false);
+    } else if (e.target.value == "schoolalemalema") {
+      setExtraJamat(true);
+      setExtraSemester(false);
     } else {
       setExtraJamat(false);
       setExtraSemester(false);
+      setExtraBatch(false);
     }
 
     if (
@@ -1467,6 +1480,12 @@ function SwitchDesign() {
         }));
 
         if (codeC == "alemalema") {
+          setExtraJamat(true);
+          setExtraSemester(false);
+        } else if (codeC == "prealemalema") {
+          setExtraJamat(true);
+          setExtraSemester(false);
+        } else if (codeC == "schoolalemalema") {
           setExtraJamat(true);
           setExtraSemester(false);
         } else {
@@ -1533,6 +1552,32 @@ function SwitchDesign() {
       ...prev,
       semester: e.target.value,
     }));
+
+    let batch =
+      classData.length > 0 &&
+      classData.filter((item) => {
+        if (
+          item.courseID == mainData.classes &&
+          item.jamatID == mainData.jamat &&
+          item.semesterID == e.target.value
+        ) {
+          return true;
+        }
+      });
+
+    if (batch.length > 1) {
+      let batchNo = uniqueArray(batch);
+      setBatchArray(batchNo);
+    }
+    setExtraBatch(true);
+  }
+
+  function batchDecision(e) {
+    e.preventDefault();
+    setMainData((prev) => ({
+      ...prev,
+      batch: e.target.value,
+    }));
   }
   function paymentWayDecision(e) {
     e.preventDefault();
@@ -1573,29 +1618,55 @@ function SwitchDesign() {
     }));
   }
 
+  function uniqueArray(old) {
+    const modifiedArray = old.map((item) => item.batchNo);
+
+    const uniqueNamesSet = new Set(modifiedArray);
+    const uniqueNamesArray = Array.from(uniqueNamesSet);
+
+    return uniqueNamesArray;
+  }
+
   useEffect(() => {
     async function getData() {
-      const res = await selectCourses({ activeStatus: "active" }, null);
-      const res2 = await selectJamats({ activeStatus: "active" }, null);
-      const res3 = await selectSemesters(null, null);
-      const res4 = await selectDepartments(null, null);
-      const res5 = await selectStudents(
-        { userName: data.data.userDetails.userName },
-        null
-      );
+      let res = { data: null };
+      res.data =
+        courseData.length > 0 &&
+        courseData.filter((item) => item.activeStatus == "active");
 
-      const res6 = await selectPayments(
-        { paymentID: data.data.userDetails.paymentStatus.paymentID },
-        null
-      );
+      let res2 = { data: null };
+      res2.data =
+        jamatData.length > 0 &&
+        jamatData.filter((item) => item.activeStatus == "active");
+
+      let res3 = { data: null };
+      res3.data = semesterData.length > 0 && semesterData;
+
+      let res4 = { data: null };
+      res4.data = departmentData.length > 0 && departmentData;
+
+      let res5 = { data: null };
+      res5.data =
+        studentsData.length > 0 &&
+        studentsData.filter(
+          (item) => item.userName == data.data.userDetails.userName
+        );
+
+      let res6 = { data: null };
+      res6.data =
+        paymentData.length > 0 &&
+        paymentData.filter(
+          (item) =>
+            item.paymentID == data.data.userDetails.paymentStatus.paymentID
+        );
 
       if (
-        res.status == "Alhamdulillah" &&
-        res2.status == "Alhamdulillah" &&
-        res3.status == "Alhamdulillah" &&
-        res4.status == "Alhamdulillah" &&
-        res5.status == "Alhamdulillah" &&
-        res6.status == "Alhamdulillah"
+        res.data.length > 0 &&
+        res2.data.length > 0 &&
+        res3.data.length > 0 &&
+        res4.data.length > 0 &&
+        res5.data.length > 0 &&
+        res6.data.length > 0
       ) {
         setCourse(
           res.data.filter(
@@ -1626,7 +1697,15 @@ function SwitchDesign() {
     if (enroll) {
       setTrigger(enroll);
     }
-  }, []);
+  }, [
+    courseData,
+    jamatData,
+    semesterData,
+    departmentData,
+    studentsData,
+    paymentData,
+    classData,
+  ]);
 
   function showButtonLogic(e) {
     e.preventDefault();
@@ -1635,7 +1714,7 @@ function SwitchDesign() {
       setshowbtn(true);
     }
   }
-
+  console.log(mainData);
   return (
     <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">
       <div className="flex justify-center p-5 pb-10">
@@ -1725,12 +1804,42 @@ function SwitchDesign() {
                 {semester
                   ? semester.map((item, i) => (
                       <option key={i} value={item.semesterID}>
-                        {item.semesterName}
+                        {item.semesterName} - ({item.semesterID})
                       </option>
                     ))
                   : ""}
               </select>
             </div>
+
+            <div
+              className={`SemesterSelector ${
+                extraBatch ? "h-[150px] md:h-[200px]" : "h-[0px]"
+              } overflow-hidden transition-all duration-1000 ease-out`}
+            >
+              <label htmlFor="semester">
+                <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
+                  আপনি ব্যাচ নির্বাচন করুন?
+                </h1>
+              </label>
+
+              <select
+                value={mainData.batch}
+                onChange={batchDecision}
+                id="semester"
+                name="semester"
+                className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
+              >
+                <option value="none">আপনার ব্যাচ নির্বাচন করুন</option>
+                {batchArray
+                  ? batchArray.map((item, i) => (
+                      <option key={i} value={item}>
+                        {item}
+                      </option>
+                    ))
+                  : ""}
+              </select>
+            </div>
+
             {extraPayment && (
               <>
                 <label htmlFor="paymentWay">

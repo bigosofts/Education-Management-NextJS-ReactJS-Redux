@@ -81,11 +81,14 @@ function MonthlyPayment() {
       setShowPayment(true);
     }
   }
+  const paymentData = useSelector((state) => state.djs.payments);
 
   useEffect(() => {
     async function getData() {
-      const res5 = await selectPayments(null, null);
-      if (res5.status == "Alhamdulillah") {
+      let res5 = { data: null };
+      res5.data = paymentData.length > 0 && paymentData;
+
+      if (res5.data.length > 0) {
         setUnpaid(
           res5.data.filter((item) => {
             if (
@@ -98,7 +101,7 @@ function MonthlyPayment() {
       }
     }
     getData();
-  }, []);
+  }, [paymentData]);
 
   function getOneMonthLate(cdate) {
     let currentDate = new Date(cdate);
@@ -266,7 +269,8 @@ function MonthlyPayment() {
             ? Unpaid[0].monthlyPaymentHistory.map((item, i) =>
                 item.PaymentStatus == false ? (
                   <option key={i} value={item._id}>
-                    {niceDate(item.Date)}
+                    ({niceDate(item.Date)} -{" "}
+                    {niceDate(getOneMonthLate(item.Date))})
                   </option>
                 ) : (
                   ""

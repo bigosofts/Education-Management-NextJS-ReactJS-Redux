@@ -18,6 +18,7 @@ function TableMonthly({ profile, paymentID, students }) {
     var date = new Date(isoTime);
 
     var options = {
+      day: "numeric",
       month: "long",
       year: "numeric",
     };
@@ -25,6 +26,48 @@ function TableMonthly({ profile, paymentID, students }) {
     var formattedDate = date.toLocaleDateString("en-US", options);
     return formattedDate;
   }
+
+  function oneMonthLaterToDesiredDate(dateString) {
+    let desiredDate = new Date(dateString);
+    var desiredMonth = desiredDate.getMonth();
+    var desiredYear = desiredDate.getFullYear();
+
+    var nextMonth = desiredMonth + 1;
+    var nextYear = desiredYear;
+
+    if (nextMonth > 11) {
+      nextMonth = 0; // January (0-indexed)
+      nextYear++;
+    }
+
+    // Calculate one month later date
+    var oneMonthLater = new Date(
+      nextYear,
+      nextMonth,
+      desiredDate.getDate(),
+      desiredDate.getHours(),
+      desiredDate.getMinutes(),
+      desiredDate.getSeconds(),
+      desiredDate.getMilliseconds()
+    );
+
+    // Check if month overflow occurred
+    if (oneMonthLater.getMonth() !== nextMonth) {
+      // Overflow, set to the last day of the previous month
+      oneMonthLater = new Date(
+        nextYear,
+        nextMonth + 1,
+        0,
+        desiredDate.getHours(),
+        desiredDate.getMinutes(),
+        desiredDate.getSeconds(),
+        desiredDate.getMilliseconds()
+      );
+    }
+
+    return oneMonthLater;
+  }
+
   if (payments) {
     return (
       <div className="w-[95%] mx-auto relative overflow-x-auto shadow-md rounded-md sm:rounded-lg">
@@ -94,7 +137,10 @@ function TableMonthly({ profile, paymentID, students }) {
                     profile.studentSemester[profile.studentSemester.length - 1]
                       .code}
                 </td>
-                <td className="px-1 md:px-6 py-1">{niceDate(item.Date)}</td>
+                <td className="px-1 md:px-6 py-1">
+                  ({niceDate(item.Date)} -{" "}
+                  {niceDate(oneMonthLaterToDesiredDate(item.Date))})
+                </td>
                 <td className="px-1 md:px-6 py-1">
                   {item.PaymentStatus == true ? "Ok" : "Unpaid"}
                 </td>
