@@ -139,6 +139,7 @@ function QuizAttendance({ classSelection, allsubmited }) {
 
     if (res.status == "Alhamdulillah") {
       mytoast.success("Submitted. Next time try to be present");
+      setSpecificClass({ ...classWant });
       setRender((prev) => !prev);
       setShowBtn(true);
     }
@@ -471,7 +472,7 @@ function QuizAttendance({ classSelection, allsubmited }) {
         </div>
       )}
 
-      {isPresent == "vaccant" && (
+      {isPresent == "vaccant" && showBtn && (
         <div style={{ color: "#fff", textAlign: "center" }}>
           আপনি কি {lastAttendanceDate} তারিখের ক্লাসে, এই কিতাবের দারসে উপস্থিত
           ছিলেন?
