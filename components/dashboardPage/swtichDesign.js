@@ -310,7 +310,8 @@ function SwitchDesign() {
             data.data.userDetails.activeStatus,
             data.data.userDetails._id,
             NewStudentDepartment,
-            NewStudentSemester
+            NewStudentSemester,
+            mainData.batch
           );
           if (res.status == "Alhamdulillah") {
             let newAdmissionPaymentHistory = [
@@ -377,19 +378,17 @@ function SwitchDesign() {
           }
         } else if (
           (mainData.classes == "hifjulquran" ||
-            mainData.classes == "shishunajera" ||
             mainData.classes == "shishumaktab" ||
-            mainData.classes == "farzeayinmaktab" ||
             mainData.classes == "farzeayinnajera" ||
-            mainData.classes == "ezranahusorof" ||
-            mainData.classes == "urdu" ||
             mainData.classes == "abacus_student" ||
-            mainData.classes == "farzeayinampara") &&
+            mainData.classes == "farzeayinnajera" ||
+            mainData.classes == "ramadanquranulkarim") &&
           mainData.accountNo &&
           mainData.transactionID &&
           mainData.amountPaid &&
           mainData.paymentWay &&
-          mainData.department
+          mainData.department &&
+          mainData.batch
         ) {
           NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
             new Date(Date.now()).toISOString();
@@ -465,7 +464,8 @@ function SwitchDesign() {
             data.data.userDetails.activeStatus,
             data.data.userDetails._id,
             NewStudentDepartment,
-            NewStudentSemester
+            NewStudentSemester,
+            mainData.batch
           );
           if (res.status == "Alhamdulillah") {
             let newAdmissionPaymentHistory = [
@@ -1417,7 +1417,7 @@ function SwitchDesign() {
     } else {
       setExtraJamat(false);
       setExtraSemester(false);
-      setExtraBatch(false);
+      setExtraBatch(true);
     }
 
     if (
