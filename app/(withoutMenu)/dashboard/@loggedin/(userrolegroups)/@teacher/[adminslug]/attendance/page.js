@@ -27,6 +27,12 @@ function BookPage() {
   const [hifzClassStudent, setHifzClassStudent] = useState();
   const [render, setRender] = useState(true);
 
+  const classesData = useSelector((state) => state.classes.classes);
+
+  const booksData = useSelector((state) => state.books.books);
+
+  const studentsData = useSelector((state) => state.students.students);
+
   const questionNoref = useRef();
   const questionref = useRef();
   const option1ref = useRef();
@@ -36,8 +42,13 @@ function BookPage() {
 
   useEffect(() => {
     async function getData() {
-      const res = await selectClasses({ activeStatus: "active" }, null);
-      if (res.status == "Alhamdulillah") {
+      let res = { data: null };
+
+      res.data =
+        classesData.length > 0 &&
+        classesData.filter((item) => item.activeStatus == "active");
+
+      if (res.data.length > 0) {
         setClasses(
           res.data.filter((item) => item.teacher.TID == data.data.userName)
         );
@@ -61,13 +72,15 @@ function BookPage() {
         }
       }
 
-      const res2 = await selectBooks(null, null);
-      if (res2.status == "Alhamdulillah") {
+      let res2 = { data: null };
+      res2.data = booksData.length > 0 && booksData;
+
+      if (res2.data.length > 0) {
         setBooks(res2.data);
       }
     }
     getData();
-  }, [render]);
+  }, [render, booksData, classesData]);
 
   function findBooks(bookID) {
     return books.find((item) => {
@@ -165,7 +178,10 @@ function BookPage() {
     setChange((prev) => !prev);
   }
 
-  async function submitQuiz(specificClass) {
+  async function submitQuiz(specificClassData) {
+    const specificClass = JSON.parse(JSON.stringify(specificClassData));
+
+   
     setShow(false);
 
     setTimeout(() => {
@@ -173,9 +189,11 @@ function BookPage() {
     }, 5000);
 
     let attendance = specificClass.teacher.attendance;
+   
     let currentDate = niceDate(Date.now());
 
     let haveData = attendance.find((item) => item.presentTime == currentDate);
+   
 
     if (
       questionNoref.current.value &&
@@ -185,6 +203,7 @@ function BookPage() {
       option3ref.current.value &&
       answerref.current.value
     ) {
+     
       let questionData = {
         questionNo: questionNoref.current.value,
         question: questionref.current.value,
@@ -202,21 +221,26 @@ function BookPage() {
       };
 
       if (haveData) {
+       
         let completionProgress = haveData.completionProgress;
         let havesame = completionProgress.find(
           (item) => item.questionNo == questionNoref.current.value
         );
-
+       
         if (havesame) {
+         
           completionProgress = completionProgress.map((item) =>
             item.questionNo == questionNoref.current.value ? questionData : item
           );
+         
         } else {
+         
           completionProgress.push(questionData);
         }
 
         haveData.completionProgress = completionProgress;
       } else {
+       
         attendance.push({
           month: niceDateMonth(Date.now()),
           dayName: niceDateDayName(),
@@ -230,6 +254,7 @@ function BookPage() {
       }
 
       specificClass.teacher.attendance = attendance;
+     
 
       const res = await updateClass({
         classID: specificClass.classID,
@@ -249,10 +274,13 @@ function BookPage() {
         activeStatus: specificClass.activeStatus,
         idValue: specificClass._id,
       });
+     
 
       if (res.status == "Alhamdulillah") {
         mytoast.success("Question has been added");
+       
         setSpecificClass(specificClass);
+       
       }
     } else {
       mytoast.danger("One or more field is empty");

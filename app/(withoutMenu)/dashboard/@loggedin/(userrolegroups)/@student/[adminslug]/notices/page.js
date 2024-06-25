@@ -29,27 +29,27 @@ function BookPage() {
 
   if (notices) {
     return (
-      <div className="w-full md:w-1/2 mx-auto p-5">
+      <div className="w-full md:w-1/2 mx-auto p-2 md:p-5">
         {notices.map((item, i) => (
           <div
             key={i}
             className="w-full bg-lime-100 border-[1px] border-slate-300 rounded-3xl mb-5 overflow-hidden"
           >
-            <div className="flex justify-between text-lg bg-cyan-400 text-white p-2">
+            <div className="flex justify-between text-lg text-slate-100 p-2 bg-green-900">
               <div className="w-full md:w-2/3 mx-auto text-center">
                 <span className="text-sm md:text-3xl block">
                   {item.sender} sent you a Notice <br />
                 </span>
-                <span className="w-full text-slate-900 font-extrabold text-xl md:text-2xl text-center block rounded-3xl mt-2">
+                <span className="w-full text-white font-extrabold text-lg md:text-2xl text-center block rounded-3xl mt-2">
                   {item.subject.en ? item.subject.en : item.subject.bn}{" "}
                 </span>
               </div>
             </div>
-            <div className="text-lg px-5">
-              <div className="w-full text-right mt-2">
+            <div className="text-lg px-0 md:px-5 box-border">
+              <div className="w-full text-right mt-2 px-5">
                 Date: {niceDate(item.createdDate)}
               </div>
-              <div className="w-full mx-auto my-5 text-md md:text-2xl">
+              <div className="w-full mx-auto my-5 px-1 text-sm md:text-2xl">
                 {item.text.bn ? item.text.bn : item.text.en}
               </div>
             </div>

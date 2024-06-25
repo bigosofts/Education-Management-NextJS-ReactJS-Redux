@@ -1353,10 +1353,6 @@ function AttendanceSTableTA({ classes, strDate, books }) {
     mytoast.info("Copied: " + text);
   };
 
-  if (fragmentData && tableData) {
-    console.log(fragmentData, tableData);
-  }
-
   return (
     <>
       <div className="grid grid-cols-4 gap-10 mt-10">

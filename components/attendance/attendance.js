@@ -1,10 +1,8 @@
 "use client";
 import { useSelector } from "react-redux";
 
-
 import AttendancePageCustomInner from "./attendanceInner";
 import Loader from "@/customComponents/loader/Loader";
-
 
 function AttendancePageCustom() {
   const classes = useSelector((state) => state.classes.classes);
@@ -23,8 +21,8 @@ function AttendancePageCustom() {
         data={data}
       />
     );
-  }else{
-    return <Loader/>
+  } else {
+    return <Loader />;
   }
 }
 
