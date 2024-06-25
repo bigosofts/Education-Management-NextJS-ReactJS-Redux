@@ -516,6 +516,11 @@ function QuizAttendance({ classSelection, allsubmited }) {
           </div>
         </div>
       )}
+      {isPresent == "vaccant" && !showBtn && (
+        <h2 className="mt-5 text-center text-white">
+          Updating... <br /> Please wait
+        </h2>
+      )}
 
       {isPresent == "no" && (
         <div style={{ color: "#fff", textAlign: "center", fontSize: "24px" }}>
