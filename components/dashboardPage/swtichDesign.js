@@ -879,7 +879,8 @@ function SwitchDesign() {
               mainData.classes == "shishumaktab" ||
               mainData.classes == "abacus_student" ||
               mainData.classes == "farzeayinnajera" ||
-              mainData.classes == "abacus_student") &&
+              mainData.classes == "abacus_student" ||
+              mainData.classes == "ramadanquranulkarim") &&
             mainData.department &&
             mainData.batch
           ) {
@@ -1221,7 +1222,8 @@ function SwitchDesign() {
               mainData.classes == "shishumaktab" ||
               mainData.classes == "abacus_student" ||
               mainData.classes == "farzeayinnajera" ||
-              mainData.classes == "abacus_student") &&
+              mainData.classes == "abacus_student" ||
+              mainData.classes == "ramadanquranulkarim") &&
             mainData.department &&
             mainData.batch
           ) {
