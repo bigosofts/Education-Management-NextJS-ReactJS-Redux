@@ -186,12 +186,14 @@ function SwitchDesign() {
   async function submitData(e) {
     e.preventDefault();
 
-    let NewStudentCourseCode = students && [...students.studentCourseCode];
-    let NewStudentDepartment = students && [...students.studentDepartment];
+    let NewStudentCourseCode =
+      students && JSON.parse(JSON.stringify(students.studentCourseCode));
+    let NewStudentDepartment =
+      students && JSON.parse(JSON.stringify(students.studentDepartment));
+
     let NewStudentJamatCode = (students &&
-      students.studentJamatCode.length != 0 && [
-        ...students.studentJamatCode,
-      ]) || [
+      students.studentJamatCode.length != 0 &&
+      JSON.parse(JSON.stringify(students.studentJamatCode))) || [
       {
         code: "none",
         startedDate: new Date(),
@@ -200,9 +202,8 @@ function SwitchDesign() {
       },
     ];
     let NewStudentSemester = (students &&
-      students.studentSemester.length != 0 && [
-        ...students.studentSemester,
-      ]) || [
+      students.studentSemester.length != 0 &&
+      JSON.parse(JSON.stringify(students.studentSemester))) || [
       {
         code: "none",
         startedDate: new Date(),
@@ -236,6 +237,7 @@ function SwitchDesign() {
           mainData.paymentWay &&
           mainData.batch
         ) {
+          debugger;
           NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
             new Date(Date.now()).toISOString();
 
@@ -390,6 +392,7 @@ function SwitchDesign() {
           mainData.department &&
           mainData.batch
         ) {
+          debugger;
           NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
             new Date(Date.now()).toISOString();
 
@@ -531,6 +534,7 @@ function SwitchDesign() {
             }
           }
         } else {
+          debugger;
           mytoast.danger("One or more field is empty");
         }
       } else if (
@@ -543,9 +547,11 @@ function SwitchDesign() {
           ).tk
       ) {
         if (desiredCourse(mainData.classes).coursePrice.registration.tk == 0) {
-          if (mainData.classes && mainData.department) {
+          if (mainData.classes && mainData.department && mainData.batch) {
+            debugger;
             NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
               new Date(Date.now()).toISOString();
+            debugger;
 
             NewStudentCourseCode[NewStudentCourseCode.length - 1].status =
               "inactive";
@@ -629,7 +635,8 @@ function SwitchDesign() {
               data.data.userDetails.activeStatus,
               data.data.userDetails._id,
               NewStudentDepartment,
-              NewStudentSemester
+              NewStudentSemester,
+              mainData.batch
             );
             if (res.status == "Alhamdulillah") {
               let newAdmissionPaymentHistory = [
@@ -709,10 +716,13 @@ function SwitchDesign() {
             ).tk
         ) {
           if (
-            mainData.classes == "alemalema" &&
+            (mainData.classes == "alemalema" ||
+              mainData.classes == "prealemalema" ||
+              mainData.classes == "schoolalemalema") &&
             mainData.jamat &&
             mainData.semester &&
-            mainData.department
+            mainData.department &&
+            mainData.batch
           ) {
             NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
               new Date(Date.now()).toISOString();
@@ -787,7 +797,8 @@ function SwitchDesign() {
               data.data.userDetails.activeStatus,
               data.data.userDetails._id,
               NewStudentDepartment,
-              NewStudentSemester
+              NewStudentSemester,
+              mainData.batch
             );
             if (res.status == "Alhamdulillah") {
               let newAdmissionPaymentHistory = [
@@ -865,14 +876,12 @@ function SwitchDesign() {
             }
           } else if (
             (mainData.classes == "hifjulquran" ||
-              mainData.classes == "shishunajera" ||
               mainData.classes == "shishumaktab" ||
-              mainData.classes == "farzeayinmaktab" ||
+              mainData.classes == "abacus_student" ||
               mainData.classes == "farzeayinnajera" ||
-              mainData.classes == "ezranahusorof" ||
-              mainData.classes == "urdu" ||
-              mainData.classes == "farzeayinampara") &&
-            mainData.department
+              mainData.classes == "abacus_student") &&
+            mainData.department &&
+            mainData.batch
           ) {
             NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
               new Date(Date.now()).toISOString();
@@ -1039,10 +1048,13 @@ function SwitchDesign() {
           // start
 
           if (
-            mainData.classes == "alemalema" &&
+            (mainData.classes == "alemalema" ||
+              mainData.classes == "prealemalema" ||
+              mainData.classes == "schoolalemalema") &&
             mainData.jamat &&
             mainData.semester &&
-            mainData.department
+            mainData.department &&
+            mainData.batch
           ) {
             NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
               new Date(Date.now()).toISOString();
@@ -1206,14 +1218,12 @@ function SwitchDesign() {
             }
           } else if (
             (mainData.classes == "hifjulquran" ||
-              mainData.classes == "shishunajera" ||
               mainData.classes == "shishumaktab" ||
-              mainData.classes == "farzeayinmaktab" ||
+              mainData.classes == "abacus_student" ||
               mainData.classes == "farzeayinnajera" ||
-              mainData.classes == "ezranahusorof" ||
-              mainData.classes == "urdu" ||
-              mainData.classes == "farzeayinampara") &&
-            mainData.department
+              mainData.classes == "abacus_student") &&
+            mainData.department &&
+            mainData.batch
           ) {
             NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
               new Date(Date.now()).toISOString();
@@ -1408,15 +1418,97 @@ function SwitchDesign() {
     if (e.target.value == "alemalema") {
       setExtraJamat(true);
       setExtraSemester(false);
+      setBatchArray([]);
+      let jamatModified =
+        jamat.length > 0 &&
+        jamatData.filter((item) => item.activeStatus == "active");
+
+      setJamat(jamatModified);
+
+      let modifiedSemester =
+        semesterData.length > 0 &&
+        semesterData.filter((item) => {
+          return (
+            !item.semesterID.includes("pre") &&
+            !item.semesterID.includes("school")
+          );
+        });
+
+      setSemester(modifiedSemester);
     } else if (e.target.value == "prealemalema") {
       setExtraJamat(true);
       setExtraSemester(false);
+      setBatchArray([]);
+
+      let jamatModified =
+        jamat.length > 0 &&
+        jamatData
+          .filter((item) => item.activeStatus == "active")
+          .filter((item) => item.jamatID == "jamat1");
+
+      setJamat(jamatModified);
+
+      let modifiedSemester =
+        semesterData.length > 0 &&
+        semesterData.filter((item) => {
+          return item.semesterID.includes("pre");
+        });
+
+      setSemester(modifiedSemester);
     } else if (e.target.value == "schoolalemalema") {
       setExtraJamat(true);
       setExtraSemester(false);
+      setBatchArray([]);
+
+      let jamatModified =
+        jamat.length > 0 &&
+        jamatData.filter((item) => item.activeStatus == "active");
+
+      setJamat(jamatModified);
+
+      let modifiedSemester =
+        semesterData.length > 0 &&
+        semesterData.filter((item) => {
+          return item.semesterID.includes("school");
+        });
+
+      setSemester(modifiedSemester);
+    } else if (e.target.value == "") {
+      setExtraJamat(false);
+      setExtraSemester(false);
+      setExtraBatch(false);
+      setBatchArray([]);
+
+      setMainData((prev) => ({
+        ...prev,
+        classes: "",
+        jamat: "",
+        semester: "",
+        department: "",
+        amountPaid: "",
+        transactionID: "",
+        accountNo: "",
+        paymentWay: "",
+        extraTaka: "",
+        credit: false,
+        batch: "",
+      }));
     } else {
       setExtraJamat(false);
       setExtraSemester(false);
+
+      let batch =
+        classData.length > 0 &&
+        classData.filter((item) => {
+          if (item.courseID == e.target.value) {
+            return true;
+          }
+        });
+
+      if (batch.length > 1) {
+        let batchNo = uniqueArray(batch);
+        setBatchArray(batchNo);
+      }
       setExtraBatch(true);
     }
 
@@ -1564,11 +1656,12 @@ function SwitchDesign() {
           return true;
         }
       });
-
+    debugger;
     if (batch.length > 1) {
       let batchNo = uniqueArray(batch);
       setBatchArray(batchNo);
     }
+    debugger;
     setExtraBatch(true);
   }
 
@@ -1632,7 +1725,10 @@ function SwitchDesign() {
       let res = { data: null };
       res.data =
         courseData.length > 0 &&
-        courseData.filter((item) => item.activeStatus == "active");
+        courseData.filter(
+          (item) =>
+            item.activeStatus == "active" && item.courseCode != "farzeayinclass"
+        );
 
       let res2 = { data: null };
       res2.data =

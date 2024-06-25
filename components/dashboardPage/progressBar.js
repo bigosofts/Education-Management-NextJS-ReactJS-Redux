@@ -31,7 +31,7 @@ function ProgressBar({ percentage, status }) {
           {percentage}%
         </div>
       </div>
-      <div className="text-xm text-slate-800 text-center grid grid-cols-4 gap-1 md:gap-4 w-full md:w-[500px] mx-auto mt-5">
+      <div className="text-xm text-slate-800 text-center grid grid-cols-4 gap-1 md:gap-4 w-full md:w-[600px] mx-auto mt-5">
         <div className="flex items-center justify-center">
           <input
             type="checkbox"
