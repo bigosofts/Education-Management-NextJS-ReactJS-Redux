@@ -27,7 +27,7 @@ function BookPage() {
     return formattedDate;
   }
 
-  if (notices) {
+  if (notice.length > 0) {
     return (
       <div className="w-full md:w-1/2 mx-auto p-2 md:p-5">
         {notices.map((item, i) => (
