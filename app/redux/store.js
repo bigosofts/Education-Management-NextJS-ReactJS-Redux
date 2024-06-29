@@ -27,4 +27,5 @@ export const store = configureStore({
     djs: djsReducers,
     notices: noticesReducers,
   },
+  devTools: process.env.NODE_ENV !== "production",
 });

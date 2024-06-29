@@ -113,8 +113,10 @@ function LoaderElement() {
 
     dispatch(fetchStudents());
 
-    if (userData && userData.data) {
+    if (userData && userData.data && userData.data.userRole == "student") {
       dispatch(fetchDjs(userData.data.userDetails.paymentStatus.paymentID));
+    }else{
+      dispatch(fetchDjs("all"));
     }
 
     if (userData && userData.data) {

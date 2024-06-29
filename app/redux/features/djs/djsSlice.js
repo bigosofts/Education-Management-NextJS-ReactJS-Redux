@@ -21,8 +21,12 @@ export const fetchDjs = createAsyncThunk("djs/fetchDjs", async (paymentID) => {
   const departments = await selectDepartment(null, null);
   const jamats = await seletcJamat(null, null);
   const semesters = await selectSemester({ activeStatus: "active" }, null);
-
-  const payments = await selectPayments({ paymentID }, null);
+  let payments;
+  if (paymentID == "all") {
+    payments = await selectPayments(null, null);
+  } else {
+    payments = await selectPayments({ paymentID }, null);
+  }
 
   if (
     departments.status == "Alhamdulillah" &&
