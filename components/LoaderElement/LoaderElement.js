@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchClasses } from "@/app/redux/features/classes/classesSlice";
 
 import { fetchBooks } from "@/app/redux/features/books/booksSlice";
@@ -17,6 +17,7 @@ import { fetchDjs } from "@/app/redux/features/djs/djsSlice";
 import { fetchNotices } from "@/app/redux/features/notices/noticesSlice";
 
 function LoaderElement() {
+  const [userData, setUserData] = useState();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,6 +42,7 @@ function LoaderElement() {
             };
 
             dispatch(setInitialData(desiredObj));
+            setUserData(desiredObj);
           }
         } else if (payload.data.userRole == "teacher") {
           const res = await selectAllDataTwo(
@@ -59,6 +61,7 @@ function LoaderElement() {
             };
 
             dispatch(setInitialData(desiredObj));
+            setUserData(desiredObj);
           }
         } else if (payload.data.userRole == "abacus_teacher") {
           const res = await selectInstitution(
@@ -84,6 +87,7 @@ function LoaderElement() {
             }
 
             dispatch(setInitialData(desiredObj));
+            setUserData(desiredObj);
           }
         }
       } else if (payload.status == "noToken") {
@@ -109,10 +113,14 @@ function LoaderElement() {
 
     dispatch(fetchStudents());
 
-    dispatch(fetchDjs());
+    if (userData && userData.data) {
+      dispatch(fetchDjs(userData.data.userDetails.paymentStatus.paymentID));
+    }
 
-    dispatch(fetchNotices())
-  }, []);
+    if (userData && userData.data) {
+      dispatch(fetchNotices(userData.data.userName));
+    }
+  }, [userData]);
 }
 
 export default LoaderElement;

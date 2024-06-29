@@ -34,11 +34,11 @@ function StudentLayout({ children, params }) {
         classesFinded.isLoading == false &&
         classesFinded.classes.length > 0
       ) {
-        const res2 = classesFinded.classes.filter(
-          (item) => item.batchNo == data.data.batchCount
-        );
+        const res2 = classesFinded.classes.filter((item) => {
+          return item.batchNo == data.data.userDetails.batchCount;
+        });
 
-        setClasses(res2);
+        setClasses(JSON.parse(JSON.stringify(res2)));
 
         let desiredObj2 = {
           alemalema: null,
@@ -473,7 +473,7 @@ function StudentLayout({ children, params }) {
     },
   ];
 
-  if (courseState && classes && data) {
+  if (courseState && classes.length > 0 && data) {
     const allClasses = [];
 
     if (courseState.alemalema == true && courseState.semester == "semester01") {

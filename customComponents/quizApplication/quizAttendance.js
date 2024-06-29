@@ -346,7 +346,7 @@ function QuizAttendance({ classSelection, allsubmited }) {
           activeStatus: specificClass.activeStatus,
           idValue: specificClass._id,
         });
-
+        
         if (res.status == "Alhamdulillah") {
           mytoast.success("Answer has been Recorded");
           setShowBtn(true);

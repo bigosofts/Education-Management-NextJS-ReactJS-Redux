@@ -12,8 +12,8 @@ const initialState = {
 
 export const fetchNotices = createAsyncThunk(
   "notices/fetchNotices",
-  async () => {
-    const notices = await selectDataTwo();
+  async (reciever) => {
+    const notices = await selectDataTwo({ reciever }, null);
     return notices.data;
   }
 );

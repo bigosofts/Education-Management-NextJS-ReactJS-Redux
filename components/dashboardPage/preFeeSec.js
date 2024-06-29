@@ -2,11 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
-import { selectDataTwo as selectDepartment } from "@/apiservices/departmentapiservices";
-import { selectDataTwo as seletcJamat } from "@/apiservices/jamatapiservices";
-import { selectDataTwo as selectSemester } from "@/apiservices/semesterapiservices";
 import ShowPaymentDetails from "./showpaymentDetail";
-import { selectDataTwo as selectPayments } from "@/apiservices/paymentapiservices";
 import { useSearchParams } from "next/navigation";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 
@@ -46,7 +42,12 @@ function PreFeeSection({ profile }) {
     if (course == "alemalema") {
       setBatch([
         {
-          name: "Batch-05-06-2024 (ক্লাস শুরু আগামী ৫ জুন, ২০২৪)",
+          name: "Batch-03-08-2024 (ক্লাস শুরু আগামী ৩ আগস্ট, ২০২৪)",
+          value: "batch-20240803",
+          startDate: "2024-08-03",
+        },
+        {
+          name: "Batch-05-06-2024 (ক্লাস ৫ জুন, ২০২৪ থেকে চলমান)",
           value: "batch-20240605",
           startDate: "2024-06-05",
         },
@@ -75,7 +76,7 @@ function PreFeeSection({ profile }) {
     } else if (course == "abacus_student") {
       setBatch([
         {
-          name: "Batch-05-06-2024 (ক্লাস শুরু আগামী ৫ জুন, ২০২৪)",
+          name: "Batch-05-06-2024 (ক্লাস ৫ জুন, ২০২৪ থেকে চলমান)",
           value: "batch-20240605",
           startDate: "2024-06-05",
         },
@@ -470,8 +471,7 @@ function PreFeeSection({ profile }) {
         course.length > 0 &&
         department.length > 0 &&
         jamat.length > 0 &&
-        semester.length > 0 &&
-        paymentData.length > 0
+        semester.length > 0
       ) {
         setCourse(
           course
