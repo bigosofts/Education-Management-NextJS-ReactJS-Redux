@@ -9,6 +9,10 @@ dotenv.config({ path: "./config.env" });
 const router = require("./src/routes/api.js");
 const multer = require("multer");
 
+const { uploadFileToDrive } = require("./src/utility/driveUtility.js");
+const { deleteFileFromDrive } = require("./src/utility/driveUtility.js");
+const { readFileUrlFromDrive } = require("./src/utility/driveUtility.js");
+
 // Security Middleware Lib Import
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
@@ -96,6 +100,10 @@ app.get("/", function (req, res) {
     data: "I am Working",
   });
 });
+
+// uploadFileToDrive();
+// deleteFileFromDrive();
+// readFileUrlFromDrive();
 
 app.use("/apis/v1", router);
 

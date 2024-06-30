@@ -473,7 +473,7 @@ function StudentLayout({ children, params }) {
     },
   ];
 
-  if (courseState && classes.length > 0 && data) {
+  if (courseState && classes?.length > 0 && data) {
     const allClasses = [];
 
     if (courseState.alemalema == true && courseState.semester == "semester01") {
