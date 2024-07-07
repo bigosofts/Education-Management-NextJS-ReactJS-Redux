@@ -8,7 +8,7 @@ exports.returnPDF = (req, res) => {
 
   request({ url: pdfUrl, encoding: null }, (err, resp, buffer) => {
     if (err) {
-      res.status(500).send("Error fetching PDF");
+      res.status(500).send("Error fetching PDF file");
     } else {
       res.contentType("application/pdf");
       res.send(buffer);
