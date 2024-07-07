@@ -26,11 +26,57 @@ const drive = google.drive({
   auth: oAuth2Client,
 });
 
-exports.uploadFileToDrive = async (fileMetadata, media) => {
+const getFolderId = async (folderName) => {
   try {
+    const res = await drive.files.list({
+      q: `mimeType='application/vnd.google-apps.folder' and name='${folderName}' and trashed=false`,
+      fields: "files(id, name)",
+      spaces: "drive",
+    });
+
+    if (res.data.files.length > 0) {
+      return res.data.files[0].id;
+    } else {
+      return null;
+    }
+  } catch (err) {
+    console.error("Error checking for folder:", err);
+    throw err;
+  }
+};
+
+exports.createFolder = async (folderName) => {
+  try {
+    const folderId = await getFolderId(folderName);
+    if (folderId) {
+      return folderId;
+    }
+
+    const fileMetadata = {
+      name: folderName,
+      mimeType: "application/vnd.google-apps.folder",
+    };
+
+    const res = await drive.files.create({
+      requestBody: fileMetadata,
+      fields: "id",
+    });
+
+    return res.data.id;
+  } catch (err) {
+    console.error("Error creating folder:", err);
+    throw err;
+  }
+};
+
+exports.uploadFileToDrive = async (fileMetadata, media, folderId) => {
+  try {
+    fileMetadata.parents = [folderId];
+
     const res = await drive.files.create({
       requestBody: fileMetadata,
       media: media,
+      fields: "id, name, mimeType, parents",
     });
 
     return {
@@ -61,7 +107,6 @@ exports.deleteFileFromDrive = () => {
 };
 
 exports.readFileUrlFromDrive = async (ID) => {
-  
   const fileId = ID;
 
   try {

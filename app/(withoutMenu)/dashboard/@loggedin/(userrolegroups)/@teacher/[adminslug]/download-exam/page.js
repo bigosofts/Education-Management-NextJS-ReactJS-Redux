@@ -156,19 +156,25 @@ function UploadExam() {
       formData.append("file", fileInputRef.current.files[0]);
 
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/pdf`, {
-          method: "POST",
-          body: formData,
-        });
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_URL}/apis/v1/pdf`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
 
         if (response.ok) {
           const result = await response.json();
 
           if (result.data.id) {
+            mytoast.success("File Uploaded Successfully");
+            setShowBtn(true);
             let examQuestionArray = [];
             if (
-              examQuestion.length == 1 &&
-              examQuestion[examQuestion.length - 1] == ""
+              (examQuestion.length == 1 &&
+                examQuestion[examQuestion.length - 1] == "") ||
+              examQuestion.length == 0
             ) {
               examQuestionArray.push({
                 examQuestion: result.data.id,
@@ -196,51 +202,48 @@ function UploadExam() {
             });
 
             if (res.status == "Alhamdulillah") {
+              setTableClasses((prev) => {
+                return prev.map((item) => {
+                  if (item._id === mainData.classID) {
+                    return {
+                      ...item,
+                      examQuestion: [
+                        ...item.examQuestion, // Spread the existing examQuestion array of the item
+                        {
+                          examQuestion: result.data.id,
+                          examType: mainData.examName,
+                          startedDate: mainData.examStartedDate,
+                        },
+                      ],
+                    };
+                  } else {
+                    return item;
+                  }
+                });
+              });
+              setClasses((prev) => {
+                return prev.map((item) => {
+                  if (item._id === mainData.classID) {
+                    return {
+                      ...item,
+                      examQuestion: [
+                        ...item.examQuestion, // Spread the existing examQuestion array of the item
+                        {
+                          examQuestion: result.data.id,
+                          examType: mainData.examName,
+                          startedDate: mainData.examStartedDate,
+                        },
+                      ],
+                    };
+                  } else {
+                    return item;
+                  }
+                });
+              });
+
               mytoast.success("Class Record has been updated");
             }
           }
-
-          mytoast.success("File Uploaded Successfully");
-          setShowBtn(true);
-
-          setTableClasses((prev) => {
-            return prev.map((item) => {
-              if (item._id === mainData.classID) {
-                return {
-                  ...item,
-                  examQuestion: [
-                    ...item.examQuestion, // Spread the existing examQuestion array of the item
-                    {
-                      examQuestion: "#", // Add the new object
-                      examType: mainData.examName,
-                      startedDate: mainData.examStartedDate,
-                    },
-                  ],
-                };
-              } else {
-                return item;
-              }
-            });
-          });
-          setClasses((prev) => {
-            return prev.map((item) => {
-              if (item._id === mainData.classID) {
-                return {
-                  ...item,
-                  examQuestion: [
-                    ...item.examQuestion, // Spread the existing examQuestion array of the item
-                    {
-                      examQuestion: "#", // Add the new object
-                      examType: mainData.examName,
-                      startedDate: mainData.examStartedDate,
-                    },
-                  ],
-                };
-              } else {
-                return item;
-              }
-            });
-          });
         } else {
           mytoast.danger("File Uploading Failed. Try Again");
         }
@@ -280,7 +283,6 @@ function UploadExam() {
       examQuestionDownloadLink: "",
     });
   }
-  
 
   if (classesData.length > 0 && booksData.length > 0 && tableClasses) {
     return (
@@ -445,21 +447,17 @@ function UploadExam() {
                                       onClick={() =>
                                         downloadPDF(item2.examQuestion)
                                       }
-                                      className="w-full bg-blue-400 text-white rounded-md cursor-pointer p-2"
+                                      className="w-[50%] bg-blue-400 text-white rounded-md cursor-pointer p-2"
                                     >
-                                      {item2.examQuestion
-                                        ? "Download Question"
-                                        : ""}
+                                      {item2.examQuestion ? "Download" : ""}
                                     </div>
                                     <div
                                       onClick={() =>
                                         openPDF(item2.examQuestion)
                                       }
-                                      className="w-full bg-amber-300 text-slate-800 rounded-md cursor-pointer p-2"
+                                      className="w-[50%] bg-amber-300 text-slate-800 rounded-md cursor-pointer p-2"
                                     >
-                                      {item2.examQuestion
-                                        ? "Open Question"
-                                        : ""}
+                                      {item2.examQuestion ? "Open" : ""}
                                     </div>
                                   </div>
                                 </div>

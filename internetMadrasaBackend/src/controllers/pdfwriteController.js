@@ -1,4 +1,5 @@
 const { uploadFileToDrive } = require("../utility/driveUtility");
+const { createFolder } = require("../utility/driveUtility");
 
 const stream = require("stream");
 
@@ -24,7 +25,13 @@ exports.writeFileToDriveController = async (req, res) => {
       fields: "id",
     };
 
-    const output = await uploadFileToDrive(fileMetadata, media);
+    const questionsFolderId = await createFolder("questions");
+
+    const output = await uploadFileToDrive(
+      fileMetadata,
+      media,
+      questionsFolderId
+    );
 
     if (output.status == "200") {
       res.status(200).json(output);
