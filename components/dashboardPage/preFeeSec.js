@@ -46,16 +46,6 @@ function PreFeeSection({ profile }) {
           value: "batch-20240803",
           startDate: "2024-08-03",
         },
-        {
-          name: "Batch-05-06-2024 (ক্লাস ৫ জুন, ২০২৪ থেকে চলমান)",
-          value: "batch-20240605",
-          startDate: "2024-06-05",
-        },
-        {
-          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
-          value: "batch-20240420",
-          startDate: new Date().toISOString(),
-        },
       ]);
     } else if (course == "schoolalemalema") {
       setBatch([
@@ -78,13 +68,13 @@ function PreFeeSection({ profile }) {
         {
           name: "Batch-05-06-2024 (ক্লাস ৫ জুন, ২০২৪ থেকে চলমান)",
           value: "batch-20240605",
-          startDate: "2024-06-05",
+          startDate: new Date().toISOString(),
         },
       ]);
     } else if (course == "hifjulquran") {
       setBatch([
         {
-          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
+          name: "Batch-20-04-2024",
           value: "batch-20240420",
           startDate: new Date().toISOString(),
         },
@@ -94,7 +84,7 @@ function PreFeeSection({ profile }) {
     } else if (course == "shishumaktab") {
       setBatch([
         {
-          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
+          name: "Batch-20-04-2024",
           value: "batch-20240420",
           startDate: new Date().toISOString(),
         },
@@ -110,7 +100,7 @@ function PreFeeSection({ profile }) {
     } else if (course == "farzeayinnajera") {
       setBatch([
         {
-          name: "Batch-20-04-2024 (ক্লাস ২০ এপ্রিল, ২০২৪ থেকে চলমান)",
+          name: "Batch-20-04-2024",
           value: "batch-20240420",
           startDate: new Date().toISOString(),
         },

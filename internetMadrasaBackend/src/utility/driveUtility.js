@@ -1,14 +1,14 @@
 const { google } = require("googleapis");
-const path = require("path");
+const dotenv = require("dotenv");
+dotenv.config({ path: "../../config.env" });
+
 const fs = require("fs");
 
-const CLIENT_ID =
-  "58356191028-sanr21ousop6rpp7nusu9njqj2ckgc6g.apps.googleusercontent.com";
-const CLIENT_SECRET = "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";
-const REDIRECT_URI = "https://developers.google.com/oauthplayground";
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
+const REDIRECT_URI = process.env.REDIRECT_URI;
 
-const REFRESH_TOKEN =
-  "1//04aWr0UFYfqbtCgYIARAAGAQSNwF-L9IrjhOyQA02LE7ILyGn-3yGse9NYGbIAY-S23dbQ1Z9kwBTT6--ksueuDWQva-xRFG8Ep4";
+const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
 
 const oAuth2Client = new google.auth.OAuth2(
   CLIENT_ID,
@@ -26,26 +26,22 @@ const drive = google.drive({
   auth: oAuth2Client,
 });
 
-const filePath = path.join(__dirname, "a.pdf");
-
-exports.uploadFileToDrive = () => {
+exports.uploadFileToDrive = async (fileMetadata, media) => {
   try {
-    drive.files
-      .create({
-        requestBody: {
-          name: "attendance.pdf",
-          mimType: "application/pdf",
-        },
-        media: {
-          mimeType: "application/pdf",
-          body: fs.createReadStream(filePath),
-        },
-      })
-      .then((res) => {
-        console.log(res);
-      });
+    const res = await drive.files.create({
+      requestBody: fileMetadata,
+      media: media,
+    });
+
+    return {
+      status: 200,
+      data: res.data,
+    };
   } catch (err) {
-    console.log(err);
+    return {
+      status: 500,
+      data: err.response.data,
+    };
   }
 };
 
@@ -64,30 +60,29 @@ exports.deleteFileFromDrive = () => {
   }
 };
 
-exports.readFileUrlFromDrive = () => {
+exports.readFileUrlFromDrive = async (ID) => {
+  
+  const fileId = ID;
+
   try {
-    const fileId = "1IJPQiTY2fYclaleg37XsH3Ej4crfpX3J";
-    drive.permissions
-      .create({
+    const permissionsResponse = await drive.permissions.create({
+      fileId,
+      requestBody: {
+        role: "reader",
+        type: "anyone",
+      },
+    });
+
+    if (permissionsResponse.status === 200) {
+      const fileResponse = await drive.files.get({
         fileId,
-        requestBody: {
-          role: "reader",
-          type: "anyone",
-        },
-      })
-      .then((res) => {
-        if (res.status == 200) {
-          drive.files
-            .get({
-              fileId,
-              fields: "webViewLink, webContentLink",
-            })
-            .then((res) => {
-              console.log(res);
-            });
-        }
+        fields: "webViewLink, webContentLink",
       });
+
+      return fileResponse.data;
+    }
   } catch (err) {
-    console.log(res);
+    console.error(err);
+    return err;
   }
 };

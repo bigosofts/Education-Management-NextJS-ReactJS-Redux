@@ -37,12 +37,28 @@ const authverify = require("../middlewares/authverifyMiddleware");
 
 //Email utility import
 const emailController = require("../controllers/emailController");
+const returnPDFController = require("../controllers/pdfreturnController");
+const writePDFController = require("../controllers/pdfwriteController");
+
+//multer import
+const multer = require("multer");
+const upload = multer({ storage: multer.memoryStorage() });
 
 router.post("/send-email", emailController.sendEmail);
 
 router.get("/hello", (req, res) => {
   res.json({ message: "Hello from Express.js!" });
 });
+//api for returning pdf
+
+router.get("/pdf/:id", returnPDFController.returnPDFDocument);
+
+//api for write pdf to Drive
+router.post(
+  "/pdf",
+  upload.single("file"),
+  writePDFController.writeFileToDriveController
+);
 //api for data management
 
 //authentication
