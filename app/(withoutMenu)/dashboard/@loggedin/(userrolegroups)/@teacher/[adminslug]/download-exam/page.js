@@ -156,7 +156,7 @@ function UploadExam() {
       formData.append("file", fileInputRef.current.files[0]);
 
       try {
-        const response = await fetch("http://localhost:4000/apis/v1/pdf", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/pdf`, {
           method: "POST",
           body: formData,
         });
@@ -280,9 +280,7 @@ function UploadExam() {
       examQuestionDownloadLink: "",
     });
   }
-  if (tableClasses) {
-    console.log(tableClasses);
-  }
+  
 
   if (classesData.length > 0 && booksData.length > 0 && tableClasses) {
     return (
