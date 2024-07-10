@@ -43,7 +43,7 @@ const DataSchema = mongoose.Schema(
       {
         examQuestion: { type: String },
         examType: { type: String },
-        startedDate: { type: Date },
+        startedDate: { type: String },
       },
     ],
     students: [

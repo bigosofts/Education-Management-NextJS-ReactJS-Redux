@@ -3,6 +3,8 @@
 import { useSelector } from "react-redux";
 import { useRef } from "react";
 import "./hifz.css";
+import Datetime from "react-datetime";
+import "react-datetime/css/react-datetime.css";
 
 import { useState, useEffect } from "react";
 import Loader from "@/customComponents/loader/Loader";
@@ -90,11 +92,13 @@ function UploadExam() {
     }
   }
 
-  function datePickerHandler(e) {
-    e.preventDefault();
+  function datePickerHandler(date) {
+    const formattedDate = date.format("YYYY-MM-DDTHH:mm:ssZ");
+
+ 
     setMainData((prev) => ({
       ...prev,
-      examStartedDate: `${e.target.value}:00+06:00`,
+      examStartedDate: formattedDate,
     }));
   }
 
@@ -179,7 +183,7 @@ function UploadExam() {
               examQuestionArray.push({
                 examQuestion: result.data.id,
                 examType: mainData.examName,
-                startedDate: new Date(mainData.examStartedDate),
+                startedDate: mainData.examStartedDate,
               });
               setExamQuestion(examQuestionArray);
             } else {
@@ -190,7 +194,7 @@ function UploadExam() {
               array.push({
                 examQuestion: result.data.id,
                 examType: mainData.examName,
-                startedDate: new Date(mainData.examStartedDate),
+                startedDate: mainData.examStartedDate,
               });
               examQuestionArray = array;
               setExamQuestion(examQuestionArray);
@@ -307,12 +311,18 @@ function UploadExam() {
 
           {mainData.examName != "" &&
             mainData.examName != "Semester_Final_Exam" && (
-              <input
+              <Datetime
                 onChange={datePickerHandler}
                 className="p-4 text-slate-800 rounded-xl bg-white shadow-md"
-                disabled={mainData.examName == "Semester_Final_Exam"}
-                type="datetime-local"
-              ></input>
+                inputProps={{
+                  placeholder: "Select a date",
+                  disabled: mainData.examName === "Semester_Final_Exam",
+                  style: {
+                    width: "100%",
+                    boxSizing: "border-box",
+                  },
+                }}
+              />
             )}
 
           <select
