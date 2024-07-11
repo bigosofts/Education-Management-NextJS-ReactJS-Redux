@@ -4,13 +4,24 @@ import "./hifz.css";
 import Loader from "@/customComponents/loader/Loader";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
+import { useRef, useState, useEffect } from "react";
+import mytoast from "../toast/toast";
+import { updateData as updateClasses } from "@/apiservices/classapiservices";
+import moment from "moment";
 
 function UploadExamStudent() {
+  const fileInputRef = useRef();
   const router = useRouter();
   const data = useSelector((state) => state.isAdmin.value);
   const courseState = useSelector((state) => state.courseState.value);
-  const classes = useSelector((state) => state.classes.classes);
+  const [classes, setClasses] = useState();
+  const classesDatas = useSelector((state) => state.classes.classes);
   const books = useSelector((state) => state.books.books);
+  const [showUpload, setShowUpload] = useState(true);
+
+  useEffect(() => {
+    setClasses(classesDatas);
+  }, [classesDatas]);
 
   //   {
   //     "alemalema": true,
@@ -77,14 +88,32 @@ function UploadExamStudent() {
 
     // Determine the class based on the day difference
     if (dayDifference > 1) {
-      return "text-blue-700 p-2 rounded-md text-2xl";
+      return "text-blue-700 p-1 md:p-2 rounded-md text-xs md:text-2xl";
     } else if (dayDifference >= 0 && dayDifference <= 1) {
-      return "text-red-700 animate__animated animate__infinite animate__flash p-2 rounded-md text-2xl";
+      return "text-red-700 animate__animated animate__infinite animate__flash p-1 md:p-2 rounded-md  text-xs md:text-2xl";
     } else {
-      return "bg-slate-300 p-2";
+      return "p-2";
     }
   }
+  function colorDecisionButton(date) {
+    const givenDate = new Date(date);
+    const currentDate = new Date();
 
+    // Calculate the difference in milliseconds
+    const timeDifference = givenDate.getTime() - currentDate.getTime();
+
+    // Calculate the difference in days
+    const dayDifference = timeDifference / (1000 * 60 * 60 * 24);
+
+    // Determine the class based on the day difference
+    if (dayDifference > 1) {
+      return "bg-blue-700 text-white rounded-md p-1 w-full";
+    } else if (dayDifference >= 0 && dayDifference <= 1) {
+      return "bg-red-700 text-white rounded-md p-1 w-full animate__animated animate__infinite animate__flash rounded-md";
+    } else {
+      return "hidden";
+    }
+  }
   function dayDecision(date) {
     const givenDate = new Date(date);
     const currentDate = new Date();
@@ -120,142 +149,995 @@ function UploadExamStudent() {
     router.push(data.webViewLink);
   }
 
-  if (courseState && data && classes && books) {
-    // return (
-    //   <div>
-    //     <h1 className="text-center mt-10">Exam Questions</h1>
+  async function submitExamSheet(classID, examQuestionID, examType) {
+    let classData = JSON.parse(JSON.stringify(classes));
 
-    //     {courseState.alemalema && (
-    //       <>
-    //         <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-xl">
-    //           আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
-    //         </h2>
-    //         <div className="w-[95%] mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-4 mt-10">
-    //           {classes
-    //             .filter(
-    //               (item) =>
-    //                 item.batchNo == data.data.userDetails.batchCount &&
-    //                 item.courseID == "alemalema" &&
-    //                 item.jamatID == courseState.jamat &&
-    //                 item.semesterID == courseState.semester
-    //             )
-    //             .map((item, i) => {
-    //               if (
-    //                 item.examQuestion.length > 0 &&
-    //                 item.examQuestion[0] != ""
-    //               ) {
-    //                 return (
-    //                   <div
-    //                     key={i}
-    //                     className="shadow-md p-5 border-[1px] border-slate-200 bg-white"
-    //                   >
-    //                     <div className="w-[75%] md:w-[50%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg">
-    //                       <p> classID: {item.classID} </p>
-    //                       <p>
-    //                         {" "}
-    //                         bookName: {findBooks(item.bookID).bookName.bn}{" "}
-    //                       </p>
-    //                     </div>
+    let singleClassData = classData.find((item) => item._id == classID);
 
-    //                     <div className="hifz_table">
-    //                       <div className="table_container mt-10">
-    //                         <table>
-    //                           <thead className="sticky top-0">
-    //                             <tr>
-    //                               <th>পরীক্ষার নাম</th>
-    //                               <th>পরীক্ষার সময়</th>
-    //                               <th>পরীক্ষার প্রশ্ন</th>
-    //                             </tr>
-    //                           </thead>
-    //                           <tbody>
-    //                             {item.examQuestion.map((item, i2) => (
-    //                               <tr key={i2}>
-    //                                 <td>{item.examType}</td>
-    //                                 <td>
-    //                                   {niceDate(item.startedDate, "Asia/Dhaka")}{" "}
-    //                                   <br />
-    //                                   <span
-    //                                     style={{
-    //                                       animationDuration: "4s",
-    //                                       marginTop: "5px",
-    //                                       display: "block",
-    //                                     }}
-    //                                     className={colorDecision(
-    //                                       item.startedDate
-    //                                     )}
-    //                                   >
-    //                                     {niceTime(
-    //                                       item.startedDate,
-    //                                       "Asia/Dhaka"
-    //                                     )}
-    //                                   </span>
-    //                                 </td>
-    //                                 <td>
-    //                                   {" "}
-    //                                   {dayDecision(item.startedDate) ? (
-    //                                     <div className="flex justify-between gap-4">
-    //                                       <button
-    //                                         onClick={openPDF(item.examQuestion)}
-    //                                         className="cursor-pointer p-1 bg-blue-300 text-white w-full"
-    //                                       >
-    //                                         Open
-    //                                       </button>
-    //                                       <button
-    //                                         onClick={downloadPDF(
-    //                                           item.examQuestion
-    //                                         )}
-    //                                         className="cursor-pointer p-1 bg-red-500 text-white w-full"
-    //                                       >
-    //                                         Download
-    //                                       </button>
-    //                                     </div>
-    //                                   ) : (
-    //                                     <div className="p-1 bg-blue-700 text-white w-full rounded-lg">
-    //                                       upcoming
-    //                                     </div>
-    //                                   )}
-    //                                 </td>
-    //                               </tr>
-    //                             ))}
-    //                           </tbody>
-    //                         </table>
-    //                       </div>
-    //                     </div>
-    //                   </div>
-    //                 );
-    //               }
-    //               return null;
-    //             })}
-    //         </div>
-    //       </>
-    //     )}
+    if (fileInputRef.current.files[0]) {
+      setShowUpload(false);
 
-    //     {courseState.schoolalemalema && (
-    //       <h2 className="text-center mt-5">School Alem Alema student</h2>
-    //     )}
+      const formData = new FormData();
+      formData.append("file", fileInputRef.current.files[0]);
 
-    //     {courseState.prealemalema && (
-    //       <h2 className="text-center mt-5">Pre Alem Alema student</h2>
-    //     )}
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_URL}/apis/v1/pdf`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
 
-    //     {courseState.abacus_student && (
-    //       <h2 className="text-center mt-5">Abacus student</h2>
-    //     )}
+        if (response.ok) {
+          const result = await response.json();
 
-    //     {courseState.shishumaktab && (
-    //       <h2 className="text-center mt-5">Shishumaktab student</h2>
-    //     )}
+          if (result.data.id) {
+            let singleStudents = singleClassData.students.find(
+              (item) => item.SID == data.data.userDetails.userName
+            );
 
-    //     {courseState.farzeayinnajera && (
-    //       <h2 className="text-center mt-5">Farzeayinnajera student</h2>
-    //     )}
+            const timezoneOffset = 6 * 60; // Offset in minutes (6 hours * 60 minutes)
+            const currentDate = moment()
+              .utcOffset(timezoneOffset)
+              .format("YYYY-MM-DDTHH:mm:ssZ");
 
-    //     {courseState.ramadanquranulkarim && (
-    //       <h2 className="text-center mt-5">Ramadan Quranul Karim student</h2>
-    //     )}
-    //   </div>
-    // );
-    return <div>Coming soon</div>;
+            if (singleStudents.examSheet.length == 0) {
+              singleStudents.examSheet.push({
+                examID: examQuestionID,
+                examSheet: result.data.id,
+                examType: examType,
+                submittedDate: currentDate,
+              });
+            } else {
+              singleStudents.examSheet = singleStudents.examSheet.map(
+                (item) => {
+                  if (item.examID == examQuestionID) {
+                    return {
+                      examID: examQuestionID,
+                      examSheet: result.data.id,
+                      examType: examType,
+                      submittedDate: currentDate,
+                    };
+                  } else {
+                    return item;
+                  }
+                }
+              );
+            }
+
+            const res = await updateClasses({
+              classID: singleClassData.classID,
+              courseID: singleClassData.courseID,
+              batchNo: singleClassData.batchNo,
+              maleClassLink: singleClassData.maleClassLink,
+              femaleClassLink: singleClassData.femaleClassLink,
+              departmentID: singleClassData.departmentID,
+              jamatID: singleClassData.jamatID,
+              semesterID: singleClassData.semesterID,
+              bookID: singleClassData.bookID,
+              teacher: singleClassData.teacher,
+              examQuestion: singleClassData.examQuestion,
+              students: singleClassData.students,
+              classStartTime: singleClassData.classStartTime,
+              classEndTime: singleClassData.classEndTime,
+              activeStatus: singleClassData.activeStatus,
+              idValue: classID,
+            });
+
+            if (res.status == "Alhamdulillah") {
+              mytoast.success("Your Exam Sheet has been uploaded");
+              setShowUpload(true);
+
+              setClasses(classData);
+            }
+          }
+        }
+      } catch (err) {
+        console.error("Error:", err);
+      }
+    } else {
+      mytoast.info("Choose a PDF file first");
+    }
+  }
+
+  if (false) {
+    return (
+      <div>
+        <h1 className="text-center mt-10">Exam Questions</h1>
+
+        {courseState.alemalema && (
+          <>
+            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-lg md:text-xl w-[95%] md:w-[40%] mx-auto rounded-lg">
+              আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
+            </h2>
+            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5 md:gap-4 mt-10">
+              {classes
+                .filter(
+                  (item) =>
+                    item.batchNo == data.data.userDetails.batchCount &&
+                    item.courseID == "alemalema" &&
+                    item.jamatID == courseState.jamat &&
+                    item.semesterID == courseState.semester
+                )
+                .map((item, i) => {
+                  if (
+                    item.examQuestion.length > 0 &&
+                    item.examQuestion[0] != ""
+                  ) {
+                    return (
+                      <div
+                        key={i}
+                        className="shadow-md p-5 border-[1px] border-slate-200 bg-white text-xs md:text-lg rounded-md font-extrabold"
+                      >
+                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg text-sm xl:text-2xl">
+                          <p> classID: {item.classID} </p>
+                          <p>
+                            {" "}
+                            bookName: {findBooks(item.bookID).bookName.bn}{" "}
+                          </p>
+                        </div>
+
+                        <div className="hifz_table">
+                          <div className="table_container mt-2 md:mt-10">
+                            <table>
+                              <thead className="sticky top-0">
+                                <tr>
+                                  <th>পরীক্ষার নাম</th>
+                                  <th>পরীক্ষার সময়</th>
+                                  <th>পরীক্ষার প্রশ্ন</th>
+                                  <th>খাতা আপলোড</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {item.examQuestion.map((item2, i2) => (
+                                  <tr key={i2}>
+                                    <td>{item2.examType}</td>
+                                    <td>
+                                      <span className="text-xs md:text-2xl">
+                                        {niceDate(
+                                          item2.startedDate,
+                                          "Asia/Dhaka"
+                                        )}
+                                      </span>
+
+                                      <br />
+                                      <span
+                                        style={{
+                                          animationDuration: "3s",
+                                          marginTop: "5px",
+                                          display: "block",
+                                        }}
+                                        className={colorDecision(
+                                          item2.startedDate
+                                        )}
+                                      >
+                                        {niceTime(
+                                          item2.startedDate,
+                                          "Asia/Dhaka"
+                                        )}
+                                      </span>
+                                    </td>
+                                    <td>
+                                      {dayDecision(item2.startedDate) ? (
+                                        <div className="flex justify-between gap-4">
+                                          <button
+                                            onClick={() =>
+                                              openPDF(item2.examQuestion)
+                                            }
+                                            className={
+                                              "cursor-pointer p-1 bg-blue-700 text-white w-full"
+                                            }
+                                          >
+                                            Open
+                                          </button>
+
+                                          <button
+                                            onClick={() =>
+                                              downloadPDF(item2.examQuestion)
+                                            }
+                                            className="cursor-pointer p-1 bg-red-500 text-white w-full"
+                                          >
+                                            Download
+                                          </button>
+                                        </div>
+                                      ) : (
+                                        <div
+                                          style={{ animationDuration: "3s" }}
+                                          className={colorDecisionButton(
+                                            item2.startedDate
+                                          )}
+                                        >
+                                          upcoming
+                                        </div>
+                                      )}
+                                    </td>
+                                    <td>
+                                      {dayDecision(item2.startedDate) ? (
+                                        <div className="flex justify-between gap-4">
+                                          <input
+                                            ref={fileInputRef}
+                                            type="file"
+                                            id="fileInput"
+                                            accept="application/pdf"
+                                            style={{ display: "none" }}
+                                          />
+                                          <label
+                                            htmlFor="fileInput"
+                                            className="cursor-pointer p-1 bg-blue-700 text-white w-full"
+                                          >
+                                            Choose
+                                          </label>
+
+                                          {showUpload && (
+                                            <button
+                                              onClick={() =>
+                                                submitExamSheet(
+                                                  item._id,
+                                                  item2._id,
+                                                  item2.examType
+                                                )
+                                              }
+                                              className="cursor-pointer p-1 bg-red-500 text-white w-full"
+                                            >
+                                              Upload
+                                            </button>
+                                          )}
+
+                                          {!showUpload && (
+                                            <button className="p-1 bg-red-500 text-white w-full">
+                                              <span className="animate__animated animate__infinite animate__flash">
+                                                Uploading
+                                              </span>
+                                            </button>
+                                          )}
+                                        </div>
+                                      ) : (
+                                        ""
+                                      )}
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+
+                        <div className="bg-slate-900 text-slate-100 p-2 text-center text-sm md:text-lg rounded-lg">
+                          <span className="font-extrabold">বিঃদ্রঃ</span> খাতা
+                          অবশ্যই পিডিএফ (.pdf) ফাইল হতে হবে । "camscanner"
+                          মোবাইল এপ ব্যাবহার করে আপনার সম্পুর্ণ খাতার পেইজ এক এক
+                          করে স্ক্যান করবেন, অতঃপর খাতাটি পিডিএফ হিসেবে সেইভ
+                          করবেন । সেই পিডিএফটি আপনারা এখানে আপলোড করতে পারেন।
+                          "camscanner" সফটওয়ারটির ডাউনলোড লিংকঃ{" "}
+                          <a href="https://play.google.com/store/apps/details?id=com.intsig.camscanner">
+                            <span className="p-[1px] bg-white text-slate-800 cursor-pointer rounded-md">
+                              Download Now{" "}
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
+            </div>
+          </>
+        )}
+
+        {courseState.schoolalemalema && (
+          <>
+            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-xl w-[40%] mx-auto rounded-lg">
+              স্কুল আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
+            </h2>
+            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-4 mt-10">
+              {classes
+                .filter(
+                  (item) =>
+                    item.batchNo == data.data.userDetails.batchCount &&
+                    item.courseID == "schoolalemalema" &&
+                    item.jamatID == courseState.jamat &&
+                    item.semesterID == courseState.semester
+                )
+                .map((item, i) => {
+                  if (
+                    item.examQuestion.length > 0 &&
+                    item.examQuestion[0] != ""
+                  ) {
+                    return (
+                      <div
+                        key={i}
+                        className="shadow-md p-5 border-[1px] border-slate-200 bg-white text-xs md:text-lg rounded-md font-extrabold"
+                      >
+                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg">
+                          <p> classID: {item.classID} </p>
+                          <p>
+                            {" "}
+                            bookName: {findBooks(item.bookID).bookName.bn}{" "}
+                          </p>
+                        </div>
+
+                        <div className="hifz_table">
+                          <div className="table_container mt-2 md:mt-10">
+                            <table>
+                              <thead className="sticky top-0">
+                                <tr>
+                                  <th>পরীক্ষার নাম</th>
+                                  <th>পরীক্ষার সময়</th>
+                                  <th>পরীক্ষার প্রশ্ন</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {item.examQuestion.map((item, i2) => (
+                                  <tr key={i2}>
+                                    <td>{item.examType}</td>
+                                    <td>
+                                      <span className="text-xs md:text-2xl">
+                                        {niceDate(
+                                          item.startedDate,
+                                          "Asia/Dhaka"
+                                        )}
+                                      </span>
+
+                                      <br />
+                                      <span
+                                        style={{
+                                          animationDuration: "3s",
+                                          marginTop: "5px",
+                                          display: "block",
+                                        }}
+                                        className={colorDecision(
+                                          item.startedDate
+                                        )}
+                                      >
+                                        {niceTime(
+                                          item.startedDate,
+                                          "Asia/Dhaka"
+                                        )}
+                                      </span>
+                                    </td>
+                                    <td>
+                                      {" "}
+                                      {dayDecision(item.startedDate) ? (
+                                        <div className="flex justify-between gap-4">
+                                          <button
+                                            onClick={() =>
+                                              openPDF(item.examQuestion)
+                                            }
+                                            className={
+                                              "cursor-pointer p-1 bg-blue-300 text-white w-full"
+                                            }
+                                          >
+                                            Open
+                                          </button>
+
+                                          <button
+                                            onClick={() =>
+                                              downloadPDF(item.examQuestion)
+                                            }
+                                            className="cursor-pointer p-1 bg-red-500 text-white w-full"
+                                          >
+                                            Download
+                                          </button>
+                                        </div>
+                                      ) : (
+                                        <div
+                                          className={colorDecisionButton(
+                                            item.startedDate
+                                          )}
+                                        >
+                                          upcoming
+                                        </div>
+                                      )}
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
+            </div>
+          </>
+        )}
+
+        {courseState.prealemalema && (
+          <>
+            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-xl w-[40%] mx-auto rounded-lg">
+              প্রি/ফরজে আইন আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
+            </h2>
+            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-4 mt-10">
+              {classes
+                .filter(
+                  (item) =>
+                    item.batchNo == data.data.userDetails.batchCount &&
+                    item.courseID == "prealemalema" &&
+                    item.jamatID == courseState.jamat &&
+                    item.semesterID == courseState.semester
+                )
+                .map((item, i) => {
+                  if (
+                    item.examQuestion.length > 0 &&
+                    item.examQuestion[0] != ""
+                  ) {
+                    return (
+                      <div
+                        key={i}
+                        className="shadow-md p-5 border-[1px] border-slate-200 bg-white text-xs md:text-lg rounded-md font-extrabold"
+                      >
+                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg">
+                          <p> classID: {item.classID} </p>
+                          <p>
+                            {" "}
+                            bookName: {findBooks(item.bookID).bookName.bn}{" "}
+                          </p>
+                        </div>
+
+                        <div className="hifz_table">
+                          <div className="table_container mt-2 md:mt-10">
+                            <table>
+                              <thead className="sticky top-0">
+                                <tr>
+                                  <th>পরীক্ষার নাম</th>
+                                  <th>পরীক্ষার সময়</th>
+                                  <th>পরীক্ষার প্রশ্ন</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {item.examQuestion.map((item, i2) => (
+                                  <tr key={i2}>
+                                    <td>{item.examType}</td>
+                                    <td>
+                                      <span className="text-xs md:text-2xl">
+                                        {niceDate(
+                                          item.startedDate,
+                                          "Asia/Dhaka"
+                                        )}
+                                      </span>
+
+                                      <br />
+                                      <span
+                                        style={{
+                                          animationDuration: "3s",
+                                          marginTop: "5px",
+                                          display: "block",
+                                        }}
+                                        className={colorDecision(
+                                          item.startedDate
+                                        )}
+                                      >
+                                        {niceTime(
+                                          item.startedDate,
+                                          "Asia/Dhaka"
+                                        )}
+                                      </span>
+                                    </td>
+                                    <td>
+                                      {" "}
+                                      {dayDecision(item.startedDate) ? (
+                                        <div className="flex justify-between gap-4">
+                                          <button
+                                            onClick={() =>
+                                              openPDF(item.examQuestion)
+                                            }
+                                            className={
+                                              "cursor-pointer p-1 bg-blue-300 text-white w-full"
+                                            }
+                                          >
+                                            Open
+                                          </button>
+
+                                          <button
+                                            onClick={() =>
+                                              downloadPDF(item.examQuestion)
+                                            }
+                                            className="cursor-pointer p-1 bg-red-500 text-white w-full"
+                                          >
+                                            Download
+                                          </button>
+                                        </div>
+                                      ) : (
+                                        <div
+                                          className={colorDecisionButton(
+                                            item.startedDate
+                                          )}
+                                        >
+                                          upcoming
+                                        </div>
+                                      )}
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
+            </div>
+          </>
+        )}
+
+        {courseState.abacus_student && (
+          <>
+            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-xl w-[40%] mx-auto rounded-lg">
+              অ্যাবাকাস স্টুডেন্ট ক্লাসের পরীক্ষাসমূহ
+            </h2>
+            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-4 mt-10">
+              {classes
+                .filter(
+                  (item) =>
+                    item.batchNo == data.data.userDetails.batchCount &&
+                    item.courseID == "abacus_student"
+                )
+                .map((item, i) => {
+                  if (
+                    item.examQuestion.length > 0 &&
+                    item.examQuestion[0] != ""
+                  ) {
+                    return (
+                      <div
+                        key={i}
+                        className="shadow-md p-5 border-[1px] border-slate-200 bg-white text-xs md:text-lg rounded-md font-extrabold"
+                      >
+                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg">
+                          <p> classID: {item.classID} </p>
+                          <p>
+                            {" "}
+                            bookName: {findBooks(item.bookID).bookName.bn}{" "}
+                          </p>
+                        </div>
+
+                        <div className="hifz_table">
+                          <div className="table_container mt-2 md:mt-10">
+                            <table>
+                              <thead className="sticky top-0">
+                                <tr>
+                                  <th>পরীক্ষার নাম</th>
+                                  <th>পরীক্ষার সময়</th>
+                                  <th>পরীক্ষার প্রশ্ন</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {item.examQuestion.map((item, i2) => (
+                                  <tr key={i2}>
+                                    <td>{item.examType}</td>
+                                    <td>
+                                      <span className="text-xs md:text-2xl">
+                                        {niceDate(
+                                          item.startedDate,
+                                          "Asia/Dhaka"
+                                        )}
+                                      </span>
+
+                                      <br />
+                                      <span
+                                        style={{
+                                          animationDuration: "3s",
+                                          marginTop: "5px",
+                                          display: "block",
+                                        }}
+                                        className={colorDecision(
+                                          item.startedDate
+                                        )}
+                                      >
+                                        {niceTime(
+                                          item.startedDate,
+                                          "Asia/Dhaka"
+                                        )}
+                                      </span>
+                                    </td>
+                                    <td>
+                                      {" "}
+                                      {dayDecision(item.startedDate) ? (
+                                        <div className="flex justify-between gap-4">
+                                          <button
+                                            onClick={() =>
+                                              openPDF(item.examQuestion)
+                                            }
+                                            className={
+                                              "cursor-pointer p-1 bg-blue-300 text-white w-full"
+                                            }
+                                          >
+                                            Open
+                                          </button>
+
+                                          <button
+                                            onClick={() =>
+                                              downloadPDF(item.examQuestion)
+                                            }
+                                            className="cursor-pointer p-1 bg-red-500 text-white w-full"
+                                          >
+                                            Download
+                                          </button>
+                                        </div>
+                                      ) : (
+                                        <div
+                                          className={colorDecisionButton(
+                                            item.startedDate
+                                          )}
+                                        >
+                                          upcoming
+                                        </div>
+                                      )}
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
+            </div>
+          </>
+        )}
+
+        {courseState.shishumaktab && (
+          <>
+            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-xl w-[40%] mx-auto rounded-lg">
+              শিশু মক্তব ক্লাসের পরীক্ষাসমূহ
+            </h2>
+            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-4 mt-10">
+              {classes
+                .filter(
+                  (item) =>
+                    item.batchNo == data.data.userDetails.batchCount &&
+                    item.courseID == "shishumaktab"
+                )
+                .map((item, i) => {
+                  if (
+                    item.examQuestion.length > 0 &&
+                    item.examQuestion[0] != ""
+                  ) {
+                    return (
+                      <div
+                        key={i}
+                        className="shadow-md p-5 border-[1px] border-slate-200 bg-white text-xs md:text-lg rounded-md font-extrabold"
+                      >
+                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg">
+                          <p> classID: {item.classID} </p>
+                          <p>
+                            {" "}
+                            bookName: {findBooks(item.bookID).bookName.bn}{" "}
+                          </p>
+                        </div>
+
+                        <div className="hifz_table">
+                          <div className="table_container mt-2 md:mt-10">
+                            <table>
+                              <thead className="sticky top-0">
+                                <tr>
+                                  <th>পরীক্ষার নাম</th>
+                                  <th>পরীক্ষার সময়</th>
+                                  <th>পরীক্ষার প্রশ্ন</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {item.examQuestion.map((item, i2) => (
+                                  <tr key={i2}>
+                                    <td>{item.examType}</td>
+                                    <td>
+                                      <span className="text-xs md:text-2xl">
+                                        {niceDate(
+                                          item.startedDate,
+                                          "Asia/Dhaka"
+                                        )}
+                                      </span>
+
+                                      <br />
+                                      <span
+                                        style={{
+                                          animationDuration: "3s",
+                                          marginTop: "5px",
+                                          display: "block",
+                                        }}
+                                        className={colorDecision(
+                                          item.startedDate
+                                        )}
+                                      >
+                                        {niceTime(
+                                          item.startedDate,
+                                          "Asia/Dhaka"
+                                        )}
+                                      </span>
+                                    </td>
+                                    <td>
+                                      {" "}
+                                      {dayDecision(item.startedDate) ? (
+                                        <div className="flex justify-between gap-4">
+                                          <button
+                                            onClick={() =>
+                                              openPDF(item.examQuestion)
+                                            }
+                                            className={
+                                              "cursor-pointer p-1 bg-blue-300 text-white w-full"
+                                            }
+                                          >
+                                            Open
+                                          </button>
+
+                                          <button
+                                            onClick={() =>
+                                              downloadPDF(item.examQuestion)
+                                            }
+                                            className="cursor-pointer p-1 bg-red-500 text-white w-full"
+                                          >
+                                            Download
+                                          </button>
+                                        </div>
+                                      ) : (
+                                        <div
+                                          className={colorDecisionButton(
+                                            item.startedDate
+                                          )}
+                                        >
+                                          upcoming
+                                        </div>
+                                      )}
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
+            </div>
+          </>
+        )}
+
+        {courseState.farzeayinnajera && (
+          <>
+            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-xl w-[40%] mx-auto rounded-lg">
+              প্রি-হিফজ/নাজেরা ক্লাসের পরীক্ষাসমূহ
+            </h2>
+            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-4 mt-10">
+              {classes
+                .filter(
+                  (item) =>
+                    item.batchNo == data.data.userDetails.batchCount &&
+                    item.courseID == "farzeayinnajera"
+                )
+                .map((item, i) => {
+                  if (
+                    item.examQuestion.length > 0 &&
+                    item.examQuestion[0] != ""
+                  ) {
+                    return (
+                      <div
+                        key={i}
+                        className="shadow-md p-5 border-[1px] border-slate-200 bg-white text-xs md:text-lg rounded-md font-extrabold"
+                      >
+                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg">
+                          <p> classID: {item.classID} </p>
+                          <p>
+                            {" "}
+                            bookName: {findBooks(item.bookID).bookName.bn}{" "}
+                          </p>
+                        </div>
+
+                        <div className="hifz_table">
+                          <div className="table_container mt-2 md:mt-10">
+                            <table>
+                              <thead className="sticky top-0">
+                                <tr>
+                                  <th>পরীক্ষার নাম</th>
+                                  <th>পরীক্ষার সময়</th>
+                                  <th>পরীক্ষার প্রশ্ন</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {item.examQuestion.map((item, i2) => (
+                                  <tr key={i2}>
+                                    <td>{item.examType}</td>
+                                    <td>
+                                      <span className="text-xs md:text-2xl">
+                                        {niceDate(
+                                          item.startedDate,
+                                          "Asia/Dhaka"
+                                        )}
+                                      </span>
+
+                                      <br />
+                                      <span
+                                        style={{
+                                          animationDuration: "3s",
+                                          marginTop: "5px",
+                                          display: "block",
+                                        }}
+                                        className={colorDecision(
+                                          item.startedDate
+                                        )}
+                                      >
+                                        {niceTime(
+                                          item.startedDate,
+                                          "Asia/Dhaka"
+                                        )}
+                                      </span>
+                                    </td>
+                                    <td>
+                                      {" "}
+                                      {dayDecision(item.startedDate) ? (
+                                        <div className="flex justify-between gap-4">
+                                          <button
+                                            onClick={() =>
+                                              openPDF(item.examQuestion)
+                                            }
+                                            className={
+                                              "cursor-pointer p-1 bg-blue-300 text-white w-full"
+                                            }
+                                          >
+                                            Open
+                                          </button>
+
+                                          <button
+                                            onClick={() =>
+                                              downloadPDF(item.examQuestion)
+                                            }
+                                            className="cursor-pointer p-1 bg-red-500 text-white w-full"
+                                          >
+                                            Download
+                                          </button>
+                                        </div>
+                                      ) : (
+                                        <div
+                                          className={colorDecisionButton(
+                                            item.startedDate
+                                          )}
+                                        >
+                                          upcoming
+                                        </div>
+                                      )}
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
+            </div>
+          </>
+        )}
+
+        {courseState.ramadanquranulkarim && (
+          <>
+            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-xl w-[40%] mx-auto rounded-lg">
+              কুরআনুল কারীম ক্লাসের পরীক্ষাসমূহ
+            </h2>
+            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-4 mt-10">
+              {classes
+                .filter(
+                  (item) =>
+                    item.batchNo == data.data.userDetails.batchCount &&
+                    item.courseID == "ramadanquranulkarim"
+                )
+                .map((item, i) => {
+                  if (
+                    item.examQuestion.length > 0 &&
+                    item.examQuestion[0] != ""
+                  ) {
+                    return (
+                      <div
+                        key={i}
+                        className="shadow-md p-5 border-[1px] border-slate-200 bg-white text-xs md:text-lg rounded-md font-extrabold"
+                      >
+                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg">
+                          <p> classID: {item.classID} </p>
+                          <p>
+                            {" "}
+                            bookName: {findBooks(item.bookID).bookName.bn}{" "}
+                          </p>
+                        </div>
+
+                        <div className="hifz_table">
+                          <div className="table_container mt-2 md:mt-10">
+                            <table>
+                              <thead className="sticky top-0">
+                                <tr>
+                                  <th>পরীক্ষার নাম</th>
+                                  <th>পরীক্ষার সময়</th>
+                                  <th>পরীক্ষার প্রশ্ন</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {item.examQuestion.map((item, i2) => (
+                                  <tr key={i2}>
+                                    <td>{item.examType}</td>
+                                    <td>
+                                      <span className="text-xs md:text-2xl">
+                                        {niceDate(
+                                          item.startedDate,
+                                          "Asia/Dhaka"
+                                        )}
+                                      </span>
+
+                                      <br />
+                                      <span
+                                        style={{
+                                          animationDuration: "3s",
+                                          marginTop: "5px",
+                                          display: "block",
+                                        }}
+                                        className={colorDecision(
+                                          item.startedDate
+                                        )}
+                                      >
+                                        {niceTime(
+                                          item.startedDate,
+                                          "Asia/Dhaka"
+                                        )}
+                                      </span>
+                                    </td>
+                                    <td>
+                                      {" "}
+                                      {dayDecision(item.startedDate) ? (
+                                        <div className="flex justify-between gap-4">
+                                          <button
+                                            onClick={() =>
+                                              openPDF(item.examQuestion)
+                                            }
+                                            className={
+                                              "cursor-pointer p-1 bg-blue-300 text-white w-full"
+                                            }
+                                          >
+                                            Open
+                                          </button>
+
+                                          <button
+                                            onClick={() =>
+                                              downloadPDF(item.examQuestion)
+                                            }
+                                            className="cursor-pointer p-1 bg-red-500 text-white w-full"
+                                          >
+                                            Download
+                                          </button>
+                                        </div>
+                                      ) : (
+                                        <div
+                                          className={colorDecisionButton(
+                                            item.startedDate
+                                          )}
+                                        >
+                                          upcoming
+                                        </div>
+                                      )}
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
+            </div>
+          </>
+        )}
+      </div>
+    );
   } else {
     return <Loader />;
   }

@@ -67,6 +67,14 @@ const DataSchema = mongoose.Schema(
             ],
           },
         ],
+        examSheet: [
+          {
+            examID: { type: String },
+            examSheet: { type: String },
+            examType: { type: String },
+            submittedDate: { type: String },
+          },
+        ],
       },
     ],
 

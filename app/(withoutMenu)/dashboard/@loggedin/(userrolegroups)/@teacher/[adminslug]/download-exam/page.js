@@ -95,7 +95,6 @@ function UploadExam() {
   function datePickerHandler(date) {
     const formattedDate = date.format("YYYY-MM-DDTHH:mm:ssZ");
 
- 
     setMainData((prev) => ({
       ...prev,
       examStartedDate: formattedDate,

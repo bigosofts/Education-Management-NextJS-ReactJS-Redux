@@ -92,17 +92,21 @@ function DashboardMetrics(props) {
 
         async function alemalemaQuery(datas) {
           return datas.filter((item) => {
-            if (item.batchCount == "batch-20240605") {
+            if (item.batchCount == "batch-20240713") {
               let semester = item.studentSemester.filter((item) => {
-                return /semester/i.test(item.code) && item.status == "active";
+                return /pre/i.test(item.code) && item.status == "active";
               });
 
               if (semester.length > 1) {
-                if (semester[semester.length - 1].code == "semester01") {
+                if (
+                  semester[semester.length - 1].code == "pre-year1semester1"
+                ) {
                   return item;
                 }
               } else if (semester.length == 1) {
-                if (semester[semester.length - 1].code == "semester01") {
+                if (
+                  semester[semester.length - 1].code == "pre-year1semester1"
+                ) {
                   return item;
                 }
               }

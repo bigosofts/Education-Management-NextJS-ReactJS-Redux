@@ -50,17 +50,17 @@ function PreFeeSection({ profile }) {
     } else if (course == "schoolalemalema") {
       setBatch([
         {
-          name: "Batch-13-07-2024 (ক্লাস শুরু আগামী ১৩ জুলাই, ২০২৪)",
+          name: "Batch-13-07-2024 (১৩ জুলাই, ২০২৪)",
           value: "batch-20240713",
-          startDate: "2024-07-13",
+          startDate: new Date().toISOString(),
         },
       ]);
     } else if (course == "prealemalema") {
       setBatch([
         {
-          name: "Batch-13-07-2024 (ক্লাস শুরু আগামী ১৩ জুলাই, ২০২৪)",
+          name: "Batch-13-07-2024 (১৩ জুলাই, ২০২৪)",
           value: "batch-20240713",
-          startDate: "2024-07-13",
+          startDate: new Date().toISOString(),
         },
       ]);
     } else if (course == "abacus_student") {
@@ -92,9 +92,9 @@ function PreFeeSection({ profile }) {
     } else if (course == "farzeayinclass") {
       setBatch([
         {
-          name: "Batch-13-07-2024 (ক্লাস শুরু আগামী ১৩ জুলাই, ২০২৪ থেকে চলমান)",
+          name: "Batch-13-07-2024 (১৩ জুলাই, ২০২৪ থেকে চলমান)",
           value: "batch-20240713",
-          startDate: "2024-07-13",
+          startDate: new Date().toISOString(),
         },
       ]);
     } else if (course == "farzeayinnajera") {
