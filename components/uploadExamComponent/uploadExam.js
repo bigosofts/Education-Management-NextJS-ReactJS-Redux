@@ -162,7 +162,7 @@ function UploadExamStudent() {
 
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_URL}/apis/v1/pdf`,
+          `${process.env.NEXT_PUBLIC_URL}/apis/v1/pdf-answer`,
           {
             method: "POST",
             body: formData,
@@ -237,11 +237,30 @@ function UploadExamStudent() {
         console.error("Error:", err);
       }
     } else {
-      mytoast.info("Choose any PDF file first");
+      mytoast.info("Choose a PDF file first");
     }
   }
 
-  if (false) {
+  function checkAnswerSheet(classID, examQuestionID) {
+    let classData = JSON.parse(JSON.stringify(classes));
+    let singleClassData = classData.find((item) => item._id == classID);
+
+    let singleStudents = singleClassData.students.find(
+      (item) => item.SID == data.data.userDetails.userName
+    );
+
+    if (singleStudents.examSheet.length > 0) {
+      let singleExamSheet = singleStudents.examSheet.find(
+        (item) => item.examID == examQuestionID
+      );
+
+      return singleExamSheet.examSheet;
+    } else {
+      return null;
+    }
+  }
+
+  if (courseState && data && classes && books) {
     return (
       <div>
         <h1 className="text-center mt-10">Exam Questions</h1>
@@ -354,44 +373,85 @@ function UploadExamStudent() {
                                     </td>
                                     <td>
                                       {dayDecision(item2.startedDate) ? (
-                                        <div className="flex justify-between gap-4">
-                                          <input
-                                            ref={fileInputRef}
-                                            type="file"
-                                            id="fileInput"
-                                            accept="application/pdf"
-                                            style={{ display: "none" }}
-                                          />
-                                          <label
-                                            htmlFor="fileInput"
-                                            className="cursor-pointer p-1 bg-blue-700 text-white w-full"
-                                          >
-                                            Choose
-                                          </label>
-
-                                          {showUpload && (
-                                            <button
-                                              onClick={() =>
-                                                submitExamSheet(
-                                                  item._id,
-                                                  item2._id,
-                                                  item2.examType
-                                                )
-                                              }
-                                              className="cursor-pointer p-1 bg-red-500 text-white w-full"
+                                        <>
+                                          <div className="flex justify-between gap-4">
+                                            <input
+                                              ref={fileInputRef}
+                                              type="file"
+                                              id="fileInput"
+                                              accept="application/pdf"
+                                              style={{ display: "none" }}
+                                            />
+                                            <label
+                                              htmlFor="fileInput"
+                                              className="cursor-pointer p-1 bg-yellow-700 text-white w-full rounded-lg"
                                             >
-                                              Upload
-                                            </button>
-                                          )}
+                                              Choose
+                                            </label>
 
-                                          {!showUpload && (
-                                            <button className="p-1 bg-red-500 text-white w-full">
-                                              <span className="animate__animated animate__infinite animate__flash">
-                                                Uploading
-                                              </span>
-                                            </button>
+                                            {showUpload && (
+                                              <button
+                                                onClick={() =>
+                                                  submitExamSheet(
+                                                    item._id,
+                                                    item2._id,
+                                                    item2.examType
+                                                  )
+                                                }
+                                                className="cursor-pointer p-1 bg-purple-500 text-white w-full rounded-lg"
+                                              >
+                                                Upload
+                                              </button>
+                                            )}
+
+                                            {!showUpload && (
+                                              <button className="p-1 bg-red-500 text-white w-full">
+                                                <span className="animate__animated animate__infinite animate__flash">
+                                                  Uploading
+                                                </span>
+                                              </button>
+                                            )}
+                                          </div>
+
+                                          {checkAnswerSheet(
+                                            item._id,
+                                            item2._id
+                                          ) ? (
+                                            <div className="mt-5 flex justify-between gap-4">
+                                              <button
+                                                onClick={() =>
+                                                  openPDF(
+                                                    checkAnswerSheet(
+                                                      item._id,
+                                                      item2._id
+                                                    )
+                                                  )
+                                                }
+                                                className={
+                                                  "cursor-pointer p-1 bg-blue-700 text-white w-full rounded-lg"
+                                                }
+                                              >
+                                                Open
+                                              </button>
+
+                                              <button
+                                                onClick={() =>
+                                                  downloadPDF(
+                                                    checkAnswerSheet(
+                                                      item._id,
+                                                      item2._id
+                                                    )
+                                                  )
+                                                }
+                                                className="cursor-pointer p-1 bg-red-500 text-white w-full rounded-lg"
+                                              >
+                                                Download
+                                              </button>
+                                            </div>
+                                          ) : (
+                                            ""
                                           )}
-                                        </div>
+                                        </>
                                       ) : (
                                         ""
                                       )}

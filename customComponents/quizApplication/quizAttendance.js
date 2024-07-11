@@ -1,12 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { updateData } from "@/apiservices/classapiservices";
 
 import "./quiz.css";
 import mytoast from "@/components/toast/toast";
+import { fetchClasses } from "@/app/redux/features/classes/classesSlice";
 
 function QuizAttendance({ classSelection, allsubmited }) {
+  const dispatch = useDispatch();
   const [specificClass, setSpecificClass] = useState(() =>
     JSON.parse(JSON.stringify(classSelection))
   );
@@ -314,8 +316,10 @@ function QuizAttendance({ classSelection, allsubmited }) {
 
             if (counter == question2.length) {
               mytoast.success("All Answer has been submitted");
+
               setIsPresent("done");
               allsubmited(completionProgress);
+              dispatch(fetchClasses());
             } else {
               setCounter((prev) => prev + 1);
             }
@@ -346,7 +350,7 @@ function QuizAttendance({ classSelection, allsubmited }) {
           activeStatus: specificClass.activeStatus,
           idValue: specificClass._id,
         });
-        
+
         if (res.status == "Alhamdulillah") {
           mytoast.success("Answer has been Recorded");
           setShowBtn(true);
@@ -354,6 +358,7 @@ function QuizAttendance({ classSelection, allsubmited }) {
             setIsPresent("done");
             allsubmited(completionProgress);
             mytoast.success("All Answer has been submitted");
+            dispatch(fetchClasses());
           } else {
             setCounter((prev) => prev + 1);
           }

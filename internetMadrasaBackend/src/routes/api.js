@@ -59,6 +59,14 @@ router.post(
   upload.single("file"),
   writePDFController.writeFileToDriveController
 );
+
+//api route for answer
+router.post(
+  "/pdf-answer",
+  upload.single("file"),
+  writePDFController.writeAnswerFileToDriveController
+);
+
 //api for data management
 
 //authentication
