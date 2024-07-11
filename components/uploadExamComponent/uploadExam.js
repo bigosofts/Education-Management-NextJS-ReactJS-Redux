@@ -237,7 +237,7 @@ function UploadExamStudent() {
         console.error("Error:", err);
       }
     } else {
-      mytoast.info("Choose a PDF file first");
+      mytoast.info("Choose any PDF file first");
     }
   }
 
