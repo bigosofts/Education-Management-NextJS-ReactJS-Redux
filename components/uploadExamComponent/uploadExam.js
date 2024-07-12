@@ -316,6 +316,7 @@ function UploadExamStudent() {
                             {" "}
                             bookName: {findBooks(item.bookID).bookName.bn}{" "}
                           </p>
+                          <p> Ostad: {item.teacher.tName} </p>
                         </div>
 
                         <div className="hifz_table">
@@ -538,6 +539,7 @@ function UploadExamStudent() {
                             {" "}
                             bookName: {findBooks(item.bookID).bookName.bn}{" "}
                           </p>
+                          <p> Ostad: {item.teacher.tName} </p>
                         </div>
 
                         <div className="hifz_table">
@@ -760,6 +762,7 @@ function UploadExamStudent() {
                             {" "}
                             bookName: {findBooks(item.bookID).bookName.bn}{" "}
                           </p>
+                          <p> Ostad: {item.teacher.tName} </p>
                         </div>
 
                         <div className="hifz_table">
@@ -980,6 +983,7 @@ function UploadExamStudent() {
                             {" "}
                             bookName: {findBooks(item.bookID).bookName.bn}{" "}
                           </p>
+                          <p> Ostad: {item.teacher.tName} </p>
                         </div>
 
                         <div className="hifz_table">
@@ -1200,6 +1204,7 @@ function UploadExamStudent() {
                             {" "}
                             bookName: {findBooks(item.bookID).bookName.bn}{" "}
                           </p>
+                          <p> Ostad: {item.teacher.tName} </p>
                         </div>
 
                         <div className="hifz_table">
@@ -1420,6 +1425,7 @@ function UploadExamStudent() {
                             {" "}
                             bookName: {findBooks(item.bookID).bookName.bn}{" "}
                           </p>
+                          <p> Ostad: {item.teacher.tName} </p>
                         </div>
 
                         <div className="hifz_table">
@@ -1640,6 +1646,7 @@ function UploadExamStudent() {
                             {" "}
                             bookName: {findBooks(item.bookID).bookName.bn}{" "}
                           </p>
+                          <p> Ostad: {item.teacher.tName} </p>
                         </div>
 
                         <div className="hifz_table">
