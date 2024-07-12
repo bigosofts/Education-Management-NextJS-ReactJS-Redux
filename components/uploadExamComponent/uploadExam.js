@@ -10,8 +10,8 @@ import { updateData as updateClasses } from "@/apiservices/classapiservices";
 import moment from "moment";
 
 function UploadExamStudent() {
-  const fileInputRef = useRef();
   const router = useRouter();
+  const [file, setFile] = useState();
   const data = useSelector((state) => state.isAdmin.value);
   const courseState = useSelector((state) => state.courseState.value);
   const [classes, setClasses] = useState();
@@ -150,17 +150,22 @@ function UploadExamStudent() {
   }
 
   async function submitExamSheet(classID, examQuestionID, examType) {
+    debugger;
     let classData = JSON.parse(JSON.stringify(classes));
 
     let singleClassData = classData.find((item) => item._id == classID);
+    debugger;
 
-    if (fileInputRef.current.files[0]) {
+    if (file) {
+      debugger;
       setShowUpload(false);
 
       const formData = new FormData();
-      formData.append("file", fileInputRef.current.files[0]);
+      formData.append("file", file);
+      debugger;
 
       try {
+        debugger;
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_URL}/apis/v1/pdf-answer`,
           {
@@ -168,21 +173,24 @@ function UploadExamStudent() {
             body: formData,
           }
         );
-
+        debugger;
         if (response.ok) {
+          debugger;
           const result = await response.json();
 
           if (result.data.id) {
+            debugger;
             let singleStudents = singleClassData.students.find(
               (item) => item.SID == data.data.userDetails.userName
             );
-
+            debugger;
             const timezoneOffset = 6 * 60; // Offset in minutes (6 hours * 60 minutes)
             const currentDate = moment()
               .utcOffset(timezoneOffset)
               .format("YYYY-MM-DDTHH:mm:ssZ");
-
+            debugger;
             if (singleStudents.examSheet.length == 0) {
+              debugger;
               singleStudents.examSheet.push({
                 examID: examQuestionID,
                 examSheet: result.data.id,
@@ -190,9 +198,12 @@ function UploadExamStudent() {
                 submittedDate: currentDate,
               });
             } else {
+              debugger;
               singleStudents.examSheet = singleStudents.examSheet.map(
                 (item) => {
+                  debugger;
                   if (item.examID == examQuestionID) {
+                    debugger;
                     return {
                       examID: examQuestionID,
                       examSheet: result.data.id,
@@ -200,6 +211,7 @@ function UploadExamStudent() {
                       submittedDate: currentDate,
                     };
                   } else {
+                    debugger;
                     return item;
                   }
                 }
@@ -224,19 +236,23 @@ function UploadExamStudent() {
               activeStatus: singleClassData.activeStatus,
               idValue: classID,
             });
+            debugger;
 
             if (res.status == "Alhamdulillah") {
+              debugger;
               mytoast.success("Your Exam Sheet has been uploaded");
               setShowUpload(true);
-
+              setFile(null);
               setClasses(classData);
             }
           }
         }
       } catch (err) {
+        debugger;
         console.error("Error:", err);
       }
     } else {
+      debugger;
       mytoast.info("Choose a PDF file first");
     }
   }
@@ -259,7 +275,12 @@ function UploadExamStudent() {
       return null;
     }
   }
-
+  function fileChangeHandler(e) {
+    debugger;
+    e.preventDefault();
+    setFile(e.target.files[0]);
+    debugger;
+  }
   if (courseState && data && classes && books) {
     return (
       <div>
@@ -376,7 +397,7 @@ function UploadExamStudent() {
                                         <>
                                           <div className="flex justify-between gap-4">
                                             <input
-                                              ref={fileInputRef}
+                                              onChange={fileChangeHandler}
                                               type="file"
                                               id="fileInput"
                                               accept="application/pdf"
@@ -463,13 +484,15 @@ function UploadExamStudent() {
                           </div>
                         </div>
 
-                        <div className="bg-slate-900 text-slate-100 p-2 text-center text-sm md:text-lg rounded-lg">
-                          <span className="font-extrabold">বিঃদ্রঃ</span> খাতা
-                          অবশ্যই পিডিএফ (.pdf) ফাইল হতে হবে । "camscanner"
-                          মোবাইল এপ ব্যাবহার করে আপনার সম্পুর্ণ খাতার পেইজ এক এক
-                          করে স্ক্যান করবেন, অতঃপর খাতাটি পিডিএফ হিসেবে সেইভ
-                          করবেন । সেই পিডিএফটি আপনারা এখানে আপলোড করতে পারেন।
-                          "camscanner" সফটওয়ারটির ডাউনলোড লিংকঃ{" "}
+                        <div className="bg-slate-900 text-slate-100 p-2 text-center text-xs md:text-lg rounded-lg">
+                          <marquee>
+                            খাতা অবশ্যই পিডিএফ (.pdf) ফাইল হতে হবে ।
+                            "camscanner" সফটওয়ারটির ডাউনলোড করতে নিচের বাটনটি
+                            চাপুন। "camscanner" মোবাইল এপ ব্যাবহার করে আপনার
+                            সম্পুর্ণ খাতার পেইজ এক এক করে স্ক্যান করবেন, অতঃপর
+                            খাতাটি পিডিএফ হিসেবে সেইভ করবেন । সেই পিডিএফটি
+                            আপনারা এখানে আপলোড করতে পারেন।
+                          </marquee>
                           <a href="https://play.google.com/store/apps/details?id=com.intsig.camscanner">
                             <span className="p-[1px] bg-white text-slate-800 cursor-pointer rounded-md">
                               Download Now{" "}
@@ -487,10 +510,10 @@ function UploadExamStudent() {
 
         {courseState.schoolalemalema && (
           <>
-            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-xl w-[40%] mx-auto rounded-lg">
-              স্কুল আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
+            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-lg md:text-xl w-[95%] md:w-[40%] mx-auto rounded-lg">
+              আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
             </h2>
-            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-4 mt-10">
+            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5 md:gap-4 mt-10">
               {classes
                 .filter(
                   (item) =>
@@ -509,7 +532,7 @@ function UploadExamStudent() {
                         key={i}
                         className="shadow-md p-5 border-[1px] border-slate-200 bg-white text-xs md:text-lg rounded-md font-extrabold"
                       >
-                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg">
+                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg text-sm xl:text-2xl">
                           <p> classID: {item.classID} </p>
                           <p>
                             {" "}
@@ -525,16 +548,17 @@ function UploadExamStudent() {
                                   <th>পরীক্ষার নাম</th>
                                   <th>পরীক্ষার সময়</th>
                                   <th>পরীক্ষার প্রশ্ন</th>
+                                  <th>খাতা আপলোড</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                {item.examQuestion.map((item, i2) => (
+                                {item.examQuestion.map((item2, i2) => (
                                   <tr key={i2}>
-                                    <td>{item.examType}</td>
+                                    <td>{item2.examType}</td>
                                     <td>
                                       <span className="text-xs md:text-2xl">
                                         {niceDate(
-                                          item.startedDate,
+                                          item2.startedDate,
                                           "Asia/Dhaka"
                                         )}
                                       </span>
@@ -547,25 +571,24 @@ function UploadExamStudent() {
                                           display: "block",
                                         }}
                                         className={colorDecision(
-                                          item.startedDate
+                                          item2.startedDate
                                         )}
                                       >
                                         {niceTime(
-                                          item.startedDate,
+                                          item2.startedDate,
                                           "Asia/Dhaka"
                                         )}
                                       </span>
                                     </td>
                                     <td>
-                                      {" "}
-                                      {dayDecision(item.startedDate) ? (
+                                      {dayDecision(item2.startedDate) ? (
                                         <div className="flex justify-between gap-4">
                                           <button
                                             onClick={() =>
-                                              openPDF(item.examQuestion)
+                                              openPDF(item2.examQuestion)
                                             }
                                             className={
-                                              "cursor-pointer p-1 bg-blue-300 text-white w-full"
+                                              "cursor-pointer p-1 bg-blue-700 text-white w-full"
                                             }
                                           >
                                             Open
@@ -573,7 +596,7 @@ function UploadExamStudent() {
 
                                           <button
                                             onClick={() =>
-                                              downloadPDF(item.examQuestion)
+                                              downloadPDF(item2.examQuestion)
                                             }
                                             className="cursor-pointer p-1 bg-red-500 text-white w-full"
                                           >
@@ -582,12 +605,98 @@ function UploadExamStudent() {
                                         </div>
                                       ) : (
                                         <div
+                                          style={{ animationDuration: "3s" }}
                                           className={colorDecisionButton(
-                                            item.startedDate
+                                            item2.startedDate
                                           )}
                                         >
                                           upcoming
                                         </div>
+                                      )}
+                                    </td>
+                                    <td>
+                                      {dayDecision(item2.startedDate) ? (
+                                        <>
+                                          <div className="flex justify-between gap-4">
+                                            <input
+                                              onChange={fileChangeHandler}
+                                              type="file"
+                                              id="fileInput"
+                                              accept="application/pdf"
+                                              style={{ display: "none" }}
+                                            />
+                                            <label
+                                              htmlFor="fileInput"
+                                              className="cursor-pointer p-1 bg-yellow-700 text-white w-full rounded-lg"
+                                            >
+                                              Choose
+                                            </label>
+
+                                            {showUpload && (
+                                              <button
+                                                onClick={() =>
+                                                  submitExamSheet(
+                                                    item._id,
+                                                    item2._id,
+                                                    item2.examType
+                                                  )
+                                                }
+                                                className="cursor-pointer p-1 bg-purple-500 text-white w-full rounded-lg"
+                                              >
+                                                Upload
+                                              </button>
+                                            )}
+
+                                            {!showUpload && (
+                                              <button className="p-1 bg-red-500 text-white w-full">
+                                                <span className="animate__animated animate__infinite animate__flash">
+                                                  Uploading
+                                                </span>
+                                              </button>
+                                            )}
+                                          </div>
+
+                                          {checkAnswerSheet(
+                                            item._id,
+                                            item2._id
+                                          ) ? (
+                                            <div className="mt-5 flex justify-between gap-4">
+                                              <button
+                                                onClick={() =>
+                                                  openPDF(
+                                                    checkAnswerSheet(
+                                                      item._id,
+                                                      item2._id
+                                                    )
+                                                  )
+                                                }
+                                                className={
+                                                  "cursor-pointer p-1 bg-blue-700 text-white w-full rounded-lg"
+                                                }
+                                              >
+                                                Open
+                                              </button>
+
+                                              <button
+                                                onClick={() =>
+                                                  downloadPDF(
+                                                    checkAnswerSheet(
+                                                      item._id,
+                                                      item2._id
+                                                    )
+                                                  )
+                                                }
+                                                className="cursor-pointer p-1 bg-red-500 text-white w-full rounded-lg"
+                                              >
+                                                Download
+                                              </button>
+                                            </div>
+                                          ) : (
+                                            ""
+                                          )}
+                                        </>
+                                      ) : (
+                                        ""
                                       )}
                                     </td>
                                   </tr>
@@ -595,6 +704,22 @@ function UploadExamStudent() {
                               </tbody>
                             </table>
                           </div>
+                        </div>
+
+                        <div className="bg-slate-900 text-slate-100 p-2 text-center text-xs md:text-lg rounded-lg">
+                          <marquee>
+                            খাতা অবশ্যই পিডিএফ (.pdf) ফাইল হতে হবে ।
+                            "camscanner" সফটওয়ারটির ডাউনলোড করতে নিচের বাটনটি
+                            চাপুন। "camscanner" মোবাইল এপ ব্যাবহার করে আপনার
+                            সম্পুর্ণ খাতার পেইজ এক এক করে স্ক্যান করবেন, অতঃপর
+                            খাতাটি পিডিএফ হিসেবে সেইভ করবেন । সেই পিডিএফটি
+                            আপনারা এখানে আপলোড করতে পারেন।
+                          </marquee>
+                          <a href="https://play.google.com/store/apps/details?id=com.intsig.camscanner">
+                            <span className="p-[1px] bg-white text-slate-800 cursor-pointer rounded-md">
+                              Download Now{" "}
+                            </span>
+                          </a>
                         </div>
                       </div>
                     );
@@ -607,10 +732,10 @@ function UploadExamStudent() {
 
         {courseState.prealemalema && (
           <>
-            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-xl w-[40%] mx-auto rounded-lg">
-              প্রি/ফরজে আইন আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
+            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-lg md:text-xl w-[95%] md:w-[40%] mx-auto rounded-lg">
+              আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
             </h2>
-            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-4 mt-10">
+            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5 md:gap-4 mt-10">
               {classes
                 .filter(
                   (item) =>
@@ -629,7 +754,7 @@ function UploadExamStudent() {
                         key={i}
                         className="shadow-md p-5 border-[1px] border-slate-200 bg-white text-xs md:text-lg rounded-md font-extrabold"
                       >
-                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg">
+                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg text-sm xl:text-2xl">
                           <p> classID: {item.classID} </p>
                           <p>
                             {" "}
@@ -645,16 +770,17 @@ function UploadExamStudent() {
                                   <th>পরীক্ষার নাম</th>
                                   <th>পরীক্ষার সময়</th>
                                   <th>পরীক্ষার প্রশ্ন</th>
+                                  <th>খাতা আপলোড</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                {item.examQuestion.map((item, i2) => (
+                                {item.examQuestion.map((item2, i2) => (
                                   <tr key={i2}>
-                                    <td>{item.examType}</td>
+                                    <td>{item2.examType}</td>
                                     <td>
                                       <span className="text-xs md:text-2xl">
                                         {niceDate(
-                                          item.startedDate,
+                                          item2.startedDate,
                                           "Asia/Dhaka"
                                         )}
                                       </span>
@@ -667,25 +793,24 @@ function UploadExamStudent() {
                                           display: "block",
                                         }}
                                         className={colorDecision(
-                                          item.startedDate
+                                          item2.startedDate
                                         )}
                                       >
                                         {niceTime(
-                                          item.startedDate,
+                                          item2.startedDate,
                                           "Asia/Dhaka"
                                         )}
                                       </span>
                                     </td>
                                     <td>
-                                      {" "}
-                                      {dayDecision(item.startedDate) ? (
+                                      {dayDecision(item2.startedDate) ? (
                                         <div className="flex justify-between gap-4">
                                           <button
                                             onClick={() =>
-                                              openPDF(item.examQuestion)
+                                              openPDF(item2.examQuestion)
                                             }
                                             className={
-                                              "cursor-pointer p-1 bg-blue-300 text-white w-full"
+                                              "cursor-pointer p-1 bg-blue-700 text-white w-full"
                                             }
                                           >
                                             Open
@@ -693,7 +818,7 @@ function UploadExamStudent() {
 
                                           <button
                                             onClick={() =>
-                                              downloadPDF(item.examQuestion)
+                                              downloadPDF(item2.examQuestion)
                                             }
                                             className="cursor-pointer p-1 bg-red-500 text-white w-full"
                                           >
@@ -702,12 +827,98 @@ function UploadExamStudent() {
                                         </div>
                                       ) : (
                                         <div
+                                          style={{ animationDuration: "3s" }}
                                           className={colorDecisionButton(
-                                            item.startedDate
+                                            item2.startedDate
                                           )}
                                         >
                                           upcoming
                                         </div>
+                                      )}
+                                    </td>
+                                    <td>
+                                      {dayDecision(item2.startedDate) ? (
+                                        <>
+                                          <div className="flex justify-between gap-4">
+                                            <input
+                                              onChange={fileChangeHandler}
+                                              type="file"
+                                              id="fileInput"
+                                              accept="application/pdf"
+                                              style={{ display: "none" }}
+                                            />
+                                            <label
+                                              htmlFor="fileInput"
+                                              className="cursor-pointer p-1 bg-yellow-700 text-white w-full rounded-lg"
+                                            >
+                                              Choose
+                                            </label>
+
+                                            {showUpload && (
+                                              <button
+                                                onClick={() =>
+                                                  submitExamSheet(
+                                                    item._id,
+                                                    item2._id,
+                                                    item2.examType
+                                                  )
+                                                }
+                                                className="cursor-pointer p-1 bg-purple-500 text-white w-full rounded-lg"
+                                              >
+                                                Upload
+                                              </button>
+                                            )}
+
+                                            {!showUpload && (
+                                              <button className="p-1 bg-red-500 text-white w-full">
+                                                <span className="animate__animated animate__infinite animate__flash">
+                                                  Uploading
+                                                </span>
+                                              </button>
+                                            )}
+                                          </div>
+
+                                          {checkAnswerSheet(
+                                            item._id,
+                                            item2._id
+                                          ) ? (
+                                            <div className="mt-5 flex justify-between gap-4">
+                                              <button
+                                                onClick={() =>
+                                                  openPDF(
+                                                    checkAnswerSheet(
+                                                      item._id,
+                                                      item2._id
+                                                    )
+                                                  )
+                                                }
+                                                className={
+                                                  "cursor-pointer p-1 bg-blue-700 text-white w-full rounded-lg"
+                                                }
+                                              >
+                                                Open
+                                              </button>
+
+                                              <button
+                                                onClick={() =>
+                                                  downloadPDF(
+                                                    checkAnswerSheet(
+                                                      item._id,
+                                                      item2._id
+                                                    )
+                                                  )
+                                                }
+                                                className="cursor-pointer p-1 bg-red-500 text-white w-full rounded-lg"
+                                              >
+                                                Download
+                                              </button>
+                                            </div>
+                                          ) : (
+                                            ""
+                                          )}
+                                        </>
+                                      ) : (
+                                        ""
                                       )}
                                     </td>
                                   </tr>
@@ -715,6 +926,22 @@ function UploadExamStudent() {
                               </tbody>
                             </table>
                           </div>
+                        </div>
+
+                        <div className="bg-slate-900 text-slate-100 p-2 text-center text-xs md:text-lg rounded-lg">
+                          <marquee>
+                            খাতা অবশ্যই পিডিএফ (.pdf) ফাইল হতে হবে ।
+                            "camscanner" সফটওয়ারটির ডাউনলোড করতে নিচের বাটনটি
+                            চাপুন। "camscanner" মোবাইল এপ ব্যাবহার করে আপনার
+                            সম্পুর্ণ খাতার পেইজ এক এক করে স্ক্যান করবেন, অতঃপর
+                            খাতাটি পিডিএফ হিসেবে সেইভ করবেন । সেই পিডিএফটি
+                            আপনারা এখানে আপলোড করতে পারেন।
+                          </marquee>
+                          <a href="https://play.google.com/store/apps/details?id=com.intsig.camscanner">
+                            <span className="p-[1px] bg-white text-slate-800 cursor-pointer rounded-md">
+                              Download Now{" "}
+                            </span>
+                          </a>
                         </div>
                       </div>
                     );
@@ -727,10 +954,10 @@ function UploadExamStudent() {
 
         {courseState.abacus_student && (
           <>
-            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-xl w-[40%] mx-auto rounded-lg">
-              অ্যাবাকাস স্টুডেন্ট ক্লাসের পরীক্ষাসমূহ
+            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-lg md:text-xl w-[95%] md:w-[40%] mx-auto rounded-lg">
+              আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
             </h2>
-            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-4 mt-10">
+            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5 md:gap-4 mt-10">
               {classes
                 .filter(
                   (item) =>
@@ -747,7 +974,7 @@ function UploadExamStudent() {
                         key={i}
                         className="shadow-md p-5 border-[1px] border-slate-200 bg-white text-xs md:text-lg rounded-md font-extrabold"
                       >
-                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg">
+                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg text-sm xl:text-2xl">
                           <p> classID: {item.classID} </p>
                           <p>
                             {" "}
@@ -763,16 +990,17 @@ function UploadExamStudent() {
                                   <th>পরীক্ষার নাম</th>
                                   <th>পরীক্ষার সময়</th>
                                   <th>পরীক্ষার প্রশ্ন</th>
+                                  <th>খাতা আপলোড</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                {item.examQuestion.map((item, i2) => (
+                                {item.examQuestion.map((item2, i2) => (
                                   <tr key={i2}>
-                                    <td>{item.examType}</td>
+                                    <td>{item2.examType}</td>
                                     <td>
                                       <span className="text-xs md:text-2xl">
                                         {niceDate(
-                                          item.startedDate,
+                                          item2.startedDate,
                                           "Asia/Dhaka"
                                         )}
                                       </span>
@@ -785,25 +1013,24 @@ function UploadExamStudent() {
                                           display: "block",
                                         }}
                                         className={colorDecision(
-                                          item.startedDate
+                                          item2.startedDate
                                         )}
                                       >
                                         {niceTime(
-                                          item.startedDate,
+                                          item2.startedDate,
                                           "Asia/Dhaka"
                                         )}
                                       </span>
                                     </td>
                                     <td>
-                                      {" "}
-                                      {dayDecision(item.startedDate) ? (
+                                      {dayDecision(item2.startedDate) ? (
                                         <div className="flex justify-between gap-4">
                                           <button
                                             onClick={() =>
-                                              openPDF(item.examQuestion)
+                                              openPDF(item2.examQuestion)
                                             }
                                             className={
-                                              "cursor-pointer p-1 bg-blue-300 text-white w-full"
+                                              "cursor-pointer p-1 bg-blue-700 text-white w-full"
                                             }
                                           >
                                             Open
@@ -811,7 +1038,7 @@ function UploadExamStudent() {
 
                                           <button
                                             onClick={() =>
-                                              downloadPDF(item.examQuestion)
+                                              downloadPDF(item2.examQuestion)
                                             }
                                             className="cursor-pointer p-1 bg-red-500 text-white w-full"
                                           >
@@ -820,12 +1047,98 @@ function UploadExamStudent() {
                                         </div>
                                       ) : (
                                         <div
+                                          style={{ animationDuration: "3s" }}
                                           className={colorDecisionButton(
-                                            item.startedDate
+                                            item2.startedDate
                                           )}
                                         >
                                           upcoming
                                         </div>
+                                      )}
+                                    </td>
+                                    <td>
+                                      {dayDecision(item2.startedDate) ? (
+                                        <>
+                                          <div className="flex justify-between gap-4">
+                                            <input
+                                              onChange={fileChangeHandler}
+                                              type="file"
+                                              id="fileInput"
+                                              accept="application/pdf"
+                                              style={{ display: "none" }}
+                                            />
+                                            <label
+                                              htmlFor="fileInput"
+                                              className="cursor-pointer p-1 bg-yellow-700 text-white w-full rounded-lg"
+                                            >
+                                              Choose
+                                            </label>
+
+                                            {showUpload && (
+                                              <button
+                                                onClick={() =>
+                                                  submitExamSheet(
+                                                    item._id,
+                                                    item2._id,
+                                                    item2.examType
+                                                  )
+                                                }
+                                                className="cursor-pointer p-1 bg-purple-500 text-white w-full rounded-lg"
+                                              >
+                                                Upload
+                                              </button>
+                                            )}
+
+                                            {!showUpload && (
+                                              <button className="p-1 bg-red-500 text-white w-full">
+                                                <span className="animate__animated animate__infinite animate__flash">
+                                                  Uploading
+                                                </span>
+                                              </button>
+                                            )}
+                                          </div>
+
+                                          {checkAnswerSheet(
+                                            item._id,
+                                            item2._id
+                                          ) ? (
+                                            <div className="mt-5 flex justify-between gap-4">
+                                              <button
+                                                onClick={() =>
+                                                  openPDF(
+                                                    checkAnswerSheet(
+                                                      item._id,
+                                                      item2._id
+                                                    )
+                                                  )
+                                                }
+                                                className={
+                                                  "cursor-pointer p-1 bg-blue-700 text-white w-full rounded-lg"
+                                                }
+                                              >
+                                                Open
+                                              </button>
+
+                                              <button
+                                                onClick={() =>
+                                                  downloadPDF(
+                                                    checkAnswerSheet(
+                                                      item._id,
+                                                      item2._id
+                                                    )
+                                                  )
+                                                }
+                                                className="cursor-pointer p-1 bg-red-500 text-white w-full rounded-lg"
+                                              >
+                                                Download
+                                              </button>
+                                            </div>
+                                          ) : (
+                                            ""
+                                          )}
+                                        </>
+                                      ) : (
+                                        ""
                                       )}
                                     </td>
                                   </tr>
@@ -833,6 +1146,22 @@ function UploadExamStudent() {
                               </tbody>
                             </table>
                           </div>
+                        </div>
+
+                        <div className="bg-slate-900 text-slate-100 p-2 text-center text-xs md:text-lg rounded-lg">
+                          <marquee>
+                            খাতা অবশ্যই পিডিএফ (.pdf) ফাইল হতে হবে ।
+                            "camscanner" সফটওয়ারটির ডাউনলোড করতে নিচের বাটনটি
+                            চাপুন। "camscanner" মোবাইল এপ ব্যাবহার করে আপনার
+                            সম্পুর্ণ খাতার পেইজ এক এক করে স্ক্যান করবেন, অতঃপর
+                            খাতাটি পিডিএফ হিসেবে সেইভ করবেন । সেই পিডিএফটি
+                            আপনারা এখানে আপলোড করতে পারেন।
+                          </marquee>
+                          <a href="https://play.google.com/store/apps/details?id=com.intsig.camscanner">
+                            <span className="p-[1px] bg-white text-slate-800 cursor-pointer rounded-md">
+                              Download Now{" "}
+                            </span>
+                          </a>
                         </div>
                       </div>
                     );
@@ -845,10 +1174,10 @@ function UploadExamStudent() {
 
         {courseState.shishumaktab && (
           <>
-            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-xl w-[40%] mx-auto rounded-lg">
-              শিশু মক্তব ক্লাসের পরীক্ষাসমূহ
+            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-lg md:text-xl w-[95%] md:w-[40%] mx-auto rounded-lg">
+              আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
             </h2>
-            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-4 mt-10">
+            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5 md:gap-4 mt-10">
               {classes
                 .filter(
                   (item) =>
@@ -865,7 +1194,7 @@ function UploadExamStudent() {
                         key={i}
                         className="shadow-md p-5 border-[1px] border-slate-200 bg-white text-xs md:text-lg rounded-md font-extrabold"
                       >
-                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg">
+                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg text-sm xl:text-2xl">
                           <p> classID: {item.classID} </p>
                           <p>
                             {" "}
@@ -881,16 +1210,17 @@ function UploadExamStudent() {
                                   <th>পরীক্ষার নাম</th>
                                   <th>পরীক্ষার সময়</th>
                                   <th>পরীক্ষার প্রশ্ন</th>
+                                  <th>খাতা আপলোড</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                {item.examQuestion.map((item, i2) => (
+                                {item.examQuestion.map((item2, i2) => (
                                   <tr key={i2}>
-                                    <td>{item.examType}</td>
+                                    <td>{item2.examType}</td>
                                     <td>
                                       <span className="text-xs md:text-2xl">
                                         {niceDate(
-                                          item.startedDate,
+                                          item2.startedDate,
                                           "Asia/Dhaka"
                                         )}
                                       </span>
@@ -903,25 +1233,24 @@ function UploadExamStudent() {
                                           display: "block",
                                         }}
                                         className={colorDecision(
-                                          item.startedDate
+                                          item2.startedDate
                                         )}
                                       >
                                         {niceTime(
-                                          item.startedDate,
+                                          item2.startedDate,
                                           "Asia/Dhaka"
                                         )}
                                       </span>
                                     </td>
                                     <td>
-                                      {" "}
-                                      {dayDecision(item.startedDate) ? (
+                                      {dayDecision(item2.startedDate) ? (
                                         <div className="flex justify-between gap-4">
                                           <button
                                             onClick={() =>
-                                              openPDF(item.examQuestion)
+                                              openPDF(item2.examQuestion)
                                             }
                                             className={
-                                              "cursor-pointer p-1 bg-blue-300 text-white w-full"
+                                              "cursor-pointer p-1 bg-blue-700 text-white w-full"
                                             }
                                           >
                                             Open
@@ -929,7 +1258,7 @@ function UploadExamStudent() {
 
                                           <button
                                             onClick={() =>
-                                              downloadPDF(item.examQuestion)
+                                              downloadPDF(item2.examQuestion)
                                             }
                                             className="cursor-pointer p-1 bg-red-500 text-white w-full"
                                           >
@@ -938,12 +1267,98 @@ function UploadExamStudent() {
                                         </div>
                                       ) : (
                                         <div
+                                          style={{ animationDuration: "3s" }}
                                           className={colorDecisionButton(
-                                            item.startedDate
+                                            item2.startedDate
                                           )}
                                         >
                                           upcoming
                                         </div>
+                                      )}
+                                    </td>
+                                    <td>
+                                      {dayDecision(item2.startedDate) ? (
+                                        <>
+                                          <div className="flex justify-between gap-4">
+                                            <input
+                                              onChange={fileChangeHandler}
+                                              type="file"
+                                              id="fileInput"
+                                              accept="application/pdf"
+                                              style={{ display: "none" }}
+                                            />
+                                            <label
+                                              htmlFor="fileInput"
+                                              className="cursor-pointer p-1 bg-yellow-700 text-white w-full rounded-lg"
+                                            >
+                                              Choose
+                                            </label>
+
+                                            {showUpload && (
+                                              <button
+                                                onClick={() =>
+                                                  submitExamSheet(
+                                                    item._id,
+                                                    item2._id,
+                                                    item2.examType
+                                                  )
+                                                }
+                                                className="cursor-pointer p-1 bg-purple-500 text-white w-full rounded-lg"
+                                              >
+                                                Upload
+                                              </button>
+                                            )}
+
+                                            {!showUpload && (
+                                              <button className="p-1 bg-red-500 text-white w-full">
+                                                <span className="animate__animated animate__infinite animate__flash">
+                                                  Uploading
+                                                </span>
+                                              </button>
+                                            )}
+                                          </div>
+
+                                          {checkAnswerSheet(
+                                            item._id,
+                                            item2._id
+                                          ) ? (
+                                            <div className="mt-5 flex justify-between gap-4">
+                                              <button
+                                                onClick={() =>
+                                                  openPDF(
+                                                    checkAnswerSheet(
+                                                      item._id,
+                                                      item2._id
+                                                    )
+                                                  )
+                                                }
+                                                className={
+                                                  "cursor-pointer p-1 bg-blue-700 text-white w-full rounded-lg"
+                                                }
+                                              >
+                                                Open
+                                              </button>
+
+                                              <button
+                                                onClick={() =>
+                                                  downloadPDF(
+                                                    checkAnswerSheet(
+                                                      item._id,
+                                                      item2._id
+                                                    )
+                                                  )
+                                                }
+                                                className="cursor-pointer p-1 bg-red-500 text-white w-full rounded-lg"
+                                              >
+                                                Download
+                                              </button>
+                                            </div>
+                                          ) : (
+                                            ""
+                                          )}
+                                        </>
+                                      ) : (
+                                        ""
                                       )}
                                     </td>
                                   </tr>
@@ -951,6 +1366,22 @@ function UploadExamStudent() {
                               </tbody>
                             </table>
                           </div>
+                        </div>
+
+                        <div className="bg-slate-900 text-slate-100 p-2 text-center text-xs md:text-lg rounded-lg">
+                          <marquee>
+                            খাতা অবশ্যই পিডিএফ (.pdf) ফাইল হতে হবে ।
+                            "camscanner" সফটওয়ারটির ডাউনলোড করতে নিচের বাটনটি
+                            চাপুন। "camscanner" মোবাইল এপ ব্যাবহার করে আপনার
+                            সম্পুর্ণ খাতার পেইজ এক এক করে স্ক্যান করবেন, অতঃপর
+                            খাতাটি পিডিএফ হিসেবে সেইভ করবেন । সেই পিডিএফটি
+                            আপনারা এখানে আপলোড করতে পারেন।
+                          </marquee>
+                          <a href="https://play.google.com/store/apps/details?id=com.intsig.camscanner">
+                            <span className="p-[1px] bg-white text-slate-800 cursor-pointer rounded-md">
+                              Download Now{" "}
+                            </span>
+                          </a>
                         </div>
                       </div>
                     );
@@ -963,10 +1394,10 @@ function UploadExamStudent() {
 
         {courseState.farzeayinnajera && (
           <>
-            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-xl w-[40%] mx-auto rounded-lg">
-              প্রি-হিফজ/নাজেরা ক্লাসের পরীক্ষাসমূহ
+            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-lg md:text-xl w-[95%] md:w-[40%] mx-auto rounded-lg">
+              আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
             </h2>
-            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-4 mt-10">
+            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5 md:gap-4 mt-10">
               {classes
                 .filter(
                   (item) =>
@@ -983,7 +1414,7 @@ function UploadExamStudent() {
                         key={i}
                         className="shadow-md p-5 border-[1px] border-slate-200 bg-white text-xs md:text-lg rounded-md font-extrabold"
                       >
-                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg">
+                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg text-sm xl:text-2xl">
                           <p> classID: {item.classID} </p>
                           <p>
                             {" "}
@@ -999,16 +1430,17 @@ function UploadExamStudent() {
                                   <th>পরীক্ষার নাম</th>
                                   <th>পরীক্ষার সময়</th>
                                   <th>পরীক্ষার প্রশ্ন</th>
+                                  <th>খাতা আপলোড</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                {item.examQuestion.map((item, i2) => (
+                                {item.examQuestion.map((item2, i2) => (
                                   <tr key={i2}>
-                                    <td>{item.examType}</td>
+                                    <td>{item2.examType}</td>
                                     <td>
                                       <span className="text-xs md:text-2xl">
                                         {niceDate(
-                                          item.startedDate,
+                                          item2.startedDate,
                                           "Asia/Dhaka"
                                         )}
                                       </span>
@@ -1021,25 +1453,24 @@ function UploadExamStudent() {
                                           display: "block",
                                         }}
                                         className={colorDecision(
-                                          item.startedDate
+                                          item2.startedDate
                                         )}
                                       >
                                         {niceTime(
-                                          item.startedDate,
+                                          item2.startedDate,
                                           "Asia/Dhaka"
                                         )}
                                       </span>
                                     </td>
                                     <td>
-                                      {" "}
-                                      {dayDecision(item.startedDate) ? (
+                                      {dayDecision(item2.startedDate) ? (
                                         <div className="flex justify-between gap-4">
                                           <button
                                             onClick={() =>
-                                              openPDF(item.examQuestion)
+                                              openPDF(item2.examQuestion)
                                             }
                                             className={
-                                              "cursor-pointer p-1 bg-blue-300 text-white w-full"
+                                              "cursor-pointer p-1 bg-blue-700 text-white w-full"
                                             }
                                           >
                                             Open
@@ -1047,7 +1478,7 @@ function UploadExamStudent() {
 
                                           <button
                                             onClick={() =>
-                                              downloadPDF(item.examQuestion)
+                                              downloadPDF(item2.examQuestion)
                                             }
                                             className="cursor-pointer p-1 bg-red-500 text-white w-full"
                                           >
@@ -1056,12 +1487,98 @@ function UploadExamStudent() {
                                         </div>
                                       ) : (
                                         <div
+                                          style={{ animationDuration: "3s" }}
                                           className={colorDecisionButton(
-                                            item.startedDate
+                                            item2.startedDate
                                           )}
                                         >
                                           upcoming
                                         </div>
+                                      )}
+                                    </td>
+                                    <td>
+                                      {dayDecision(item2.startedDate) ? (
+                                        <>
+                                          <div className="flex justify-between gap-4">
+                                            <input
+                                              onChange={fileChangeHandler}
+                                              type="file"
+                                              id="fileInput"
+                                              accept="application/pdf"
+                                              style={{ display: "none" }}
+                                            />
+                                            <label
+                                              htmlFor="fileInput"
+                                              className="cursor-pointer p-1 bg-yellow-700 text-white w-full rounded-lg"
+                                            >
+                                              Choose
+                                            </label>
+
+                                            {showUpload && (
+                                              <button
+                                                onClick={() =>
+                                                  submitExamSheet(
+                                                    item._id,
+                                                    item2._id,
+                                                    item2.examType
+                                                  )
+                                                }
+                                                className="cursor-pointer p-1 bg-purple-500 text-white w-full rounded-lg"
+                                              >
+                                                Upload
+                                              </button>
+                                            )}
+
+                                            {!showUpload && (
+                                              <button className="p-1 bg-red-500 text-white w-full">
+                                                <span className="animate__animated animate__infinite animate__flash">
+                                                  Uploading
+                                                </span>
+                                              </button>
+                                            )}
+                                          </div>
+
+                                          {checkAnswerSheet(
+                                            item._id,
+                                            item2._id
+                                          ) ? (
+                                            <div className="mt-5 flex justify-between gap-4">
+                                              <button
+                                                onClick={() =>
+                                                  openPDF(
+                                                    checkAnswerSheet(
+                                                      item._id,
+                                                      item2._id
+                                                    )
+                                                  )
+                                                }
+                                                className={
+                                                  "cursor-pointer p-1 bg-blue-700 text-white w-full rounded-lg"
+                                                }
+                                              >
+                                                Open
+                                              </button>
+
+                                              <button
+                                                onClick={() =>
+                                                  downloadPDF(
+                                                    checkAnswerSheet(
+                                                      item._id,
+                                                      item2._id
+                                                    )
+                                                  )
+                                                }
+                                                className="cursor-pointer p-1 bg-red-500 text-white w-full rounded-lg"
+                                              >
+                                                Download
+                                              </button>
+                                            </div>
+                                          ) : (
+                                            ""
+                                          )}
+                                        </>
+                                      ) : (
+                                        ""
                                       )}
                                     </td>
                                   </tr>
@@ -1069,6 +1586,22 @@ function UploadExamStudent() {
                               </tbody>
                             </table>
                           </div>
+                        </div>
+
+                        <div className="bg-slate-900 text-slate-100 p-2 text-center text-xs md:text-lg rounded-lg">
+                          <marquee>
+                            খাতা অবশ্যই পিডিএফ (.pdf) ফাইল হতে হবে ।
+                            "camscanner" সফটওয়ারটির ডাউনলোড করতে নিচের বাটনটি
+                            চাপুন। "camscanner" মোবাইল এপ ব্যাবহার করে আপনার
+                            সম্পুর্ণ খাতার পেইজ এক এক করে স্ক্যান করবেন, অতঃপর
+                            খাতাটি পিডিএফ হিসেবে সেইভ করবেন । সেই পিডিএফটি
+                            আপনারা এখানে আপলোড করতে পারেন।
+                          </marquee>
+                          <a href="https://play.google.com/store/apps/details?id=com.intsig.camscanner">
+                            <span className="p-[1px] bg-white text-slate-800 cursor-pointer rounded-md">
+                              Download Now{" "}
+                            </span>
+                          </a>
                         </div>
                       </div>
                     );
@@ -1081,10 +1614,10 @@ function UploadExamStudent() {
 
         {courseState.ramadanquranulkarim && (
           <>
-            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-xl w-[40%] mx-auto rounded-lg">
-              কুরআনুল কারীম ক্লাসের পরীক্ষাসমূহ
+            <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-lg md:text-xl w-[95%] md:w-[40%] mx-auto rounded-lg">
+              আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
             </h2>
-            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-4 mt-10">
+            <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5 md:gap-4 mt-10">
               {classes
                 .filter(
                   (item) =>
@@ -1101,7 +1634,7 @@ function UploadExamStudent() {
                         key={i}
                         className="shadow-md p-5 border-[1px] border-slate-200 bg-white text-xs md:text-lg rounded-md font-extrabold"
                       >
-                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg">
+                        <div className="w-[75%] md:w-[60%] mx-auto border-[1px] border-slate-300 p-4 rounded-lg text-sm xl:text-2xl">
                           <p> classID: {item.classID} </p>
                           <p>
                             {" "}
@@ -1117,16 +1650,17 @@ function UploadExamStudent() {
                                   <th>পরীক্ষার নাম</th>
                                   <th>পরীক্ষার সময়</th>
                                   <th>পরীক্ষার প্রশ্ন</th>
+                                  <th>খাতা আপলোড</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                {item.examQuestion.map((item, i2) => (
+                                {item.examQuestion.map((item2, i2) => (
                                   <tr key={i2}>
-                                    <td>{item.examType}</td>
+                                    <td>{item2.examType}</td>
                                     <td>
                                       <span className="text-xs md:text-2xl">
                                         {niceDate(
-                                          item.startedDate,
+                                          item2.startedDate,
                                           "Asia/Dhaka"
                                         )}
                                       </span>
@@ -1139,25 +1673,24 @@ function UploadExamStudent() {
                                           display: "block",
                                         }}
                                         className={colorDecision(
-                                          item.startedDate
+                                          item2.startedDate
                                         )}
                                       >
                                         {niceTime(
-                                          item.startedDate,
+                                          item2.startedDate,
                                           "Asia/Dhaka"
                                         )}
                                       </span>
                                     </td>
                                     <td>
-                                      {" "}
-                                      {dayDecision(item.startedDate) ? (
+                                      {dayDecision(item2.startedDate) ? (
                                         <div className="flex justify-between gap-4">
                                           <button
                                             onClick={() =>
-                                              openPDF(item.examQuestion)
+                                              openPDF(item2.examQuestion)
                                             }
                                             className={
-                                              "cursor-pointer p-1 bg-blue-300 text-white w-full"
+                                              "cursor-pointer p-1 bg-blue-700 text-white w-full"
                                             }
                                           >
                                             Open
@@ -1165,7 +1698,7 @@ function UploadExamStudent() {
 
                                           <button
                                             onClick={() =>
-                                              downloadPDF(item.examQuestion)
+                                              downloadPDF(item2.examQuestion)
                                             }
                                             className="cursor-pointer p-1 bg-red-500 text-white w-full"
                                           >
@@ -1174,12 +1707,98 @@ function UploadExamStudent() {
                                         </div>
                                       ) : (
                                         <div
+                                          style={{ animationDuration: "3s" }}
                                           className={colorDecisionButton(
-                                            item.startedDate
+                                            item2.startedDate
                                           )}
                                         >
                                           upcoming
                                         </div>
+                                      )}
+                                    </td>
+                                    <td>
+                                      {dayDecision(item2.startedDate) ? (
+                                        <>
+                                          <div className="flex justify-between gap-4">
+                                            <input
+                                              onChange={fileChangeHandler}
+                                              type="file"
+                                              id="fileInput"
+                                              accept="application/pdf"
+                                              style={{ display: "none" }}
+                                            />
+                                            <label
+                                              htmlFor="fileInput"
+                                              className="cursor-pointer p-1 bg-yellow-700 text-white w-full rounded-lg"
+                                            >
+                                              Choose
+                                            </label>
+
+                                            {showUpload && (
+                                              <button
+                                                onClick={() =>
+                                                  submitExamSheet(
+                                                    item._id,
+                                                    item2._id,
+                                                    item2.examType
+                                                  )
+                                                }
+                                                className="cursor-pointer p-1 bg-purple-500 text-white w-full rounded-lg"
+                                              >
+                                                Upload
+                                              </button>
+                                            )}
+
+                                            {!showUpload && (
+                                              <button className="p-1 bg-red-500 text-white w-full">
+                                                <span className="animate__animated animate__infinite animate__flash">
+                                                  Uploading
+                                                </span>
+                                              </button>
+                                            )}
+                                          </div>
+
+                                          {checkAnswerSheet(
+                                            item._id,
+                                            item2._id
+                                          ) ? (
+                                            <div className="mt-5 flex justify-between gap-4">
+                                              <button
+                                                onClick={() =>
+                                                  openPDF(
+                                                    checkAnswerSheet(
+                                                      item._id,
+                                                      item2._id
+                                                    )
+                                                  )
+                                                }
+                                                className={
+                                                  "cursor-pointer p-1 bg-blue-700 text-white w-full rounded-lg"
+                                                }
+                                              >
+                                                Open
+                                              </button>
+
+                                              <button
+                                                onClick={() =>
+                                                  downloadPDF(
+                                                    checkAnswerSheet(
+                                                      item._id,
+                                                      item2._id
+                                                    )
+                                                  )
+                                                }
+                                                className="cursor-pointer p-1 bg-red-500 text-white w-full rounded-lg"
+                                              >
+                                                Download
+                                              </button>
+                                            </div>
+                                          ) : (
+                                            ""
+                                          )}
+                                        </>
+                                      ) : (
+                                        ""
                                       )}
                                     </td>
                                   </tr>
@@ -1187,6 +1806,22 @@ function UploadExamStudent() {
                               </tbody>
                             </table>
                           </div>
+                        </div>
+
+                        <div className="bg-slate-900 text-slate-100 p-2 text-center text-xs md:text-lg rounded-lg">
+                          <marquee>
+                            খাতা অবশ্যই পিডিএফ (.pdf) ফাইল হতে হবে ।
+                            "camscanner" সফটওয়ারটির ডাউনলোড করতে নিচের বাটনটি
+                            চাপুন। "camscanner" মোবাইল এপ ব্যাবহার করে আপনার
+                            সম্পুর্ণ খাতার পেইজ এক এক করে স্ক্যান করবেন, অতঃপর
+                            খাতাটি পিডিএফ হিসেবে সেইভ করবেন । সেই পিডিএফটি
+                            আপনারা এখানে আপলোড করতে পারেন।
+                          </marquee>
+                          <a href="https://play.google.com/store/apps/details?id=com.intsig.camscanner">
+                            <span className="p-[1px] bg-white text-slate-800 cursor-pointer rounded-md">
+                              Download Now{" "}
+                            </span>
+                          </a>
                         </div>
                       </div>
                     );
