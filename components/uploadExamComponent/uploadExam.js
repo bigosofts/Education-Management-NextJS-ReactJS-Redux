@@ -512,7 +512,7 @@ function UploadExamStudent() {
         {courseState.schoolalemalema && (
           <>
             <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-lg md:text-xl w-[95%] md:w-[40%] mx-auto rounded-lg">
-              আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
+              স্কুল আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
             </h2>
             <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5 md:gap-4 mt-10">
               {classes
@@ -735,7 +735,7 @@ function UploadExamStudent() {
         {courseState.prealemalema && (
           <>
             <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-lg md:text-xl w-[95%] md:w-[40%] mx-auto rounded-lg">
-              আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
+              প্রি-আলেম আলেমা/ফরজে আইন ক্লাসের পরীক্ষাসমূহ
             </h2>
             <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5 md:gap-4 mt-10">
               {classes
@@ -958,7 +958,7 @@ function UploadExamStudent() {
         {courseState.abacus_student && (
           <>
             <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-lg md:text-xl w-[95%] md:w-[40%] mx-auto rounded-lg">
-              আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
+              অ্যাবাকাস স্টুডেন্ট ক্লাসের পরীক্ষাসমূহ
             </h2>
             <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5 md:gap-4 mt-10">
               {classes
@@ -1179,7 +1179,7 @@ function UploadExamStudent() {
         {courseState.shishumaktab && (
           <>
             <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-lg md:text-xl w-[95%] md:w-[40%] mx-auto rounded-lg">
-              আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
+              শিশু মক্তব ক্লাসের পরীক্ষাসমূহ
             </h2>
             <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5 md:gap-4 mt-10">
               {classes
@@ -1400,7 +1400,7 @@ function UploadExamStudent() {
         {courseState.farzeayinnajera && (
           <>
             <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-lg md:text-xl w-[95%] md:w-[40%] mx-auto rounded-lg">
-              আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
+              প্রি-হিফজ/নাজেরা ক্লাসের পরীক্ষাসমূহ
             </h2>
             <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5 md:gap-4 mt-10">
               {classes
@@ -1621,7 +1621,7 @@ function UploadExamStudent() {
         {courseState.ramadanquranulkarim && (
           <>
             <h2 className="p-4 mt-5 text-center border-[1px] border-slate-300 bg-green-800 text-white text-lg md:text-xl w-[95%] md:w-[40%] mx-auto rounded-lg">
-              আলেম আলেমা ক্লাসের পরীক্ষাসমূহ
+              কুরআনুল কারীম ক্লাসের পরীক্ষাসমূহ
             </h2>
             <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5 md:gap-4 mt-10">
               {classes
