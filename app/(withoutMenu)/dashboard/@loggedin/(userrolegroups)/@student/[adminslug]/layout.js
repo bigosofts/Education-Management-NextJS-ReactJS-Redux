@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import CommonMenu from "@/components/CommonMenu/CommonMenu";
 import SideDrawer from "@/components/Drawer/SideDrawer";
+import { fetchClasses } from "@/app/redux/features/classes/classesSlice";
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -522,6 +523,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -564,6 +566,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -618,6 +621,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -660,6 +664,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -714,6 +719,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -756,6 +762,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -810,6 +817,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -852,6 +860,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -906,6 +915,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -948,6 +958,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1002,6 +1013,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1044,6 +1056,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1098,6 +1111,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1140,6 +1154,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1194,6 +1209,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1236,6 +1252,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1290,6 +1307,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1332,6 +1350,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1386,6 +1405,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1428,6 +1448,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1482,6 +1503,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1524,6 +1546,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1578,6 +1601,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1620,6 +1644,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1674,6 +1699,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1716,6 +1742,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1770,6 +1797,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1812,6 +1840,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1866,6 +1895,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1908,6 +1938,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -1962,6 +1993,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2004,6 +2036,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2058,6 +2091,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2100,6 +2134,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2161,6 +2196,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2203,6 +2239,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2263,6 +2300,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2305,6 +2343,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2365,6 +2404,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2407,6 +2447,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2467,6 +2508,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2509,6 +2551,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2569,6 +2612,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2611,6 +2655,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2671,6 +2716,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2713,6 +2759,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2773,6 +2820,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2815,6 +2863,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2875,6 +2924,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2917,6 +2967,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -2977,6 +3028,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3019,6 +3071,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3079,6 +3132,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3121,6 +3175,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3181,6 +3236,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3223,6 +3279,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3283,6 +3340,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3325,6 +3383,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3385,6 +3444,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3427,6 +3487,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3487,6 +3548,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3529,6 +3591,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3589,6 +3652,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3631,6 +3695,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3691,6 +3756,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3733,6 +3799,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3793,6 +3860,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3835,6 +3903,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3895,6 +3964,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3937,6 +4007,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -3997,6 +4068,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4039,6 +4111,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4099,6 +4172,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4141,6 +4215,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4201,6 +4276,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4243,6 +4319,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4303,6 +4380,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4345,6 +4423,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4398,6 +4477,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4440,6 +4520,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4493,6 +4574,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4535,6 +4617,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4588,6 +4671,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4630,6 +4714,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4684,6 +4769,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4726,6 +4812,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4780,6 +4867,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
@@ -4822,6 +4910,7 @@ function StudentLayout({ children, params }) {
             });
 
             if (res5.status == "Alhamdulillah") {
+              dispatch(fetchClasses());
               console.log(
                 "Blank - A student record has been created inside " +
                   item.classID
