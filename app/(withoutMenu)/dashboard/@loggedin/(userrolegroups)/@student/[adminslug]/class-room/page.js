@@ -21,6 +21,7 @@ import PreAlemalemaMain from "@/components/dashboardPage/prealemalemapage/alemal
 
 function AbacusPage(props) {
   const data = useSelector((state) => state.isAdmin.value);
+  const studentsData = useSelector((state) => state.students.students);
 
   const [showPage, setShowPage] = useState();
   const [isAlemalema, setIsAlemalema] = useState();
@@ -66,11 +67,14 @@ function AbacusPage(props) {
 
   useEffect(() => {
     async function getData() {
-      const res = await selectDataTwo(
-        { userName: data.data.userDetails.userName },
-        null
-      );
-      if (res.status == "Alhamdulillah") {
+      let res = { data: null };
+      res.data =
+        studentsData &&
+        studentsData.filter(
+          (item) => item.userName == data.data.userDetails.userName
+        );
+
+      if (res.data.length > 0) {
         if (res.data[0].studentCourseCode.length > 0) {
           res.data[0].studentCourseCode.forEach((item, i) => {
             if (item.code == "alemalema" && item.status == "active") {
