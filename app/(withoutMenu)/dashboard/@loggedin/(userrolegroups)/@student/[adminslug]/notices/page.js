@@ -3,6 +3,7 @@
 import { useSelector } from "react-redux";
 
 import Loader from "@/customComponents/loader/Loader";
+import Link from "next/link";
 
 function BookPage() {
   const data = useSelector((state) => state.isAdmin.value);
@@ -33,7 +34,7 @@ function BookPage() {
         {notices.map((item, i) => (
           <div
             key={i}
-            className="w-full bg-lime-100 border-[1px] border-slate-300 rounded-3xl mb-5 overflow-hidden"
+            className="w-full bg-lime-100 border-[1px] border-slate-300 rounded-3xl mb-5 overflow-hidden pb-5"
           >
             <div className="flex justify-between text-lg text-slate-100 p-2 bg-green-900">
               <div className="w-full md:w-2/3 mx-auto text-center">
@@ -52,6 +53,15 @@ function BookPage() {
               <div className="w-full mx-auto my-5 px-1 text-sm md:text-2xl">
                 {item.text.bn ? item.text.bn : item.text.en}
               </div>
+
+              {item.link && (
+                <Link
+                  href={item.link}
+                  className="w-full mx-auto my-5 text-sm md:text-2xl cursor-pointer text-blue-200 bg-slate-900 px-4 py-1 rounded-lg"
+                >
+                  <i className="fa fa-paperclip text-xl mr-2" /> {item.link}
+                </Link>
+              )}
             </div>
           </div>
         ))}
