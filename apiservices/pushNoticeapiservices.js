@@ -108,44 +108,24 @@ exports.createData = async ({
     readStatus,
     activeStatus,
   };
-  if (data2) {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-pushnotice`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          access_token: data2,
-        },
-        body: JSON.stringify(aboutdata),
-      }
-    );
 
-    if (!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      throw new Error("Failed to fetch data");
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-pushnotice`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(aboutdata),
     }
+  );
 
-    return res.json();
-  } else {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-pushnotice`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(aboutdata),
-      }
-    );
-
-    if (!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      throw new Error("Failed to fetch data");
-    }
-
-    return res.json();
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
   }
+
+  return res.json();
 };
 
 exports.updateData = async (
