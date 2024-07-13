@@ -1,7 +1,7 @@
 "use client";
-import { selectDataTwo } from "@/apiservices/studentapiservices";
-import { selectDataTwo as selectCourses } from "@/apiservices/courseapiservices";
+
 import { useState, useEffect, useRef } from "react";
+import { createData } from "@/apiservices/pushNoticeapiservices";
 
 import mytoast from "@/components/toast/toast";
 import { useSelector } from "react-redux";
@@ -27,17 +27,15 @@ function SendNotices() {
       let res = { data: null };
       let res2 = { data: null };
 
-      res.data = studentData && studentData;
-      res2.data = courseData && courseData;
+      res.data = studentData && JSON.parse(JSON.stringify(studentData));
+      res2.data = courseData && JSON.parse(JSON.stringify(courseData));
 
-      if (res.data.length > 0) {
+      if (res.data.length > 0 && res2.data.length > 0) {
         setStudents(res.data);
-      }
-
-      if (res2.data.length > 0) {
         setCourses(res2.data);
       }
     }
+
     getData();
   }, [studentData, courseData]);
 
@@ -55,6 +53,7 @@ function SendNotices() {
     if (studentref.current.value == "all") {
       let allArray = [];
       students.forEach((element) => {
+        debugger;
         createData({
           subject: {
             en: subjectenref.current.value ? subjectenref.current.value : "",
