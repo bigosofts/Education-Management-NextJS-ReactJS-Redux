@@ -39,14 +39,14 @@ function SendNotices() {
     getData();
   }, [studentData, courseData]);
 
-  function getUser(username) {
-    if (students) {
-      let data = students.find((item) => {
-        return item.userName == username;
-      });
-      return data;
-    }
-  }
+  // function getUser(username) {
+  //   if (students) {
+  //     let data = students.find((item) => {
+  //       return item.userName == username;
+  //     });
+  //     return data;
+  //   }
+  // }
 
   function sendNotice(e) {
     e.preventDefault();
