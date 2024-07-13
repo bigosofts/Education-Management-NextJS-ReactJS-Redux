@@ -2,10 +2,7 @@
 import { selectDataTwo } from "@/apiservices/studentapiservices";
 import { selectDataTwo as selectCourses } from "@/apiservices/courseapiservices";
 import { useState, useEffect, useRef } from "react";
-import {
-  selectDataTwo as selectPushNotices,
-  createData,
-} from "@/apiservices/pushNoticeapiservices";
+
 import mytoast from "@/components/toast/toast";
 import { useSelector } from "react-redux";
 import { sendMail } from "@/apiservices/sendMailapiservices";
@@ -13,7 +10,7 @@ import { sendMail } from "@/apiservices/sendMailapiservices";
 function SendNotices() {
   const [students, setStudents] = useState();
   const [courses, setCourses] = useState();
-  const [notices, setNotices] = useState();
+
   const studentref = useRef();
   const subjectenref = useRef();
   const subjectbnref = useRef();
@@ -22,25 +19,27 @@ function SendNotices() {
   const linkref = useRef();
   const statusref = useRef();
   const data = useSelector((state) => state.isAdmin.value);
+  const studentData = useSelector((state) => state.students.students);
+  const courseData = useSelector((state) => state.courses.courses);
 
   useEffect(() => {
     async function getData() {
-      const res = await selectDataTwo(null, null);
-      const res2 = await selectCourses(null, null);
-      const res3 = await selectPushNotices(null, null);
+      let res = { data: null };
+      let res2 = { data: null };
 
-      if (
-        res.status == "Alhamdulillah" &&
-        res2.status == "Alhamdulillah" &&
-        res3.status == "Alhamdulillah"
-      ) {
+      res.data = studentData && studentData;
+      res2.data = courseData && courseData;
+
+      if (res.data.length > 0) {
         setStudents(res.data);
+      }
+
+      if (res2.data.length > 0) {
         setCourses(res2.data);
-        setNotices(res3.data);
       }
     }
     getData();
-  }, []);
+  }, [studentData, courseData]);
 
   function getUser(username) {
     if (students) {
@@ -767,7 +766,7 @@ function SendNotices() {
     <div className="text-2xl font-bold">
       send Notices
       <div className="mt-12 flex flex-col md:flex-row justify-between gap-10">
-        <div className="w-1/2">
+        <div className="w-2/3 mx-auto">
           <form
             onSubmit={sendNotice}
             className="border-[1px] border-slate-900 p-5 rounded-3xl"
@@ -861,51 +860,6 @@ function SendNotices() {
               Send Notices
             </button>
           </form>
-        </div>
-        <div className="w-1/2 h-[1000px] overflow-y-scroll">
-          {notices &&
-            notices.slice(0, 20).map((item, i) => (
-              <div
-                key={i}
-                className="w-full bg-lime-100 border-[1px] border-slate-300 rounded-3xl mb-5 overflow-hidden"
-              >
-                <div className="flex justify-between text-lg bg-slate-500 text-white p-5">
-                  <div className="w-1/2 text-left">
-                    Reciever: {item.reciever} <br />(
-                    {getUser(item.reciever).emailAddress})
-                  </div>
-                  <div className="w-1/2 text-right">Sender: {item.sender}</div>
-                </div>
-                <div className="flex justify-between text-lg px-5">
-                  <div className="w-1/2">
-                    Subject: {item.subject.en ? item.subject.en : ""}{" "}
-                  </div>
-                  <div className="w-1/2">
-                    বিষয়: {item.subject.bn ? item.subject.bn : ""}{" "}
-                  </div>
-                </div>
-                <div className="flex justify-between text-lg px-5">
-                  <div className="w-1/2">
-                    Text: {item.text.en ? item.text.en : ""}
-                  </div>
-                  <div className="w-1/2">
-                    টেক্সট: {item.text.bn ? item.text.bn : ""}
-                  </div>
-                </div>
-                <div className="flex justify-between text-lg px-5">
-                  <div className="w-1/2">
-                    Active Status: {item.activeStatus}
-                  </div>
-                  <div className="w-1/2">
-                    Read Status: {item.readStatus == false ? "Unseen" : "Seen"}
-                  </div>
-                </div>
-                <div className="flex justify-between text-lg px-5 pb-5">
-                  <div className="w-1/2">Created at: {item.createdDate}</div>
-                  <div></div>
-                </div>
-              </div>
-            ))}
         </div>
       </div>
     </div>
