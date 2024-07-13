@@ -53,7 +53,6 @@ function SendNotices() {
     if (studentref.current.value == "all") {
       let allArray = [];
       students.forEach((element) => {
-        debugger;
         createData({
           subject: {
             en: subjectenref.current.value ? subjectenref.current.value : "",
