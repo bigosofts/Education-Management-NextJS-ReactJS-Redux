@@ -261,6 +261,7 @@ function UploadExam() {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/pdf/${fileID}`
     );
+
     const data = await res.json();
     router.push(data.webContentLink);
   }
