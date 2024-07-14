@@ -294,6 +294,7 @@ function UploadExam() {
           <select
             onChange={examChangeHandler}
             className="p-4 text-slate-800 rounded-xl bg-white shadow-md"
+            value={mainData.examName}
           >
             <option value="" className="">
               Select Exam
@@ -324,6 +325,7 @@ function UploadExam() {
           <select
             onChange={batchChangeHandler}
             className="p-4 text-slate-800 rounded-xl bg-white shadow-md"
+            value={mainData.batchNo}
           >
             <option value="" className="">
               Select Batch
@@ -340,6 +342,7 @@ function UploadExam() {
             <select
               onChange={classChangeHandler}
               className="p-4 text-slate-800 rounded-xl bg-white shadow-md"
+              value={mainData.classID}
             >
               <option value="" className="w-full">
                 Select Book
