@@ -273,7 +273,7 @@ function UploadExam() {
     router.push(data.webViewLink);
   }
 
-  function  resetHandler() {
+  function resetHandler() {
     setTableClasses(classes);
     setMainData({
       examName: "",
@@ -306,20 +306,20 @@ function UploadExam() {
             ))}
           </select>
 
-          {mainData.examName != "" (
-              <Datetime
-                onChange={datePickerHandler}
-                className="p-4 text-slate-800 rounded-xl bg-white shadow-md"
-                inputProps={{
-                  placeholder: "Select a date",
-                  
-                  style: {
-                    width: "100%",
-                    boxSizing: "border-box",
-                  },
-                }}
-              />
-            )}
+          {mainData.examName != "" && (
+            <Datetime
+              onChange={datePickerHandler}
+              className="p-4 text-slate-800 rounded-xl bg-white shadow-md"
+              inputProps={{
+                placeholder: "Select a date",
+
+                style: {
+                  width: "100%",
+                  boxSizing: "border-box",
+                },
+              }}
+            />
+          )}
 
           <select
             onChange={batchChangeHandler}
