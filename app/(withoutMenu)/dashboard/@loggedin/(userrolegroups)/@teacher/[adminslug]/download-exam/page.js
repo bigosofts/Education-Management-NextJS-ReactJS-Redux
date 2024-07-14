@@ -42,7 +42,7 @@ function UploadExam() {
     },
     {
       name: "Semester_Final_Exam",
-      startedDate: "2024-08-15T19:00:00+06:00",
+      startedDate: "",
     },
   ];
 
@@ -80,9 +80,7 @@ function UploadExam() {
     if (e.target.value == "Semester_Final_Exam") {
       setMainData((prev) => ({
         ...prev,
-        examStartedDate: examName.find(
-          (item) => item.name == "Semester_Final_Exam"
-        ).startedDate,
+        examStartedDate: "",
       }));
     } else {
       setMainData((prev) => ({
@@ -308,14 +306,13 @@ function UploadExam() {
             ))}
           </select>
 
-          {mainData.examName != "" &&
-            mainData.examName != "Semester_Final_Exam" && (
+          {mainData.examName != "" (
               <Datetime
                 onChange={datePickerHandler}
                 className="p-4 text-slate-800 rounded-xl bg-white shadow-md"
                 inputProps={{
                   placeholder: "Select a date",
-                  disabled: mainData.examName === "Semester_Final_Exam",
+                  
                   style: {
                     width: "100%",
                     boxSizing: "border-box",
