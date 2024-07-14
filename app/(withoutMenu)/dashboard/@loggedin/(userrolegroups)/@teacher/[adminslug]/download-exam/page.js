@@ -228,7 +228,7 @@ function UploadExam() {
                     return {
                       ...item,
                       examQuestion: [
-                        ...item.examQuestion, // Spread the existing examQuestion array of the item
+                        ...item.examQuestion,
                         {
                           examQuestion: result.data.id,
                           examType: mainData.examName,
