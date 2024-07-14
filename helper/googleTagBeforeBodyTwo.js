@@ -5,7 +5,7 @@ export const GoogleTagManagerBeforeBodyTwo = () => {
       <noscript
         dangerouslySetInnerHTML={{
           __html: `
-          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRLHGWRH"
+          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPVSWKDK"
           height="0" width="0" style="display:none;visibility:hidden"></iframe>
     `,
         }}

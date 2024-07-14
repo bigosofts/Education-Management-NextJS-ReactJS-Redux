@@ -275,7 +275,7 @@ function UploadExam() {
     router.push(data.webViewLink);
   }
 
-  function resetHandler() {
+  function  resetHandler() {
     setTableClasses(classes);
     setMainData({
       examName: "",
