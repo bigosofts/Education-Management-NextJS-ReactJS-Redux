@@ -1976,29 +1976,29 @@ function HifzPage() {
                     <table>
                       <thead className="sticky top-0">
                         <tr>
-                          <th rowSpan={2}>তারিখ</th>
-                          <th rowSpan={2}>বার</th>
-                          <th rowSpan={2}>সপ্তাহ</th>
-                          <th colSpan={2}>সবক</th>
-                          <th colSpan={5}>সাতসবক</th>
-                          <th colSpan={5}>আমুখতা</th>
-                          <th rowSpan={2}>দৈনিক তিলওয়াত</th>
-                          <th rowSpan={2}>শিক্ষকের মন্তব্য</th>
+                          <th rowSpan={2}>তারিখ/Date</th>
+                          <th rowSpan={2}>বার/Day</th>
+                          <th rowSpan={2}>সপ্তাহ/Week</th>
+                          <th colSpan={2}>সবক/Sabak</th>
+                          <th colSpan={5}>সাতসবক/SatSabak</th>
+                          <th colSpan={5}>আমুখতা/Amukhta</th>
+                          <th rowSpan={2}>দৈনিক তিলওয়াত/Daily Tilawat</th>
+                          <th rowSpan={2}>শিক্ষকের মন্তব্য/Teacher's Comment</th>
                         </tr>
                         <tr>
-                          <th>পারা</th>
-                          <th>পৃষ্ঠা</th>
-                          <th>পারা</th>
-                          <th>পৃষ্ঠা</th>
-                          <th>পরিমাণ</th>
-                          <th>লোকমা</th>
-                          <th>দোহরানা</th>
+                          <th>পারা/Verse</th>
+                          <th>পৃষ্ঠা/Page</th>
+                          <th>পারা/Verse</th>
+                          <th>পৃষ্ঠা/Page</th>
+                          <th>পরিমাণ/Amount</th>
+                          <th>লোকমা/Lokma</th>
+                          <th>দোহরানা/Dohorana</th>
 
-                          <th>পারা</th>
-                          <th>পৃষ্ঠা</th>
-                          <th>পরিমাণ</th>
-                          <th>লোকমা</th>
-                          <th>দোহরানা</th>
+                          <th>পারা/Verse</th>
+                          <th>পৃষ্ঠা/Page</th>
+                          <th>পরিমাণ/Amount</th>
+                          <th>লোকমা/Lokma</th>
+                          <th>দোহরানা/Dohorana</th>
                         </tr>
                       </thead>
                       <tbody>
