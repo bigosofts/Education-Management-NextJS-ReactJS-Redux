@@ -258,19 +258,24 @@ function UploadExamStudent() {
   }
 
   function checkAnswerSheet(classID, examQuestionID) {
+    debugger;
     let classData = JSON.parse(JSON.stringify(classes));
+    debugger;
     let singleClassData = classData.find((item) => item._id == classID);
+    debugger;
 
     let singleStudents = singleClassData.students.find(
       (item) => item.SID == data.data.userDetails.userName
     );
-
+    debugger;
     if (singleStudents.examSheet.length > 0) {
-      let singleExamSheet = singleStudents.examSheet.find(
-        (item) => item.examID == examQuestionID
-      );
-
-      return singleExamSheet.examSheet;
+      debugger;
+      let singleExamSheet = singleStudents.examSheet.find((item) => {
+        debugger;
+        return item.examID == examQuestionID;
+      });
+      debugger;
+      return singleExamSheet?.examSheet || null;
     } else {
       return null;
     }
