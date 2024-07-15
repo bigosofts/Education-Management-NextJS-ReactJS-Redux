@@ -150,22 +150,17 @@ function UploadExamStudent() {
   }
 
   async function submitExamSheet(classID, examQuestionID, examType) {
-    debugger;
     let classData = JSON.parse(JSON.stringify(classes));
 
     let singleClassData = classData.find((item) => item._id == classID);
-    debugger;
 
     if (file) {
-      debugger;
       setShowUpload(false);
 
       const formData = new FormData();
       formData.append("file", file);
-      debugger;
 
       try {
-        debugger;
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_URL}/apis/v1/pdf-answer`,
           {
@@ -173,24 +168,21 @@ function UploadExamStudent() {
             body: formData,
           }
         );
-        debugger;
+
         if (response.ok) {
-          debugger;
           const result = await response.json();
 
           if (result.data.id) {
-            debugger;
             let singleStudents = singleClassData.students.find(
               (item) => item.SID == data.data.userDetails.userName
             );
-            debugger;
+
             const timezoneOffset = 6 * 60; // Offset in minutes (6 hours * 60 minutes)
             const currentDate = moment()
               .utcOffset(timezoneOffset)
               .format("YYYY-MM-DDTHH:mm:ssZ");
-            debugger;
+
             if (singleStudents.examSheet.length == 0) {
-              debugger;
               singleStudents.examSheet.push({
                 examID: examQuestionID,
                 examSheet: result.data.id,
@@ -198,12 +190,9 @@ function UploadExamStudent() {
                 submittedDate: currentDate,
               });
             } else {
-              debugger;
               singleStudents.examSheet = singleStudents.examSheet.map(
                 (item) => {
-                  debugger;
                   if (item.examID == examQuestionID) {
-                    debugger;
                     return {
                       examID: examQuestionID,
                       examSheet: result.data.id,
@@ -211,7 +200,6 @@ function UploadExamStudent() {
                       submittedDate: currentDate,
                     };
                   } else {
-                    debugger;
                     return item;
                   }
                 }
@@ -236,10 +224,8 @@ function UploadExamStudent() {
               activeStatus: singleClassData.activeStatus,
               idValue: classID,
             });
-            debugger;
 
             if (res.status == "Alhamdulillah") {
-              debugger;
               mytoast.success("Your Exam Sheet has been uploaded");
               setShowUpload(true);
               setFile(null);
@@ -248,43 +234,35 @@ function UploadExamStudent() {
           }
         }
       } catch (err) {
-        debugger;
         console.error("Error:", err);
       }
     } else {
-      debugger;
       mytoast.info("Choose a PDF file first");
     }
   }
 
   function checkAnswerSheet(classID, examQuestionID) {
-    debugger;
     let classData = JSON.parse(JSON.stringify(classes));
-    debugger;
+
     let singleClassData = classData.find((item) => item._id == classID);
-    debugger;
 
     let singleStudents = singleClassData.students.find(
       (item) => item.SID == data.data.userDetails.userName
     );
-    debugger;
+
     if (singleStudents.examSheet.length > 0) {
-      debugger;
       let singleExamSheet = singleStudents.examSheet.find((item) => {
-        debugger;
         return item.examID == examQuestionID;
       });
-      debugger;
+
       return singleExamSheet?.examSheet || null;
     } else {
       return null;
     }
   }
   function fileChangeHandler(e) {
-    debugger;
     e.preventDefault();
     setFile(e.target.files[0]);
-    debugger;
   }
   if (courseState && data && classes && books) {
     return (
