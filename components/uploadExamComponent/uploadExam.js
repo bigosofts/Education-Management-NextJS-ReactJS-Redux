@@ -246,16 +246,16 @@ function UploadExamStudent() {
 
     let singleClassData = classData.find((item) => item._id == classID);
 
-    let singleStudents = singleClassData.students.find(
-      (item) => item.SID == data.data.userDetails.userName
-    );
+    let singleStudents = singleClassData.students.find((item) => {
+      return item.SID == data.data.userDetails.userName;
+    });
 
     if (singleStudents.examSheet.length > 0) {
       let singleExamSheet = singleStudents.examSheet.find((item) => {
         return item.examID == examQuestionID;
       });
 
-      return singleExamSheet?.examSheet || null;
+      return singleExamSheet.examSheet || null;
     } else {
       return null;
     }
