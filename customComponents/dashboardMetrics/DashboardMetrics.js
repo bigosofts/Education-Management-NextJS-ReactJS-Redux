@@ -94,18 +94,18 @@ function DashboardMetrics(props) {
           return datas.filter((item) => {
             if (item.batchCount == "batch-20240713") {
               let semester = item.studentSemester.filter((item) => {
-                return /pre/i.test(item.code) && item.status == "active";
+                return /school/i.test(item.code) && item.status == "active";
               });
 
               if (semester.length > 1) {
                 if (
-                  semester[semester.length - 1].code == "pre-year1semester1"
+                  semester[semester.length - 1].code == "school-year1semester1"
                 ) {
                   return item;
                 }
               } else if (semester.length == 1) {
                 if (
-                  semester[semester.length - 1].code == "pre-year1semester1"
+                  semester[semester.length - 1].code == "school-year1semester1"
                 ) {
                   return item;
                 }
@@ -610,6 +610,22 @@ function DashboardMetrics(props) {
         }
 
         const alemalemaCount = await alemalemaQuery(res.data);
+
+        console.log(
+          JSON.stringify(
+            alemalemaCount.map((item) => {
+              return {
+                Name: item.firstName.en + " " + item.lastName.en,
+                SID: item.userName,
+                Email: item.emailAddress,
+                Mobile: item.mobileNumber,
+                Gender: item.gender,
+                Country: item.countryName,
+                Batch: item.batchCount,
+              };
+            })
+          )
+        );
 
         const alemalemaCountS2 = await alemalemaQueryS2(res.data);
         const alemalemaCountS3 = await alemalemaQueryS3(res.data);

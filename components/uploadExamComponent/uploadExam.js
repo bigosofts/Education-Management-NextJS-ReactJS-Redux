@@ -2,14 +2,17 @@
 import "./hifz.css";
 
 import Loader from "@/customComponents/loader/Loader";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import { useRef, useState, useEffect } from "react";
 import mytoast from "../toast/toast";
 import { updateData as updateClasses } from "@/apiservices/classapiservices";
 import moment from "moment";
+import { selectData as selectClasses } from "@/apiservices/classapiservices";
+import { fetchClasses } from "@/app/redux/features/classes/classesSlice";
 
 function UploadExamStudent() {
+  const dispatch = useDispatch();
   const router = useRouter();
   const [file, setFile] = useState();
   const data = useSelector((state) => state.isAdmin.value);
@@ -95,6 +98,7 @@ function UploadExamStudent() {
       return "p-2";
     }
   }
+
   function colorDecisionButton(date) {
     const givenDate = new Date(date);
     const currentDate = new Date();
@@ -114,6 +118,7 @@ function UploadExamStudent() {
       return "hidden";
     }
   }
+
   function dayDecision(date) {
     const givenDate = new Date(date);
     const currentDate = new Date();
@@ -152,7 +157,12 @@ function UploadExamStudent() {
   async function submitExamSheet(classID, examQuestionID, examType) {
     let classData = JSON.parse(JSON.stringify(classes));
 
-    let singleClassData = classData.find((item) => item._id == classID);
+    let singleClassDataQuery = await selectClasses({ _id: classID }, null);
+    mytoast.success("Your Exam Sheet has been uploaded: 25%");
+
+    let singleClassData = JSON.parse(
+      JSON.stringify(singleClassDataQuery.data[0])
+    );
 
     if (file) {
       setShowUpload(false);
@@ -173,6 +183,7 @@ function UploadExamStudent() {
           const result = await response.json();
 
           if (result.data.id) {
+            mytoast.success("Your Exam Sheet has been uploaded: 50%");
             let singleStudents = singleClassData.students.find(
               (item) => item.SID == data.data.userDetails.userName
             );
@@ -205,7 +216,7 @@ function UploadExamStudent() {
                 }
               );
             }
-
+            mytoast.success("Your Exam Sheet has been uploaded: 75%");
             const res = await updateClasses({
               classID: singleClassData.classID,
               courseID: singleClassData.courseID,
@@ -226,12 +237,14 @@ function UploadExamStudent() {
             });
 
             if (res.status == "Alhamdulillah") {
-              mytoast.success("Your Exam Sheet has been uploaded");
+              mytoast.success("Your Exam Sheet has been uploaded: 100%");
               setShowUpload(true);
               setFile(null);
-              setClasses(classData);
+              dispatch(fetchClasses());
             }
           }
+        } else {
+          mytoast.danger("File not uploaded. Please Try again");
         }
       } catch (err) {
         console.error("Error:", err);
@@ -260,6 +273,7 @@ function UploadExamStudent() {
       return null;
     }
   }
+
   function fileChangeHandler(e) {
     e.preventDefault();
     setFile(e.target.files[0]);
