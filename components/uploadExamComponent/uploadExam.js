@@ -278,7 +278,9 @@ function UploadExamStudent() {
     e.preventDefault();
     setFile(e.target.files[0]);
   }
+
   if (courseState && data && classes && books) {
+    
     return (
       <div>
         <h1 className="text-center mt-10">Exam Questions</h1>

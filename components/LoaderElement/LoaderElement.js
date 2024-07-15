@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { fetchClasses } from "@/app/redux/features/classes/classesSlice";
 
 import { fetchBooks } from "@/app/redux/features/books/booksSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchStudents } from "@/app/redux/features/students/studentsSlice";
 import { fetchTeachers } from "@/app/redux/features/teachers/teachersSlice";
 import { fetchCourses } from "@/app/redux/features/courses/coursesSlice";

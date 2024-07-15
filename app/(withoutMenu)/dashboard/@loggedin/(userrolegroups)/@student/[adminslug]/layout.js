@@ -147,7 +147,7 @@ function StudentLayout({ children, params }) {
           } else if (semester[semester.length - 1].code == "semester10") {
             desiredObj2.alemalema = true;
             desiredObj2.department = "department01";
-            desiredObj2.jamat = "jamat3";
+            desiredObj2.jamat = "jamat2";
             desiredObj2.semester = "semester10";
           } else if (semester[semester.length - 1].code == "semester11") {
             desiredObj2.alemalema = true;
