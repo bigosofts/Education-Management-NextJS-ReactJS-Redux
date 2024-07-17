@@ -5,7 +5,7 @@ import EnrollCondition from "@/components/dashboardPage/courses/enrollCondition"
 
 import "./CoursesPage.css";
 async function getData() {
-  const res = await selectDataTwo({activeStatus: "active"}, {});
+  const res = await selectDataTwo({ activeStatus: "active" }, {});
   if (res) {
     const dataObject = {
       course: null,
@@ -47,13 +47,13 @@ async function AllCoursePage() {
               {data.map((item, i) => (
                 <div key={i} className="style-6">
                   <Link
-                    href={`/classes/${item.courseCode}`}
+                    href={`/content/classes/${item.courseCode}`}
                     target="_blank"
                     className="style-7"
                   ></Link>
                   <div className="style-8">
                     <Link
-                      href={`/classes/${item.courseCode}`}
+                      href={`/content/classes/${item.courseCode}`}
                       target="_blank"
                       className="style-9"
                     >
@@ -67,7 +67,7 @@ async function AllCoursePage() {
                     </Link>
                     <div className="style-11">
                       <Link
-                        href={`/classes/${item.courseCode}`}
+                        href={`/content/classes/${item.courseCode}`}
                         target="_blank"
                         className="style-12"
                       >
@@ -79,7 +79,7 @@ async function AllCoursePage() {
                       </Link>
                       <EnrollCondition courseCode={item.courseCode} />
                       <Link
-                        href={`/classes/${item.courseCode}`}
+                        href={`/content/classes/${item.courseCode}`}
                         className="style-17"
                       >
                         বিস্তারিত দেখুন
