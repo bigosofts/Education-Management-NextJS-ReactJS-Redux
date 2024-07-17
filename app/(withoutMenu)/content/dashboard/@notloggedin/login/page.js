@@ -19,7 +19,7 @@ function page(props) {
 
   const hardRefresh = () => {
     if (typeof window !== "undefined") {
-      window.location.href = "/dashboard/loading";
+      window.location.href = "/content/dashboard/loading";
     }
   };
 
@@ -135,7 +135,7 @@ function page(props) {
 
   const clickHandlerSingup = (e) => {
     e.preventDefault();
-    router.push("/signup");
+    router.push("/content/signup");
   };
   const changer1 = () => {
     setVisibility("teacher");

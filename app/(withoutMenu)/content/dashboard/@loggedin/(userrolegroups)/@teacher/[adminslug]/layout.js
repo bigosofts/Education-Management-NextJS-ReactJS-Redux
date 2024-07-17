@@ -51,56 +51,56 @@ function TeacherLayout({ children, params }) {
   const sidebarItems = [
     {
       name: "Dashboard",
-      href: `/dashboard/${params.adminslug}`,
+      href: `/content/dashboard/${params.adminslug}`,
       icon: "/images/graph.svg",
       show: true,
     },
     {
       name: "Library",
-      href: `/dashboard/${params.adminslug}/books`,
+      href: `/content/dashboard/${params.adminslug}/books`,
       icon: "/images/books.svg",
       show: true,
     },
     {
       name: "Notices",
-      href: `/dashboard/${params.adminslug}/notices`,
+      href: `/content/dashboard/${params.adminslug}/notices`,
       icon: "/images/notice.svg",
       show: true,
     },
     {
       name: "Salary",
-      href: `/dashboard/${params.adminslug}/fees`,
+      href: `/content/dashboard/${params.adminslug}/fees`,
       icon: "/images/fees.svg",
       show: true,
     },
     {
       name: "Exam & Report",
-      href: `/dashboard/${params.adminslug}/download-exam`,
+      href: `/content/dashboard/${params.adminslug}/download-exam`,
       icon: "/images/upload.svg",
       show: true,
     },
     {
       name: "Student Results",
-      href: `/dashboard/${params.adminslug}/results`,
+      href: `/content/dashboard/${params.adminslug}/results`,
       icon: "/images/result.svg",
       show: true,
     },
     {
       name: "View Handwork",
-      href: `/dashboard/${params.adminslug}/works`,
+      href: `/content/dashboard/${params.adminslug}/works`,
       icon: "/images/work.svg",
       show: true,
     },
     {
       name: "Attendance",
-      href: `/dashboard/${params.adminslug}/attendance`,
+      href: `/content/dashboard/${params.adminslug}/attendance`,
       icon: "/images/attendance.svg",
       show: true,
     },
 
     {
       name: "Settings",
-      href: `/dashboard/${params.adminslug}/settings`,
+      href: `/content/dashboard/${params.adminslug}/settings`,
       icon: "/images/setting.svg",
       show: true,
     },
@@ -129,7 +129,7 @@ function TeacherLayout({ children, params }) {
         </CommonMenu>
       );
     } else {
-      router.replace(`/dashboard/${data.data.userName}`);
+      router.replace(`/content/dashboard/${data.data.userName}`);
     }
   }
 }

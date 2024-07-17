@@ -3,6 +3,7 @@ import ButtonComponent from "../ButtonComponent/ButtonComponent";
 import Image from "next/image";
 
 import { selectDataTwo } from "@/apiservices/widgetapiservices";
+
 function fisherYatesShuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));

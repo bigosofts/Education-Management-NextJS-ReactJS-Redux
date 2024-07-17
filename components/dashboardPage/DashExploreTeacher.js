@@ -19,50 +19,50 @@ function DashExploreTeacher() {
     newArray = [
       {
         name: "Library",
-        href: `/dashboard/${data.data.userName}/books`,
+        href: `/content/dashboard/${data.data.userName}/books`,
         icon: "/images/books.svg",
         show: true,
       },
       {
         name: "Notices",
-        href: `/dashboard/${data.data.userName}/notices`,
+        href: `/content/dashboard/${data.data.userName}/notices`,
         icon: "/images/notice.svg",
         show: true,
       },
       {
         name: "Salary",
-        href: `/dashboard/${data.data.userName}/fees`,
+        href: `/content/dashboard/${data.data.userName}/fees`,
         icon: "/images/fees.svg",
         show: true,
       },
       {
         name: "Student Results",
-        href: `/dashboard/${data.data.userName}/results`,
+        href: `/content/dashboard/${data.data.userName}/results`,
         icon: "/images/result.svg",
         show: true,
       },
       {
         name: "Exam & Report",
-        href: `/dashboard/${data.data.userName}/download-exam`,
+        href: `/content/dashboard/${data.data.userName}/download-exam`,
         icon: "/images/upload.svg",
         show: true,
       },
       {
         name: "View Handwork",
-        href: `/dashboard/${data.data.userName}/works`,
+        href: `/content/dashboard/${data.data.userName}/works`,
         icon: "/images/work.svg",
         show: true,
       },
       {
         name: "Attendance",
-        href: `/dashboard/${data.data.userName}/attendance`,
+        href: `/content/dashboard/${data.data.userName}/attendance`,
         icon: "/images/attendance.svg",
         show: true,
       },
 
       {
         name: "Settings",
-        href: `/dashboard/${data.data.userName}/settings`,
+        href: `/content/dashboard/${data.data.userName}/settings`,
         icon: "/images/setting.svg",
         show: true,
       },

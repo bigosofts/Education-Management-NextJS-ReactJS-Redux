@@ -29,112 +29,112 @@ function layout({ children, params }) {
   const sidebarItems = [
     {
       name: "Dashboard",
-      href: `/dashboard/${params.adminslug}`,
+      href: `/content/dashboard/${params.adminslug}`,
       icon: "MdOutlineDashboard",
     },
     {
       name: "Menus",
-      href: `/dashboard/${params.adminslug}/menus`,
+      href: `/content/dashboard/${params.adminslug}/menus`,
       icon: "MdMenuOpen",
     },
     {
       name: "Sliders",
-      href: `/dashboard/${params.adminslug}/sliders`,
+      href: `/content/dashboard/${params.adminslug}/sliders`,
       icon: "TfiLayoutSlider",
     },
     {
       name: "Notices",
-      href: `/dashboard/${params.adminslug}/notices`,
+      href: `/content/dashboard/${params.adminslug}/notices`,
       icon: "MdOutlineNotificationAdd",
     },
     {
       name: "Events",
-      href: `/dashboard/${params.adminslug}/events`,
+      href: `/content/dashboard/${params.adminslug}/events`,
       icon: "MdEventAvailable",
     },
     {
       name: "Posts",
-      href: `/dashboard/${params.adminslug}/posts`,
+      href: `/content/dashboard/${params.adminslug}/posts`,
       icon: "MdPostAdd",
     },
     {
       name: "Activities",
-      href: `/dashboard/${params.adminslug}/activities`,
+      href: `/content/dashboard/${params.adminslug}/activities`,
       icon: "BsActivity",
     },
     {
       name: "Courses",
-      href: `/dashboard/${params.adminslug}/courses`,
+      href: `/content/dashboard/${params.adminslug}/courses`,
       icon: "BsBookmarkPlus",
     },
     {
       name: "Teachers",
-      href: `/dashboard/${params.adminslug}/teachers`,
+      href: `/content/dashboard/${params.adminslug}/teachers`,
       icon: "FaChalkboardTeacher",
     },
     {
       name: "Students",
-      href: `/dashboard/${params.adminslug}/students`,
+      href: `/content/dashboard/${params.adminslug}/students`,
       icon: "LuGraduationCap",
     },
     {
       name: "Board Results",
-      href: `/dashboard/${params.adminslug}/results`,
+      href: `/content/dashboard/${params.adminslug}/results`,
       icon: "BsClipboardData",
     },
     {
       name: "Comments",
-      href: `/dashboard/${params.adminslug}/comments`,
+      href: `/content/dashboard/${params.adminslug}/comments`,
       icon: "MdOutlineInsertComment",
     },
     {
       name: "About Us",
-      href: `/dashboard/${params.adminslug}/abouts`,
+      href: `/content/dashboard/${params.adminslug}/abouts`,
       icon: "FaRegQuestionCircle",
     },
     {
       name: "Widgets",
-      href: `/dashboard/${params.adminslug}/widgets`,
+      href: `/content/dashboard/${params.adminslug}/widgets`,
       icon: "BiCode",
     },
     {
       name: "Videos",
-      href: `/dashboard/${params.adminslug}/videos`,
+      href: `/content/dashboard/${params.adminslug}/videos`,
       icon: "LuGraduationCap",
     },
     {
       name: "Media",
-      href: `/dashboard/${params.adminslug}/medias`,
+      href: `/content/dashboard/${params.adminslug}/medias`,
       icon: "LuGraduationCap",
     },
     {
       name: "QAForm",
-      href: `/dashboard/${params.adminslug}/qaform`,
+      href: `/content/dashboard/${params.adminslug}/qaform`,
       icon: "BiCode",
     },
     {
       name: "Work",
-      href: `/dashboard/${params.adminslug}/works`,
+      href: `/content/dashboard/${params.adminslug}/works`,
       icon: "BsClipboardData",
     },
     {
       name: "Rich Text",
-      href: `/dashboard/${params.adminslug}/richtexts`,
+      href: `/content/dashboard/${params.adminslug}/richtexts`,
       icon: "BiCode",
     },
     {
       name: "Abacus Sheet",
-      href: `/dashboard/${params.adminslug}/abacus-sheet`,
+      href: `/content/dashboard/${params.adminslug}/abacus-sheet`,
       icon: "BsClipboardData",
     },
     {
       name: "Education",
-      href: `/dashboard/${params.adminslug}/education`,
+      href: `/content/dashboard/${params.adminslug}/education`,
       icon: "GoGear",
     },
     {
       name: "Class",
-      href: `/dashboard/${params.adminslug}/class`,
+      href: `/content/dashboard/${params.adminslug}/class`,
       icon: "MdHotelClass",
     },
   ];
@@ -151,7 +151,7 @@ function layout({ children, params }) {
         </>
       );
     } else {
-      router.replace(`/dashboard/${data.data.userName}`);
+      router.replace(`/content/dashboard/${data.data.userName}`);
     }
   }
 }

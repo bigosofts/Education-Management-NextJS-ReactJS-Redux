@@ -35,7 +35,7 @@ const MainMenu = () => {
           <div className="style-12">
             <div className="style-13">
               <div className="style-14">
-                <a href="/abacus">
+                <a href="/content/abacus">
                   <Image
                     width={236}
                     height={77}

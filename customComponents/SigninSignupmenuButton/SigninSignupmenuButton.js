@@ -34,8 +34,8 @@ function SigninSignupmenuButton() {
         <Link
           href={
             adminData.status == "Alhamdulillah"
-              ? "/dashboard/loading"
-              : "/dashboard/login"
+              ? "/content/dashboard/loading"
+              : "/content/dashboard/login"
           }
           className="btn transparent"
         >
@@ -52,7 +52,7 @@ function SigninSignupmenuButton() {
         </Link>
         <Link
           onClick={adminData.status == "Alhamdulillah" ? handleLogoutClick : ""}
-          href={adminData.status == "Alhamdulillah" ? "" : "/signup"}
+          href={adminData.status == "Alhamdulillah" ? "" : "/content/signup"}
           className="btn solid"
         >
           {adminData.status == "Alhamdulillah" ? "Log Out" : "Sign up"}
@@ -62,10 +62,10 @@ function SigninSignupmenuButton() {
   } else {
     return (
       <div className="log-sign" style={{ "--i": "1.8s" }}>
-        <Link href="/dashboard/login" className="btn transparent">
+        <Link href="/content/dashboard/login" className="btn transparent">
           Log in
         </Link>
-        <Link href="/signup" className="btn solid">
+        <Link href="/content/signup" className="btn solid">
           Sign up
         </Link>
       </div>

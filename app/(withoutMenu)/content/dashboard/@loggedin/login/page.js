@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 function LoginPage() {
   const router = useRouter();
-  router.push("/dashboard/loading");
+  router.push("/content/dashboard/loading");
 }
 
 export default LoginPage;

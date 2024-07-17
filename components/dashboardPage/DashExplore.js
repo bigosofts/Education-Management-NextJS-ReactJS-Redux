@@ -90,88 +90,88 @@ function DashExplore() {
     const sidebarItems = [
       {
         name: "Library",
-        href: `/dashboard/${data.data.userName}/books`,
+        href: `/content/dashboard/${data.data.userName}/books`,
         icon: "/images/books.svg",
         show: true,
       },
       {
         name: "Notices",
-        href: `/dashboard/${data.data.userName}/notices`,
+        href: `/content/dashboard/${data.data.userName}/notices`,
         icon: "/images/notice.svg",
         show: true,
       },
       {
         name: "Fees",
-        href: `/dashboard/${data.data.userName}/fees`,
+        href: `/content/dashboard/${data.data.userName}/fees`,
         icon: "/images/fees.svg",
         show: true,
       },
       {
         name: "Results",
-        href: `/dashboard/${data.data.userName}/results`,
+        href: `/content/dashboard/${data.data.userName}/results`,
         icon: "/images/result.svg",
         show: true,
       },
       {
         name: "Upload Exam",
-        href: `/dashboard/${data.data.userName}/upload-exam`,
+        href: `/content/dashboard/${data.data.userName}/upload-exam`,
         icon: "/images/upload.svg",
         show: true,
       },
       {
         name: "Handwork",
-        href: `/dashboard/${data.data.userName}/works`,
+        href: `/content/dashboard/${data.data.userName}/works`,
         icon: "/images/work.svg",
         show: true,
       },
       {
         name: "Comments",
-        href: `/dashboard/${data.data.userName}/comments`,
+        href: `/content/dashboard/${data.data.userName}/comments`,
         icon: "/images/comment.svg",
         show: true,
       },
 
       {
         name: "Change Class",
-        href: `/dashboard/${data.data.userName}/switches`,
+        href: `/content/dashboard/${data.data.userName}/switches`,
         icon: "/images/switch.svg",
         show: true,
       },
 
       {
         name: "Abacus Student",
-        href: `/dashboard/${data.data.userName}/abacus`,
+        href: `/content/dashboard/${data.data.userName}/abacus`,
         icon: "/images/abacus.svg",
         show: true,
       },
       {
         name: "Abacus Teachers Training",
-        href: `/dashboard/${data.data.userName}/abacus-teacher`,
+        href: `/content/dashboard/${data.data.userName}/abacus-teacher`,
         icon: "/images/abacus_teacher.svg",
         show: true,
       },
       {
         name: "Ramadan Quran",
-        href: `/dashboard/${data.data.userName}/ramadan-quran`,
+        href: `/content/dashboard/${data.data.userName}/ramadan-quran`,
         icon: "/images/quran.svg",
         show: true,
       },
 
       {
         name: "Attendance",
-        href: `/dashboard/${data.data.userName}/attendance`,
+        href: `/content/dashboard/${data.data.userName}/attendance`,
         icon: "/images/attendance.svg",
         show: true,
       },
       {
         name: "Class Room",
-        href: `/dashboard/${data.data.userName}/class-room`,
+        href: `/content/dashboard/${data.data.userName}/class-room`,
         icon: "/images/population.svg",
         show: true,
       },
       {
         name: "Hifz Information Books",
-        href: `/dashboard/${data.data.userName}/hifz`,
+        href: `/content/dashboard/${data.data.userName}/hifz`,
         icon: "/images/Hifzul.png",
         show: true,
       },
@@ -184,84 +184,84 @@ function DashExplore() {
         if (item.name == "Library") {
           return {
             name: "Library",
-            href: `/dashboard/${data.data.userName}/books`,
+            href: `/content/dashboard/${data.data.userName}/books`,
             icon: "/images/books.svg",
             show: false,
           };
         } else if (item.name == "Results") {
           return {
             name: "Results",
-            href: `/dashboard/${data.data.userName}/results`,
+            href: `/content/dashboard/${data.data.userName}/results`,
             icon: "/images/result.svg",
             show: false,
           };
         } else if (item.name == "Handwork") {
           return {
             name: "Handwork",
-            href: `/dashboard/${data.data.userName}/works`,
+            href: `/content/dashboard/${data.data.userName}/works`,
             icon: "/images/work.svg",
             show: false,
           };
         } else if (item.name == "Comments") {
           return {
             name: "Comments",
-            href: `/dashboard/${data.data.userName}/comments`,
+            href: `/content/dashboard/${data.data.userName}/comments`,
             icon: "/images/comment.svg",
             show: false,
           };
         } else if (item.name == "Change Class") {
           return {
             name: "Change Class",
-            href: `/dashboard/${data.data.userName}/switches`,
+            href: `/content/dashboard/${data.data.userName}/switches`,
             icon: "/images/switch.svg",
             show: false,
           };
         } else if (item.name == "Abacus Student") {
           return {
             name: "Abacus Student",
-            href: `/dashboard/${data.data.userName}/abacus`,
+            href: `/content/dashboard/${data.data.userName}/abacus`,
             icon: "/images/abacus.svg",
             show: false,
           };
         } else if (item.name == "Abacus Teachers Training") {
           return {
             name: "Abacus Teachers Training",
-            href: `/dashboard/${data.data.userName}/abacus-teacher`,
+            href: `/content/dashboard/${data.data.userName}/abacus-teacher`,
             icon: "/images/abacus_teacher.svg",
             show: false,
           };
         } else if (item.name == "Ramadan Quran") {
           return {
             name: "Ramadan Quran",
-            href: `/dashboard/${data.data.userName}/ramadan-quran`,
+            href: `/content/dashboard/${data.data.userName}/ramadan-quran`,
             icon: "/images/quran.svg",
             show: false,
           };
         } else if (item.name == "Attendance") {
           return {
             name: "Attendance",
-            href: `/dashboard/${data.data.userName}/attendance`,
+            href: `/content/dashboard/${data.data.userName}/attendance`,
             icon: "/images/attendance.svg",
             show: false,
           };
         } else if (item.name == "Upload Exam") {
           return {
             name: "Upload Exam",
-            href: `/dashboard/${data.data.userName}/upload-exam`,
+            href: `/content/dashboard/${data.data.userName}/upload-exam`,
             icon: "/images/upload.svg",
             show: false,
           };
         } else if (item.name == "Class Room") {
           return {
             name: "Class Room",
-            href: `/dashboard/${data.data.userName}/class-room`,
+            href: `/content/dashboard/${data.data.userName}/class-room`,
             icon: "/images/population.svg",
             show: false,
           };
         } else if (item.name == "Hifz Information Books") {
           return {
             name: "Hifz Information Books",
-            href: `/dashboard/${data.data.userName}/hifz`,
+            href: `/content/dashboard/${data.data.userName}/hifz`,
             icon: "/images/Hifzul.png",
             show: false,
           };
@@ -278,84 +278,84 @@ function DashExplore() {
         if (item.name == "Library") {
           return {
             name: "Library",
-            href: `/dashboard/${data.data.userName}/books`,
+            href: `/content/dashboard/${data.data.userName}/books`,
             icon: "/images/books.svg",
             show: false,
           };
         } else if (item.name == "Results") {
           return {
             name: "Results",
-            href: `/dashboard/${data.data.userName}/results`,
+            href: `/content/dashboard/${data.data.userName}/results`,
             icon: "/images/result.svg",
             show: false,
           };
         } else if (item.name == "Handwork") {
           return {
             name: "Handwork",
-            href: `/dashboard/${data.data.userName}/works`,
+            href: `/content/dashboard/${data.data.userName}/works`,
             icon: "/images/work.svg",
             show: false,
           };
         } else if (item.name == "Comments") {
           return {
             name: "Comments",
-            href: `/dashboard/${data.data.userName}/comments`,
+            href: `/content/dashboard/${data.data.userName}/comments`,
             icon: "/images/comment.svg",
             show: false,
           };
         } else if (item.name == "Change Class") {
           return {
             name: "Change Class",
-            href: `/dashboard/${data.data.userName}/switches`,
+            href: `/content/dashboard/${data.data.userName}/switches`,
             icon: "/images/switch.svg",
             show: false,
           };
         } else if (item.name == "Abacus Student") {
           return {
             name: "Abacus Student",
-            href: `/dashboard/${data.data.userName}/abacus`,
+            href: `/content/dashboard/${data.data.userName}/abacus`,
             icon: "/images/abacus.svg",
             show: false,
           };
         } else if (item.name == "Abacus Teachers Training") {
           return {
             name: "Abacus Teachers Training",
-            href: `/dashboard/${data.data.userName}/abacus-teacher`,
+            href: `/content/dashboard/${data.data.userName}/abacus-teacher`,
             icon: "/images/abacus_teacher.svg",
             show: false,
           };
         } else if (item.name == "Ramadan Quran") {
           return {
             name: "Ramadan Quran",
-            href: `/dashboard/${data.data.userName}/ramadan-quran`,
+            href: `/content/dashboard/${data.data.userName}/ramadan-quran`,
             icon: "/images/quran.svg",
             show: false,
           };
         } else if (item.name == "Attendance") {
           return {
             name: "Attendance",
-            href: `/dashboard/${data.data.userName}/attendance`,
+            href: `/content/dashboard/${data.data.userName}/attendance`,
             icon: "/images/attendance.svg",
             show: false,
           };
         } else if (item.name == "Upload Exam") {
           return {
             name: "Upload Exam",
-            href: `/dashboard/${data.data.userName}/upload-exam`,
+            href: `/content/dashboard/${data.data.userName}/upload-exam`,
             icon: "/images/upload.svg",
             show: false,
           };
         } else if (item.name == "Class Room") {
           return {
             name: "Class Room",
-            href: `/dashboard/${data.data.userName}/class-room`,
+            href: `/content/dashboard/${data.data.userName}/class-room`,
             icon: "/images/population.svg",
             show: false,
           };
         } else if (item.name == "Hifz Information Books") {
           return {
             name: "Hifz Information Books",
-            href: `/dashboard/${data.data.userName}/hifz`,
+            href: `/content/dashboard/${data.data.userName}/hifz`,
             icon: "/images/Hifzul.png",
             show: false,
           };
@@ -371,50 +371,50 @@ function DashExplore() {
       let FixedNewArray = [
         {
           name: "Notices",
-          href: `/dashboard/${data.data.userName}/notices`,
+          href: `/content/dashboard/${data.data.userName}/notices`,
           icon: "/images/notice.svg",
           show: true,
         },
         {
           name: "Fees",
-          href: `/dashboard/${data.data.userName}/fees`,
+          href: `/content/dashboard/${data.data.userName}/fees`,
           icon: "/images/fees.svg",
           show: true,
         },
 
         {
           name: "Library",
-          href: `/dashboard/${data.data.userName}/books`,
+          href: `/content/dashboard/${data.data.userName}/books`,
           icon: "/images/books.svg",
           show: true,
         },
         {
           name: "Settings",
-          href: `/dashboard/${data.data.userName}/settings`,
+          href: `/content/dashboard/${data.data.userName}/settings`,
           icon: "/images/setting.svg",
           show: true,
         },
         {
           name: "Handwork",
-          href: `/dashboard/${data.data.userName}/works`,
+          href: `/content/dashboard/${data.data.userName}/works`,
           icon: "/images/work.svg",
           show: true,
         },
         {
           name: "Comments",
-          href: `/dashboard/${data.data.userName}/comments`,
+          href: `/content/dashboard/${data.data.userName}/comments`,
           icon: "/images/comment.svg",
           show: true,
         },
         {
           name: "Change Class",
-          href: `/dashboard/${data.data.userName}/switches`,
+          href: `/content/dashboard/${data.data.userName}/switches`,
           icon: "/images/switch.svg",
           show: true,
         },
         {
           name: "Attendance",
-          href: `/dashboard/${data.data.userName}/attendance`,
+          href: `/content/dashboard/${data.data.userName}/attendance`,
           icon: "/images/attendance.svg",
           show: true,
         },
@@ -433,13 +433,13 @@ function DashExplore() {
           let alemalemaArray = [
             {
               name: "Results",
-              href: `/dashboard/${data.data.userName}/results`,
+              href: `/content/dashboard/${data.data.userName}/results`,
               icon: "/images/result.svg",
               show: true,
             },
             {
               name: "Upload Exam",
-              href: `/dashboard/${data.data.userName}/upload-exam`,
+              href: `/content/dashboard/${data.data.userName}/upload-exam`,
               icon: "/images/upload.svg",
               show: true,
             },
@@ -459,7 +459,7 @@ function DashExplore() {
           let hifzArray = [
             {
               name: "Hifz Information Books",
-              href: `/dashboard/${data.data.userName}/hifz`,
+              href: `/content/dashboard/${data.data.userName}/hifz`,
               icon: "/images/Hifzul.png",
               show: true,
             },
@@ -481,7 +481,7 @@ function DashExplore() {
           let abacusArray = [
             {
               name: "Abacus Student",
-              href: `/dashboard/${data.data.userName}/abacus`,
+              href: `/content/dashboard/${data.data.userName}/abacus`,
               icon: "/images/abacus.svg",
               show: true,
             },
@@ -502,7 +502,7 @@ function DashExplore() {
           let abacusTeacherArray = [
             {
               name: "Abacus Teachers Training",
-              href: `/dashboard/${data.data.userName}/abacus-teacher`,
+              href: `/content/dashboard/${data.data.userName}/abacus-teacher`,
               icon: "/images/abacus_teacher.svg",
               show: true,
             },
@@ -523,7 +523,7 @@ function DashExplore() {
           let ramadanquranulkarimArray = [
             {
               name: "Ramadan Quran",
-              href: `/dashboard/${data.data.userName}/ramadan-quran`,
+              href: `/content/dashboard/${data.data.userName}/ramadan-quran`,
               icon: "/images/quran.svg",
               show: true,
             },
@@ -557,7 +557,7 @@ function DashExplore() {
           let combinedArray = [
             {
               name: "Class Room",
-              href: `/dashboard/${data.data.userName}/class-room`,
+              href: `/content/dashboard/${data.data.userName}/class-room`,
               icon: "/images/population.svg",
               show: true,
             },
@@ -578,95 +578,95 @@ function DashExplore() {
       newArray = [
         {
           name: "Library",
-          href: `/dashboard/${data.data.userName}/books`,
+          href: `/content/dashboard/${data.data.userName}/books`,
           icon: "/images/books.svg",
           show: true,
         },
         {
           name: "Notices",
-          href: `/dashboard/${data.data.userName}/notices`,
+          href: `/content/dashboard/${data.data.userName}/notices`,
           icon: "/images/notice.svg",
           show: true,
         },
         {
           name: "Fees",
-          href: `/dashboard/${data.data.userName}/fees`,
+          href: `/content/dashboard/${data.data.userName}/fees`,
           icon: "/images/fees.svg",
           show: true,
         },
         {
           name: "Results",
-          href: `/dashboard/${data.data.userName}/results`,
+          href: `/content/dashboard/${data.data.userName}/results`,
           icon: "/images/result.svg",
           show: true,
         },
         {
           name: "Upload Exam",
-          href: `/dashboard/${data.data.userName}/upload-exam`,
+          href: `/content/dashboard/${data.data.userName}/upload-exam`,
           icon: "/images/upload.svg",
           show: true,
         },
         {
           name: "Handwork",
-          href: `/dashboard/${data.data.userName}/works`,
+          href: `/content/dashboard/${data.data.userName}/works`,
           icon: "/images/work.svg",
           show: true,
         },
         {
           name: "Comments",
-          href: `/dashboard/${data.data.userName}/comments`,
+          href: `/content/dashboard/${data.data.userName}/comments`,
           icon: "/images/comment.svg",
           show: true,
         },
 
         {
           name: "Change Class",
-          href: `/dashboard/${data.data.userName}/switches`,
+          href: `/content/dashboard/${data.data.userName}/switches`,
           icon: "/images/switch.svg",
           show: true,
         },
 
         {
           name: "Abacus Student",
-          href: `/dashboard/${data.data.userName}/abacus`,
+          href: `/content/dashboard/${data.data.userName}/abacus`,
           icon: "/images/abacus.svg",
           show: true,
         },
         {
           name: "Abacus Teachers Training",
-          href: `/dashboard/${data.data.userName}/abacus-teacher`,
+          href: `/content/dashboard/${data.data.userName}/abacus-teacher`,
           icon: "/images/abacus_teacher.svg",
           show: true,
         },
         {
           name: "Ramadan Quran",
-          href: `/dashboard/${data.data.userName}/ramadan-quran`,
+          href: `/content/dashboard/${data.data.userName}/ramadan-quran`,
           icon: "/images/quran.svg",
           show: true,
         },
 
         {
           name: "Attendance",
-          href: `/dashboard/${data.data.userName}/attendance`,
+          href: `/content/dashboard/${data.data.userName}/attendance`,
           icon: "/images/attendance.svg",
           show: true,
         },
 
         {
           name: "Settings",
-          href: `/dashboard/${data.data.userName}/settings`,
+          href: `/content/dashboard/${data.data.userName}/settings`,
           icon: "/images/setting.svg",
           show: true,
         },
         {
           name: "Class Room",
-          href: `/dashboard/${data.data.userName}/class-room`,
+          href: `/content/dashboard/${data.data.userName}/class-room`,
           icon: "/images/population.svg",
           show: true,
         },
         {
           name: "Hifz Information Books",
-          href: `/dashboard/${data.data.userName}/hifz`,
+          href: `/content/dashboard/${data.data.userName}/hifz`,
           icon: "/images/Hifzul.png",
           show: true,
         },

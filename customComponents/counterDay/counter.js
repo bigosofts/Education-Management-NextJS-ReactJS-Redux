@@ -8,6 +8,7 @@ function Counter() {
   useEffect(() => {
     import("./counterCustom.js");
   }, []);
+
   return (
     <div className="grandOut">
       <div className="counterFlex">
