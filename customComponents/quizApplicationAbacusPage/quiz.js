@@ -1,5 +1,5 @@
 import "./quiz.css";
-import AbacusPlay from "@/app/(withoutMenu)/abacusplay/page";
+import AbacusPlay from "@/app/(withoutMenu)/content/abacusplay/page";
 
 function QuizApp() {
   return (
