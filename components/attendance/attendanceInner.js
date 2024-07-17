@@ -5,6 +5,8 @@ import AttendanceSTable from "./attendanceSTable";
 
 import QuizAttendance from "@/customComponents/quizApplication/quizAttendance";
 
+import { selectDataTwo as selectClasses } from "@/apiservices/classapiservices";
+
 function AttendancePageCustomInner({ classesUp, booksUp, courseState, data }) {
   const [books, setBooks] = useState();
   const [classes, setClasses] = useState();
@@ -181,9 +183,9 @@ function AttendancePageCustomInner({ classesUp, booksUp, courseState, data }) {
     e.preventDefault();
     setChange((prev) => !prev);
   }
-  function changeState1(id) {
-    setSpecificClass(classes.find((item) => item._id == id));
-
+  async function changeState1(id) {
+    const res = await selectClasses({ _id: id }, null);
+    setSpecificClass(res.data[0]);
     setChange((prev) => !prev);
   }
 

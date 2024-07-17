@@ -248,21 +248,8 @@ function BookPage() {
       specificClass.teacher.attendance = attendance;
 
       const res = await updateClass({
-        classID: specificClass.classID,
-        courseID: specificClass.courseID,
-        batchNo: specificClass.batchNo,
-        maleClassLink: specificClass.maleClassLink,
-        femaleClassLink: specificClass.femaleClassLink,
-        departmentID: specificClass.departmentID,
-        jamatID: specificClass.jamatID,
-        semesterID: specificClass.semesterID,
-        bookID: specificClass.bookID,
         teacher: specificClass.teacher,
         examQuestion: specificClass.examQuestion,
-        students: specificClass.students,
-        classStartTime: specificClass.classStartTime,
-        classEndTime: specificClass.classEndTime,
-        activeStatus: specificClass.activeStatus,
         idValue: specificClass._id,
       });
 

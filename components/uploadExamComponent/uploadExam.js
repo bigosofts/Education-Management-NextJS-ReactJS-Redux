@@ -155,8 +155,6 @@ function UploadExamStudent() {
   }
 
   async function submitExamSheet(classID, examQuestionID, examType) {
-    let classData = JSON.parse(JSON.stringify(classes));
-
     let singleClassDataQuery = await selectClasses({ _id: classID }, null);
     mytoast.success("Your Exam Sheet has been uploaded: 25%");
 
@@ -280,7 +278,6 @@ function UploadExamStudent() {
   }
 
   if (courseState && data && classes && books) {
-    
     return (
       <div>
         <h1 className="text-center mt-10">Exam Questions</h1>
