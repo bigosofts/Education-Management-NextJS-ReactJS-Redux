@@ -30,7 +30,7 @@ function WaitingApproval() {
             </h2>
           </div>
           <div
-            onClick={() => router.push(`/classes`)}
+            onClick={() => router.push(`/content/classes`)}
             className="w-full md:w-[300px] cursor-pointer shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
           >
             <Image

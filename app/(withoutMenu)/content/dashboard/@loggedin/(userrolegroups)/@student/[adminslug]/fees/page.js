@@ -7,9 +7,12 @@ import PreFeeSection from "@/components/dashboardPage/preFeeSec";
 import ProfileUpdateLogicSecond from "@/components/dashboardPage/profileUpdateLogicSecond";
 import WaitingApproval from "@/components/dashboardPage/WaitingApproval";
 import { selectDataTwo } from "@/apiservices/paymentapiservices";
+import { useSearchParams } from "next/navigation";
 
 function FeesPage() {
   const data = useSelector((state) => state.isAdmin.value);
+  const searchParams = useSearchParams();
+  const status = searchParams.get("status");
   const [payment, setPayment] = useState();
 
   useEffect(() => {
@@ -82,7 +85,11 @@ function FeesPage() {
     }
   } else {
     if (blankArrayList.length > 0) {
-      return <ProfileUpdateLogicSecond />;
+      if (status == "ok") {
+        return <PreFeeSection profile={data} />;
+      } else {
+        return <ProfileUpdateLogicSecond />;
+      }
     } else if (
       data.data.userDetails.studentCourseCode.length < 1 &&
       data.data.userDetails.paymentStatus.addmissionDueStatus == true

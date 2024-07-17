@@ -45,13 +45,13 @@ async function CoursePage() {
               {data.map((item, i) => (
                 <div key={i} className="style-6">
                   <a
-                    href={`/classes/${item.courseCode}`}
+                    href={`/content/classes/${item.courseCode}`}
                     target="_blank"
                     className="style-7"
                   ></a>
                   <div className="style-8">
                     <a
-                      href={`/classes/${item.courseCode}`}
+                      href={`/content/classes/${item.courseCode}`}
                       target="_blank"
                       className="style-9"
                     >
@@ -65,7 +65,7 @@ async function CoursePage() {
                     </a>
                     <div className="style-11">
                       <a
-                        href={`/classes/${item.courseCode}`}
+                        href={`/content/classes/${item.courseCode}`}
                         target="_blank"
                         className="style-12"
                       >
@@ -77,7 +77,7 @@ async function CoursePage() {
                       </a>
                       <EnrollCondition courseCode={item.courseCode} />
                       <a
-                        href={`/classes/${item.courseCode}`}
+                        href={`/content/classes/${item.courseCode}`}
                         className="style-17"
                       >
                         Course Details

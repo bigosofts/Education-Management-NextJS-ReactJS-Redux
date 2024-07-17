@@ -25,9 +25,9 @@ function ProfileUpdateAdditional() {
   const hardRefresh = (code) => {
     if (typeof window !== "undefined") {
       if (code) {
-        window.location.href = `/dashboard/${data.data.userDetails.userName}/fees?enroll=${code}`;
+        window.location.href = `/content/dashboard/${data.data.userDetails.userName}/fees?enroll=${code}`;
       } else {
-        window.location.href = `/dashboard/${data.data.userDetails.userName}`;
+        window.location.href = `/content/dashboard/${data.data.userDetails.userName}`;
       }
     }
   };

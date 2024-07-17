@@ -3,17 +3,17 @@ function EnrollButtonb({ code }) {
   const hardRefresh = () => {
     if (typeof window !== "undefined") {
       if (code == "hifjulquran") {
-        window.location.href = `/hifz-test?signup=true`;
+        window.location.href = `/content/hifz-test?signup=true`;
       } else if (code == "ezranahusorof") {
-        window.location.href = `/signup?code=alemalema`;
+        window.location.href = `/content/signup?code=alemalema`;
       } else if (code == "urdu") {
-        window.location.href = `/signup?code=alemalema`;
+        window.location.href = `/content/signup?code=alemalema`;
       }else if (code == "farzeayinclass") {
-        window.location.href = `/signup?code=prealemalema`;
+        window.location.href = `/content/signup?code=prealemalema`;
       }else if (code == "abacus_teacher") {
-        window.location.href = `/signup?abacus=true`;
+        window.location.href = `/content/signup?abacus=true`;
       } else {
-        window.location.href = `/signup?code=${code}`;
+        window.location.href = `/content/signup?code=${code}`;
       }
     }
   };

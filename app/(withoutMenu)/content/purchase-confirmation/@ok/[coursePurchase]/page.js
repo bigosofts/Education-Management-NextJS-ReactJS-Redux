@@ -49,7 +49,7 @@ function ConfirmationPage({ params }) {
           </p>
 
           <button
-            onClick={() => push("/dashboard/loading")}
+            onClick={() => push("/content/dashboard/loading")}
             className="mt-10 p-5 bg-lime-950 text-white rounded-3xl"
           >
             পুনরায় ড্যাশবোর্ডে ফেরত যেতে এখানে ক্লিক করুন

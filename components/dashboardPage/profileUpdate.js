@@ -29,10 +29,10 @@ function ProfileUpdate() {
     if (typeof window !== "undefined") {
       if (code) {
         router.push(
-          `/dashboard/${data.data.userDetails.userName}/fees?enroll=${code}`
+          `/content/dashboard/${data.data.userDetails.userName}/fees?enroll=${code}&status=ok`
         );
       } else {
-        window.location.href = `/dashboard/${data.data.userDetails.userName}/settings/profile-update`;
+        window.location.href = `/content/dashboard/${data.data.userDetails.userName}/settings/profile-update?status=ok`;
       }
     }
   };

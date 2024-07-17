@@ -238,9 +238,9 @@ function LoginPageDesign({ finalData }) {
                     const hardRefresh = () => {
                       if (typeof window !== "undefined") {
                         if (code) {
-                          window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update?code=${code}`;
+                          window.location.href = `/content/dashboard/${res2.data.userName}/settings/profile-update?code=${code}`;
                         } else {
-                          window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update`;
+                          window.location.href = `/content/dashboard/${res2.data.userName}/settings/profile-update`;
                         }
                       }
                     };
@@ -257,7 +257,7 @@ function LoginPageDesign({ finalData }) {
                 } else {
                   const hardRefresh = () => {
                     if (typeof window !== "undefined") {
-                      window.location.href = `/dashboard/${res2.data.userName}/settings/profile-update?code=${code}`;
+                      window.location.href = `/content/dashboard/${res2.data.userName}/settings/profile-update?code=${code}`;
                     }
                   };
                   hardRefresh();
@@ -426,7 +426,7 @@ function LoginPageDesign({ finalData }) {
                   mytoast.success("আলহামদুলিলাহ, আপনি সফলভাবে লগিন করেছেন");
                   const hardRefresh = () => {
                     if (typeof window !== "undefined") {
-                      window.location.href = `/dashboard/${res2.data.institutionID}`;
+                      window.location.href = `/content/dashboard/${res2.data.institutionID}`;
                     }
                   };
                   hardRefresh();
@@ -442,7 +442,7 @@ function LoginPageDesign({ finalData }) {
               } else {
                 const hardRefresh = () => {
                   if (typeof window !== "undefined") {
-                    window.location.href = `/dashboard/${res2.data.institutionID}`;
+                    window.location.href = `/content/dashboard/${res2.data.institutionID}`;
                   }
                 };
                 hardRefresh();

@@ -34,6 +34,7 @@ function PreFeeSection({ profile }) {
   const [realJamat, setRealJamat] = useState();
   const [semester, setSemester] = useState();
   const [extrabatch, setExtraBatch] = useState();
+  const [oSemester, setOSemester] = useState();
 
   const [batch, setBatch] = useState([]);
 
@@ -380,6 +381,11 @@ function PreFeeSection({ profile }) {
         semester: "none",
       }));
       setExtraTransaction(false);
+      setSemester(
+        semesterData.map((item) => {
+          return { ID: item.semesterID, name: item.semesterName };
+        })
+      );
     } else {
       setExtraTransaction(true);
       setExtraJamat(false);
@@ -895,7 +901,7 @@ function PreFeeSection({ profile }) {
 
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
+                window.location.href = `/content/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
               }
             };
             hardRefresh();
@@ -1105,7 +1111,7 @@ function PreFeeSection({ profile }) {
 
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
+                window.location.href = `/content/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
               }
             };
             hardRefresh();
@@ -1352,7 +1358,7 @@ function PreFeeSection({ profile }) {
 
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
+                window.location.href = `/content/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
               }
             };
             hardRefresh();
@@ -1561,7 +1567,7 @@ function PreFeeSection({ profile }) {
 
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
+                window.location.href = `/content/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
               }
             };
             hardRefresh();
@@ -1791,7 +1797,7 @@ function PreFeeSection({ profile }) {
 
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
+                window.location.href = `/content/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
               }
             };
             hardRefresh();
@@ -2000,7 +2006,7 @@ function PreFeeSection({ profile }) {
 
             const hardRefresh = () => {
               if (typeof window !== "undefined") {
-                window.location.href = `/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
+                window.location.href = `/content/purchase-confirmation/${mainData.course}?username=${profile.data.userDetails.userName}&usd=${money.us}`;
               }
             };
             hardRefresh();

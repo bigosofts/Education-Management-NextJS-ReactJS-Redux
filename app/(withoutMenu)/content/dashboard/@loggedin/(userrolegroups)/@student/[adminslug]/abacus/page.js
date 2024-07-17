@@ -14,7 +14,6 @@ function AbacusPage(props) {
 
   const [showPage, setShowPage] = useState(false);
 
-  
   const allowList = ["abacus_student"];
 
   useEffect(() => {

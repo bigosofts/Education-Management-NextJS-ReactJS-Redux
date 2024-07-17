@@ -16,7 +16,7 @@ function ProfileUpdateLogicSecond() {
           <div
             onClick={() =>
               router.push(
-                `/dashboard/${data.data.userName}/settings/profile-update`
+                `/content/dashboard/${data.data.userName}/settings/profile-update`
               )
             }
             className="cursor-pointer w-full md:w-[300px] shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"

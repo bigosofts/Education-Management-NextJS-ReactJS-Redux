@@ -93,7 +93,7 @@ function FeeSection({ profile }) {
   const enroll = searchParams.get("enroll");
   if (enroll) {
     router.push(
-      `/dashboard/${profile.data.userName}/switches?enroll=${enroll}`
+      `/content/dashboard/${profile.data.userName}/switches?enroll=${enroll}`
     );
   } else {
     return (

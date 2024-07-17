@@ -15,6 +15,7 @@ function AttendancePageCustomInner({ classesUp, booksUp, courseState, data }) {
   const [specificClass, setSpecificClass] = useState();
   const [isSubmited, setIsSubmited] = useState();
   const [completion, setCompletion] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   function allsubmited(completion) {
     setIsSubmited(true);
@@ -184,9 +185,13 @@ function AttendancePageCustomInner({ classesUp, booksUp, courseState, data }) {
     setChange((prev) => !prev);
   }
   async function changeState1(id) {
+    setIsLoading(false);
     const res = await selectClasses({ _id: id }, null);
-    setSpecificClass(res.data[0]);
-    setChange((prev) => !prev);
+    if (res.status == "Alhamdulillah") {
+      setSpecificClass(res.data[0]);
+      setIsLoading(true);
+      setChange((prev) => !prev);
+    }
   }
 
   if (classes) {
@@ -235,16 +240,21 @@ function AttendancePageCustomInner({ classesUp, booksUp, courseState, data }) {
                       {getTodayQuestion(item.classID, niceDate(Date.now())) ||
                         "Not Found"}
                     </div>
-
-                    <div
-                      onClick={(e) => {
-                        e.preventDefault();
-                        changeState1(item._id);
-                      }}
-                      className="text-white w-2/3 mx-auto text-xl mt-5 mb-5 px-4 py-3 hover:bg-[#532d80] rounded-lg bg-green-800 cursor-pointer font-extrabold text-center"
-                    >
-                      কুইজের উত্তর দিন
-                    </div>
+                    {isLoading ? (
+                      <div
+                        onClick={(e) => {
+                          e.preventDefault();
+                          changeState1(item._id);
+                        }}
+                        className="text-white w-2/3 mx-auto text-xl mt-5 mb-5 px-4 py-3 hover:bg-[#532d80] rounded-lg bg-green-800 cursor-pointer font-extrabold text-center"
+                      >
+                        কুইজের উত্তর দিন
+                      </div>
+                    ) : (
+                      <div className="text-white w-2/3 mx-auto text-xl mt-5 mb-5 px-4 py-3 hover:bg-[#532d80] rounded-lg bg-green-800 font-extrabold text-center">
+                        Loading ...
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
