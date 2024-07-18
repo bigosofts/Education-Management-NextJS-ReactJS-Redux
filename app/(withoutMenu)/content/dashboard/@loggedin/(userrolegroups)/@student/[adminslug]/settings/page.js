@@ -11,7 +11,7 @@ function BookPage() {
     e.preventDefault();
     const hardRefresh = () => {
       if (typeof window !== "undefined") {
-        window.location.href = "/dashboard/login";
+        window.location.href = "/content/dashboard/login";
       }
     };
     const res = await logout();
@@ -34,7 +34,7 @@ function BookPage() {
             <li
               onClick={() =>
                 router.push(
-                  `/dashboard/${data.data.userName}/settings/profile-update`
+                  `/content/dashboard/${data.data.userName}/settings/profile-update`
                 )
               }
               className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
@@ -46,7 +46,7 @@ function BookPage() {
             </li>
             <li
               onClick={() =>
-                router.push(`/dashboard/${data.data.userName}/switches`)
+                router.push(`/content/dashboard/${data.data.userName}/switches`)
               }
               className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
             >
@@ -58,7 +58,7 @@ function BookPage() {
             <li
               onClick={() =>
                 router.push(
-                  `/dashboard/${data.data.userName}/settings/reset-password`
+                  `/content/dashboard/${data.data.userName}/settings/reset-password`
                 )
               }
               className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
@@ -71,7 +71,7 @@ function BookPage() {
             <li
               onClick={() =>
                 router.push(
-                  `/dashboard/${data.data.userName}/settings/profile-update-additional`
+                  `/content/dashboard/${data.data.userName}/settings/profile-update-additional`
                 )
               }
               className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"

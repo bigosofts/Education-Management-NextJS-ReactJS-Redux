@@ -372,7 +372,7 @@ function SwitchDesign() {
               );
               const hardRefresh = () => {
                 if (typeof window !== "undefined") {
-                  window.location.href = `/dashboard/${data.data.userDetails.userName}`;
+                  window.location.href = `/content/dashboard/${data.data.userDetails.userName}`;
                 }
               };
               hardRefresh();
@@ -527,7 +527,7 @@ function SwitchDesign() {
               );
               const hardRefresh = () => {
                 if (typeof window !== "undefined") {
-                  window.location.href = `/dashboard/${data.data.userDetails.userName}`;
+                  window.location.href = `/content/dashboard/${data.data.userDetails.userName}`;
                 }
               };
               hardRefresh();
@@ -697,7 +697,7 @@ function SwitchDesign() {
                 );
                 const hardRefresh = () => {
                   if (typeof window !== "undefined") {
-                    window.location.href = `/dashboard/${data.data.userDetails.userName}`;
+                    window.location.href = `/content/dashboard/${data.data.userDetails.userName}`;
                   }
                 };
                 hardRefresh();
@@ -868,7 +868,7 @@ function SwitchDesign() {
                 );
                 const hardRefresh = () => {
                   if (typeof window !== "undefined") {
-                    window.location.href = `/dashboard/${data.data.userDetails.userName}`;
+                    window.location.href = `/content/dashboard/${data.data.userDetails.userName}`;
                   }
                 };
                 hardRefresh();
@@ -1036,7 +1036,7 @@ function SwitchDesign() {
                 );
                 const hardRefresh = () => {
                   if (typeof window !== "undefined") {
-                    window.location.href = `/dashboard/${data.data.userDetails.userName}`;
+                    window.location.href = `/content/dashboard/${data.data.userDetails.userName}`;
                   }
                 };
                 hardRefresh();
@@ -1211,7 +1211,7 @@ function SwitchDesign() {
                 );
                 const hardRefresh = () => {
                   if (typeof window !== "undefined") {
-                    window.location.href = `/dashboard/${data.data.userDetails.userName}`;
+                    window.location.href = `/content/dashboard/${data.data.userDetails.userName}`;
                   }
                 };
                 hardRefresh();
@@ -1379,7 +1379,7 @@ function SwitchDesign() {
                 );
                 const hardRefresh = () => {
                   if (typeof window !== "undefined") {
-                    window.location.href = `/dashboard/${data.data.userDetails.userName}`;
+                    window.location.href = `/content/dashboard/${data.data.userDetails.userName}`;
                   }
                 };
                 hardRefresh();
