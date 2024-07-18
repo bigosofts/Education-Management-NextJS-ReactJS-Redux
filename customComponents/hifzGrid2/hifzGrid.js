@@ -89,7 +89,7 @@ async function HifzGrid() {
           </div>
         ))}
       </div>
-      <ButtonComponent text="See More" link="/hifz" />
+      <ButtonComponent text="See More" link="/content/hifz" />
     </>
   );
 }

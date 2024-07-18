@@ -11,7 +11,7 @@ function AdminDrawer() {
       <div
         onClick={() =>
           router.push(
-            `/dashboard/${data.data.userName}/education/annual-history-pending`
+            `/content/dashboard/${data.data.userName}/education/annual-history-pending`
           )
         }
         className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
@@ -25,7 +25,7 @@ function AdminDrawer() {
       <div
         onClick={() =>
           router.push(
-            `/dashboard/${data.data.userName}/education/annual-history-active`
+            `/content/dashboard/${data.data.userName}/education/annual-history-active`
           )
         }
         className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
@@ -39,7 +39,7 @@ function AdminDrawer() {
       <div
         onClick={() =>
           router.push(
-            `/dashboard/${data.data.userName}/education/annual-history-due`
+            `/content/dashboard/${data.data.userName}/education/annual-history-due`
           )
         }
         className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
@@ -53,7 +53,7 @@ function AdminDrawer() {
       <div
         onClick={() =>
           router.push(
-            `/dashboard/${data.data.userName}/education/monthly-history`
+            `/content/dashboard/${data.data.userName}/education/monthly-history`
           )
         }
         className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
@@ -66,7 +66,9 @@ function AdminDrawer() {
 
       <div
         onClick={() =>
-          router.push(`/dashboard/${data.data.userName}/education/send-notices`)
+          router.push(
+            `/content/dashboard/${data.data.userName}/education/send-notices`
+          )
         }
         className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
       >
@@ -85,7 +87,9 @@ function AdminDrawer() {
 
       <div
         onClick={() =>
-          router.push(`/dashboard/${data.data.userName}/education/attendance`)
+          router.push(
+            `/content/dashboard/${data.data.userName}/education/attendance`
+          )
         }
         className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
       >
@@ -95,7 +99,9 @@ function AdminDrawer() {
 
       <div
         onClick={() =>
-          router.push(`/dashboard/${data.data.userName}/education/hifz-report`)
+          router.push(
+            `/content/dashboard/${data.data.userName}/education/hifz-report`
+          )
         }
         className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
       >
@@ -108,7 +114,7 @@ function AdminDrawer() {
       <div
         onClick={() =>
           router.push(
-            `/dashboard/${data.data.userName}/education/institution-pending`
+            `/content/dashboard/${data.data.userName}/education/institution-pending`
           )
         }
         className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
@@ -122,7 +128,7 @@ function AdminDrawer() {
       <div
         onClick={() =>
           router.push(
-            `/dashboard/${data.data.userName}/education/institution-active`
+            `/content/dashboard/${data.data.userName}/education/institution-active`
           )
         }
         className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
@@ -135,7 +141,9 @@ function AdminDrawer() {
 
       <div
         onClick={() =>
-          router.push(`/dashboard/${data.data.userName}/education/class-assign`)
+          router.push(
+            `/content/dashboard/${data.data.userName}/education/class-assign`
+          )
         }
         className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
       >

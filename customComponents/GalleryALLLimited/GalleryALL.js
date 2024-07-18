@@ -50,7 +50,7 @@ function GalleryAll({ linkObj }) {
           </React.Fragment>
         ))}
       </div>
-      <ButtonComponent text="All Activities" link="/work" />
+      <ButtonComponent text="All Activities" link="/content/work" />
     </div>
   );
 }

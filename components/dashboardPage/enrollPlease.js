@@ -10,12 +10,13 @@ function EnrollPlease() {
     <div className="h-[80vh] flex justify-center align-middle p-5">
       <div className="my-auto">
         <h1 className="w-full md:w-[50%] mx-auto text-lg md:text-3xl text-center mb-10">
-          এই পেজটি ব্যাবহার করতে, প্রথমে আপনাকে  যেকোনো একটি কোর্সে ইনরোল করে পেমেন্ট সম্পন্ন করতে হবে।
+          এই পেজটি ব্যাবহার করতে, প্রথমে আপনাকে যেকোনো একটি কোর্সে ইনরোল করে
+          পেমেন্ট সম্পন্ন করতে হবে।
         </h1>
         <div className="flex gap-5 justify-center">
           <div
             onClick={() =>
-              router.push(`/dashboard/${data.data.userName}/classes`)
+              router.push(`/content/dashboard/${data.data.userName}/classes`)
             }
             className="w-full md:w-[300px] cursor-pointer shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
           >

@@ -109,7 +109,7 @@ async function NoticeEvent() {
                   </div>
                 ))}
               </div>{" "}
-              <a href="notice.php" className="style-70">
+              <a href="#" className="style-70">
                 View all Notices
               </a>
             </div>
@@ -147,7 +147,7 @@ async function NoticeEvent() {
                   </div>
                 ))}
               </div>{" "}
-              <a href="events.php" className="style-119">
+              <a href="#" className="style-119">
                 View all Events
               </a>
             </div>
@@ -162,7 +162,7 @@ async function NoticeEvent() {
                       {data.post.slice(0, 4).map((item, i) => (
                         <div key={i} className="style-131">
                           <div className="style-132">
-                            <Link href={`/${item.postId}`}>
+                            <Link href={`/content/blog/${item.postId}`}>
                               <h1>{item.postTitle.bn}</h1>
                             </Link>
                             <Image

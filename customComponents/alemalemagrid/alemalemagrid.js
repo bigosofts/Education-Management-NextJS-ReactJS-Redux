@@ -97,7 +97,7 @@ async function AlemAlemaGrid({ number }) {
       {number == undefined ? (
         ""
       ) : (
-        <ButtonComponent text="See More" link="/alemalema" />
+        <ButtonComponent text="See More" link="/content/alemalema" />
       )}
     </div>
   );

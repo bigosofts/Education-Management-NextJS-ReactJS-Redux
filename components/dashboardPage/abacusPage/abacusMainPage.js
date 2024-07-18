@@ -14,38 +14,38 @@ function AbacusMainPage() {
   const newArray = [
     {
       name: "Dashboard",
-      href: `/dashboard/${data.data.userName}`,
+      href: `/content/dashboard/${data.data.userName}`,
       icon: "/images/graph.svg",
       show: true,
     },
     {
       name: "Abacus Books & kit",
-      href: `/dashboard/${data.data.userName}/abacus/books`,
+      href: `/content/dashboard/${data.data.userName}/abacus/books`,
       icon: "/images/books.svg",
       show: true,
     },
 
     {
       name: "Live Class Link & Schedule",
-      href: `/dashboard/${data.data.userName}/abacus/group`,
+      href: `/content/dashboard/${data.data.userName}/abacus/group`,
       icon: "/images/population.svg",
       show: true,
     },
     {
       name: "Abacus Sheet Genrator",
-      href: `/dashboard/${data.data.userName}/abacus/abacus-sheet-generator`,
+      href: `/content/dashboard/${data.data.userName}/abacus/abacus-sheet-generator`,
       icon: "/images/abacus.svg",
       show: true,
     },
     {
       name: "Recorded Classes & Quiz",
-      href: `/dashboard/${data.data.userName}/abacus/recorded-classes`,
+      href: `/content/dashboard/${data.data.userName}/abacus/recorded-classes`,
       icon: "/images/upload.svg",
       show: true,
     },
     {
       name: "Abacus Play- Japanese Abacus (Soroban)",
-      href: `/dashboard/${data.data.userName}/abacus/abacus-play`,
+      href: `/content/dashboard/${data.data.userName}/abacus/abacus-play`,
       icon: "/images/play.svg",
       show: true,
     },

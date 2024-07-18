@@ -14,26 +14,26 @@ function RamadanQuranMainPage() {
   const newArray = [
     {
       name: "Dashboard",
-      href: `/dashboard/${data.data.userName}`,
+      href: `/content/dashboard/${data.data.userName}`,
       icon: "/images/graph.svg",
       show: true,
     },
     {
       name: "Neccessary Books",
-      href: `/dashboard/${data.data.userName}/ramadan-quran/books`,
+      href: `/content/dashboard/${data.data.userName}/ramadan-quran/books`,
       icon: "/images/books.svg",
       show: true,
     },
 
     {
       name: "Live Class Link & Schedule",
-      href: `/dashboard/${data.data.userName}/ramadan-quran/group`,
+      href: `/content/dashboard/${data.data.userName}/ramadan-quran/group`,
       icon: "/images/population.svg",
       show: true,
     },
     {
       name: "Recorded Classes & Quiz",
-      href: `/dashboard/${data.data.userName}/ramadan-quran/recorded-classes`,
+      href: `/content/dashboard/${data.data.userName}/ramadan-quran/recorded-classes`,
       icon: "/images/upload.svg",
       show: true,
     },
