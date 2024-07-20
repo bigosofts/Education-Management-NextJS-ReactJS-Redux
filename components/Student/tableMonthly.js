@@ -86,16 +86,14 @@ function TableMonthly({ profile, paymentID, students }) {
                     ].code
                   }
                   <br />
-                  {
+                  {profile.studentJamatCode[0] &&
                     profile.studentJamatCode[
                       profile.studentJamatCode.length - 1
-                    ].code
-                  }
+                    ].code}
                   <br />
-                  {
+                  {profile.studentSemester[0] &&
                     profile.studentSemester[profile.studentSemester.length - 1]
-                      .code
-                  }
+                      .code}
                 </td>
                 <td className="px-6 py-4">{niceDate(item.Date)}</td>
                 <td className="px-6 py-4">
@@ -147,6 +145,21 @@ function TableMonthly({ profile, paymentID, students }) {
                           Pending
                         </span>
                       )
+                    ) : item.Price == 0 && item.PaymentStatus == true ? (
+                      <span
+                        style={{
+                          display: "inline-block",
+                          backgroundColor: "#34a853",
+                          padding: "10px 20px",
+                          borderRadius: "15px",
+                          color: "white",
+                          marginLeft: "10px",
+                          fontSize: "14px",
+                          fontWeight: "900",
+                        }}
+                      >
+                        Approved
+                      </span>
                     ) : (
                       <span
                         style={{

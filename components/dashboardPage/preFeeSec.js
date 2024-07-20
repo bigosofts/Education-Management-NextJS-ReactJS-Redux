@@ -40,12 +40,24 @@ function PreFeeSection({ profile }) {
     department: "",
     semester: "",
     jamat: "",
-    amountPaid: "",
-    transactionID: "",
-    accountNo: "",
-    paymentWay: "",
+    amountPaid: "none",
+    transactionID: "none",
+    accountNo: "none",
+    paymentWay: "none",
   });
+  function niceDate(date) {
+    var isoTime = date;
+    var date = new Date(isoTime);
 
+    var options = {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    };
+
+    var formattedDate = date.toLocaleDateString("en-US", options);
+    return formattedDate;
+  }
   function transactionDecision(e) {
     e.preventDefault();
     const transactionID = e.target.value;
@@ -375,10 +387,10 @@ function PreFeeSection({ profile }) {
       mainData.currency &&
       mainData.course &&
       mainData.department &&
-      mainData.amountPaid &&
-      mainData.transactionID &&
-      mainData.accountNo &&
-      mainData.paymentWay
+      mainData.amountPaid != "none" &&
+      mainData.transactionID != "none" &&
+      mainData.accountNo != "none" &&
+      mainData.paymentWay != "none"
     ) {
       let currentDate = new Date();
       let oneYearLater = new Date(currentDate);
@@ -405,6 +417,13 @@ function PreFeeSection({ profile }) {
 
       oneYearLater.setFullYear(currentDate.getFullYear() + 1);
 
+      function returnOneYear(date) {
+        let currentDate = new Date(date);
+        let oneYearLater = new Date(currentDate);
+        oneYearLater.setFullYear(currentDate.getFullYear() + 1);
+
+        return oneYearLater;
+      }
       if (profile.data.userDetails.studentCourseCode.length < 1) {
         const resPayment = await createData({
           paymentID: "payment-" + profile.data.userName,
@@ -537,14 +556,14 @@ function PreFeeSection({ profile }) {
           Unpaid[0].admissionPaymentHistory.map((item) => {
             if (item._id == UnpaidRef.current.value) {
               return {
-                Date: new Date(Date.now()).toISOString(),
+                Date: item.Date,
                 PaymentStatus: false,
                 Price: mainData.amountPaid,
                 currency: mainData.currency,
                 transactionID: mainData.transactionID,
                 senderNo: mainData.accountNo,
                 paymentWay: mainData.paymentWay,
-                nextAdmissionDate: new Date(oneYearLater),
+                nextAdmissionDate: returnOneYear(item.Date),
               };
             } else {
               return item;
@@ -552,9 +571,324 @@ function PreFeeSection({ profile }) {
           });
 
         currentAdmissionPaymentHistory.push({
-          Date: new Date(oneYearLater),
+          Date: returnOneYear(
+            Unpaid[0].admissionPaymentHistory[
+              Unpaid[0].admissionPaymentHistory.length - 1
+            ].Date
+          ),
           PaymentStatus: false,
           Price: "",
+          currency: "",
+          transactionID: "",
+          senderNo: "",
+          paymentWay: "",
+          nextAdmissionDate: undefined,
+        });
+
+        let CurrentID = Unpaid[0]._id;
+
+        const resPayment = await upDatePayment({
+          paymentID: "payment-" + profile.data.userName,
+          paymentCurrency: undefined,
+          admissionDate: undefined,
+
+          admissionPrice: money
+            ? { tk: money.tk, us: money.us }
+            : { tk: "", us: "" },
+          monthlyPaymentPrice: money
+            ? { tk: money.mtk, us: money.mus }
+            : { tk: "", us: "" },
+          admissionPaymentHistory: currentAdmissionPaymentHistory,
+          monthlyPaymentHistory: undefined,
+          activeStatus: "active",
+          idValue: CurrentID,
+        });
+
+        if (resPayment.status == "Alhamdulillah") {
+          mytoast.success(
+            "Your Payment Request is Accepted. Please Wait for the verificiation"
+          );
+
+          let studentCourseCode = profile.data.userDetails.studentCourseCode;
+          const pushObjCourse = {
+            code: mainData.course,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "inactive",
+          };
+          let studentCourseCodeTwoFinal = [...studentCourseCode];
+          studentCourseCodeTwoFinal.push(pushObjCourse);
+
+          let studentDepartment = profile.data.userDetails.studentDepartment;
+          const pushObjDepartment = {
+            code: mainData.department,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "inactive",
+          };
+          let studentDepartmentTwoFinal = [...studentDepartment];
+          studentDepartmentTwoFinal.push(pushObjDepartment);
+
+          let studentJamatCode = profile.data.userDetails.studentJamatCode;
+          const pushObjJamat = {
+            code: mainData.jamat,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "inactive",
+          };
+          let studentJamatCodeTwoFinal = [...studentJamatCode];
+          studentJamatCodeTwoFinal.push(pushObjJamat);
+
+          let studentSemester = profile.data.userDetails.studentSemester;
+          const pushObjSemester = {
+            code: mainData.semester,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "inactive",
+          };
+          let studentSemesterTwoFinal = [...studentSemester];
+          studentSemesterTwoFinal.push(pushObjSemester);
+
+          const resStudent = await updateData(
+            profile.data.userDetails.userName,
+            profile.data.userDetails.firstName.en,
+            profile.data.userDetails.firstName.bn,
+            profile.data.userDetails.lastName.en,
+            profile.data.userDetails.lastName.bn,
+            profile.data.userDetails.nidNumber,
+            profile.data.userDetails.birthRegNumber,
+            profile.data.userDetails.fatherName.en,
+            profile.data.userDetails.fatherName.bn,
+            profile.data.userDetails.emailAddress,
+            undefined,
+            profile.data.userDetails.mobileNumber,
+            profile.data.userDetails.occupation,
+            studentCourseCodeTwoFinal,
+            mainData.jamat ? studentJamatCodeTwoFinal : undefined,
+            profile.data.userDetails.gender,
+            profile.data.userDetails.dateOfBirth,
+            profile.data.userDetails.countryName,
+            profile.data.userDetails.fullPresentAddress,
+            profile.data.userDetails.fullPermanentAddress,
+            profile.data.userDetails.admissionSession,
+            profile.data.userDetails.admissionDate,
+            profile.data.userDetails.studentMotive,
+            profile.data.userDetails.details,
+            {
+              addmissionDueStatus: true,
+              consequentDueStatus: true,
+              paymentID: profile.data.userDetails.paymentStatus.paymentID,
+            },
+            profile.data.userDetails.userRole,
+            profile.data.userDetails.extracurricular,
+            profile.data.userDetails.activeStatus,
+            profile.data.userDetails._id,
+            mainData.department ? studentDepartmentTwoFinal : undefined,
+            mainData.semester ? studentSemesterTwoFinal : undefined
+          );
+          if (resStudent.status == "Alhamdulillah") {
+            mytoast.info("If verification Delays, Do not forget to reach us");
+            const hardRefresh = () => {
+              if (typeof window !== "undefined") {
+                window.location.href = "/dashboard/login";
+              }
+            };
+            hardRefresh();
+          }
+        }
+      }
+    } else if (
+      mainData.amountPaid == "none" &&
+      mainData.transactionID == "none" &&
+      mainData.accountNo == "none" &&
+      mainData.paymentWay == "none"
+    ) {
+      let currentDate = new Date();
+      let oneYearLater = new Date(currentDate);
+
+      var currentMonth = currentDate.getMonth();
+      var currentYear = currentDate.getFullYear();
+
+      var nextMonth = currentMonth + 1;
+      var nextYear = currentYear;
+      if (nextMonth > 11) {
+        nextMonth = 0; // January (0-indexed)
+        nextYear++;
+      }
+
+      var oneMonthLater = new Date(
+        nextYear,
+        nextMonth,
+        currentDate.getDate(),
+        currentDate.getHours(),
+        currentDate.getMinutes(),
+        currentDate.getSeconds(),
+        currentDate.getMilliseconds()
+      );
+
+      oneYearLater.setFullYear(currentDate.getFullYear() + 1);
+
+      function returnOneYear(date) {
+        let currentDate = new Date(date);
+        let oneYearLater = new Date(currentDate);
+        oneYearLater.setFullYear(currentDate.getFullYear() + 1);
+
+        return oneYearLater;
+      }
+      if (profile.data.userDetails.studentCourseCode.length < 1) {
+        const resPayment = await createData({
+          paymentID: "payment-" + profile.data.userName,
+          paymentCurrency: mainData.currency,
+          admissionDate: new Date(Date.now()).toISOString(),
+
+          admissionPrice: money
+            ? { tk: money.tk, us: money.us }
+            : { tk: "", us: "" },
+          monthlyPaymentPrice: money
+            ? { tk: money.mtk, us: money.mus }
+            : { tk: "", us: "" },
+          admissionPaymentHistory: [
+            {
+              Date: new Date(Date.now()).toISOString(),
+              PaymentStatus: true,
+              Price: 0,
+              currency: mainData.currency,
+              transactionID: "",
+              senderNo: "",
+              paymentWay: "",
+              nextAdmissionDate: new Date(oneYearLater),
+            },
+            {
+              Date: new Date(oneYearLater),
+              PaymentStatus: false,
+              Price: "",
+              currency: "",
+              transactionID: "",
+              senderNo: "",
+              paymentWay: "",
+              nextAdmissionDate: undefined,
+            },
+          ],
+          monthlyPaymentHistory: [
+            {
+              Date: new Date(oneMonthLater),
+              PaymentStatus: true,
+              Price: 0,
+              currency: "",
+              transactionID: "",
+              senderNo: "",
+              paymentWay: "",
+              nextMonthlyDate: undefined,
+            },
+          ],
+          activeStatus: "active",
+        });
+        if (resPayment.status == "Alhamdulillah") {
+          mytoast.success(
+            "Your Payment Request is Accepted. Please Wait for the verificiation"
+          );
+          const studentCourseCode = {
+            code: mainData.course,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "inactive",
+          };
+
+          const studentDepartment = {
+            code: mainData.department,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "inactive",
+          };
+
+          const studentJamatCode = {
+            code: mainData.jamat,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "inactive",
+          };
+
+          const studentSemester = {
+            code: mainData.semester,
+            startedDate: new Date(Date.now()).toISOString(),
+            endDate: null,
+            status: "inactive",
+          };
+
+          const resStudent = await updateData(
+            profile.data.userDetails.userName,
+            profile.data.userDetails.firstName.en,
+            profile.data.userDetails.firstName.bn,
+            profile.data.userDetails.lastName.en,
+            profile.data.userDetails.lastName.bn,
+            profile.data.userDetails.nidNumber,
+            profile.data.userDetails.birthRegNumber,
+            profile.data.userDetails.fatherName.en,
+            profile.data.userDetails.fatherName.bn,
+            profile.data.userDetails.emailAddress,
+            undefined,
+            profile.data.userDetails.mobileNumber,
+            profile.data.userDetails.occupation,
+            studentCourseCode,
+            mainData.jamat ? studentJamatCode : undefined,
+            profile.data.userDetails.gender,
+            profile.data.userDetails.dateOfBirth,
+            profile.data.userDetails.countryName,
+            profile.data.userDetails.fullPresentAddress,
+            profile.data.userDetails.fullPermanentAddress,
+            new Date(Date.now()).toISOString(),
+            profile.data.userDetails.admissionDate,
+            profile.data.userDetails.studentMotive,
+            profile.data.userDetails.details,
+            {
+              addmissionDueStatus: true,
+              consequentDueStatus: true,
+              paymentID: resPayment.data.paymentID,
+            },
+            profile.data.userDetails.userRole,
+            profile.data.userDetails.extracurricular,
+            profile.data.userDetails.activeStatus,
+            profile.data.userDetails._id,
+            mainData.department ? studentDepartment : undefined,
+            mainData.semester ? studentSemester : undefined
+          );
+          if (resStudent.status == "Alhamdulillah") {
+            mytoast.info("If verification Delays, Do not forget to reach us");
+            const hardRefresh = () => {
+              if (typeof window !== "undefined") {
+                window.location.href = "/dashboard/login";
+              }
+            };
+            hardRefresh();
+          }
+        }
+      } else {
+        let currentAdmissionPaymentHistory =
+          Unpaid[0].admissionPaymentHistory.map((item) => {
+            if (item._id == UnpaidRef.current.value) {
+              return {
+                Date: item.Date,
+                PaymentStatus: true,
+                Price: 0,
+                currency: mainData.currency,
+                transactionID: "",
+                senderNo: "",
+                paymentWay: "",
+                nextAdmissionDate: returnOneYear(item.Date),
+              };
+            } else {
+              return item;
+            }
+          });
+
+        currentAdmissionPaymentHistory.push({
+          Date: returnOneYear(
+            Unpaid[0].admissionPaymentHistory[
+              Unpaid[0].admissionPaymentHistory.length - 1
+            ].Date
+          ),
+          PaymentStatus: false,
+          Price: 0,
           currency: "",
           transactionID: "",
           senderNo: "",
@@ -849,7 +1183,7 @@ function PreFeeSection({ profile }) {
                       ? Unpaid[0].admissionPaymentHistory.map((item, i) =>
                           item.PaymentStatus == false ? (
                             <option key={i} value={item._id}>
-                              {item.Date}
+                              {niceDate(item.Date)}
                             </option>
                           ) : (
                             ""
@@ -861,94 +1195,113 @@ function PreFeeSection({ profile }) {
               ) : (
                 ""
               )}
-              <label htmlFor="paymentWay">
-                <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
-                  আপনি নিচের যেকোনো একটি অপশনে টাকা জমা দিতে পারবেন
-                </h1>
-              </label>
-              <select
-                value={mainData.paymentWay}
-                onChange={paymentWayDecision}
-                id="paymentWay"
-                name="paymentWay"
-                className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
-              >
-                <option value="none">আপনার পেমেন্ট মেথড নির্বাচন করুন</option>
+              {money && money.tk != 0 && money.us != 0 && (
+                <>
+                  <label htmlFor="paymentWay">
+                    <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
+                      আপনি নিচের যেকোনো একটি অপশনে টাকা জমা দিতে পারবেন
+                    </h1>
+                  </label>
+                  <select
+                    value={mainData.paymentWay}
+                    onChange={paymentWayDecision}
+                    id="paymentWay"
+                    name="paymentWay"
+                    className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
+                  >
+                    <option value="none">
+                      আপনার পেমেন্ট মেথড নির্বাচন করুন
+                    </option>
 
-                <option value="bkash-merchant">
-                  bkash: 01791 845 122 (Merchant)
-                </option>
+                    <option value="bkash-merchant">
+                      bkash: 01791 845 122 (Merchant)
+                    </option>
 
-                <option value="bKash-personal">
-                  bKash: 01674 04 05 02 (Personal)
-                </option>
+                    <option value="bKash-personal">
+                      bKash: 01674 04 05 02 (Personal)
+                    </option>
 
-                <option value="nagad-personal">
-                  Nagad: 01674 04 05 02 (Personal)
-                </option>
-                <option value="rocket-personal">
-                  Rocket:01674 04 05 023 (Personal)
-                </option>
-                <option value="paypal">
-                  PayPal: internetmadrasa@outlook.com
-                </option>
+                    <option value="nagad-personal">
+                      Nagad: 01674 04 05 02 (Personal)
+                    </option>
+                    <option value="rocket-personal">
+                      Rocket:01674 04 05 023 (Personal)
+                    </option>
+                    <option value="paypal">
+                      PayPal: internetmadrasa@outlook.com
+                    </option>
 
-                <option value="dbbl-bank">
-                  DBBL Bank Account No. 126 101 56434
-                </option>
-                <option value="ebl-bank">
-                  EBL Bank Account No. 170 145 000 1520
-                </option>
-              </select>
+                    <option value="dbbl-bank">
+                      DBBL Bank Account No. 126 101 56434
+                    </option>
+                    <option value="ebl-bank">
+                      EBL Bank Account No. 170 145 000 1520
+                    </option>
+                  </select>
+                </>
+              )}
               {showPayment ? (
                 <ShowPaymentDetails account={mainData.paymentWay} />
               ) : (
                 ""
               )}
-              <label htmlFor="transactionalID">
-                <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
-                  আপনার ট্রানজ্যাকশন কোডটি লিখুন
-                </h1>
-              </label>
-              <input
-                onChange={transactionDecision}
-                value={mainData.transactionID}
-                type="text"
-                id="transactionalID"
-                name="transactionalID"
-                className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
-                placeholder="213C34OP54ST5GJI5"
-              ></input>
-              <label htmlFor="accountno">
-                <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
-                  আপনি যেখান থেকে টাকা দিয়েছেন, মোবাইল ব্যাংকিং হলে প্রেরকের
-                  নাম্বার, ব্যাংক হলে প্রেরকের ব্যাংক একাউন্ট নাম্বার, পেপাল হলে
-                  প্রেরকের ইমেইল আইডি লিখুন
-                </h1>
-              </label>
-              <input
-                onChange={accountNoDecision}
-                value={mainData.accountNo}
-                type="text"
-                id="accountno"
-                name="accountno"
-                className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
-                placeholder="+8801746668432"
-              ></input>
-              <label htmlFor="payment">
-                <h1 className="w-full mx-auto text-sm md:text-3xl text-center mb-2">
-                  আপনার জমাকৃত অর্থের পরিমাণ লিখুন
-                </h1>
-              </label>
-              <input
-                onChange={amountPaidDecision}
-                value={mainData.amountPaid}
-                type="number"
-                id="payment"
-                name="payment"
-                className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
-                placeholder="1530 Taka, 30 Dollar"
-              ></input>
+              {money && money.tk != 0 && money.us != 0 && (
+                <>
+                  <label htmlFor="transactionalID">
+                    <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
+                      আপনার ট্রানজ্যাকশন কোডটি লিখুন
+                    </h1>
+                  </label>
+                  <input
+                    onChange={transactionDecision}
+                    value={mainData.transactionID}
+                    type="text"
+                    id="transactionalID"
+                    name="transactionalID"
+                    className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
+                    placeholder="213C34OP54ST5GJI5"
+                  ></input>
+                </>
+              )}
+              {money && money.tk != 0 && money.us != 0 && (
+                <>
+                  {" "}
+                  <label htmlFor="accountno">
+                    <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
+                      আপনি যেখান থেকে টাকা দিয়েছেন, মোবাইল ব্যাংকিং হলে প্রেরকের
+                      নাম্বার, ব্যাংক হলে প্রেরকের ব্যাংক একাউন্ট নাম্বার, পেপাল
+                      হলে প্রেরকের ইমেইল আইডি লিখুন
+                    </h1>
+                  </label>
+                  <input
+                    onChange={accountNoDecision}
+                    value={mainData.accountNo}
+                    type="text"
+                    id="accountno"
+                    name="accountno"
+                    className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
+                    placeholder="+8801746668432"
+                  ></input>
+                </>
+              )}
+              {money && money.tk != 0 && money.us != 0 && (
+                <>
+                  <label htmlFor="payment">
+                    <h1 className="w-full mx-auto text-sm md:text-3xl text-center mb-2">
+                      আপনার জমাকৃত অর্থের পরিমাণ লিখুন
+                    </h1>
+                  </label>
+                  <input
+                    onChange={amountPaidDecision}
+                    value={mainData.amountPaid}
+                    type="number"
+                    id="payment"
+                    name="payment"
+                    className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
+                    placeholder="1530 Taka, 30 Dollar"
+                  ></input>
+                </>
+              )}
             </div>
             <div className="submitSection">
               <button

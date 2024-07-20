@@ -21,7 +21,19 @@ function MonthlyPayment() {
     accountNo: "",
     paymentWay: "",
   });
+  function niceDate(date) {
+    var isoTime = date;
+    var date = new Date(isoTime);
 
+    var options = {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    };
+
+    var formattedDate = date.toLocaleDateString("en-US", options);
+    return formattedDate;
+  }
   function accountNoDecision(e) {
     e.preventDefault();
     const accountNo = e.target.value;
@@ -185,7 +197,7 @@ function MonthlyPayment() {
             ? Unpaid[0].monthlyPaymentHistory.map((item, i) =>
                 item.PaymentStatus == false ? (
                   <option key={i} value={item._id}>
-                    {item.Date}
+                    {niceDate(item.Date)}
                   </option>
                 ) : (
                   ""
@@ -263,7 +275,7 @@ function MonthlyPayment() {
           id="trxID"
           name="trxID"
           className="my-4 p-4 box-border w-full rounded-3xl mb-10"
-          type="Number"
+          type="text"
           placeholder="Enter Trx  ID (ex.45JUFHGR6798dHRK)"
         ></input>
 
@@ -277,7 +289,7 @@ function MonthlyPayment() {
           id="senderID"
           name="senderID"
           className="my-4 p-4 box-border w-full rounded-3xl mb-10"
-          type="Number"
+          type="text"
           placeholder="Enter Trx  ID (ex.45JUFHGR6798dHRK)"
         ></input>
 

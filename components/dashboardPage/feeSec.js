@@ -14,6 +14,17 @@ function FeeSection({ profile }) {
   const [payments, setPayments] = useState();
   const [store, setStore] = useState("0 taka");
   const data = useSelector((state) => state.isAdmin.value);
+  function getDayDifference() {
+    let date = data.data.userDetails.admissionSession;
+    let currentDate = new Date();
+    let paymentDate = new Date(date);
+
+    let timeDifference = currentDate.getTime() - paymentDate.getTime();
+    let oneYearInMillis = 1000 * 60 * 60 * 24 * 365; // milliseconds in one year
+    let yearsDifference = timeDifference / oneYearInMillis;
+    return yearsDifference;
+  }
+  
 
   useEffect(() => {
     async function getData() {
@@ -51,8 +62,6 @@ function FeeSection({ profile }) {
                     ].currency
                   }`
                 );
-              } else {
-                alert("cliked 2");
               }
             }
           }
@@ -80,7 +89,7 @@ function FeeSection({ profile }) {
           <div>Current Balance</div>
           <div>{store} </div>
         </div>
-        <div className="">
+        <div className="pb-[100px]">
           <h1 className="text-[26px] md:text-md mt-12 mb-10 text-white text-center">
             Yearly Admission history
           </h1>
@@ -105,16 +114,19 @@ function FeeSection({ profile }) {
 
           <div className="text-slate-800 mt-[200px]">
             <h1 className="text-[26px] md:text-md mt-12 mb-10 text-slate-600 text-center">
-              Give Monthly Payment before due date
+              Give Monthly Payment for due date
             </h1>
             <MonthlyPayment profile={data} />
           </div>
-          <div className="text-slate-800 mt-[200px] mb-12">
-            <h1 className="text-[26px] md:text-md mt-12 mb-10 text-slate-600 text-center">
-              Give Yearly Payment before due date
-            </h1>
-            <PreFeeSectionMonthly profile={data} />
-          </div>
+
+          {getDayDifference() > 1 && (
+            <div className="text-slate-800 mt-[200px] mb-12">
+              <h1 className="text-[26px] md:text-md mt-12 mb-10 text-slate-600 text-center">
+                Give Yearly Payment for due date
+              </h1>
+              <PreFeeSectionMonthly profile={data} />
+            </div>
+          )}
         </div>
       </div>
     );

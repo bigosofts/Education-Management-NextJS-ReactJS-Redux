@@ -28,6 +28,7 @@ function page(props) {
         let yearsDifference = timeDifference / oneYearInMillis;
         return yearsDifference;
       }
+
       if (getDayDifference() > 1) {
         async function upDateData() {
           let modifiedCourseCode = JSON.parse(
@@ -97,6 +98,36 @@ function page(props) {
       if ((res2.status = "Alhamdulillah")) {
         if (res2.data[0]) {
           if (res2.data[0].monthlyPaymentHistory.length >= 1) {
+            function getDelayedMonthsDates(paymentDate) {
+              let currentDate = new Date();
+              let paymentDateObject = new Date(paymentDate);
+
+              // Check if the current date is later than the paymentDate
+              if (currentDate.getTime() > paymentDateObject.getTime()) {
+                // Calculate the difference in months
+                let diffYears =
+                  currentDate.getFullYear() - paymentDateObject.getFullYear();
+                let diffMonths =
+                  diffYears * 12 +
+                  currentDate.getMonth() -
+                  paymentDateObject.getMonth();
+
+                // Generate an array of delayed months dates
+                let delayedMonthsDates = [];
+                for (let i = 1; i <= diffMonths; i++) {
+                  let delayedDate = new Date(paymentDateObject);
+                  delayedDate.setMonth(paymentDateObject.getMonth() + i);
+                  delayedMonthsDates.push(
+                    delayedDate.toISOString().slice(0, 10)
+                  );
+                }
+
+                return delayedMonthsDates;
+              } else {
+                return []; // Payment is not delayed
+              }
+            }
+
             function isDatePassed(date) {
               let currentDate = new Date();
               let paymentDate = new Date(date);
@@ -132,16 +163,47 @@ function page(props) {
 
               let newMonthlyPayment = [...res2.data[0].monthlyPaymentHistory];
 
-              newMonthlyPayment.push({
-                Date: new Date(oneMonthLater),
-                PaymentStatus: false,
-                Price: "",
-                currency: "",
-                transactionID: "",
-                senderNo: "",
-                paymentWay: "",
-                nextMonthlyDate: undefined,
-              });
+              let iterate = getDelayedMonthsDates(
+                res2.data[0].monthlyPaymentHistory[
+                  res2.data[0].monthlyPaymentHistory.length - 1
+                ].Date
+              );
+
+              if (
+                res2.data[0].monthlyPaymentHistory[
+                  res2.data[0].monthlyPaymentHistory.length - 1
+                ].Price == 0 &&
+                res2.data[0].monthlyPaymentHistory[
+                  res2.data[0].monthlyPaymentHistory.length - 1
+                ].PaymentStatus == true
+              ) {
+                iterate.forEach((item) => {
+                  newMonthlyPayment.push({
+                    Date: new Date(item),
+                    PaymentStatus: true,
+                    Price: 0,
+                    currency: "",
+                    transactionID: "",
+                    senderNo: "",
+                    paymentWay: "",
+                    nextMonthlyDate: undefined,
+                  });
+                });
+              } else {
+                iterate.forEach((item) => {
+                  newMonthlyPayment.push({
+                    Date: new Date(item),
+                    PaymentStatus: false,
+                    Price: "",
+                    currency: "",
+                    transactionID: "",
+                    senderNo: "",
+                    paymentWay: "",
+                    nextMonthlyDate: undefined,
+                  });
+                });
+              }
+
               const res4 = await upDatePayment({
                 paymentID: "payment-" + data.data.userDetails.userName,
                 paymentCurrency: res2.data[0].paymentCurrency,

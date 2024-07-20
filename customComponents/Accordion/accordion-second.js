@@ -72,25 +72,25 @@ function AccordionSecond() {
       }
     });
 
-    let decision = desiredPayment[0].monthlyPaymentHistory.some((item) => {
+    let actualArray = [...desiredPayment[0].monthlyPaymentHistory];
+    actualArray.pop();
+    let decision = actualArray.some((item) => {
       if (item.PaymentStatus == false) {
         return true;
       }
     });
 
     if (
-      desiredPayment[0].monthlyPaymentHistory[
-        desiredPayment[0].monthlyPaymentHistory.length - 1
-      ].Price &&
-      desiredPayment[0].monthlyPaymentHistory[
-        desiredPayment[0].monthlyPaymentHistory.length - 1
-      ].PaymentStatus == false
+      actualArray[0] && actualArray[actualArray.length - 1].Price &&
+      actualArray[actualArray.length - 1].PaymentStatus == false
     ) {
       return "pending";
     } else if (decision == true) {
       return "due";
     } else if (decision == false) {
       return "ok";
+    }else{
+      return "ok"
     }
   }
 
@@ -141,7 +141,7 @@ function AccordionSecond() {
                   <span
                     style={{
                       display: "inline-block",
-                      backgroundColor: "blue",
+                      backgroundColor: "rgb(52, 168, 83)",
                       padding: "5px 10px",
                       borderRadius: "15px",
                       color: "white",

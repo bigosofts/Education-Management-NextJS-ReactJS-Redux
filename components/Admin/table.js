@@ -18,6 +18,7 @@ function Table({ profile, paymentID, students }) {
             transactionID: item.transactionID,
             senderNo: item.senderNo,
             paymentWay: item.paymentWay,
+            nextAdmissionDate: item.nextAdmissionDate,
             _id: id,
           };
         } else {
@@ -214,16 +215,14 @@ function Table({ profile, paymentID, students }) {
                     ].code
                   }
                   <br />
-                  {
+                  {profile.studentJamatCode[0] &&
                     profile.studentJamatCode[
                       profile.studentJamatCode.length - 1
-                    ].code
-                  }
+                    ].code}
                   <br />
-                  {
+                  {profile.studentSemester[0] &&
                     profile.studentSemester[profile.studentSemester.length - 1]
-                      .code
-                  }
+                      .code}
                 </td>
                 <td className="px-6 py-4">{niceDate(item.Date)}</td>
                 <td className="px-6 py-4">
@@ -277,21 +276,36 @@ function Table({ profile, paymentID, students }) {
                           Approve
                         </span>
                       )
-                    ) : (
-                      <span
-                        style={{
-                          display: "inline-block",
-                          backgroundColor: "blue",
-                          padding: "10px 20px",
-                          borderRadius: "15px",
-                          color: "white",
-                          marginLeft: "10px",
-                          fontSize: "14px",
-                          fontWeight: "900",
-                        }}
-                      >
-                        Upcoming
-                      </span>
+                    ) : ( item.Price == 0 && item.PaymentStatus == true ? ( <span
+                      onClick={() => updateProfile(item._id, item.Date)}
+                      style={{
+                        display: "inline-block",
+                        backgroundColor: "#fbbc05",
+                        padding: "10px 20px",
+                        borderRadius: "15px",
+                        color: "white",
+                        marginLeft: "10px",
+                        fontSize: "14px",
+                        fontWeight: "900",
+                        cursor: "pointer",
+                      }}
+                    >
+                      Approve
+                    </span>) : (<span
+                      style={{
+                        display: "inline-block",
+                        backgroundColor: "blue",
+                        padding: "10px 20px",
+                        borderRadius: "15px",
+                        color: "white",
+                        marginLeft: "10px",
+                        fontSize: "14px",
+                        fontWeight: "900",
+                      }}
+                    >
+                      Upcoming
+                    </span>)
+                      
                     )}
                   </div>
                 </td>

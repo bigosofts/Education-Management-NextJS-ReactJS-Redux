@@ -45,7 +45,7 @@ function PreFeeSectionMonthly({ profile }) {
     accountNo: "",
     paymentWay: "",
   });
-
+  
   function transactionDecision(e) {
     e.preventDefault();
     const transactionID = e.target.value;
