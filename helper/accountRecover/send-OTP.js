@@ -20,9 +20,9 @@ export function checkandSendOTP(email) {
 
   async function sendOTP(emailAdd) {
     const subject = "Recover SID and Password";
-    const text = `আপনার OTP হলোঃ ${OTP}। অথবা আপনার OTP ভেরিফাই করার জন্য এই লিংকে ক্লিক করুন অথবা লিংকটি কপি করে যেকোন ব্রাউজারে ওপেন করুন। https://www.internetmadrasa.com/verifyOTP?email=${emailAdd}&otp=${OTP}`;
+    const text = `আপনার OTP হলোঃ ${OTP}। অথবা আপনার OTP ভেরিফাই করার জন্য এই লিংকে ক্লিক করুন অথবা লিংকটি কপি করে যেকোন ব্রাউজারে ওপেন করুন। https://www.internetmadrasa.com/content/verifyOTP?email=${emailAdd}&otp=${OTP}`;
 
-    const html = `<h1>আপনার OTP হলোঃ <span style="color:red">${OTP}</span></h1> <br/><br/> <h1>অথবা আপনার OTP ভেরিফাই করার জন্য এই লিংকে ক্লিক করুন অথবা লিংকটি কপি করে যেকোনো ব্রাউজারে ওপেন করুন।</h1> <br/><br/> <a href="https://www.internetmadrasa.com/verifyOTP?email=${emailAdd}&otp=${OTP}">https://www.internetmadrasa.com/verifyOTP?email=${emailAdd}&otp=${OTP}</a>`;
+    const html = `<h1>আপনার OTP হলোঃ <span style="color:red">${OTP}</span></h1> <br/><br/> <h1>অথবা আপনার OTP ভেরিফাই করার জন্য এই লিংকে ক্লিক করুন অথবা লিংকটি কপি করে যেকোনো ব্রাউজারে ওপেন করুন।</h1> <br/><br/> <a href="https://www.internetmadrasa.com/content/verifyOTP?email=${emailAdd}&otp=${OTP}">https://www.internetmadrasa.com/verifyOTP?email=${emailAdd}&otp=${OTP}</a>`;
 
     const res = await sendMail(emailAdd, subject, text, html);
     if (res.status == "Alhamdulillah") {
@@ -49,7 +49,7 @@ export function checkandSendOTP(email) {
                 "A verification code has been sent to your Email Address"
               );
               setTimeout(() => {
-                hardRefresh(`/verifyOTP?email=${email}`);
+                hardRefresh(`/content/verifyOTP?email=${email}`);
               }, 1000);
             }
           }
@@ -71,7 +71,7 @@ export function checkandSendOTP(email) {
                 "A verification code has been sent to your Email Address"
               );
               setTimeout(() => {
-                hardRefresh(`/verifyOTP?email=${email}`);
+                hardRefresh(`/content/verifyOTP?email=${email}`);
               }, 1000);
             }
           }
@@ -93,7 +93,7 @@ export function checkandSendOTP(email) {
                   "A verification code has been sent to your Email Address"
                 );
                 setTimeout(() => {
-                  hardRefresh(`/verifyOTP?email=${email}`);
+                  hardRefresh(`/content/verifyOTP?email=${email}`);
                 }, 1000);
               }
             }

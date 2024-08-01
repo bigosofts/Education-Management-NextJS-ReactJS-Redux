@@ -237,7 +237,6 @@ function SwitchDesign() {
           mainData.paymentWay &&
           mainData.batch
         ) {
-          debugger;
           NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
             new Date(Date.now()).toISOString();
 
@@ -392,7 +391,6 @@ function SwitchDesign() {
           mainData.department &&
           mainData.batch
         ) {
-          debugger;
           NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
             new Date(Date.now()).toISOString();
 
@@ -534,7 +532,6 @@ function SwitchDesign() {
             }
           }
         } else {
-          debugger;
           mytoast.danger("One or more field is empty");
         }
       } else if (
@@ -548,10 +545,8 @@ function SwitchDesign() {
       ) {
         if (desiredCourse(mainData.classes).coursePrice.registration.tk == 0) {
           if (mainData.classes && mainData.department && mainData.batch) {
-            debugger;
             NewStudentCourseCode[NewStudentCourseCode.length - 1].endDate =
               new Date(Date.now()).toISOString();
-            debugger;
 
             NewStudentCourseCode[NewStudentCourseCode.length - 1].status =
               "inactive";
@@ -1658,12 +1653,12 @@ function SwitchDesign() {
           return true;
         }
       });
-    debugger;
+
     if (batch.length > 1) {
       let batchNo = uniqueArray(batch);
       setBatchArray(batchNo);
     }
-    debugger;
+
     setExtraBatch(true);
   }
 

@@ -16,14 +16,14 @@ function FarzeayinnajeraMain() {
 
     {
       name: "Live Class Link & Schedule",
-      href: `/dashboard/${data.data.userName}/class-room/group?code=farzeayinnajera`,
+      href: `/content/dashboard/${data.data.userName}/class-room/group?code=farzeayinnajera`,
       icon: "/images/population.svg",
       show: true,
     },
 
     {
       name: "Class Record Management",
-      href: `/dashboard/${data.data.userName}/class-room/recorded-classes?code=farzeayinnajera`,
+      href: `/content/dashboard/${data.data.userName}/class-room/recorded-classes?code=farzeayinnajera`,
       icon: "/images/upload.svg",
       show: true,
     },

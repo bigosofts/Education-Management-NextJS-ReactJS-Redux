@@ -186,6 +186,20 @@ function CombinedGroup() {
                     </span>
                   </li>
                 )}
+              {Alemalema.semester === "semester01" &&
+                data.data.userDetails.batchCount === "batch-20240803" && (
+                  <li
+                    onClick={() => joinBoys("https://t.me/+13PRn6U_lS9jZmVl")}
+                    className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
+                  >
+                    <FaTelegram className="text-4xl inline-block mr-2" />
+                    {Alemalema.jamat}, {Alemalema.semester} ক্লাসের পুরুষদের
+                    টেলিগ্রাম গ্রুপ
+                    <span className="float-right">
+                      <i className="text-lg fa fa-arrow-right"></i>
+                    </span>
+                  </li>
+                )}
               {Alemalema.semester == "semester02" && (
                 <li
                   onClick={() => joinBoys("https://t.me/+9JjDaPEifnAzZjVl")}
@@ -400,6 +414,20 @@ function CombinedGroup() {
                 data.data.userDetails.batchCount === "batch-20240605" && (
                   <li
                     onClick={() => joinGirls("https://t.me/+odZv3asGAIAwNmE1")}
+                    className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
+                  >
+                    <FaTelegram className="text-4xl inline-block mr-2" />
+                    {Alemalema.jamat}, {Alemalema.semester} ক্লাসের মহিলাদের
+                    টেলিগ্রাম গ্রুপ
+                    <span className="float-right">
+                      <i className="text-lg fa fa-arrow-right"></i>
+                    </span>
+                  </li>
+                )}
+              {Alemalema.semester == "semester01" &&
+                data.data.userDetails.batchCount === "batch-20240803" && (
+                  <li
+                    onClick={() => joinGirls("https://t.me/+OQVnGvrWGw8yYmY1")}
                     className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
                   >
                     <FaTelegram className="text-4xl inline-block mr-2" />

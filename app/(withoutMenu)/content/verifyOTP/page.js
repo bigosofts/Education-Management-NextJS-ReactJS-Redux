@@ -4,7 +4,7 @@ import { selectDataTwo, updateData } from "@/apiservices/otpapiservices";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import mytoast from "@/components/toast/toast";
-
+import Loader from "@/customComponents/loader/Loader";
 
 function VerifyOTP() {
   const [otps, setOtps] = useState();
@@ -39,7 +39,7 @@ function VerifyOTP() {
             idValue: id,
           });
           if (res.status == "Alhamdulillah") {
-            hardRefresh(`/create-password?email=${email}&otp=${otp}`);
+            hardRefresh(`/content/create-password?email=${email}&otp=${otp}`);
           }
         }
         updateotp();
@@ -54,7 +54,9 @@ function VerifyOTP() {
             idValue: id,
           });
           if (res.status == "Alhamdulillah") {
-            hardRefresh(`/create-password?email=${email}&otp=${receivedCode}`);
+            hardRefresh(
+              `/content/create-password?email=${email}&otp=${receivedCode}`
+            );
           }
         }
         updateotp();
@@ -85,7 +87,8 @@ function VerifyOTP() {
     if (otps.length == 0) {
       return (
         <div className="w-11/12 md:w-4/12 mx-auto bg-sky-500 text-white mt-12 text-lg md:text-3xl p-5 rounded-lg">
-          We did not find any OTP. Please send OTP again.<br/>
+          We did not find any OTP. Please send OTP again.
+          <br />
           <a
             className="text-white bg-black px-2 rounded-lg"
             href="/dashboard/login"
@@ -139,17 +142,7 @@ function VerifyOTP() {
       }
     }
   } else {
-    return (
-      <div className="w-11/12 md:w-4/12 mx-auto bg-sky-500 text-white mt-12 text-lg md:text-3xl p-5 rounded-lg">
-        Something Went Wrong. Please send OTP again.<br/>
-        <a
-          className="text-white bg-black px-2 rounded-lg"
-          href="/dashboard/login"
-        >
-          Go to this page to resend OTP
-        </a>
-      </div>
-    );
+    return <Loader />;
   }
 }
 

@@ -1,5 +1,7 @@
 import LiveSection from "@/customComponents/liveSection/Livesection";
 import BayanList from "@/customComponents/Bayanlist/Bayanlist";
+import BlogPage from "@/components/BlogPage/blogPage";
+
 import NoticeEvent from "@/customComponents/NoticeEvent/NoticeEvent";
 // import Activities from "@/customComponents/activities/Activities";
 import CoursePage from "@/customComponents/CoursesPage/CoursesPage";
@@ -92,6 +94,8 @@ export default async function Home() {
 
       <InfoPage />
       <NoticeEvent />
+      
+      {/* <BlogPage /> */}
 
       {/* <GalleryCard linkObj={ObjArray3(data3)} /> */}
       <GalleryAll linkObj={ObjArray3(data.works).slice(0, 8)} />

@@ -16,14 +16,14 @@ function ShishumaktabMain() {
 
     {
       name: "Live Class Link & Schedule",
-      href: `/dashboard/${data.data.userName}/class-room/group?code=shishumaktab`,
+      href: `/content/dashboard/${data.data.userName}/class-room/group?code=shishumaktab`,
       icon: "/images/population.svg",
       show: true,
     },
 
     {
       name: "Class Record Management",
-      href: `/dashboard/${data.data.userName}/class-room/recorded-classes?code=shishumaktab`,
+      href: `/content/dashboard/${data.data.userName}/class-room/recorded-classes?code=shishumaktab`,
       icon: "/images/upload.svg",
       show: true,
     },

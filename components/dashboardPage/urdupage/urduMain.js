@@ -12,18 +12,16 @@ function UrduMain() {
   }
 
   const newArray = [
-   
-
     {
       name: "Live Class Link & Schedule",
-      href: `/dashboard/${data.data.userName}/class-room/group?code=urdu`,
+      href: `/content/dashboard/${data.data.userName}/class-room/group?code=urdu`,
       icon: "/images/population.svg",
       show: true,
     },
 
     {
       name: "Class Record Management",
-      href: `/dashboard/${data.data.userName}/class-room/recorded-classes?code=urdu`,
+      href: `/content/dashboard/${data.data.userName}/class-room/recorded-classes?code=urdu`,
       icon: "/images/upload.svg",
       show: true,
     },

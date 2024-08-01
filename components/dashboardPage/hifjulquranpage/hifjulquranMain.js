@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 
 function HifjulquranMain() {
- 
   const data = useSelector((state) => state.isAdmin.value);
   const router = useRouter();
 
@@ -15,14 +14,14 @@ function HifjulquranMain() {
   const newArray = [
     {
       name: "Live Class Link & Schedule",
-      href: `/dashboard/${data.data.userName}/class-room/group?code=hifjulquran`,
+      href: `/content/dashboard/${data.data.userName}/class-room/group?code=hifjulquran`,
       icon: "/images/population.svg",
       show: true,
     },
 
     {
       name: "Class Record Management",
-      href: `/dashboard/${data.data.userName}/class-room/recorded-classes?code=hifjulquran`,
+      href: `/content/dashboard/${data.data.userName}/class-room/recorded-classes?code=hifjulquran`,
       icon: "/images/upload.svg",
       show: true,
     },

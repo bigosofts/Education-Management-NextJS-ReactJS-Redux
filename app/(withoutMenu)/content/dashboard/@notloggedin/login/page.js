@@ -203,7 +203,7 @@ function page(props) {
                       Remember Me
                     </label>
                     <label>
-                      <a href="/sendOTP?role=student">
+                      <a href="/content/sendOTP?role=student">
                         Forgotten Password and SID?
                       </a>
                     </label>
@@ -267,7 +267,7 @@ function page(props) {
                       Remember Me
                     </label>
                     <label>
-                      <a href="/sendOTP?role=teacher">
+                      <a href="/content/sendOTP?role=teacher">
                         Forgotten Password and SID?
                       </a>
                     </label>
@@ -332,7 +332,7 @@ function page(props) {
                       Remember Me
                     </label>
                     <label>
-                      <a href="/sendOTP?role=student">
+                      <a href="/content/sendOTP?role=student">
                         Forgotten Password and SID?
                       </a>
                     </label>

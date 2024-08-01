@@ -11,6 +11,7 @@ import {
 import { useSearchParams } from "next/navigation";
 import { selectDataTwo as selectOTPS } from "@/apiservices/otpapiservices";
 import mytoast from "@/components/toast/toast";
+import Loader from "@/customComponents/loader/Loader";
 
 function CreatePassword() {
   const searchParams = useSearchParams();
@@ -31,6 +32,7 @@ function CreatePassword() {
       const res = await selectStudents(
         {
           activeStatus: "active",
+          emailAddress: email,
         },
         null
       );
@@ -38,6 +40,7 @@ function CreatePassword() {
       const res2 = await selectTeachers(
         {
           activeStatus: "active",
+          emailAddress: email,
         },
         null
       );
@@ -86,7 +89,6 @@ function CreatePassword() {
   }, []);
 
   async function submitPassword(finalData) {
-    console.log(finalData);
     if (finalData.userRole == "teacher") {
       if (
         newPasswordref.current.value &&
@@ -122,7 +124,7 @@ function CreatePassword() {
         if (res.status == "Alhamdulillah") {
           mytoast.success("Password has been reset successfuly");
           setTimeout(() => {
-            hardRefresh(`/dashboard/login`);
+            hardRefresh(`/content/dashboard/login`);
           }, 1000);
         } else {
           mytoast.info("Something went wrong");
@@ -166,12 +168,13 @@ function CreatePassword() {
           finalData.activeStatus,
           finalData._id,
           finalData.studentDepartment,
-          finalData.studentSemester
+          finalData.studentSemester,
+          finalData.batchCount
         );
         if (res.status == "Alhamdulillah") {
           mytoast.success("Password has been reset successfuly");
           setTimeout(() => {
-            hardRefresh(`/dashboard/login`);
+            hardRefresh(`/content/dashboard/login`);
           }, 1000);
         } else {
           mytoast.info("Something went wrong");
@@ -236,6 +239,8 @@ function CreatePassword() {
         </form>
       </div>
     );
+  } else {
+    return <Loader />;
   }
 }
 

@@ -14,14 +14,14 @@ function PreAlemalemaMain() {
   const newArray = [
     {
       name: "Live Class Link & Schedule",
-      href: `/dashboard/${data.data.userName}/class-room/group?code=prealemalema`,
+      href: `/content/dashboard/${data.data.userName}/class-room/group?code=prealemalema`,
       icon: "/images/population.svg",
       show: true,
     },
 
     {
       name: "Class Record Management",
-      href: `/dashboard/${data.data.userName}/class-room/recorded-classes?code=prealemalema`,
+      href: `/content/dashboard/${data.data.userName}/class-room/recorded-classes?code=prealemalema`,
       icon: "/images/upload.svg",
       show: true,
     },
