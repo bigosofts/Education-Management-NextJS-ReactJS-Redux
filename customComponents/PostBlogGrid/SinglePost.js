@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { isAdmin } from "@/apiservices/checklogin";
 import { setInitialData as setinitialPosts } from "@/app/redux/features/postFilter/postFilterSlice";
-import { selectDataPublic as selectPosts } from "@/apiservices/postapiservices";
+import { selectDataTwo as selectPosts } from "@/apiservices/postapiservices";
 
 function SinglePost({ id }) {
   const dispatch = useDispatch();

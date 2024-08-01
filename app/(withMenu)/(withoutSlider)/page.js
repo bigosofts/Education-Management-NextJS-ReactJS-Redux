@@ -1,6 +1,6 @@
 import LiveSection from "@/customComponents/liveSection/Livesection";
 import BayanList from "@/customComponents/Bayanlist/Bayanlist";
-import BlogPage from "@/components/BlogPage/blogPage";
+// import BlogPage from "@/components/BlogPage/blogPage";
 
 import NoticeEvent from "@/customComponents/NoticeEvent/NoticeEvent";
 // import Activities from "@/customComponents/activities/Activities";
