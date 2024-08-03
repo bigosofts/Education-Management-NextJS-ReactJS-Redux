@@ -46,7 +46,7 @@ function AbacusBooks() {
           </div>
           <a
             className="p-2 bg-sky-500 block text-white text-center text-xl"
-            href="/abacus-purchase"
+            href="/content/abacus-purchase"
           >
             {" "}
             <div className="style-1155">ক্রয় করুন</div>
@@ -58,7 +58,7 @@ function AbacusBooks() {
             overflow: "hidden",
             boxShadow: "0px 1px 5px rgba(0,0,0,0.3)",
             border: "1px solid rgba(0,0,0,0.1)",
-            width: "50%"
+            width: "50%",
           }}
         >
           <Image
@@ -81,7 +81,7 @@ function AbacusBooks() {
           </div>
           <a
             className="p-2 bg-sky-500 block text-white text-center text-xl"
-            href="/abacus-purchase"
+            href="/content/abacus-purchase"
           >
             <div className="style-1155">ক্রয় করুন</div>
           </a>

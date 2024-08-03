@@ -78,7 +78,7 @@ function PageClassAbacus() {
             >
               <p>Package 1: Brain Math Abacus (Play & Nursery) + Abacus Kit</p>
             </div>
-            <a target="_blank" href="/abacus-purchase">
+            <a target="_blank" href="/content/abacus-purchase">
               {" "}
               <div className="bg-sky-500 text-white text-center p-4">
                 ক্রয় করুন
@@ -110,7 +110,7 @@ function PageClassAbacus() {
             >
               <p>Package 2: Brain Math Abacus (Level 1) + Abacus Kit</p>
             </div>
-            <a target="_blank" href="/abacus-purchase">
+            <a target="_blank" href="/content/abacus-purchase">
               {" "}
               <div className="bg-sky-500 text-white text-center p-4">
                 ক্রয় করুন

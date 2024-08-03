@@ -45,7 +45,7 @@ function AbacusBooks() {
           </div>
           <a
             className="p-2 bg-sky-500 block text-white text-center text-xl"
-            href="/abacus-purchase"
+            href="/content/abacus-purchase"
           >
             {" "}
             <div className="style-1155">ক্রয় করুন</div>
@@ -80,7 +80,7 @@ function AbacusBooks() {
           </div>
           <a
             className="p-2 bg-sky-500 block text-white text-center text-xl"
-            href="/abacus-purchase"
+            href="/content/abacus-purchase"
           >
             <div className="style-1155">ক্রয় করুন</div>
           </a>
