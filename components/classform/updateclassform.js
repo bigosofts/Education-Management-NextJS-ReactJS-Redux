@@ -174,7 +174,7 @@ function UpdateClassForm(props) {
       semesterID,
       bookID,
       teacher: teacherParsed,
-      examQuestion,
+      examQuestion: [examQuestion],
       students: studentsParsed,
       classStartTime,
       classEndTime,

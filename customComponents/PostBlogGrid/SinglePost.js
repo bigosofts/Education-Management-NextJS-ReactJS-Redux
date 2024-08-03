@@ -55,8 +55,6 @@ function SinglePost({ id }) {
   }
   if (filteredPostData) {
     let singleData = filteredPostData.find((item) => {
-   
-     
       return item.postId == id;
     });
 
