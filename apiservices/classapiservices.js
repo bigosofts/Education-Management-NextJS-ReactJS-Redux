@@ -123,7 +123,7 @@ exports.createData = async ({
     classEndTime,
     activeStatus,
   };
-  console.log(aboutdata);
+
   if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-class`,
@@ -137,13 +137,10 @@ exports.createData = async ({
       }
     );
 
-    console.log(await res.json());
-    
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-
     return res.json();
   } else {
     const res = await fetch(

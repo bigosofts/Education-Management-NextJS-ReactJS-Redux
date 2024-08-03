@@ -43,9 +43,9 @@ function PreFeeSection({ profile }) {
     if (course == "alemalema") {
       setBatch([
         {
-          name: "Batch-03-08-2024 (ক্লাস শুরু আগামী ৩ আগস্ট, ২০২৪)",
+          name: "Batch-03-08-2024 (ক্লাস শুরু আগামী ০২ সেপ্টেম্বর, ২০২৪)",
           value: "batch-20240803",
-          startDate: "2024-08-03",
+          startDate: "2024-09-02",
         },
       ]);
     } else if (course == "schoolalemalema") {
@@ -65,13 +65,7 @@ function PreFeeSection({ profile }) {
         },
       ]);
     } else if (course == "abacus_student") {
-      setBatch([
-        {
-          name: "Batch-05-06-2024 (ক্লাস ৫ জুন, ২০২৪ থেকে চলমান)",
-          value: "batch-20240605",
-          startDate: new Date().toISOString(),
-        },
-      ]);
+      setBatch([]);
     } else if (course == "hifjulquran") {
       setBatch([
         {

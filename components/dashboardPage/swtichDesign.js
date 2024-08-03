@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import mytoast from "../toast/toast";
 
 function SwitchDesign() {
-  let pass2 = "talimulquranwassunnahinternetmadrasa";
+  let pass2 = "talimul2024";
   const [showbtn, setshowbtn] = useState();
 
   const courseData = useSelector((state) => state.courses.courses);

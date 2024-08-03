@@ -115,7 +115,7 @@ function LoaderElement() {
 
     if (userData && userData.data && userData.data.userRole == "student") {
       dispatch(fetchDjs(userData.data.userDetails.paymentStatus.paymentID));
-    }else{
+    } else {
       dispatch(fetchDjs("all"));
     }
 
