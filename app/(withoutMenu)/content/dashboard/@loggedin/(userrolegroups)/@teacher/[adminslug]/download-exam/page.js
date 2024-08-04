@@ -15,6 +15,8 @@ import { useRouter } from "next/navigation";
 function UploadExam() {
   const [classes, setClasses] = useState();
   const [tableClasses, setTableClasses] = useState();
+  const [resultClasses, setResultClasses] = useState();
+
   const [showBtn, setShowBtn] = useState(true);
   const [books, setBooks] = useState();
   const [examQuestion, setExamQuestion] = useState();
@@ -222,6 +224,7 @@ function UploadExam() {
                   }
                 });
               });
+
               setClasses((prev) => {
                 return prev.map((item) => {
                   if (item._id === mainData.classID) {
@@ -263,7 +266,7 @@ function UploadExam() {
     );
 
     const data = await res.json();
-    router.push(data.webContentLink);
+    window.open(data.webContentLink, "_blank");
   }
 
   async function openPDF(fileID) {
@@ -271,7 +274,7 @@ function UploadExam() {
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/pdf/${fileID}`
     );
     const data = await res.json();
-    router.push(data.webViewLink);
+    window.open(data.webViewLink, "_blank");
   }
 
   function resetHandler() {
@@ -284,6 +287,12 @@ function UploadExam() {
       examQuestionViewLink: "",
       examQuestionDownloadLink: "",
     });
+  }
+
+  function examSheetTable(classID) {
+    setResultClasses(
+      classes && classes.filter((item) => item.classID == classID)
+    );
   }
 
   if (classesData.length > 0 && booksData.length > 0 && tableClasses) {
@@ -483,6 +492,73 @@ function UploadExam() {
         </div>
 
         <h1 className="text-center mt-5">Download Answer Sheet</h1>
+
+        <div className="py-10 w-[95%] mx-auto">
+          <ul className="grid grid-cols-3 md:grid-cols-5 gap-5 md:gap-10 text-sm md:text-lg">
+            {classes &&
+              classes.map((item, i) => (
+                <li
+                  key={i}
+                  onClick={() => examSheetTable(item.classID)}
+                  className="bg-white shadow-md py-5 px-2 rounded-md text-center cursor-pointer hover:bg-green-950 hover:text-white"
+                >
+                  {findBooks(item.bookID).bookName.bn}
+                  <br />
+                  {item.batchNo}
+                </li>
+              ))}
+          </ul>
+        </div>
+
+        <div className="w-[95%] mx-auto grid grid-cols-1 gap-4 md:gap-5 mb-10">
+          {resultClasses && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-10">
+              {resultClasses[0].students.map((item, i) => (
+                <div className="flex justify-between border-[1px] border-slate-300 p-5">
+                  <div className="w-1/2">
+                    <h1 className="text-xs md:text-sm my-auto" key={i}>
+                      {i + 1})
+                      <br />
+                      Name: {item.sName}
+                      <br />
+                      SID: {item.SID}
+                      <br />
+                      Mobile: {item.mobileNumber}
+                    </h1>
+                  </div>
+                  <div className="w-1/2">
+                    {item.examSheet.map(
+                      (item2, i2) =>
+                        item2.examSheet && (
+                          <div
+                            className="border-[1px] border-slate-300 p-2 mb-2"
+                            key={i2}
+                          >
+                            <p>{item2.examType}</p>
+                            <p>{item2.submittedDate}</p>
+                            <div className="flex gap-5 justify-between">
+                              <div
+                                onClick={() => downloadPDF(item2.examSheet)}
+                                className="w-[50%] bg-blue-400 text-white rounded-md cursor-pointer p-2"
+                              >
+                                {item2.examSheet ? "Download" : ""}
+                              </div>
+                              <div
+                                onClick={() => openPDF(item2.examSheet)}
+                                className="w-[50%] bg-amber-300 text-slate-800 rounded-md cursor-pointer p-2"
+                              >
+                                {item2.examSheet ? "Open" : ""}
+                              </div>
+                            </div>
+                          </div>
+                        )
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     );
   } else {

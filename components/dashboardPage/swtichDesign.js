@@ -2,7 +2,6 @@
 import { useSearchParams } from "next/navigation";
 
 import ShowPaymentDetails from "./showpaymentDetail";
-
 import { updateData as updatePayment } from "@/apiservices/paymentapiservices";
 import { updateData as updateStudents } from "@/apiservices/studentapiservices";
 import { useEffect, useState } from "react";
