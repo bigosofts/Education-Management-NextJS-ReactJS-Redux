@@ -45,7 +45,7 @@ function PreFeeSection({ profile }) {
         {
           name: "Batch-03-08-2024 (ক্লাস শুরু আগামী ০২ সেপ্টেম্বর, ২০২৪)",
           value: "batch-20240803",
-          startDate: "2024-09-02",
+          startDate: "2024-08-03",
         },
       ]);
     } else if (course == "schoolalemalema") {

@@ -14,27 +14,39 @@ function MediaPage(props) {
     }
     fetchData();
   }, [fileData]);
+
   const sendImageHandler = async () => {
     try {
       let fileInput = document.getElementById("fileInput");
       let fileUploadData;
 
       if (fileInput.files[0]) {
-        const formData = new FormData();
-        formData.append("fileInput", fileInput.files[0]); // Upload the selected file
+        const file = fileInput.files[0];
+        setFileToBase(file);
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/upload`, {
-          method: "POST",
-          body: formData,
-        });
+        const setFileToBase = (file) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => {
+            setImage(reader.result);
+          };
+        };
 
-        if (!response.ok) {
-          fileUploadData = "";
-        } else {
-          const data = await response.json();
-          fileUploadData = data;
-          setFileData(fileUploadData);
-        }
+        // const formData = new FormData();
+        // formData.append("fileInput", fileInput.files[0]); // Upload the selected file
+
+        // const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/upload`, {
+        //   method: "POST",
+        //   body: formData,
+        // });
+
+        // if (!response.ok) {
+        //   fileUploadData = "";
+        // } else {
+        //   const data = await response.json();
+        //   fileUploadData = data;
+        //   setFileData(fileUploadData);
+        // }
       }
     } catch (error) {
       console.error("Error uploading file:", error);
