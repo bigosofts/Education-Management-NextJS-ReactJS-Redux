@@ -50,7 +50,7 @@ next-env.d.ts
 /internetMadrasaBackend/yarn-debug.log*
 /internetMadrasaBackend/yarn-error.log*
 /internetMadrasaBackend/.env*.local
-/internetMadrasaBackend/config.env  
+/internetMadrasaBackend/.env  
 /internetMadrasaBackend/.vercel
 /internetMadrasaBackend/*.tsbuildinfo
 /internetMadrasaBackend/next-env.d.ts
