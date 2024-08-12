@@ -224,8 +224,6 @@ function LoaderElement() {
             fetchStudents(userData.data.userDetails.batchCount)
           ).unwrap();
         } else {
-          await dispatch(fetchDjs("all")).unwrap();
-
           await dispatch(fetchClasses("all")).unwrap();
           await dispatch(fetchStudents("all")).unwrap();
         }
