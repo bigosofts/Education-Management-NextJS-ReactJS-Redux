@@ -12,12 +12,16 @@ const initialState = {
 
 export const fetchClasses = createAsyncThunk(
   "classes/fetchClasses",
-  async (batchNo) => {
+  async (batchNo, userName) => {
     let classes;
     if (batchNo == "all") {
       classes = await selectDataTwo(null, null);
     } else {
-      classes = await selectDataTwo({ batchNo }, null);
+      if (userName) {
+        classes = await selectDataTwo({ "teacher.TID": userName }, null);
+      } else {
+        classes = await selectDataTwo({ batchNo }, null);
+      }
     }
 
     return classes.data;

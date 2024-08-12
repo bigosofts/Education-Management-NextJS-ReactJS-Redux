@@ -223,7 +223,14 @@ function LoaderElement() {
           await dispatch(
             fetchStudents(userData.data.userDetails.batchCount)
           ).unwrap();
+        } else if (userData.data.userRole === "teacher") {
+          // await dispatch(fetchDjs("all")).unwrap();
+          await dispatch(
+            fetchClasses("", data.data.userDetails.userName)
+          ).unwrap();
+          await dispatch(fetchStudents("all")).unwrap();
         } else {
+          await dispatch(fetchDjs("all")).unwrap();
           await dispatch(fetchClasses("all")).unwrap();
           await dispatch(fetchStudents("all")).unwrap();
         }
