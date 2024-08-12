@@ -218,7 +218,10 @@ function LoaderElement() {
           ).unwrap();
 
           await dispatch(
-            fetchClasses(userData.data.userDetails.batchCount)
+            fetchClasses({
+              batch: userData.data.userDetails.batchCount,
+              userName: "",
+            })
           ).unwrap();
           await dispatch(
             fetchStudents(userData.data.userDetails.batchCount)
@@ -226,12 +229,21 @@ function LoaderElement() {
         } else if (userData.data.userRole === "teacher") {
           // await dispatch(fetchDjs("all")).unwrap();
           await dispatch(
-            fetchClasses("", data.data.userDetails.userName)
+            fetchClasses({
+              batch: "",
+              userName: data.data.userDetails.userName,
+            })
           ).unwrap();
+
           await dispatch(fetchStudents("all")).unwrap();
         } else {
           await dispatch(fetchDjs("all")).unwrap();
-          await dispatch(fetchClasses("all")).unwrap();
+          await dispatch(
+            fetchClasses({
+              batch: "all",
+              userName: "",
+            })
+          ).unwrap();
           await dispatch(fetchStudents("all")).unwrap();
         }
 
