@@ -68,6 +68,7 @@ function AbacusPage(props) {
   useEffect(() => {
     async function getData() {
       let res = { data: null };
+
       res.data =
         studentsData &&
         studentsData.filter(
@@ -131,7 +132,7 @@ function AbacusPage(props) {
       }
     }
     getData();
-  }, []);
+  }, [data, studentsData]);
 
   if (data) {
     if (data.data.userDetails.studentCourseCode.length < 1) {
