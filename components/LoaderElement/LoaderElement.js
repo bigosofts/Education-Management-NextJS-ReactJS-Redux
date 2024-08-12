@@ -206,7 +206,6 @@ function LoaderElement() {
 
   useEffect(() => {
     async function fetchSequentially() {
-      await dispatch(fetchClasses()).unwrap();
       await dispatch(fetchBooks()).unwrap(); // Unwrap to handle any potential errors
       await dispatch(fetchCourses()).unwrap();
 
@@ -223,6 +222,9 @@ function LoaderElement() {
         }
 
         await dispatch(fetchNotices(userData.data.userName)).unwrap();
+        await dispatch(
+          fetchClasses(userData.data.userDetails.batchCount)
+        ).unwrap();
       }
     }
 

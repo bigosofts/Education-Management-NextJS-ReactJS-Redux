@@ -12,8 +12,8 @@ const initialState = {
 
 export const fetchClasses = createAsyncThunk(
   "classes/fetchClasses",
-  async () => {
-    const classes = await selectDataTwo();
+  async (batchNo) => {
+    const classes = await selectDataTwo({batchNo}, null);
     return classes.data;
   }
 );
