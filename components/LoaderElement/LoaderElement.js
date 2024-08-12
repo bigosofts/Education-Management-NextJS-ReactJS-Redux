@@ -210,7 +210,6 @@ function LoaderElement() {
       await dispatch(fetchCourses()).unwrap();
 
       await dispatch(fetchTeachers()).unwrap();
-      await dispatch(fetchStudents()).unwrap();
 
       if (userData && userData.data) {
         if (userData.data.userRole === "student") {
@@ -224,6 +223,9 @@ function LoaderElement() {
         await dispatch(fetchNotices(userData.data.userName)).unwrap();
         await dispatch(
           fetchClasses(userData.data.userDetails.batchCount)
+        ).unwrap();
+        await dispatch(
+          fetchStudents(userData.data.userDetails.batchCount)
         ).unwrap();
       }
     }
