@@ -216,17 +216,21 @@ function LoaderElement() {
           await dispatch(
             fetchDjs(userData.data.userDetails.paymentStatus.paymentID)
           ).unwrap();
+
+          await dispatch(
+            fetchClasses(userData.data.userDetails.batchCount)
+          ).unwrap();
+          await dispatch(
+            fetchStudents(userData.data.userDetails.batchCount)
+          ).unwrap();
         } else {
           await dispatch(fetchDjs("all")).unwrap();
+
+          await dispatch(fetchClasses("all")).unwrap();
+          await dispatch(fetchStudents("all")).unwrap();
         }
 
         await dispatch(fetchNotices(userData.data.userName)).unwrap();
-        await dispatch(
-          fetchClasses(userData.data.userDetails.batchCount)
-        ).unwrap();
-        await dispatch(
-          fetchStudents(userData.data.userDetails.batchCount)
-        ).unwrap();
       }
     }
 

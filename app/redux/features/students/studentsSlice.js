@@ -13,7 +13,14 @@ const initialState = {
 export const fetchStudents = createAsyncThunk(
   "students/fetchStudents",
   async (batchCount) => {
-    const students = await selectDataTwo({ batchCount }, null);
+    let students;
+
+    if (batchCount == "all") {
+      students = await selectDataTwo(null, null);
+    } else {
+      students = await selectDataTwo({ batchCount }, null);
+    }
+
     return students.data;
   }
 );
