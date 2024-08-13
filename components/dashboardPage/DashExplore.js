@@ -12,37 +12,37 @@ function DashExplore() {
   const [status, setStatus] = useState();
   const [targetPercentage, setTargetPercentage] = useState(0);
 
-  const classes = useSelector((state) => state.classes.isLoading);
+  const classes = useSelector((state) => state.classes.classes);
 
-  const books = useSelector((state) => state.books.isLoading);
+  const books = useSelector((state) => state.books.books);
 
-  const notices = useSelector((state) => state.notices.isLoading);
+  const notices = useSelector((state) => state.notices.notices);
 
-  const payments = useSelector((state) => state.djs.isLoading);
+  const payments = useSelector((state) => state.djs.payments);
 
   useEffect(() => {
     let completedCount = 0;
     let array = [];
 
-    if (!classes) {
+    if (classes.length > 0) {
       completedCount++;
       array.push("attendance");
     }
-    if (!books) {
+    if (books.length > 0) {
       completedCount++;
       array.push("library");
     }
-    if (!notices) {
+    if (notices.length > 0) {
       completedCount++;
       array.push("notice");
     }
-    if (!payments) {
+    if (payments.length > 0) {
       completedCount++;
       array.push("payment");
     }
 
     const newTargetPercentage = completedCount * 25;
-    
+
     setStatus(array);
 
     setTargetPercentage(newTargetPercentage);
