@@ -85,7 +85,7 @@ function LoaderElement() {
 
         await dispatch(fetchTeachers()).unwrap();
 
-        await dispatch(fetchStudents());
+        await dispatch(fetchStudents()).unwrap();
 
         if (userData && userData.data) {
           if (userData.data.userRole === "student") {
