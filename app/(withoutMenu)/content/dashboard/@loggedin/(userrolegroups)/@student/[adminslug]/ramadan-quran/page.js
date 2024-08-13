@@ -28,6 +28,7 @@ function AbacusPage(props) {
     "farzeayinampara",
     "abacus_teacher",
   ];
+
   const allowList = ["ramadanquranulkarim"];
 
   useEffect(() => {

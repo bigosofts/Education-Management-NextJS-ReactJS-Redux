@@ -77,57 +77,58 @@ function LoaderElement() {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchBooks()).unwrap();
+    if (userData) {
+      async function fetchAsynchronously() {
+        await dispatch(fetchBooks()).unwrap();
 
-    dispatch(fetchCourses()).unwrap();
+        await dispatch(fetchCourses()).unwrap();
 
-    
+        await dispatch(fetchTeachers()).unwrap();
 
-    dispatch(fetchTeachers()).unwrap();
+        await dispatch(fetchStudents());
 
-    dispatch(fetchStudents());
+        if (userData && userData.data) {
+          if (userData.data.userRole === "student") {
+            dispatch(
+              fetchDjs(userData.data.userDetails.paymentStatus.paymentID)
+            ).unwrap();
 
-    if (userData && userData.data) {
-      if (userData.data.userRole === "student") {
-        dispatch(
-          fetchDjs(userData.data.userDetails.paymentStatus.paymentID)
-        ).unwrap();
+            dispatch(
+              fetchClasses({
+                batch: userData.data.userDetails.batchCount,
+                userName: "",
+              })
+            ).unwrap();
+            dispatch(
+              fetchStudents(userData.data.userDetails.batchCount)
+            ).unwrap();
+          } else if (userData.data.userRole === "teacher") {
+            // await dispatch(fetchDjs("all")).unwrap();
+            dispatch(
+              fetchClasses({
+                batch: "",
+                userName: userData.data.userDetails.userName,
+              })
+            ).unwrap();
 
-        dispatch(
-          fetchClasses({
-            batch: userData.data.userDetails.batchCount,
-            userName: "",
-          })
-        ).unwrap();
-        dispatch(
-          fetchStudents(userData.data.userDetails.batchCount)
-        ).unwrap();
-      } else if (userData.data.userRole === "teacher") {
-        // await dispatch(fetchDjs("all")).unwrap();
-        dispatch(
-          fetchClasses({
-            batch: "",
-            userName: userData.data.userDetails.userName,
-          })
-        ).unwrap();
+            dispatch(fetchStudents("all")).unwrap();
+          } else {
+            dispatch(fetchDjs("all")).unwrap();
+            dispatch(
+              fetchClasses({
+                batch: "all",
+                userName: "",
+              })
+            ).unwrap();
+            dispatch(fetchStudents("all")).unwrap();
+          }
 
-        dispatch(fetchStudents("all")).unwrap();
-      } else {
-        dispatch(fetchDjs("all")).unwrap();
-        dispatch(
-          fetchClasses({
-            batch: "all",
-            userName: "",
-          })
-        ).unwrap();
-        dispatch(fetchStudents("all")).unwrap();
+          dispatch(fetchNotices(userData.data.userName)).unwrap();
+        }
       }
-
-      dispatch(fetchNotices(userData.data.userName)).unwrap();
+      fetchAsynchronously();
     }
   }, [userData]);
 }
 
 export default LoaderElement;
-
-
