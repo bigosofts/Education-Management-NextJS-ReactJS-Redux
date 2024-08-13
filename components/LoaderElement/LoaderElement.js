@@ -205,49 +205,45 @@ function LoaderElement() {
   }, []);
 
   useEffect(() => {
-    async function fetchSequentially() {
-      await dispatch(fetchBooks()).unwrap(); // Unwrap to handle any potential errors
-      await dispatch(fetchCourses()).unwrap();
+    function fetchSequentially() {
+      dispatch(fetchBooks()); // Unwrap to handle any potential errors
+      dispatch(fetchCourses());
 
-      await dispatch(fetchTeachers()).unwrap();
+      dispatch(fetchTeachers());
 
       if (userData && userData.data) {
         if (userData.data.userRole === "student") {
-          await dispatch(
-            fetchDjs(userData.data.userDetails.paymentStatus.paymentID)
-          ).unwrap();
+          dispatch(fetchDjs(userData.data.userDetails.paymentStatus.paymentID));
 
-          await dispatch(
+          dispatch(
             fetchClasses({
               batch: userData.data.userDetails.batchCount,
               userName: "",
             })
-          ).unwrap();
-          await dispatch(
-            fetchStudents(userData.data.userDetails.batchCount)
-          ).unwrap();
+          );
+          dispatch(fetchStudents(userData.data.userDetails.batchCount));
         } else if (userData.data.userRole === "teacher") {
-          // await dispatch(fetchDjs("all")).unwrap();
-          await dispatch(
+          dispatch(fetchDjs("all"));
+          dispatch(
             fetchClasses({
               batch: "",
-              userName: data.data.userDetails.userName,
+              userName: userData.data.userDetails.userName,
             })
-          ).unwrap();
+          );
 
-          await dispatch(fetchStudents("all")).unwrap();
+          dispatch(fetchStudents("all"));
         } else {
-          await dispatch(fetchDjs("all")).unwrap();
-          await dispatch(
+          dispatch(fetchDjs("all"));
+          dispatch(
             fetchClasses({
               batch: "all",
               userName: "",
             })
-          ).unwrap();
-          await dispatch(fetchStudents("all")).unwrap();
+          );
+          dispatch(fetchStudents("all"));
         }
 
-        await dispatch(fetchNotices(userData.data.userName)).unwrap();
+        dispatch(fetchNotices(userData.data.userName));
       }
     }
 
