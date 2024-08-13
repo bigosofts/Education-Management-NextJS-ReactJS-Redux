@@ -85,10 +85,11 @@ function LoaderElement() {
 
         await dispatch(fetchTeachers()).unwrap();
 
-        await dispatch(fetchStudents()).unwrap();
+       
 
         if (userData && userData.data) {
           if (userData.data.userRole === "student") {
+            debugger;
             dispatch(
               fetchDjs(userData.data.userDetails.paymentStatus.paymentID)
             ).unwrap();
@@ -99,9 +100,11 @@ function LoaderElement() {
                 userName: "",
               })
             ).unwrap();
+            debugger;
             dispatch(
               fetchStudents(userData.data.userDetails.batchCount)
             ).unwrap();
+            debugger;
           } else if (userData.data.userRole === "teacher") {
             // await dispatch(fetchDjs("all")).unwrap();
             dispatch(
