@@ -243,7 +243,7 @@ function LoaderElement() {
 
           dispatch(
             fetchClasses({
-              batch: userData.data.userDetails.batchCount,
+              batch: "all",
               userName: "",
             })
           );

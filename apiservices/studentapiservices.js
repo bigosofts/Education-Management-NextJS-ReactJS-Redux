@@ -144,6 +144,7 @@ exports.createData = async ({
   studentDepartment,
   studentSemester,
   batchCount,
+  fundStatus,
 }) => {
   const aboutdata = {
     firstName: {
@@ -182,8 +183,9 @@ exports.createData = async ({
     studentDepartment: studentDepartment,
     studentSemester: studentSemester,
     batchCount: batchCount,
+    fundStatus: fundStatus,
   };
-  console.log(aboutdata);
+
   if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-student`,
@@ -257,7 +259,8 @@ exports.updateData = async (
   idValue,
   studentDepartment,
   studentSemester,
-  batchCount
+  batchCount,
+  fundStatus
 ) => {
   const aboutdata = {
     _id: idValue,
@@ -298,6 +301,7 @@ exports.updateData = async (
     studentDepartment: studentDepartment,
     studentSemester: studentSemester,
     batchCount: batchCount,
+    fundStatus: fundStatus,
   };
 
   if (data2) {

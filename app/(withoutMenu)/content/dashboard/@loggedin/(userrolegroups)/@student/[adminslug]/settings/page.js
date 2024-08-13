@@ -20,6 +20,7 @@ function BookPage() {
       hardRefresh();
     }
   }
+
   const router = useRouter();
   const data = useSelector((state) => state.isAdmin.value);
   if (data) {
@@ -77,6 +78,20 @@ function BookPage() {
               className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
             >
               Additional Data
+              <span className="float-right">
+                <i className="text-lg fa fa-arrow-right"></i>
+              </span>
+            </li>
+
+            <li
+              onClick={() =>
+                router.push(
+                  `/content/dashboard/${data.data.userName}/settings/fund-status`
+                )
+              }
+              className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
+            >
+              Fund Status
               <span className="float-right">
                 <i className="text-lg fa fa-arrow-right"></i>
               </span>

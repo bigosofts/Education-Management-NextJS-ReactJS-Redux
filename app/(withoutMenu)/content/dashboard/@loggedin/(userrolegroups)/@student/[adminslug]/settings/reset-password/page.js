@@ -55,9 +55,11 @@ function ResetPassword() {
         data.data.userDetails.activeStatus,
         data.data.userDetails._id,
         data.data.userDetails.studentDepartment,
-        data.data.userDetails.studentSemester
+        data.data.userDetails.studentSemester,
+        data.data.userDetails.batchCount,
+        data.data.userDetails.fundStatus
       );
-      
+
       if (res2.status == "Alhamdulillah") {
         mytoast.success("Password reset Successfully");
 
