@@ -18,7 +18,7 @@ export const fetchClasses = createAsyncThunk(
       classes = await selectDataTwo(null, null);
     } else {
       if (data.userName) {
-        classes = await selectDataTwo({ "teacher.TID": userName }, null);
+        classes = await selectDataTwo({ "teacher.TID": data.userName }, null);
       } else {
         classes = await selectDataTwo({ batchNo: data.batch }, null);
       }

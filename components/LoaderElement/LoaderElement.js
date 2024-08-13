@@ -152,61 +152,87 @@ function LoaderElement() {
     async function fetchData() {
       const payload = await isAdmin();
 
-      if (payload.status === "Alhamdulillah") {
-        let res;
-        if (payload.data.userRole === "student") {
-          res = await selectDataTwo({ userName: payload.data.userName }, null);
-        } else if (payload.data.userRole === "teacher") {
-          res = await selectAllDataTwo(
+      if (payload.status == "Alhamdulillah") {
+        if (payload.data.userRole == "student") {
+          const res = await selectDataTwo(
             { userName: payload.data.userName },
             null
           );
-        } else if (payload.data.userRole === "abacus_teacher") {
-          res = await selectInstitution(
+          if (res.status == "Alhamdulillah") {
+            const desiredObj = {
+              status: "Alhamdulillah",
+              data: {
+                userName: res.data[0].userName,
+                userRole: res.data[0].userRole,
+                isAdmin: res.data[0].isAdmin,
+                userDetails: res.data[0],
+              },
+            };
+
+            dispatch(setInitialData(desiredObj));
+            setUserData(desiredObj);
+          }
+        } else if (payload.data.userRole == "teacher") {
+          const res = await selectAllDataTwo(
+            { userName: payload.data.userName },
+            null
+          );
+          if (res.status == "Alhamdulillah") {
+            const desiredObj = {
+              status: "Alhamdulillah",
+              data: {
+                userName: res.data[0].userName,
+                userRole: res.data[0].userRole,
+                isAdmin: res.data[0].isAdmin,
+                userDetails: res.data[0],
+              },
+            };
+
+            dispatch(setInitialData(desiredObj));
+            setUserData(desiredObj);
+          }
+        } else if (payload.data.userRole == "abacus_teacher") {
+          const res = await selectInstitution(
             { institutionID: payload.data.userName },
             null
           );
-        }
+          if (res.status == "Alhamdulillah") {
+            let desiredObj;
+            if (res.data.length < 1) {
+              desiredObj = {
+                status: "noToken",
+              };
+            } else {
+              desiredObj = {
+                status: "Alhamdulillah",
+                data: {
+                  userName: res.data[0].institutionID,
+                  userRole: "abacus_teacher",
+                  isAdmin: false,
+                  userDetails: res.data[0],
+                },
+              };
+            }
 
-        if (res && res.status === "Alhamdulillah") {
-          const desiredObj = {
-            status: "Alhamdulillah",
-            data: {
-              userName: res.data[0].userName || res.data[0].institutionID,
-              userRole: payload.data.userRole,
-              isAdmin: res.data[0].isAdmin || false,
-              userDetails: res.data[0],
-            },
-          };
-
-          dispatch(setInitialData(desiredObj));
-          setUserData(desiredObj);
-        } else if (
-          payload.data.userRole === "abacus_teacher" &&
-          res &&
-          res.data.length < 1
-        ) {
-          const desiredObj = {
-            status: "noToken",
-          };
-          dispatch(setInitialData(desiredObj));
-          setUserData(desiredObj);
+            dispatch(setInitialData(desiredObj));
+            setUserData(desiredObj);
+          }
         }
-      } else if (payload.status === "noToken") {
+      } else if (payload.status == "noToken") {
         const desiredObj = {
           status: "noToken",
           data: null,
         };
+
         dispatch(setInitialData(desiredObj));
       }
     }
-
     fetchData();
   }, []);
 
   useEffect(() => {
     function fetchSequentially() {
-      dispatch(fetchBooks()); // Unwrap to handle any potential errors
+      dispatch(fetchBooks());
       dispatch(fetchCourses());
 
       dispatch(fetchTeachers());
@@ -221,9 +247,11 @@ function LoaderElement() {
               userName: "",
             })
           );
+
           dispatch(fetchStudents(userData.data.userDetails.batchCount));
         } else if (userData.data.userRole === "teacher") {
           dispatch(fetchDjs("all"));
+
           dispatch(
             fetchClasses({
               batch: "",
@@ -240,6 +268,7 @@ function LoaderElement() {
               userName: "",
             })
           );
+
           dispatch(fetchStudents("all"));
         }
 
