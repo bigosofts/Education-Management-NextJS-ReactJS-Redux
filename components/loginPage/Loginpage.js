@@ -27,7 +27,6 @@ function LoginPageDesign({ finalData }) {
 
   let userData = finalArray.concat(finalData.students);
 
- 
   const currentBatch = "batch-20240605";
   const [Admin, setIsAdmin] = useState();
   const [data, setDatas] = useState();
@@ -201,6 +200,8 @@ function LoginPageDesign({ finalData }) {
               userName: `${userData.length + 1}`,
               studentDepartment: [],
               studentSemester: [],
+              batchCount: "",
+              fundStatus: "none",
             });
             if (res2.status == "Alhamdulillah") {
               userData.push({

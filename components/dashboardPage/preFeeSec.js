@@ -44,7 +44,7 @@ function PreFeeSection({ profile }) {
     if (course == "alemalema") {
       setBatch([
         {
-          name: "Batch-03-08-2024 (ক্লাস শুরু ০৩ অক্টোবর, ২০২৪)",
+          name: "Batch-03-08-2024 (ক্লাস শুরু ০৩ সেপ্টেম্বর, ২০২৪)",
           value: "batch-20240803",
           startDate: new Date().toISOString(),
         },
