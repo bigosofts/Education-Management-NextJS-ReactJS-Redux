@@ -128,11 +128,40 @@ function MonthlyPayment() {
     return oneMonthLater;
   }
 
+  function testMonthlyPrice(amountPaid, currency) {
+    let PriceTk = parseInt(Unpaid && Unpaid[0].monthlyPaymentPrice.tk);
+    let PriceDollar = parseInt(Unpaid && Unpaid[0].monthlyPaymentPrice.us);
+    let fundStatus = data && data.data.userDetails.fundStatus;
+
+    if (currency == "taka") {
+      if (fundStatus == "jakat" || fundStatus == "nafalSadka") {
+        if (parseInt(amountPaid) < PriceTk) return true;
+
+        return true;
+      } else {
+        if (parseInt(amountPaid) < PriceTk) return false;
+
+        return true;
+      }
+    } else if (currency === "dollar") {
+      if (fundStatus == "jakat" || fundStatus == "nafalSadka") {
+        if (parseInt(amountPaid) < PriceDollar) return true;
+
+        return true;
+      } else {
+        if (parseInt(amountPaid) < PriceDollar) return false;
+
+        return true;
+      }
+    }
+  }
+
   async function submitMonthlyPayment(e) {
     e.preventDefault();
     if (
       mainData.accountNo &&
       mainData.amountPaid &&
+      testMonthlyPrice(mainData.amountPaid, mainData.currency) &&
       mainData.currency &&
       mainData.paymentWay &&
       mainData.transactionID &&
@@ -242,11 +271,15 @@ function MonthlyPayment() {
 
         const hardRefresh = () => {
           if (typeof window !== "undefined") {
-            window.location.href = `/dashboard/${data.data.userDetails.userName}/fees`;
+            window.location.href = `/content/dashboard/${data.data.userDetails.userName}/fees`;
           }
         };
         hardRefresh();
       }
+    } else if (!testMonthlyPrice(mainData.amountPaid, mainData.currency)) {
+      mytoast.danger(
+        "যাকাত ফান্ড অথবা নফল সদকা ব্যাতিত মাসিক ফী কম দেয়া যাবে না"
+      );
     } else {
       mytoast.warning("Monthly form: One or more field is empty");
     }

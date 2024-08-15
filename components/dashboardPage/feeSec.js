@@ -46,7 +46,6 @@ function FeeSection({ profile }) {
           );
 
         if (res.data.length > 0 && res2.data.length > 0) {
-          console.log(res.data, res2.data);
           setStudents(res.data);
           setPayments(res2.data[0]);
 
