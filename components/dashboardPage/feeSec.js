@@ -102,6 +102,14 @@ function FeeSection({ profile }) {
           <div className="text-lg md:text-2xl">{store}</div>
         </div>
         <div className="pb-[100px]">
+          <div className="text-center mt-10 px-4 py-4 rounded-lg bg-white w-[250px] mx-auto text-lg text-slate-600">
+            <span className="bg-orange-400 text-white px-3 py-1 rounded-lg">
+              {data.data && data.data.userDetails.fundStatus == "none"
+                ? "General"
+                : data.data.userDetails.fundStatus}
+            </span>{" "}
+            Fund
+          </div>
           <h1 className="text-[16px] md:text-2xl mt-12 mb-10 text-white text-center">
             Yearly Admission history
           </h1>
