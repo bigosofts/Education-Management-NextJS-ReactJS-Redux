@@ -1,4 +1,6 @@
-import { selectDataTwo } from "@/apiservices/classapiservices";
+import { selectDataPlus } from "@/apiservices/classapiservices";
+
+import { batchAPICall } from "@/helper/batchApiCall";
 
 //this is async thunk example broilerplate
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
@@ -15,16 +17,16 @@ export const fetchClasses = createAsyncThunk(
   async (data) => {
     let classes;
     if (data.batch == "all") {
-      classes = await selectDataTwo(null, null);
+      classes = await batchAPICall(selectDataPlus, 5, 0);
     } else {
       if (data.userName) {
-        classes = await selectDataTwo({ "teacher.TID": data.userName }, null);
+        classes = await batchAPICall(selectDataPlus, 5, data.userName);
       } else {
-        classes = await selectDataTwo({ batchNo: data.batch }, null);
+        classes = await batchAPICall(selectDataPlus, 5, data.batch);
       }
     }
 
-    return classes.data;
+    return classes;
   }
 );
 

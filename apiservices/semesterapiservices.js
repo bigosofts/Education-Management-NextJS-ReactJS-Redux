@@ -6,14 +6,17 @@ exports.selectData = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/select-semesters`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payloaddata),
-    next: { revalidate: 600 },
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/select-semesters`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payloaddata),
+      next: { revalidate: 600 },
+    }
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -27,14 +30,17 @@ exports.selectDataTwo = async (query, projection) => {
     query: query,
     projection: projection,
   };
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/select-semesters`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payloaddata),
-    next: { revalidate: 600 },
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/select-semesters`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payloaddata),
+      next: { revalidate: 600 },
+    }
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -43,38 +49,64 @@ exports.selectDataTwo = async (query, projection) => {
 
   return res.json();
 };
+
+exports.selectDataPlus = async (pageNumber, perPage, query) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v2/select-semesters/${pageNumber}/${perPage}/${query}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      next: { revalidate: 600 },
+    }
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  const result = await res.json();
+
+  return result;
+};
+
 exports.deleteData = async (id) => {
-  if(data2){
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-semester/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        access_token: data2,
-      },
-    });
-  
+  if (data2) {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-semester/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          access_token: data2,
+        },
+      }
+    );
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
-  }else{
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-semester/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  
+  } else {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-semester/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
   }
-  
 };
 
 exports.createData = async ({
@@ -89,41 +121,46 @@ exports.createData = async ({
     semesterBooks,
     activeStatus,
   };
-  if(data2){
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/create-semester`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        access_token: data2,
-      },
-      body: JSON.stringify(aboutdata),
-    });
-  
+  if (data2) {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-semester`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          access_token: data2,
+        },
+        body: JSON.stringify(aboutdata),
+      }
+    );
+
     if (!res.ok) {
       console.log(res.json());
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
-  }else{
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/create-semester`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(aboutdata),
-    });
-  
+  } else {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-semester`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(aboutdata),
+      }
+    );
+
     if (!res.ok) {
       console.log(res.json());
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
-    return res.json();  
+
+    return res.json();
   }
-  
 };
 
 exports.updateData = async ({
@@ -140,35 +177,40 @@ exports.updateData = async ({
     semesterBooks,
     activeStatus,
   };
-  if(data2){
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/update-semester`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        access_token: data2,
-      },
-      body: JSON.stringify(aboutdata),
-    });
-  
+  if (data2) {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-semester`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          access_token: data2,
+        },
+        body: JSON.stringify(aboutdata),
+      }
+    );
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
     return res.json();
-  }else{
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/apis/v1/update-semester`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(aboutdata),
-    });
-  
+  } else {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-semester`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(aboutdata),
+      }
+    );
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
     return res.json();
   }
-  
 };

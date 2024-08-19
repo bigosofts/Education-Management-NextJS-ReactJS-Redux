@@ -50,8 +50,28 @@ exports.selectDataTwo = async (query, projection) => {
   return res.json();
 };
 
+exports.selectDataPlus = async (pageNumber, perPage, query) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v2/select-richtexts/${pageNumber}/${perPage}/${query}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      next: { revalidate: 600 },
+    }
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  const result = await res.json();
+
+  return result;
+};
+
 exports.deleteData = async (id) => {
-  if(data2){
+  if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-richtext/${id}`,
       {
@@ -62,14 +82,14 @@ exports.deleteData = async (id) => {
         },
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
-  }else{
+  } else {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/delete-richtext/${id}`,
       {
@@ -79,15 +99,14 @@ exports.deleteData = async (id) => {
         },
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
   }
-  
 };
 
 exports.createData = async ({ RichTextName, TextPayload, activeStatus }) => {
@@ -96,7 +115,7 @@ exports.createData = async ({ RichTextName, TextPayload, activeStatus }) => {
     TextPayload,
     activeStatus,
   };
-  if(data2){
+  if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-richtext`,
       {
@@ -108,14 +127,14 @@ exports.createData = async ({ RichTextName, TextPayload, activeStatus }) => {
         body: JSON.stringify(aboutdata),
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
-  }else{
+  } else {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/create-richtext`,
       {
@@ -126,15 +145,14 @@ exports.createData = async ({ RichTextName, TextPayload, activeStatus }) => {
         body: JSON.stringify(aboutdata),
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
-  
+
     return res.json();
   }
-  
 };
 
 exports.updateData = async ({
@@ -149,7 +167,7 @@ exports.updateData = async ({
     TextPayload,
     activeStatus,
   };
-  if(data2){
+  if (data2) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-richtext`,
       {
@@ -161,13 +179,13 @@ exports.updateData = async ({
         body: JSON.stringify(aboutdata),
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
     return res.json();
-  }else{
+  } else {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/update-richtext`,
       {
@@ -178,12 +196,11 @@ exports.updateData = async ({
         body: JSON.stringify(aboutdata),
       }
     );
-  
+
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
     return res.json();
   }
- 
 };

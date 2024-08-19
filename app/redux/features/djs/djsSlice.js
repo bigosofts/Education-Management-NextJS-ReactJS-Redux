@@ -1,8 +1,12 @@
-import { selectDataTwo as selectDepartment } from "@/apiservices/departmentapiservices";
-import { selectDataTwo as seletcJamat } from "@/apiservices/jamatapiservices";
-import { selectDataTwo as selectSemester } from "@/apiservices/semesterapiservices";
+import { selectDataPlus as selectDepartment } from "@/apiservices/departmentapiservices";
+import { selectDataPlus as seletctJamat } from "@/apiservices/jamatapiservices";
+import { selectDataPlus as selectSemester } from "@/apiservices/semesterapiservices";
+import { batchAPICall } from "@/helper/batchApiCall";
 
-import { selectDataTwo as selectPayments } from "@/apiservices/paymentapiservices";
+import {
+  selectDataPlus as selectPaymentsPlus,
+  selectDataTwo as selectPayments,
+} from "@/apiservices/paymentapiservices";
 
 //this is async thunk example broilerplate
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
@@ -18,29 +22,32 @@ const initialState = {
 };
 
 export const fetchDjs = createAsyncThunk("djs/fetchDjs", async (paymentID) => {
-  const departments = await selectDepartment(null, null);
-  const jamats = await seletcJamat(null, null);
-  const semesters = await selectSemester({ activeStatus: "active" }, null);
+  const departments = await batchAPICall(selectDepartment, 5, 0);
+
+  const jamats = await batchAPICall(seletctJamat, 5, 0);
+
+  const semesters = await batchAPICall(selectSemester, 5, "active");
+
   let payments;
   if (paymentID == "all") {
-    payments = await selectPayments(null, null);
+    payments = await batchAPICall(selectPayments, 5, 0);
   } else {
-    payments = await selectPayments({ paymentID }, null);
+    payments = await batchAPICall(selectPaymentsPlus, 5, paymentID);
   }
 
   if (
-    departments.status == "Alhamdulillah" &&
-    jamats.status == "Alhamdulillah" &&
-    semesters.status == "Alhamdulillah" &&
-    payments.status == "Alhamdulillah"
+    departments.length >= 0 &&
+    jamats.length >= 0 &&
+    semesters.length >= 0 &&
+    payments.length >= 0
   ) {
   }
 
   return {
-    departments: departments.data,
-    jamats: jamats.data,
-    semesters: semesters.data,
-    payments: payments.data,
+    departments: departments,
+    jamats: jamats,
+    semesters: semesters,
+    payments: payments,
   };
 });
 

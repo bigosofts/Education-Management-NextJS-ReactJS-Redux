@@ -1,4 +1,5 @@
-import { selectDataTwo } from "@/apiservices/bookapiservices";
+import { selectDataPlus } from "@/apiservices/bookapiservices";
+import { batchAPICall } from "@/helper/batchApiCall";
 
 //this is async thunk example broilerplate
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
@@ -11,8 +12,8 @@ const initialState = {
 };
 
 export const fetchBooks = createAsyncThunk("books/fetchBooks", async () => {
-  const books = await selectDataTwo();
-  return books.data;
+  const books = await batchAPICall(selectDataPlus, 5, 0);
+  return books;
 });
 
 const booksSlice = createSlice({

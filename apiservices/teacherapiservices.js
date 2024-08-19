@@ -49,6 +49,7 @@ exports.selectAllData = async (query, projection) => {
 
   return res.json();
 };
+
 exports.selectAllDataTwo = async (query, projection) => {
   const payloaddata = {
     query: query,
@@ -72,6 +73,26 @@ exports.selectAllDataTwo = async (query, projection) => {
   }
 
   return res.json();
+};
+
+exports.selectDataPlus = async (pageNumber, perPage, query) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v2/select-all-teachers/${pageNumber}/${perPage}/${query}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      next: { revalidate: 600 },
+    }
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  const result = await res.json();
+
+  return result;
 };
 
 exports.deleteData = async (id) => {
