@@ -89,15 +89,7 @@ function MonthlyPayment() {
       res5.data = paymentData.length > 0 && paymentData;
 
       if (res5.data.length > 0) {
-        setUnpaid(
-          res5.data.filter((item) => {
-            if (
-              item.paymentID ==
-              `${data.data.userDetails.paymentStatus.paymentID}`
-            )
-              return item;
-          })
-        );
+        setUnpaid(res5.data);
       }
     }
     getData();
