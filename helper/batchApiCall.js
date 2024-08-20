@@ -25,7 +25,7 @@ exports.batchAPICall = async (callback, perPage, query) => {
   };
 
   // Limit concurrency by processing pages in batches
-  const batchSize = 1; // Adjust based on server capacity and performance
+  const batchSize = 50; // Adjust based on server capacity and performance
   for (let i = 2; i <= totalPages; i += batchSize) {
     const end = Math.min(i + batchSize - 1, totalPages);
     await fetchPageRange(i, end);
