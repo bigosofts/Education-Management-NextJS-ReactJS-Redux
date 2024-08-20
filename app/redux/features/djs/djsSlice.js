@@ -3,10 +3,7 @@ import { selectDataPlus as seletctJamat } from "@/apiservices/jamatapiservices";
 import { selectDataPlus as selectSemester } from "@/apiservices/semesterapiservices";
 import { batchAPICall } from "@/helper/batchApiCall";
 
-import {
-  selectDataPlus as selectPaymentsPlus,
-  selectDataTwo as selectPayments,
-} from "@/apiservices/paymentapiservices";
+import { selectDataPlus as selectPaymentsPlus } from "@/apiservices/paymentapiservices";
 
 //this is async thunk example broilerplate
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
@@ -30,7 +27,7 @@ export const fetchDjs = createAsyncThunk("djs/fetchDjs", async (paymentID) => {
 
   let payments;
   if (paymentID == "all") {
-    payments = await batchAPICall(selectPayments, 5, 0);
+    payments = await batchAPICall(selectPaymentsPlus, 5, 0);
   } else {
     payments = await batchAPICall(selectPaymentsPlus, 5, paymentID);
   }
