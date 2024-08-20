@@ -7,7 +7,7 @@ exports.batchAPICall = async (callback, perPage, query) => {
   const initialResponse = await callback(pageNumber, perPage, query);
 
   allData = allData.concat(initialResponse.data);
-  
+
   //count the total number
   const totalItems = initialResponse.total;
   const totalPages = Math.ceil(totalItems / perPage);
@@ -25,7 +25,7 @@ exports.batchAPICall = async (callback, perPage, query) => {
   };
 
   // Limit concurrency by processing pages in batches
-  const batchSize = 50; // Adjust based on server capacity and performance
+  const batchSize = 5; // Adjust based on server capacity and performance
   for (let i = 2; i <= totalPages; i += batchSize) {
     const end = Math.min(i + batchSize - 1, totalPages);
     await fetchPageRange(i, end);
