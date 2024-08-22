@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from "react";
 import "./accordion.css";
 import TableMonthly from "@/components/Admin/tableMonthly";
-import { selectDataTwo } from "@/apiservices/studentapiservices";
+import { selectDataMonthlyPendingPlus } from "@/apiservices/studentapiservices";
 import { selectDataTwo as selectPayments } from "@/apiservices/paymentapiservices";
 
-function AccordionSecond() {
+function AccordionSecondPending() {
   const [students, setStudents] = useState();
   const [payments, setPayments] = useState();
 
@@ -53,7 +53,7 @@ function AccordionSecond() {
     async function getData() {
       try {
         const res = await selectDataTwo(null, null);
-        const res2 = await selectPayments(null, null);
+     
         if (res.status === "Alhamdulillah" && res2.status == "Alhamdulillah") {
           setPayments(res2.data);
           setStudents(res.data);
@@ -179,4 +179,4 @@ function AccordionSecond() {
   );
 }
 
-export default AccordionSecond;
+export default AccordionSecondPending;

@@ -53,14 +53,42 @@ function AdminDrawer() {
       <div
         onClick={() =>
           router.push(
-            `/content/dashboard/${data.data.userName}/education/monthly-history`
+            `/content/dashboard/${data.data.userName}/education/monthly-history-due`
           )
         }
         className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
       >
         <img className="m-auto h-12" src="/images/dollar.svg" />
         <h2 className="mt-2 text-[12px] md:text-2xl text-center">
-          Monthly Payment
+          Monthly- Due
+        </h2>
+      </div>
+
+      <div
+        onClick={() =>
+          router.push(
+            `/content/dashboard/${data.data.userName}/education/monthly-history-active`
+          )
+        }
+        className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
+      >
+        <img className="m-auto h-12" src="/images/dollar.svg" />
+        <h2 className="mt-2 text-[12px] md:text-2xl text-center">
+          Monthly- Active
+        </h2>
+      </div>
+
+      <div
+        onClick={() =>
+          router.push(
+            `/content/dashboard/${data.data.userName}/education/monthly-history-pending`
+          )
+        }
+        className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
+      >
+        <img className="m-auto h-12" src="/images/dollar.svg" />
+        <h2 className="mt-2 text-[12px] md:text-2xl text-center">
+          Monthly- pending
         </h2>
       </div>
 

@@ -94,6 +94,61 @@ exports.selectDataPlus = async (pageNumber, perPage, query) => {
   return result;
 };
 
+exports.selectDataMonthlyActivePlus = async (pageNumber, perPage, query) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v2/select-all-students-monthly-active/${pageNumber}/${perPage}/${query}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  const result = await res.json();
+
+  return result;
+};
+exports.selectDataMonthlyDuePlus = async (pageNumber, perPage, query) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v2/select-all-students-monthly-due/${pageNumber}/${perPage}/${query}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  const result = await res.json();
+
+  return result;
+};
+exports.selectDataMonthlyPendingPlus = async (pageNumber, perPage, query) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v2/select-all-students-monthly-pending/${pageNumber}/${perPage}/${query}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  const result = await res.json();
+
+  return result;
+};
+
 exports.deleteData = async (id) => {
   if (data2) {
     const res = await fetch(

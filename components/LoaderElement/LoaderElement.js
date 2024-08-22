@@ -103,13 +103,15 @@ function LoaderElement() {
 
   useEffect(() => {
     function fetchSequentially() {
-      dispatch(fetchBooks());
-      dispatch(fetchCourses());
-
-      dispatch(fetchTeachers());
-
       if (userData && userData.data) {
-        if (userData.data.userRole === "student") {
+        if (userData.data.isAdmin == true) {
+          return;
+        } else if (userData.data.userRole === "student") {
+          dispatch(fetchBooks());
+          dispatch(fetchCourses());
+
+          dispatch(fetchTeachers());
+
           dispatch(fetchDjs(userData.data.userDetails.paymentStatus.paymentID));
 
           dispatch(
@@ -120,7 +122,15 @@ function LoaderElement() {
           );
 
           dispatch(fetchStudents(userData.data.userDetails.batchCount));
+
+          dispatch(fetchNotices(userData.data.userName));
         } else if (userData.data.userRole === "teacher") {
+          dispatch(fetchBooks());
+
+          dispatch(fetchCourses());
+
+          dispatch(fetchTeachers());
+
           dispatch(fetchDjs("all"));
 
           dispatch(
@@ -131,19 +141,9 @@ function LoaderElement() {
           );
 
           dispatch(fetchStudents("all"));
-        } else {
-          dispatch(fetchDjs("all"));
-          dispatch(
-            fetchClasses({
-              batch: "all",
-              userName: "",
-            })
-          );
 
-          dispatch(fetchStudents("all"));
+          dispatch(fetchNotices(userData.data.userName));
         }
-
-        dispatch(fetchNotices(userData.data.userName));
       }
     }
 

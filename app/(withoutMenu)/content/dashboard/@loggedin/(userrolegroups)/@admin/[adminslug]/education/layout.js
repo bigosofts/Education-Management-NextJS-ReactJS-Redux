@@ -4,7 +4,6 @@ function EducationLayout({ children }) {
   return (
     <div
       style={{
-        marginTop: "150px",
         marginX: "auto",
         width: "95%",
         height: "100vh",
