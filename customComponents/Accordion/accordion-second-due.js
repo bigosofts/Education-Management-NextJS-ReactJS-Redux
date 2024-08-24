@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import "./accordion.css";
 import TableMonthly from "@/components/Admin/tableMonthly";
 import { selectDataMonthlyDuePlus as selectStudents } from "@/apiservices/studentapiservices";
+import { selectDataTwo as selectPayments } from "@/apiservices/paymentapiservices";
 
 import ReactPaginate from "react-paginate";
 
@@ -97,6 +98,41 @@ function AccordionSecondDue() {
     }
   }
 
+  async function getDueMonth(paymentID) {
+    const res = await selectPayments({ paymentID }, null);
+
+    let dueArray = [];
+    if (res.status == "Alhamdulillah") {
+      let actualArray = [...res.data[0].monthlyPaymentHistory];
+
+      actualArray.pop();
+
+      actualArray.forEach((item) => {
+        if (!item.Price && item.PaymentStatus == false) {
+          const date = new Date(item.Date);
+          const month = date.toLocaleString("default", { month: "short" });
+          dueArray.push(month);
+        }
+      });
+    }
+
+    return dueArray.map((item) => (
+      <span
+        style={{
+          display: "inline-block",
+          backgroundColor: "purple",
+          padding: "5px 10px",
+          color: "white",
+          marginLeft: "10px",
+          marginBottom: "10px",
+          fontSize: "14px",
+        }}
+      >
+        {item}
+      </span>
+    ));
+  }
+
   return (
     <div className="accordion">
       <div
@@ -133,6 +169,7 @@ function AccordionSecondDue() {
                 {item.userName} ({item.paymentStatus.paymentID})<br />
                 <span style={{ color: "green" }}>{item.emailAddress}</span>
               </div>
+              <div>{getDueMonth(item.paymentStatus.paymentID)}</div>
               <div style={{ textAlign: "right" }}>
                 <span
                   style={{
