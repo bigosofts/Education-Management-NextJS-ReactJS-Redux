@@ -23,9 +23,9 @@ import ShowPaymentDetails from "../dashboardPage/showpaymentDetail";
 
 import "./loginDesign.css";
 function LoginPageDesign({ finalData }) {
-  let finalArray = finalData.teachers;
+  let userData;
 
-  let userData = finalArray.concat(finalData.students);
+  
 
   const currentBatch = "batch-20240605";
   const [Admin, setIsAdmin] = useState();
@@ -64,8 +64,15 @@ function LoginPageDesign({ finalData }) {
     }
   }, []);
 
-  function addUser(e) {
+  async function addUser(e) {
     e.preventDefault();
+
+    let Data = await finalData();
+
+    let finalArray = Data.teachers;
+
+    userData = finalArray.concat(Data.students);
+
     function checkEmail(
       firstName,
       lastname,
@@ -74,8 +81,10 @@ function LoginPageDesign({ finalData }) {
       mobile,
       password
     ) {
-      const haveEmail = userData.some((item) => item.emailAddress == email);
-      const haveMobile = userData.some((item) => item.mobileNumber == mobile);
+      const haveEmail =
+        userData && userData.some((item) => item.emailAddress == email);
+      const haveMobile =
+        userData && userData.some((item) => item.mobileNumber == mobile);
       if (haveEmail) {
         mytoast.info(
           "আপনার ইমেইলে একটি একাউন্ট আগে থেকেই আছে, দয়া করে অন্য ইমেইল ব্যাবহার করুন"
@@ -203,6 +212,7 @@ function LoginPageDesign({ finalData }) {
               batchCount: "",
               fundStatus: "none",
             });
+
             if (res2.status == "Alhamdulillah") {
               userData.push({
                 emailAddress: email,
@@ -323,8 +333,15 @@ function LoginPageDesign({ finalData }) {
     }
   }
 
-  function addUser2(e) {
+  async function addUser2(e) {
     e.preventDefault();
+
+    let Data = await finalData();
+
+    let finalArray = Data.teachers;
+
+    userData = finalArray.concat(Data.students);
+
     function checkEmail(
       institutionName,
       institutionHeadName,
@@ -351,6 +368,7 @@ function LoginPageDesign({ finalData }) {
         //   firstPortion = str;
         // }
         const res4 = await selectAbacusInstitution(null, null);
+
         if (res4.status == "Alhamdulillah") {
           const res2 = await createInstitution({
             institutionID: res4.data.length + 1,

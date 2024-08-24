@@ -1,13 +1,18 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./accordion.css";
 import TableMonthly from "@/components/Admin/tableMonthly";
 import { selectDataMonthlyPendingPlus } from "@/apiservices/studentapiservices";
-import { selectDataTwo as selectPayments } from "@/apiservices/paymentapiservices";
+
+import ReactPaginate from "react-paginate";
 
 function AccordionSecondPending() {
   const [students, setStudents] = useState();
-  const [payments, setPayments] = useState();
+  const [Total, setTotal] = useState();
+
+  const [loading, setLoading] = useState(false);
+
+  const searchRef = useRef();
 
   useEffect(() => {
     // Event delegation for accordion items
@@ -52,11 +57,14 @@ function AccordionSecondPending() {
   useEffect(() => {
     async function getData() {
       try {
-        const res = await selectDataTwo(null, null);
-     
-        if (res.status === "Alhamdulillah" && res2.status == "Alhamdulillah") {
-          setPayments(res2.data);
+        const res = await selectDataMonthlyPendingPlus(1, 10, 0);
+
+        if (res.status === "Alhamdulillah") {
+          setTotal(res.total);
+
           setStudents(res.data);
+
+          setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -65,44 +73,59 @@ function AccordionSecondPending() {
     getData();
   }, []);
 
-  function getCondition(id) {
-    let desiredPayment = payments.filter((item) => {
-      if (item.paymentID == id) {
-        return item;
-      }
-    });
+  async function handlePageClick(e) {
+    setLoading(true);
+    const res = await selectDataMonthlyPendingPlus(e.selected + 1, 10, 0);
+    if (res.status === "Alhamdulillah") {
+      setTotal(res.total);
 
-    if (desiredPayment[0]) {
-      let actualArray = [...desiredPayment[0].monthlyPaymentHistory];
-      actualArray.pop();
-      let decision = actualArray.some((item) => {
-        if (item.PaymentStatus == false) {
-          return true;
-        }
-      });
+      setStudents(res.data);
+      setLoading(false);
+    }
+  }
 
-      if (
-        actualArray[0] &&
-        actualArray[actualArray.length - 1].Price &&
-        actualArray[actualArray.length - 1].PaymentStatus == false
-      ) {
-        return "pending";
-      } else if (decision == true) {
-        return "due";
-      } else if (decision == false) {
-        return "ok";
-      } else {
-        return "ok";
-      }
-    } else {
-      return "due";
+  async function searchQuery(e) {
+    e.preventDefault();
+    setLoading(true);
+    const res = await selectDataMonthlyPendingPlus(
+      1,
+      10,
+      searchRef.current.value || 0
+    );
+    if (res.status === "Alhamdulillah") {
+      setTotal(res.total);
+
+      setStudents(res.data);
+      setLoading(false);
     }
   }
 
   return (
     <div className="accordion">
-      {students &&
-        payments &&
+      <div
+        style={{ width: "600px", margin: "50px auto" }}
+        className="mx-auto flex"
+      >
+        <input
+          ref={searchRef}
+          placeholder="Search"
+          className="bg-white p-4"
+          type="text"
+        ></input>
+        <button
+          onClick={searchQuery}
+          style={{ backgroundColor: "#000" }}
+          className="p-4 text-white"
+        >
+          Search
+        </button>
+
+        <h1 style={{ marginLeft: "20px" }}>{Total}</h1>
+      </div>
+      {loading && <h3>Loading ... </h3>}
+
+      {!loading &&
+        students &&
         students.map((item, i) => (
           <div key={i} className="accordion-item">
             <div className="accordion-item-header">
@@ -114,54 +137,20 @@ function AccordionSecondPending() {
                 <span style={{ color: "green" }}>{item.emailAddress}</span>
               </div>
               <div style={{ textAlign: "right" }}>
-                {getCondition(item.paymentStatus.paymentID) == "due" && (
-                  <span
-                    style={{
-                      display: "inline-block",
-                      backgroundColor: "red",
-                      padding: "5px 10px",
-                      borderRadius: "15px",
-                      color: "white",
-                      marginLeft: "10px",
-                      marginBottom: "10px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    Due
-                  </span>
-                )}
-                {getCondition(item.paymentStatus.paymentID) == "pending" && (
-                  <span
-                    style={{
-                      display: "inline-block",
-                      backgroundColor: "blue",
-                      padding: "5px 10px",
-                      borderRadius: "15px",
-                      color: "white",
-                      marginLeft: "10px",
-                      fontSize: "14px",
-                      marginBottom: "10px",
-                    }}
-                  >
-                    Pending
-                  </span>
-                )}
-                {getCondition(item.paymentStatus.paymentID) == "ok" && (
-                  <span
-                    style={{
-                      display: "inline-block",
-                      backgroundColor: "rgb(52, 168, 83)",
-                      padding: "5px 10px",
-                      borderRadius: "15px",
-                      color: "white",
-                      marginLeft: "10px",
-                      fontSize: "14px",
-                      marginBottom: "10px",
-                    }}
-                  >
-                    Active
-                  </span>
-                )}
+                <span
+                  style={{
+                    display: "inline-block",
+                    backgroundColor: "orange",
+                    padding: "5px 10px",
+                    borderRadius: "15px",
+                    color: "white",
+                    marginLeft: "10px",
+                    marginBottom: "10px",
+                    fontSize: "14px",
+                  }}
+                >
+                  Pending
+                </span>
               </div>
             </div>
             <div className="accordion-item-body">
@@ -175,6 +164,29 @@ function AccordionSecondPending() {
             </div>
           </div>
         ))}
+      {Total && (
+        <nav className="mt-20">
+          <ReactPaginate
+            previousLabel="<"
+            nextLabel=">"
+            pageClassName="inline-block"
+            pageLinkClassName="px-4 py-3 border border-gray-300 text-gray-700 bg-white hover:bg-gray-200 rounded-xl"
+            previousClassName="inline-block"
+            previousLinkClassName="px-4 py-3 border border-gray-300 text-gray-700 bg-white hover:bg-gray-200 rounded-xl"
+            nextClassName="inline-block"
+            nextLinkClassName="px-4 py-3 border border-gray-300 text-gray-700 bg-white hover:bg-gray-200 rounded-xl"
+            breakLabel="..."
+            breakClassName="inline-block"
+            breakLinkClassName="px-3 py-3 border border-gray-300 text-gray-700 bg-white hover:bg-gray-200 rounded-xl"
+            pageCount={Total / 50}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClick}
+            containerClassName="flex justify-center space-x-1 mt-4"
+            activeClassName="bg-blue-500 text-white"
+          />
+        </nav>
+      )}
     </div>
   );
 }

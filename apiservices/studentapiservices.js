@@ -127,6 +127,7 @@ exports.selectDataMonthlyDuePlus = async (pageNumber, perPage, query) => {
     throw new Error("Failed to fetch data");
   }
   const result = await res.json();
+  
 
   return result;
 };
@@ -275,6 +276,7 @@ exports.createData = async ({
     );
 
     if (!res.ok) {
+      console.log(await res.json());
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
@@ -293,7 +295,7 @@ exports.createData = async ({
     );
 
     if (!res.ok) {
-      console.log(res);
+      console.log(await res.json());
       // This will activate the closest `error.js` Error Boundary
       throw new Error("Failed to fetch data");
     }
