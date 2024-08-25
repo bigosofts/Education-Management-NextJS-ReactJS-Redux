@@ -63,7 +63,7 @@ This URL will be the address of backend Website
 
 ## Demo
 
-Browse this link to see theme in action:
+Browse this link to see Website is in action:
 
 https://www.internetmadrasa.com/
 ## Features
