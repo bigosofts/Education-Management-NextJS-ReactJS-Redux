@@ -9,7 +9,7 @@ A brief description of what this project does and who it's for
 
 ## Deployment
 
-To deploy this project download it, make a zip file and upload it to wordpress theme
+To deploy this project run the following command:
 
 ```bash
   git clone https://github.com/bigosofts/Education-Management-NextJS-ReactJS-Redux.git
@@ -58,7 +58,7 @@ This URL will be the address of backend Website
 
 ## Authors
 
-- [@Abdullah Al Amin](https://www.linkedin.com/in/abdullah-al-amin-93408b192)
+- [@Abdullah Al Amin](https://github.com/bigosofts)
 
 
 ## Demo
@@ -66,6 +66,7 @@ This URL will be the address of backend Website
 Browse this link to see Website is in action:
 
 https://www.internetmadrasa.com/
+
 ## Features
 
 - Frontend is seperated. NextJS is Running on specific port
