@@ -1583,11 +1583,12 @@ function HifzPage() {
           <>
             <div>
               <div className="w-full text-center md:w-9/12 mt-12 md:mt-[80px] rounded-3xl mx-auto text-4xl md:text-2x transition duration-500 ease-out mb-4">
-                প্রতিদিন হিফজের তথ্য লিখুন
+                প্রতিদিন হিফজের তথ্য লিখুন (Give the daily attendance
+                information)
               </div>
               <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
                 <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
-                  সবকের তথ্য দিন
+                  সবকের তথ্য দিন (Fill up "Sabak" Info)
                 </h2>
                 <form>
                   <label className="font-bold text-2xl" htmlFor="todaydate">
@@ -1605,7 +1606,7 @@ function HifzPage() {
                   <div className="flex-row md:flex justify-between gap-2">
                     <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
                       <label className="font-bold text-2xl" htmlFor="sabakpara">
-                        পারা:
+                        পারা: (Para/verse)
                       </label>
                       <input
                         id="sabakpara"
@@ -1613,13 +1614,13 @@ function HifzPage() {
                         name="sabakpara"
                         className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                         type="text"
-                        placeholder="কত পারা সেটা লিখুন"
+                        placeholder="Write about which Para you read"
                       ></input>
                     </div>
 
                     <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
                       <label className="font-bold text-2xl" htmlFor="sabakpage">
-                        পৃষ্ঠা:
+                        পৃষ্ঠা: (Page)
                       </label>
                       <input
                         id="sabakpage"
@@ -1627,7 +1628,7 @@ function HifzPage() {
                         name="sabakpage"
                         className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                         type="text"
-                        placeholder="কত পৃষ্ঠা লিখুন"
+                        placeholder="Write about your reading page"
                       ></input>
                     </div>
                   </div>
@@ -1636,13 +1637,13 @@ function HifzPage() {
                     onClick={sabakSubmit}
                     className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
                   >
-                    <div className="p-5">আজকের সবকের তথ্য দিন</div>
+                    <div className="p-5">Submit Today's Sabak Info</div>
                   </button>
                 </form>
               </div>
               <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
                 <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
-                  সাতসবকের তথ্য দিন
+                  সাতসবকের তথ্য দিন (Fill up "SatSabak" Info)
                 </h2>
                 <form>
                   <label className="font-bold text-2xl" htmlFor="todaydate">
@@ -1663,7 +1664,7 @@ function HifzPage() {
                         className="font-bold text-2xl"
                         htmlFor="satsabakpara"
                       >
-                        পারা:
+                        পারা: (Para/verse)
                       </label>
                       <input
                         id="satsabakpara"
@@ -1671,7 +1672,7 @@ function HifzPage() {
                         name="satsabakpara"
                         className="my-4 p-0 md:p-4 box-border w-full rounded-3xl text"
                         type="text"
-                        placeholder="কত পারা সেটা লিখুন"
+                        placeholder="Write about which Para you read"
                       ></input>
                     </div>
                     <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
@@ -1679,7 +1680,7 @@ function HifzPage() {
                         className="font-bold text-2xl"
                         htmlFor="satsabakpage"
                       >
-                        পৃষ্ঠা:
+                        পৃষ্ঠা: (Page)
                       </label>
                       <input
                         id="satsabakpage"
@@ -1687,7 +1688,7 @@ function HifzPage() {
                         name="satsabakpage"
                         className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                         type="text"
-                        placeholder="কত পৃষ্ঠা লিখুন"
+                        placeholder="Write about your reading page"
                       ></input>
                     </div>
                   </div>
@@ -1697,7 +1698,7 @@ function HifzPage() {
                         className="font-bold text-2xl"
                         htmlFor="satsabakamount"
                       >
-                        পরিমাণ:
+                        পরিমাণ: (Amount)
                       </label>
                       <input
                         id="satsabakamount"
@@ -1705,7 +1706,7 @@ function HifzPage() {
                         name="satsabakamount"
                         className="my-4 p-0 md:p-4 box-border w-full rounded-3xl text"
                         type="text"
-                        placeholder="পৃষ্ঠার পরিমাণ লিখুন"
+                        placeholder="How much amount you read"
                       ></input>
                     </div>
                     <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
@@ -1713,7 +1714,7 @@ function HifzPage() {
                         className="font-bold text-2xl"
                         htmlFor="satsabaklokma"
                       >
-                        লোকমা:
+                        লোকমা: (Lokma)
                       </label>
                       <input
                         id="satsabaklokma"
@@ -1721,7 +1722,7 @@ function HifzPage() {
                         name="satsabaklokma"
                         className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                         type="text"
-                        placeholder="লোকমার পরিমাণ লিখুন"
+                        placeholder="How much Lokma"
                       ></input>
                     </div>
                     <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
@@ -1729,7 +1730,7 @@ function HifzPage() {
                         className="font-bold text-2xl"
                         htmlFor="satsabakdohorana"
                       >
-                        দোহরানা:
+                        দোহরানা: (Dohorana)
                       </label>
 
                       <input
@@ -1738,7 +1739,7 @@ function HifzPage() {
                         name="satsabakdohorana"
                         className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                         type="text"
-                        placeholder="দোহরানার পরিমাণ লিখুন"
+                        placeholder="How much Dohorana"
                       ></input>
                     </div>
                   </div>
@@ -1747,13 +1748,13 @@ function HifzPage() {
                     onClick={satsabakSubmit}
                     className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
                   >
-                    <div className="p-5">আজকের সাতসবকের তথ্য দিন</div>
+                    <div className="p-5">Submit Today's SatSabak Info</div>
                   </button>
                 </form>
               </div>
               <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
                 <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
-                  আমুখতার তথ্য দিন
+                  আমুখতার তথ্য দিন (Full up Amukhta Info)
                 </h2>
                 <form>
                   <label className="font-bold text-2xl" htmlFor="todaydate">
@@ -1774,7 +1775,7 @@ function HifzPage() {
                         className="font-bold text-2xl"
                         htmlFor="amukhtapara"
                       >
-                        পারা:
+                        পারা: (Para/verse)
                       </label>
                       <input
                         id="amukhtapara"
@@ -1782,7 +1783,7 @@ function HifzPage() {
                         name="amukhtapara"
                         className="my-4 p-0 md:p-4 box-border w-full rounded-3xl text"
                         type="text"
-                        placeholder="কত পারা সেটা লিখুন"
+                        placeholder="Write about which Para you read"
                       ></input>
                     </div>
                     <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
@@ -1790,7 +1791,7 @@ function HifzPage() {
                         className="font-bold text-2xl"
                         htmlFor="amukhtapage"
                       >
-                        পৃষ্ঠা:
+                        পৃষ্ঠা: (Page)
                       </label>
                       <input
                         id="amukhtapage"
@@ -1798,7 +1799,7 @@ function HifzPage() {
                         name="amukhtapage"
                         className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                         type="text"
-                        placeholder="কত পৃষ্ঠা লিখুন"
+                        placeholder="Write about your reading page"
                       ></input>
                     </div>
                   </div>
@@ -1808,7 +1809,7 @@ function HifzPage() {
                         className="font-bold text-2xl"
                         htmlFor="amukhtaamount"
                       >
-                        পরিমাণ:
+                        পরিমাণ: (Amount)
                       </label>
                       <input
                         id="amukhtaamount"
@@ -1816,7 +1817,7 @@ function HifzPage() {
                         name="amukhtaamount"
                         className="my-4 p-0 md:p-4 box-border w-full rounded-3xl text"
                         type="text"
-                        placeholder="পৃষ্ঠার পরিমাণ লিখুন"
+                        placeholder="How much amount you read"
                       ></input>
                     </div>
                     <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
@@ -1824,7 +1825,7 @@ function HifzPage() {
                         className="font-bold text-2xl"
                         htmlFor="amukhtalokma"
                       >
-                        লোকমা:
+                        লোকমা: (Lokma)
                       </label>
                       <input
                         id="amukhtalokma"
@@ -1832,7 +1833,7 @@ function HifzPage() {
                         name="amukhtalokma"
                         className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                         type="text"
-                        placeholder="লোকমার পরিমাণ লিখুন"
+                        placeholder="How much Lokma"
                       ></input>
                     </div>
                     <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2">
@@ -1840,7 +1841,7 @@ function HifzPage() {
                         className="font-bold text-2xl"
                         htmlFor="amukhtadohorana"
                       >
-                        দোহরানা:
+                        দোহরানা: (Dohorana)
                       </label>
 
                       <input
@@ -1849,7 +1850,7 @@ function HifzPage() {
                         name="amukhtadohorana"
                         className="my-4 p-0 md:p-4 box-border w-full rounded-3xl"
                         type="text"
-                        placeholder="আমুখতার পরিমাণ লিখুন"
+                        placeholder="How much Dohorana"
                       ></input>
                     </div>
                   </div>
@@ -1858,14 +1859,15 @@ function HifzPage() {
                     onClick={amukhtaSubmit}
                     className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
                   >
-                    <div className="p-5">আজকের আমুখতার তথ্য দিন</div>
+                    <div className="p-5">Submit Today's Amukhta Info</div>
                   </button>
                 </form>
               </div>
 
               <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
                 <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
-                  প্রতিদিনের তিলওয়াতের তথ্য দিন
+                  প্রতিদিনের তিলওয়াতের তথ্য দিন (Fill up daily Quran Tilwat
+                  Info)
                 </h2>
                 <form>
                   <label className="font-bold text-2xl" htmlFor="todaydate">
@@ -1883,7 +1885,7 @@ function HifzPage() {
                   <div className="flex-row md:flex justify-between gap-2">
                     <div className="w-full border-[2px] border-slate-300 rounded-2xl p-2 mb-4">
                       <label className="font-bold text-2xl" htmlFor="tilwat">
-                        তিলওয়াত:
+                        তিলওয়াত: (Tilwat)
                       </label>
                       <input
                         id="tilwat"
@@ -1891,7 +1893,7 @@ function HifzPage() {
                         name="tilwat"
                         className="my-4 p-4 box-border w-full rounded-3xl"
                         type="text"
-                        placeholder="কতটুকু তিলওয়াত করেছেন লিখুন"
+                        placeholder="How much Quran Tilwat you did"
                       ></input>
                     </div>
                   </div>
@@ -1900,14 +1902,14 @@ function HifzPage() {
                     onClick={tilwatSubmit}
                     className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
                   >
-                    <div className="p-5">আজকের তিলওয়াতের তথ্য দিন</div>
+                    <div className="p-5">Submit Today's Quran Tilwat Info</div>
                   </button>
                 </form>
               </div>
 
               <div className="w-[95%] md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-5 md:mt-5 bg-white">
                 <h2 className="font-bold text-center mb-5" htmlFor="todaydate">
-                  সপ্তাহের তথ্য দিন
+                  সপ্তাহের তথ্য দিন (Week Info)
                 </h2>
                 <form>
                   <label className="font-bold text-2xl" htmlFor="todaydate">
@@ -1928,7 +1930,7 @@ function HifzPage() {
                         className="font-bold text-2xl"
                         htmlFor="weekNumber"
                       >
-                        সপ্তাহ:
+                        সপ্তাহ: (Week)
                       </label>
                       <select
                         id="weekNumber"
@@ -1937,12 +1939,12 @@ function HifzPage() {
                         className="my-4 p-4 box-border w-full rounded-3xl"
                         required
                       >
-                        <option value="">সপ্তাহ সিলেক্ট করুন</option>
-                        <option value="1st week">১ম সপ্তাহ</option>
-                        <option value="2nd week">২য় সপ্তাহ</option>
-                        <option value="3rd week">৩য় সপ্তাহ</option>
-                        <option value="4th week">৪র্থ সপ্তাহ</option>
-                        <option value="5th week">৫ম সপ্তাহ</option>
+                        <option value="">Select the Week</option>
+                        <option value="1st week">1st Week</option>
+                        <option value="2nd week">2nd Week</option>
+                        <option value="3rd week">3rd Week</option>
+                        <option value="4th week">4th Week</option>
+                        <option value="5th week">5th Week</option>
                       </select>
                     </div>
                   </div>
@@ -1951,24 +1953,25 @@ function HifzPage() {
                     onClick={weekNumberSubmit}
                     className="bg-blue-500 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
                   >
-                    <div className="p-5">সপ্তাহের তথ্য দিন</div>
+                    <div className="p-5">Submit your week info</div>
                   </button>
                 </form>
               </div>
               <div className="mt-10 w-[100vw] p-5">
                 <div className="hifz_table">
                   <h5 className="text-center">
-                    শিক্ষার্থীর নাম:{" "}
+                    শিক্ষার্থীর নাম: (Students Name){" "}
                     {data.data.userDetails.firstName.en +
                       " " +
                       data.data.userDetails.lastName.en}
                   </h5>
                   <h5 className="text-center">
-                    ক্লাস গ্রুপ: {detailsC && detailsC.hifzClass.groupName}
+                    ক্লাস গ্রুপ: (Class Group){" "}
+                    {detailsC && detailsC.hifzClass.groupName}
                   </h5>
 
                   <h5 className="text-center">
-                    ওস্তাদ/ওস্তাজার নাম:{" "}
+                    ওস্তাদ/ওস্তাজার নাম: (Ostad name){" "}
                     {detailsC && getTeacherName(detailsC.hifzClass.ostad)}
                   </h5>
 
@@ -1983,7 +1986,9 @@ function HifzPage() {
                           <th colSpan={5}>সাতসবক/SatSabak</th>
                           <th colSpan={5}>আমুখতা/Amukhta</th>
                           <th rowSpan={2}>দৈনিক তিলওয়াত/Daily Tilawat</th>
-                          <th rowSpan={2}>শিক্ষকের মন্তব্য/Teacher's Comment</th>
+                          <th rowSpan={2}>
+                            শিক্ষকের মন্তব্য/Teacher's Comment
+                          </th>
                         </tr>
                         <tr>
                           <th>পারা/Verse</th>
