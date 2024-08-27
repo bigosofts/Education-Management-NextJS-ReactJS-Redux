@@ -8,6 +8,7 @@ import mytoast from "../toast/toast";
 
 function TableMonthly({ profile, paymentID, students }) {
   const [payments, setPayments] = useState();
+  const [render, setRender] = useState(true);
   useEffect(() => {
     async function getData() {
       const res = await selectPay({ paymentID }, null);
@@ -16,7 +17,7 @@ function TableMonthly({ profile, paymentID, students }) {
       }
     }
     getData();
-  }, []);
+  }, [render]);
   function niceDate(date) {
     var isoTime = date;
     var date = new Date(isoTime);
@@ -63,13 +64,11 @@ function TableMonthly({ profile, paymentID, students }) {
       activeStatus: payments.activeStatus,
       idValue: payments._id,
     });
-    
+
     if (resPay.status == "Alhamdulillah") {
       mytoast.success("Monthly payment approved successfully");
 
-      if (typeof window !== "undefined") {
-        window.location.reload();
-      }
+      setRender((prev) => !prev);
     }
   }
 

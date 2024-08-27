@@ -6,14 +6,14 @@ function Pagination({ Total, handlePageClick }) {
       <ReactPaginate
         previousLabel="<"
         nextLabel=">"
-        pageClassName="inline-block bg-blue-700 text-white m-2 border border-gray-300 hover:bg-gray-200 rounded-xl px-1 py-2"
+        pageClassName="inline-block bg-blue-700 text-white m-2 border border-gray-300 hover:bg-gray-200 rounded-xl py-2"
         pageLinkClassName="text-2xl px-6 text-gray-100"
-        previousClassName="inline-block bg-blue-700 text-white m-2 border border-gray-300 hover:bg-gray-200 rounded-xl px-1 py-2"
+        previousClassName="inline-block bg-blue-700 text-white m-2 border border-gray-300 hover:bg-gray-200 rounded-xl py-2"
         previousLinkClassName="text-2xl px-6 text-gray-100"
-        nextClassName="inline-block bg-blue-700 text-white m-2 border border-gray-300 hover:bg-gray-200 rounded-xl px-1 py-2"
+        nextClassName="inline-block bg-blue-700 text-white m-2 border border-gray-300 hover:bg-gray-200 rounded-xl py-2"
         nextLinkClassName="text-2xl px-6 text-gray-100"
         breakLabel="..."
-        breakClassName="inline-block bg-blue-700 text-white m-2 border border-gray-300 hover:bg-gray-200 rounded-xl px-1 py-2"
+        breakClassName="inline-block bg-blue-700 text-white m-2 border border-gray-300 hover:bg-gray-200 rounded-xl py-2"
         breakLinkClassName="text-2xl px-6 text-gray-100"
         pageCount={Total / 10}
         marginPagesDisplayed={2}
