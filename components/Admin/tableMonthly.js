@@ -67,7 +67,6 @@ function TableMonthly({ profile, paymentID, students }) {
 
     if (resPay.status == "Alhamdulillah") {
       mytoast.success("Monthly payment approved successfully");
-
       setRender((prev) => !prev);
     }
   }
