@@ -39,7 +39,7 @@ function Table({ profile, paymentID, students }) {
       activeStatus: payments.activeStatus,
       idValue: payments._id,
     });
-    
+
     if (resPay.status == "Alhamdulillah") {
       mytoast.success("Payments Modified Successfully");
       let student = students.filter((item) => {

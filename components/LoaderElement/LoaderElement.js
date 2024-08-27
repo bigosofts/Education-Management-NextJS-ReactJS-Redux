@@ -105,7 +105,17 @@ function LoaderElement() {
     function fetchSequentially() {
       if (userData && userData.data) {
         if (userData.data.isAdmin == true) {
-          return;
+          dispatch(fetchBooks());
+          dispatch(fetchCourses());
+          dispatch(fetchTeachers());
+          dispatch(fetchDjs("all"));
+          dispatch(
+            fetchClasses({
+              batch: "all",
+              userName: "",
+            })
+          );
+          dispatch(fetchStudents("all"));
         } else if (userData.data.userRole === "student") {
           dispatch(fetchBooks());
           dispatch(fetchCourses());

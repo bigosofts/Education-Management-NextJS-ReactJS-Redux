@@ -127,7 +127,6 @@ exports.selectDataMonthlyDuePlus = async (pageNumber, perPage, query) => {
     throw new Error("Failed to fetch data");
   }
   const result = await res.json();
-  
 
   return result;
 };
@@ -139,6 +138,26 @@ exports.selectDataMonthlyPendingPlus = async (pageNumber, perPage, query) => {
       headers: {
         "Content-Type": "application/json",
       },
+    }
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  const result = await res.json();
+
+  return result;
+};
+
+exports.processStudent = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/process-students`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+     
     }
   );
   if (!res.ok) {

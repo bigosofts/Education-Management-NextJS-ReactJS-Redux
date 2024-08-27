@@ -611,21 +611,21 @@ function DashboardMetrics(props) {
 
         const alemalemaCount = await alemalemaQuery(res.data);
 
-        console.log(
-          JSON.stringify(
-            alemalemaCount.map((item) => {
-              return {
-                Name: item.firstName.en + " " + item.lastName.en,
-                SID: item.userName,
-                Email: item.emailAddress,
-                Mobile: item.mobileNumber,
-                Gender: item.gender,
-                Country: item.countryName,
-                Batch: item.batchCount,
-              };
-            })
-          )
-        );
+        // console.log(
+        //   JSON.stringify(
+        //     alemalemaCount.map((item) => {
+        //       return {
+        //         Name: item.firstName.en + " " + item.lastName.en,
+        //         SID: item.userName,
+        //         Email: item.emailAddress,
+        //         Mobile: item.mobileNumber,
+        //         Gender: item.gender,
+        //         Country: item.countryName,
+        //         Batch: item.batchCount,
+        //       };
+        //     })
+        //   )
+        // );
 
         const alemalemaCountS2 = await alemalemaQueryS2(res.data);
         const alemalemaCountS3 = await alemalemaQueryS3(res.data);

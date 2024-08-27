@@ -4,6 +4,8 @@ import "./accordion.css";
 import TableMonthly from "@/components/Admin/tableMonthly";
 import { selectDataMonthlyPendingPlus } from "@/apiservices/studentapiservices";
 import Pagination from "../pagination/pagination";
+import { processStudent } from "@/apiservices/studentapiservices";
+import mytoast from "@/components/toast/toast";
 
 function AccordionSecondPending() {
   const [students, setStudents] = useState();
@@ -99,6 +101,22 @@ function AccordionSecondPending() {
     }
   }
 
+  async function processJob() {
+    setLoading(true);
+    mytoast.success("Student Processing starts");
+    const res = await processStudent();
+    if (res.status == "Alhamdulillah") {
+      mytoast.success("All Students have been processed");
+      setLoading(false);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+
+    if (typeof window !== "undefined") {
+      window.location.reload(true); // Perform a hard reload
+    }
+  }
+
   return (
     <div className="accordion">
       <div
@@ -117,6 +135,14 @@ function AccordionSecondPending() {
           className="p-4 text-white"
         >
           Search
+        </button>
+
+        <button
+          onClick={processJob}
+          style={{ backgroundColor: "red" }}
+          className="p-4 text-white"
+        >
+          Refresh
         </button>
 
         <h1 style={{ marginLeft: "20px" }}>{Total}</h1>
