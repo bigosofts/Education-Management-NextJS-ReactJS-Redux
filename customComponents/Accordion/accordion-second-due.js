@@ -212,7 +212,7 @@ function AccordionSecondDue() {
             breakLabel="..."
             breakClassName="inline-block"
             breakLinkClassName="px-3 py-3 border border-gray-300 text-gray-700 bg-white hover:bg-gray-200 rounded-xl"
-            pageCount={Total / 50}
+            pageCount={Total / 10}
             marginPagesDisplayed={2}
             pageRangeDisplayed={5}
             onPageChange={handlePageClick}

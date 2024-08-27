@@ -5,6 +5,7 @@ function EducationLayout({ children }) {
     <div
       style={{
         marginX: "auto",
+        marginTop: "150px",
         width: "95%",
         height: "100vh",
         overflowY: "scroll",

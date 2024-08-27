@@ -269,6 +269,7 @@ function AttendanceSTableTA({ classes, strDate, books }) {
         shishumaktab: {},
 
         hifjulquran: {},
+
         farzeayinnajera: {},
 
         abacus_student: {},

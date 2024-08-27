@@ -76,7 +76,9 @@ function Page(props) {
             data.data.userDetails.activeStatus,
             data.data.userDetails._id,
             data.data.userDetails.studentDepartment,
-            data.data.userDetails.studentSemester
+            data.data.userDetails.studentSemester,
+            data.data.userDetails.batchCount,
+            data.data.userDetails.fundStatus
           );
 
           if (res.status == "Alhamdulillah") {
@@ -114,6 +116,7 @@ function Page(props) {
 
                 // Generate an array of delayed months dates
                 let delayedMonthsDates = [];
+
                 for (let i = 1; i <= diffMonths; i++) {
                   let delayedDate = new Date(paymentDateObject);
                   delayedDate.setMonth(paymentDateObject.getMonth() + i);

@@ -39,7 +39,16 @@ function AbacusCourse({ info, comment, richtext, parameter }) {
             <div className="style-9">
               <div className="style-10">
                 <div className="style-11">
-                  <h2 className="style-12">{true ? "Ostad" : "ওস্তাদ"}</h2>
+                  {pageName == "alemalema" ? (
+                    <h2 className="style-12">
+                      {false
+                        ? "Ostad"
+                        : "ইন্টারনেট মাদরাসার দাওরায়ে হাদিসের (মাস্টার্সের) শিক্ষকগণ"}
+                    </h2>
+                  ) : (
+                    <h2 className="style-12">{false ? "Ostad" : "ওস্তাদ"}</h2>
+                  )}
+
                   <div className="style-13">
                     {info.instructor.map((item, i) => (
                       <div key={i} className="style-14">
@@ -73,12 +82,18 @@ function AbacusCourse({ info, comment, richtext, parameter }) {
             <div className="style-506">
               <div className="style-507">
                 <div className="style-508">
-                 
-
                   <div className="style-509">
-                    <h2 className="style-510">
-                      {false ? "Syllabus" : "সিলেবাস"}
-                    </h2>
+                    {pageName == "alemalema" ? (
+                      <h2 className="style-510">
+                        {false
+                          ? "Syllabus"
+                          : "বেফাক বোর্ডের মিজান থেকে দাওরায় হাদিসের সিলেবাস"}
+                      </h2>
+                    ) : (
+                      <h2 className="style-510">
+                        {false ? "Syllabus" : "সিলেবাস"}
+                      </h2>
+                    )}
                   </div>
                   <div className="style-511">
                     <div className="style-512">
