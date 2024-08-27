@@ -6,6 +6,7 @@ import { selectDataMonthlyDuePlus as selectStudents } from "@/apiservices/studen
 import { selectDataTwo as selectPayments } from "@/apiservices/paymentapiservices";
 
 import ReactPaginate from "react-paginate";
+import Pagination from "../pagination/pagination";
 
 function AccordionSecondDue() {
   const [students, setStudents] = useState();
@@ -155,6 +156,8 @@ function AccordionSecondDue() {
 
         <h1 style={{ marginLeft: "20px" }}>{Total}</h1>
       </div>
+      {Total && <Pagination Total={Total} handlePageClick={handlePageClick} />}
+
       {loading && <h3>Loading ... </h3>}
 
       {!loading &&
@@ -198,29 +201,6 @@ function AccordionSecondDue() {
             </div>
           </div>
         ))}
-      {Total && (
-        <nav className="mt-20">
-          <ReactPaginate
-            previousLabel="<"
-            nextLabel=">"
-            pageClassName="inline-block"
-            pageLinkClassName="px-4 py-3 border border-gray-300 text-gray-700 bg-white hover:bg-gray-200 rounded-xl"
-            previousClassName="inline-block"
-            previousLinkClassName="px-4 py-3 border border-gray-300 text-gray-700 bg-white hover:bg-gray-200 rounded-xl"
-            nextClassName="inline-block"
-            nextLinkClassName="px-4 py-3 border border-gray-300 text-gray-700 bg-white hover:bg-gray-200 rounded-xl"
-            breakLabel="..."
-            breakClassName="inline-block"
-            breakLinkClassName="px-3 py-3 border border-gray-300 text-gray-700 bg-white hover:bg-gray-200 rounded-xl"
-            pageCount={Total / 10}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={handlePageClick}
-            containerClassName="flex justify-center space-x-1 mt-4"
-            activeClassName="bg-blue-500 text-white"
-          />
-        </nav>
-      )}
     </div>
   );
 }
