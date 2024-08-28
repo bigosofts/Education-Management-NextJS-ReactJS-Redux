@@ -4,8 +4,8 @@ function EducationLayout({ children }) {
   return (
     <div
       style={{
+        paddingTop: "100px",
         marginX: "auto",
-        marginTop: "150px",
         width: "95%",
         height: "100vh",
         overflowY: "scroll",

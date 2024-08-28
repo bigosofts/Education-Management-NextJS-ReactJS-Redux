@@ -1,9 +1,9 @@
-import DashboardMetrics from "@/customComponents/dashboardMetrics/DashboardMetrics";
+import DashboardMetricsV2 from "@/customComponents/dashboardMetrics/DashboardMetricv2";
 
 
 function page(props) {
     return (
-        <DashboardMetrics/>
+        <DashboardMetricsV2/>
     );
 }
 

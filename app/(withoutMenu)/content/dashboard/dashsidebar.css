@@ -13,10 +13,12 @@ body {
 
 .layout {
   display: flex;
-  height: 100vh;
- 
-  overflow-y: scroll;
+
   position: relative;
+
+  height: 100vh;
+
+  overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
   background-color: #eaeaea !important;
@@ -29,9 +31,11 @@ body {
   display: none;
 }
 .main-box {
+  height: 100vh;
+  overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  margin-top: 88px;
+  padding-top: 100px;
 }
 
 .layout__main-content {
@@ -43,6 +47,11 @@ body {
   background-color: var(--color-bg);
   margin-top: 0px;
   padding-top: 80px;
+  height: 100vh;
+
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 @media screen and (max-width: 991px) {
   .sidebar__wrapper {
@@ -52,7 +61,7 @@ body {
 }
 
 .sidebar {
-  width: 17rem;
+  width: 100%;
   height: auto;
   background-color: var(--color-bg);
   padding: 1rem;
@@ -147,13 +156,13 @@ body {
 }
 
 .btn {
-  position: absolute;
-  right: 0;
-  top: 7.7rem;
+  position: fixed;
+  right: 35px;
+  top: 15rem;
   border: none;
   background-color: var(--color-bg);
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
   border: 1px solid var(--color-border);
   border-radius: 50%;
   display: flex;
@@ -162,6 +171,7 @@ body {
   cursor: pointer;
   transform: translateX(50%);
   font-size: 1.1rem;
+  
 }
 .whatsapp {
   animation: blink 1.5s infinite;

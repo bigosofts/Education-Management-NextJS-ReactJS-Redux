@@ -110,7 +110,7 @@ function AccordionSecondPending() {
       setLoading(false);
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     if (typeof window !== "undefined") {
       window.location.reload(true); // Perform a hard reload
