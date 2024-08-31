@@ -157,7 +157,6 @@ exports.processStudent = async () => {
       headers: {
         "Content-Type": "application/json",
       },
-     
     }
   );
   if (!res.ok) {
@@ -240,6 +239,7 @@ exports.createData = async ({
   studentSemester,
   batchCount,
   fundStatus,
+  accountStatus,
 }) => {
   const aboutdata = {
     firstName: {
@@ -279,6 +279,7 @@ exports.createData = async ({
     studentSemester: studentSemester,
     batchCount: batchCount,
     fundStatus: fundStatus,
+    accountStatus: accountStatus,
   };
 
   if (data2) {
@@ -356,7 +357,8 @@ exports.updateData = async (
   studentDepartment,
   studentSemester,
   batchCount,
-  fundStatus
+  fundStatus,
+  accountStatus
 ) => {
   const aboutdata = {
     _id: idValue,
@@ -398,6 +400,7 @@ exports.updateData = async (
     studentSemester: studentSemester,
     batchCount: batchCount,
     fundStatus: fundStatus,
+    accountStatus: accountStatus,
   };
 
   if (data2) {

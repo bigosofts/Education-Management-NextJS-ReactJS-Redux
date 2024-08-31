@@ -2,12 +2,26 @@
 
 import Loader from "../loader/Loader";
 import { useState, useEffect } from "react";
+import {
+  updateData as updateStudents,
+  selectDataTwo as selectStudents,
+} from "@/apiservices/studentapiservices";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ProgressBarAdmin from "@/components/dashboardPage/progressBarAdmin";
+import { fetchBooks } from "@/app/redux/features/books/booksSlice";
+import { fetchCourses } from "@/app/redux/features/courses/coursesSlice";
+import { fetchTeachers } from "@/app/redux/features/teachers/teachersSlice";
+import { fetchDjs } from "@/app/redux/features/djs/djsSlice";
+import { fetchClasses } from "@/app/redux/features/classes/classesSlice";
+import { fetchStudents } from "@/app/redux/features/students/studentsSlice";
 
 function DashboardMetricsV2() {
+  const dispatch = useDispatch();
+
   const [percentage, setPercentage] = useState(0);
+
+  const [showComponent, setShowComponent] = useState();
 
   const [status, setStatus] = useState();
 
@@ -135,20 +149,115 @@ function DashboardMetricsV2() {
     }
   }, [targetPercentage, percentage]);
 
+  function leadData() {
+    dispatch(fetchBooks());
+    dispatch(fetchCourses());
+    dispatch(fetchTeachers());
+    dispatch(fetchDjs("all"));
+    dispatch(
+      fetchClasses({
+        batch: "all",
+        userName: "",
+      })
+    );
+    dispatch(fetchStudents("all"));
+  }
+
+  // async function updateStd() {
+  //   const stud = await selectStudents(null, null);
+
+  //   if (stud.status == "Alhamdulillah") {
+  //     for (let item of stud.data) {
+  //       const res = await updateStudents(
+  //         item.userName,
+  //         item.firstName.en,
+  //         item.firstName.bn,
+  //         item.lastName.en,
+  //         item.lastName.bn,
+  //         item.nidNumber,
+  //         item.birthRegNumber,
+  //         item.fatherName.en,
+  //         item.fatherName.bn,
+  //         item.emailAddress,
+  //         undefined,
+  //         item.mobileNumber,
+  //         item.occupation,
+  //         item.studentCourseCode,
+  //         item.studentJamatCode,
+  //         item.gender,
+  //         item.dateOfBirth,
+  //         item.countryName,
+  //         item.fullPresentAddress,
+  //         item.fullPermanentAddress,
+  //         item.admissionSession,
+  //         item.admissionDate,
+  //         item.studentMotive,
+  //         item.details,
+  //         item.paymentStatus,
+  //         item.userRole,
+  //         item.extracurricular,
+  //         item.activeStatus,
+  //         item._id,
+  //         item.studentDepartment,
+  //         item.studentSemester,
+  //         item.batchCount,
+  //         item.fundStatus,
+  //         {
+  //           status: "regular",
+  //           date: item.admissionSession,
+  //         }
+  //       );
+
+  //       if (res.status == "Alhamdulillah") {
+  //         console.log(`${item.userName} Done`);
+  //       } else {
+  //         console.log(res);
+  //       }
+
+  //       // Introduce a delay before processing the next item
+  //       await new Promise((resolve) => setTimeout(resolve, 100)); // 200ms delay
+  //     }
+  //   }
+  // }
+
   return (
-    <div
-      style={{ padding: "100px 50px" }}
-      className="bg-[#eaeaea] w-full text-slate-900"
-    >
-      <ProgressBarAdmin percentage={percentage} status={status} />
-      <ul>
-        <li class="item1">hello</li>
-        <li class="item2">hello</li>
-        <li class="item3">hello</li>
-        <li class="item4">hello</li>
-        <li class="item5">hello</li>
-      </ul>
-    </div>
+    <>
+      <div
+        className={`w-full flex justify-center items-center ${
+          showComponent ? "hidden" : ""
+        }`}
+      >
+        <div
+          onClick={() => {
+            setShowComponent(true);
+            leadData();
+          }}
+          className="w-[300px] py-2 px-5 bg-slate-900 text-white text-center text-4xl rounded-xl cursor-pointer hover:bg-blue-900"
+        >
+          {" "}
+          Start Loading Data{" "}
+        </div>
+
+        {/* <div
+          onClick={() => {
+            updateStd();
+          }}
+          className="w-[300px] py-2 px-5 bg-slate-900 text-white text-center text-4xl rounded-xl cursor-pointer hover:bg-blue-900"
+        >
+          {" "}
+          Start Update Students
+        </div> */}
+        
+      </div>
+      {showComponent && (
+        <div
+          style={{ padding: "100px 50px" }}
+          className="bg-[#eaeaea] w-full text-slate-900"
+        >
+          <ProgressBarAdmin percentage={percentage} status={status} />
+        </div>
+      )}
+    </>
   );
 }
 

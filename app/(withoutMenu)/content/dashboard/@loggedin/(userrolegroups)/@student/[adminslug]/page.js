@@ -78,7 +78,11 @@ function Page(props) {
             data.data.userDetails.studentDepartment,
             data.data.userDetails.studentSemester,
             data.data.userDetails.batchCount,
-            data.data.userDetails.fundStatus
+            data.data.userDetails.fundStatus,
+            {
+              status: "regular",
+              date: data.data.userDetails.admissionSession,
+            }
           );
 
           if (res.status == "Alhamdulillah") {
@@ -250,6 +254,7 @@ function Page(props) {
         }
       }
     }
+
     writePayment();
   }, []);
 

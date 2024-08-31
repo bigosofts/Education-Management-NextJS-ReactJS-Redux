@@ -31,49 +31,115 @@ function ProgressBar({ percentage, status }) {
           {percentage}%
         </div>
       </div>
-      <div className="text-xm text-slate-800 text-center grid grid-cols-4 gap-1 md:gap-4 w-full md:w-[600px] mx-auto mt-5">
+      <div className="text-xm text-slate-800 text-center grid grid-cols-4 md:grid-cols-10 gap-1 md:gap-4 w-full mx-auto mt-5">
         <div className="flex items-center justify-center">
           <input
             type="checkbox"
-            id="library"
+            id="data"
             className="custom-checkbox mr-2"
-            checked={status?.some((item) => item == "library")}
+            checked={status?.some((item) => item == "data")}
           />
-          <label className="text-[9px] md:text-lg" htmlFor="library">
-            Library
+          <label className="text-[9px] md:text-lg" htmlFor="data">
+            Data
           </label>
         </div>
         <div className="flex items-center justify-center">
           <input
             type="checkbox"
-            id="attendance"
+            id="classes"
             className="custom-checkbox mr-2"
-            checked={status?.some((item) => item == "attendance")}
+            checked={status?.some((item) => item == "classes")}
           />
-          <label className="text-[9px] md:text-lg" htmlFor="attendance">
-            Attendance
+          <label className="text-[9px] md:text-lg" htmlFor="classes">
+            Classes
           </label>
         </div>
         <div className="flex items-center justify-center">
           <input
             type="checkbox"
-            id="notice"
+            id="students"
             className="custom-checkbox mr-2"
-            checked={status?.some((item) => item == "notice")}
+            checked={status?.some((item) => item == "students")}
           />
-          <label className="text-[9px] md:text-lg" htmlFor="notice">
-            Notice
+          <label className="text-[9px] md:text-lg" htmlFor="students">
+            Students
           </label>
         </div>
         <div className="flex items-center justify-center">
           <input
             type="checkbox"
-            id="payment"
+            id="teachers"
             className="custom-checkbox mr-2"
-            checked={status?.some((item) => item == "payment")}
+            checked={status?.some((item) => item == "teachers")}
           />
-          <label className="text-[9px] md:text-lg" htmlFor="payment">
-            Payment
+          <label className="text-[9px] md:text-lg" htmlFor="teachers">
+            Teachers
+          </label>
+        </div>
+        <div className="flex items-center justify-center">
+          <input
+            type="checkbox"
+            id="books"
+            className="custom-checkbox mr-2"
+            checked={status?.some((item) => item == "books")}
+          />
+          <label className="text-[9px] md:text-lg" htmlFor="books">
+            Books
+          </label>
+        </div>
+        <div className="flex items-center justify-center">
+          <input
+            type="checkbox"
+            id="courses"
+            className="custom-checkbox mr-2"
+            checked={status?.some((item) => item == "courses")}
+          />
+          <label className="text-[9px] md:text-lg" htmlFor="courses">
+            Courses
+          </label>
+        </div>
+        <div className="flex items-center justify-center">
+          <input
+            type="checkbox"
+            id="semesters"
+            className="custom-checkbox mr-2"
+            checked={status?.some((item) => item == "semesters")}
+          />
+          <label className="text-[9px] md:text-lg" htmlFor="semesters">
+            Semesters
+          </label>
+        </div>
+        <div className="flex items-center justify-center">
+          <input
+            type="checkbox"
+            id="jamats"
+            className="custom-checkbox mr-2"
+            checked={status?.some((item) => item == "jamats")}
+          />
+          <label className="text-[9px] md:text-lg" htmlFor="jamats">
+            Jamats
+          </label>
+        </div>
+        <div className="flex items-center justify-center">
+          <input
+            type="checkbox"
+            id="departments"
+            className="custom-checkbox mr-2"
+            checked={status?.some((item) => item == "departments")}
+          />
+          <label className="text-[9px] md:text-lg" htmlFor="departments">
+            Departments
+          </label>
+        </div>
+        <div className="flex items-center justify-center">
+          <input
+            type="checkbox"
+            id="payments"
+            className="custom-checkbox mr-2"
+            checked={status?.some((item) => item == "payments")}
+          />
+          <label className="text-[9px] md:text-lg" htmlFor="payments">
+            Payments
           </label>
         </div>
       </div>

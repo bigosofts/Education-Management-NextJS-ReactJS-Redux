@@ -25,8 +25,6 @@ import "./loginDesign.css";
 function LoginPageDesign({ finalData }) {
   let userData;
 
-  
-
   const currentBatch = "batch-20240605";
   const [Admin, setIsAdmin] = useState();
   const [data, setDatas] = useState();
@@ -211,6 +209,10 @@ function LoginPageDesign({ finalData }) {
               studentSemester: [],
               batchCount: "",
               fundStatus: "none",
+              accountStatus: {
+                status: "regular",
+                date: new Date(Date.now()).toISOString(),
+              },
             });
 
             if (res2.status == "Alhamdulillah") {

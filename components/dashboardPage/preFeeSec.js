@@ -838,7 +838,12 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails._id,
             mainData.department ? studentDepartment : undefined,
             mainData.semester ? studentSemester : undefined,
-            mainData.batch ? mainData.batch : undefined
+            mainData.batch ? mainData.batch : undefined,
+            profile.data.userDetails.fundStatus,
+            {
+              status: "regular",
+              date: new Date(Date.now()).toISOString(),
+            }
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -1036,7 +1041,12 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails._id,
             mainData.department ? studentDepartmentTwoFinal : undefined,
             mainData.semester ? studentSemesterTwoFinal : undefined,
-            mainData.batch ? mainData.batch : undefined
+            mainData.batch ? mainData.batch : undefined,
+            profile.data.userDetails.fundStatus,
+            {
+              status: "regular",
+              date: new Date(Date.now()).toISOString(),
+            }
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -1295,7 +1305,12 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails._id,
             mainData.department ? studentDepartment : undefined,
             mainData.semester ? studentSemester : undefined,
-            mainData.batch ? mainData.batch : undefined
+            mainData.batch ? mainData.batch : undefined,
+            profile.data.userDetails.fundStatus,
+            {
+              status: "regular",
+              date: new Date(Date.now()).toISOString(),
+            }
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -1493,7 +1508,12 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails._id,
             mainData.department ? studentDepartmentTwoFinal : undefined,
             mainData.semester ? studentSemesterTwoFinal : undefined,
-            mainData.batch ? mainData.batch : undefined
+            mainData.batch ? mainData.batch : undefined,
+            profile.data.userDetails.fundStatus,
+            {
+              status: "regular",
+              date: new Date(Date.now()).toISOString(),
+            }
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -1734,7 +1754,12 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails._id,
             mainData.department ? studentDepartment : undefined,
             mainData.semester ? studentSemester : undefined,
-            mainData.batch ? mainData.batch : undefined
+            mainData.batch ? mainData.batch : undefined,
+            profile.data.userDetails.fundStatus,
+            {
+              status: "regular",
+              date: new Date(Date.now()).toISOString(),
+            }
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
@@ -1932,7 +1957,12 @@ function PreFeeSection({ profile }) {
             profile.data.userDetails._id,
             mainData.department ? studentDepartmentTwoFinal : undefined,
             mainData.semester ? studentSemesterTwoFinal : undefined,
-            mainData.batch ? mainData.batch : undefined
+            mainData.batch ? mainData.batch : undefined,
+            profile.data.userDetails.fundStatus,
+            {
+              status: "regular",
+              date: new Date(Date.now()).toISOString(),
+            }
           );
           if (resStudent.status == "Alhamdulillah") {
             mytoast.info("If verification Delays, Do not forget to reach us");
