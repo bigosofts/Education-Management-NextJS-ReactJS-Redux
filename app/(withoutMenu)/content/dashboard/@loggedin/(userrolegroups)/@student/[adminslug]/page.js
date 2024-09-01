@@ -94,7 +94,9 @@ function Page(props) {
         upDateData();
       }
     }
+
     // write annual due only if account status is regular. Otherwise it will be not make any annual due
+
     if (data.data.userDetails.accountStatus.status == "regular") {
       getData();
     }
@@ -260,6 +262,7 @@ function Page(props) {
       }
     }
 
+    // write payments if only if account status is regular. Otherwise it will be not make any annual due
     if (data.data.userDetails.accountStatus.status == "regular") {
       writePayment();
     }
