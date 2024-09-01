@@ -311,7 +311,10 @@ function SwitchDesign() {
             data.data.userDetails._id,
             NewStudentDepartment,
             NewStudentSemester,
-            mainData.batch
+            mainData.batch,
+            data.data.userDetails.batchCount,
+            data.data.userDetails.fundStatus,
+            data.data.userDetails.accountStatus
           );
           if (res.status == "Alhamdulillah") {
             let newAdmissionPaymentHistory = [
@@ -465,7 +468,9 @@ function SwitchDesign() {
             data.data.userDetails._id,
             NewStudentDepartment,
             NewStudentSemester,
-            mainData.batch
+            mainData.batch,
+            data.data.userDetails.fundStatus,
+            data.data.userDetails.accountStatus
           );
           if (res.status == "Alhamdulillah") {
             let newAdmissionPaymentHistory = [
@@ -630,7 +635,9 @@ function SwitchDesign() {
               data.data.userDetails._id,
               NewStudentDepartment,
               NewStudentSemester,
-              mainData.batch
+              mainData.batch,
+              data.data.userDetails.fundStatus,
+              data.data.userDetails.accountStatus
             );
             if (res.status == "Alhamdulillah") {
               let newAdmissionPaymentHistory = [
@@ -792,7 +799,9 @@ function SwitchDesign() {
               data.data.userDetails._id,
               NewStudentDepartment,
               NewStudentSemester,
-              mainData.batch
+              mainData.batch,
+              data.data.userDetails.fundStatus,
+              data.data.userDetails.accountStatus
             );
             if (res.status == "Alhamdulillah") {
               let newAdmissionPaymentHistory = [
@@ -960,7 +969,10 @@ function SwitchDesign() {
               data.data.userDetails.activeStatus,
               data.data.userDetails._id,
               NewStudentDepartment,
-              NewStudentSemester
+              NewStudentSemester,
+              data.data.userDetails.batchCount,
+              data.data.userDetails.fundStatus,
+              data.data.userDetails.accountStatus
             );
             if (res.status == "Alhamdulillah") {
               let newAdmissionPaymentHistory = [
@@ -1135,7 +1147,10 @@ function SwitchDesign() {
               data.data.userDetails.activeStatus,
               data.data.userDetails._id,
               NewStudentDepartment,
-              NewStudentSemester
+              NewStudentSemester,
+              data.data.userDetails.batchCount,
+              data.data.userDetails.fundStatus,
+              data.data.userDetails.accountStatus
             );
             if (res.status == "Alhamdulillah") {
               let newAdmissionPaymentHistory = [
@@ -1303,7 +1318,10 @@ function SwitchDesign() {
               data.data.userDetails.activeStatus,
               data.data.userDetails._id,
               NewStudentDepartment,
-              NewStudentSemester
+              NewStudentSemester,
+              data.data.userDetails.batchCount,
+              data.data.userDetails.fundStatus,
+              data.data.userDetails.accountStatus
             );
             if (res.status == "Alhamdulillah") {
               let newAdmissionPaymentHistory = [

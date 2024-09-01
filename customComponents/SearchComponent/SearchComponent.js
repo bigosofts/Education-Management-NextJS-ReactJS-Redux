@@ -58,7 +58,7 @@ function SearchComponent(props) {
         ? ""
         : passingYearref.current.value;
     hardRefreshCustom(
-      `/result?roll=${resultRollNo}&marhala=${marhala}&passingYear=${passingYear}&grade=${grade}`
+      `/content/result?roll=${resultRollNo}&marhala=${marhala}&passingYear=${passingYear}&grade=${grade}`
     );
   }
 

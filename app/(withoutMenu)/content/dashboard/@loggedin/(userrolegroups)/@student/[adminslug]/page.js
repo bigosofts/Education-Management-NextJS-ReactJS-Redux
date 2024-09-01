@@ -94,13 +94,17 @@ function Page(props) {
         upDateData();
       }
     }
-    getData();
+    // write annual due only if account status is regular. Otherwise it will be not make any annual due
+    if (data.data.userDetails.accountStatus.status == "regular") {
+      getData();
+    }
 
     async function writePayment() {
       const res2 = await selectDataTwo(
         { paymentID: data.data.userDetails.paymentStatus.paymentID },
         null
       );
+
       if ((res2.status = "Alhamdulillah")) {
         if (res2.data[0]) {
           if (res2.data[0].monthlyPaymentHistory.length >= 1) {
@@ -140,6 +144,7 @@ function Page(props) {
               let paymentDate = new Date(date);
               return currentDate.getTime() > paymentDate.getTime();
             }
+
             if (
               isDatePassed(
                 res2.data[0].monthlyPaymentHistory[
@@ -255,7 +260,9 @@ function Page(props) {
       }
     }
 
-    writePayment();
+    if (data.data.userDetails.accountStatus.status == "regular") {
+      writePayment();
+    }
   }, []);
 
   return (

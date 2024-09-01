@@ -10,9 +10,9 @@ import Slider from "@/customComponents/slider/Slider";
 import SearchComponent from "@/customComponents/SearchComponent/SearchComponent";
 import Loader from "@/customComponents/loader/Loader";
 
-function ResultPageComponent({children}) {
+function ResultPageComponent({ children }) {
   const [data, setData] = useState([]);
- 
+
   const searchParams = useSearchParams();
 
   const marhala = searchParams.get("marhala");
@@ -30,11 +30,10 @@ function ResultPageComponent({children}) {
           passingYear: passingYear ? passingYear : undefined,
           studentGrade: grade ? grade : undefined,
         });
-        
+
         if (res) {
           setData(res.data);
         }
-        
       } catch (error) {
         console.error("Error in settingData:", error);
       }
@@ -42,15 +41,11 @@ function ResultPageComponent({children}) {
     settingData();
   }, []);
 
-  
-
   if (data) {
- 
     return (
       <>
-        
         <div className="travelpage-container">
-          <div style={{ margin: "auto", paddingTop:"50px" }}>
+          <div style={{ margin: "auto", paddingTop: "50px" }}>
             <SearchComponent />
             <PopularChoiceGrid detailData={data} />
           </div>
