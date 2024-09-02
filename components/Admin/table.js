@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { selectDataTwo as selectPay } from "@/apiservices/paymentapiservices";
-import { updateData } from "@/apiservices/studentapiservices";
+import { updateData, selectDataTwo } from "@/apiservices/studentapiservices";
 import { updateData as updatePayment } from "@/apiservices/paymentapiservices";
 import mytoast from "../toast/toast";
 import { sendMail } from "@/apiservices/sendMailapiservices";
@@ -42,11 +42,15 @@ function Table({ profile, paymentID, students }) {
 
     if (resPay.status == "Alhamdulillah") {
       mytoast.success("Payments Modified Successfully");
-      let student = students.filter((item) => {
-        if (item.paymentStatus.paymentID == paymentID) {
-          return item;
-        }
-      });
+      let student;
+
+      let resStd = await selectDataTwo(
+        { "paymentStatus.paymentID": paymentID },
+        null
+      );
+      if (resStd.status == "Alhamdulillah") {
+        student = resStd.data;
+      }
 
       let modifiedStudentCourseCode = student[0].studentCourseCode.map(
         (item, i, oArray) => {
@@ -239,7 +243,7 @@ function Table({ profile, paymentID, students }) {
       );
       if (res.status == "Alhamdulillah") {
         const subject = "Account has been Approved";
-        const text = `সুপ্রিয় শিক্ষার্থী ${student[0].firstName.en} ${student[0].lastName.en}, আপনার একাউন্টটি ${student[0].userName} এপ্রুভ করা হয়েছে। ইং শা আল্লাহ আপনি এখন ড্যাশবোর্ড একসেস করতে পারবেন। ড্যাশবোর্ডে যেতে আপনার SID ও password দিয়ে লগিন করুন এই লিংক থেকে https://www.internetmadrasa.com/dashboard/login, আর যদি লগিন করাই থাকে https://www.internetmadrasa.com/dashboard/loading এই লিংকে ক্লিক করুন`;
+        const text = `সুপ্রিয় শিক্ষার্থী ${student[0].firstName.en} ${student[0].lastName.en}, আপনার একাউন্টটি ${student[0].userName} এপ্রুভ করা হয়েছে। ইং শা আল্লাহ আপনি এখন ড্যাশবোর্ড একসেস করতে পারবেন। ড্যাশবোর্ডে যেতে আপনার SID ও password দিয়ে লগিন করুন এই লিংক থেকে https://www.internetmadrasa.com/content/dashboard/login, আর যদি লগিন করাই থাকে https://www.internetmadrasa.com/content/dashboard/loading এই লিংকে ক্লিক করুন`;
 
         const html = `<h1>সুপ্রিয় শিক্ষার্থী <span style="color:red">${student[0].firstName.en} ${student[0].lastName.en},</span></h1> <br/><br/> <h1>আপনার একাউন্টটি ${student[0].userName} এপ্রুভ করা হয়েছে। ইং শা আল্লাহ আপনি এখন ড্যাশবোর্ড একসেস করতে পারবেন। ড্যাশবোর্ডে যেতে আপনার SID ও password দিয়ে লগিন করুন এই লিংক থেকে <a href="https://www.internetmadrasa.com/content/dashboard/login">https://www.internetmadrasa.com/content/dashboard/login</a>, আর যদি লগিন করাই থাকে তাহলে এই লিংকে ক্লিক করুন <a href="https://www.internetmadrasa.com/content/dashboard/loading">https://www.internetmadrasa.com//content/dashboard/loading</a>`;
 
@@ -249,6 +253,7 @@ function Table({ profile, paymentID, students }) {
       }
     }
   }
+
   const [payments, setPayments] = useState();
   useEffect(() => {
     async function getData() {
