@@ -5,7 +5,7 @@ import TableMonthly from "@/components/Admin/tableMonthly";
 import { selectDataMonthlyDuePlus as selectStudents } from "@/apiservices/studentapiservices";
 import { selectDataTwo as selectPayments } from "@/apiservices/paymentapiservices";
 
-import ReactPaginate from "react-paginate";
+
 import Pagination from "../pagination/pagination";
 
 function AccordionSecondDue() {

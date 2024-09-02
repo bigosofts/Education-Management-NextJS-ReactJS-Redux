@@ -2,7 +2,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./accordion.css";
 import Table from "@/components/Admin/table";
-import { selectDataAnnualDuePlus as selectStudents } from "@/apiservices/studentapiservices";
+import TableMonthly from "@/components/Admin/tableMonthly";
+import { selectDataAnnualIrregularPlus as selectStudents } from "@/apiservices/studentapiservices";
 
 import Pagination from "../pagination/pagination";
 
@@ -135,12 +136,12 @@ function AccordionSecondDue() {
                 {item.userName} ({item.paymentStatus.paymentID})<br />
                 <span style={{ color: "green" }}>{item.emailAddress}</span>
               </div>
-              
+
               <div style={{ textAlign: "right" }}>
                 <span
                   style={{
                     display: "inline-block",
-                    backgroundColor: "red",
+                    backgroundColor: "purple",
                     padding: "5px 10px",
                     borderRadius: "15px",
                     color: "white",
@@ -149,13 +150,19 @@ function AccordionSecondDue() {
                     fontSize: "14px",
                   }}
                 >
-                  Due
+                  Freezed
                 </span>
               </div>
             </div>
             <div className="accordion-item-body">
               <div className="accordion-item-body-content">
                 <Table
+                  profile={item}
+                  students={students}
+                  paymentID={item.paymentStatus.paymentID}
+                />
+
+                <TableMonthly
                   profile={item}
                   students={students}
                   paymentID={item.paymentStatus.paymentID}

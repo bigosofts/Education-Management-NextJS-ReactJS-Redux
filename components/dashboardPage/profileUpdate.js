@@ -29,7 +29,7 @@ function ProfileUpdate() {
     if (typeof window !== "undefined") {
       if (code) {
         router.push(
-          `/content/dashboard/${data.data.userDetails.userName}/fees?enroll=${code}&status=ok`
+          `/content/dashboard/${data.data.userDetails.userName}/fees?enroll=${code}&status=ok&country=${finalData.countryName}`
         );
       } else {
         window.location.href = `/content/dashboard/${data.data.userDetails.userName}/settings/profile-update?status=ok`;

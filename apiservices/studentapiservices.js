@@ -149,6 +149,86 @@ exports.selectDataMonthlyPendingPlus = async (pageNumber, perPage, query) => {
   return result;
 };
 
+//Annual api endpoint function
+
+exports.selectDataAnnualActivePlus = async (pageNumber, perPage, query) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v2/select-all-students-annual-active/${pageNumber}/${perPage}/${query}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  const result = await res.json();
+
+  return result;
+};
+
+exports.selectDataAnnualDuePlus = async (pageNumber, perPage, query) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v2/select-all-students-annual-due/${pageNumber}/${perPage}/${query}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  const result = await res.json();
+
+  return result;
+};
+
+exports.selectDataAnnualPendingPlus = async (pageNumber, perPage, query) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v2/select-all-students-annual-pending/${pageNumber}/${perPage}/${query}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  const result = await res.json();
+
+  return result;
+};
+
+exports.selectDataAnnualIrregularPlus = async (pageNumber, perPage, query) => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v2/select-all-students-annual-irregular/${pageNumber}/${perPage}/${query}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  const result = await res.json();
+
+  return result;
+};
+
+//Annual api endpoint function
+
 exports.processStudent = async () => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URL}/apis/v1/process-students`,
@@ -167,6 +247,26 @@ exports.processStudent = async () => {
 
   return result;
 };
+
+exports.processStudentAnnual = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URL}/apis/v1/process-students-annual`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  const result = await res.json();
+
+  return result;
+};
+
 
 exports.deleteData = async (id) => {
   if (data2) {

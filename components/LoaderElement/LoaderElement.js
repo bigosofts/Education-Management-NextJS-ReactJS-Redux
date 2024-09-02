@@ -124,6 +124,7 @@ function LoaderElement() {
           dispatch(fetchStudents(userData.data.userDetails.batchCount));
 
           dispatch(fetchNotices(userData.data.userName));
+          
         } else if (userData.data.userRole === "teacher") {
           dispatch(fetchBooks());
 

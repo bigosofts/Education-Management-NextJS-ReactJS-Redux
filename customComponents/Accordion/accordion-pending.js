@@ -1,11 +1,20 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./accordion.css";
 import Table from "@/components/Admin/table";
-import { selectDataTwo } from "@/apiservices/studentapiservices";
+import { selectDataAnnualPendingPlus } from "@/apiservices/studentapiservices";
+import Pagination from "../pagination/pagination";
 
-function AccordionPending() {
+import { processStudentAnnual } from "@/apiservices/studentapiservices";
+import mytoast from "@/components/toast/toast";
+
+function AccordionSecondPending() {
   const [students, setStudents] = useState();
+  const [Total, setTotal] = useState();
+
+  const [loading, setLoading] = useState(false);
+
+  const searchRef = useRef();
 
   useEffect(() => {
     // Event delegation for accordion items
@@ -47,93 +56,17 @@ function AccordionPending() {
     };
   }, []);
 
-  function getStatus2(data) {
-    if (
-      data.paymentStatus.addmissionDueStatus == false &&
-      data.paymentStatus.consequentDueStatus == false
-    ) {
-      return "active";
-    } else if (
-      data.paymentStatus.addmissionDueStatus == true &&
-      data.paymentStatus.consequentDueStatus == false
-    ) {
-      return "due";
-    } else if (
-      data.paymentStatus.addmissionDueStatus == true &&
-      data.paymentStatus.consequentDueStatus == true
-    ) {
-      return "pending";
-    }
-  }
-
-  function getStatus(data) {
-    if (
-      data.paymentStatus.addmissionDueStatus == false &&
-      data.paymentStatus.consequentDueStatus == false
-    ) {
-      return (
-        <span
-          style={{
-            display: "inline-block",
-            backgroundColor: "#34a853",
-            padding: "5px 10px",
-            borderRadius: "15px",
-            color: "white",
-            marginLeft: "10px",
-            fontSize: "14px",
-          }}
-        >
-          Active
-        </span>
-      );
-    } else if (
-      data.paymentStatus.addmissionDueStatus == true &&
-      data.paymentStatus.consequentDueStatus == false
-    ) {
-      return (
-        <span
-          style={{
-            display: "inline-block",
-            backgroundColor: "red",
-            padding: "5px 10px",
-            borderRadius: "15px",
-            color: "white",
-            marginLeft: "10px",
-            marginBottom: "10px",
-            fontSize: "14px",
-          }}
-        >
-          Due
-        </span>
-      );
-    } else if (
-      data.paymentStatus.addmissionDueStatus == true &&
-      data.paymentStatus.consequentDueStatus == true
-    ) {
-      return (
-        <span
-          style={{
-            display: "inline-block",
-            backgroundColor: "blue",
-            padding: "5px 10px",
-            borderRadius: "15px",
-            color: "white",
-            marginLeft: "10px",
-            fontSize: "14px",
-            marginBottom: "10px",
-          }}
-        >
-          Pending
-        </span>
-      );
-    }
-  }
   useEffect(() => {
     async function getData() {
       try {
-        const res = await selectDataTwo(null, null);
+        const res = await selectDataAnnualPendingPlus(1, 10, 0);
+
         if (res.status === "Alhamdulillah") {
+          setTotal(res.total);
+
           setStudents(res.data);
+
+          setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -142,67 +75,86 @@ function AccordionPending() {
     getData();
   }, []);
 
+  async function handlePageClick(e) {
+    setLoading(true);
+    const res = await selectDataAnnualPendingPlus(e.selected + 1, 10, 0);
+    if (res.status === "Alhamdulillah") {
+      setTotal(res.total);
+
+      setStudents(res.data);
+      setLoading(false);
+    }
+  }
+
+  async function searchQuery(e) {
+    e.preventDefault();
+    setLoading(true);
+    const res = await selectDataAnnualPendingPlus(
+      1,
+      10,
+      searchRef.current.value || 0
+    );
+    if (res.status === "Alhamdulillah") {
+      setTotal(res.total);
+
+      setStudents(res.data);
+      setLoading(false);
+    }
+  }
+
+  async function processJob() {
+    setLoading(true);
+    mytoast.success("Student Processing starts");
+    const res = await processStudentAnnual();
+    if (res.status == "Alhamdulillah") {
+      mytoast.success("All Students have been processed");
+      setLoading(false);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    if (typeof window !== "undefined") {
+      window.location.reload(true); // Perform a hard reload
+    }
+  }
+
   return (
     <div className="accordion">
-      {students &&
-        students.filter((item)=> item.paymentStatus.addmissionDueStatus &&
-        item.paymentStatus.consequentDueStatus).map((item, i) => (
-          <div key={i} className="accordion-item">
-            {/* {getStatus2(item) == "due" ? (
-              <>
-                <div className="accordion-item-header">
-                  <div style={{ width: "100%", textAlign: "center" }}>
-                    {getStatus2(item)}
-                  </div>
-                </div>
-                <div className="accordion-item-body">
-                  <div className="accordion-item-body-content">
-                    <Table
-                      profile={item}
-                      students={students}
-                      paymentID={item.paymentStatus.paymentID}
-                    />
-                  </div>
-                </div>
-              </>
-            ) : getStatus2(item) == "active" ? (
-              <>
-                <div className="accordion-item-header">
-                  <div style={{ width: "100%", textAlign: "center" }}>
-                    {getStatus2(item)}
-                  </div>
-                </div>
-                <div className="accordion-item-body">
-                  <div className="accordion-item-body-content">
-                    <Table
-                      profile={item}
-                      students={students}
-                      paymentID={item.paymentStatus.paymentID}
-                    />
-                  </div>
-                </div>
-              </>
-            ) : getStatus2(item) == "pending" ? (
-              <>
-                <div className="accordion-item-header">
-                  <div style={{ width: "100%", textAlign: "center" }}>
-                    {getStatus2(item)}
-                  </div>
-                </div>
-                <div className="accordion-item-body">
-                  <div className="accordion-item-body-content">
-                    <Table
-                      profile={item}
-                      students={students}
-                      paymentID={item.paymentStatus.paymentID}
-                    />
-                  </div>
-                </div>
-              </>
-            ) : (
-              ""
-            )} */}
+      <div
+        style={{ width: "600px", margin: "50px auto" }}
+        className="mx-auto flex"
+      >
+        <input
+          ref={searchRef}
+          placeholder="Search"
+          className="bg-white p-4"
+          type="text"
+        ></input>
+        <button
+          onClick={searchQuery}
+          style={{ backgroundColor: "#000" }}
+          className="p-4 text-white"
+        >
+          Search
+        </button>
 
+        <button
+          onClick={processJob}
+          style={{ backgroundColor: "red" }}
+          className="p-4 text-white"
+        >
+          Refresh
+        </button>
+
+        <h1 style={{ marginLeft: "20px" }}>{Total}</h1>
+      </div>
+      {Total && <Pagination Total={Total} handlePageClick={handlePageClick} />}
+      {loading && <h3>Loading ... </h3>}
+
+      {!loading &&
+        students &&
+        students.map((item, i) => (
+          <div key={i} className="accordion-item">
             <div className="accordion-item-header">
               <div>
                 {item.firstName.en} {item.lastName.en} |{" "}
@@ -211,10 +163,23 @@ function AccordionPending() {
                 {item.userName} ({item.paymentStatus.paymentID})<br />
                 <span style={{ color: "green" }}>{item.emailAddress}</span>
               </div>
-              <div style={{ textAlign: "right" }}>{getStatus(item)}</div>
+              <div style={{ textAlign: "right" }}>
+                <span
+                  style={{
+                    display: "inline-block",
+                    backgroundColor: "orange",
+                    padding: "5px 10px",
+                    borderRadius: "15px",
+                    color: "white",
+                    marginLeft: "10px",
+                    marginBottom: "10px",
+                    fontSize: "14px",
+                  }}
+                >
+                  Pending
+                </span>
+              </div>
             </div>
-
-
             <div className="accordion-item-body">
               <div className="accordion-item-body-content">
                 <Table
@@ -230,4 +195,4 @@ function AccordionPending() {
   );
 }
 
-export default AccordionPending;
+export default AccordionSecondPending;

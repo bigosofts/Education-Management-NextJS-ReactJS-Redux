@@ -15,7 +15,7 @@ import mytoast from "../toast/toast";
 import { sendMail } from "@/apiservices/sendMailapiservices";
 import { useSelector } from "react-redux";
 
-function PreFeeSection({ profile }) {
+function PreFeeSection({ profile, country }) {
   const coursesData = useSelector((state) => state.courses.courses);
   const semesterData = useSelector((state) => state.djs.semesters);
   const departmentData = useSelector((state) => state.djs.departments);
@@ -216,6 +216,8 @@ function PreFeeSection({ profile }) {
     function PriceDecision(coursePriceData) {
       if (course) {
         if (
+          country == "Bangladesh" ||
+          country == "India" ||
           profile.data.userDetails.countryName == "Bangladesh" ||
           profile.data.userDetails.countryName == "India"
         ) {
@@ -563,6 +565,8 @@ function PreFeeSection({ profile }) {
         function PriceDecision(coursePriceData) {
           if (course) {
             if (
+              country == "Bangladesh" ||
+              country == "India" ||
               profile.data.userDetails.countryName == "Bangladesh" ||
               profile.data.userDetails.countryName == "India"
             ) {

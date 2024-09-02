@@ -33,7 +33,7 @@ function DashExplore() {
       completedCount++;
       array.push("library");
     }
-    if (notices.length > 0) {
+    if (notices.length >= 0) {
       completedCount++;
       array.push("notice");
     }

@@ -4,7 +4,7 @@ import "./accordion.css";
 import TableMonthly from "@/components/Admin/tableMonthly";
 import { selectDataMonthlyActivePlus } from "@/apiservices/studentapiservices";
 
-import ReactPaginate from "react-paginate";
+
 import Pagination from "../pagination/pagination";
 
 function AccordionSecondActive() {

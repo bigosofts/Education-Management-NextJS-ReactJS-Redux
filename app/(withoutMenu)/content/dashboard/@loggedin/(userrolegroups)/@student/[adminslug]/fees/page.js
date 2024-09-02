@@ -13,6 +13,8 @@ function FeesPage() {
   const data = useSelector((state) => state.isAdmin.value);
   const searchParams = useSearchParams();
   const status = searchParams.get("status");
+  const country = searchParams.get("country");
+
   const [payment, setPayment] = useState();
 
   useEffect(() => {
@@ -86,7 +88,7 @@ function FeesPage() {
   } else {
     if (blankArrayList.length > 0) {
       if (status == "ok") {
-        return <PreFeeSection profile={data} />;
+        return <PreFeeSection profile={data} country={country} />;
       } else {
         return <ProfileUpdateLogicSecond />;
       }

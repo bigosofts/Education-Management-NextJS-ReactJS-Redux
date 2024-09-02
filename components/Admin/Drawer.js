@@ -53,6 +53,20 @@ function AdminDrawer() {
       <div
         onClick={() =>
           router.push(
+            `/content/dashboard/${data.data.userName}/education/annual-history-irregular`
+          )
+        }
+        className="cursor-pointer w-full shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
+      >
+        <img className="m-auto h-12" src="/images/taka.svg" />
+        <h2 className="mt-2 text-[12px] md:text-2xl text-center">
+          Annual- Irregular
+        </h2>
+      </div>
+
+      <div
+        onClick={() =>
+          router.push(
             `/content/dashboard/${data.data.userName}/education/monthly-history-due`
           )
         }

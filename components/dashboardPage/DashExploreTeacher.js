@@ -10,6 +10,7 @@ function DashExploreTeacher() {
   const data = useSelector((state) => state.isAdmin.value);
   const [percentage, setPercentage] = useState(0);
   const [status, setStatus] = useState();
+
   const [targetPercentage, setTargetPercentage] = useState(0);
 
   const classes = useSelector((state) => state.classes.classes);
