@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import DashboardExploreSingle from "./DashboardExploreSingle";
 import ProgressBar from "./progressBar";
+import { FaTelegram } from "react-icons/fa";
+import mytoast from "../toast/toast";
 
 function DashExplore() {
   const data = useSelector((state) => state.isAdmin.value);
@@ -674,9 +676,54 @@ function DashExplore() {
       ];
     }
 
+    const hardRefresh = (link) => {
+      if (typeof window !== "undefined") {
+        window.location.href = link;
+      }
+    };
+
+    function joinBoys(link) {
+      if (data.data.userDetails.gender == "male") {
+        hardRefresh(link);
+      } else {
+        mytoast.warning("You are not allowed to join this group");
+      }
+    }
+
+    function joinGirls(link) {
+      if (data.data.userDetails.gender == "female") {
+        hardRefresh(link);
+      } else {
+        mytoast.warning("You are not allowed to join this group");
+      }
+    }
+
     return (
       <div className="py-2 md:py-12">
         <ProgressBar percentage={percentage} status={status} />
+
+        <ul className="py-2 md:py-10 flex flex-col md:flex-row justify-between gap-2 md:gap-10">
+          <li
+            onClick={() => joinBoys("https://t.me/+iNbI3uBJfdcwZGY1")}
+            className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
+          >
+            <FaTelegram className="text-4xl inline-block mr-2" />
+            ইসলাহী নফস ক্লাসের পুরুষদের টেলিগ্রাম গ্রুপ
+            <span className="float-right">
+              <i className="text-lg fa fa-arrow-right"></i>
+            </span>
+          </li>
+          <li
+            onClick={() => joinGirls("https://t.me/+ZsewnNTTAFRjMWFl")}
+            className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
+          >
+            <FaTelegram className="text-4xl inline-block mr-2" />
+            ইসলাহী নফস ক্লাসের মহিলাদের টেলিগ্রাম গ্রুপ
+            <span className="float-right">
+              <i className="text-lg fa fa-arrow-right"></i>
+            </span>
+          </li>
+        </ul>
 
         <h1 className="text-lg md:text-3xl mt-2 text-slate-500">Explore</h1>
         <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-12">
