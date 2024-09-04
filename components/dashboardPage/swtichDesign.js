@@ -8,8 +8,11 @@ import { useEffect, useState } from "react";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { useSelector } from "react-redux";
 import mytoast from "../toast/toast";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 function SwitchDesign() {
+  const router = useRouter();
   let pass2 = "tqim2024";
   const [showbtn, setshowbtn] = useState();
 
@@ -1686,6 +1689,7 @@ function SwitchDesign() {
       batch: e.target.value,
     }));
   }
+
   function paymentWayDecision(e) {
     e.preventDefault();
     const paymentWay = e.target.value;
@@ -1699,6 +1703,7 @@ function SwitchDesign() {
       setShowPayment(true);
     }
   }
+
   function transactionDecision(e) {
     e.preventDefault();
     const transactionID = e.target.value;
@@ -1707,6 +1712,7 @@ function SwitchDesign() {
       transactionID: transactionID,
     }));
   }
+
   function accountNoDecision(e) {
     e.preventDefault();
     const accountNo = e.target.value;
@@ -1824,38 +1830,38 @@ function SwitchDesign() {
       setshowbtn(true);
     }
   }
+  if (data.data.userDetails.accountStatus.status == "regular") {
+    return (
+      <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">
+        <div className="flex justify-center p-5 pb-10">
+          <div className="">
+            <form>
+              <div className="courseSelector h-[150px] md:h-[200px]">
+                <label htmlFor="course">
+                  <h1 className="w-full mx-auto text-sm md:text-3xl text-center mb-2 ">
+                    আপনি পরিবর্তিত হয়ে কোন ক্ল্যাসে যেতে ইচ্ছুক?
+                  </h1>
+                </label>
 
-  return (
-    <div className="w-full md:w-[50%] mx-auto p-5 border-0 md:border-2 border-slate-300 rounded-3xl mt-0 md:mt-5">
-      <div className="flex justify-center p-5 pb-10">
-        <div className="">
-          <form>
-            <div className="courseSelector h-[150px] md:h-[200px]">
-              <label htmlFor="course">
-                <h1 className="w-full mx-auto text-sm md:text-3xl text-center mb-2 ">
-                  আপনি পরিবর্তিত হয়ে কোন ক্ল্যাসে যেতে ইচ্ছুক?
-                </h1>
-              </label>
+                <select
+                  value={mainData.classes}
+                  onChange={classDecision}
+                  id="course"
+                  name="course"
+                  className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
+                >
+                  <option value="">আপনার ক্ল্যাস নির্বাচন করুন</option>
+                  {course
+                    ? course.map((item, i) => (
+                        <option key={i} value={item.courseCode}>
+                          {item.title.bn}
+                        </option>
+                      ))
+                    : ""}
+                </select>
+              </div>
 
-              <select
-                value={mainData.classes}
-                onChange={classDecision}
-                id="course"
-                name="course"
-                className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
-              >
-                <option value="">আপনার ক্ল্যাস নির্বাচন করুন</option>
-                {course
-                  ? course.map((item, i) => (
-                      <option key={i} value={item.courseCode}>
-                        {item.title.bn}
-                      </option>
-                    ))
-                  : ""}
-              </select>
-            </div>
-
-            {/* {mainData.credit && (
+              {/* {mainData.credit && (
               <div className="h-[50px] md:h-[100px] mb-10 bg-red-500 p-5 rounded-3xl">
                 <h1 className="w-full mx-auto text-sm md:text-3xl text-center mb-2 text-white">
                   আপনি বর্তমান ক্লাসটি থেকে নির্বাচিত ক্লাস পরিবর্তন করতে পারবেন
@@ -1863,243 +1869,288 @@ function SwitchDesign() {
               </div>
             )} */}
 
-            <div
-              className={`JamatSelector ${
-                extraJamat ? "h-[150px] md:h-[200px]" : "h-[0px]"
-              } overflow-hidden transition-all duration-1000 ease-out`}
-            >
-              <label htmlFor="jamat">
-                <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
-                  আপনার জামাত নির্বাচন করুন?
-                </h1>
-              </label>
-
-              <select
-                value={mainData.jamat}
-                onChange={jamatDecision}
-                id="jamat"
-                name="jamat"
-                className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
+              <div
+                className={`JamatSelector ${
+                  extraJamat ? "h-[150px] md:h-[200px]" : "h-[0px]"
+                } overflow-hidden transition-all duration-1000 ease-out`}
               >
-                <option value="">আপনার জামাত নির্বাচন করুন</option>
-                {jamat
-                  ? jamat.map((item, i) => (
-                      <option key={i} value={item.jamatID}>
-                        {item.jamatName.toUpperCase()}
-                      </option>
-                    ))
-                  : ""}
-              </select>
-            </div>
-
-            <div
-              className={`SemesterSelector ${
-                extraSemester ? "h-[150px] md:h-[200px]" : "h-[0px]"
-              } overflow-hidden transition-all duration-1000 ease-out`}
-            >
-              <label htmlFor="semester">
-                <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
-                  আপনি সেমিস্টার নির্বাচন করুন?
-                </h1>
-              </label>
-
-              <select
-                value={mainData.semester}
-                onChange={semesterDecision}
-                id="semester"
-                name="semester"
-                className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
-              >
-                <option value="none">আপনার সেমিস্টার নির্বাচন করুন</option>
-                {semester
-                  ? semester.map((item, i) => (
-                      <option key={i} value={item.semesterID}>
-                        {item.semesterName} - ({item.semesterID})
-                      </option>
-                    ))
-                  : ""}
-              </select>
-            </div>
-
-            <div
-              className={`SemesterSelector ${
-                extraBatch ? "h-[150px] md:h-[200px]" : "h-[0px]"
-              } overflow-hidden transition-all duration-1000 ease-out`}
-            >
-              <label htmlFor="semester">
-                <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
-                  আপনি ব্যাচ নির্বাচন করুন?
-                </h1>
-              </label>
-
-              <select
-                value={mainData.batch}
-                onChange={batchDecision}
-                id="semester"
-                name="semester"
-                className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
-              >
-                <option value="none">আপনার ব্যাচ নির্বাচন করুন</option>
-                {batchArray
-                  ? batchArray.map((item, i) => (
-                      <option key={i} value={item}>
-                        {item}
-                      </option>
-                    ))
-                  : ""}
-              </select>
-            </div>
-
-            {extraPayment && (
-              <>
-                <label htmlFor="paymentWay">
+                <label htmlFor="jamat">
                   <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
-                    এই ক্লাসে যেতে চাইলে, {mainData.extraTaka} টাকা অথবা{" "}
-                    {Math.round(mainData.extraTaka / 109)} ডলার জমা দিতে হবে
+                    আপনার জামাত নির্বাচন করুন?
                   </h1>
                 </label>
+
                 <select
-                  value={mainData.paymentWay}
-                  onChange={paymentWayDecision}
-                  id="paymentWay"
-                  name="paymentWay"
+                  value={mainData.jamat}
+                  onChange={jamatDecision}
+                  id="jamat"
+                  name="jamat"
                   className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
                 >
-                  <option value="none">আপনার পেমেন্ট মেথড নির্বাচন করুন</option>
-
-                  <option value="bkash-merchant">
-                    bkash: 01791 845 122 (Merchant)
-                  </option>
-
-                  <option value="bKash-personal">
-                    bKash: 01674 04 05 02 (Personal)
-                  </option>
-
-                  <option value="nagad-personal">
-                    Nagad: 01674 04 05 02 (Personal)
-                  </option>
-                  <option value="rocket-personal">
-                    Rocket:01674 04 05 023 (Personal)
-                  </option>
-                  <option value="paypal">
-                    PayPal: internetmadrasa@outlook.com
-                  </option>
-
-                  <option value="dbbl-bank">
-                    DBBL Bank Account No. 126 101 56434
-                  </option>
-                  <option value="ebl-bank">
-                    EBL Bank Account No. 170 145 000 1520
-                  </option>
+                  <option value="">আপনার জামাত নির্বাচন করুন</option>
+                  {jamat
+                    ? jamat.map((item, i) => (
+                        <option key={i} value={item.jamatID}>
+                          {item.jamatName.toUpperCase()}
+                        </option>
+                      ))
+                    : ""}
                 </select>
-              </>
-            )}
+              </div>
 
-            {extraPayment && showPayment ? (
-              <ShowPaymentDetails account={mainData.paymentWay} />
-            ) : (
-              ""
-            )}
-
-            {extraPayment && (
-              <>
-                <label htmlFor="transactionalID">
+              <div
+                className={`SemesterSelector ${
+                  extraSemester ? "h-[150px] md:h-[200px]" : "h-[0px]"
+                } overflow-hidden transition-all duration-1000 ease-out`}
+              >
+                <label htmlFor="semester">
                   <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
-                    আপনার ট্রানজ্যাকশন কোডটি লিখুন
+                    আপনি সেমিস্টার নির্বাচন করুন?
                   </h1>
                 </label>
-                <input
-                  onChange={transactionDecision}
-                  value={mainData.transactionID}
-                  type="text"
-                  id="transactionalID"
-                  name="transactionalID"
-                  className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
-                  placeholder="213C34OP54ST5GJI5"
-                ></input>
-              </>
-            )}
 
-            {extraPayment && (
-              <>
-                {" "}
-                <label htmlFor="accountno">
-                  <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
-                    আপনি যেখান থেকে টাকা দিয়েছেন, মোবাইল ব্যাংকিং হলে প্রেরকের
-                    নাম্বার, ব্যাংক হলে প্রেরকের ব্যাংক একাউন্ট নাম্বার, পেপাল
-                    হলে প্রেরকের ইমেইল আইডি লিখুন
-                  </h1>
-                </label>
-                <input
-                  onChange={accountNoDecision}
-                  value={mainData.accountNo}
-                  type="text"
-                  id="accountno"
-                  name="accountno"
-                  className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
-                  placeholder="+8801746668432"
-                ></input>
-              </>
-            )}
-
-            {extraPayment && (
-              <>
-                <label htmlFor="payment">
-                  <h1 className="w-full mx-auto text-sm md:text-3xl text-center mb-2">
-                    আপনার জমাকৃত অর্থের পরিমাণ লিখুন
-                  </h1>
-                </label>
-                <input
-                  onChange={amountPaidDecision}
-                  value={mainData.amountPaid}
-                  type="number"
-                  id="payment"
-                  name="payment"
-                  className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
-                  placeholder="1530 Taka, 30 Dollar"
-                ></input>
-              </>
-            )}
-
-            <div className="submitSection">
-              {showbtn && (
-                <button
-                  onClick={submitData}
-                  className="bg-blue-500 hover:bg-blue-900 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
+                <select
+                  value={mainData.semester}
+                  onChange={semesterDecision}
+                  id="semester"
+                  name="semester"
+                  className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
                 >
-                  {enroll ? (
-                    <p className="flex justify-between">
-                      <span className="bg-pink-500 w-1/3 py-2 px-2">
-                        (ক্লাস পরিবর্তন)
-                      </span>{" "}
-                      <span className="w-2/3 py-2 px-2 relative">
-                        ক্লাস পরিবর্তন রিকোয়েস্ট দিন
-                        <span className="absolute right-1 top-2">
-                          <IoIosArrowDroprightCircle className="text-3xl" />
-                        </span>
-                      </span>
-                    </p>
-                  ) : (
-                    <div className="p-5">ক্লাস পরিবর্তন রিকোয়েস্ট দিন</div>
-                  )}
-                </button>
+                  <option value="none">আপনার সেমিস্টার নির্বাচন করুন</option>
+                  {semester
+                    ? semester.map((item, i) => (
+                        <option key={i} value={item.semesterID}>
+                          {item.semesterName} - ({item.semesterID})
+                        </option>
+                      ))
+                    : ""}
+                </select>
+              </div>
+
+              <div
+                className={`SemesterSelector ${
+                  extraBatch ? "h-[150px] md:h-[200px]" : "h-[0px]"
+                } overflow-hidden transition-all duration-1000 ease-out`}
+              >
+                <label htmlFor="semester">
+                  <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
+                    আপনি ব্যাচ নির্বাচন করুন?
+                  </h1>
+                </label>
+
+                <select
+                  value={mainData.batch}
+                  onChange={batchDecision}
+                  id="semester"
+                  name="semester"
+                  className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
+                >
+                  <option value="none">আপনার ব্যাচ নির্বাচন করুন</option>
+                  {batchArray
+                    ? batchArray.map((item, i) => (
+                        <option key={i} value={item}>
+                          {item}
+                        </option>
+                      ))
+                    : ""}
+                </select>
+              </div>
+
+              {extraPayment && (
+                <>
+                  <label htmlFor="paymentWay">
+                    <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
+                      এই ক্লাসে যেতে চাইলে, {mainData.extraTaka} টাকা অথবা{" "}
+                      {Math.round(mainData.extraTaka / 109)} ডলার জমা দিতে হবে
+                    </h1>
+                  </label>
+                  <select
+                    value={mainData.paymentWay}
+                    onChange={paymentWayDecision}
+                    id="paymentWay"
+                    name="paymentWay"
+                    className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px] text-sm md:text-2xl"
+                  >
+                    <option value="none">
+                      আপনার পেমেন্ট মেথড নির্বাচন করুন
+                    </option>
+
+                    <option value="bkash-merchant">
+                      bkash: 01791 845 122 (Merchant)
+                    </option>
+
+                    <option value="bKash-personal">
+                      bKash: 01674 04 05 02 (Personal)
+                    </option>
+
+                    <option value="nagad-personal">
+                      Nagad: 01674 04 05 02 (Personal)
+                    </option>
+                    <option value="rocket-personal">
+                      Rocket:01674 04 05 023 (Personal)
+                    </option>
+                    <option value="paypal">
+                      PayPal: internetmadrasa@outlook.com
+                    </option>
+
+                    <option value="dbbl-bank">
+                      DBBL Bank Account No. 126 101 56434
+                    </option>
+                    <option value="ebl-bank">
+                      EBL Bank Account No. 170 145 000 1520
+                    </option>
+                  </select>
+                </>
               )}
-              {!showbtn && (
-                <div className="bg-blue-500 text-white text-xl font-bold mt-6 rounded-3xl w-full overflow-hidden p-3">
+
+              {extraPayment && showPayment ? (
+                <ShowPaymentDetails account={mainData.paymentWay} />
+              ) : (
+                ""
+              )}
+
+              {extraPayment && (
+                <>
+                  <label htmlFor="transactionalID">
+                    <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
+                      আপনার ট্রানজ্যাকশন কোডটি লিখুন
+                    </h1>
+                  </label>
                   <input
-                    onChange={showButtonLogic}
-                    className="w-full rounded-2xl p-2 text-center text-slate-900"
-                    type="password"
-                    placeholder="পরিবর্তন করতে পাসওয়ার্ড দিন"
+                    onChange={transactionDecision}
+                    value={mainData.transactionID}
+                    type="text"
+                    id="transactionalID"
+                    name="transactionalID"
+                    className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
+                    placeholder="213C34OP54ST5GJI5"
                   ></input>
-                </div>
+                </>
               )}
-            </div>
-          </form>
+
+              {extraPayment && (
+                <>
+                  {" "}
+                  <label htmlFor="accountno">
+                    <h1 className="w-full mx-auto text-sm md:text-3xl text-center my-2">
+                      আপনি যেখান থেকে টাকা দিয়েছেন, মোবাইল ব্যাংকিং হলে প্রেরকের
+                      নাম্বার, ব্যাংক হলে প্রেরকের ব্যাংক একাউন্ট নাম্বার, পেপাল
+                      হলে প্রেরকের ইমেইল আইডি লিখুন
+                    </h1>
+                  </label>
+                  <input
+                    onChange={accountNoDecision}
+                    value={mainData.accountNo}
+                    type="text"
+                    id="accountno"
+                    name="accountno"
+                    className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
+                    placeholder="+8801746668432"
+                  ></input>
+                </>
+              )}
+
+              {extraPayment && (
+                <>
+                  <label htmlFor="payment">
+                    <h1 className="w-full mx-auto text-sm md:text-3xl text-center mb-2">
+                      আপনার জমাকৃত অর্থের পরিমাণ লিখুন
+                    </h1>
+                  </label>
+                  <input
+                    onChange={amountPaidDecision}
+                    value={mainData.amountPaid}
+                    type="number"
+                    id="payment"
+                    name="payment"
+                    className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
+                    placeholder="1530 Taka, 30 Dollar"
+                  ></input>
+                </>
+              )}
+
+              <div className="submitSection">
+                {showbtn && (
+                  <button
+                    onClick={submitData}
+                    className="bg-blue-500 hover:bg-blue-900 text-white text-lg font-bold mt-6 rounded-3xl w-full overflow-hidden"
+                  >
+                    {enroll ? (
+                      <p className="flex justify-between">
+                        <span className="bg-pink-500 w-1/3 py-2 px-2">
+                          (ক্লাস পরিবর্তন)
+                        </span>{" "}
+                        <span className="w-2/3 py-2 px-2 relative">
+                          ক্লাস পরিবর্তন রিকোয়েস্ট দিন
+                          <span className="absolute right-1 top-2">
+                            <IoIosArrowDroprightCircle className="text-3xl" />
+                          </span>
+                        </span>
+                      </p>
+                    ) : (
+                      <div className="p-5">ক্লাস পরিবর্তন রিকোয়েস্ট দিন</div>
+                    )}
+                  </button>
+                )}
+                {!showbtn && (
+                  <div className="bg-blue-500 text-white text-xl font-bold mt-6 rounded-3xl w-full overflow-hidden p-3">
+                    <input
+                      onChange={showButtonLogic}
+                      className="w-full rounded-2xl p-2 text-center text-slate-900"
+                      type="password"
+                      placeholder="পরিবর্তন করতে পাসওয়ার্ড দিন"
+                    ></input>
+                  </div>
+                )}
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="h-[80vh] flex justify-center align-middle p-5">
+        <div className="my-auto">
+          <h1 className="w-full md:w-[50%] mx-auto text-lg md:text-3xl text-center mb-10">
+            আপনার একাউন্টটি হোল্ড অবস্থায় আছে। একাউন্ট হোল্ড থাকা অবস্থায় আপনি
+            ক্লাস পরিবর্তন করতে পারবেন না। একাউন্টটি পুনরায় সচল করতে হোয়াটস
+            অ্যাপ, +880 1674 04 05 02 নাম্বারে যোগাযোগ করুন
+          </h1>
+          <div className="flex gap-5 justify-center">
+            <div
+              onClick={() => router.push(`/`)}
+              className="cursor-pointer w-full md:w-[300px] shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
+            >
+              <Image
+                className="m-auto h-12"
+                width={100}
+                height={100}
+                src="/images/home.svg"
+              />
+              <h2 className="mt-5 text-[12px] md:text-2xl text-center">
+                হোম পেইজে যেতে এখানে চাপুন
+              </h2>
+            </div>
+            <div
+              onClick={() => router.push(`/content/classes`)}
+              className="w-full md:w-[300px] cursor-pointer shadow-md border-[1px] border-slate-200 bg-white m-1 md:mt-5 rounded-2xl border-box mx-0 p-5 md:p-12 relative"
+            >
+              <Image
+                className="m-auto h-12"
+                width={100}
+                height={100}
+                src="/images/course.svg"
+              />
+              <h2 className="mt-5 text-[12px] md:text-2xl text-center">
+                ক্ল্যাস পেইজে যেতে এখানে ক্লিক করুন
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default SwitchDesign;

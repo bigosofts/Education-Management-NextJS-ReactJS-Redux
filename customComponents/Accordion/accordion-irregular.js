@@ -5,7 +5,18 @@ import Table from "@/components/Admin/table";
 import TableMonthly from "@/components/Admin/tableMonthly";
 import { selectDataAnnualIrregularPlus as selectStudents } from "@/apiservices/studentapiservices";
 
+import {
+  updateData as updateStudents,
+  selectDataTwo,
+} from "@/apiservices/studentapiservices";
+
+import {
+  selectDataTwo as selectPayments,
+  updateData as updatePayment,
+} from "@/apiservices/paymentapiservices";
+
 import Pagination from "../pagination/pagination";
+import mytoast from "@/components/toast/toast";
 
 function AccordionSecondDue() {
   const [students, setStudents] = useState();
@@ -98,6 +109,101 @@ function AccordionSecondDue() {
     }
   }
 
+  async function updateStudentData(id) {
+    var userConfirmed = confirm("আপনি কি কাজটি বাতিল করতে চান?");
+    if (userConfirmed) {
+      mytoast.danger("Action has been rejected !");
+    } else {
+      const resStd = await selectDataTwo({ userName: id }, null);
+
+      if (resStd.status == "Alhamdulillah") {
+        const payment = await selectPayments(
+          { paymentID: resStd.data[0].paymentStatus.paymentID },
+          null
+        );
+
+        if (payment.status == "Alhamdulillah") {
+          let modifiedMonthlyHistory = JSON.parse(
+            JSON.stringify(payment.data[0].monthlyPaymentHistory)
+          );
+
+          let lengthIDX = modifiedMonthlyHistory.length - 1;
+
+          modifiedMonthlyHistory[lengthIDX].Date = new Date(
+            Date.now()
+          ).toISOString();
+          debugger;
+
+          const resPay = await updatePayment({
+            paymentID: payment.data[0].paymentID,
+            paymentCurrency: payment.data[0].paymentCurrency,
+            admissionDate: payment.data[0].admissionDate,
+            admissionPrice: payment.data[0].admissionPrice,
+            monthlyPaymentPrice: payment.data[0].monthlyPaymentPrice,
+            admissionPaymentHistory: payment.data[0].admissionPaymentHistory,
+            monthlyPaymentHistory: modifiedMonthlyHistory,
+            activeStatus: payment.data[0].activeStatus,
+            idValue: payment.data[0]._id,
+          });
+
+          if (resPay.status == "Alhamdulillah") {
+            mytoast.success("Payment Data has been Updated");
+
+            const res = await updateStudents(
+              resStd.data[0].userName,
+              resStd.data[0].firstName.en,
+              resStd.data[0].firstName.bn,
+              resStd.data[0].lastName.en,
+              resStd.data[0].lastName.bn,
+              resStd.data[0].nidNumber,
+              resStd.data[0].birthRegNumber,
+              resStd.data[0].fatherName.en,
+              resStd.data[0].fatherName.bn,
+              resStd.data[0].emailAddress,
+              undefined,
+              resStd.data[0].mobileNumber,
+              resStd.data[0].occupation,
+              resStd.data[0].studentCourseCode,
+              resStd.data[0].studentJamatCode,
+              resStd.data[0].gender,
+              resStd.data[0].dateOfBirth,
+              resStd.data[0].countryName,
+              resStd.data[0].fullPresentAddress,
+              resStd.data[0].fullPermanentAddress,
+              resStd.data[0].admissionSession,
+              resStd.data[0].admissionDate,
+              resStd.data[0].studentMotive,
+              resStd.data[0].details,
+              {
+                addmissionDueStatus:
+                  resStd.data[0].paymentStatus.addmissionDueStatus,
+                consequentDueStatus:
+                  resStd.data[0].paymentStatus.consequentDueStatus,
+                paymentID: resStd.data[0].paymentStatus.paymentID,
+              },
+              resStd.data[0].userRole,
+              resStd.data[0].extracurricular,
+              resStd.data[0].activeStatus,
+              resStd.data[0]._id,
+              resStd.data[0].studentDepartment,
+              resStd.data[0].studentSemester,
+              resStd.data[0].batchCount,
+              resStd.data[0].fundStatus,
+              {
+                status: "regular",
+                date: new Date(Date.now()).toISOString(),
+              }
+            );
+
+            if (res.status == "Alhamdulillah") {
+              mytoast.success("Account Modified Successfully");
+            }
+          }
+        }
+      }
+    }
+  }
+
   return (
     <div className="accordion">
       <div
@@ -138,6 +244,22 @@ function AccordionSecondDue() {
               </div>
 
               <div style={{ textAlign: "right" }}>
+                <span
+                  onClick={() => updateStudentData(item.userName)}
+                  style={{
+                    display: "inline-block",
+                    backgroundColor: "green",
+                    padding: "5px 10px",
+                    borderRadius: "15px",
+                    color: "white",
+                    marginLeft: "10px",
+                    marginBottom: "10px",
+                    fontSize: "14px",
+                  }}
+                >
+                  Make Active
+                </span>
+
                 <span
                   style={{
                     display: "inline-block",

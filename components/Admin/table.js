@@ -7,6 +7,8 @@ import mytoast from "../toast/toast";
 import { sendMail } from "@/apiservices/sendMailapiservices";
 
 function Table({ profile, paymentID, students }) {
+  const [render, setRender] = useState(true);
+
   async function updateProfile(id, modDate) {
     let modifiedadmissionPaymentHistory = payments.admissionPaymentHistory.map(
       (item) => {
@@ -250,6 +252,7 @@ function Table({ profile, paymentID, students }) {
         sendMail(student[0].emailAddress, subject, text, html);
 
         mytoast.success("Account Approved Successfully");
+        setRender((prev) => !prev);
       }
     }
   }
@@ -263,7 +266,7 @@ function Table({ profile, paymentID, students }) {
       }
     }
     getData();
-  }, []);
+  }, [render]);
   function niceDate(date) {
     var isoTime = date;
     var date = new Date(isoTime);
