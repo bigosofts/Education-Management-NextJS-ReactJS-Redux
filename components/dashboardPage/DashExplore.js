@@ -713,6 +713,7 @@ function DashExplore() {
               <i className="text-lg fa fa-arrow-right"></i>
             </span>
           </li>
+
           <li
             onClick={() => joinGirls("https://t.me/+ZsewnNTTAFRjMWFl")}
             className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"

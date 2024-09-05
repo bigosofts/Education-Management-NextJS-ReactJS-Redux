@@ -722,6 +722,7 @@ function AbacusCourse({ info, comment, richtext, parameter }) {
                               </span>
                               <br />
                             </div>
+
                             <div className="style-1152">
                               Class Time: {info.coursePrice.time.heading.bn}
                               <br />

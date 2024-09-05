@@ -106,7 +106,13 @@ function PreFeeSection({ profile, country }) {
     } else if (course == "urdu") {
       setBatch([]);
     } else if (course == "ramadanquranulkarim") {
-      setBatch([]);
+      setBatch([
+        {
+          name: "Batch-03-08-2024 (ক্লাস শুরু ০৫ অক্টোবর, ২০২৪)",
+          value: "batch-20240803",
+          startDate: new Date().toISOString(),
+        },
+      ]);
     }
   }
 
@@ -473,7 +479,6 @@ function PreFeeSection({ profile, country }) {
                 item.courseCode != "abacus_teacher" &&
                 item.courseCode != "ezranahusorof" &&
                 item.courseCode != "urdu" &&
-                item.courseCode != "ramadanquranulkarim" &&
                 item.courseCode != "farzeayinclass"
             )
             .map((item) => {
