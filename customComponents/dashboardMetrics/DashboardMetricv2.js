@@ -1,11 +1,6 @@
 "use client";
 
-import Loader from "../loader/Loader";
 import { useState, useEffect } from "react";
-import {
-  updateData as updateStudents,
-  selectDataTwo as selectStudents,
-} from "@/apiservices/studentapiservices";
 
 import { useSelector, useDispatch } from "react-redux";
 import ProgressBarAdmin from "@/components/dashboardPage/progressBarAdmin";
@@ -15,6 +10,7 @@ import { fetchTeachers } from "@/app/redux/features/teachers/teachersSlice";
 import { fetchDjs } from "@/app/redux/features/djs/djsSlice";
 import { fetchClasses } from "@/app/redux/features/classes/classesSlice";
 import { fetchStudents } from "@/app/redux/features/students/studentsSlice";
+import CardWithPie from "./cardWithpie";
 
 function DashboardMetricsV2() {
   const dispatch = useDispatch();
@@ -247,14 +243,89 @@ function DashboardMetricsV2() {
           {" "}
           Start Update Students
         </div> */}
-        
       </div>
       {showComponent && (
         <div
           style={{ padding: "100px 50px" }}
-          className="bg-[#eaeaea] w-full text-slate-900"
+          className="bg-[#eaeaea] w-full text-slate-900 h-screen overflow-y-scroll"
         >
           <ProgressBarAdmin percentage={percentage} status={status} />
+
+          <div
+            style={{ marginTop: "100px" }}
+            className="grid grid-cols-1 md:grid-cols-5 gap-5 md:gap-5"
+          >
+            <CardWithPie
+              colors={"red"}
+              percentage={100}
+              texthead={"Total Accounts"}
+              textbody={"4000"}
+              parameter={"%"}
+            />
+            <CardWithPie
+              colors={"green"}
+              percentage={51}
+              texthead={"Total Annual Active"}
+              textbody={"1550"}
+              parameter={"%"}
+            />
+            <CardWithPie
+              colors={"blue"}
+              percentage={30}
+              texthead={"Total Annual Pending"}
+              textbody={"20"}
+              parameter={"%"}
+            />
+            <CardWithPie
+              colors={"green"}
+              percentage={21}
+              texthead={"Total Annual Due"}
+              textbody={"700"}
+              parameter={"%"}
+            />
+            <CardWithPie
+              colors={"green"}
+              percentage={51}
+              texthead={"Total Monthly Active"}
+              textbody={"1550"}
+              parameter={"%"}
+            />
+            <CardWithPie
+              colors={"blue"}
+              percentage={30}
+              texthead={"Total Monthly Pending"}
+              textbody={"20"}
+              parameter={"%"}
+            />
+            <CardWithPie
+              colors={"green"}
+              percentage={21}
+              texthead={"Total Monthly Due"}
+              textbody={"700"}
+              parameter={"%"}
+            />
+            <CardWithPie
+              colors={"green"}
+              percentage={51}
+              texthead={"Total Monthly Active"}
+              textbody={"1550"}
+              parameter={"%"}
+            />
+            <CardWithPie
+              colors={"blue"}
+              percentage={30}
+              texthead={"Total Monthly Pending"}
+              textbody={"20"}
+              parameter={"%"}
+            />
+            <CardWithPie
+              colors={"green"}
+              percentage={21}
+              texthead={"Total Monthly Due"}
+              textbody={"700"}
+              parameter={"%"}
+            />
+          </div>
         </div>
       )}
     </>

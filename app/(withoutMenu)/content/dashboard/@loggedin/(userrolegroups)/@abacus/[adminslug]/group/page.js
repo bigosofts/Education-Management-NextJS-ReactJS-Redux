@@ -7,6 +7,7 @@ function AbacusGroup() {
   const data = useSelector((state) => state.isAdmin.value);
 
   const boysLink = "https://t.me/+YxgAQ4YCvOk5MTI1";
+  const girlsLink = "https://t.me/+oggVT2CTzQFjYWFl";
 
   const hardRefresh = (link) => {
     if (typeof window !== "undefined") {
@@ -17,6 +18,10 @@ function AbacusGroup() {
   function joinBoys() {
     hardRefresh(boysLink);
   }
+
+  function joinGirls() {
+    hardRefresh(girlsLink);
+  }
   if (data.data.userDetails.activeStatus == "active") {
     return (
       <div className="w-full">
@@ -26,20 +31,36 @@ function AbacusGroup() {
 
         <div className="w-full md:w-[50%] mx-auto p-4 border-0 md:border-2 border-slate-300 rounded-3xl">
           <ul>
-            <li
-              onClick={joinBoys}
-              className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
-            >
-              <FaTelegram className="text-4xl inline-block mr-2" />
-              Join Teachers' Training Telegram class group
-              <span className="float-right">
-                <i className="text-lg fa fa-arrow-right"></i>
-              </span>
-            </li>
+            {data.data.userDetails.gender == "female" && (
+              <li
+                onClick={joinGirls}
+                className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
+              >
+                <FaTelegram className="text-4xl inline-block mr-2" />
+                Join Teachers' Training Female Telegram class group
+                <span className="float-right">
+                  <i className="text-lg fa fa-arrow-right"></i>
+                </span>
+              </li>
+            )}
+
+            {data.data.userDetails.gender == "male" && (
+              <li
+                onClick={joinBoys}
+                className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
+              >
+                <FaTelegram className="text-4xl inline-block mr-2" />
+                Join Teachers' Training Male Telegram class group
+                <span className="float-right">
+                  <i className="text-lg fa fa-arrow-right"></i>
+                </span>
+              </li>
+            )}
           </ul>
+
           <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
             আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার ফ্রি অ্যাবাকাস শিক্ষক
-            প্রশিক্ষণ ক্ল্যাস ৫ই মে, ২০২৪ থেকে শুরু হবে ইংশাআল্লাহ । আপনারা
+            প্রশিক্ষণ ক্ল্যাস ৫ই অক্টোবর, ২০২৪ থেকে শুরু হবে ইংশাআল্লাহ । আপনারা
             উপরোক্ত লিংক থেকে নিজ নিজ ক্ল্যাস গ্রুপে জয়েন থাকুন।
           </div>
         </div>
@@ -48,8 +69,6 @@ function AbacusGroup() {
   } else {
     return (
       <div className="w-full">
-        
-
         <div className="w-full md:w-[50%] mx-auto p-4 border-0 md:border-2 border-slate-300 rounded-3xl mt-10">
           <div className="rounded-3xl w-full p-4 text-2xl md:text-3xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
             আপনার একাউন্টটি এপ্রুভালের জন্য পেন্ডিং আছে। এপ্রুভ হতে ২৪ ঘন্টার
