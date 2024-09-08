@@ -264,63 +264,63 @@ function DashboardMetricsV2() {
             />
             <CardWithPie
               colors={"green"}
-              percentage={51}
+              percentage={75}
               texthead={"Total Annual Active"}
               textbody={"1550"}
               parameter={"%"}
             />
             <CardWithPie
               colors={"blue"}
-              percentage={30}
+              percentage={50}
               texthead={"Total Annual Pending"}
               textbody={"20"}
               parameter={"%"}
             />
             <CardWithPie
               colors={"green"}
-              percentage={21}
+              percentage={25}
               texthead={"Total Annual Due"}
               textbody={"700"}
               parameter={"%"}
             />
             <CardWithPie
               colors={"green"}
-              percentage={51}
+              percentage={10}
               texthead={"Total Monthly Active"}
               textbody={"1550"}
               parameter={"%"}
             />
             <CardWithPie
               colors={"blue"}
-              percentage={30}
+              percentage={5}
               texthead={"Total Monthly Pending"}
               textbody={"20"}
               parameter={"%"}
             />
             <CardWithPie
               colors={"green"}
-              percentage={21}
+              percentage={90}
               texthead={"Total Monthly Due"}
               textbody={"700"}
               parameter={"%"}
             />
             <CardWithPie
               colors={"green"}
-              percentage={51}
+              percentage={80}
               texthead={"Total Monthly Active"}
               textbody={"1550"}
               parameter={"%"}
             />
             <CardWithPie
               colors={"blue"}
-              percentage={30}
+              percentage={50}
               texthead={"Total Monthly Pending"}
               textbody={"20"}
               parameter={"%"}
             />
             <CardWithPie
               colors={"green"}
-              percentage={21}
+              percentage={80}
               texthead={"Total Monthly Due"}
               textbody={"700"}
               parameter={"%"}

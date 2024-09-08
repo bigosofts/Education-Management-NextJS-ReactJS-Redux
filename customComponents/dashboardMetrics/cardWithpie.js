@@ -36,8 +36,8 @@ function CardWithPie({ texthead, textbody, percentage, parameter, colors }) {
         dangerouslySetInnerHTML={{
           __html: `
             .progress-pie-chart${randomNumber} {
-              width: 200px;
-              height: 200px;
+              width: 100px;
+              height: 100px;
               border-radius: 50%;
               background-color: #E5E5E5;
               position: relative;
@@ -49,46 +49,46 @@ function CardWithPie({ texthead, textbody, percentage, parameter, colors }) {
               content: "";
               position: absolute;
               border-radius: 50%;
-              left: calc(50% - 100px);
-              top: calc(50% - 100px);
-              width: 200px;
-              height: 200px;
-              clip: rect(0, 200px, 200px, 100px);
+              left: calc(50% - 50px);
+              top: calc(50% - 50px);
+              width: 100px;
+              height: 100px;
+              clip: rect(0, 100px, 100px, 50px);
             }
             .ppc-progress${randomNumber} .ppc-progress-fill${randomNumber} {
               content: "";
               position: absolute;
               border-radius: 50%;
-              left: calc(50% - 100px);
-              top: calc(50% - 100px);
-              width: 200px;
-              height: 200px;
-              clip: rect(0, 100px, 200px, 0);
+              left: calc(50% - 50px);
+              top: calc(50% - 50px);
+              width: 100px;
+              height: 100px;
+              clip: rect(0, 50px, 100px, 0);
               background: ${colors};
               transform: rotate(60deg);
             }
             .gt-50${randomNumber} .ppc-progress${randomNumber} {
-              clip: rect(0, 100px, 200px, 0);
+              clip: rect(0, 50px, 100px, 0);
             }
             .gt-50${randomNumber} .ppc-progress${randomNumber} .ppc-progress-fill${randomNumber} {
-              clip: rect(0, 200px, 200px, 100px);
+              clip: rect(0, 100px, 100px, 50px);
               background: #E5E5E5;
             }
             .ppc-percents${randomNumber} {
               content: "";
               position: absolute;
               border-radius: 50%;
-              left: calc(50% - 173.9130434783px / 2);
-              top: calc(50% - 173.9130434783px / 2);
-              width: 173.9130434783px;
-              height: 173.9130434783px;
+              left: calc(50% - 80px / 2);
+              top: calc(50% - 80px / 2);
+              width: 80px;
+              height: 80px;
               background: #fff;
               text-align: center;
               display: table;
             }
             .ppc-percents${randomNumber} span {
               display: block;
-              font-size: 2.6em;
+              font-size: 1.3em;
               font-weight: bold;
               color: ${colors};
             }
@@ -115,7 +115,7 @@ function CardWithPie({ texthead, textbody, percentage, parameter, colors }) {
             </span>
           </div>
         </div>
-        <div style={{ scale: "50%" }} className="w-full md:w-1/2">
+        <div className="w-full md:w-1/2">
           <div
             className={`progress-pie-chart${randomNumber}`}
             data-percent={percentage}
