@@ -183,16 +183,17 @@ function DashboardMetricsV2() {
   }, [targetPercentage, percentage]);
 
   function leadData() {
-    dispatch(fetchBooks());
-    dispatch(fetchCourses());
-    dispatch(fetchTeachers());
-    dispatch(fetchDjs("all"));
     dispatch(
       fetchClasses({
         batch: "all",
         userName: "",
       })
     );
+    dispatch(fetchBooks());
+    dispatch(fetchCourses());
+    dispatch(fetchTeachers());
+    dispatch(fetchDjs("all"));
+
     dispatch(fetchStudents("all"));
   }
 

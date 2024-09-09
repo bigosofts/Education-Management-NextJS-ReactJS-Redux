@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
-import { selectDataTwo } from "@/apiservices/studentapiservices";
 
 function layout({ children, params }) {
   const router = useRouter();
