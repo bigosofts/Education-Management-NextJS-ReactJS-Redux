@@ -59,7 +59,6 @@ exports.selectDataPlus = async (pageNumber, perPage, query) => {
       headers: {
         "Content-Type": "application/json",
       },
-      next: { revalidate: 600 },
     }
   );
   if (!res.ok) {
