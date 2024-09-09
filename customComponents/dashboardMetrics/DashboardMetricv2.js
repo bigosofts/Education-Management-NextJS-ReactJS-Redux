@@ -11,9 +11,21 @@ import { fetchDjs } from "@/app/redux/features/djs/djsSlice";
 import { fetchClasses } from "@/app/redux/features/classes/classesSlice";
 import { fetchStudents } from "@/app/redux/features/students/studentsSlice";
 import CardWithPie from "./cardWithpie";
+import DetailData from "./detailData";
+import {
+  sts1,
+  sts2,
+  sts3,
+  sts4,
+  sts5,
+  sts6,
+  sts7,
+  sts8,
+} from "@/helper/Metrics";
 
 function DashboardMetricsV2() {
   const dispatch = useDispatch();
+  const [backdrop, setBackdrop] = useState(false);
 
   const [percentage, setPercentage] = useState(0);
 
@@ -42,6 +54,17 @@ function DashboardMetricsV2() {
   const departments = useSelector((state) => state.djs.departments);
 
   const payments = useSelector((state) => state.djs.payments);
+
+  let [totalStudent, setTotalStudents] = useState({
+    totalStudent: "",
+    totalAnnualActiveStudent: "",
+    totalAnnualPendingStudent: "",
+    totalAnnualDueStudent: "",
+    totalAnnualIrregularStudent: "",
+    totalMonthlyActiveStudent: "",
+    totalMonthlyPendingStudent: "",
+    totalMonthlyDueStudent: "",
+  });
 
   useEffect(() => {
     let completedCount = 0;
@@ -100,6 +123,20 @@ function DashboardMetricsV2() {
     setStatus(array);
 
     setTargetPercentage(newTargetPercentage);
+
+    if (students.length > 0 && payments.length > 0) {
+      setTotalStudents((prev) => ({
+        ...prev,
+        totalStudent: sts1(students),
+        totalAnnualActiveStudent: sts2(students),
+        totalAnnualPendingStudent: sts3(students),
+        totalAnnualDueStudent: sts4(students),
+        totalAnnualIrregularStudent: sts5(students),
+        totalMonthlyActiveStudent: sts6(students, payments),
+        totalMonthlyPendingStudent: sts7(students, payments),
+        totalMonthlyDueStudent: sts8(students, payments),
+      }));
+    }
   }, [
     semesters,
     jamats,
@@ -250,82 +287,143 @@ function DashboardMetricsV2() {
           className="bg-[#eaeaea] w-full text-slate-900 h-screen overflow-y-scroll"
         >
           <ProgressBarAdmin percentage={percentage} status={status} />
+          {targetPercentage == 100 && (
+            <div
+              style={{ marginTop: "100px" }}
+              className="grid grid-cols-1 md:grid-cols-5 gap-5 md:gap-5"
+            >
+              <CardWithPie
+                colors={"#f57c00"}
+                percentage={100}
+                texthead={"Total Accounts"}
+                textbody={totalStudent.totalStudent?.total}
+                parameter={"%"}
+                specific={totalStudent.totalStudent?.data}
+              />
+              <CardWithPie
+                colors={"#f2c94c"}
+                percentage={Math.ceil(
+                  (Number(totalStudent.totalAnnualActiveStudent?.total) /
+                    Number(totalStudent.totalStudent?.total)) *
+                    100
+                )}
+                texthead={"Total Annual Active"}
+                textbody={totalStudent.totalAnnualActiveStudent?.total}
+                parameter={"%"}
+                specific={totalStudent.totalAnnualActiveStudent?.data}
+              />
 
-          <div
-            style={{ marginTop: "100px" }}
-            className="grid grid-cols-1 md:grid-cols-5 gap-5 md:gap-5"
-          >
-            <CardWithPie
-              colors={"red"}
-              percentage={100}
-              texthead={"Total Accounts"}
-              textbody={"4000"}
-              parameter={"%"}
-            />
-            <CardWithPie
-              colors={"green"}
-              percentage={75}
-              texthead={"Total Annual Active"}
-              textbody={"1550"}
-              parameter={"%"}
-            />
-            <CardWithPie
-              colors={"blue"}
-              percentage={50}
-              texthead={"Total Annual Pending"}
-              textbody={"20"}
-              parameter={"%"}
-            />
-            <CardWithPie
-              colors={"green"}
-              percentage={25}
-              texthead={"Total Annual Due"}
-              textbody={"700"}
-              parameter={"%"}
-            />
-            <CardWithPie
-              colors={"green"}
-              percentage={10}
-              texthead={"Total Monthly Active"}
-              textbody={"1550"}
-              parameter={"%"}
-            />
-            <CardWithPie
-              colors={"blue"}
-              percentage={5}
-              texthead={"Total Monthly Pending"}
-              textbody={"20"}
-              parameter={"%"}
-            />
-            <CardWithPie
-              colors={"green"}
-              percentage={90}
-              texthead={"Total Monthly Due"}
-              textbody={"700"}
-              parameter={"%"}
-            />
-            <CardWithPie
-              colors={"green"}
-              percentage={80}
-              texthead={"Total Monthly Active"}
-              textbody={"1550"}
-              parameter={"%"}
-            />
-            <CardWithPie
-              colors={"blue"}
-              percentage={50}
-              texthead={"Total Monthly Pending"}
-              textbody={"20"}
-              parameter={"%"}
-            />
-            <CardWithPie
-              colors={"green"}
-              percentage={80}
-              texthead={"Total Monthly Due"}
-              textbody={"700"}
-              parameter={"%"}
-            />
-          </div>
+              <CardWithPie
+                colors={"#65708d"}
+                percentage={Math.ceil(
+                  (Number(totalStudent.totalAnnualPendingStudent?.total) /
+                    Number(totalStudent.totalStudent?.total)) *
+                    100
+                )}
+                texthead={"Total Annual Pending"}
+                textbody={totalStudent.totalAnnualPendingStudent?.total}
+                parameter={"%"}
+                specific={totalStudent.totalAnnualPendingStudent?.data}
+              />
+              <CardWithPie
+                colors={"#2f80ed"}
+                percentage={Math.ceil(
+                  (Number(totalStudent.totalAnnualDueStudent?.total) /
+                    Number(totalStudent.totalStudent?.total)) *
+                    100
+                )}
+                texthead={"Total Annual Due"}
+                textbody={totalStudent.totalAnnualDueStudent?.total}
+                parameter={"%"}
+                specific={totalStudent.totalAnnualDueStudent?.data}
+              />
+              <CardWithPie
+                colors={"#27ae60"}
+                percentage={Math.ceil(
+                  (Number(totalStudent.totalAnnualIrregularStudent?.total) /
+                    Number(totalStudent.totalStudent?.total)) *
+                    100
+                )}
+                texthead={"Total Annual Irregular"}
+                textbody={totalStudent.totalAnnualIrregularStudent?.total}
+                parameter={"%"}
+                specific={totalStudent.totalAnnualIrregularStudent?.data}
+              />
+
+              <CardWithPie
+                colors={"#2d9cdb"}
+                percentage={Math.ceil(
+                  (Number(totalStudent.totalMonthlyActiveStudent?.total) /
+                    (Number(totalStudent.totalAnnualPendingStudent?.total) +
+                      Number(totalStudent.totalAnnualActiveStudent?.total))) *
+                    100
+                )}
+                texthead={"Total Monthly Active"}
+                textbody={totalStudent.totalMonthlyActiveStudent?.total}
+                parameter={"%"}
+                special={totalStudent.totalMonthlyActiveStudent?.data}
+              />
+
+              <CardWithPie
+                colors={"#27ae60"}
+                percentage={Math.ceil(
+                  (Number(totalStudent.totalMonthlyPendingStudent?.total) /
+                    (Number(totalStudent.totalAnnualPendingStudent?.total) +
+                      Number(totalStudent.totalAnnualActiveStudent?.total))) *
+                    100
+                )}
+                texthead={"Total Monthly Pending"}
+                textbody={totalStudent.totalMonthlyPendingStudent?.total}
+                parameter={"%"}
+                special={totalStudent.totalMonthlyPendingStudent?.data}
+              />
+              <CardWithPie
+                colors={"#f57c00"}
+                percentage={Math.ceil(
+                  (Number(totalStudent.totalMonthlyDueStudent?.total) /
+                    (Number(totalStudent.totalAnnualPendingStudent?.total) +
+                      Number(totalStudent.totalAnnualActiveStudent?.total))) *
+                    100
+                )}
+                texthead={"Total Monthly Due"}
+                textbody={totalStudent.totalMonthlyDueStudent?.total}
+                parameter={"%"}
+                special={totalStudent.totalMonthlyDueStudent?.data}
+              />
+
+              <CardWithPie
+                colors={"#f2c94c"}
+                percentage={75}
+                texthead={"Total Annual Active"}
+                textbody={"1550"}
+                parameter={"%"}
+              />
+              <CardWithPie
+                colors={"#2d9cdb"}
+                percentage={5}
+                texthead={"Total Monthly Pending"}
+                textbody={"20"}
+                parameter={"%"}
+              />
+
+              <CardWithPie
+                colors={"#65708d"}
+                percentage={50}
+                texthead={"Total Annual Pending"}
+                textbody={"20"}
+                parameter={"%"}
+              />
+              <CardWithPie
+                colors={"#2f80ed"}
+                percentage={25}
+                texthead={"Total Annual Due"}
+                textbody={"700"}
+                parameter={"%"}
+              />
+            </div>
+          )}
+
+          {backdrop && <DetailData />}
         </div>
       )}
     </>
