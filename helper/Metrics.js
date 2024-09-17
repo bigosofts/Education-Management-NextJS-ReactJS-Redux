@@ -162,6 +162,7 @@ export const sts6 = (students, payments) => {
   let data = [];
 
   students.map((student) => {
+    
     const paymentResult = payments.find((item) => {
       return item.paymentID == student.paymentStatus.paymentID;
     });
@@ -192,6 +193,8 @@ export const sts6 = (students, payments) => {
     data: data,
     total: data.length,
   };
+
+
 };
 
 export const sts7 = (students, payments) => {
