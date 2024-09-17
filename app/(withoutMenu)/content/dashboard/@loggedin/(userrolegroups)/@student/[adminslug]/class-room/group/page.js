@@ -44,6 +44,9 @@ function CombinedGroup() {
   const [isFarzeayinampara, setIsFarzeayinampara] = useState(false);
   const [Farzeayinampara, setFarzeayinampara] = useState(false);
 
+  const [isRamadanQuranulKarim, setIsRamadanQuranulKarim] = useState(false);
+  const [RamadanQuranulKarim, setRamadanQuranulKarim] = useState(false);
+
   useEffect(() => {
     async function getData() {
       const res = await selectDataTwo(

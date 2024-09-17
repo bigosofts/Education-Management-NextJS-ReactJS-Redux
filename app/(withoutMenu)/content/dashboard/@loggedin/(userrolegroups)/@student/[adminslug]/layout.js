@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setInitialData as setInitialCourse } from "@/app/redux/features/courseState/courseStateSlice";
 
 import { updateData as updateClasses } from "@/apiservices/classapiservices";
+
 import MessangerChat from "@/customComponents/messangerChat/messangerChat";
 
 function StudentLayout({ children, params }) {
@@ -441,7 +442,7 @@ function StudentLayout({ children, params }) {
       show: true,
     },
     {
-      name: "Ramadan Quran",
+      name: "Quranul Karim",
       href: `/content/dashboard/${params.adminslug}/ramadan-quran`,
       icon: "/images/quran.svg",
       show: true,
@@ -4975,9 +4976,9 @@ function StudentLayout({ children, params }) {
             icon: "/images/abacus_teacher.svg",
             show: false,
           };
-        } else if (item.name == "Ramadan Quran") {
+        } else if (item.name == "Quranul Karim") {
           return {
-            name: "Ramadan Quran",
+            name: "Quranul Karim",
             href: `/content/dashboard/${params.adminslug}/ramadan-quran`,
             icon: "/images/quran.svg",
             show: false,
@@ -5069,9 +5070,9 @@ function StudentLayout({ children, params }) {
             icon: "/images/abacus_teacher.svg",
             show: false,
           };
-        } else if (item.name == "Ramadan Quran") {
+        } else if (item.name == "Quranul Karim") {
           return {
-            name: "Ramadan Quran",
+            name: "Quranul Karim",
             href: `/content/dashboard/${params.adminslug}/ramadan-quran`,
             icon: "/images/quran.svg",
             show: false,
@@ -5277,7 +5278,7 @@ function StudentLayout({ children, params }) {
         if (item.code == "ramadanquranulkarim" && item.status == "active") {
           let ramadanquranulkarimArray = [
             {
-              name: "Ramadan Quran",
+              name: "Quranul Karim",
               href: `/content/dashboard/${params.adminslug}/ramadan-quran`,
               icon: "/images/quran.svg",
               show: true,
@@ -5397,7 +5398,7 @@ function StudentLayout({ children, params }) {
           show: true,
         },
         {
-          name: "Ramadan Quran",
+          name: "Quranul Karim",
           href: `/content/dashboard/${params.adminslug}/ramadan-quran`,
           icon: "/images/quran.svg",
           show: true,
