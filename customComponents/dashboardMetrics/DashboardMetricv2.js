@@ -21,6 +21,15 @@ import {
   sts6,
   sts7,
   sts8,
+  sts9,
+  sts10,
+  sts11,
+  sts12,
+  sts13,
+  sts14,
+  sts15,
+  sts16,
+  sts17,
 } from "@/helper/Metrics";
 
 function DashboardMetricsV2() {
@@ -64,6 +73,16 @@ function DashboardMetricsV2() {
     totalMonthlyActiveStudent: "",
     totalMonthlyPendingStudent: "",
     totalMonthlyDueStudent: "",
+
+    totalAlemalemaStudent: "",
+    totalPreAlemalemaStudent: "",
+    totalSchoolAlemalemaStudent: "",
+    totalHifjulQuranStudent: "",
+    totalFarzeayinnajeraStudent: "",
+    totalShishuMaktabStudent: "",
+    totalQuranulKarimStudent: "",
+    totalAbacusStudent: "",
+    totalAbacusTeacherStudent: "",
   });
 
   useEffect(() => {
@@ -135,6 +154,16 @@ function DashboardMetricsV2() {
         totalMonthlyActiveStudent: sts6(students, payments),
         totalMonthlyPendingStudent: sts7(students, payments),
         totalMonthlyDueStudent: sts8(students, payments),
+
+        totalAlemalemaStudent: sts9(students, payments),
+        totalPreAlemalemaStudent: sts10(students, payments),
+        totalSchoolAlemalemaStudent: sts11(students, payments),
+        totalHifjulQuranStudent: sts12(students, payments),
+        totalFarzeayinnajeraStudent: sts13(students, payments),
+        totalShishuMaktabStudent: sts14(students, payments),
+        totalQuranulKarimStudent: sts15(students, payments),
+        totalAbacusStudent: sts16(students, payments),
+        totalAbacusTeacherStudent: sts17(students, payments),
       }));
     }
   }, [
