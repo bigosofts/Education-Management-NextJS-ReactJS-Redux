@@ -80,7 +80,7 @@ function Page(props) {
             data.data.userDetails.batchCount,
             data.data.userDetails.fundStatus,
             {
-              status: "irregular",
+              status: "regular",
               date: data.data.userDetails.admissionSession,
             }
           );
