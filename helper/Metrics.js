@@ -94,10 +94,14 @@ export const sts3 = (students) => {
   };
 };
 
-export const sts4 = (students) => {
+export const sts4 = (students, payments) => {
   let data = [];
 
   students.map((student) => {
+    const paymentResult = payments.find((item) => {
+      return item.paymentID == student.paymentStatus.paymentID;
+    });
+
     if (student.accountStatus.status == "regular") {
       if (
         student.paymentStatus.addmissionDueStatus == false &&
@@ -108,7 +112,51 @@ export const sts4 = (students) => {
         student.paymentStatus.addmissionDueStatus == true &&
         student.paymentStatus.consequentDueStatus == false
       ) {
-        data.push(student);
+        if (paymentResult) {
+          return;
+        } else {
+          data.push(student);
+        }
+      } else if (
+        student.paymentStatus.addmissionDueStatus == true &&
+        student.paymentStatus.consequentDueStatus == true
+      ) {
+        return;
+      }
+    } else {
+      return;
+    }
+  });
+
+  return {
+    data: data,
+    total: data.length,
+  };
+};
+
+export const sts18 = (students, payments) => {
+  let data = [];
+
+  students.map((student) => {
+    const paymentResult = payments.find((item) => {
+      return item.paymentID == student.paymentStatus.paymentID;
+    });
+
+    if (student.accountStatus.status == "regular") {
+      if (
+        student.paymentStatus.addmissionDueStatus == false &&
+        student.paymentStatus.consequentDueStatus == false
+      ) {
+        return;
+      } else if (
+        student.paymentStatus.addmissionDueStatus == true &&
+        student.paymentStatus.consequentDueStatus == false
+      ) {
+        if (paymentResult) {
+          data.push(student);
+        } else {
+          return;
+        }
       } else if (
         student.paymentStatus.addmissionDueStatus == true &&
         student.paymentStatus.consequentDueStatus == true
@@ -275,22 +323,7 @@ export const sts9 = (students, payments) => {
     });
 
     if (paymentResult && student.accountStatus.status == "regular") {
-      let actualArray = [...paymentResult.monthlyPaymentHistory];
-      actualArray.pop();
-
-      let decisionPending = actualArray.some((item) => {
-        return item.Price && item.PaymentStatus == false;
-      });
-
-      let decisionActive = actualArray.every((item) => {
-        return item.PaymentStatus == true;
-      });
-
-      if (decisionPending) {
-        return;
-      } else if (decisionActive) {
-        return;
-      } else {
+      if (student.fundStatus == "nafalSadka") {
         data.push(student);
       }
     }
@@ -310,22 +343,7 @@ export const sts10 = (students, payments) => {
     });
 
     if (paymentResult && student.accountStatus.status == "regular") {
-      let actualArray = [...paymentResult.monthlyPaymentHistory];
-      actualArray.pop();
-
-      let decisionPending = actualArray.some((item) => {
-        return item.Price && item.PaymentStatus == false;
-      });
-
-      let decisionActive = actualArray.every((item) => {
-        return item.PaymentStatus == true;
-      });
-
-      if (decisionPending) {
-        return;
-      } else if (decisionActive) {
-        return;
-      } else {
+      if (student.fundStatus == "jakat") {
         data.push(student);
       }
     }
@@ -345,232 +363,7 @@ export const sts11 = (students, payments) => {
     });
 
     if (paymentResult && student.accountStatus.status == "regular") {
-      let actualArray = [...paymentResult.monthlyPaymentHistory];
-      actualArray.pop();
-
-      let decisionPending = actualArray.some((item) => {
-        return item.Price && item.PaymentStatus == false;
-      });
-
-      let decisionActive = actualArray.every((item) => {
-        return item.PaymentStatus == true;
-      });
-
-      if (decisionPending) {
-        return;
-      } else if (decisionActive) {
-        return;
-      } else {
-        data.push(student);
-      }
-    }
-  });
-
-  return {
-    data: data,
-    total: data.length,
-  };
-};
-export const sts12 = (students, payments) => {
-  let data = [];
-
-  students.map((student) => {
-    const paymentResult = payments.find((item) => {
-      return item.paymentID == student.paymentStatus.paymentID;
-    });
-
-    if (paymentResult && student.accountStatus.status == "regular") {
-      let actualArray = [...paymentResult.monthlyPaymentHistory];
-      actualArray.pop();
-
-      let decisionPending = actualArray.some((item) => {
-        return item.Price && item.PaymentStatus == false;
-      });
-
-      let decisionActive = actualArray.every((item) => {
-        return item.PaymentStatus == true;
-      });
-
-      if (decisionPending) {
-        return;
-      } else if (decisionActive) {
-        return;
-      } else {
-        data.push(student);
-      }
-    }
-  });
-
-  return {
-    data: data,
-    total: data.length,
-  };
-};
-export const sts13 = (students, payments) => {
-  let data = [];
-
-  students.map((student) => {
-    const paymentResult = payments.find((item) => {
-      return item.paymentID == student.paymentStatus.paymentID;
-    });
-
-    if (paymentResult && student.accountStatus.status == "regular") {
-      let actualArray = [...paymentResult.monthlyPaymentHistory];
-      actualArray.pop();
-
-      let decisionPending = actualArray.some((item) => {
-        return item.Price && item.PaymentStatus == false;
-      });
-
-      let decisionActive = actualArray.every((item) => {
-        return item.PaymentStatus == true;
-      });
-
-      if (decisionPending) {
-        return;
-      } else if (decisionActive) {
-        return;
-      } else {
-        data.push(student);
-      }
-    }
-  });
-
-  return {
-    data: data,
-    total: data.length,
-  };
-};
-export const sts14 = (students, payments) => {
-  let data = [];
-
-  students.map((student) => {
-    const paymentResult = payments.find((item) => {
-      return item.paymentID == student.paymentStatus.paymentID;
-    });
-
-    if (paymentResult && student.accountStatus.status == "regular") {
-      let actualArray = [...paymentResult.monthlyPaymentHistory];
-      actualArray.pop();
-
-      let decisionPending = actualArray.some((item) => {
-        return item.Price && item.PaymentStatus == false;
-      });
-
-      let decisionActive = actualArray.every((item) => {
-        return item.PaymentStatus == true;
-      });
-
-      if (decisionPending) {
-        return;
-      } else if (decisionActive) {
-        return;
-      } else {
-        data.push(student);
-      }
-    }
-  });
-
-  return {
-    data: data,
-    total: data.length,
-  };
-};
-export const sts15 = (students, payments) => {
-  let data = [];
-
-  students.map((student) => {
-    const paymentResult = payments.find((item) => {
-      return item.paymentID == student.paymentStatus.paymentID;
-    });
-
-    if (paymentResult && student.accountStatus.status == "regular") {
-      let actualArray = [...paymentResult.monthlyPaymentHistory];
-      actualArray.pop();
-
-      let decisionPending = actualArray.some((item) => {
-        return item.Price && item.PaymentStatus == false;
-      });
-
-      let decisionActive = actualArray.every((item) => {
-        return item.PaymentStatus == true;
-      });
-
-      if (decisionPending) {
-        return;
-      } else if (decisionActive) {
-        return;
-      } else {
-        data.push(student);
-      }
-    }
-  });
-
-  return {
-    data: data,
-    total: data.length,
-  };
-};
-export const sts16 = (students, payments) => {
-  let data = [];
-
-  students.map((student) => {
-    const paymentResult = payments.find((item) => {
-      return item.paymentID == student.paymentStatus.paymentID;
-    });
-
-    if (paymentResult && student.accountStatus.status == "regular") {
-      let actualArray = [...paymentResult.monthlyPaymentHistory];
-      actualArray.pop();
-
-      let decisionPending = actualArray.some((item) => {
-        return item.Price && item.PaymentStatus == false;
-      });
-
-      let decisionActive = actualArray.every((item) => {
-        return item.PaymentStatus == true;
-      });
-
-      if (decisionPending) {
-        return;
-      } else if (decisionActive) {
-        return;
-      } else {
-        data.push(student);
-      }
-    }
-  });
-
-  return {
-    data: data,
-    total: data.length,
-  };
-};
-export const sts17 = (students, payments) => {
-  let data = [];
-
-  students.map((student) => {
-    const paymentResult = payments.find((item) => {
-      return item.paymentID == student.paymentStatus.paymentID;
-    });
-
-    if (paymentResult && student.accountStatus.status == "regular") {
-      let actualArray = [...paymentResult.monthlyPaymentHistory];
-      actualArray.pop();
-
-      let decisionPending = actualArray.some((item) => {
-        return item.Price && item.PaymentStatus == false;
-      });
-
-      let decisionActive = actualArray.every((item) => {
-        return item.PaymentStatus == true;
-      });
-
-      if (decisionPending) {
-        return;
-      } else if (decisionActive) {
-        return;
-      } else {
+      if (student.fundStatus == "none") {
         data.push(student);
       }
     }

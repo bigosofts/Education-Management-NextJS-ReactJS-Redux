@@ -2399,7 +2399,7 @@ function PreFeeSection({ profile, country }) {
                     id="payment"
                     name="payment"
                     className="bg-white my-4 p-4 box-border w-full rounded-3xl mb-10 md:mb-[100px]"
-                    placeholder="1530 Taka, 30 Dollar"
+                    placeholder="1530 or 30"
                   ></input>
                 </>
               )}
