@@ -1519,9 +1519,10 @@ function SwitchDesign() {
             return true;
           }
         });
-
-      if (batch.length > 1) {
+      debugger;
+      if (batch.length > 0) {
         let batchNo = uniqueArray(batch);
+        debugger;
         setBatchArray(batchNo);
       }
       setExtraBatch(true);
