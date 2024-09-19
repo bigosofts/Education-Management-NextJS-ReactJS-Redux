@@ -315,7 +315,6 @@ function SwitchDesign() {
             NewStudentDepartment,
             NewStudentSemester,
             mainData.batch,
-            data.data.userDetails.batchCount,
             data.data.userDetails.fundStatus,
             data.data.userDetails.accountStatus
           );
@@ -1234,7 +1233,6 @@ function SwitchDesign() {
               mainData.classes == "shishumaktab" ||
               mainData.classes == "abacus_student" ||
               mainData.classes == "farzeayinnajera" ||
-              mainData.classes == "abacus_student" ||
               mainData.classes == "ramadanquranulkarim") &&
             mainData.department &&
             mainData.batch

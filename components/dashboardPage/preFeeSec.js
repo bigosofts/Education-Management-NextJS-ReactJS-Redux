@@ -70,8 +70,8 @@ function PreFeeSection({ profile, country }) {
     } else if (course == "hifjulquran") {
       setBatch([
         {
-          name: "Batch-20-04-2024",
-          value: "batch-20240420",
+          name: "Batch-03-08-2024",
+          value: "batch-20240803",
           startDate: new Date().toISOString(),
         },
       ]);
@@ -80,8 +80,8 @@ function PreFeeSection({ profile, country }) {
     } else if (course == "shishumaktab") {
       setBatch([
         {
-          name: "Batch-20-04-2024",
-          value: "batch-20240420",
+          name: "Batch-03-08-2024",
+          value: "batch-20240803",
           startDate: new Date().toISOString(),
         },
       ]);
@@ -96,8 +96,8 @@ function PreFeeSection({ profile, country }) {
     } else if (course == "farzeayinnajera") {
       setBatch([
         {
-          name: "Batch-20-04-2024",
-          value: "batch-20240420",
+          name: "Batch-03-08-2024",
+          value: "batch-20240803",
           startDate: new Date().toISOString(),
         },
       ]);
