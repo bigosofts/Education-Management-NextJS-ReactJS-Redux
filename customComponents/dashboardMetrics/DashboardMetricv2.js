@@ -12,6 +12,9 @@ import { fetchClasses } from "@/app/redux/features/classes/classesSlice";
 import { fetchStudents } from "@/app/redux/features/students/studentsSlice";
 import CardWithPie from "./cardWithpie";
 import DetailData from "./detailData";
+import BarChartAlemAlema from "./AlemalemaBarchart";
+import BarChartPreAlemAlema from "./PreAlemalemaBarchart";
+import "./css/style.css";
 import {
   sts1,
   sts2,
@@ -305,9 +308,10 @@ function DashboardMetricsV2() {
 
           {targetPercentage == 100 && (
             <>
-              <h1> Overview Status: </h1>
+              <h1 style={{ marginBottom: "100px" }}> Overview Status: </h1>
+
               <div
-                style={{ marginTop: "100px" }}
+                style={{ marginBottom: "100px" }}
                 className="grid grid-cols-1 md:grid-cols-5 gap-5 md:gap-5"
               >
                 <CardWithPie
@@ -478,6 +482,20 @@ function DashboardMetricsV2() {
                   parameter={"%"}
                   special={totalStudent.totalGeneralStudent?.data}
                 />
+              </div>
+
+              <div class="dsh-card-row">
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartAlemAlema />
+                  </div>
+                </div>
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    
+                    <BarChartPreAlemAlema />
+                  </div>
+                </div>
               </div>
             </>
           )}

@@ -1,6 +1,6 @@
 "use client";
 import "./css/style.css";
-import BarChart from "./Barchart.js";
+import BarChart from "./AlemalemaBarchart.js/index.js";
 import PieChart from "./Piechart";
 
 import { useEffect, useState } from "react";
