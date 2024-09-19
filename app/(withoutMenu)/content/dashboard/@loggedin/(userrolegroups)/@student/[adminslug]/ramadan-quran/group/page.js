@@ -5,23 +5,20 @@ import { useSelector } from "react-redux";
 function AbacusGroup() {
   const data = useSelector((state) => state.isAdmin.value);
 
-  const girlsLink = "https://t.me/+FPaWbxJK5n4xZmY1";
-  const boysLink = "https://t.me/+I86cqXm4qkFmNjA1";
-
   const hardRefresh = (link) => {
     if (typeof window !== "undefined") {
       window.location.href = link;
     }
   };
 
-  function joinBoys() {
+  function joinBoys(boysLink) {
     if (data.data.userDetails.gender == "male") {
       hardRefresh(boysLink);
     } else {
       mytoast.danger("You are not allowed to join this group");
     }
   }
-  function joinGirls() {
+  function joinGirls(girlsLink) {
     if (data.data.userDetails.gender == "female") {
       hardRefresh(girlsLink);
     } else {
@@ -63,10 +60,9 @@ function AbacusGroup() {
         </ul>
 
         <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
-          আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার কুরআনুল কারীম ক্ল্যাস আগামী
-          ৫ অক্টোবর, ২০২৪ থেকে শুরু হবে ইং শা আল্লাহ। আপনারা উপরোক্ত লিংক থেকে
-          নিজ নিজ ক্ল্যাস গ্রুপে জয়েন থাকুন। ক্ল্যাস প্রতিদিন রাত ৯ টায় হতে
-          পারে।
+          আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার কুরআনুল কারীম ক্ল্যাস আগামী ৫
+          অক্টোবর, ২০২৪ থেকে শুরু হবে ইং শা আল্লাহ। আপনারা উপরোক্ত লিংক থেকে নিজ
+          নিজ ক্ল্যাস গ্রুপে জয়েন থাকুন। ক্ল্যাস প্রতিদিন রাত ৯ টায় হতে পারে।
         </div>
       </div>
     </div>
