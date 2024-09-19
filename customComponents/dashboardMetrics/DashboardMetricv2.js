@@ -14,6 +14,13 @@ import CardWithPie from "./cardWithpie";
 import DetailData from "./detailData";
 import BarChartAlemAlema from "./AlemalemaBarchart";
 import BarChartPreAlemAlema from "./PreAlemalemaBarchart";
+import BarChartSchoolAlemalema from "./SchoolAlemalemaBarchart";
+import BarChartHifjulQuran from "./HifjulQuranChart";
+import BarChartShishuMaktab from "./ShishumaktabChart";
+import BarChartNajera from "./najeraChart";
+import BarChartAbacusStudent from "./AbacusStudentChart";
+import BarChartAbacusTeacher from "./AbacusTeacherChart";
+
 import "./css/style.css";
 import {
   sts1,
@@ -492,10 +499,45 @@ function DashboardMetricsV2() {
                 </div>
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    
                     <BarChartPreAlemAlema />
                   </div>
                 </div>
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartSchoolAlemalema />
+                  </div>
+                </div>
+
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartHifjulQuran />
+                  </div>
+                </div>
+
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartShishuMaktab />
+                  </div>
+                </div>
+
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartNajera />
+                  </div>
+                </div>
+
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartAbacusStudent />
+                  </div>
+                </div>
+
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartAbacusTeacher />
+                  </div>
+                </div>
+
               </div>
             </>
           )}

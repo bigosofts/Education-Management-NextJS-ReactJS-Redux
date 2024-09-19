@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
 
-const BarChartSchoolAlemalema = () => {
+const BarChartShishuMaktab = () => {
   // Use a ref to keep track of the chart instance
   const chartRef = useRef(null);
 
@@ -42,7 +42,7 @@ const BarChartSchoolAlemalema = () => {
     };
 
     // Get the canvas element
-    const ctx = document.getElementById("barChart7").getContext("2d");
+    const ctx = document.getElementById("barChart8").getContext("2d");
 
     // Check if a chart instance already exists and destroy it if it does
     if (chartRef.current) {
@@ -63,15 +63,16 @@ const BarChartSchoolAlemalema = () => {
       }
     };
   }, []);
-
   return (
     <>
-      <h1 style={{ margin: "50px 0px" }}> School Alem Alema Students: </h1>
+      <h1 style={{ margin: "50px 0px" }}> ShishuMaktab Students: </h1>
       <div style={{ width: "100%", height: "auto" }}>
-        <canvas id="barChart7"></canvas>
+        <canvas id="barChart8"></canvas>
       </div>
     </>
   );
+
+  return;
 };
 
-export default BarChartSchoolAlemalema;
+export default BarChartShishuMaktab;
