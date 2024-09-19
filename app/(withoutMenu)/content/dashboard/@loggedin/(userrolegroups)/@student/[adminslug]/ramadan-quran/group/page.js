@@ -39,7 +39,7 @@ function AbacusGroup() {
           {data.data.userDetails.batchCount === "batch-20240803" && (
             <>
               <li
-                onClick={() => joinBoys("https://t.me/hours24quranmale")}
+                onClick={() => joinBoys("https://t.me/+sO-qugueeHFjMjM9")}
                 className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
               >
                 <FaTelegram className="text-4xl inline-block mr-2" />
@@ -49,7 +49,7 @@ function AbacusGroup() {
                 </span>
               </li>
               <li
-                onClick={() => joinGirls("https://t.me/hours24quranfemale")}
+                onClick={() => joinGirls("https://t.me/+49utmJSlNOM4YTJl")}
                 className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
               >
                 <FaTelegram className="text-4xl inline-block mr-2" />
