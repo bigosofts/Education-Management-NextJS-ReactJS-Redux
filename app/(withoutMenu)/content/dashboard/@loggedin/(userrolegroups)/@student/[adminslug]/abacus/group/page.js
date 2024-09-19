@@ -6,10 +6,8 @@ import { useSelector } from "react-redux";
 function AbacusGroup() {
   const data = useSelector((state) => state.isAdmin.value);
 
-  const playNursery = "https://t.me/+sTJkdMnjXUI3OTVl";
   const playNursery_20240605 = "https://t.me/+qsMN1_UNq08yMTk9";
 
-  const levelOne = "https://t.me/+oNrr-8H3-sE1ZWY1";
   const levelOne_20240605 = "https://t.me/+M_QKZQA2kts3Mzhl";
 
   const hardRefresh = (link) => {
@@ -19,18 +17,12 @@ function AbacusGroup() {
   };
 
   function joinBoys() {
-    if (data.data.userDetails.batchCount == "batch-20240420") {
-      hardRefresh(levelOne);
-    }
-    if (data.data.userDetails.batchCount == "batch-20240605") {
+    if (data.data.userDetails.batchCount == "batch-20240803") {
       hardRefresh(levelOne_20240605);
     }
   }
   function joinGirls() {
-    if (data.data.userDetails.batchCount == "batch-20240420") {
-      hardRefresh(playNursery);
-    }
-    if (data.data.userDetails.batchCount == "batch-20240605") {
+    if (data.data.userDetails.batchCount == "batch-20240803") {
       hardRefresh(playNursery_20240605);
     }
   }
