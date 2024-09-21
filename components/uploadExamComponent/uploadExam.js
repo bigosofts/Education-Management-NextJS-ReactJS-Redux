@@ -266,7 +266,7 @@ function UploadExamStudent() {
         return item.examID == examQuestionID;
       });
 
-      return singleExamSheet.examSheet || null;
+      return singleExamSheet?.examSheet || null;
     } else {
       return null;
     }
