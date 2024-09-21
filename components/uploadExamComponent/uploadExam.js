@@ -156,6 +156,7 @@ function UploadExamStudent() {
 
   async function submitExamSheet(classID, examQuestionID, examType) {
     let singleClassDataQuery = await selectClasses({ _id: classID }, null);
+    debugger;
     mytoast.success("Your Exam Sheet has been uploaded: 25%");
 
     let singleClassData = JSON.parse(
@@ -164,10 +165,10 @@ function UploadExamStudent() {
 
     if (file) {
       setShowUpload(false);
-
+      debugger;
       const formData = new FormData();
       formData.append("file", file);
-
+      debugger;
       try {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_URL}/apis/v1/pdf-answer`,
@@ -178,30 +179,40 @@ function UploadExamStudent() {
         );
 
         if (response.ok) {
+          debugger;
           const result = await response.json();
 
           if (result.data.id) {
             mytoast.success("Your Exam Sheet has been uploaded: 50%");
+            debugger;
             let singleStudents = singleClassData.students.find(
               (item) => item.SID == data.data.userDetails.userName
             );
-
+            debugger;
             const timezoneOffset = 6 * 60; // Offset in minutes (6 hours * 60 minutes)
             const currentDate = moment()
               .utcOffset(timezoneOffset)
               .format("YYYY-MM-DDTHH:mm:ssZ");
 
             if (singleStudents.examSheet.length == 0) {
+              // If the examSheet array is empty, add the new item
               singleStudents.examSheet.push({
                 examID: examQuestionID,
                 examSheet: result.data.id,
                 examType: examType,
                 submittedDate: currentDate,
               });
+              debugger;
             } else {
+              // Check if any existing item matches examQuestionID
+              let isUpdated = false;
+              debugger;
               singleStudents.examSheet = singleStudents.examSheet.map(
                 (item) => {
                   if (item.examID == examQuestionID) {
+                    debugger;
+                    // If examID matches, update the item
+                    isUpdated = true;
                     return {
                       examID: examQuestionID,
                       examSheet: result.data.id,
@@ -209,12 +220,26 @@ function UploadExamStudent() {
                       submittedDate: currentDate,
                     };
                   } else {
+                    debugger;
+                    // Return the item unchanged if no match
                     return item;
                   }
                 }
               );
+
+              // If no matching examID was found, add a new item
+              if (!isUpdated) {
+                debugger;
+                singleStudents.examSheet.push({
+                  examID: examQuestionID,
+                  examSheet: result.data.id,
+                  examType: examType,
+                  submittedDate: currentDate,
+                });
+              }
             }
             mytoast.success("Your Exam Sheet has been uploaded: 75%");
+            debugger;
             const res = await updateClasses({
               classID: singleClassData.classID,
               courseID: singleClassData.courseID,
@@ -233,13 +258,14 @@ function UploadExamStudent() {
               activeStatus: singleClassData.activeStatus,
               idValue: classID,
             });
-
+            debugger;
             if (res.status == "Alhamdulillah") {
               mytoast.success("Your Exam Sheet has been uploaded: 100%");
               setShowUpload(true);
               setFile(null);
               dispatch(fetchClasses());
             }
+            debugger;
           }
         } else {
           mytoast.danger("File not uploaded. Please Try again");
@@ -274,6 +300,7 @@ function UploadExamStudent() {
 
   function fileChangeHandler(e) {
     e.preventDefault();
+    debugger;
     setFile(e.target.files[0]);
   }
 
