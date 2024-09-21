@@ -143,7 +143,7 @@ function UploadExamStudent() {
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/pdf/${fileID}`
     );
     const data = await res.json();
-    router.push(data.webContentLink);
+    window.open(data.webContentLink, "_blank");
   }
 
   async function openPDF(fileID) {
@@ -151,7 +151,7 @@ function UploadExamStudent() {
       `${process.env.NEXT_PUBLIC_URL}/apis/v1/pdf/${fileID}`
     );
     const data = await res.json();
-    router.push(data.webViewLink);
+    window.open(data.webViewLink, "_blank");
   }
 
   async function submitExamSheet(classID, examQuestionID, examType) {
