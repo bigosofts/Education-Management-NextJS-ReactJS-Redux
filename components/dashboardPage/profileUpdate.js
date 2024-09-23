@@ -71,6 +71,7 @@ function ProfileUpdate() {
         }
       }
     }
+
     if (blankArrayList.length < 1) {
       const res = await updateData(
         undefined,

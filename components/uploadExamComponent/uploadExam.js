@@ -3,7 +3,7 @@ import "./hifz.css";
 
 import Loader from "@/customComponents/loader/Loader";
 import { useSelector, useDispatch } from "react-redux";
-import { useRouter } from "next/navigation";
+
 import { useRef, useState, useEffect } from "react";
 import mytoast from "../toast/toast";
 import { updateData as updateClasses } from "@/apiservices/classapiservices";
@@ -13,7 +13,7 @@ import { fetchClasses } from "@/app/redux/features/classes/classesSlice";
 
 function UploadExamStudent() {
   const dispatch = useDispatch();
-  const router = useRouter();
+
   const [file, setFile] = useState();
   const data = useSelector((state) => state.isAdmin.value);
   const courseState = useSelector((state) => state.courseState.value);

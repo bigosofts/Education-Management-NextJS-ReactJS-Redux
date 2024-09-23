@@ -42,7 +42,7 @@ const BarChartNajera = () => {
     };
 
     // Get the canvas element
-    const ctx = document.getElementById("barChart6").getContext("2d");
+    const ctx = document.getElementById("barChart9").getContext("2d");
 
     // Check if a chart instance already exists and destroy it if it does
     if (chartRef.current) {
@@ -65,9 +65,9 @@ const BarChartNajera = () => {
   }, []);
   return (
     <>
-      <h1 style={{ margin: "50px 0px" }}> Pre Hifz/najera Students: </h1>
+      <h1 style={{ margin: "50px 0px" }}> Pre Hifz Current Students: </h1>
       <div style={{ width: "100%", height: "auto" }}>
-        <canvas id="barChart6"></canvas>
+        <canvas id="barChart9"></canvas>
       </div>
     </>
   );

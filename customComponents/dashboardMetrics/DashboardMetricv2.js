@@ -12,14 +12,30 @@ import { fetchClasses } from "@/app/redux/features/classes/classesSlice";
 import { fetchStudents } from "@/app/redux/features/students/studentsSlice";
 import CardWithPie from "./cardWithpie";
 import DetailData from "./detailData";
+
 import BarChartAlemAlema from "./AlemalemaBarchart";
+import BarChartAlemAlemaPreserve from "./AlemalemaBarchartPreserve";
+
 import BarChartPreAlemAlema from "./PreAlemalemaBarchart";
+import BarChartPreAlemAlemaPreserve from "./PreAlemalemaBarchartPreserve";
+
 import BarChartSchoolAlemalema from "./SchoolAlemalemaBarchart";
+import BarChartSchoolAlemalemaPreserve from "./SchoolAlemalemaBarchartPreserve";
+
 import BarChartHifjulQuran from "./HifjulQuranChart";
+import BarChartHifjulQuranPreserve from "./HifjulQuranChartPreserve";
+
 import BarChartShishuMaktab from "./ShishumaktabChart";
+import BarChartShishuMaktabPreserve from "./ShishumaktabChartPreserve";
+
 import BarChartNajera from "./najeraChart";
+import BarChartNajeraPreserve from "./najeraChartPreserve";
+
 import BarChartAbacusStudent from "./AbacusStudentChart";
+import BarChartAbacusStudentPreserve from "./AbacusStudentChartPreserve";
+
 import BarChartAbacusTeacher from "./AbacusTeacherChart";
+import BarChartAbacusTeacherPreserve from "./AbacusTeacherChartPreserve";
 
 import "./css/style.css";
 import {
@@ -161,6 +177,30 @@ function DashboardMetricsV2() {
         totalGeneralStudent: sts11(students, payments),
       }));
     }
+
+    function getRamadan() {
+      // First, filter students who match the course code and batch count
+      const filteredStudents = students.filter((student) => {
+        const course = student.studentCourseCode.some(
+          (item) =>
+            /ramadanquranulkarim/i.test(item.code) && item.status === "active"
+        );
+        // Check for both the course match and batch count
+        return course && student.batchCount === "batch-20240803";
+      });
+
+      // Then map over the filtered students to format the output as desired
+      return filteredStudents.map((student) => ({
+        Name: student.firstName.en + " " + student.lastName.en,
+        userName: student.userName,
+        Mobile: student.mobileNumber,
+        Email: student.emailAddress,
+        Gender: student.gender,
+      }));
+    }
+
+    // Log the result as JSON
+    console.log(JSON.stringify(getRamadan(), null, 2));
   }, [
     semesters,
     jamats,
@@ -497,14 +537,34 @@ function DashboardMetricsV2() {
                     <BarChartAlemAlema />
                   </div>
                 </div>
+
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartAlemAlemaPreserve />
+                  </div>
+                </div>
+
                 <div class="dsh-col-chart">
                   <div class="card chart">
                     <BarChartPreAlemAlema />
                   </div>
                 </div>
+
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartPreAlemAlemaPreserve />
+                  </div>
+                </div>
+
                 <div class="dsh-col-chart">
                   <div class="card chart">
                     <BarChartSchoolAlemalema />
+                  </div>
+                </div>
+
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartSchoolAlemalemaPreserve />
                   </div>
                 </div>
 
@@ -516,7 +576,19 @@ function DashboardMetricsV2() {
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
+                    <BarChartHifjulQuranPreserve />
+                  </div>
+                </div>
+
+                <div class="dsh-col-chart">
+                  <div class="card chart">
                     <BarChartShishuMaktab />
+                  </div>
+                </div>
+
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartShishuMaktabPreserve />
                   </div>
                 </div>
 
@@ -528,7 +600,19 @@ function DashboardMetricsV2() {
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
+                    <BarChartNajeraPreserve />
+                  </div>
+                </div>
+
+                <div class="dsh-col-chart">
+                  <div class="card chart">
                     <BarChartAbacusStudent />
+                  </div>
+                </div>
+
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartAbacusStudentPreserve />
                   </div>
                 </div>
 
@@ -538,6 +622,11 @@ function DashboardMetricsV2() {
                   </div>
                 </div>
 
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartAbacusTeacherPreserve />
+                  </div>
+                </div>
               </div>
             </>
           )}

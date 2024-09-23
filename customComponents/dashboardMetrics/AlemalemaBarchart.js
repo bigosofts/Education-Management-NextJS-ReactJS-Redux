@@ -1,23 +1,28 @@
+"use client";
 import { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
+import { useSelector } from "react-redux";
 
 const BarChartAlemAlema = () => {
+  const classes = useSelector((state) => state.classes.classes);
+  const students = useSelector((state) => state.students.students);
+
   // Use a ref to keep track of the chart instance
   const chartRef = useRef(null);
 
   useEffect(() => {
     // Data for the bar chart with two datasets
     const data = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      labels: ["Batch-20240420", "Batch-20240605", "Batch-20240803"],
       datasets: [
         {
-          label: "My First dataset",
-          data: [65, 59, 80, 81, 56, 55, 40],
+          label: "Male",
+          data: [65, 59, 110],
           backgroundColor: "rgba(0, 188, 212, 0.8)", // Bar color
         },
         {
-          label: "My Second dataset",
-          data: [28, 48, 40, 19, 86, 27, 90],
+          label: "Female",
+          data: [28, 48, 40],
           backgroundColor: "rgba(233, 30, 99, 0.8)", // Bar color for second dataset
         },
       ],
@@ -42,7 +47,7 @@ const BarChartAlemAlema = () => {
     };
 
     // Get the canvas element
-    const ctx = document.getElementById("barChart1").getContext("2d");
+    const ctx = document.getElementById("barChart0").getContext("2d");
 
     // Check if a chart instance already exists and destroy it if it does
     if (chartRef.current) {
@@ -63,11 +68,12 @@ const BarChartAlemAlema = () => {
       }
     };
   }, []);
+
   return (
     <>
-      <h1 style={{ margin: "50px 0px" }}> Alem Alema Students: </h1>
+      <h1 style={{ margin: "50px 0px" }}> Alem Alema Current Students: </h1>
       <div style={{ width: "100%", height: "auto" }}>
-        <canvas id="barChart1"></canvas>
+        <canvas id="barChart0"></canvas>
       </div>
     </>
   );

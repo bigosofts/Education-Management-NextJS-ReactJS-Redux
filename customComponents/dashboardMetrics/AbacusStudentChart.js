@@ -42,7 +42,7 @@ const BarChartAbacusStudent = () => {
     };
 
     // Get the canvas element
-    const ctx = document.getElementById("barChart3").getContext("2d");
+    const ctx = document.getElementById("barChart1").getContext("2d");
 
     // Check if a chart instance already exists and destroy it if it does
     if (chartRef.current) {
@@ -65,9 +65,9 @@ const BarChartAbacusStudent = () => {
   }, []);
   return (
     <>
-      <h1 style={{ margin: "50px 0px" }}> Abacus Students: </h1>
+      <h1 style={{ margin: "50px 0px" }}> Abacus Current Students: </h1>
       <div style={{ width: "100%", height: "auto" }}>
-        <canvas id="barChart3"></canvas>
+        <canvas id="barChart1"></canvas>
       </div>
     </>
   );
