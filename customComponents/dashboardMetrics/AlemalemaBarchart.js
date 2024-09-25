@@ -52,17 +52,13 @@ const BarChartAlemAlema = () => {
       });
 
       if (savedData.length > 0) {
-
-        const addOrUpdate = (key, value) => {
-          setAll(prevState => ({
-            ...prevState,
-            [key]: prevState[key] ? [...prevState[key], value] : [value] // If the key exists, append the new value; otherwise, create a new array with the value.
-          }));
+        let dataFinal = {
+          parameter: [...savedData],
+          male: [],
+          female: [],
         };
-        
 
-        savedData.forEach((item2) => {
-
+        savedData.forEach((item2, i) => {
           let filteredStudentsMale =
             students.length > 0 &&
             students.filter((item) => {
@@ -88,6 +84,8 @@ const BarChartAlemAlema = () => {
               }
               return false; // Explicitly return false for clarity
             });
+
+          dataFinal.male.push(filteredStudentsMale);
 
           data[0].data.push(filteredStudentsMale.length);
 
@@ -117,11 +115,12 @@ const BarChartAlemAlema = () => {
               return false; // Explicitly return false for clarity
             });
 
-          data[1].data.push(filteredStudentsFemale.length);
+          dataFinal.female.push(filteredStudentsFemale);
 
+          data[1].data.push(filteredStudentsFemale.length);
         });
 
-
+        setAll(dataFinal);
       } else {
       }
 
@@ -143,13 +142,6 @@ const BarChartAlemAlema = () => {
         });
 
       const uniqueClasses = [...new Set(mappedClasses)];
-
-      const savedData = uniqueClasses.map((item) => {
-        return {
-          semesterID: item.split(":")[0],
-          batch: item.split(":")[1],
-        };
-      });
 
       const uniqueClassesName = uniqueClasses.map((item) => {
         let part1 = item.split(":")[0];
@@ -213,6 +205,10 @@ const BarChartAlemAlema = () => {
       }
     };
   }, []);
+
+  if (all) {
+    console.log(all);
+  }
 
   return (
     <>
