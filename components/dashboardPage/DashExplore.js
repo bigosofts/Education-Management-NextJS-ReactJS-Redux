@@ -154,7 +154,7 @@ function DashExplore() {
         show: true,
       },
       {
-        name: "Ramadan Quran",
+        name: "Quranul Karim",
         href: `/content/dashboard/${data.data.userName}/ramadan-quran`,
         icon: "/images/quran.svg",
         show: true,
@@ -233,9 +233,9 @@ function DashExplore() {
             icon: "/images/abacus_teacher.svg",
             show: false,
           };
-        } else if (item.name == "Ramadan Quran") {
+        } else if (item.name == "Quranul Karim") {
           return {
-            name: "Ramadan Quran",
+            name: "Quranul Karim",
             href: `/content/dashboard/${data.data.userName}/ramadan-quran`,
             icon: "/images/quran.svg",
             show: false,
@@ -327,9 +327,9 @@ function DashExplore() {
             icon: "/images/abacus_teacher.svg",
             show: false,
           };
-        } else if (item.name == "Ramadan Quran") {
+        } else if (item.name == "Quranul Karim") {
           return {
-            name: "Ramadan Quran",
+            name: "Quranul Karim",
             href: `/content/dashboard/${data.data.userName}/ramadan-quran`,
             icon: "/images/quran.svg",
             show: false,
@@ -525,7 +525,7 @@ function DashExplore() {
         if (item.code == "ramadanquranulkarim" && item.status == "active") {
           let ramadanquranulkarimArray = [
             {
-              name: "Ramadan Quran",
+              name: "Quranul Karim",
               href: `/content/dashboard/${data.data.userName}/ramadan-quran`,
               icon: "/images/quran.svg",
               show: true,
@@ -642,7 +642,7 @@ function DashExplore() {
           show: true,
         },
         {
-          name: "Ramadan Quran",
+          name: "Quranul Karim",
           href: `/content/dashboard/${data.data.userName}/ramadan-quran`,
           icon: "/images/quran.svg",
           show: true,

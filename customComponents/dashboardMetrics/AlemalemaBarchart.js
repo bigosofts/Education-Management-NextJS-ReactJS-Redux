@@ -7,7 +7,7 @@ const BarChartAlemAlema = () => {
   const classes = useSelector((state) => state.classes.classes);
   const students = useSelector((state) => state.students.students);
   const semesters = useSelector((state) => state.djs.semesters);
-  const [all, setAll] = useState([]);
+  const [all, setAll] = useState({});
 
   // Use a ref to keep track of the chart instance
   const chartRef = useRef(null);
@@ -35,26 +35,34 @@ const BarChartAlemAlema = () => {
             item.activeStatus === "active" && item.courseID === "alemalema"
           );
         });
-      debugger;
+
       const mappedClasses =
         filteredClasses.length > 0 &&
         filteredClasses.map((item) => {
           return item.semesterID + ":" + item.batchNo;
         });
-      debugger;
+
       const uniqueClasses = [...new Set(mappedClasses)];
-      debugger;
+
       const savedData = uniqueClasses.map((item) => {
         return {
           semesterID: item.split(":")[0],
           batch: item.split(":")[1],
         };
       });
-      debugger;
 
       if (savedData.length > 0) {
-        debugger;
+
+        const addOrUpdate = (key, value) => {
+          setAll(prevState => ({
+            ...prevState,
+            [key]: prevState[key] ? [...prevState[key], value] : [value] // If the key exists, append the new value; otherwise, create a new array with the value.
+          }));
+        };
+        
+
         savedData.forEach((item2) => {
+
           let filteredStudentsMale =
             students.length > 0 &&
             students.filter((item) => {
@@ -62,7 +70,7 @@ const BarChartAlemAlema = () => {
               let activeSemesters = item.studentSemester.filter(
                 (sem) => /semester/i.test(sem.code) && sem.status === "active"
               );
-              debugger;
+
               // Check conditions based on the number of active semesters
               if (
                 activeSemesters.length > 0 &&
@@ -70,7 +78,6 @@ const BarChartAlemAlema = () => {
                 item.gender != "female" &&
                 item.accountStatus.status === "regular"
               ) {
-                debugger;
                 // Check the last semester's code for validity
                 if (
                   activeSemesters[activeSemesters.length - 1].code ==
@@ -81,9 +88,9 @@ const BarChartAlemAlema = () => {
               }
               return false; // Explicitly return false for clarity
             });
-          debugger;
+
           data[0].data.push(filteredStudentsMale.length);
-          debugger;
+
           let filteredStudentsFemale =
             students.length > 0 &&
             students.filter((item) => {
@@ -109,12 +116,13 @@ const BarChartAlemAlema = () => {
               }
               return false; // Explicitly return false for clarity
             });
-          debugger;
+
           data[1].data.push(filteredStudentsFemale.length);
-          debugger;
+
         });
+
+
       } else {
-        debugger;
       }
 
       return data;
@@ -142,8 +150,6 @@ const BarChartAlemAlema = () => {
           batch: item.split(":")[1],
         };
       });
-
-      setAll(savedData);
 
       const uniqueClassesName = uniqueClasses.map((item) => {
         let part1 = item.split(":")[0];
