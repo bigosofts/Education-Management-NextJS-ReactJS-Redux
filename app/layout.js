@@ -1,6 +1,7 @@
 import "./globals.css";
 import "../assets/css/font-awesome.min.css";
 import "animate.css";
+import Head from "next/head";
 
 import { Providers } from "./redux/provider";
 
@@ -25,6 +26,10 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+
       <body>
         <GoogleTagManagerBeforeHeaderTwo />
 
