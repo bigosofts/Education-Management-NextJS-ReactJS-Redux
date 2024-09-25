@@ -200,7 +200,7 @@ function DashboardMetricsV2() {
     }
 
     // Log the result as JSON
-    console.log(JSON.stringify(getRamadan(), null, 2));
+    // console.log(JSON.stringify(getRamadan(), null, 2));
   }, [
     semesters,
     jamats,

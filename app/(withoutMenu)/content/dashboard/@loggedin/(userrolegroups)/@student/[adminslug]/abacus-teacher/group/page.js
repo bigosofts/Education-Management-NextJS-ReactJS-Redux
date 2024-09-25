@@ -6,8 +6,8 @@ import { FaTelegram } from "react-icons/fa";
 function AbacusGroup() {
   const data = useSelector((state) => state.isAdmin.value);
 
-  const boysLink = "https://t.me/+rDswSE49du42NjQ1";
-  const girlsLink = "https://t.me/+P8-6v-rwrMY2Mjll";
+  const boysLink = "https://t.me/+YxgAQ4YCvOk5MTI1";
+  const girlsLink = "https://t.me/+oggVT2CTzQFjYWFl";
 
   const hardRefresh = (link) => {
     if (typeof window !== "undefined") {
@@ -61,8 +61,8 @@ function AbacusGroup() {
         </ul>
         <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
           আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার অ্যাবাকাস শিক্ষক প্রশিক্ষণ
-          ক্ল্যাস ৫ই মে, ২০২৪ থেকে শুরু হবে ইংশাআল্লাহ । আপনারা উপরোক্ত লিংক
-          থেকে নিজ নিজ ক্ল্যাস গ্রুপে জয়েন থাকুন।
+          ক্ল্যাস ৫ই অক্টোবর, ২০২৪ থেকে শুরু হবে ইংশাআল্লাহ । আপনারা উপরোক্ত
+          লিংক থেকে নিজ নিজ ক্ল্যাস গ্রুপে জয়েন থাকুন।
         </div>
       </div>
     </div>

@@ -1,36 +1,142 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
 import { useSelector } from "react-redux";
 
 const BarChartAlemAlema = () => {
   const classes = useSelector((state) => state.classes.classes);
   const students = useSelector((state) => state.students.students);
+  const semesters = useSelector((state) => state.djs.semesters);
+  const [all, setAll] = useState();
 
   // Use a ref to keep track of the chart instance
   const chartRef = useRef(null);
 
   useEffect(() => {
     // Data for the bar chart with two datasets
-    const data = {
-      labels: ["Batch-20240420", "Batch-20240605", "Batch-20240803"],
-      datasets: [
+    function getData() {
+      let data = [
         {
           label: "Male",
-          data: [65, 59, 110],
+          data: [],
           backgroundColor: "rgba(0, 188, 212, 0.8)", // Bar color
         },
         {
           label: "Female",
-          data: [28, 48, 40],
+          data: [],
           backgroundColor: "rgba(233, 30, 99, 0.8)", // Bar color for second dataset
         },
-      ],
+      ];
+
+      if (all.length > 0) {
+
+        all.forEach((item2) => {
+          
+          let filteredStudentsMale =
+            students.length > 0 &&
+            students.filter((item) => {
+              // Filter active semesters
+              let activeSemesters = item.studentSemester.filter(
+                (sem) => /semester/i.test(sem.code) && sem.status === "active"
+              );
+
+              // Check conditions based on the number of active semesters
+              if (
+                activeSemesters.length > 0 &&
+                item.batchCount === item2.batch &&
+                !item.gender == "female"
+              ) {
+                // Check the last semester's code for validity
+                if (
+                  activeSemesters[activeSemesters.length - 1].code ==
+                  item2.semesterID
+                ) {
+                  return true;
+                }
+              }
+              return false; // Explicitly return false for clarity
+            });
+
+          let filteredStudentsFemale =
+            students.length > 0 &&
+            students.filter((item) => {
+              // Filter active semesters
+              let activeSemesters = item.studentSemester.filter(
+                (sem) => /semester/i.test(sem.code) && sem.status === "active"
+              );
+
+              // Check conditions based on the number of active semesters
+              if (
+                activeSemesters.length > 0 &&
+                item.batchCount === item2.batch &&
+                item.gender == "female"
+              ) {
+                // Check the last semester's code for validity
+                if (
+                  activeSemesters[activeSemesters.length - 1].code ==
+                  item2.semesterID
+                ) {
+                  return true;
+                }
+              }
+              return false; // Explicitly return false for clarity
+            });
+        });
+      }
+
+      return data;
+    }
+
+    function getLabel() {
+      const filteredClasses =
+        classes.length > 0 &&
+        classes.filter((item) => {
+          return (
+            item.activeStatus === "active" && item.courseID === "alemalema"
+          );
+        });
+      const mappedClasses =
+        filteredClasses.length > 0 &&
+        filteredClasses.map((item) => {
+          return item.semesterID + ":" + item.batchNo;
+        });
+
+      const uniqueClasses = [...new Set(mappedClasses)];
+
+      const savedData = uniqueClasses.map((item) => {
+        return {
+          semesterID: item.split(":")[0],
+          batch: item.split(":")[1],
+        };
+      });
+
+      setAll(savedData);
+
+      const uniqueClassesName = uniqueClasses.map((item) => {
+        let part1 = item.split(":")[0];
+        let part2 = item.split(":")[1];
+
+        let semesterName =
+          semesters.length > 0 &&
+          semesters.find((item) => {
+            return item.semesterID == part1;
+          });
+
+        return `${semesterName.semesterName}:${part2}`;
+      });
+
+      return uniqueClassesName;
+    }
+
+    const data = {
+      labels: getLabel(),
+      datasets: getData(),
     };
 
     // Configuration options
     const options = {
       responsive: true,
+
       scales: {
         x: {
           beginAtZero: true,
@@ -41,7 +147,7 @@ const BarChartAlemAlema = () => {
       },
       plugins: {
         legend: {
-          display: false, // Disable legend if needed
+          display: true, // Disable legend if needed
         },
       },
     };

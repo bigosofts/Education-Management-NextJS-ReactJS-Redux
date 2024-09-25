@@ -4,8 +4,8 @@ function AbacusBooks() {
   return (
     <div className="w-11/12 md:w-5/12 overflow-hidden mt-5 m-auto pb-[100px]">
       <div className="mt-5 md:mt-[80px] rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
-        আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার ফ্রি অ্যাবাকাস শিক্ষক প্রশিক্ষণ
-        ক্ল্যাস ৫ই জুন, ২০২৪ থেকে শুরু হবে ইং শা আল্লাহ। আপনাদের অতিরিক্ত কীট ও
+        আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার অ্যাবাকাস শিক্ষক প্রশিক্ষণ
+        ক্ল্যাস ৫ই অক্টোবর, ২০২৪ থেকে শুরু হবে ইং শা আল্লাহ। আপনাদের অতিরিক্ত কীট ও
         বই লাগলে সংগ্রহ করে রাখতে পারেন।
       </div>
       <div
