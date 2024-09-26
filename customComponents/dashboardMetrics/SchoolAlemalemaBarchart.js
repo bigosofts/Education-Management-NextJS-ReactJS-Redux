@@ -1,31 +1,176 @@
-import { useEffect, useRef } from "react";
+"use client";
+import { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
+import { useSelector } from "react-redux";
 
 const BarChartSchoolAlemalema = () => {
+  const classes = useSelector((state) => state.classes.classes);
+  const students = useSelector((state) => state.students.students);
+  const semesters = useSelector((state) => state.djs.semesters);
+  const [all, setAll] = useState({});
+
   // Use a ref to keep track of the chart instance
   const chartRef = useRef(null);
 
   useEffect(() => {
     // Data for the bar chart with two datasets
-    const data = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
-      datasets: [
+    function getData() {
+      let data = [
         {
-          label: "My First dataset",
-          data: [65, 59, 80, 81, 56, 55, 40],
+          label: "Male",
+          data: [],
           backgroundColor: "rgba(0, 188, 212, 0.8)", // Bar color
         },
         {
-          label: "My Second dataset",
-          data: [28, 48, 40, 19, 86, 27, 90],
+          label: "Female",
+          data: [],
           backgroundColor: "rgba(233, 30, 99, 0.8)", // Bar color for second dataset
         },
-      ],
+      ];
+
+      const filteredClasses =
+        classes.length > 0 &&
+        classes.filter((item) => {
+          return (
+            item.activeStatus === "active" &&
+            item.courseID === "schoolalemalema"
+          );
+        });
+
+      const mappedClasses =
+        filteredClasses.length > 0 &&
+        filteredClasses.map((item) => {
+          return item.semesterID + ":" + item.batchNo;
+        });
+
+      const uniqueClasses = [...new Set(mappedClasses)];
+
+      const savedData = uniqueClasses.map((item) => {
+        return {
+          semesterID: item.split(":")[0],
+          batch: item.split(":")[1],
+        };
+      });
+
+      if (savedData.length > 0) {
+        let dataFinal = {
+          parameter: [...savedData],
+          male: [],
+          female: [],
+        };
+
+        savedData.forEach((item2, i) => {
+          let filteredStudentsMale =
+            students.length > 0 &&
+            students.filter((item) => {
+              // Filter active semesters
+              let activeSemesters = item.studentSemester.filter(
+                (sem) => /school/i.test(sem.code) && sem.status === "active"
+              );
+
+              // Check conditions based on the number of active semesters
+              if (
+                activeSemesters.length > 0 &&
+                item.batchCount === item2.batch &&
+                item.gender != "female" &&
+                item.accountStatus.status === "regular"
+              ) {
+                // Check the last semester's code for validity
+                if (
+                  activeSemesters[activeSemesters.length - 1].code ==
+                  item2.semesterID
+                ) {
+                  return true;
+                }
+              }
+              return false; // Explicitly return false for clarity
+            });
+
+          dataFinal.male.push(filteredStudentsMale);
+
+          data[0].data.push(filteredStudentsMale.length);
+
+          let filteredStudentsFemale =
+            students.length > 0 &&
+            students.filter((item) => {
+              // Filter active semesters
+              let activeSemesters = item.studentSemester.filter(
+                (sem) => /school/i.test(sem.code) && sem.status === "active"
+              );
+
+              // Check conditions based on the number of active semesters
+              if (
+                activeSemesters.length > 0 &&
+                item.batchCount === item2.batch &&
+                item.gender == "female" &&
+                item.accountStatus.status === "regular"
+              ) {
+                // Check the last semester's code for validity
+                if (
+                  activeSemesters[activeSemesters.length - 1].code ==
+                  item2.semesterID
+                ) {
+                  return true;
+                }
+              }
+              return false; // Explicitly return false for clarity
+            });
+
+          dataFinal.female.push(filteredStudentsFemale);
+
+          data[1].data.push(filteredStudentsFemale.length);
+        });
+
+        setAll(dataFinal);
+      } else {
+      }
+
+      return data;
+    }
+
+    function getLabel() {
+      const filteredClasses =
+        classes.length > 0 &&
+        classes.filter((item) => {
+          return (
+            item.activeStatus === "active" &&
+            item.courseID === "schoolalemalema"
+          );
+        });
+
+      const mappedClasses =
+        filteredClasses.length > 0 &&
+        filteredClasses.map((item) => {
+          return item.semesterID + ":" + item.batchNo;
+        });
+
+      const uniqueClasses = [...new Set(mappedClasses)];
+
+      const uniqueClassesName = uniqueClasses.map((item) => {
+        let part1 = item.split(":")[0];
+        let part2 = item.split(":")[1];
+
+        let semesterName =
+          semesters.length > 0 &&
+          semesters.find((item) => {
+            return item.semesterID == part1;
+          });
+
+        return `${semesterName.semesterName}:${part2}`;
+      });
+
+      return uniqueClassesName;
+    }
+
+    const data = {
+      labels: getLabel(),
+      datasets: getData(),
     };
 
     // Configuration options
     const options = {
       responsive: true,
+
       scales: {
         x: {
           beginAtZero: true,
@@ -36,7 +181,7 @@ const BarChartSchoolAlemalema = () => {
       },
       plugins: {
         legend: {
-          display: false, // Disable legend if needed
+          display: true, // Disable legend if needed
         },
       },
     };
@@ -64,14 +209,23 @@ const BarChartSchoolAlemalema = () => {
     };
   }, []);
 
+  if (all) {
+    console.log(all);
+  }
+
   return (
     <>
-      <h1 style={{ margin: "50px 0px" }}> School Alem Alema Current Students: </h1>
+      <h1 style={{ margin: "50px 0px" }}>
+        {" "}
+        School Alem Alema Current Students:{" "}
+      </h1>
       <div style={{ width: "100%", height: "auto" }}>
         <canvas id="barChart13"></canvas>
       </div>
     </>
   );
+
+  return;
 };
 
 export default BarChartSchoolAlemalema;

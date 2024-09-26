@@ -64,7 +64,11 @@ const BarChartAlemAlema = () => {
             students.filter((item) => {
               // Filter active semesters
               let activeSemesters = item.studentSemester.filter(
-                (sem) => /semester/i.test(sem.code) && sem.status === "active"
+                (sem) =>
+                  /semester/i.test(sem.code) &&
+                  !/pre/i.test(sem.code) &&
+                  !/school/i.test(sem.code) &&
+                  sem.status === "active"
               );
 
               // Check conditions based on the number of active semesters
@@ -135,6 +139,7 @@ const BarChartAlemAlema = () => {
             item.activeStatus === "active" && item.courseID === "alemalema"
           );
         });
+
       const mappedClasses =
         filteredClasses.length > 0 &&
         filteredClasses.map((item) => {
