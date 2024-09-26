@@ -211,7 +211,7 @@ const BarChartQuranulKarim = () => {
 
   return (
     <>
-      <h1 style={{ margin: "50px 0px" }}> Shishu Maktab Current Students: </h1>
+      <h1 style={{ margin: "50px 0px" }}> Quranul Karim Current Students: </h1>
       <div style={{ width: "100%", height: "auto" }}>
         <canvas id="barChart31"></canvas>
       </div>

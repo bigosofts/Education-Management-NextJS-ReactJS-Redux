@@ -65,7 +65,7 @@ const BarChartQuranulKarimPreserve = () => {
   }, []);
   return (
     <>
-      <h1 style={{ margin: "50px 0px" }}> ShishuMaktab Preserve Students: </h1>
+      <h1 style={{ margin: "50px 0px" }}> Quranul Karim Preserve Students: </h1>
       <div style={{ width: "100%", height: "auto" }}>
         <canvas id="barChart30"></canvas>
       </div>
