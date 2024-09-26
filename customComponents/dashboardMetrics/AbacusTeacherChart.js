@@ -1,31 +1,137 @@
-import { useEffect, useRef } from "react";
+"use client";
+import { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
+import { useSelector } from "react-redux";
+import { selectDataTwo } from "@/apiservices/abacusinstitutionapiservices";
 
 const BarChartAbacusTeacher = () => {
+  const classes = useSelector((state) => state.classes.classes);
+  const students = useSelector((state) => state.students.students);
+
+  const [all, setAll] = useState({});
+
+  const [abacusInstitution, setAbacusInstitution] = useState([]);
+
+  useEffect(() => {
+    async function getRes() {
+      const res = await selectDataTwo(null, null);
+      if (res.status == "Alhamdulillah") {
+        setAbacusInstitution(res.data);
+      }
+    }
+
+    getRes();
+  }, []);
+
   // Use a ref to keep track of the chart instance
   const chartRef = useRef(null);
 
   useEffect(() => {
     // Data for the bar chart with two datasets
+    function getData() {
+      if (abacusInstitution.length > 0) {
+        let data = [
+          {
+            label: "Male",
+            data: [],
+            backgroundColor: "rgba(0, 188, 212, 0.8)", // Bar color
+          },
+          {
+            label: "Female",
+            data: [],
+            backgroundColor: "rgba(233, 30, 99, 0.8)", // Bar color for second dataset
+          },
+        ];
+
+        const filteredClasses =
+          abacusInstitution.length > 0 &&
+          abacusInstitution.filter((item) => {
+            return item.activeStatus === "active";
+          });
+
+        const mappedClasses =
+          filteredClasses?.length > 0 &&
+          filteredClasses.map((item) => {
+            return item.batchCount;
+          });
+
+        const uniqueClasses = [...new Set(mappedClasses)];
+
+        const savedData = uniqueClasses.map((item) => {
+          return {
+            batch: item,
+          };
+        });
+
+        if (savedData.length > 0) {
+          let dataFinal = {
+            parameter: [...savedData],
+            male: [],
+            female: [],
+          };
+
+          savedData.forEach((item2, i) => {
+            let filteredStudentsMale =
+              abacusInstitution?.length > 0 &&
+              abacusInstitution.filter((item) => {
+                // Check conditions based on the number of active semesters
+                if (
+                  abacusInstitution.length > 0 &&
+                  item.batchCount === item2.batch &&
+                  item.activeStatus === "active"
+                ) {
+                  return true;
+                }
+                return false; // Explicitly return false for clarity
+              });
+
+            dataFinal.male.push(filteredStudentsMale);
+
+            data[0].data.push(filteredStudentsMale.length);
+          });
+
+          setAll(dataFinal);
+        }
+
+        return data;
+      }
+    }
+
+    function getLabel() {
+      if (abacusInstitution.length > 0) {
+        const filteredClasses =
+          abacusInstitution.length > 0 &&
+          abacusInstitution.filter((item) => {
+            return item.activeStatus === "active";
+          });
+
+        const mappedClasses =
+          filteredClasses?.length > 0 &&
+          filteredClasses.map((item) => {
+            return item.batchCount;
+          });
+
+        const uniqueClasses = [...new Set(mappedClasses)];
+
+        const uniqueClassesName = uniqueClasses.map((item) => {
+          let part2 = item;
+
+          return `${part2}`;
+        });
+
+        return uniqueClassesName;
+      }
+    }
+
     const data = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
-      datasets: [
-        {
-          label: "My First dataset",
-          data: [65, 59, 80, 81, 56, 55, 40],
-          backgroundColor: "rgba(0, 188, 212, 0.8)", // Bar color
-        },
-        {
-          label: "My Second dataset",
-          data: [28, 48, 40, 19, 86, 27, 90],
-          backgroundColor: "rgba(233, 30, 99, 0.8)", // Bar color for second dataset
-        },
-      ],
+      labels: getLabel(),
+      datasets: getData(),
     };
 
     // Configuration options
     const options = {
       responsive: true,
+
       scales: {
         x: {
           beginAtZero: true,
@@ -36,7 +142,7 @@ const BarChartAbacusTeacher = () => {
       },
       plugins: {
         legend: {
-          display: false, // Disable legend if needed
+          display: true, // Disable legend if needed
         },
       },
     };
@@ -62,7 +168,12 @@ const BarChartAbacusTeacher = () => {
         chartRef.current.destroy();
       }
     };
-  }, []);
+  }, [abacusInstitution]);
+
+  if (all) {
+    console.log(all);
+  }
+
   return (
     <>
       <h1 style={{ margin: "50px 0px" }}> Abacus Teacher Current Students: </h1>

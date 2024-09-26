@@ -13,6 +13,9 @@ import { fetchStudents } from "@/app/redux/features/students/studentsSlice";
 import CardWithPie from "./cardWithpie";
 import DetailData from "./detailData";
 
+import BarChartQuranulKarim from "./quranulKarimChart";
+import BarChartQuranulKarimPreserve from "./quranulKarimChartPreserve";
+
 import BarChartAlemAlema from "./AlemalemaBarchart";
 import BarChartAlemAlemaPreserve from "./AlemalemaBarchartPreserve";
 
@@ -625,6 +628,18 @@ function DashboardMetricsV2() {
                 <div class="dsh-col-chart">
                   <div class="card chart">
                     <BarChartAbacusTeacherPreserve />
+                  </div>
+                </div>
+
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartQuranulKarim />
+                  </div>
+                </div>
+
+                <div class="dsh-col-chart">
+                  <div class="card chart">
+                    <BarChartQuranulKarimPreserve />
                   </div>
                 </div>
               </div>
