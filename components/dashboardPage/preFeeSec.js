@@ -66,7 +66,13 @@ function PreFeeSection({ profile, country }) {
         },
       ]);
     } else if (course == "abacus_student") {
-      setBatch([]);
+      setBatch([
+        {
+          name: "Batch-05-06-2024",
+          value: "batch-20240605",
+          startDate: new Date().toISOString(),
+        },
+      ]);
     } else if (course == "hifjulquran") {
       setBatch([
         {
