@@ -69,7 +69,7 @@ function AbacusGroup() {
 
         <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-red-400 text-white transition duration-500 ease-out mb-4">
           কারো যদি কোনভাবেই উপরের লিংক কাজ না করে তাহলে এই লিংক থেকে আপনার
-          জেন্ডারের তথ্যটি আপডেট করে রিলোড দিয়ে নিন তাহলে কাজ করবে ইংশাআল্লাহ{" "}
+          জেন্ডারের তথ্যটি আপডেট করে রিলোড দিয়ে নিন তাহলে কাজ করবে ইংশাআল্লাহ
           <span className="bg-slate-600 py-1 px-4 rounded-md">
             <Link
               href={`/content/dashboard/${data.data.userDetails.userName}/settings/profile-update`}
