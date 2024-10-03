@@ -8,6 +8,7 @@ import { useState } from "react";
 import mytoast from "@/components/toast/toast";
 import { selectData, deleteData } from "@/apiservices/classapiservices";
 
+
 function ClassPage(props) {
   const [visible, setVisible] = useState(false);
   const [flag, setFlag] = useState(true);

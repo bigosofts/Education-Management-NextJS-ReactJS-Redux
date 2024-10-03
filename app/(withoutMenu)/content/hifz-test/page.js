@@ -5,7 +5,7 @@ function HifzTestPage() {
   function move() {
     if (signup) {
       if (typeof window !== "undefined") {
-        window.location.href = `/signup?code=hifjulquran`;
+        window.location.href = `/content/signup?code=hifjulquran`;
       }
     }
   }
