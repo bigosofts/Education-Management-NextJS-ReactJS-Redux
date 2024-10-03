@@ -49,6 +49,52 @@ const BarChartAlemAlemaPreserve = () => {
         };
       });
 
+      // if (savedData.length > 0) {
+      //   let dataFinal = {
+      //     parameter: [...savedData],
+      //     male: [],
+      //     female: [],
+      //   };
+
+      //   savedData.forEach((item2, i) => {
+      //     const male = [];
+      //     const female = [];
+
+      //     const perfectClasses = filteredClasses.filter((item) => {
+      //       return (
+      //         item.semesterID == item2.semesterID && item.batchNo == item2.batch
+      //       );
+      //     });
+
+      //     for (const item4 of perfectClasses[0].students) {
+      //       let singleStd =
+      //         students.length > 0 &&
+      //         students.find((std) => {
+      //           std.userName == item4.SID;
+      //           console.log("test");
+      //         });
+
+      //       if (singleStd) {
+      //         if (singleStd.gender == "male") {
+      //           male.push(singleStd);
+      //         } else if (singleStd.gender == "female") {
+      //           female.push(singleStd);
+      //         } else {
+      //           male.push(singleStd);
+      //         }
+      //       }
+      //     }
+
+      //     dataFinal.male.push(male);
+      //     dataFinal.female.push(female);
+
+      //     data[0].data.push(male.length);
+      //     data[1].data.push(female.length);
+      //   });
+
+      //   setAll(dataFinal);
+      // }
+
       if (savedData.length > 0) {
         let dataFinal = {
           parameter: [...savedData],
@@ -56,37 +102,54 @@ const BarChartAlemAlemaPreserve = () => {
           female: [],
         };
 
-        savedData.forEach((item2, i) => {
-          const perfectClasses = filteredClasses.filter((item) => {
-            return (
-              item.semesterID == item2.semesterID && item.batchNo == item2.batch
-            );
-          });
+        // Step 1: Preprocess `perfectClasses` into a hash map
+        const classMap = new Map();
 
-          // for (const item4 of perfectClasses[0].students) {
-          //   let singleStd =
-          //     students.length > 0 &&
-          //     students.find((std) => {
-          //       std.userName == item4.SID;
-          //       console.log("test");
-          //     });
-
-          //   if (singleStd) {
-          //     console.log(singleStd);
-          //     if (singleStd.gender == "male") {
-          //       dataFinal.male.push(filteredStudentsMale);
-          //       data[0].data.push(filteredStudentsMale.length);
-          //     } else if (singleStd.gender == "female") {
-          //       dataFinal.female.push(filteredStudentsFemale);
-          //       data[1].data.push(filteredStudentsFemale.length);
-          //     } else {
-          //       dataFinal.male.push(filteredStudentsMale);
-          //       data[0].data.push(filteredStudentsMale.length);
-          //     }
-          //   }
-          // }
+        // Create keys for each class based on `semesterID` and `batchNo`
+        filteredClasses.forEach((item) => {
+          const key = `${item.semesterID}-${item.batchNo}`;
+          classMap.set(key, item.students); // Store the list of students in this class
         });
 
+        // Step 2: Create a hash map for quick lookup of students by userName
+        const studentMap = new Map();
+        students.forEach((std) => studentMap.set(std.userName, std));
+
+        // Step 3: Iterate over savedData and do a constant time lookup in both hash maps
+        savedData.forEach((item2, i) => {
+          const classKey = `${item2.semesterID}-${item2.batch}`;
+          const classStudents = classMap.get(classKey); // O(1) lookup for class
+
+          if (classStudents) {
+            let male = [];
+            let female = [];
+
+            classStudents.forEach((item4) => {
+              const singleStd = studentMap.get(item4.SID); // O(1) lookup for student
+
+              if (singleStd) {
+                if (singleStd.gender === "male") {
+                  male.push(singleStd);
+                  // Push male student data
+                } else if (singleStd.gender === "female") {
+                  female.push(singleStd);
+                  dataFinal.female.push(singleStd); // Push female student data
+                } else {
+                  male.push(singleStd);
+                  dataFinal.male.push(singleStd); // Handle any other case as male
+                }
+              }
+            });
+
+            dataFinal.male.push(male);
+            dataFinal.female.push(female);
+
+            data[0].data.push(male.length);
+            data[1].data.push(female.length);
+          }
+        });
+
+        // Set final data
         setAll(dataFinal);
       }
 
