@@ -19,6 +19,7 @@ function AbacusGroup() {
       mytoast.danger("You are not allowed to join this group");
     }
   }
+
   function joinGirls(girlsLink) {
     if (data.data.userDetails.gender == "female") {
       hardRefresh(girlsLink);
@@ -26,6 +27,7 @@ function AbacusGroup() {
       mytoast.danger("You are not allowed to join this group");
     }
   }
+
   return (
     <div className="w-full">
       <h1 className="w-full md:w-[50%] mx-auto px-5 text-lg md:text-3xl mt-10 text-slate-500 mb-4 text-center">

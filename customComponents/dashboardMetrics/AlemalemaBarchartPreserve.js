@@ -49,51 +49,7 @@ const BarChartAlemAlemaPreserve = () => {
         };
       });
 
-      // if (savedData.length > 0) {
-      //   let dataFinal = {
-      //     parameter: [...savedData],
-      //     male: [],
-      //     female: [],
-      //   };
-
-      //   savedData.forEach((item2, i) => {
-      //     const male = [];
-      //     const female = [];
-
-      //     const perfectClasses = filteredClasses.filter((item) => {
-      //       return (
-      //         item.semesterID == item2.semesterID && item.batchNo == item2.batch
-      //       );
-      //     });
-
-      //     for (const item4 of perfectClasses[0].students) {
-      //       let singleStd =
-      //         students.length > 0 &&
-      //         students.find((std) => {
-      //           std.userName == item4.SID;
-      //           console.log("test");
-      //         });
-
-      //       if (singleStd) {
-      //         if (singleStd.gender == "male") {
-      //           male.push(singleStd);
-      //         } else if (singleStd.gender == "female") {
-      //           female.push(singleStd);
-      //         } else {
-      //           male.push(singleStd);
-      //         }
-      //       }
-      //     }
-
-      //     dataFinal.male.push(male);
-      //     dataFinal.female.push(female);
-
-      //     data[0].data.push(male.length);
-      //     data[1].data.push(female.length);
-      //   });
-
-      //   setAll(dataFinal);
-      // }
+    
 
       if (savedData.length > 0) {
         let dataFinal = {
