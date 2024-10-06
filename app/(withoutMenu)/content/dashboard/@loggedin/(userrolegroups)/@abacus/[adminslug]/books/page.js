@@ -2,14 +2,14 @@
 import Image from "next/image";
 function AbacusBooks() {
   return (
-    <div className="w-11/12 md:w-5/12 overflow-hidden mt-5 m-auto pb-[100px]">
+    <div className="w-11/12 md:w-8/12 overflow-hidden mt-5 m-auto pb-[100px]">
       <div className="mt-5 md:mt-[80px] rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
         আসসালামু আলাইকুম, ইন্টারনেট মাদ্রাসার ফ্রি অ্যাবাকাস শিক্ষক প্রশিক্ষণ
         ক্ল্যাস ৫ই জুন, ২০২৪ থেকে শুরু হবে ইং শা আল্লাহ। আপনাদের অতিরিক্ত কীট ও
         বই লাগলে সংগ্রহ করে রাখতে পারেন।
       </div>
       <div
-        className="flex gap-5"
+        className="flex-row md:flex gap-5"
         style={{
           justifyContent: "center",
 
@@ -22,7 +22,8 @@ function AbacusBooks() {
             overflow: "hidden",
             boxShadow: "0px 1px 5px rgba(0,0,0,0.3)",
             border: "1px solid rgba(0,0,0,0.1)",
-            width: "50%",
+            width: "100%",
+            marginBottom: "50px",
           }}
         >
           <Image
@@ -57,7 +58,8 @@ function AbacusBooks() {
             overflow: "hidden",
             boxShadow: "0px 1px 5px rgba(0,0,0,0.3)",
             border: "1px solid rgba(0,0,0,0.1)",
-            width: "50%",
+            width: "100%",
+            marginBottom: "50px",
           }}
         >
           <Image
@@ -77,6 +79,41 @@ function AbacusBooks() {
             }}
           >
             <p>Package 2: Brain Math Abacus (Level 1) + Abacus Kit</p>
+          </div>
+          <a
+            className="p-2 bg-sky-500 block text-white text-center text-xl"
+            href="/content/abacus-purchase"
+          >
+            <div className="style-1155">ক্রয় করুন</div>
+          </a>
+        </div>
+        <div
+          style={{
+            borderRadius: "20px",
+            overflow: "hidden",
+            boxShadow: "0px 1px 5px rgba(0,0,0,0.3)",
+            border: "1px solid rgba(0,0,0,0.1)",
+            width: "100%",
+            marginBottom: "50px",
+          }}
+        >
+          <Image
+            width={600}
+            height={800}
+            src="https://res.cloudinary.com/daosnrqkh/image/upload/v1728189761/uploaded_image/jdaevbz5rccsosq6ur2t.jpg"
+          />
+          <div
+            className="text-[12px] md:text-2xl"
+            style={{
+              padding: "10px 10%",
+
+              lineHeight: "32px",
+              textAlign: "center",
+              backgroundColor: "#efefef",
+              fontWeight: "900",
+            }}
+          >
+            <p>Package 2: Brain Math Abacus (Level 2) + Abacus Kit</p>
           </div>
           <a
             className="p-2 bg-sky-500 block text-white text-center text-xl"

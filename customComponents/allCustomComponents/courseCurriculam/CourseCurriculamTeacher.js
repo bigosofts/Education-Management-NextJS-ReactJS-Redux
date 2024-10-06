@@ -9,7 +9,7 @@ function CourseCurriculamTeacher() {
   useEffect(() => {
     async function getData() {
       const res = await selectDataTwo(
-        { VideoGroupID: "abacus_teacher_05102024", activeStatus: "active" },
+        { VideoGroupID: "give_link_here", activeStatus: "active" },
         null
       );
       if (res.status == "Alhamdulillah") {
