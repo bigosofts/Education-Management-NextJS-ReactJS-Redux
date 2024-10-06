@@ -31,31 +31,27 @@ function AbacusGroup() {
 
         <div className="w-full md:w-[50%] mx-auto p-4 border-0 md:border-2 border-slate-300 rounded-3xl">
           <ul>
-            {data.data.userDetails.gender == "female" && (
-              <li
-                onClick={joinGirls}
-                className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
-              >
-                <FaTelegram className="text-4xl inline-block mr-2" />
-                Join Teachers' Training Female Telegram class group
-                <span className="float-right">
-                  <i className="text-lg fa fa-arrow-right"></i>
-                </span>
-              </li>
-            )}
+            <li
+              onClick={joinGirls}
+              className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
+            >
+              <FaTelegram className="text-4xl inline-block mr-2" />
+              Join Teachers' Training Female Telegram class group
+              <span className="float-right">
+                <i className="text-lg fa fa-arrow-right"></i>
+              </span>
+            </li>
 
-            {data.data.userDetails.gender == "male" && (
-              <li
-                onClick={joinBoys}
-                className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
-              >
-                <FaTelegram className="text-4xl inline-block mr-2" />
-                Join Teachers' Training Male Telegram class group
-                <span className="float-right">
-                  <i className="text-lg fa fa-arrow-right"></i>
-                </span>
-              </li>
-            )}
+            <li
+              onClick={joinBoys}
+              className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
+            >
+              <FaTelegram className="text-4xl inline-block mr-2" />
+              Join Teachers' Training Male Telegram class group
+              <span className="float-right">
+                <i className="text-lg fa fa-arrow-right"></i>
+              </span>
+            </li>
           </ul>
 
           <div className="rounded-3xl w-full p-4 text-lg md:text-2xl bg-[#013030] text-white transition duration-500 ease-out mb-4">
