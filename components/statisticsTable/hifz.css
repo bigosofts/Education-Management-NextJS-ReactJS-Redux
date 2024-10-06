@@ -1,0 +1,45 @@
+.statisticsTable .hifz_table {
+  width: 100%;
+  margin: 50px auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .statisticsTable .hifz_table {
+    font-size: 10px;
+  }
+}
+
+.statisticsTable .hifz_table .table_container {
+  width: 100%;
+  overflow-x: auto;
+  max-height: 700px; /* Adjust the height as needed */
+}
+.statisticsTable .hifz_table table {
+  border: 1px solid #b3adad;
+  border-collapse: collapse;
+  padding: 5px;
+  width: 100%;
+}
+
+.statisticsTable .hifz_table table th {
+  border: 1px solid #ffffff;
+  padding: 10px 5px;
+  background: #4472c4;
+  color: #fff;
+}
+
+.statisticsTable .hifz_table table td {
+  border: 1px solid #b3adad;
+  text-align: center;
+  padding: 5px;
+
+  color: #000;
+}
+
+.statisticsTable .hifz_table table tbody tr:nth-child(odd) {
+  background-color: #dae3f3 !important;
+}
+
+.statisticsTable .hifz_table table tbody tr:nth-child(even) {
+  background-color: rgb(255, 255, 255) !important;
+}

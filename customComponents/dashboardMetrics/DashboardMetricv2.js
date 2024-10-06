@@ -59,14 +59,20 @@ import {
 function DashboardMetricsV2() {
   const dispatch = useDispatch();
   const [backdrop, setBackdrop] = useState(false);
+  const [currentData, setCurrentData] = useState();
+
+  const [currentTitle, setCurrentTitle] = useState();
 
   const [percentage, setPercentage] = useState(0);
 
-  const [showComponent, setShowComponent] = useState();
+  const [showComponent, setShowComponent] = useState(false);
 
   const [status, setStatus] = useState();
 
   const [targetPercentage, setTargetPercentage] = useState(0);
+  function backdropFalse() {
+    setBackdrop(false);
+  }
 
   const data = useSelector((state) => state.isAdmin.value);
 
@@ -364,174 +370,304 @@ function DashboardMetricsV2() {
                 style={{ marginBottom: "100px" }}
                 className="grid grid-cols-1 md:grid-cols-5 gap-5 md:gap-5"
               >
-                <CardWithPie
-                  colors={"#f57c00"}
-                  percentage={100}
-                  texthead={"Total Accounts"}
-                  textbody={totalStudent.totalStudent?.total}
-                  parameter={"%"}
-                  specific={totalStudent.totalStudent?.data}
-                />
-                <CardWithPie
-                  colors={"#f2c94c"}
-                  percentage={Math.ceil(
-                    (Number(totalStudent.totalAnnualActiveStudent?.total) /
-                      Number(totalStudent.totalStudent?.total)) *
-                      100
-                  )}
-                  texthead={"Total Annual Active"}
-                  textbody={totalStudent.totalAnnualActiveStudent?.total}
-                  parameter={"%"}
-                  specific={totalStudent.totalAnnualActiveStudent?.data}
-                />
-                <CardWithPie
-                  colors={"#65708d"}
-                  percentage={Math.ceil(
-                    (Number(totalStudent.totalAnnualPendingStudent?.total) /
-                      Number(totalStudent.totalStudent?.total)) *
-                      100
-                  )}
-                  texthead={"Total Annual Pending"}
-                  textbody={totalStudent.totalAnnualPendingStudent?.total}
-                  parameter={"%"}
-                  specific={totalStudent.totalAnnualPendingStudent?.data}
-                />
-                <CardWithPie
-                  colors={"#f2c94c"}
-                  percentage={Math.ceil(
-                    (Number(
+                <div
+                  onClick={() => {
+                    setCurrentData(totalStudent.totalStudent?.data);
+                    setBackdrop(true);
+                    setCurrentTitle("সকল রেজিস্টার্ড শিক্ষার্থীদের তালিকা");
+                  }}
+                >
+                  <CardWithPie
+                    colors={"#f57c00"}
+                    percentage={100}
+                    texthead={"Total Accounts"}
+                    textbody={totalStudent.totalStudent?.total}
+                    parameter={"%"}
+                  />
+                </div>
+
+                <div
+                  onClick={() => {
+                    setCurrentData(totalStudent.totalAnnualActiveStudent?.data);
+                    setBackdrop(true);
+                    setCurrentTitle("সকল বাৎসরিক সক্রিয় শিক্ষার্থীদের তালিকা");
+                  }}
+                >
+                  <CardWithPie
+                    colors={"#f2c94c"}
+                    percentage={Math.ceil(
+                      (Number(totalStudent.totalAnnualActiveStudent?.total) /
+                        Number(totalStudent.totalStudent?.total)) *
+                        100
+                    )}
+                    texthead={"Total Annual Active"}
+                    textbody={totalStudent.totalAnnualActiveStudent?.total}
+                    parameter={"%"}
+                  />
+                </div>
+
+                <div
+                  onClick={() => {
+                    setCurrentData(
+                      totalStudent.totalAnnualPendingStudent?.data
+                    );
+                    setBackdrop(true);
+                    setCurrentTitle(
+                      "সকল বাৎসরিক অপেক্ষমাণ শিক্ষার্থীদের তালিকা"
+                    );
+                  }}
+                >
+                  <CardWithPie
+                    colors={"#65708d"}
+                    percentage={Math.ceil(
+                      (Number(totalStudent.totalAnnualPendingStudent?.total) /
+                        Number(totalStudent.totalStudent?.total)) *
+                        100
+                    )}
+                    texthead={"Total Annual Pending"}
+                    textbody={totalStudent.totalAnnualPendingStudent?.total}
+                    parameter={"%"}
+                  />
+                </div>
+
+                <div
+                  onClick={() => {
+                    setCurrentData(
+                      totalStudent.totalConcurrentAnnualDueStudent?.data
+                    );
+                    setBackdrop(true);
+                    setCurrentTitle(
+                      "সকল বাৎসরিক চলমান বকেয়া শিক্ষার্থীদের তালিকা"
+                    );
+                  }}
+                >
+                  <CardWithPie
+                    colors={"#f2c94c"}
+                    percentage={Math.ceil(
+                      (Number(
+                        totalStudent.totalConcurrentAnnualDueStudent?.total
+                      ) /
+                        Number(totalStudent.totalStudent?.total)) *
+                        100
+                    )}
+                    texthead={"Total Concurrent Due"}
+                    textbody={
                       totalStudent.totalConcurrentAnnualDueStudent?.total
-                    ) /
-                      Number(totalStudent.totalStudent?.total)) *
-                      100
-                  )}
-                  texthead={"Total Concurrent Due"}
-                  textbody={totalStudent.totalConcurrentAnnualDueStudent?.total}
-                  parameter={"%"}
-                  specific={totalStudent.totalConcurrentAnnualDueStudent?.data}
-                />
-                <CardWithPie
-                  colors={"#2f80ed"}
-                  percentage={Math.ceil(
-                    (Number(totalStudent.totalAnnualDueStudent?.total) /
-                      Number(totalStudent.totalStudent?.total)) *
-                      100
-                  )}
-                  texthead={"Total Annual Due"}
-                  textbody={totalStudent.totalAnnualDueStudent?.total}
-                  parameter={"%"}
-                  specific={totalStudent.totalAnnualDueStudent?.data}
-                />
-                <CardWithPie
-                  colors={"#27ae60"}
-                  percentage={Math.ceil(
-                    (Number(totalStudent.totalAnnualIrregularStudent?.total) /
-                      Number(totalStudent.totalStudent?.total)) *
-                      100
-                  )}
-                  texthead={"Total Annual Irregular"}
-                  textbody={totalStudent.totalAnnualIrregularStudent?.total}
-                  parameter={"%"}
-                  specific={totalStudent.totalAnnualIrregularStudent?.data}
-                />
-                <CardWithPie
-                  colors={"#2d9cdb"}
-                  percentage={Math.ceil(
-                    (Number(totalStudent.totalMonthlyActiveStudent?.total) /
-                      (Number(totalStudent.totalAnnualPendingStudent?.total) +
-                        Number(
-                          totalStudent.totalConcurrentAnnualDueStudent?.total
-                        ) +
-                        Number(totalStudent.totalAnnualActiveStudent?.total))) *
-                      100
-                  )}
-                  texthead={"Total Monthly Active"}
-                  textbody={totalStudent.totalMonthlyActiveStudent?.total}
-                  parameter={"%"}
-                  special={totalStudent.totalMonthlyActiveStudent?.data}
-                />
-                <CardWithPie
-                  colors={"#27ae60"}
-                  percentage={Math.ceil(
-                    (Number(totalStudent.totalMonthlyPendingStudent?.total) /
-                      (Number(totalStudent.totalAnnualPendingStudent?.total) +
-                        Number(
-                          totalStudent.totalConcurrentAnnualDueStudent?.total
-                        ) +
-                        Number(totalStudent.totalAnnualActiveStudent?.total))) *
-                      100
-                  )}
-                  texthead={"Total Monthly Pending"}
-                  textbody={totalStudent.totalMonthlyPendingStudent?.total}
-                  parameter={"%"}
-                  special={totalStudent.totalMonthlyPendingStudent?.data}
-                />
-                <CardWithPie
-                  colors={"#f57c00"}
-                  percentage={Math.ceil(
-                    (Number(totalStudent.totalMonthlyDueStudent?.total) /
-                      (Number(totalStudent.totalAnnualPendingStudent?.total) +
-                        Number(
-                          totalStudent.totalConcurrentAnnualDueStudent?.total
-                        ) +
-                        Number(totalStudent.totalAnnualActiveStudent?.total))) *
-                      100
-                  )}
-                  texthead={"Total Monthly Due"}
-                  textbody={totalStudent.totalMonthlyDueStudent?.total}
-                  parameter={"%"}
-                  special={totalStudent.totalMonthlyDueStudent?.data}
-                />
-                <CardWithPie
-                  colors={"#f2c94c"}
-                  percentage={Math.ceil(
-                    (Number(totalStudent.totalNafalSadkaStudent?.total) /
-                      (Number(totalStudent.totalAnnualPendingStudent?.total) +
-                        Number(
-                          totalStudent.totalConcurrentAnnualDueStudent?.total
-                        ) +
-                        Number(totalStudent.totalAnnualActiveStudent?.total))) *
-                      100
-                  )}
-                  texthead={"Total Nafal Sadka Student"}
-                  textbody={totalStudent.totalNafalSadkaStudent?.total}
-                  parameter={"%"}
-                  special={totalStudent.totalNafalSadkaStudent?.data}
-                />
+                    }
+                    parameter={"%"}
+                  />
+                </div>
 
-                <CardWithPie
-                  colors={"#2d9cdb"}
-                  percentage={Math.ceil(
-                    (Number(totalStudent.totalZakatStudent?.total) /
-                      (Number(totalStudent.totalAnnualPendingStudent?.total) +
-                        Number(
-                          totalStudent.totalConcurrentAnnualDueStudent?.total
-                        ) +
-                        Number(totalStudent.totalAnnualActiveStudent?.total))) *
-                      100
-                  )}
-                  texthead={"Total Zakat Student"}
-                  textbody={totalStudent.totalZakatStudent?.total}
-                  parameter={"%"}
-                  special={totalStudent.totalZakatStudent?.data}
-                />
+                <div
+                  onClick={() => {
+                    setCurrentData(totalStudent.totalAnnualDueStudent?.data);
+                    setBackdrop(true);
+                    setCurrentTitle("সকল বাৎসরিক বকেয়া শিক্ষার্থীদের তালিকা");
+                  }}
+                >
+                  {" "}
+                  <CardWithPie
+                    colors={"#2f80ed"}
+                    percentage={Math.ceil(
+                      (Number(totalStudent.totalAnnualDueStudent?.total) /
+                        Number(totalStudent.totalStudent?.total)) *
+                        100
+                    )}
+                    texthead={"Total Annual Due"}
+                    textbody={totalStudent.totalAnnualDueStudent?.total}
+                    parameter={"%"}
+                  />
+                </div>
 
-                <CardWithPie
-                  colors={"#65708d"}
-                  percentage={Math.ceil(
-                    (Number(totalStudent.totalGeneralStudent?.total) /
-                      (Number(totalStudent.totalAnnualPendingStudent?.total) +
-                        Number(
-                          totalStudent.totalConcurrentAnnualDueStudent?.total
-                        ) +
-                        Number(totalStudent.totalAnnualActiveStudent?.total))) *
-                      100
-                  )}
-                  texthead={"Total General Fund Student"}
-                  textbody={totalStudent.totalGeneralStudent?.total}
-                  parameter={"%"}
-                  special={totalStudent.totalGeneralStudent?.data}
-                />
+                <div
+                  onClick={() => {
+                    setCurrentData(
+                      totalStudent.totalAnnualIrregularStudent?.data
+                    );
+                    setBackdrop(true);
+                    setCurrentTitle(
+                      "সকল বাৎসরিক নিষ্ক্রিয় শিক্ষার্থীদের তালিকা"
+                    );
+                  }}
+                >
+                  <CardWithPie
+                    colors={"#27ae60"}
+                    percentage={Math.ceil(
+                      (Number(totalStudent.totalAnnualIrregularStudent?.total) /
+                        Number(totalStudent.totalStudent?.total)) *
+                        100
+                    )}
+                    texthead={"Total Annual Irregular"}
+                    textbody={totalStudent.totalAnnualIrregularStudent?.total}
+                    parameter={"%"}
+                  />
+                </div>
+
+                <div
+                  onClick={() => {
+                    setCurrentData(
+                      totalStudent.totalMonthlyActiveStudent?.data
+                    );
+                    setBackdrop(true);
+                    setCurrentTitle("সকল মাসিক সক্রিয় শিক্ষার্থীদের তালিকা");
+                  }}
+                >
+                  {" "}
+                  <CardWithPie
+                    colors={"#2d9cdb"}
+                    percentage={Math.ceil(
+                      (Number(totalStudent.totalMonthlyActiveStudent?.total) /
+                        (Number(totalStudent.totalAnnualPendingStudent?.total) +
+                          Number(
+                            totalStudent.totalConcurrentAnnualDueStudent?.total
+                          ) +
+                          Number(
+                            totalStudent.totalAnnualActiveStudent?.total
+                          ))) *
+                        100
+                    )}
+                    texthead={"Total Monthly Active"}
+                    textbody={totalStudent.totalMonthlyActiveStudent?.total}
+                    parameter={"%"}
+                  />
+                </div>
+
+                <div
+                  onClick={() => {
+                    setCurrentData(
+                      totalStudent.totalMonthlyPendingStudent?.data
+                    );
+                    setBackdrop(true);
+                    setCurrentTitle("সকল মাসিক অপেক্ষমাণ শিক্ষার্থীদের তালিকা");
+                  }}
+                >
+                  {" "}
+                  <CardWithPie
+                    colors={"#27ae60"}
+                    percentage={Math.ceil(
+                      (Number(totalStudent.totalMonthlyPendingStudent?.total) /
+                        (Number(totalStudent.totalAnnualPendingStudent?.total) +
+                          Number(
+                            totalStudent.totalConcurrentAnnualDueStudent?.total
+                          ) +
+                          Number(
+                            totalStudent.totalAnnualActiveStudent?.total
+                          ))) *
+                        100
+                    )}
+                    texthead={"Total Monthly Pending"}
+                    textbody={totalStudent.totalMonthlyPendingStudent?.total}
+                    parameter={"%"}
+                  />
+                </div>
+
+                <div
+                  onClick={() => {
+                    setCurrentData(totalStudent.totalMonthlyDueStudent?.data);
+                    setBackdrop(true);
+                    setCurrentTitle("সকল মাসিক বকেয়া শিক্ষার্থীদের তালিকা");
+                  }}
+                >
+                  {" "}
+                  <CardWithPie
+                    colors={"#f57c00"}
+                    percentage={Math.ceil(
+                      (Number(totalStudent.totalMonthlyDueStudent?.total) /
+                        (Number(totalStudent.totalAnnualPendingStudent?.total) +
+                          Number(
+                            totalStudent.totalConcurrentAnnualDueStudent?.total
+                          ) +
+                          Number(
+                            totalStudent.totalAnnualActiveStudent?.total
+                          ))) *
+                        100
+                    )}
+                    texthead={"Total Monthly Due"}
+                    textbody={totalStudent.totalMonthlyDueStudent?.total}
+                    parameter={"%"}
+                  />
+                </div>
+
+                <div
+                  onClick={() => {
+                    setCurrentData(totalStudent.totalNafalSadkaStudent?.data);
+                    setBackdrop(true);
+                    setCurrentTitle("সকল নফল সদকা শিক্ষার্থীদের তালিকা");
+                  }}
+                >
+                  {" "}
+                  <CardWithPie
+                    colors={"#f2c94c"}
+                    percentage={Math.ceil(
+                      (Number(totalStudent.totalNafalSadkaStudent?.total) /
+                        (Number(totalStudent.totalAnnualPendingStudent?.total) +
+                          Number(
+                            totalStudent.totalConcurrentAnnualDueStudent?.total
+                          ) +
+                          Number(
+                            totalStudent.totalAnnualActiveStudent?.total
+                          ))) *
+                        100
+                    )}
+                    texthead={"Total Nafal Sadka Student"}
+                    textbody={totalStudent.totalNafalSadkaStudent?.total}
+                    parameter={"%"}
+                  />
+                </div>
+
+                <div
+                  onClick={() => {
+                    setCurrentData(totalStudent.totalZakatStudent?.data);
+                    setBackdrop(true);
+                    setCurrentTitle("সকল যাকাত ফান্ডের শিক্ষার্থীদের তালিকা");
+                  }}
+                >
+                  {" "}
+                  <CardWithPie
+                    colors={"#2d9cdb"}
+                    percentage={Math.ceil(
+                      (Number(totalStudent.totalZakatStudent?.total) /
+                        (Number(totalStudent.totalAnnualPendingStudent?.total) +
+                          Number(
+                            totalStudent.totalConcurrentAnnualDueStudent?.total
+                          ) +
+                          Number(
+                            totalStudent.totalAnnualActiveStudent?.total
+                          ))) *
+                        100
+                    )}
+                    texthead={"Total Zakat Student"}
+                    textbody={totalStudent.totalZakatStudent?.total}
+                    parameter={"%"}
+                  />
+                </div>
+
+                <div
+                  onClick={() => {
+                    setCurrentData(totalStudent.totalGeneralStudent?.data);
+                    setBackdrop(true);
+                    setCurrentTitle("সকল জেনারেল ফান্ডের শিক্ষার্থীদের তালিকা");
+                  }}
+                >
+                  {" "}
+                  <CardWithPie
+                    colors={"#65708d"}
+                    percentage={Math.ceil(
+                      (Number(totalStudent.totalGeneralStudent?.total) /
+                        (Number(totalStudent.totalAnnualPendingStudent?.total) +
+                          Number(
+                            totalStudent.totalConcurrentAnnualDueStudent?.total
+                          ) +
+                          Number(
+                            totalStudent.totalAnnualActiveStudent?.total
+                          ))) *
+                        100
+                    )}
+                    texthead={"Total General Fund Student"}
+                    textbody={totalStudent.totalGeneralStudent?.total}
+                    parameter={"%"}
+                  />
+                </div>
               </div>
 
               <div class="dsh-card-row">
@@ -646,7 +782,13 @@ function DashboardMetricsV2() {
             </>
           )}
 
-          {backdrop && <DetailData />}
+          {backdrop && currentData && (
+            <DetailData
+              data={currentData}
+              title={currentTitle}
+              backdropFalse={backdropFalse}
+            />
+          )}
         </div>
       )}
     </>

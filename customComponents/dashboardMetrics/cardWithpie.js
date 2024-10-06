@@ -1,13 +1,6 @@
 "useclient";
 import { useEffect, useState } from "react";
-function CardWithPie({
-  texthead,
-  textbody,
-  percentage,
-  parameter,
-  colors,
-  specific,
-}) {
+function CardWithPie({ texthead, textbody, percentage, parameter, colors }) {
   const randomNumber = Math.floor(100 + Math.random() * 900);
   useEffect(() => {
     const ppc = document.querySelector(`.progress-pie-chart${randomNumber}`);
@@ -36,7 +29,6 @@ function CardWithPie({
       }
     }
   }, [randomNumber, colors]);
-
 
   return (
     <div className="cursor-pointer hover:scale-105 hover:shadow-xl transition-all duration-300">
