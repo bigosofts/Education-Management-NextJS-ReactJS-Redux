@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
 import { useSelector } from "react-redux";
 
-const BarChartPreAlemAlemaPreserve = () => {
+const BarChartPreAlemAlemaPreserve = ({ getBarChartData }) => {
   const classes = useSelector((state) => state.classes.classes);
   const students = useSelector((state) => state.students.students);
   const semesters = useSelector((state) => state.djs.semesters);
@@ -13,6 +13,7 @@ const BarChartPreAlemAlemaPreserve = () => {
   const chartRef = useRef(null);
 
   useEffect(() => {
+    let dataFinal;
     // Data for the bar chart with two datasets
     function getData() {
       let data = [
@@ -49,54 +50,8 @@ const BarChartPreAlemAlemaPreserve = () => {
         };
       });
 
-      // if (savedData.length > 0) {
-      //   let dataFinal = {
-      //     parameter: [...savedData],
-      //     male: [],
-      //     female: [],
-      //   };
-
-      //   savedData.forEach((item2, i) => {
-      //     const male = [];
-      //     const female = [];
-
-      //     const perfectClasses = filteredClasses.filter((item) => {
-      //       return (
-      //         item.semesterID == item2.semesterID && item.batchNo == item2.batch
-      //       );
-      //     });
-
-      //     for (const item4 of perfectClasses[0].students) {
-      //       let singleStd =
-      //         students.length > 0 &&
-      //         students.find((std) => {
-      //           std.userName == item4.SID;
-      //           console.log("test");
-      //         });
-
-      //       if (singleStd) {
-      //         if (singleStd.gender == "male") {
-      //           male.push(singleStd);
-      //         } else if (singleStd.gender == "female") {
-      //           female.push(singleStd);
-      //         } else {
-      //           male.push(singleStd);
-      //         }
-      //       }
-      //     }
-
-      //     dataFinal.male.push(male);
-      //     dataFinal.female.push(female);
-
-      //     data[0].data.push(male.length);
-      //     data[1].data.push(female.length);
-      //   });
-
-      //   setAll(dataFinal);
-      // }
-
       if (savedData.length > 0) {
-        let dataFinal = {
+        dataFinal = {
           parameter: [...savedData],
           male: [],
           female: [],
@@ -133,10 +88,10 @@ const BarChartPreAlemAlemaPreserve = () => {
                   // Push male student data
                 } else if (singleStd.gender === "female") {
                   female.push(singleStd);
-                  dataFinal.female.push(singleStd); // Push female student data
+                  // Push female student data
                 } else {
                   male.push(singleStd);
-                  dataFinal.male.push(singleStd); // Handle any other case as male
+                  // Handle any other case as male
                 }
               }
             });
@@ -209,6 +164,53 @@ const BarChartPreAlemAlemaPreserve = () => {
           display: true, // Disable legend if needed
         },
       },
+      onClick: (event, elements) => {
+        if (elements.length > 0) {
+          // Get the index of the clicked bar
+          const elementIndex = elements[0].index;
+          const datasetIndex = elements[0].datasetIndex;
+
+          // Get label and value of the clicked bar
+          const label = `${data.labels[elementIndex]} গ্রুপের ${
+            elements[0].datasetIndex == 0 ? "পুরুষ" : "মহিলা"
+          } শিক্ষার্থীদের নামের তালিকা`;
+
+          let valueOfStudents;
+
+          if (dataFinal.male && dataFinal.female) {
+            if (datasetIndex == 0) {
+              valueOfStudents = dataFinal.male[elementIndex];
+            } else if (datasetIndex == 1) {
+              valueOfStudents = dataFinal.female[elementIndex];
+            }
+          }
+
+          getBarChartData(valueOfStudents, label);
+        }else{
+          let valueOfStudents = [];
+
+          dataFinal.male.length > 0 &&
+            dataFinal.male.forEach((item) => {
+              item.length > 0 &&
+                item.forEach((item2) => {
+                  valueOfStudents.push(item2);
+                });
+            });
+
+          dataFinal.female.length > 0 &&
+            dataFinal.female.forEach((item) => {
+              item.length > 0 &&
+                item.forEach((item2) => {
+                  valueOfStudents.push(item2);
+                });
+            });
+
+          getBarChartData(
+            valueOfStudents,
+            `সকল শিক্ষার্থীদের তালিকা (${valueOfStudents.length} জন)`
+          );
+        }
+      },
     };
 
     // Get the canvas element
@@ -233,10 +235,6 @@ const BarChartPreAlemAlemaPreserve = () => {
       }
     };
   }, []);
-
-  if (all) {
-    console.log(all);
-  }
 
   return (
     <>

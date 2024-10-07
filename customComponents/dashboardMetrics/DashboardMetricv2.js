@@ -67,6 +67,8 @@ function DashboardMetricsV2() {
 
   const [showComponent, setShowComponent] = useState(false);
 
+  const [abacus_teacher, setabacus_teacher] = useState();
+
   const [status, setStatus] = useState();
 
   const [targetPercentage, setTargetPercentage] = useState(0);
@@ -109,6 +111,15 @@ function DashboardMetricsV2() {
     totalZakatStudent: "",
     totalGeneralStudent: "",
   });
+
+  function getBarChartData(data, title, abacus_teacher) {
+    setCurrentData(data);
+    setCurrentTitle(title);
+    setBackdrop(true);
+    abacus_teacher
+      ? setabacus_teacher(abacus_teacher)
+      : setabacus_teacher(false);
+  }
 
   useEffect(() => {
     let completedCount = 0;
@@ -270,63 +281,6 @@ function DashboardMetricsV2() {
     dispatch(fetchStudents("all"));
   }
 
-  // async function updateStd() {
-  //   const stud = await selectStudents(null, null);
-
-  //   if (stud.status == "Alhamdulillah") {
-  //     for (let item of stud.data) {
-  //       const res = await updateStudents(
-  //         item.userName,
-  //         item.firstName.en,
-  //         item.firstName.bn,
-  //         item.lastName.en,
-  //         item.lastName.bn,
-  //         item.nidNumber,
-  //         item.birthRegNumber,
-  //         item.fatherName.en,
-  //         item.fatherName.bn,
-  //         item.emailAddress,
-  //         undefined,
-  //         item.mobileNumber,
-  //         item.occupation,
-  //         item.studentCourseCode,
-  //         item.studentJamatCode,
-  //         item.gender,
-  //         item.dateOfBirth,
-  //         item.countryName,
-  //         item.fullPresentAddress,
-  //         item.fullPermanentAddress,
-  //         item.admissionSession,
-  //         item.admissionDate,
-  //         item.studentMotive,
-  //         item.details,
-  //         item.paymentStatus,
-  //         item.userRole,
-  //         item.extracurricular,
-  //         item.activeStatus,
-  //         item._id,
-  //         item.studentDepartment,
-  //         item.studentSemester,
-  //         item.batchCount,
-  //         item.fundStatus,
-  //         {
-  //           status: "regular",
-  //           date: item.admissionSession,
-  //         }
-  //       );
-
-  //       if (res.status == "Alhamdulillah") {
-  //         console.log(`${item.userName} Done`);
-  //       } else {
-  //         console.log(res);
-  //       }
-
-  //       // Introduce a delay before processing the next item
-  //       await new Promise((resolve) => setTimeout(resolve, 100)); // 200ms delay
-  //     }
-  //   }
-  // }
-
   return (
     <>
       <div
@@ -344,16 +298,6 @@ function DashboardMetricsV2() {
           {" "}
           Start Loading Data{" "}
         </div>
-
-        {/* <div
-          onClick={() => {
-            updateStd();
-          }}
-          className="w-[300px] py-2 px-5 bg-slate-900 text-white text-center text-4xl rounded-xl cursor-pointer hover:bg-blue-900"
-        >
-          {" "}
-          Start Update Students
-        </div> */}
       </div>
       {showComponent && (
         <div
@@ -673,109 +617,131 @@ function DashboardMetricsV2() {
               <div class="dsh-card-row">
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartAlemAlema />
+                    <BarChartAlemAlema getBarChartData={getBarChartData} />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartAlemAlemaPreserve />
+                    <BarChartAlemAlemaPreserve
+                      getBarChartData={getBarChartData}
+                    />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartPreAlemAlema />
+                    <BarChartPreAlemAlema getBarChartData={getBarChartData} />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartPreAlemAlemaPreserve />
+                    <BarChartPreAlemAlemaPreserve
+                      getBarChartData={getBarChartData}
+                    />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartSchoolAlemalema />
+                    <BarChartSchoolAlemalema
+                      getBarChartData={getBarChartData}
+                    />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartSchoolAlemalemaPreserve />
+                    <BarChartSchoolAlemalemaPreserve
+                      getBarChartData={getBarChartData}
+                    />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartHifjulQuran />
+                    <BarChartHifjulQuran getBarChartData={getBarChartData} />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartHifjulQuranPreserve />
+                    <BarChartHifjulQuranPreserve
+                      getBarChartData={getBarChartData}
+                    />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartShishuMaktab />
+                    <BarChartShishuMaktab getBarChartData={getBarChartData} />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartShishuMaktabPreserve />
+                    <BarChartShishuMaktabPreserve
+                      getBarChartData={getBarChartData}
+                    />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartNajera />
+                    <BarChartNajera getBarChartData={getBarChartData} />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartNajeraPreserve />
+                    <BarChartNajeraPreserve getBarChartData={getBarChartData} />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartAbacusStudent />
+                    <BarChartAbacusStudent getBarChartData={getBarChartData} />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartAbacusStudentPreserve />
+                    <BarChartAbacusStudentPreserve
+                      getBarChartData={getBarChartData}
+                    />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartAbacusTeacher />
+                    <BarChartAbacusTeacher
+                      abacus_teacher="abacus_teacher"
+                      getBarChartData={getBarChartData}
+                    />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartAbacusTeacherPreserve />
+                    <BarChartAbacusTeacherPreserve
+                      abacus_teacher="abacus_teacher"
+                      getBarChartData={getBarChartData}
+                    />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartQuranulKarim />
+                    <BarChartQuranulKarim getBarChartData={getBarChartData} />
                   </div>
                 </div>
 
                 <div class="dsh-col-chart">
                   <div class="card chart">
-                    <BarChartQuranulKarimPreserve />
+                    <BarChartQuranulKarimPreserve
+                      getBarChartData={getBarChartData}
+                    />
                   </div>
                 </div>
               </div>
@@ -787,6 +753,7 @@ function DashboardMetricsV2() {
               data={currentData}
               title={currentTitle}
               backdropFalse={backdropFalse}
+              abacus_teacher={abacus_teacher}
             />
           )}
         </div>

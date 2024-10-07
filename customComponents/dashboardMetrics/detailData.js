@@ -2,7 +2,8 @@
 import { ImCross } from "react-icons/im";
 import "animate.css";
 import StatisticsTable from "@/components/statisticsTable/hifzTable";
-function DetailData({ data, backdropFalse, title }) {
+import StatisticsTableTeacher from "@/components/statisticsTable/abacusTeacher";
+function DetailData({ data, backdropFalse, title, abacus_teacher }) {
   
   return (
     <div
@@ -15,7 +16,12 @@ function DetailData({ data, backdropFalse, title }) {
       }}
       className="fixed animate__animated animate__zoomIn"
     >
-      <StatisticsTable title={title} data={data} />
+      {abacus_teacher ? (
+        <StatisticsTableTeacher title={title} data={data} />
+      ) : (
+        <StatisticsTable title={title} data={data} />
+      )}
+
       <div
         onClick={backdropFalse}
         style={{

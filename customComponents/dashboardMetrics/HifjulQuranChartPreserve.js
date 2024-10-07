@@ -3,16 +3,16 @@ import { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
 import { useSelector } from "react-redux";
 
-const BarChartHifjulQuranPreserve = () => {
+const BarChartHifjulQuranPreserve = ({ getBarChartData }) => {
   const classes = useSelector((state) => state.classes.classes);
   const students = useSelector((state) => state.students.students);
-  const semesters = useSelector((state) => state.djs.semesters);
   const [all, setAll] = useState({});
 
   // Use a ref to keep track of the chart instance
   const chartRef = useRef(null);
 
   useEffect(() => {
+    let dataFinal;
     // Data for the bar chart with two datasets
     function getData() {
       let data = [
@@ -50,7 +50,7 @@ const BarChartHifjulQuranPreserve = () => {
       });
 
       if (savedData.length > 0) {
-        let dataFinal = {
+        dataFinal = {
           parameter: [...savedData],
           male: [],
           female: [],
@@ -87,10 +87,10 @@ const BarChartHifjulQuranPreserve = () => {
                   // Push male student data
                 } else if (singleStd.gender === "female") {
                   female.push(singleStd);
-                  dataFinal.female.push(singleStd); // Push female student data
+                  // Push female student data
                 } else {
                   male.push(singleStd);
-                  dataFinal.male.push(singleStd); // Handle any other case as male
+                  // Handle any other case as male
                 }
               }
             });
@@ -158,6 +158,53 @@ const BarChartHifjulQuranPreserve = () => {
           display: true, // Disable legend if needed
         },
       },
+      onClick: (event, elements) => {
+        if (elements.length > 0) {
+          // Get the index of the clicked bar
+          const elementIndex = elements[0].index;
+          const datasetIndex = elements[0].datasetIndex;
+
+          // Get label and value of the clicked bar
+          const label = `${data.labels[elementIndex]} গ্রুপের ${
+            elements[0].datasetIndex == 0 ? "পুরুষ" : "মহিলা"
+          } শিক্ষার্থীদের নামের তালিকা`;
+
+          let valueOfStudents;
+
+          if (dataFinal.male && dataFinal.female) {
+            if (datasetIndex == 0) {
+              valueOfStudents = dataFinal.male[elementIndex];
+            } else if (datasetIndex == 1) {
+              valueOfStudents = dataFinal.female[elementIndex];
+            }
+          }
+
+          getBarChartData(valueOfStudents, label);
+        } else {
+          let valueOfStudents = [];
+
+          dataFinal.male.length > 0 &&
+            dataFinal.male.forEach((item) => {
+              item.length > 0 &&
+                item.forEach((item2) => {
+                  valueOfStudents.push(item2);
+                });
+            });
+
+          dataFinal.female.length > 0 &&
+            dataFinal.female.forEach((item) => {
+              item.length > 0 &&
+                item.forEach((item2) => {
+                  valueOfStudents.push(item2);
+                });
+            });
+
+          getBarChartData(
+            valueOfStudents,
+            `সকল শিক্ষার্থীদের তালিকা (${valueOfStudents.length} জন)`
+          );
+        }
+      },
     };
 
     // Get the canvas element
@@ -182,11 +229,6 @@ const BarChartHifjulQuranPreserve = () => {
       }
     };
   }, []);
-
-  if (all) {
-    console.log("all");
-    console.log(all);
-  }
 
   return (
     <>

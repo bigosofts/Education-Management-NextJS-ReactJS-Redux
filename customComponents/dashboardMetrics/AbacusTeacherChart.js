@@ -1,13 +1,10 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
-import { useSelector } from "react-redux";
+
 import { selectDataTwo } from "@/apiservices/abacusinstitutionapiservices";
 
-const BarChartAbacusTeacher = () => {
-  const classes = useSelector((state) => state.classes.classes);
-  const students = useSelector((state) => state.students.students);
-
+const BarChartAbacusTeacher = ({ getBarChartData, abacus_teacher }) => {
   const [all, setAll] = useState({});
 
   const [abacusInstitution, setAbacusInstitution] = useState([]);
@@ -27,6 +24,7 @@ const BarChartAbacusTeacher = () => {
   const chartRef = useRef(null);
 
   useEffect(() => {
+    let dataFinal;
     // Data for the bar chart with two datasets
     function getData() {
       if (abacusInstitution.length > 0) {
@@ -64,7 +62,7 @@ const BarChartAbacusTeacher = () => {
         });
 
         if (savedData.length > 0) {
-          let dataFinal = {
+          dataFinal = {
             parameter: [...savedData],
             male: [],
             female: [],
@@ -145,6 +143,31 @@ const BarChartAbacusTeacher = () => {
           display: true, // Disable legend if needed
         },
       },
+      onClick: (event, elements) => {
+        if (elements.length > 0) {
+          // Get the index of the clicked bar
+          const elementIndex = elements[0].index;
+          const datasetIndex = elements[0].datasetIndex;
+
+          // Get label and value of the clicked bar
+          const label = `${data.labels[elementIndex]} গ্রুপের ${
+            elements[0].datasetIndex == 0 ? "পুরুষ" : "মহিলা"
+          } শিক্ষার্থীদের নামের তালিকা`;
+
+          let valueOfStudents;
+
+          if (dataFinal.male && dataFinal.female) {
+          
+            if (datasetIndex == 0) {
+              valueOfStudents = dataFinal.male[elementIndex];
+            } else if (datasetIndex == 1) {
+              valueOfStudents = dataFinal.female[elementIndex];
+            }
+          }
+
+          getBarChartData(valueOfStudents, label, abacus_teacher);
+        }
+      },
     };
 
     // Get the canvas element
@@ -169,10 +192,6 @@ const BarChartAbacusTeacher = () => {
       }
     };
   }, [abacusInstitution]);
-
-  if (all) {
-    console.log(all);
-  }
 
   return (
     <>
