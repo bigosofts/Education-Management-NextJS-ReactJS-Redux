@@ -3,8 +3,7 @@ import { ImCross } from "react-icons/im";
 import "animate.css";
 import StatisticsTable from "@/components/statisticsTable/hifzTable";
 import StatisticsTableTeacher from "@/components/statisticsTable/abacusTeacher";
-function DetailData({ data, backdropFalse, title, abacus_teacher }) {
-  
+function DetailData({ data, backdropFalse, title, abacus_teacher, allData }) {
   return (
     <div
       style={{
@@ -17,9 +16,9 @@ function DetailData({ data, backdropFalse, title, abacus_teacher }) {
       className="fixed animate__animated animate__zoomIn"
     >
       {abacus_teacher ? (
-        <StatisticsTableTeacher title={title} data={data} />
+        <StatisticsTableTeacher title={title} data={data} allData={allData} />
       ) : (
-        <StatisticsTable title={title} data={data} />
+        <StatisticsTable title={title} data={data} allData={allData} />
       )}
 
       <div

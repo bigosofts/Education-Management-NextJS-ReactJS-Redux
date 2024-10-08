@@ -197,30 +197,6 @@ function DashboardMetricsV2() {
         totalGeneralStudent: sts11(students, payments),
       }));
     }
-
-    function getRamadan() {
-      // First, filter students who match the course code and batch count
-      const filteredStudents = students.filter((student) => {
-        const course = student.studentCourseCode.some(
-          (item) =>
-            /ramadanquranulkarim/i.test(item.code) && item.status === "active"
-        );
-        // Check for both the course match and batch count
-        return course && student.batchCount === "batch-20240803";
-      });
-
-      // Then map over the filtered students to format the output as desired
-      return filteredStudents.map((student) => ({
-        Name: student.firstName.en + " " + student.lastName.en,
-        userName: student.userName,
-        Mobile: student.mobileNumber,
-        Email: student.emailAddress,
-        Gender: student.gender,
-      }));
-    }
-
-    // Log the result as JSON
-    // console.log(JSON.stringify(getRamadan(), null, 2));
   }, [
     semesters,
     jamats,
@@ -751,6 +727,7 @@ function DashboardMetricsV2() {
           {backdrop && currentData && (
             <DetailData
               data={currentData}
+              allData={totalStudent}
               title={currentTitle}
               backdropFalse={backdropFalse}
               abacus_teacher={abacus_teacher}

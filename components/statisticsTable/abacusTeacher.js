@@ -2,6 +2,7 @@
 import mytoast from "../toast/toast";
 import "./hifz.css";
 
+
 export default function StatisticsTableTeacher({ data, title }) {
   // useEffect(() => {
   //   async function getData() {}
