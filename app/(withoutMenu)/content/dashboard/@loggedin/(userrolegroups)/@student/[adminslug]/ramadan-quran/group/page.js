@@ -37,6 +37,7 @@ function AbacusGroup() {
       <div className="w-full md:w-[50%] mx-auto p-4 border-0 md:border-2 border-slate-300 rounded-3xl">
         <ul>
           {(data.data.userDetails.batchCount === "batch-20240803" ||
+            data.data.userDetails.batchCount === "batch-20240605" ||
             data.data.userDetails.batchCount === "batch-20240605") && (
             <>
               <li
