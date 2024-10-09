@@ -207,7 +207,7 @@ function CombinedGroup() {
               {Alemalema.semester === "semester01" &&
                 data.data.userDetails.batchCount === "batch-20241114" && (
                   <li
-                    onClick={() => joinBoys("https://t.me/+VtsOLbKJphBmYWI1")}
+                    onClick={() => joinBoys("https://t.me/+2uOQ59lAFJMwZjFl")}
                     className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
                   >
                     <FaTelegram className="text-4xl inline-block mr-2" />
@@ -466,7 +466,7 @@ function CombinedGroup() {
               {Alemalema.semester == "semester01" &&
                 data.data.userDetails.batchCount === "batch-20241114" && (
                   <li
-                    onClick={() => joinGirls("https://t.me/+MeAHfs6_MsFmYzI9")}
+                    onClick={() => joinGirls("https://t.me/+4m51diMiGmNiZWM1")}
                     className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"
                   >
                     <FaTelegram className="text-4xl inline-block mr-2" />
