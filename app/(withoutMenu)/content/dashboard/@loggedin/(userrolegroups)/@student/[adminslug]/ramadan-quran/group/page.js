@@ -38,7 +38,7 @@ function AbacusGroup() {
         <ul>
           {(data.data.userDetails.batchCount === "batch-20240803" ||
             data.data.userDetails.batchCount === "batch-20240605" ||
-            data.data.userDetails.batchCount === "batch-20240605") && (
+            data.data.userDetails.batchCount === "batch-20241114") && (
             <>
               <li
                 onClick={() => joinBoys("https://t.me/+sO-qugueeHFjMjM9")}
