@@ -2,6 +2,7 @@
 import "./loginpage.css";
 import { selectAllData as selectStudents } from "@/apiservices/studentapiservices";
 import { selectAllData as selectTeachers } from "@/apiservices/teacherapiservices";
+import ReactjoyrideTest from "@/helper/tips";
 
 async function getData() {
   const res = await selectStudents(null, {
@@ -39,7 +40,12 @@ async function getData() {
 import LoginPageDesign from "@/components/loginPage/Loginpage";
 
 async function LoginPage() {
-  return <LoginPageDesign finalData={getData} />;
+  return (
+    <>
+      <LoginPageDesign finalData={getData} />
+      <ReactjoyrideTest />
+    </>
+  );
 }
 
 export default LoginPage;
