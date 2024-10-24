@@ -39,7 +39,7 @@ function DashExplore() {
       completedCount++;
       array.push("notice");
     }
-    if (payments.length > 0) {
+    if (payments.length >= 0) {
       completedCount++;
       array.push("payment");
     }
@@ -164,6 +164,12 @@ function DashExplore() {
         name: "Attendance",
         href: `/content/dashboard/${data.data.userName}/attendance`,
         icon: "/images/attendance.svg",
+        show: true,
+      },
+      {
+        name: "Settings",
+        href: `/content/dashboard/${data.data.userName}/settings`,
+        icon: "/images/setting.svg",
         show: true,
       },
       {
@@ -702,7 +708,10 @@ function DashExplore() {
       <div className="py-2 md:py-12">
         <ProgressBar percentage={percentage} status={status} />
 
-        <ul className="py-2 md:py-10 flex flex-col md:flex-row justify-between gap-2 md:gap-10">
+        <ul
+          className="py-2 md:py-10 flex flex-col md:flex-row justify-between gap-2 md:gap-10"
+          id="islahi-nafs"
+        >
           <li
             onClick={() => joinBoys("https://t.me/+iNbI3uBJfdcwZGY1")}
             className="w-full p-4 border-[1px] border-slate-500 rounded-3xl text-lg md:text-2xl hover:bg-[#013030] cursor-pointer hover:text-white transition duration-500 ease-out mb-4"

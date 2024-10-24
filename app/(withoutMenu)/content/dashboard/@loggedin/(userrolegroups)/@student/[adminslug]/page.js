@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import DashWrapper from "@/components/dashboardPage/DashWrapper";
 
 import DashExplore from "@/components/dashboardPage/DashExplore";
@@ -12,8 +12,127 @@ import {
 
 import { useSelector } from "react-redux";
 import mytoast from "@/components/toast/toast";
+import Joyride, { STATUS } from "react-joyride";
 
 function Page(props) {
+  const [{ run, steps }, setState] = useState({
+    run: true,
+    steps: [
+      {
+        content: (
+          <h2 className="animate__animated animate__slideInUp">
+            আসসালামু আলাইকুম, আমি আপনাকে ড্যাশবোর্ডের কিছু গুরুত্বপূর্ণ অপশনের
+            প্রাথমিক পরিচয় করিয়ে দিতে চাই ।
+          </h2>
+        ),
+        locale: { skip: <strong>SKIP</strong> },
+        placement: "center",
+        target: "body",
+      },
+      {
+        title: "ইসলাহী নফসের ক্লাস",
+        content: (
+          <p className="animate__animated animate__slideInUp">
+            প্রতিদিন শুক্র ও রবিবার রাত ৯.৩০ এ ইসলাহী নফসের ক্লাস বাধ্যতামূলক।
+            তাই উপরের লিংকে চাপ দিলে আপনি ইসলাহী নফসের টেলিগ্রাম গ্রুপে যুক্ত
+            হবেন, সেখানেই এই ক্লাসটি হয়ে থাকে। আপনার একটি টেলিগ্রাম একাউন্ট থাকা
+            জরুরি, তা নাহলে আপনি গ্রুপে জয়েন হতে পারবেন না।
+          </p>
+        ),
+        placement: "bottom",
+        target: "#islahi-nafs",
+      },
+      {
+        title: "গুরুত্বপূর্ণ নোটিশ",
+        content: (
+          <p>
+            এডমিন থেকে কোন বিশেষ নোটিশ, ক্লাস পরিবর্তনের তথ্য, ক্লাসের সময়
+            পরিবর্তন, পরীক্ষার সময়সূচী, আপনাকে দেয়া ব্যাক্তিগত নোটিশ, ছুটি বা
+            অন্যান্য যেকোনো তথ্যের জন্য নিয়মিত এটি চেক করবেন।
+          </p>
+        ),
+        placement: "bottom",
+        target: "#item-Notices",
+      },
+      {
+        title: "ভর্তি ও বকেয়ার তথ্য",
+        content: (
+          <p>
+            আপনি যদি শুধু প্রাথমিক রেজিস্ট্রেশন করে থাকেন, তাহলে এখান থেকে কোর্স
+            সিলেক্ট এবং পেমেন্ট তথ্য দিয়ে পূর্নাঙ্গ ভর্তি সম্পন্ন করুন। আপনার
+            একাউন্টটি যদি একটিভ থাকে তাহলে এখানে ভর্তির যাবতীয় তথ্য দেখতে পারবেন
+            ও মাসিক বকেয়া পরিশোধ করতে পারবেন।
+          </p>
+        ),
+        placement: "bottom",
+        target: "#item-Fees",
+      },
+      {
+        title: "ভর্তি ও বকেয়ার তথ্য",
+        content: (
+          <p>
+            আপনি যদি শুধু প্রাথমিক রেজিস্ট্রেশন করে থাকেন, তাহলে এখান থেকে কোর্স
+            সিলেক্ট এবং পেমেন্ট তথ্য দিয়ে পূর্নাঙ্গ ভর্তি সম্পন্ন করুন। আপনার
+            একাউন্টটি যদি একটিভ থাকে তাহলে এখানে ভর্তির যাবতীয় তথ্য দেখতে পারবেন
+            ও মাসিক বকেয়া পরিশোধ করতে পারবেন।
+          </p>
+        ),
+        placement: "bottom",
+        target: "#item-ClassRoom",
+      },
+      {
+        title: "Fourth Step",
+        placement: "top",
+        target: "#step-4",
+      },
+      {
+        title: "Fifth Step",
+        placement: "top",
+        target: "#step-5",
+      },
+      {
+        title: "Sixth Step",
+        placement: "top",
+        target: "#step-6",
+      },
+    ],
+  });
+  const joyrideRef = useRef(null);
+
+  const handleJoyrideCallback = (data) => {
+    const { status, action, step } = data;
+    const finishedStatuses = [STATUS.FINISHED, STATUS.SKIPPED];
+
+    // Handle finish or skip (original logic)
+    if (finishedStatuses.includes(status)) {
+      setState((prevState) => ({ ...prevState, run: false })); // Original logic to stop the tour
+      return; // Early return to stop further processing
+    }
+
+    // Check if the step is active and the target element exists
+    if (action === "next" || action === "prev") {
+      const targetElement = document.querySelector(step.target);
+
+      if (targetElement) {
+        // Scroll the target element into view manually
+        targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        // Temporarily disable Joyride updates until scrolling completes
+        joyrideRef.current.pause(); // Pause the Joyride
+
+        setTimeout(() => {
+          // Recalculate the spotlight after a slight delay
+          joyrideRef.current.reset(true); // This forces Joyride to recalculate its spotlight position
+          joyrideRef.current.play(); // Resume the tour
+        }, 500); // Delay time to allow the scrolling to finish and viewport to stabilize
+      }
+    }
+  };
+
+  const restartTour = () => {
+    setState((prevState) => ({ ...prevState, run: true }));
+  };
+
   const data = useSelector((state) => state.isAdmin.value);
 
   useEffect(() => {
@@ -270,6 +389,31 @@ function Page(props) {
 
   return (
     <DashWrapper>
+      <Joyride
+        ref={joyrideRef}
+        continuous
+        callback={handleJoyrideCallback}
+        run={run}
+        steps={steps}
+        hideCloseButton
+        scrollToFirstStep={false}
+        disableScrolling={true}
+        showSkipButton
+        showProgress
+        styles={{
+          options: {
+            arrowColor: "#fff",
+            backgroundColor: "#fff",
+            beaconSize: 46,
+            overlayColor: "rgba(0, 0, 0, 0.7)",
+            primaryColor: "#f04",
+            spotlightShadow: "0 0 15px rgba(0, 0, 0, 0.5)",
+            textColor: "#333",
+            width: "70vw",
+            zIndex: 100,
+          },
+        }}
+      />
       <DashExplore />
     </DashWrapper>
   );
