@@ -389,7 +389,7 @@ function Page(props) {
 
   return (
     <DashWrapper>
-      <Joyride
+      {/* <Joyride
         ref={joyrideRef}
         continuous
         callback={handleJoyrideCallback}
@@ -413,7 +413,7 @@ function Page(props) {
             zIndex: 100,
           },
         }}
-      />
+      /> */}
       <DashExplore />
     </DashWrapper>
   );
