@@ -1,6 +1,5 @@
 import { selectDataTwo } from "@/apiservices/menuapiservices";
 
-
 import "./SubMenu.css";
 
 import ToggleButton from "./toggle";
@@ -31,8 +30,7 @@ async function SubMenu({ pageName }) {
         <div className="logo-container">
           <h3 className="logo">{pageName}</h3>
         </div>
-        <ToggleButton data={data}/>
-        
+        <ToggleButton data={data} />
 
         <div className="hamburger-menu-container">
           <div className="hamburger-menu">

@@ -27,7 +27,7 @@ function Loader() {
             fontWeight: "300",
           }}
         >
-          Loading ...
+          <span className="font-semibold">Loading ...</span>
         </h1>
       </div>
     </div>
