@@ -20,6 +20,7 @@ import {
 
 function SliderResult(props) {
   let imageArray = props.linkObj;
+
   return (
     <div className="resultSliderContainer">
       <h1 className="resultHeader">
@@ -36,9 +37,12 @@ function SliderResult(props) {
         }}
         mousewheel={true}
         keyboard={true}
-        autoplay={true}
+        autoplay={{
+          delay: 3000, // Adjust autoplay delay if necessary
+          disableOnInteraction: false,
+        }}
         modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay]}
-        className="mySwiper"
+        // className="mySwiper"
         breakpoints={{
           240: {
             slidesPerView: 1,
@@ -55,11 +59,16 @@ function SliderResult(props) {
         }}
       >
         {imageArray.map((item, i) => (
-          <div key={i}>
-            <SwiperSlide>
-              <Image src={item.image} alt={item.caption} fill={true}></Image>
-            </SwiperSlide>
-          </div>
+          <SwiperSlide className="rounded-md overflow-hidden" key={i}>
+            <div className="bg-green-900 p-5">
+              <Image
+                className="rounded-md"
+                src={item.image}
+                alt={item.caption}
+                fill={true}
+              />
+            </div>
+          </SwiperSlide>
         ))}
       </Swiper>
     </div>

@@ -85,8 +85,8 @@ export default async function Home() {
       <Counter />
       <HifzGrid />
 
-      <LiveSection />
-      {/* <BayanList />  */}
+      <LiveSection /> 
+       {/* <BayanList />  */}
 
       <CoursePage />
 

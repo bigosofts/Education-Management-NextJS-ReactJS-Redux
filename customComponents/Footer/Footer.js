@@ -125,7 +125,6 @@ async function Footer() {
           filter: "drop-shadow(1px 10px 20px rgba(0,0,0,0.3))",
         }}
         className="whatsapp"
-        s
         aria-label="Chat on WhatsApp"
         href="https://wa.me/1674040502"
       >

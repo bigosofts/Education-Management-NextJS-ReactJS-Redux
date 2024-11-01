@@ -1,6 +1,6 @@
 .Footer iframe {
   width: 100%;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.071);
 }
 
 .Footer {
@@ -12,14 +12,14 @@
   margin: 0px;
   box-sizing: border-box;
   display: block;
-  box-shadow: 0 -10px 24px -16px rgba(0, 0, 0, 0.5),
+  box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.218),
     0 10px 24px -16px rgba(0, 0, 0, 0.5);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .Footer .style-1 {
-  max-width: 1200px;
-  margin: 0px 381.5px;
+  max-width: 1400px;
+  /* margin: 0px 381.5px; */
   padding: 0px 15px;
   box-sizing: border-box;
   width: 100%;
