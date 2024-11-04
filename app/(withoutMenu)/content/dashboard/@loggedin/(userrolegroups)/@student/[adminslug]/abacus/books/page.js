@@ -27,6 +27,7 @@ function AbacusBooks() {
           }}
         >
           <Image
+            alt="image"
             width={600}
             height={800}
             src="https://api.internetmadrasa.com/images/play_nursery.jpg"
@@ -62,6 +63,7 @@ function AbacusBooks() {
           }}
         >
           <Image
+            alt="image"
             width={600}
             height={800}
             src="https://api.internetmadrasa.com/images/Level-1.jpg"
@@ -104,6 +106,7 @@ function AbacusBooks() {
           }}
         >
           <Image
+            alt="image"
             width={600}
             height={800}
             src="https://api.internetmadrasa.com/images/nurani_kayda.png"
@@ -139,6 +142,7 @@ function AbacusBooks() {
           }}
         >
           <Image
+            alt="image"
             width={600}
             height={800}
             src="https://api.internetmadrasa.com/images/quran_sharif.png"

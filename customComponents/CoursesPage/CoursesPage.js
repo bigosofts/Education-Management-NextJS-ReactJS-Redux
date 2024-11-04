@@ -72,7 +72,7 @@ async function CoursePage() {
                         <h4 className="style-13">{item.title.bn} </h4>
                         <p className="style-14">
                           <i className="style-15" aria-hidden="true"></i> Starts
-                          From {niceDate(item.startingDate.en)}
+                          From {niceDate(item?.startingDate?.en)}
                         </p>
                       </a>
                       <EnrollCondition courseCode={item.courseCode} />

@@ -8,6 +8,7 @@ import { useState } from "react";
 import mytoast from "@/components/toast/toast";
 import { selectData, deleteData } from "@/apiservices/courseapiservices";
 import Link from "next/link";
+import CourseList from "@/components/shared/CourseList";
 
 function CoursePage(props) {
   const [visible, setVisible] = useState(false);
@@ -77,11 +78,12 @@ function CoursePage(props) {
         )}
       </div>
       <div className="container mx-auto">
-        <CourseCard
+        <CourseList />
+        {/* <CourseCard
           updateHandler={updateHandler}
           fromupdateform={aftermodifieddata}
           deleteHandler={deleteHandler}
-        />
+        /> */}
       </div>
     </div>
   );

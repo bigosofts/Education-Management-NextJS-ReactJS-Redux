@@ -73,7 +73,7 @@ async function DashCourses({ setProfileUpdate }) {
                           <h4 className="style-13">{item.title.en} </h4>
                           <p className="style-14">
                             <i className="style-15" aria-shidden="true"></i>{" "}
-                            Starts From {niceDate(item.startingDate.en)}
+                            Starts From {niceDate(item?.startingDate?.en)}
                           </p>
                         </Link>
                         <EnrollCondition
