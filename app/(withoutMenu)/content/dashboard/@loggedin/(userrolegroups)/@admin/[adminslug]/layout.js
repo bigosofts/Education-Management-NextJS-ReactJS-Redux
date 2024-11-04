@@ -5,9 +5,26 @@ import Sidebar from "@/customComponents/sidebar/sidebar";
 import React from "react";
 import { isAdmin } from "@/apiservices/checklogin";
 import { useRouter } from "next/navigation";
+import {
+  MdOutlineDashboard,
+  MdKeyboardArrowLeft,
+  MdKeyboardArrowRight,
+  MdMenuOpen,
+  MdOutlineNotificationAdd,
+  MdEventAvailable,
+  MdPostAdd,
+  MdOutlineInsertComment,
+  MdHotelClass,
+} from "react-icons/md";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setInitialData } from "@/app/redux/features/isAdmin/isAdminSlice";
+import { TfiLayoutSlider } from "react-icons/tfi";
+import { BsActivity, BsBookmarkPlus, BsClipboardData } from "react-icons/bs";
+import { FaChalkboardTeacher, FaRegQuestionCircle } from "react-icons/fa";
+import { LuGraduationCap } from "react-icons/lu";
+import { BiCode } from "react-icons/bi";
+import { GoGear } from "react-icons/go";
 
 function layout({ children, params }) {
   const router = useRouter();
@@ -29,112 +46,112 @@ function layout({ children, params }) {
     {
       name: "Dashboard",
       href: `/content/dashboard/${params.adminslug}`,
-      icon: "MdOutlineDashboard",
+      icon: <MdOutlineDashboard />,
     },
     {
       name: "Menus",
       href: `/content/dashboard/${params.adminslug}/menus`,
-      icon: "MdMenuOpen",
+      icon: <MdMenuOpen />,
     },
     {
       name: "Sliders",
       href: `/content/dashboard/${params.adminslug}/sliders`,
-      icon: "TfiLayoutSlider",
+      icon: <TfiLayoutSlider />,
     },
     {
       name: "Notices",
       href: `/content/dashboard/${params.adminslug}/notices`,
-      icon: "MdOutlineNotificationAdd",
+      icon: <MdOutlineNotificationAdd />,
     },
     {
       name: "Events",
       href: `/content/dashboard/${params.adminslug}/events`,
-      icon: "MdEventAvailable",
+      icon: <MdEventAvailable />,
     },
     {
       name: "Posts",
       href: `/content/dashboard/${params.adminslug}/posts`,
-      icon: "MdPostAdd",
+      icon: <MdPostAdd />,
     },
     {
       name: "Activities",
       href: `/content/dashboard/${params.adminslug}/activities`,
-      icon: "BsActivity",
+      icon: <BsActivity />,
     },
     {
       name: "Courses",
       href: `/content/dashboard/${params.adminslug}/courses`,
-      icon: "BsBookmarkPlus",
+      icon: <BsBookmarkPlus />,
     },
     {
       name: "Teachers",
       href: `/content/dashboard/${params.adminslug}/teachers`,
-      icon: "FaChalkboardTeacher",
+      icon: <FaChalkboardTeacher />,
     },
     {
       name: "Students",
       href: `/content/dashboard/${params.adminslug}/students`,
-      icon: "LuGraduationCap",
+      icon: <LuGraduationCap />,
     },
     {
       name: "Board Results",
       href: `/content/dashboard/${params.adminslug}/results`,
-      icon: "BsClipboardData",
+      icon: <BsClipboardData />,
     },
     {
       name: "Comments",
       href: `/content/dashboard/${params.adminslug}/comments`,
-      icon: "MdOutlineInsertComment",
+      icon: <MdOutlineInsertComment />,
     },
     {
       name: "About Us",
       href: `/content/dashboard/${params.adminslug}/abouts`,
-      icon: "FaRegQuestionCircle",
+      icon: <FaRegQuestionCircle />,
     },
     {
       name: "Widgets",
       href: `/content/dashboard/${params.adminslug}/widgets`,
-      icon: "BiCode",
+      icon: <BiCode />,
     },
     {
       name: "Videos",
       href: `/content/dashboard/${params.adminslug}/videos`,
-      icon: "LuGraduationCap",
+      icon: <LuGraduationCap />,
     },
     {
       name: "Media",
       href: `/content/dashboard/${params.adminslug}/medias`,
-      icon: "LuGraduationCap",
+      icon: <LuGraduationCap />,
     },
     {
       name: "QAForm",
       href: `/content/dashboard/${params.adminslug}/qaform`,
-      icon: "BiCode",
+      icon: <BiCode />,
     },
     {
       name: "Work",
       href: `/content/dashboard/${params.adminslug}/works`,
-      icon: "BsClipboardData",
+      icon: <BsClipboardData />,
     },
     {
       name: "Rich Text",
       href: `/content/dashboard/${params.adminslug}/richtexts`,
-      icon: "BiCode",
+      icon: <BiCode />,
     },
     {
       name: "Abacus Sheet",
       href: `/content/dashboard/${params.adminslug}/abacus-sheet`,
-      icon: "BsClipboardData",
+      icon: <BsClipboardData />,
     },
     {
       name: "Education",
       href: `/content/dashboard/${params.adminslug}/education`,
-      icon: "GoGear",
+      icon: <GoGear />,
     },
     {
       name: "Class",
       href: `/content/dashboard/${params.adminslug}/class`,
-      icon: "MdHotelClass",
+      icon: <MdHotelClass />,
     },
   ];
 

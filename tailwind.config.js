@@ -11,12 +11,15 @@ module.exports = {
     extend: {
       backgroundColor: {
         "green-500": "#496F82",
+        accent: "#496F82",
       },
       borderColor: {
         "green-500": "#496F82",
+        accent: "#496F82",
       },
       checked: {
         "green-500": "#496F82",
+        accent: "#496F82",
       },
       textColor: {
         accent: "#496F82",

@@ -48,10 +48,8 @@ body {
   margin-top: 0px;
   padding-top: 80px;
   height: 100vh;
-
-  overflow-y: scroll;
-  -ms-overflow-style: none;
   scrollbar-width: none;
+  text-wrap: nowrap !important;
 }
 @media screen and (max-width: 991px) {
   .sidebar__wrapper {
@@ -99,7 +97,7 @@ body {
   padding: 0.8rem 1rem;
   display: flex;
   margin-bottom: 0.5rem;
-  border-radius: 0.8rem;
+  border-radius: 3px;
   transition: 0.3s ease-out;
 }
 .sidebar__link:hover {
@@ -156,9 +154,9 @@ body {
 }
 
 .btn {
-  position: fixed;
-  right: 35px;
-  top: 15rem;
+  position: absolute;
+  right: 0px;
+  top: 7rem;
   border: none;
   background-color: var(--color-bg);
   width: 2rem;
@@ -171,7 +169,6 @@ body {
   cursor: pointer;
   transform: translateX(50%);
   font-size: 1.1rem;
-  
 }
 .whatsapp {
   animation: blink 1.5s infinite;
@@ -188,4 +185,9 @@ body {
   100% {
     scale: 90%;
   }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
