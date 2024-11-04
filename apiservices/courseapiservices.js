@@ -109,6 +109,9 @@ exports.deleteData = async (id) => {
   }
 };
 
+
+
+// Course Create APi Call
 exports.createData = async ({
   courseCode,
   imageLink,
@@ -195,6 +198,8 @@ exports.createData = async ({
   }
 };
 
+
+// Course Update api Call 
 exports.updateData = async ({
   courseCode,
   imageLink,
