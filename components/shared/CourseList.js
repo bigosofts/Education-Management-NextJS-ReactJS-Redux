@@ -12,20 +12,6 @@ import Image from "next/image";
 import { Button } from "@mui/material";
 import Link from "next/link";
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-];
-
-const createRows = (title, categories, image) => {
-  return { title, categories, image };
-};
-
 export default function CourseList() {
   const [data, setData] = useState();
 
@@ -50,12 +36,12 @@ export default function CourseList() {
             <TableCell>Categories</TableCell>
             <TableCell align="right">Course Code</TableCell>
             <TableCell align="right">Status</TableCell>
-            <TableCell align="right">Widgets</TableCell>
+            <TableCell align="right">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data?.data?.map((row) => (
-            <TableRow key={row.name}>
+            <TableRow className="course_list" key={row.name}>
               <TableCell component="th" scope="row">
                 <Image
                   className="rounded-md"
