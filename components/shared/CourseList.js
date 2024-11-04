@@ -6,29 +6,42 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
-import { selectData, deleteData } from "@/apiservices/courseapiservices";
+import { deleteData } from "@/apiservices/courseapiservices";
 import Image from "next/image";
 import { Button } from "@mui/material";
 import Link from "next/link";
+import { useGetCoursesQuery } from "@/apiservices/with-redux/courseapi";
+
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
 export default function CourseList() {
-  const [data, setData] = useState();
+  const [page, setPage] = useState(1);
+  const { data: courseData, error, isLoading } = useGetCoursesQuery({ page });
 
-  useEffect(() => {
-    async function fetchData() {
-      const payload = await selectData(null, null);
-      setData(payload);
-    }
-    fetchData();
-  }, []);
+  console.log(page);
 
-  console.log(data);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading courses</div>;
 
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="caption table">
-        <caption>A basic table example with a caption</caption>
+        {/* Pagination  */}
+        <caption>
+          <div className="flex flex-col justify-center items-center">
+            <Stack spacing={2}>
+              <Pagination
+                count={courseData?.totalPages}
+                shape="rounded"
+                page={page}
+                onChange={(e, v) => setPage(v)}
+              />
+            </Stack>
+          </div>
+        </caption>
+
         <TableHead>
           <TableRow>
             <TableCell>Image</TableCell>
@@ -40,11 +53,11 @@ export default function CourseList() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data?.data?.map((row) => (
-            <TableRow className="course_list" key={row.name}>
+          {courseData?.courses?.map((row, index) => (
+            <TableRow className="course_list" key={index}>
               <TableCell component="th" scope="row">
                 <Image
-                  className="rounded-md"
+                  className="rounded-md w-20 h-10 object-cover "
                   src={row?.imageLink}
                   width={100}
                   height={100}
