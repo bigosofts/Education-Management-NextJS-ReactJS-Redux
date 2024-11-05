@@ -10,9 +10,49 @@ import { useForm } from "react-hook-form";
 import CourseFaq from "./formFaq";
 import FormDate from "./formDate";
 import FormRadio from "./formRadio";
-import { Button } from "@mui/material";
+import {
+  Box,
+  Button,
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+  Tab,
+  Tabs,
+} from "@mui/material";
+import FormCheckBox from "./formCheckbox";
 
+const categories = [
+  {
+    name: "Alim",
+  },
+  {
+    name: "Alima",
+  },
+  {
+    name: "Hafiza",
+  },
+  {
+    name: "Alim",
+  },
+  {
+    name: "Alima",
+  },
+  {
+    name: "Hafiza",
+  },
+  {
+    name: "Alim",
+  },
+  {
+    name: "Alima",
+  },
+  {
+    name: "Hafiza",
+  },
+];
 function NewCourseForm(props) {
+  const [value, setValue] = React.useState(0);
+
   const { register, handleSubmit, control } = useForm();
   const [faqs, setFaqs] = useState([]);
   const [faqVisible, setfaqVisible] = useState(false);
@@ -63,6 +103,10 @@ function NewCourseForm(props) {
     // } else {
     //   myToast.warning("something went wrong");
     // }
+  };
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
   const submitByReactHookForm = (data) => {
@@ -207,136 +251,189 @@ function NewCourseForm(props) {
       onSubmit={handleSubmit(submitByReactHookForm)}
       className="flex flex-col gap-5 p-5"
     >
-      {/* Course title  */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <MdInput
-          control={control}
-          name="titleEn"
-          placeholder="Course Title English"
-        />
+      <div className="lg:flex gap-5">
+        <div className="lg:w-8/12">
+          {/* Course Code And Date Input  */}
+          <div className="grid lg:grid-cols-3 gap-5">
+            <MdInput
+              control={control}
+              name="imageLink"
+              placeholder="Image Link"
+            />
+            <MdInput
+              control={control}
+              name="courseCode"
+              placeholder="Course Code"
+            />
+            <FormDate control={control} name={"startingDate"} />
+          </div>
 
-        <MdInput
-          control={control}
-          name="titleBn"
-          placeholder="কোর্স টাইটেল বাংলায় লিখুন"
-        />
-      </div>
-
-      {/* Course Code And Date Input  */}
-      <div className="grid grid-cols-3 gap-5">
-        <MdInput control={control} name="imageLink" placeholder="Image Link" />
-        <MdInput
-          control={control}
-          name="courseCode"
-          placeholder="Course Code"
-        />
-        <FormDate control={control} name={"startingDate"} />
-      </div>
-
-      {/* course description  */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <FormTextArea
-          name="descriptionEn"
-          control={control}
-          placeholder="Enter Your Description"
-          rows="5"
-        />
-        <FormTextArea
-          name="descriptionBn"
-          control={control}
-          placeholder="বাংলায় ডেস্কিরপশন লিখুন"
-          rows="5"
-        />
-      </div>
-
-      {/* course price list */}
-      <div className="bg-[#e2e5eb]">
-        <div className="grid grid-cols-2 gap-10 p-10">
+          {/* Course Description Area  */}
           <div>
-            <h4 className="text-xl mb-2 text-accent">Registration Fee</h4>
-            <div className="grid grid-cols-2 gap-2">
-              <MdInput
-                control={control}
-                type="number"
-                name="registration_taka"
-                placeholder="taka"
-              />
-              <MdInput
-                control={control}
-                type="number"
-                name="registration_dollar"
-                placeholder="doller"
-              />
+            <Box sx={{ width: "100%" }}>
+              <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  aria-label="basic tabs example"
+                >
+                  <Tab label="English Panel" {...a11yProps(0)} />
+                  <Tab label="বাংলা প্যানেল" {...a11yProps(1)} />
+                </Tabs>
+              </Box>
+
+              <CustomTabPanel value={value} index={0}>
+                {" "}
+                <div className="flex flex-col gap-5">
+                  {/* Course title  */}
+                  <MdInput
+                    control={control}
+                    name="titleEn"
+                    placeholder="Course Title English"
+                  />
+                  {/* Description Panel  */}
+                  <FormTextArea
+                    name="descriptionEn"
+                    control={control}
+                    placeholder="Enter Your Description"
+                    rows="5"
+                  />
+                </div>
+              </CustomTabPanel>
+
+              <CustomTabPanel value={value} index={1}>
+                <div className="flex flex-col gap-5">
+                  <MdInput
+                    control={control}
+                    name="titleBn"
+                    placeholder="কোর্স টাইটেল বাংলায় লিখুন"
+                  />
+                  <FormTextArea
+                    name="descriptionBn"
+                    control={control}
+                    placeholder="বাংলায় ডেস্কিরপশন লিখুন"
+                    rows="5"
+                  />
+                </div>
+              </CustomTabPanel>
+            </Box>
+          </div>
+
+          {/* FAQ SLICE  */}
+          <div>
+            <h2 className="mb-2 text-lg text-accent">
+              If You want to add FAQ's, Please Enter
+            </h2>
+            <CourseFaq />
+          </div>
+        </div>
+
+        {/* sidebar  */}
+        <div className="flex flex-col gap-5 lg:w-4/12">
+          {/* Category list  */}
+          <div className="bg-white p-5">
+            <h4>Categorys</h4>
+            <Box className="p-2 h-52 overflow-x-auto">
+              <FormGroup>
+                {categories?.map((category, index) => (
+                  <FormCheckBox
+                    key={index}
+                    control={control}
+                    name={category.name}
+                  />
+                ))}
+              </FormGroup>
+            </Box>
+
+            <Button size="small" variant="outlined">
+              Create a caategory
+            </Button>
+          </div>
+
+          {/* course price list */}
+          <div className="bg-[#e2e5eb]">
+            <div className="flex flex-col gap-5 p-10">
+              <div>
+                <h4 className="text-xl mb-2 text-accent">Registration Fee</h4>
+                <div className="grid grid-cols-2 gap-2">
+                  <MdInput
+                    control={control}
+                    type="number"
+                    name="registration_taka"
+                    placeholder="taka"
+                  />
+                  <MdInput
+                    control={control}
+                    type="number"
+                    name="registration_dollar"
+                    placeholder="doller"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-xl mb-2 text-[#496f82]">Monthey Fee</h4>
+                <div className="grid grid-cols-2 gap-2">
+                  <MdInput
+                    control={control}
+                    type="number"
+                    name="monthly_taka"
+                    placeholder="taka"
+                  />
+                  <MdInput
+                    control={control}
+                    type="number"
+                    name="monthly_dollar"
+                    placeholder="doller"
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
-          <div>
-            <h4 className="text-xl mb-2 text-[#496f82]">Monthey Fee</h4>
-            <div className="grid grid-cols-2 gap-2">
-              <MdInput
-                control={control}
-                type="number"
-                name="monthly_taka"
-                placeholder="taka"
-              />
-              <MdInput
-                control={control}
-                type="number"
-                name="monthly_dollar"
-                placeholder="doller"
-              />
-            </div>
+          {/* FROM ACTIVE CHECK  */}
+          <div className="flex gap-10 items-center">
+            <FormRadio control={control} name="active" value="Active" />
+            <FormRadio control={control} name="active" value="Inactive" />
           </div>
+
+          {/* publish button */}
+          <button
+            type="submit"
+            className="flex justify-center text-md mt-10 allColor text-white px-4 py-2 border rounded-md hover:border-slate-500 hover:text-white"
+          >
+            Add Data{" "}
+            <span className="px-1">
+              <BiPlus size={23} />
+            </span>
+          </button>
         </div>
       </div>
-
-      {/* FAQ SLICE  */}
-      {faqVisible ? (
-        <div>
-          <h2 className="mb-2 text-lg text-accent">
-            If You want to add FAQ's, Please Enter
-          </h2>
-          <CourseFaq />
-        </div>
-      ) : (
-        <Button onClick={(() => setfaqVisible(true))} variant="contained" className=" w-1/6 py-4 capitalize">
-          Add Faq
-          <BiPlus size={23} />
-        </Button>
-      )}
-
-      {/* FROM ACTIVE CHECK  */}
-      <div className="flex gap-10 items-center">
-        <FormRadio control={control} name="active" value="Active" />
-        <FormRadio control={control} name="active" value="Inactive" />
-      </div>
-
-      <button
-        type="submit"
-        className="flex justify-center text-md w-2/6 allColor text-white px-4 py-2 border rounded-md hover:border-slate-500 hover:text-white"
-      >
-        Add Data{" "}
-        <span className="px-1">
-          <BiPlus size={23} />
-        </span>
-      </button>
     </form>
   );
 }
 
-// const categories = [
-//   {
-//     name: "Category One",
-//   },
-//   {
-//     name: "Category One",
-//   },
-//   {
-//     name: "Category One",
-//   },
-//   {
-//     name: "Category One",
-//   },
-// ];
+function CustomTabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+    </div>
+  );
+}
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+}
 
 export default NewCourseForm;

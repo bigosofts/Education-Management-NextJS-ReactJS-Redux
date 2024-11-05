@@ -17,7 +17,7 @@ const FormDate = ({ name, control, plaecholder }) => {
           plaecholder="hie"
           placeholderText={"Please select a date"}
           selected={value}
-          className="block w-full p-3 rounded-none border border-gray-300 focus:outline-none mx-2 "
+          className="block w-full p-3 rounded-none border border-gray-300 focus:outline-none "
         />
       )}
     />

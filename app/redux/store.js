@@ -11,6 +11,7 @@ import studentsReducers from "./features/students/studentsSlice";
 import teachersReducers from "./features/teachers/teachersSlice";
 import booksReducers from "./features/books/booksSlice";
 import coursesReducers from "./features/courses/coursesSlice";
+import courseFaqSlice from "./features/courses/courseFaq";
 import djsReducers from "./features/djs/djsSlice";
 import noticesReducers from "./features/notices/noticesSlice";
 import postFilterSlice from "./features/postFilter/postFilterSlice";
@@ -21,6 +22,7 @@ export const store = configureStore({
     counter: counterReducer,
     isAdmin: isAdminSlice,
     courseState: isCourseStateSlice,
+    courseFaq: courseFaqSlice,
     classes: classesReducer,
     students: studentsReducers,
     teachers: teachersReducers,
@@ -32,6 +34,6 @@ export const store = configureStore({
     [baseApi.reducerPath]: baseApi.reducer,
   },
   middleware: (getDefaultMiddleWear) =>
-    getDefaultMiddleWear().concat(baseApi.middleware),
+    getDefaultMiddleWear( ).concat(baseApi.middleware),
   devTools: process.env.NODE_ENV !== "production",
 });

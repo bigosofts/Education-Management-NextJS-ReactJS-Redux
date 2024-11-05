@@ -31,7 +31,7 @@ body {
   display: none;
 }
 .main-box {
-  height: 100vh;
+  min-height: 150vh;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
