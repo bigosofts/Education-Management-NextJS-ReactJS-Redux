@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "api.internetmadrasa.com",
+        hostname: "education-management-backend-expressjs.onrender.com",
         port: "",
         pathname: "/images/**",
       },
